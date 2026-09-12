@@ -63,8 +63,13 @@ add_filter( 'script_loader_tag', function ( $tag, $handle, $src ) {
 	if ( 'mwai_chatbot' !== $handle || is_admin() ) {
 		return $tag;
 	}
+	// このコードが二重に読み込まれても壊れないよう、書き換え済みならそのまま返す。
+	if ( false !== strpos( $tag, 'data-ishinazaka-delay-src' ) ) {
+		return $tag;
+	}
+	// (?<![-\w]) は data-...-src= のような別属性に誤って一致させないための指定。
 	return preg_replace(
-		'/<script\b([^>]*)\bsrc=/',
+		'/<script\b([^>]*?)(?<![-\w])src=/',
 		'<script$1data-noptimize="1" type="text/plain" data-ishinazaka-delay-src=',
 		$tag,
 		1
@@ -76,6 +81,11 @@ add_action( 'wp_footer', function () {
 	if ( is_admin() || ! ishinazaka_chatbot_is_allowed_page() ) {
 		return;
 	}
+	// 二重に読み込まれてもローダーは1回だけ出す（コピーごとに別関数になるためグローバルで共有する）。
+	if ( ! empty( $GLOBALS['ishinazaka_chatbot_loader_printed'] ) ) {
+		return;
+	}
+	$GLOBALS['ishinazaka_chatbot_loader_printed'] = true;
 	$delay = (int) ISHINAZAKA_CHATBOT_DELAY_MS;
 	?>
 <script data-noptimize="1">
