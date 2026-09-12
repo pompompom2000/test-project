@@ -120,11 +120,25 @@ add_action( 'wp_footer', function () {
 		var placeholders = document.querySelectorAll('script[data-ishinazaka-delay-src]');
 		Array.prototype.forEach.call(placeholders, function (old) {
 			var s = document.createElement('script');
-			s.src = old.getAttribute('data-ishinazaka-delay-src');
 			if (old.id) { s.id = old.id; }
+			s.onload = boot;
+			s.src = old.getAttribute('data-ishinazaka-delay-src');
 			old.parentNode.insertBefore(s, old);
 			old.parentNode.removeChild(old);
 		});
+	}
+	// AI Engine はチャットの描画を DOMContentLoaded で行う。後から差し込むと
+	// そのイベントは既に終わっているため、公式の初期化関数を自分で呼ぶ。
+	// この関数は描画済みのコンテナを読み飛ばすので、複数回呼んでも問題ない。
+	function boot() {
+		if (typeof window.mwaiInitialize === 'function') {
+			window.mwaiInitialize();
+			return;
+		}
+		// 将来 AI Engine 側でこの関数が無くなった場合の保険。1回だけ実行する。
+		if (window.ishinazakaChatbotFallbackDone) { return; }
+		window.ishinazakaChatbotFallbackDone = true;
+		document.dispatchEvent(new Event('DOMContentLoaded', { bubbles: true, cancelable: true }));
 	}
 	events.forEach(function (ev) { window.addEventListener(ev, load, { passive: true, once: true }); });
 	<?php if ( $delay > 0 ) : ?>
