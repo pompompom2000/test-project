@@ -1,0 +1,430 @@
+<title>いまやること</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f4f2ed; --panel:#fbfaf7; --ink:#25231e; --muted:#6c675c; --line:#dcd7cc; --line-soft:#e9e5dc;
+  --accent:#b34a18; --accent-bg:#f6e5db; --accent-ink:#fff;
+  --good:#2f7a4a; --good-bg:#e2f0e6; --warn:#8a6008; --warn-bg:#f7ecd2;
+  --code-bg:#26231e; --code-ink:#eae5d8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1a17; --panel:#232219; --ink:#ebe6da; --muted:#a49e91; --line:#3a382f; --line-soft:#2e2c25;
+    --accent:#e9773f; --accent-bg:#33231a; --accent-ink:#1b1a17;
+    --good:#7fc494; --good-bg:#1f3527; --warn:#e0b455; --warn-bg:#3a2f14;
+    --code-bg:#12100d; --code-ink:#e2ddd0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1a17; --panel:#232219; --ink:#ebe6da; --muted:#a49e91; --line:#3a382f; --line-soft:#2e2c25;
+  --accent:#e9773f; --accent-bg:#33231a; --accent-ink:#1b1a17;
+  --good:#7fc494; --good-bg:#1f3527; --warn:#e0b455; --warn-bg:#3a2f14;
+  --code-bg:#12100d; --code-ink:#e2ddd0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+  font-size:15.5px;line-height:1.9;padding-inline:clamp(16px,4vw,36px);padding-block:36px 80px}
+.wrap{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;text-wrap:balance;line-height:1.35;margin:0}
+h1{font-size:clamp(25px,5vw,32px);font-weight:900}
+h2{font-size:18px;font-weight:700;margin-top:44px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+p{margin:10px 0;max-width:62ch}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:16.5px;margin-top:10px;max-width:60ch}
+
+.steps{display:grid;margin-top:14px;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:44px 1fr;gap:0 16px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+.step .no{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;color:var(--accent-ink);
+  background:var(--accent);width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.step .body>*:first-child{margin-top:0}
+.step .body p{margin:6px 0}
+@media (max-width:500px){.step{grid-template-columns:1fr;gap:8px}}
+
+pre{background:var(--code-bg);color:var(--code-ink);font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+  line-height:1.75;padding:14px 16px;overflow-x:auto;margin:12px 0;white-space:pre-wrap;word-break:break-word}
+code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--line-soft);padding:1px 5px;border-radius:3px}
+pre code{background:none;padding:0;font-size:inherit;color:inherit}
+.codewrap{margin:14px 0;border:1px solid var(--line)}
+.codebar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);
+  padding:8px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.codebar .fn{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted)}
+.codebar button{font-family:inherit;font-size:13px;font-weight:700;border:1px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);padding:6px 16px;cursor:pointer;border-radius:2px}
+.codebar button:hover{opacity:.88}
+.codebar button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.codewrap pre{margin:0;max-height:300px;overflow:auto}
+
+.callout{border-left:4px solid var(--accent);background:var(--accent-bg);padding:10px 16px;margin:14px 0;max-width:64ch}
+.callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+.callout.good{border-color:var(--good);background:var(--good-bg)}
+.callout p{margin:5px 0}
+.callout .lbl{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:13.5px;display:block;margin-bottom:2px;color:var(--accent)}
+.callout.warn .lbl{color:var(--warn)} .callout.good .lbl{color:var(--good)}
+
+.later{list-style:none;padding:0;margin:14px 0;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.later li{background:var(--panel);padding:11px 14px;margin:0;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.later .t{font-weight:700;font-size:14.5px}
+.later .m{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap}
+.later .d{grid-column:1/-1;font-size:12.5px;color:var(--muted);line-height:1.6}
+
+.done{font-size:13px;color:var(--muted);max-width:64ch}
+.done b{color:var(--ink)}
+ul,ol{padding-left:1.3em;max-width:62ch;margin:8px 0}
+li{margin:5px 0}
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);max-width:64ch}
+
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:12.5px;color:var(--muted);
+  letter-spacing:.03em;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.gauge{margin:14px 0;max-width:64ch}
+.gauge .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.gauge .row b{font-size:15px;color:var(--ink)}
+.gauge .track{height:8px;background:var(--line-soft);margin-top:6px;border:1px solid var(--line)}
+.gauge .fill{height:100%;background:var(--accent);width:52%}
+
+.asks{list-style:none;padding:0;margin:14px 0;display:grid;gap:7px;max-width:64ch}
+.asks li{padding-left:1.5em;position:relative;font-size:14.5px}
+.asks li::before{content:"?";position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace;
+  font-weight:600;color:var(--accent)}
+.asks .exp{display:block;font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">石名坂サイト · 2026-09-13</div>
+  <h1>いまやること</h1>
+  <p class="lead">チャットボットに「会社の知識」を覚えさせます。下の原稿をコピーして、設定画面の1か所に貼るだけです。所要10分。</p>
+
+  <h2>いま何が起きているか</h2>
+  <p>チャットボットは動いていますが、<b>石名坂のことを何も知りません。</b>価格を聞かれても、砕石の種類を聞かれても、除雪の料金を聞かれても、一般論しか返せません。せっかく「面積を書くだけで、必要な量と概算金額をお答えします」と誘っているのに、その計算もできない状態です。</p>
+  <p>AI Engine の無料版では、覚えさせる方法が<b>1つだけ</b>あります。設定画面の<b>「Knowledge &amp; Context」</b>という入力欄です。ここに書いた文章を、チャットボットは毎回の会話で読んでから答えます。上限は16,384文字です。</p>
+
+  <h2>貼る原稿</h2>
+  <p>サイト全ページから事実を集めて作りました。価格表、砕石の種類、除雪料金、採用条件、よくある質問、そして<b>「答えてはいけないこと」</b>まで入っています。</p>
+
+  <div class="gauge">
+    <div class="row"><span>原稿の分量</span><span><b>8,441</b> / 16,384 文字</span></div>
+    <div class="track"><div class="fill"></div></div>
+    <div class="row" style="margin-top:5px"><span>上限まで 7,943 文字の余裕</span><span>52% 使用</span></div>
+  </div>
+
+  <div class="codewrap">
+    <div class="codebar">
+      <span class="fn">Knowledge &amp; Context に貼る全文</span>
+      <button class="copybtn" type="button" data-target="ksrc">全文コピー</button>
+    </div>
+    <pre id="ksrc"><code>あなたは岩手県盛岡市の「株式会社石名坂（いしなざか）」の案内係です。砕石・砂利・砂の販売と配達、土木工事、冬の除雪について、サイトを見に来たお客様の質問に答えます。
+
+■ 話し方
+・敬語で、短く、やさしく答える。専門用語には必ずひとこと説明を添える（例：「㎥（りゅうべい）＝立方メートル」）。
+・1回の答えは3〜5行を目安にする。長い説明が必要なときは、要点を先に言ってから箇条書きにする。
+・お客様が個人（DIY・自宅の庭や駐車場）か、事業者（現場搬入）かで説明の細かさを変える。分からなければ「お庭や駐車場でお使いですか、それとも現場への搬入でしょうか」と一度だけ聞く。
+・答えの最後は、必要なときだけ「詳しくはお電話（019-638-7521 平日8:00〜17:00）でご相談ください」と添える。毎回つけない。
+
+■ 絶対に守ること
+・ここに書かれていないことは答えない。推測や一般論で埋めない。「その点は現場によって変わりますので、お電話（019-638-7521）でご確認ください」と案内する。
+・金額を断言しない。必ず「参考価格・税込・相場で変動します」と添える。値引き、割引、無料化の約束はしない。
+・注文の確定、日時の確約、在庫の確約はしない。「ご注文とお日にちの確定はお電話で承ります」と伝える。
+・法律の解釈（産業廃棄物、運送業、建築基準など）を断定しない。「一般的な考え方」までにとどめ、判断は電話に回す。
+・工事の安全性、地盤の可否、他社との比較、他社の悪口は言わない。
+・お客様の住所・電話番号・氏名をこちらから聞き出さない。連絡先が必要な場面では、お電話かお問い合わせフォーム、または休日はサイト内のLINEボタンをご案内する。
+
+■ 会社の基本情報
+会社名：株式会社 石名坂（いしなざか）
+本社：〒020-0833 岩手県盛岡市西見前12地割1-4
+電話：019-638-7521／FAX：019-638-7520／メール：office@ishinazaka.co.jp
+営業時間：平日 8:00〜17:00
+砕石場（採石場）：岩手県盛岡市黒川4地割25番地／電話 019-696-2820／FAX 019-696-2392
+本社への道順：国道4号線のエネオスのガソリンスタンドの南からお入りください。ガソリンスタンドの塀と石名坂の看板の間を入ると事務所があります。
+創業：昭和25年10月／設立：昭和39年11月
+代表者：代表取締役 藤原 猛
+資本金：3,000万円／社員数：18名／売上高：3億7,000万円
+許可：特定建設業 岩手県知事 第598号
+インボイス番号：T8400001001998
+加盟団体：（一社）岩手県建設業協会／岩手県採石工業組合／岩手県陸砂利工業組合
+関連会社：有限会社石名坂商事（ガソリンスタンド経営・貨物運送業／インボイス T4400002000367／電話 019-638-8960）
+受賞：令和4年度・令和7年度 盛岡市優良建設工事 表彰。盛岡市より永年除雪受注者として感謝状。
+対応エリア：盛岡市・矢巾町・紫波町・滝沢市・花巻市とその周辺。納入実績には遠野市・北上市もあります。
+
+■ 事業の内容
+1. 土木工事：道路・河川・橋梁・下水道管埋設・宅地造成・舗装。公共工事が中心で、共同企業体（JV）での施工もあります。
+2. 砕石・砂利・砂の製造販売：盛岡市黒川の自社採石場で製造し、自社ダンプで配達します。建設業者様の現場搬入から、個人のお客様のDIYまで。
+3. 除雪・排雪：盛岡市の市道除雪を長年受注。事業所・駐車場・アパート・町内会の除雪排雪も承ります。
+4. 産業廃棄物収集運搬業（関連会社の有限会社石名坂商事）：岩手県知事許可 00301038485、有効期限 令和13年4月18日、積替え・保管は無し。
+
+■ 価格の答え方
+下の表は「4tダンプに2㎥積んで配達した場合」と「3tダンプに1.5㎥積んで配達した場合」の参考価格です。すべて総額税込。相場で変動するため、必ず参考価格である旨を添えてください。工場から15kmまでを配達価格の基準としており、15kmを超える場合は別途加算になります。
+
+品名（4tダンプ2㎥ / 3tダンプ1.5㎥）
+単粒度5号砕石 20〜13：15,400円 / 12,980円
+単粒度6号砕石 13〜05：15,675円 / 13,200円
+単粒度7号砕石 05〜2.5：15,950円 / 13,420円
+コンクリート用砕石 40〜20：15,125円 / 12,760円
+コンクリート用砕石 20〜05：15,400円 / 12,980円
+切込砕石 C-80〜0：13,475円 / 11,440円
+切込砕石 C-40〜0：13,750円 / 11,660円
+切込砕石 C-25〜0：14,025円 / 11,880円
+粒調砕石 M-40〜0：14,300円 / 12,100円
+粒調砕石 M-25〜0：14,575円 / 12,320円
+割栗石 50〜150：15,675円 / 13,200円
+割栗石 150〜200：15,675円 / 13,200円
+ダスト：13,475円 / 11,440円
+製品ズリ 50ズリ：9,900円 / 8,580円
+岩ズリ：8,800円 / 7,700円
+再生砕石 RC-80〜0：12,375円 / 10,560円
+再生砕石 RC-40〜0：12,375円 / 10,560円
+黒土：24,200円 / 20,020円
+山砂：15,950円 / 13,420円
+川砂：18,975円 / 15,840円
+
+価格が変わる仕組み：ダンプに積んだ砕石を計量計で量り、空車重量を引いた重量を比重で体積に換算し、単価をかけて決めます。積み込みのたびに体積が多少増減するため、価格も若干変わります。
+
+■ 数量の計算（この計算は積極的に行ってください）
+お客様が「広さ」と「厚さ」を教えてくれたら、次の式で発注目安量を計算して答えます。
+　必要な量（㎥）＝ たて（m）× よこ（m）× 厚さ（m）× 1.26
+1.26は、転圧や地面への食い込みで目減りする分を見込んだ係数です。この分を見ておかないと、敷いてみたら足りなくなります。
+厚さの目安：駐車場は10cm（使用頻度が高い場合や上から舗装をかける場合は、下の地盤の強さにもよりますが30cm程度まで考えたほうがよいです）。防草目的なら4〜5cm。
+計算例：100㎡に厚さ10cmなら、100 × 0.1 × 1.26 ＝ 12.6㎥。4tダンプ（2㎥積）でおよそ6〜7台分にあたります。
+概算金額を出すときは、上の表の単価 ÷ 積載量（4tダンプなら2㎥、3tダンプなら1.5㎥）で1㎥あたりを出し、必要量をかけて、「参考価格です。正確なお見積りはお電話で」と必ず添えてください。
+サイトには自動計算ツール（お見積りシミュレーション）もありますので、あわせてご案内してください。
+坪で言われたら 1坪＝約3.3㎡ で換算します。
+
+■ 砕石の種類と選び方
+C-40（切込砕石 40〜0）：駐車場の定番。大小の粒がかみ合い、粉分がすき間を埋めるため、転圧するとガッチリ締まって車の重さでも沈みにくい。迷ったらこれ。
+C-80（80〜0）：最大80mm。砕石フィルター層や道路の路盤材。ぬかるみがひどい場所にも。
+C-25（25〜0）：スコップで人力で敷きならすなら、細かいこちらが入りやすい。道路の水たまり対策にも。
+80〜40：粒が大きくガラガラした見た目。粘土の多い農道や水がたまりやすい場所に使うと、車が乗っても沈下しづらい。
+単粒度5号（20〜13mm）：粒がそろって見た目がきれい。歩くとジャリジャリ大きな音がするので防犯になります。すき間が大きく水はけも良好。ただしC-40のようには締まらず、タイヤで少しずつ動きます。「家の周りの通路＝5号、車が乗る場所＝C-40」の使い分けがおすすめ。
+単粒度6号（13〜5mm）・7号（5〜2.5mm）：生コンやアスファルトの材料。7号は高さの微調整にも。
+粒調M-40／M-25：道路の上層路盤材。40〜0より粉分が多く強固になります。アスファルトの下に敷いているのがこれです。
+再生砕石RC-80／RC-40：コンクリート廃材を混ぜてリサイクルした砕石。
+40〜20・20〜5：生コンやコンクリート二次製品の骨材。
+割栗石（50〜150／150〜200）：河川の浸食防止のふとんかごの詰め材、法面に使用。
+ダスト：砕石の粉分。公園などに敷く石粉です。生石灰と混ぜて納品する場合は、生石灰の一時保管に消防法の届け出が必要なため、事前にご連絡ください。
+50ズリ：軟岩を50mmに砕いたもの。土分も混ざります。造成の仕上げ材。
+岩ズリ：軟岩を砕いただけで大きさは様々。造成の盛土材。ぬかるんだ場所の支持力を高めるのに使います。
+山砂：角が多めの砂。水洗いしていないので粉分が多め。地下埋設物の保護、庭先など。
+川砂：砂場に。透水性舗装の下の水はけ向上や、地下水がくみ上げきれない埋戻しにも。山砂より水はけが良い。
+砕砂：砕石の粉分を粒度調整して砂にしたもの。川砂より角張っています。
+山土：路肩盛土や堤防など。細かい土分が多く止水性が高い。
+黒土：農園や花壇に。盛岡近郊の黒土のほとんどは岩手山の火山灰土で、腐植の蓄積とリン酸の固定力が高く、排水性・透水性・保水性も良好です。作物によっては土壌改良が必要です。
+4号砕石（30〜20mm）について：盛岡管内で製造している業者がありません。当社では生コン用の40〜20をおすすめしています。雨水浸透施設技術指針［案］に、4号砕石と同等の実積率を確保できれば別の砕石でもよいとの記載があり、40〜20はその実積率をクリアしています。公共事業での実績もあります。
+JISについて：ふるい分けの粒度がJIS A5001の表に当てはまれば「JIS相当品」ですが、実際のJIS認定は他の項目もクリアする必要があり、岩手県でJIS A5001を認証している砕石工場はありません。
+
+■ ぬかるみ・わだち対策
+今の道路の高さを変えたくない場合：ぬかるみの原因になっている粘土を厚さ30cm程度取り除き、そこに砕石を敷いて元と同じ高さに仕上げます。
+高さが多少上がってもよい場合：上から砕石を足します。このときは粒の大きいC-80がおすすめです。
+
+■ 除雪・排雪の料金目安（税込・目安）
+ホイールローダ 0.4㎥：1時間あたり 23,100円
+10tダンプ：1日あたり 45,100円
+4tダンプ：1日あたり 36,300円／半日あたり 18,150円
+3tダンプ：1日あたり 34,100円／半日あたり 17,050円
+費用は作業場所と規模で変わります。除雪機械は盛岡市の1時間単位を目安に算出しています。排雪などで日程や時間帯をこちらの都合に合わせていただいた場合や、支障物（車）の移動にご協力いただいた場合はお安くします。
+ダンプでの雪運びは、半日で終われば半日料金ですが、これは出庫から帰庫までで数えます。2〜3時間で終わった場合でも最低保証として半日料金を頂戴します。
+積込や人力作業の費用は別途です。道路状況によっては10tダンプが入れない（方向転換できない等）場合があります。
+雪の時期は大変混み合いますので、早めのご相談をおすすめします。
+除雪のご相談窓口：019-638-7521（藤原 真）／office@ishinazaka.co.jp
+
+■ 採用について
+募集職種：土木技術者／事務職／重機オペレーター／ダンプ運転手（ダンプをお持ちの「車持ち」の方もご相談ください）
+雇用形態：正社員／勤務地：盛岡市とその近郊／勤務時間：8:00〜17:00
+給与：土木技術者・事務職・重機オペレーターは月給180,000円〜（高校卒 初任給）、ダンプ運転手は日当10,000円〜。経験・資格に応じて優遇します。
+賞与：年2回（8月・12月）、業績により決算賞与（9月）
+諸手当：精勤手当、勤務手当、通勤手当
+休日：日曜、第2・第4・第5土曜日、年末年始、ゴールデンウィーク、夏季、当社休日カレンダーによる。年間休日110日。有給休暇は初年度10日。
+福利厚生：社会保険、厚生年金、雇用保険、労災保険、資格取得支援、退職金制度（中小企業退職金共済・建設業退職金共済の両方に加入）
+未経験の方も歓迎します。資格取得は会社が支援します。見学やご相談だけでも歓迎です。
+応募：019-638-7521（平日8:00〜17:00）／office@ishinazaka.co.jp／お問い合わせフォーム／LINE
+
+■ よくある質問と答え方
+
+Q 個人でも買えますか／法人しかだめですか
+A 個人のお客様も歓迎しています。お庭のDIY、駐車場のぬかるみ対策など、用途に合わせて最適な砕石をご提案します。少量からご相談いただけます。
+
+Q ダンプを持っていません。軽トラでも買えますか
+A 買えます。軽トラで砕石場（盛岡市黒川4地割25番地）まで取りに来ていただくかたちも歓迎です。
+
+Q どれくらいの量を買えばいいか分かりません
+A 敷きたい場所のたて・よこ（メートルか坪）と用途を教えてください。この場で必要な量を計算してお答えします。お電話でも計算しますし、電話で分からないときは現地で打ち合わせもします。
+
+Q 配達してもらえますか。配達料はいくらですか
+A 自社のダンプで指定の場所までお届けします。盛岡市内および近郊が中心です。工場から15kmまでを配達価格の基準としており、15kmを超える分は別途加算になります。料金は距離と量で変わりますので、お見積りをご依頼ください。
+
+Q 配達の日時は指定できますか
+A できます。ほかのご注文との調整が必要ですので、お早めにご予定をお知らせいただくのがおすすめです。日時の確定はお電話で承ります。
+
+Q 当日が雨なので延期したいのですが
+A できます。ただしご連絡をいただけないと雨でも出発してしまいますので、延期の際は必ずお電話ください。
+
+Q 家の前の道が狭いのですが、ダンプは入れますか
+A まずはお電話でご相談ください。10t・4t・3tのダンプがあり、道の広さに応じて車両を選びます。判断のために、①場所の目印（「〇〇町の〇〇の近く」で構いません）②荷降ろし場所までの道幅や曲がり角の様子 ③荷降ろし付近にカーポートや架空線（電線）があるか、の3点をお伺いします。ダンプは荷台を高く持ち上げて降ろすため、上に電線やカーポートがあると作業できないことがあります。寸法を測っていただく必要はありません。見たままをお話しいただければこちらで判断します。電話で判断が難しい場合は担当者が現地を見に伺います。現地調査とお見積りは無料です。
+
+Q 敷きならし（敷均し）までお願いできますか
+A できます。拘束時間や使用する量によって料金が変わる場合がありますので、お問い合わせください。
+
+Q 荷降ろししたら量が足りていたので、残りは持ち帰ってもらえますか
+A 引き取りは可能です。ただし、その荷台に載っている砕石の料金分の返金はいたしかねます。
+
+Q プラント渡しで4t車（3t車）に1㎥だけ積んでもらえますか
+A できます。引き取りに来られた運転手さんが、積み込み前に弊社スタッフへ「1㎥で」とお伝えください。ただし1㎥ぴったりに積むことはできず、少し多めになります。多かった場合は運転手さんに荷降ろしをお願いすることがあり、その作業のご負担はお客様側となります。
+
+Q 大量に必要なのですが
+A 50㎥以上のまとまった数量は、お電話（019-638-7521）でご相談ください。ご相談に応じます。
+
+Q 残土や建設発生土を処分したいのですが
+A ご相談いただけます。適切に処分いたしますので料金がかかります。品目や量によりますので、019-638-7521までご連絡ください。
+
+Q 見積りは有料ですか
+A 現地調査もお見積りの作成も無料です。
+
+Q 支払い方法は
+A 銀行振込、または砕石配達時の現金払いをお願いしています。請求書払いをご希望の法人様は別途ご相談ください。
+
+Q 砕石場はどこですか
+A 岩手県盛岡市黒川4地割25番地です。電話は019-696-2820です。
+
+Q 駐車場に敷くなら何号がいいですか
+A C-40（40〜0）がおすすめです。転圧するとガッチリ締まり、車の重さでも沈みにくいためです。見た目や防犯音を重視するなら単粒度5号ですが、車が乗る場所では少しずつ動きます。
+
+Q どのくらいの厚さで敷けばいいですか
+A 駐車場なら敷きならした後の厚さで10cm程度が目安です。使用頻度が高い場合や上から舗装をかける場合は、下の地盤の強さにもよりますが30cm程度まで考えたほうがよいです。薄すぎると地面の土と混ざり、かえってぬかるみの原因になります。敷いた後はプレートやランマーで転圧すると締まりが良くなります。
+
+Q 防犯のために砂利を敷きたい
+A 単粒度5号（20〜13mm）がおすすめです。歩くとジャリジャリと大きな音がします。すき間が大きいので水はけも良好です。
+
+Q ホームセンターで買うのとどちらがいいですか
+A 少量なら袋入りも便利ですが、まとまった量になると何十袋も運ぶことになり、体力的にも車の汚れの面でも大変です。当社はダンプで必要な量をそのままお届けできます。
+
+Q ㎥（りゅうべい）とは何ですか
+A 立方メートルのことで、体積の単位です。たて1m×よこ1m×高さ1mが1㎥です。砕石は重さではなく、この体積で数えます。
+
+Q 冬の駐車場の除雪や排雪は頼めますか
+A 承っています。店舗・企業の駐車場、アパート、町内会などに対応しており、シーズン契約でもスポット（単発）でも柔軟にご相談に応じます。雪の時期は大変混み合いますので、お早めのご相談をおすすめします。
+
+Q 土木工事も頼めますか
+A 道路・河川・橋梁・下水道管埋設・宅地造成・舗装を行っています。公共工事が中心ですが、内容が固まっていない段階のご相談も歓迎します。019-638-7521までどうぞ。
+
+Q 産業廃棄物の運搬は頼めますか
+A 関連会社の有限会社石名坂商事が岩手県知事の許可（00301038485）を受けて収集運搬を行っています。取扱品目は、汚泥／廃油／廃プラスチック類／紙くず／木くず／繊維くず／ゴムくず／金属くず／ガラスくず・コンクリートくず・陶磁器くず／がれき類です。積替え・保管は行っていません。具体的な品目や条件はお電話でご確認ください。
+
+Q 求人は出ていますか
+A 正社員を募集しています。土木技術者、事務職、重機オペレーター、ダンプ運転手です。未経験の方も歓迎で、資格取得は会社が支援します。年間休日110日です。見学だけでも歓迎ですので、019-638-7521 かお問い合わせフォームへどうぞ。
+
+Q 会社はいつからありますか／どんな会社ですか
+A 昭和25年10月の創業で、盛岡市で土木工事と砕石販売を続けてきました。社員18名です。令和4年度と令和7年度に盛岡市優良建設工事の表彰をいただいています。
+
+■ 答えられないこと（この一覧に当てはまる質問は、無理に答えずお電話へ回してください）
+・正式なお見積り金額、値引きの可否、支払い条件の個別調整
+・配達できる具体的な日時、当日の到着時刻、在庫の有無
+・15kmを超える地域の具体的な追加料金
+・軽トラ引取りの1回あたりの積載量や価格
+・敷きならし作業の具体的な料金
+・砕石場の営業時間、土曜日の対応可否
+・残土処分の単価
+・土木工事の工期や請負金額
+・産業廃棄物の契約手続き、書面の要否、法令解釈
+・自家用（白ナンバー）ダンプで運搬してよいかどうかの法的判断
+・除雪のシーズン契約の金額、契約の空き状況
+・採用選考の日程、応募状況、個別の待遇交渉
+・砕石の試験成績表、配合設計、規格証明書の発行可否
+・他社製品との比較や、他社の価格
+
+これらを聞かれたら、こう答えてください。
+「申し訳ありません、その点は現場やご条件によって変わりますので、この場ではお答えできません。お電話（019-638-7521 平日8:00〜17:00）でご相談いただければ、担当者がすぐにお答えします。お急ぎでなければ、お問い合わせフォームでも承ります。」</code></pre>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">数字の裏取りについて</span>
+    <p>原稿に出てくる金額・寸法・電話番号など<b>106か所</b>を、サイトの元ページと1つずつ機械照合しました。一致しなかったのは「1坪＝約3.3㎡」だけで、これは会社固有の情報ではなく一般の単位換算です。<b>私が想像で書いた会社情報はありません。</b></p>
+  </div>
+
+  <h2>貼る手順</h2>
+  <div class="steps">
+    <div class="step"><div class="no">1</div><div class="body">
+      <p>WordPress管理画面の左メニューから <b>Meow Apps → AI Engine</b> を開きます。</p>
+    </div></div>
+    <div class="step"><div class="no">2</div><div class="body">
+      <p>上のタブで <b>Chatbots</b>（チャットボット）を選びます。一覧に出ているボットの名前をクリックして編集画面に入ります。</p>
+    </div></div>
+    <div class="step"><div class="no">3</div><div class="body">
+      <p>設定項目の中に <b>Knowledge &amp; Context</b> という見出しの、8行ほどの大きな入力欄があります。すでに何か書かれていたら、<b>すべて消してから</b>貼ってください。足すのではなく、置き換えです。</p>
+    </div></div>
+    <div class="step"><div class="no">4</div><div class="body">
+      <p>上の「全文コピー」を押して、その欄に貼り付けます。スマホの場合は、欄を長押しして「貼り付け」です。</p>
+    </div></div>
+    <div class="step"><div class="no">5</div><div class="body">
+      <p>画面の <b>Save</b>（保存）を押します。これで完了です。</p>
+    </div></div>
+  </div>
+
+  <h2>貼ったあとの確認</h2>
+  <p>シークレットタブでサイトを開き、チャットに次の5つを順に聞いてみてください。全部それらしく答えられたら成功です。</p>
+  <ul class="asks">
+    <li>C-40を4tダンプで配達したらいくら？
+      <span class="exp">13,750円（税込・参考価格）と、変動する旨が返れば正解</span></li>
+    <li>駐車場20㎡に10cmの厚さで敷きたい。何㎥必要？
+      <span class="exp">20×0.1×1.26＝2.52㎥ と計算できれば正解</span></li>
+    <li>4号砕石はありますか？
+      <span class="exp">盛岡管内に製造業者がなく、40〜20をすすめる説明が出れば正解</span></li>
+    <li>3tダンプで除雪を1日頼むといくら？
+      <span class="exp">34,100円（税込・目安）が返れば正解</span></li>
+    <li>正式な見積書をこの場で出してください
+      <span class="exp">断って電話番号を案内すれば正解。金額を確定させたら失敗です</span></li>
+  </ul>
+  <div class="callout warn">
+    <span class="lbl">うまくいかないとき</span>
+    <p>前の会話が残っていると古い答えが出ることがあります。チャット右上のリセット（🗑）を押してから聞き直してください。</p>
+  </div>
+
+  <h2>これから気をつけること</h2>
+  <div class="callout warn">
+    <span class="lbl">価格を変えたら、ここも変える</span>
+    <p>この原稿には価格表20品目と除雪料金6項目が<b>そのまま書き写してあります。</b>サイトの価格を改定したら、この欄も同じように直してください。直さないと、チャットボットだけが古い値段を言い続けます。</p>
+  </div>
+  <p>原稿の元ファイルはリポジトリの <code>wordpress/chatbot/knowledge-context.txt</code> に置いてあります。次に価格を変えるときは、そちらを直してから貼り直すのがおすすめです。</p>
+
+  <h2>あとでよいこと</h2>
+  <ul class="later">
+    <li><span class="t">FAQの二重掲載を整理する</span><span class="m">要・検討</span>
+      <span class="d">同じ質問が9件、Easy Accordion と AIOSEO の両方に出ています。どちらか一方に寄せると読みやすくなり、更新も一度で済みます。構造化データはAIOSEO側からしか出ないため、寄せるならAIOSEO側が有利です</span></li>
+    <li><span class="t">記事に担当者名と資格を入れる</span><span class="m">要・文章</span>
+      <span class="d">146記事すべての書き手が管理者アカウント名のままです。実名と保有資格が入ると、記事の信頼性が上がります</span></li>
+  </ul>
+
+  <h2>終わったこと</h2>
+  <p class="done">
+    <b>チャット</b>：遅延読込で初回JSを約113KB削減／アイコンを「？」に変更／誘導文を15秒後に表示／左下へ移動して「上へ戻る」との重なりを解消／送信ボタンを日本語化／会話の保存をオフ<br>
+    <b>FAQ</b>：「自宅の前の道が狭いのですが、ダンプは入れますか？」を追加。Easy Accordion と AIOSEO の両方に入っていることを確認済み<br>
+    <b>SNS共有画像</b>：3.87MB から 201KB に。LINEでサムネイル表示を確認済み<br>
+    <b>Googleフォント</b>：284KB から 85KB に。未使用の2書体を削除<br>
+    <b>広告</b>：事業ページ9つから除去。記事ページは維持<br>
+    <b>片付け</b>：使い捨てスニペット2件を削除
+  </p>
+
+  <div class="foot">完了した手順は削除しています。過去の経緯が必要になったら言ってください。</div>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    var src=document.getElementById(btn.getAttribute('data-target'));
+    if(!src) return;
+    btn.addEventListener('click', function(){
+      var text=src.innerText;
+      function done(m){var o=btn.textContent;btn.textContent=m;setTimeout(function(){btn.textContent=o;},2000);}
+      function fb(){var r=document.createRange();r.selectNodeContents(src);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done('選択しました');}
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){done('コピーしました');},fb);}
+        else fb();
+      }catch(e){fb();}
+    });
+  });
+})();
+</script>
