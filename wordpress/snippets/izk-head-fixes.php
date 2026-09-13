@@ -6,7 +6,8 @@
  * 次の2つを、テーマのファイルを触らずに直します。
  *
  *   1. og:image を軽量化した画像に差し替える
- *   2. Googleフォントの読み込みを、実際に使っている書体だけに絞る
+ *   2. 事業ページ（トップ・問い合わせ・採用など）でAdSense広告を出さない
+ *   3. Googleフォントの読み込みを、実際に使っている書体だけに絞る
  *
  * Autoptimize の設定は変更しません。「結合とヘッダーで遅延リンク」のままで動きます。
  *
@@ -58,6 +59,27 @@ add_action( 'wp_head', function () {
 		$new_image,
 		$html
 	);
+
+	// --- 2. 事業ページではAdSenseの広告を出さない -------------------------
+	// 記事ページでは従来どおり表示される。
+	$no_ads_slugs = array(
+		'contact',        // お問い合わせ
+		'faq',            // よくある質問
+		'recruit',        // 採用情報
+		'about',          // 会社概要
+		'product',        // 事業内容
+		'saiseki-hanbai', // 砕石販売
+		'simulation',     // お見積り
+		'privacy-policy', // プライバシーポリシー
+	);
+
+	if ( is_front_page() || is_page( $no_ads_slugs ) ) {
+		$html = preg_replace(
+			'#<script[^>]*adsbygoogle\.js[^>]*>\s*</script>#i',
+			'',
+			$html
+		);
+	}
 
 	echo $html;
 
