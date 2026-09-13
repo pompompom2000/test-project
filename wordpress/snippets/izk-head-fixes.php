@@ -5,8 +5,10 @@
  * いま動いている「og画像 差し替え」の置き換え版です。
  * 次の2つを、テーマのファイルを触らずに直します。
  *
- *   1. og:image を軽量化した画像に差し替える（従来どおり）
+ *   1. og:image を軽量化した画像に差し替える
  *   2. Googleフォントの読み込みを、実際に使っている書体だけに絞る
+ *
+ * Autoptimize の設定は変更しません。「結合とヘッダーで遅延リンク」のままで動きます。
  *
  * 使い方:
  *   既存の「og画像 差し替え」スニペットのコード欄を全部消して、
@@ -57,17 +59,21 @@ add_action( 'wp_head', function () {
 		$html
 	);
 
-	// --- 2. Googleフォントを実際に使う書体だけに絞る ----------------------
-	// 現状は3書体を要求しているが、CSSで使われているのは Zen Maru Gothic のみ。
-	// さらに 300 と 500 のウェイトはサイト内で未使用のため外している。
-	$font_url = 'https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&amp;display=swap';
-
-	$html = preg_replace(
-		'#https://fonts\.googleapis\.com/css2?\?family=[^"\']*#i',
-		$font_url,
-		$html
-	);
-
 	echo $html;
 
 }, 99999 );
+
+/**
+ * Googleフォントを、実際に使っている書体だけに絞る。
+ *
+ * このサイトのフォント読み込みタグは Autoptimize が組み立てているため、
+ * 上の <head> 書き換えでは間に合わない。Autoptimize が用意している
+ * 専用の差し込み口を使う。
+ *
+ * 現状は3書体を要求しているが、CSSで使われているのは Zen Maru Gothic のみ。
+ * 300 と 500 のウェイトもサイト内で未使用のため外している。
+ * display:swap は Autoptimize が自動で付けるので、ここには書かない。
+ */
+add_filter( 'autoptimize_filter_extra_gfont_fontstring', function ( $fontstring ) {
+	return 'Zen+Maru+Gothic:400,700,900';
+} );
