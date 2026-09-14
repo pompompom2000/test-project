@@ -1,0 +1,911 @@
+<title>石名坂 記事リスク台帳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F4F0;
+    --surface:#FBFBF8;
+    --ink:#1C201D;
+    --ink-2:#4A514B;
+    --ink-3:#757C76;
+    --rule:#D7DAD2;
+    --rule-soft:#E6E8E1;
+    --accent:#2E5A4D;
+    --accent-soft:#E2EBE6;
+    --sev-hi:#9A2B20;
+    --sev-hi-bg:#F6E6E2;
+    --sev-mid:#8A6410;
+    --sev-mid-bg:#F4ECDA;
+    --sev-lo:#5D6560;
+    --sev-lo-bg:#E9EBE6;
+    --quote-bg:#ECEEE8;
+    --mine:#2E5A4D;
+
+    --f-disp:"Zen Old Mincho",serif;
+    --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#15181A;
+      --surface:#1D2124;
+      --ink:#E7EAE4;
+      --ink-2:#B0B7B1;
+      --ink-3:#848C86;
+      --rule:#333A3C;
+      --rule-soft:#272D2F;
+      --accent:#79B49F;
+      --accent-soft:#22322D;
+      --sev-hi:#E08A7C;
+      --sev-hi-bg:#33211E;
+      --sev-mid:#D7AE5C;
+      --sev-mid-bg:#2E2818;
+      --sev-lo:#9AA29C;
+      --sev-lo-bg:#242A2B;
+      --quote-bg:#232829;
+      --mine:#79B49F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15181A;
+    --surface:#1D2124;
+    --ink:#E7EAE4;
+    --ink-2:#B0B7B1;
+    --ink-3:#848C86;
+    --rule:#333A3C;
+    --rule-soft:#272D2F;
+    --accent:#79B49F;
+    --accent-soft:#22322D;
+    --sev-hi:#E08A7C;
+    --sev-hi-bg:#33211E;
+    --sev-mid:#D7AE5C;
+    --sev-mid-bg:#2E2818;
+    --sev-lo:#9AA29C;
+    --sev-lo-bg:#242A2B;
+    --quote-bg:#232829;
+    --mine:#79B49F;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:16px;
+    line-height:1.85;
+    margin:0;
+    padding:0 20px;
+    padding-block:0 72px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ── 表紙 ───────────────────────────── */
+  .cover{
+    padding-block:56px 36px;
+    border-bottom:2px solid var(--ink);
+  }
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:var(--f-disp);
+    font-weight:900;
+    font-size:clamp(30px,7.5vw,46px);
+    line-height:1.3;
+    letter-spacing:.02em;
+    margin:0 0 18px;
+    text-wrap:balance;
+  }
+  .lede{
+    font-size:16px;
+    color:var(--ink-2);
+    margin:0;
+    max-width:62ch;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    margin-top:26px;
+    font-family:var(--f-mono);
+    font-size:12px;
+    color:var(--ink-3);
+  }
+  .meta b{color:var(--ink-2);font-weight:600}
+
+  /* ── 集計 ───────────────────────────── */
+  .tally{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:34px 0 0;
+  }
+  .tally div{
+    background:var(--surface);
+    padding:16px 18px;
+  }
+  .tally .n{
+    font-family:var(--f-mono);
+    font-size:30px;
+    font-weight:600;
+    line-height:1.1;
+    font-variant-numeric:tabular-nums;
+    display:block;
+  }
+  .tally .l{font-size:13px;color:var(--ink-3);letter-spacing:.04em}
+  .tally .hi .n{color:var(--sev-hi)}
+  .tally .mid .n{color:var(--sev-mid)}
+  .tally .lo .n{color:var(--sev-lo)}
+
+  /* ── 見出し ─────────────────────────── */
+  h2{
+    font-family:var(--f-disp);
+    font-weight:900;
+    font-size:clamp(21px,4.6vw,27px);
+    line-height:1.45;
+    margin:64px 0 6px;
+    padding-top:22px;
+    border-top:1px solid var(--rule);
+    text-wrap:balance;
+  }
+  h2 + .sub{
+    color:var(--ink-3);
+    font-size:14px;
+    margin:0 0 26px;
+    max-width:60ch;
+  }
+  h3{
+    font-family:var(--f-body);
+    font-weight:700;
+    font-size:17px;
+    line-height:1.6;
+    margin:0;
+    text-wrap:balance;
+  }
+  p{margin:0 0 1.1em;max-width:64ch}
+  p:last-child{margin-bottom:0}
+
+  /* ── 最優先ブロック ──────────────────── */
+  .urgent{
+    background:var(--surface);
+    border:1px solid var(--mine);
+    border-left:5px solid var(--mine);
+    padding:22px 22px 24px;
+    margin:0 0 14px;
+  }
+  .urgent .tag{
+    font-family:var(--f-mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    color:var(--mine);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  /* ── 台帳エントリ ────────────────────── */
+  .entry{
+    border-top:1px solid var(--rule-soft);
+    padding:22px 0 26px;
+  }
+  .entry:first-of-type{border-top:1px solid var(--rule)}
+  .ehead{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:6px 12px;
+    margin-bottom:14px;
+  }
+  .sev{
+    font-family:var(--f-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.08em;
+    padding:3px 8px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+  [data-sev="hi"] .sev{background:var(--sev-hi-bg);color:var(--sev-hi)}
+  [data-sev="mid"] .sev{background:var(--sev-mid-bg);color:var(--sev-mid)}
+  [data-sev="lo"] .sev{background:var(--sev-lo-bg);color:var(--sev-lo)}
+  .ehead h3{flex:1 1 240px;min-width:0}
+  .file{
+    font-family:var(--f-mono);
+    font-size:12px;
+    color:var(--ink-3);
+    word-break:break-all;
+  }
+
+  blockquote{
+    margin:0 0 16px;
+    padding:14px 16px;
+    background:var(--quote-bg);
+    border-left:3px solid var(--ink-3);
+    font-size:15px;
+    line-height:1.8;
+    overflow-x:auto;
+  }
+  blockquote .qlabel{
+    display:block;
+    font-family:var(--f-mono);
+    font-size:10px;
+    letter-spacing:.14em;
+    color:var(--ink-3);
+    margin-bottom:8px;
+  }
+  blockquote p{margin:0 0 .55em;max-width:none}
+  blockquote p:last-child{margin:0}
+  blockquote em{font-style:normal;font-weight:700;color:var(--sev-hi)}
+
+  .why,.fix{margin:0 0 12px}
+  .why h4,.fix h4{
+    font-family:var(--f-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.12em;
+    margin:0 0 5px;
+    color:var(--ink-3);
+  }
+  .fix h4{color:var(--accent)}
+  .why p,.fix p{margin:0 0 .6em;font-size:15px}
+  .fix{padding-left:12px;border-left:2px solid var(--accent-soft)}
+
+  /* ── 表 ─────────────────────────────── */
+  .tbox{overflow-x:auto;margin:0 0 26px}
+  table{border-collapse:collapse;width:100%;min-width:460px;font-size:14px}
+  th,td{
+    text-align:left;
+    padding:9px 12px;
+    border-bottom:1px solid var(--rule-soft);
+    vertical-align:top;
+  }
+  th{
+    font-size:11px;
+    font-family:var(--f-mono);
+    letter-spacing:.1em;
+    color:var(--ink-3);
+    font-weight:600;
+    border-bottom:1px solid var(--rule);
+    white-space:nowrap;
+  }
+  td code{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2)}
+
+  /* ── 順番 ───────────────────────────── */
+  ol.steps{
+    list-style:none;
+    counter-reset:s;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  ol.steps li{
+    counter-increment:s;
+    display:grid;
+    grid-template-columns:38px 1fr;
+    gap:14px;
+    align-items:start;
+  }
+  ol.steps li::before{
+    content:counter(s);
+    font-family:var(--f-mono);
+    font-size:14px;
+    font-weight:600;
+    color:var(--surface);
+    background:var(--accent);
+    width:38px;height:38px;
+    display:grid;place-items:center;
+    border-radius:50%;
+  }
+  ol.steps h3{margin-bottom:4px}
+  ol.steps p{font-size:15px;margin:0;color:var(--ink-2)}
+
+  ul.plain{margin:0 0 1.1em;padding-left:1.2em}
+  ul.plain li{margin-bottom:.5em;max-width:62ch}
+
+  .good{
+    background:var(--accent-soft);
+    border-left:4px solid var(--accent);
+    padding:18px 20px;
+    margin:0 0 22px;
+  }
+  .good h3{margin-bottom:8px}
+  .good p{font-size:15px}
+
+  .foot{
+    margin-top:64px;
+    padding-top:22px;
+    border-top:2px solid var(--ink);
+    font-size:14px;
+    color:var(--ink-2);
+  }
+  .foot h2{border:0;margin:0 0 10px;padding:0;font-size:20px}
+  strong{font-weight:700}
+  mark{background:var(--sev-mid-bg);color:inherit;padding:0 2px}
+
+  @media (max-width:480px){
+    body{font-size:15px}
+    .fix{padding-left:10px}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="cover">
+    <p class="eyebrow">Ishinazaka / Article Risk Register</p>
+    <h1>石名坂 記事リスク台帳</h1>
+    <p class="lede">公開中の164ページを、4つの分野から読み直した結果です。引用はすべて原文を照合しました。<strong>私は弁護士ではありません。</strong>「違法です」と言っているものは一つもありません。「確認したほうがよい箇所」を並べたものです。</p>
+    <div class="meta">
+      <span><b>点検日</b> 2026年9月14日</span>
+      <span><b>対象</b> 164ページ／約109万字</span>
+      <span><b>担当</b> 4分野ぶん</span>
+    </div>
+
+    <div class="tally">
+      <div class="hi"><span class="n">19</span><span class="l">深刻度 高</span></div>
+      <div class="mid"><span class="n">40</span><span class="l">深刻度 中</span></div>
+      <div class="lo"><span class="n">10</span><span class="l">深刻度 低</span></div>
+    </div>
+  </header>
+
+  <h2>まず、これだけ読めば足ります</h2>
+  <p class="sub">3行の要約です。</p>
+  <ul class="plain">
+    <li><strong>いますぐ直すべきものが1件あります。</strong>プライバシーポリシーにAIチャットの記載がありません。稼働させたのが今日なので、これが最優先です。</li>
+    <li><strong>弁護士に見てもらうべきものは、法令の解説記事です。</strong>お客様が読んで判断を誤ると、御社に相談が来ます。しかも記事の末尾に「ご相談も承ります」と書いてあるページが26本あります。</li>
+    <li><strong>自分で直せるものが大半です。</strong>言い切りを弱める、出典を書き足す、イニシャルを伏せる。ほとんどはこの3つで終わります。</li>
+  </ul>
+
+  <h2>最優先：私が今日つくった穴</h2>
+  <p class="sub">これは担当4人の報告には入っていません。本番サイトを直接見て、私が見つけたものです。</p>
+
+  <div class="urgent">
+    <span class="tag">高-01 ／ 個人情報・委託</span>
+    <h3>プライバシーポリシーに、AIチャットのことが一行も書かれていません</h3>
+    <p style="margin-top:12px">今日から、サイトを見ている人が誰でもチャットボットを使えるようになりました。お客様はそこに<strong>住所・電話番号・工事の場所</strong>を書き込む可能性があります。その文字は、そのままGoogleのGeminiへ送られます。</p>
+    <div class="tbox" style="margin:16px 0 10px">
+      <table>
+        <tr><th>項目</th><th>実際</th><th>ポリシーの記載</th></tr>
+        <tr><td>AIチャットボット</td><td>稼働中</td><td><strong style="color:var(--sev-hi)">なし</strong></td></tr>
+        <tr><td>外部への委託（Google）</td><td>あり</td><td><strong style="color:var(--sev-hi)">なし</strong></td></tr>
+        <tr><td>保有期間</td><td>—</td><td><strong style="color:var(--sev-hi)">なし</strong></td></tr>
+        <tr><td>Site Kit</td><td>導入済み</td><td>なし</td></tr>
+        <tr><td>AdSense</td><td>記事ページで稼働</td><td>あり</td></tr>
+      </table>
+    </div>
+    <p style="font-size:15px;margin:0">担当の1人は「チャットボットの利用 — 該当なし」と報告しましたが、これは<strong>誤りです</strong>。担当が読んだのは文字だけを抜き出したファイルで、JavaScriptで表示されるチャットは写っていませんでした。私が本番サイトで確認して訂正します。</p>
+  </div>
+  <div class="fix" style="margin-bottom:0">
+    <h4>どう直すか</h4>
+    <p>ポリシーに3項目を足します。<strong>①</strong> AIチャットを設置していること、入力内容がGoogleの生成AIに送られること。<strong>②</strong> そのため「委託」にあたること。<strong>③</strong> チャットの記録をどれだけ保存するか。あわせて、9ページからAdSenseを外した件とポリシーの記載も合わせます。文案は私が作れます。</p>
+  </div>
+
+  <h2>2人が別々に、同じページを指摘しました</h2>
+  <p class="sub">分野の違う担当が独立に同じ箇所へたどり着いた、唯一のページです。</p>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-02</span>
+      <h3>個人のお客様の配達実績が、10件そのまま載っています</h3>
+      <span class="file">post-4112</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>最近の個人様向け配達実績（ホームページからのお問い合わせのみ）</p>
+      <p>2026年6月17日　紫波町 T様 ／ C-25 4t（駐車場DIY用）<br>
+      2026年6月11日：盛岡市 Y様 ／ M-40 3t（駐車場DIY用）<br>
+      2026年6月9日：雫石町 T様 ／ ５号砕石 ４t（駐車場DIY用）<br>
+      （以下、計10件）</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p><strong>日付・市町村・姓のイニシャル・品目・数量・用途</strong>が揃っています。一つひとつは匿名でも、ご近所やご親戚には「あの家だ」と分かる細かさです。</p>
+      <p>そして御社自身のプライバシーポリシーは、個人情報の利用目的を<mark>「情報提供」「お問い合わせへの回答」「商品の配達」の3つ</mark>に限っています。<strong>「実績としてサイトに載せる」は入っていません。</strong>自分で決めた約束と食い違っている、というのがこの件のいちばん弱いところです。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>いちばん早いのは、まとめ書きに変えることです。「2026年5〜6月：盛岡市・紫波町・滝沢市ほかで計10件（駐車場のDIY用が中心）」。宣伝としての効き目はほとんど落ちません。</p>
+      <p>個別に載せ続けたい場合は、お見積りフォームに「実績として掲載してよい」のチェック欄を1つ足し、チェックをいただいた分だけ載せる形にします。</p>
+    </div>
+  </div>
+
+  <h2>弁護士に見てもらう順番</h2>
+  <p class="sub">全部を持ち込む必要はありません。3回に分けるのが現実的です。</p>
+
+  <ol class="steps">
+    <li>
+      <div>
+        <h3>法令の解説記事（高-05〜高-10）</h3>
+        <p>いちばん先です。理由は3つ。読んだ人が実際の判断に使うこと、記事どうしで説明が食い違っていること、そして末尾に「ご相談も承ります」と書いたページが26本あることです。御社が助言する立場に見えます。</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>個人・未成年・他社への言及（高-01〜高-04、高-16、高-19）</h3>
+        <p>同意を取っているかどうかで結論が変わります。まず社内で「同意の有無」を確かめてから相談したほうが、話が早く、費用も少なく済みます。</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>JIS規格表の扱い（高-17・高-18）</h3>
+        <p>弁護士より先に、<strong>日本規格協会へ直接問い合わせる</strong>ほうが確実です。「自社で扱う規格だけ抜粋して出典を書きたいが、どこまで可能か」と聞けば足ります。</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2>深刻度【高】｜法令の説明</h2>
+  <p class="sub">担当2の報告。引用11件すべて原文と一致を確認しました。</p>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-05</span>
+      <h3>白ナンバーの説明から、いちばん大事な条件が抜けています</h3>
+      <span class="file">post-955</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p><em>白ナンバーでも違反になりません</em></p>
+      <p><em>基本的に法の許可は不要です</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>許可が要らないのは「運転する人が、その会社に雇われている場合」など、条件を満たしたときだけです。その条件がこのページには書かれていません。</p>
+      <p>しかも<strong>御社の別の記事にはちゃんと書いてあります</strong>。同じサイトの中で、片方だけが条件を落としている状態です。読んだ運送会社が「うちは大丈夫」と判断して、実際は違った場合、この記事が根拠にされます。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「◯◯の条件を満たす場合に限り」を一文足すだけで、危うさの大半は消えます。条件の中身は御社の別記事から持ってこられます。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-06</span>
+      <h3>産業廃棄物の契約について、推測のまま書かれています</h3>
+      <span class="file">industrial-waste-contract</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>必要になる<em>のだと思います</em></p>
+      <p>工期の設定もしてるので<em>問題なさそうですが</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>産業廃棄物は罰則の重い分野です。そこを「思います」「なさそうですが」で書いていて、<strong>根拠となる条文や通達が1つも示されていません</strong>。</p>
+      <p>読み手には、これが調べた結論なのか、その場の感想なのか分かりません。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>2つに1つです。条文を調べて根拠を付けて書き直すか、<strong>いったん下書きに戻す</strong>か。中途半端に残すのがいちばん危険です。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-07</span>
+      <h3>生コンについて「含まれない」と言い切っています</h3>
+      <span class="file">post-807</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>（生コンについて）<em>含まれない</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>業界の慣習としてはそのとおりかもしれませんが、記事は<strong>法令の帰結として断定する形</strong>になっています。慣習と法令の区別が付いていません。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「実務上は◯◯として扱われることが多いですが、最終的な判断は所管官庁にご確認ください」に改めます。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-08</span>
+      <h3>同じ「第2種荷主」の定義が、2つの記事で違います</h3>
+      <span class="file">post-831 ／ post-732</span>
+    </div>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>それぞれ別の法律を下敷きにしているため、読み比べると矛盾して見えます。<strong>どちらが自分に当てはまるのか、読んだ人には判断できません。</strong></p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>各記事の冒頭に「この記事は◯◯法における定義です」と1行入れて、互いにリンクさせます。記事を消す必要はありません。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-09</span>
+      <h3>同じ条文番号が、違う違反の根拠として2回出てきます</h3>
+      <span class="file">post-698</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>法第76条第４号 　（同一ページ内に2箇所、それぞれ別の違反について）</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>少なくとも片方は誤りです。条文番号は読者が確かめに行く入口なので、間違っていると記事全体の信頼が落ちます。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>原典に当たって正しい番号に直します。作業としては5分の話です。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-10</span>
+      <h3>「法令のご相談も承ります」が、26ページに入っています</h3>
+      <span class="file">26ファイルで確認</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>法令に沿った運用についての<em>ご相談も承ります</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>これ単体なら何でもない一文です。ただし<strong>高-05〜高-09の記事と組み合わさる</strong>と意味が変わります。「間違いを含んだ解説」＋「相談に応じます」は、読者から見れば助言を提供している姿です。</p>
+      <p>記事の誤りを直せば、この一文はそのままで構いません。順番の問題です。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>いま急ぐなら「弊社の運搬に関わる範囲でのご相談を承ります」と範囲を狭めます。記事を直したあとなら、元の文言で問題ありません。</p>
+    </div>
+  </div>
+
+  <h2>深刻度【高】｜広告の言い切り</h2>
+  <p class="sub">担当1の報告。引用15件すべて原文と一致を確認しました。</p>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-11</span>
+      <h3>「半永久的」が、御社自身の数字と矛盾しています</h3>
+      <span class="file">post-2414</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>一度敷けば<em>半永久的に効果が持続します</em></p>
+      <p>耐久性｜<em>半永久的（割れない・減らない）</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>御社は見積りの計算で<strong>締固め係数1.26</strong>を使っています。これは「敷いた砕石は締まって減る」という前提の数字です。<strong>自社の計算が、自社の広告文を否定しています。</strong></p>
+      <p>「割れない・減らない」は表の中に断定として置かれているので、言い訳が利きません。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「長期間ご使用いただけます」「敷き直しの手間が少なくて済みます」に変えます。売り文句としての強さはほとんど変わりません。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-12</span>
+      <h3>他社製品のカテゴリ全体を、表で「不可」と断定しています</h3>
+      <span class="file">post-2414</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>（ガラス発泡砂利について）駐車場への使用｜<em>不可（車の重みで粉砕される）</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>ガラス発泡砂利という<strong>商品分類まるごと</strong>を、駐車場に使えないと言い切っています。製品によって強度は違いますし、根拠となる試験も示されていません。</p>
+      <p>比較表という形式は、読者に「調べた結果」と受け取られます。そのぶん、外したときの責任も重くなります。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>他社製品の欄を消して、<strong>自社の砕石が駐車場に向く理由だけを書く</strong>のがいちばん安全で、しかも文章としても強くなります。比較を残すなら「製品により異なります」を添えます。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-13</span>
+      <h3>「雑草が生えなくなる」「メンテナンスフリー」</h3>
+      <span class="file">post-2426 ／ post-3265</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p><em>雑草が生えなくなる</em>　／　<em>メンテナンスフリー</em>　（post-2426）</p>
+      <p><em>雑草が生えないお庭の完成</em>　（post-3265）</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>砕石を敷いても、風で飛んできた種は砕石の上で芽を出します。<strong>生えにくくはなりますが、生えなくはなりません。</strong>「メンテナンスフリー」も同じで、手入れが要らないと約束してしまっています。</p>
+      <p>お客様が1年後に草を見つけたときに、この一文が持ち出されます。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「雑草がぐんと生えにくくなります」「草取りの手間が減ります」。防草シートを併用する場合の説明を足すと、むしろ売りやすくなります。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-14</span>
+      <h3>「音で撃退」と「約70デシベル以上」に、裏づけがありません</h3>
+      <span class="file">index ／ post-2414</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p><em>音で撃退</em>　（トップページ）</p>
+      <p><em>約70デシベル以上</em>　（post-2414）</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>「撃退」は効果の断定です。防犯砂利の音で必ず侵入者が退く、という保証はできません。</p>
+      <p>「70デシベル」は<strong>測定値として読まれる数字</strong>です。記事には測り方も測定条件も書かれていません。数字を出す以上、どう測ったかが要ります。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「歩くとしっかり音が出るので、人が近づいたことに気づきやすくなります」。数字を残したいなら、測った日・場所・機器・条件を注記します。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-15</span>
+      <h3>「足りなくなる心配はありません」</h3>
+      <span class="file">post-3836</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p><em>足りなくなる心配はありません</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>これは<strong>御社が今回チャットボットに入れた方針と、正面から食い違います。</strong>チャットボットには「数量は現場の状況で変わるので、敷いてみて足りなければ追加注文を」と答えさせています。記事のほうだけが「心配ない」と約束しています。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>チャットボットと同じ言い方に揃えます。「余裕をみた数量をご案内しますが、現場の状況で増減します。足りないときは追加でお届けします」。</p>
+    </div>
+  </div>
+
+  <h2>深刻度【高】｜人が写る・特定される</h2>
+  <p class="sub">担当3・担当4の報告。引用はすべて原文と一致を確認しました。</p>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-03</span>
+      <h3>中学生の試乗会。学校名と学年が出ています</h3>
+      <span class="file">post-4230</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>地元・盛岡市の<em>飯岡中学校の中学1年生</em>を対象とした「重機の試乗体験会」を開催いたしました！</p>
+      <p>飯岡中学校の1年生の皆さんが、イベントのお礼として<em>「合唱」を披露してくれた</em>のです。</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>学校名と学年が特定されています。文章の書きぶりから、<strong>生徒さんの写真が載っている可能性が高い</strong>と読めます。未成年の写真は、学校と保護者の同意が要ります。</p>
+      <p>合唱を録音・録画して載せている場合は、曲の権利の確認も要ります。</p>
+      <p>この記事へのリンクは、採用ページを含む<strong>14ページ以上</strong>にフッターとして貼られています。サイト中から人が流れ込む構造です。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>まず<strong>写真の同意を取ってあるか確認</strong>してください。協会経由のイベントなら、協会側が取っていることもあります。取れていれば、記事末に「写真は学校の許可を得て掲載しています」と一文足すだけで済みます。</p>
+      <p>確認が取れるまでは、顔の写った写真を重機だけの写真に差し替えておくのが安全です。記事自体はとても良い内容なので、消す必要はありません。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-04</span>
+      <h3>個人宅の敷地での除雪動画</h3>
+      <span class="file">post-640</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>住宅地のカギ型道路の正面に雪を押し込んだらしく、<em>その一般住宅からの要望で</em>雪塊を撤去してほしいとのことでした。</p>
+      <p>一般の方の敷地ですので、水道のメーターボックスなどが雪塊で覆われてしまってました。</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>特定の個人宅の敷地での作業を動画で公開しています。「カギ型道路の正面」という書き方に加え、動画に表札・門柱・車のナンバーが写っていれば場所が分かります。</p>
+      <p>さらに「その一般住宅からの要望で」という一文は、<strong>その家が市に要望を出した</strong>という事実まで明かしています。ご本人が知られたくない種類の情報です。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>経緯の部分を「市の判断により排雪を行いました」に直します。動画は表札・ナンバーが判別できないか確認し、写っていれば差し替えます。</p>
+      <p>今後のために、現場動画を出す前に<strong>「表札・ナンバー・個人宅が写っていないか」を見る手順</strong>を決めておくと、毎回悩まずに済みます。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-16</span>
+      <h3>他社の取扱状況を「おりません」と断定しています</h3>
+      <span class="file">saiseki-hanbai（3箇所） ／ post-497</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>盛岡近郊の砕石業者で取り扱いとしてる業者は<em>おりません</em></p>
+      <p>岩手県で JIS A5005を認証している砕石工場は<em>一関で一社のみです</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>前者は「他社は扱っていない」という他社の営業内容の断定です。後者は<strong>地域まで絞っているので、特定の1社が誰か分かります</strong>。</p>
+      <p>事実と違っていた場合、相手方から言われる形になります。事実であっても、根拠が示されていないと苦しくなります。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>「弊社が把握している範囲では、取り扱いのある業者様は少ないようです」。認証工場の件は、認証機関の公表リストへのリンクを付けるか、「県内では認証工場が限られています」と、社が分からない書き方にします。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-19</span>
+      <h3>返金しない、と例外なしで書かれています</h3>
+      <span class="file">faq</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文</span>
+      <p>引き取りは可能ですが、その荷台に載ってる砕石料金分の<em>返金は致しません</em></p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>例外が一つも書かれていないため、<strong>御社の都合で持ち帰りになった場合まで含んでしまいます</strong>。積み過ぎ、品違い、配達先の間違い。これらまで「返金しない」と読めます。</p>
+      <p>相手が個人のお客様なので、消費者契約法の観点で書き方を見ておく価値があります。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>一文足すだけです。「ただし、弊社の手配違い・品違いによる場合は、この限りではありません」。実際そうされているはずなので、書いてあるとおりにするだけの話です。</p>
+    </div>
+  </div>
+
+  <h2>深刻度【高】｜JIS規格表の全文掲載</h2>
+  <p class="sub">担当4の報告。全164ファイルを検索して、出典表示が1件も無いことを確認しました。</p>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-17</span>
+      <h3>道路用砕石 JIS A5001 の粒度表を、丸ごと載せています</h3>
+      <span class="file">post-491（241行中 約200行が表） ／ saiseki-hanbai</span>
+    </div>
+    <blockquote>
+      <span class="qlabel">原文（抜粋）</span>
+      <p>単粒度砕石 S-80(1号) 100 85〜100 0〜15<br>
+      クラッシャラン C-40 100 95〜100 – – 50〜80 – 15〜40 5〜25<br>
+      粒度調整砕石 M-40 100 95〜100 – – 60〜90 – 30〜65 20〜50 10〜30 2〜10</p>
+    </blockquote>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>区分・呼び名・ふるい寸法・通過百分率が、表の形ごとそのまま載っています。そして<strong>「日本産業規格」「日本規格協会」「出典」という語が、サイト164ページのどこにも1回も出てきません</strong>（私が全ファイルを検索しました）。</p>
+      <p>引用として見ても、post-491は241行のうち自社の文章は数行だけで、残りが表です。<strong>表が主、記事が従</strong>になっています。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p><strong>御社が実際に売っている規格だけに絞る</strong>のが本筋です。C-40、M-40、5号、6号、7号。これで表は3分の1以下になり、お客様にとってもむしろ分かりやすくなります。</p>
+      <p>そのうえで「JIS A5001（道路用砕石）より抜粋。詳細は規格票をご確認ください」と書き、日本規格協会のJIS検索ページへリンクします。</p>
+    </div>
+  </div>
+
+  <div class="entry" data-sev="hi">
+    <div class="ehead">
+      <span class="sev">高-18</span>
+      <h3>コンクリート用砕石 JIS A5005 も同じ状態です</h3>
+      <span class="file">post-497</span>
+    </div>
+    <div class="why">
+      <h4>何が問題か</h4>
+      <p>高-17とまったく同じ構造です。出典なし、表が主。加えてこのページには、高-16で挙げた「一関で一社のみ」の記述も入っています。</p>
+    </div>
+    <div class="fix">
+      <h4>どう直すか</h4>
+      <p>高-17と同じです。2ページまとめて作業できます。</p>
+    </div>
+  </div>
+
+  <h2>深刻度【中】｜出典と、引き写しの痕跡</h2>
+  <p class="sub">全40件のうち、私が原文まで確認した主なものです。</p>
+
+  <div class="tbox">
+    <table>
+      <tr><th>ページ</th><th>見つかったもの</th><th>直し方</th></tr>
+      <tr>
+        <td><code>post-732</code><br><code>post-747</code><br><code>post-1080</code></td>
+        <td>本文に「<strong>提供された資料に基づき説明します</strong>」が残っています。読者には、その資料が何なのか分かりません。</td>
+        <td>「国土交通省『◯◯の手引き』（令和◯年）では」に置き換え、末尾に出典欄を作ります。</td>
+      </tr>
+      <tr>
+        <td><code>post-834</code><br><code>post-939</code><br><code>post-955</code></td>
+        <td>貼り付けの痕跡が残っています。脚注番号「<strong>[23]</strong>」の消し忘れ、「扱われま す」の余分な空白、「場ふ合」の誤字、数字の0が英字Oになっている箇所。</td>
+        <td>誤字を直します。あわせて、元資料の名前を出典として書きます。</td>
+      </tr>
+      <tr>
+        <td><code>post-715</code></td>
+        <td>国交省の文書をほぼ全文載せたあと、<strong>自社の意見が同じ文体で地続きに続いています</strong>。「国は…分かりやすい情報提供をお願いしたい」の部分。国の見解と誤読されます。</td>
+        <td>転載部分を枠で囲み、意見の前に「【当社の見解】」の見出しを入れます。</td>
+      </tr>
+      <tr>
+        <td><code>honebuto-hoshin-2026</code></td>
+        <td>164ページ中、<strong>ここだけが「である調」</strong>です。末尾に文書名が1行あるだけで、「出典」の表記もリンクもありません（私が確認しました）。</td>
+        <td>ですます調に書き直します。その過程で、元の文章への寄りかかりも解けます。末尾を「出典：内閣府『…』（令和8年7月21日閣議決定）＋URL」に。</td>
+      </tr>
+      <tr>
+        <td>後藤新平 ④⑤<br>北上川ダム</td>
+        <td>Wikipediaを参考にした記述がありますが、<strong>ライセンス表示（CC BY-SA 4.0）がありません</strong>。サイト全体を検索して、1件も無いことを確認しました。</td>
+        <td>「Wikipedia『◯◯』（CC BY-SA 4.0）URL 2026年◯月閲覧」の形に。可能なら一次資料（奥州市・国交省）に差し替えます。</td>
+      </tr>
+      <tr>
+        <td><code>saiseki-hanbai</code></td>
+        <td>「雨水浸透施設技術指針[案]」を根拠に自社製品をすすめていますが、<strong>発行団体・発行年・該当ページがありません</strong>。サイト内で言及はこの1箇所だけです。</td>
+        <td>発行団体名と該当箇所を明記します。自社製品が基準を満たす根拠（試験成績表）も併記できると強くなります。</td>
+      </tr>
+      <tr>
+        <td><code>simulation</code></td>
+        <td>「石名坂砕石場から半径15kmを記した地図」を載せていますが、<strong>元の地図が何か書かれていません</strong>。Googleマップの画面を加工したものなら、Googleの表記を消さずに残す必要があります。</td>
+        <td>国土地理院の地理院地図に差し替えるのが確実です。同じサイトの河川の記事に「出典：国土地理院ウェブサイト（地理院地図）を加工して作成」という<strong>正しいお手本</strong>があります。</td>
+      </tr>
+      <tr>
+        <td><code>recruit</code></td>
+        <td>「R.W さん」「県立盛岡工業高校土木科」「入社4年目」「担当工事名」。<strong>社員18名の会社</strong>なので、同校の関係者には誰か分かります。</td>
+        <td>本人の同意があるか確認を。無ければ「入社4年目・工業高校土木科出身」に。退職時の削除手順も決めておきます。</td>
+      </tr>
+      <tr>
+        <td><code>kotsu-anzen-kowa-…</code></td>
+        <td>「盛岡東警察署 乙部駐在所の<strong>中塚巡査部長</strong>」。姓・所属・階級まで出ていて、実在の方が完全に特定できます。講話の中身もほぼそのまま再現されています。</td>
+        <td>警察署に掲載の可否を確認。難しければ「盛岡東警察署の署員の方」に。個別の検挙事例も、当事者の性別・居住市を伏せます。</td>
+      </tr>
+      <tr>
+        <td><code>post-2480</code></td>
+        <td>「上田中学校の生徒を２名受け入れました。<strong>料理をさせました。</strong>なぜ？これには理由があります。」で文章が途切れています。</td>
+        <td>学校名を伏せ、「調理の体験にも取り組んでもらいました」に。理由の説明を書き足して記事を完成させます。</td>
+      </tr>
+      <tr>
+        <td><code>privacy-policy</code></td>
+        <td>住所が<strong>2通り</strong>あります。ポリシーは「東見前4-35」、会社概要と全ページのフッターは「西見前12地割1-4」。見出しが「<strong>[氏名]</strong>」のままの箇所もあります。</td>
+        <td>ひな形の消し忘れです。フッターの住所に揃えて、[氏名]を代表者名に直します。</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>問題が見つからなかったところ</h2>
+  <p class="sub">「見なかった」ではなく「読んで、確認できなかった」という意味です。</p>
+
+  <ul class="plain">
+    <li><strong>二重価格表示・景品・お客様の体験談</strong> — 1件もありません。価格の見せ方は誠実です。</li>
+    <li><strong>お客様のフルネーム・住所・電話番号</strong> — 全ファイルを検索して、1件もありませんでした（高-02のイニシャルが最も細かいものです）。</li>
+    <li><strong>特定のホームセンター名を挙げた比較</strong> — ありません。</li>
+    <li><strong>東日本大震災シリーズ 全5回</strong> — 段落ごとに（出典: 気象庁）などが付き、末尾にも出典欄。個人名もありません。</li>
+    <li><strong>気候変動・農業エネルギーシリーズ</strong> — 引用を鉤括弧で括って出典を示す、正しい形が取れています。年次・前提条件の違いを断っている注記は、特に誠実です。</li>
+  </ul>
+
+  <div class="good">
+    <h3>お手本になっているページが、サイトの中にあります</h3>
+    <p><strong>許可更新制のシリーズ</strong>（<code>kyoka-koushin-shinsa-tohoku</code> ほか5本）は、通達名・制定日・改正日・文書番号まで書かれています。<strong>「JIS相当品」</strong>という書き方も、担当1が「限度をわきまえた良い表現」と評価しました。認証を受けたとは言わず、同等だと言っています。</p>
+    <p style="margin-bottom:0">直すページは、この2つを基準にすれば迷いません。<strong>外から持ってきたお手本ではなく、御社が自分で書いたものです。</strong></p>
+  </div>
+
+  <h2>私が保証できないこと</h2>
+
+  <ul class="plain">
+    <li><strong>私は弁護士ではありません。</strong>この台帳は「違法です」と言うものではなく、「確認したほうがよい箇所」を並べたものです。</li>
+    <li><strong>写真と動画そのものは、私には見えていません。</strong>高-03・高-04で「写真がある可能性が高い」と書いたのは、文章からの推測です。<strong>現物の確認は御社でお願いします。</strong></li>
+    <li><strong>判断が分かれる箇所があります。</strong>JIS規格表の扱いは、専門家の間でも見解が一つではありません。日本規格協会へ直接聞くのが確実です。</li>
+    <li>担当1人が「該当なし」と報告した項目を、私が<strong>誤りとして訂正しました</strong>（高-01）。文字だけを抜き出したファイルでは、JavaScriptで表示されるものが見えないためです。同じ理由で見落としている箇所が、ほかにもあるかもしれません。</li>
+  </ul>
+
+  <div class="foot">
+    <h2>次にやること</h2>
+    <p>①高-01のプライバシーポリシー文案を作る（私が作れます）→ ②高-03・高-04の写真の同意を確認（御社）→ ③高-11〜高-15の言い切りを直す（文言は私が用意できます）→ ④法令記事をまとめて弁護士へ。</p>
+    <p style="margin-bottom:0;color:var(--ink-3);font-size:13px">点検対象：公開中の164ページ／1,092,840字。引用は4分野すべて、原文と1件ずつ照合済み。</p>
+  </div>
+
+</div>
