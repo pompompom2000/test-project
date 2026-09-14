@@ -1,0 +1,47 @@
+[
+ {
+  "pid": 347,
+  "tag": "高-19",
+  "name": "返金の一律拒否（構造化データ）",
+  "nth": 1,
+  "old": "\"text\":\"はい。引き取りは可能ですが、その荷台に載ってる砕石料金分の返金は致しません。\"",
+  "new": "\"text\":\"はい。引き取りは可能です。ただし、その荷台に載っている砕石の料金は、原則としてご返金いたしかねます。なお、弊社の手配違い・品違いによる場合は、この限りではありません。\"",
+  "kind": "pages"
+ },
+ {
+  "pid": 306,
+  "tag": "高-16",
+  "name": "他社の断定①（表の注記）",
+  "nth": 1,
+  "old": "（盛岡管内の砕石業者で、取り扱いをしてる業者がおりません）",
+  "new": "（盛岡管内では、取り扱いのある業者が少ないようです）",
+  "kind": "pages"
+ },
+ {
+  "pid": 306,
+  "tag": "高-16",
+  "name": "他社の断定②（本文）",
+  "nth": 1,
+  "old": "浸透桝の関係で、お問い合わせがありますが、盛岡近郊の砕石業者で取り扱いとしてる業者はおりません。",
+  "new": "浸透桝の関係でお問い合わせをいただきますが、弊社が把握している範囲では、盛岡近郊で取り扱いのある業者は少ないようです。",
+  "kind": "pages"
+ },
+ {
+  "pid": 497,
+  "tag": "高-16",
+  "name": "他社の断定③（一関で一社）",
+  "nth": 1,
+  "old": "岩手県で JIS A5005を認証している砕石工場は一関で一社のみです。",
+  "new": "岩手県内で JIS A5005の認証を受けている砕石工場は限られています。最新の認証状況は、認証機関の公表資料をご確認ください。",
+  "kind": "posts"
+ },
+ {
+  "pid": 4112,
+  "tag": "高-02",
+  "name": "個人のお客様の配達実績10件",
+  "nth": 1,
+  "old": "<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月17日　紫波町 T様 ／ C-25 4t （駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月11日：盛岡市 Y様 ／ M-40 3t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月9日：雫石町 T様 ／ ５号砕石 ４t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月8日：盛岡市 個人のお客様 ／ 7号砕石 3t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月8日：紫波町 S様 ／ 黒土 3t（畑）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年6月3日：矢巾町 F様 ／ C-50 4t（DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年5月17日：滝沢市 S様 ／ 山砂 3t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年5月16日：滝沢市 T様 ／ 山砂 3t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年5月14日：盛岡市 S様 ／ C40 ４t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年5月12日：盛岡市 S様 ／ ５号砕石　3t（駐車場DIY用）</p>\n<!-- /wp:paragraph -->",
+  "new": "<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">2026年5月〜6月：盛岡市・紫波町・滝沢市・雫石町・矢巾町へ、計10件をお届けしました。用途は駐車場のDIYが中心です。品目は5号砕石・7号砕石・C-25・C-40・C-50・M-40・山砂・黒土など。</p>\n<!-- /wp:paragraph -->",
+  "kind": "posts"
+ }
+]

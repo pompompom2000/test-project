@@ -1,0 +1,308 @@
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">砕石販売・土木工事に関する よくある質問</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">砕石・砂・砂利の販売と配達について よくある質問( FAQ )をまとめてみました</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">1. 砕石・砂利の購入について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:sp-easy-accordion-pro/shortcode {"shortcode":"1311"} /-->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">2. 土木工事・舗装工事について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:sp-easy-accordion-pro/shortcode {"shortcode":"1322"} /-->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル --- */
+.walking-cat-stage-final {
+  width: 100%; overflow: hidden; position: relative; height: 100px; margin: 20px 0; display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important; position: absolute; width: 100px; height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif') !important;
+  background-repeat: no-repeat; background-size: contain;
+  animation: urochoro-left-final 25s linear infinite; cursor: pointer; z-index: 9999 !important; transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active { animation-play-state: paused; transform: translateY(-20px) !important; }
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); } 30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); } 45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); } 65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); } 100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 100000; overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute; top: 0; left: 0; background-repeat: no-repeat; background-size: contain;
+  will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);
+}
+
+/* --- 肉球スタンプのスタイル --- */
+.paw-stamp-overlay {
+  position: absolute; top: 50%; left: 50%; width: 60vmin; height: 60vmin; margin-top: -30vmin; margin-left: -30vmin;
+  
+  /* ★ WordPressでもエラーにならない安全なエンコード済みの肉球データ */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232c3e50' d='M256 224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm-114-60c30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97 23 30 67 35 97 11zm245 0c23 30 67 35 97 11 30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97zm-130-55c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z'/%3E%3C/svg%3E");
+  
+  background-repeat: no-repeat; background-position: center; background-size: contain;
+  z-index: 200000; opacity: 0;
+  pointer-events: none; /* ★追加：スタンプが画面のクリックを邪魔しないようにする */
+  animation: smash-stamp 2s ease-out forwards;
+}
+
+@keyframes smash-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  10% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+// ★ クリックを邪魔していた isRunning を完全に削除しました！いつでもクリックできます。
+
+function catMagicClick() {
+  clickCount++; // クリックされたらすぐに数を数える
+
+  // ★ 5回に1回、肉球スタンプを出す！
+  if (clickCount % 5 === 0) {
+    showPawStamp();
+  }
+
+  // 3パターンループ
+  const pattern = (clickCount - 1) % 3;
+  if (pattern === 0) {
+    releaseCats('bl-to-tr'); // 1回目：左下→右上
+  } else if (pattern === 1) {
+    releaseCats('tr-to-bl'); // 2回目：右上→左下
+  } else if (pattern === 2) {
+    releaseCats('bottom-to-top'); // 3回目：下→上
+  }
+}
+
+function showPawStamp() {
+  const container = document.getElementById('cat-horde-container');
+  const stamp = document.createElement('div');
+  stamp.className = 'paw-stamp-overlay';
+  
+  container.appendChild(stamp);
+
+  // スタンプが消えたらデータごと削除して軽くする
+  setTimeout(() => {
+    stamp.remove();
+  }, 2000);
+}
+
+function releaseCats(direction) {
+  const container = document.getElementById('cat-horde-container');
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif'; 
+  
+  // ★ ▼ ここに一匹だけ混ぜる別の生き物のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif'; 
+
+  const catCount = 10; 
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+      
+      // 画像の振り分け
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 80) + 40;
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 1.8) + 1.2;
+      let startX, startY, endX, endY, flip;
+
+      if (direction === 'bl-to-tr') {
+        startX = Math.random() * 50 - 30; startY = Math.random() * 50 + 80; endX = Math.random() * 50 + 80; endY = Math.random() * 50 - 30; flip = 1; 
+      } else if (direction === 'tr-to-bl') {
+        startX = Math.random() * 50 + 80; startY = Math.random() * 50 - 30; endX = Math.random() * 50 - 30; endY = Math.random() * 50 + 80; flip = -1; 
+      } else if (direction === 'bottom-to-top') {
+        startX = Math.random() * 120 - 10; startY = 120; endX = startX + (Math.random() * 40 - 20); endY = -30; flip = Math.random() > 0.5 ? 1 : -1; 
+      }
+
+      container.appendChild(cat);
+
+      cat.animate([
+        { transform: `translate3d(${startX}vw, ${startY}vh, 0) scaleX(${flip})` },
+        { transform: `translate3d(${endX}vw, ${endY}vh, 0) scaleX(${flip})` }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        fill: 'forwards'
+      });
+
+      setTimeout(() => {
+        cat.remove();
+      }, duration * 1000);
+
+    }, Math.random() * 800); // すぐに出現するように調整
+  }
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html /-->
+
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">3. 冬期の除雪・排雪について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:sp-easy-accordion-pro/shortcode {"shortcode":"1324"} /-->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">4. お支払い・その他について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:sp-easy-accordion-pro/shortcode {"shortcode":"1325"} /-->
+
+<!-- wp:html -->
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1086.2907157051966!2d141.19691562873334!3d39.63859276273063!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1764066223573!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<iframe src="https://www.google.com/maps/embed?pb=!4v1764066576291!6m8!1m7!1ssHTde9D5BSHLujdvgatm_Q!2m2!1d39.6389717909157!2d141.1972380470686!3f128.14547505643458!4f-15.434249367725329!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- /wp:html -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1209,"width":"200px","aspectRatio":"3.5350101971447994","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="https://www.ishinazaka.co.jp/contact/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775539219598_260407143021.png" alt="ホームページからのお問い合わせ" class="wp-image-1209" style="aspect-ratio:3.5350101971447994;width:200px;height:auto"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:aioseo/faq {"question":"Q. 企業ではなく個人ですが、砕石や砂利を売ってもらえますか？","schemaBlockId":"aioseo-mnwjans2"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 企業ではなく個人ですが、砕石や砂利を売ってもらえますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、個人のお客様も大歓迎です！ご自宅のお庭のDIYや、駐車場のぬかるみ対策など、用途に合わせて最適な砕石をご提案します。少量からでもお気軽にご相談ください。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. ダンプは無いのですが、軽トラでも砕石や砂利を売ってもらえますか？","schemaBlockId":"aioseo-mnwjj5sy"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. ダンプは無いのですが、軽トラでも砕石や砂利を売ってもらえますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、軽トラの個人のお客様も大歓迎です！ご自宅のお庭のDIYや、駐車場のぬかるみ対策など、用途に合わせて最適な砕石をご提案します。少量からでもお気軽にご相談ください。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. どれくらいの量を買えばいいのか分かりません。","schemaBlockId":"aioseo-mnwjlztx"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. どれくらいの量を買えばいいのか分かりません。</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;敷きたい場所の広さ（縦×横のメートル、または坪数）と、どのような用途で使いたいかをお電話でお伝えください。スタッフが必要な量（立米数）を計算してお答えいたします。私どもも電話でわからないときは、現地で打ち合わせいたします。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 自宅や現場まで配達（運搬）してもらえますか？","schemaBlockId":"aioseo-mnwjmo24"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 自宅や現場まで配達（運搬）してもらえますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、自社のダンプカーで指定の場所まで配達いたします。盛岡市内および近郊エリアを中心に対応しております。配達料金は距離や量によって異なりますので、まずはお見積りをご依頼ください。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 自宅や現場まで配達（運搬）してもらう際に、日時は指定できますか？","schemaBlockId":"aioseo-mnwjn7j5"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 自宅や現場まで配達（運搬）してもらう際に、日時は指定できますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、自社のダンプカーで指定の日時で配達いたします。他の注文との調整も必要なことから、お早めに予定を入れておくことがおすすめです。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 自宅や現場まで配達（運搬）してもらう予定でしたが、当日は雨模様で延期したいのですができますか？","schemaBlockId":"aioseo-mnwjo0x6"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 自宅や現場まで配達（運搬）してもらう予定でしたが、当日は雨模様で延期したいのですができますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、できますが、延期のご連絡をいただけないと雨でも出発してしまいますので、延期にしたい場合は、ご連絡をお願いします。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 見積もりをお願いするのに料金はかかりますか？","schemaBlockId":"aioseo-mnwjp04a"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 見積もりをお願いするのに料金はかかりますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;現地調査およびお見積りの作成は「無料」で行っております。現場の状況をしっかり確認した上で、分かりやすいお見積りをご提示しますのでご安心ください。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 冬場の駐車場の除雪や排雪は頼めますか？","schemaBlockId":"aioseo-mnwjpv7e"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 冬場の駐車場の除雪や排雪は頼めますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;はい、店舗や企業の駐車場、アパート、町内会などの除雪・排雪作業を承っております。シーズン契約やスポット（単発）でのご依頼など、柔軟に対応いたします。※雪の時期は大変混み合いますので、お早めのご相談をおすすめします。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 工事費や砕石代金の支払い方法を教えてください。","schemaBlockId":"aioseo-mnwjr3rx"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 工事費や砕石代金の支払い方法を教えてください。</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p><strong>A.</strong>&nbsp;銀行振込、または砕石配達時に現金でのお支払いをお願いしております。請求書払いをご希望の法人様は別途ご相談ください。</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 砕石場（採石場）の場所を教えてください。","schemaBlockId":"aioseo-mnwjs7j5"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 砕石場（採石場）の場所を教えてください。</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p>石名坂砕石場（採石場）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>岩手県盛岡市黒川4地割25番地</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>電話番号：019-696-2820</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>FAX番号：019-696-2392</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"placeholder":"回答を入力..."} -->
+<p>詳しくはページ上部の👉<a href="https://www.ishinazaka.co.jp/about/" title="">会社概要・アクセス</a>をクリックしてください </p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:aioseo/faq {"question":"Q. 自宅の前の道が狭いのですが、ダンプは入れますか？","schemaBlockId":"aioseo-mu02zuqxbzm7c"} -->
+<div class="wp-block-aioseo-faq" data-schema-only="false"><h3 class="aioseo-faq-block-question">Q. 自宅の前の道が狭いのですが、ダンプは入れますか？</h3><div class="aioseo-faq-block-answer"><!-- wp:paragraph -->
+<p>A. まずはお電話でご相談ください。当社は10t・4t・3tのダンプを用意しており、道の広さに応じて車両を選びます。判断のために、次の3点をお伺いします。1. 場所の目印（「〇〇町の〇〇の近く」で構いません）2. 荷降ろし場所までの道幅や、曲がり角の様子3. 荷降ろし付近にカーポートや架空線（電線）があるかダンプは荷台を高く持ち上げて砕石を降ろします。そのため上に電線やカーポートがあると作業できないことがあります。寸法を測っていただく必要はありません。見たままをお話しいただければ、こちらで判断します。お電話で判断が難しい場合は、担当者が現地に伺って確認します。現地調査とお見積りは無料です。TEL 019-638-7521（平日8:00〜17:00）</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:aioseo/faq -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://www.ishinazaka.co.jp/faq/#faqpage","mainEntity":[{"@type":"Question","name":"企業ではなく個人ですが、砕石や砂利を売ってもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい、個人のお客様も大歓迎です！ご自宅のお庭のDIYや、駐車場のぬかるみ対策など、用途に合わせて最適な砕石をご提案します。少量からでもお気軽にご相談ください。"}},{"@type":"Question","name":"ダンプは無いのですが、軽トラでも砕石や砂利を売ってもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい、軽トラの個人のお客様も大歓迎です！ご自宅のお庭のDIYや、駐車場のぬかるみ対策など、用途に合わせて最適な砕石をご提案します。少量からでもお気軽にご相談ください。"}},{"@type":"Question","name":"残土・建設発生土を処分（捨て）をしたいんだけど、相談できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。できます。残土においては、適切に処分しますので、料金がかかります。ご不明な点は019-638-7521まで、ご連絡ください。"}},{"@type":"Question","name":"どれくらいの量を買えばいいのか分かりません。","acceptedAnswer":{"@type":"Answer","text":"敷きたい場所の広さ（縦×横のメートル、または坪数）と、どのような用途で使いたいかをお電話でお伝えください。スタッフが必要な量（立米数）を計算してお答えいたします。私どもも電話でわからないときは、現地で打ち合わせいたします。"}},{"@type":"Question","name":"自宅や現場まで配達（運搬）してもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい、自社のダンプカーで指定の場所まで配達いたします。盛岡市内および近郊エリアを中心に対応しております。配達料金は距離や量によって異なりますので、まずはお見積りをご依頼ください。"}},{"@type":"Question","name":"自宅や現場まで配達（運搬）してもらう際に、日時は指定できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、自社のダンプカーで指定の日時で配達いたします。他の注文との調整も必要なことから、お早めに予定を入れておくことがおすすめです。"}},{"@type":"Question","name":"自宅や現場まで配達（運搬）してもらう予定でしたが、当日は雨模様で延期したいのですができますか？","acceptedAnswer":{"@type":"Answer","text":"はい、できますが、延期のご連絡をいただけないと雨でも出発してしまいますので、延期にしたい場合は、ご連絡をお願いします。"}},{"@type":"Question","name":"（注文者の）腰や身体が痛いので、敷均しまでお願いできますか？","acceptedAnswer":{"@type":"Answer","text":"はい、できます。敷均しは、拘束時間や使用する量によって、料金が変わる場合がありますので、お問い合わせください。TEL019-638-7521"}},{"@type":"Question","name":"個人配達してもらった砕石が、荷降ろししていたら、数量が間に合ったので、荷台に積んだ分はそのまま持ちかえって、引き取ってもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい。引き取りは可能ですが、その荷台に載ってる砕石料金分の返金は致しません。"}},{"@type":"Question","name":"プラント渡しで４ｔ車（３ｔ車）に1㎥だけ積んでほしいけど、できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。できます。引き取りに来られたダンプの運転手が、弊社スタッフへ、積込する前に１㎥積んでと言っていただければ、少ない積み荷になります。しかしながら、１㎥をぴったりと積むことはできないので、ちょっと多めになります。また、その積み込んだ量で、多かった場合は、引き取りに来られたダンプの運転手さんに、積み込んだ荷降ろしをお願いする場合がございます。その荷降ろしの作業などのご負担は、お客様の負担となります。"}},{"@type":"Question","name":"見積もりをお願いするのに料金はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"現地調査およびお見積りの作成は「無料」で行っております。現場の状況をしっかり確認した上で、分かりやすいお見積りをご提示しますのでご安心ください。"}},{"@type":"Question","name":"冬場の駐車場の除雪や排雪は頼めますか？","acceptedAnswer":{"@type":"Answer","text":"はい、店舗や企業の駐車場、アパート、町内会などの除雪・排雪作業を承っております。シーズン契約やスポット（単発）でのご依頼など、柔軟に対応いたします。※雪の時期は大変混み合いますので、お早めのご相談をおすすめします。"}},{"@type":"Question","name":"工事費や砕石代金の支払い方法を教えてください。","acceptedAnswer":{"@type":"Answer","text":"銀行振込、または砕石配達時に現金でのお支払いをお願いしております。請求書払いをご希望の法人様は別途ご相談ください。"}},{"@type":"Question","name":"砕石場の場所を教えてください。","acceptedAnswer":{"@type":"Answer","text":"石名坂砕石場 岩手県盛岡市黒川4地割25番地 電話番号：019-696-2820 FAX番号：019-696-2392 詳しくはページ上部の会社概要・アクセスをクリックしてください 会社概要"}}]}</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<style>/* AIOSEO FAQブロックは構造化データ用。本文はアコーディオンで表示済のため重複表示を抑止 */
+.wp-block-aioseo-faq[data-schema-only="true"]{display:none;}</style>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

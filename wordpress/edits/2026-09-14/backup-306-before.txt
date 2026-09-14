@@ -1,0 +1,431 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">株式会社石名坂では、盛岡市近郊の皆様へ向けて、多種多様な 砕石 ・ 砂利 販売 を行っております。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":4027,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/Gemini_Generated_Image_14jkg814jkg814jk-1024x558.jpg" alt="株式会社石名坂の砕石・砂利販売のご案内（DIY個人・建設業者向けメニューと電話番号）" class="wp-image-4027"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1209,"width":"200px","sizeSlug":"full","linkDestination":"custom","align":"left"} -->
+<figure class="wp-block-image alignleft size-full is-resized"><a href="https://www.ishinazaka.co.jp/contact/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775539219598_260407143021.png" alt="ホームページからのお問い合わせ" class="wp-image-1209" style="width:200px;height:auto"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>　</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph -->
+<p>お問い合わせTEL　　👉<a href="tel:019-638-7521" title="">019-638-7521</a>にまでお問い合わせください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">砕石 ・ 砂利 の概算価格を知りたい場合はこちら👉 <a href="https://www.ishinazaka.co.jp/post-547/">砕石 ・砂利の概算価格</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">お見積りがほしい方はこちら👉 <a href="https://www.ishinazaka.co.jp/simulation/" title="">砕石　お見積り目安</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル --- */
+.walking-cat-stage-final {
+  width: 100%; overflow: hidden; position: relative; height: 100px; margin: 20px 0; display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important; position: absolute; width: 100px; height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif') !important;
+  background-repeat: no-repeat; background-size: contain;
+  animation: urochoro-left-final 25s linear infinite; cursor: pointer; z-index: 9999 !important; transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active { animation-play-state: paused; transform: translateY(-20px) !important; }
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); } 30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); } 45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); } 65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); } 100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 100000; overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute; top: 0; left: 0; background-repeat: no-repeat; background-size: contain;
+  will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);
+}
+
+/* --- 肉球スタンプのスタイル --- */
+.paw-stamp-overlay {
+  position: absolute; top: 50%; left: 50%; width: 60vmin; height: 60vmin; margin-top: -30vmin; margin-left: -30vmin;
+  
+  /* ★ WordPressでもエラーにならない安全なエンコード済みの肉球データ */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232c3e50' d='M256 224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm-114-60c30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97 23 30 67 35 97 11zm245 0c23 30 67 35 97 11 30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97zm-130-55c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z'/%3E%3C/svg%3E");
+  
+  background-repeat: no-repeat; background-position: center; background-size: contain;
+  z-index: 200000; opacity: 0;
+  pointer-events: none; /* ★追加：スタンプが画面のクリックを邪魔しないようにする */
+  animation: smash-stamp 2s ease-out forwards;
+}
+
+@keyframes smash-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  10% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+// ★ クリックを邪魔していた isRunning を完全に削除しました！いつでもクリックできます。
+
+function catMagicClick() {
+  clickCount++; // クリックされたらすぐに数を数える
+
+  // ★ 5回に1回、肉球スタンプを出す！
+  if (clickCount % 5 === 0) {
+    showPawStamp();
+  }
+
+  // 3パターンループ
+  const pattern = (clickCount - 1) % 3;
+  if (pattern === 0) {
+    releaseCats('bl-to-tr'); // 1回目：左下→右上
+  } else if (pattern === 1) {
+    releaseCats('tr-to-bl'); // 2回目：右上→左下
+  } else if (pattern === 2) {
+    releaseCats('bottom-to-top'); // 3回目：下→上
+  }
+}
+
+function showPawStamp() {
+  const container = document.getElementById('cat-horde-container');
+  const stamp = document.createElement('div');
+  stamp.className = 'paw-stamp-overlay';
+  
+  container.appendChild(stamp);
+
+  // スタンプが消えたらデータごと削除して軽くする
+  setTimeout(() => {
+    stamp.remove();
+  }, 2000);
+}
+
+function releaseCats(direction) {
+  const container = document.getElementById('cat-horde-container');
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif'; 
+  
+  // ★ ▼ ここに一匹だけ混ぜる別の生き物のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006878.gif'; 
+
+  const catCount = 10; 
+  const otherIndex = -1; // 別画像の混入は無効化（URL未設定のため）
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+      
+      // 画像の振り分け
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 80) + 40;
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 1.8) + 1.2;
+      let startX, startY, endX, endY, flip;
+
+      if (direction === 'bl-to-tr') {
+        startX = Math.random() * 50 - 30; startY = Math.random() * 50 + 80; endX = Math.random() * 50 + 80; endY = Math.random() * 50 - 30; flip = 1; 
+      } else if (direction === 'tr-to-bl') {
+        startX = Math.random() * 50 + 80; startY = Math.random() * 50 - 30; endX = Math.random() * 50 - 30; endY = Math.random() * 50 + 80; flip = -1; 
+      } else if (direction === 'bottom-to-top') {
+        startX = Math.random() * 120 - 10; startY = 120; endX = startX + (Math.random() * 40 - 20); endY = -30; flip = Math.random() > 0.5 ? 1 : -1; 
+      }
+
+      container.appendChild(cat);
+
+      cat.animate([
+        { transform: `translate3d(${startX}vw, ${startY}vh, 0) scaleX(${flip})` },
+        { transform: `translate3d(${endX}vw, ${endY}vh, 0) scaleX(${flip})` }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        fill: 'forwards'
+      });
+
+      setTimeout(() => {
+        cat.remove();
+      }, duration * 1000);
+
+    }, Math.random() * 800); // すぐに出現するように調整
+  }
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<a href="https://lin.ee/xDCvOOw"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">弊社、休日等で電話がつながらない時に、LINE友達追加を行って、ご連絡ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"id":4030,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/Gemini_Generated_Image_m6cuz2m6cuz2m6cu-1024x558.webp" alt="砕石・砂利のダンプ配達イメージ" class="wp-image-4030"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">取扱中の砕石の種類と配達について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">砕石には、さまざまな種類があり、砕石の1個の縦横の大きさで分かれてます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":369,"width":"179px","height":"auto","sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large is-resized"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2025/11/PXL_20251126_075740491-769x1024.png" alt="砕石１粒の縦横を表した写真" class="wp-image-369" style="width:179px;height:auto"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4,"fontSize":"medium"} -->
+<h4 class="wp-block-heading has-medium-font-size">コンクリート二次製品·アスファルトコンクリート用</h4>
+<!-- /wp:heading -->
+
+<!-- wp:table {"fontSize":"medium"} -->
+<figure class="wp-block-table has-medium-font-size"><table class="has-fixed-layout"><tbody><tr><th>規格</th><th>用途・説明</th></tr><tr><td><img class="wp-image-608" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/５号.jpg" alt="単粒度砕石5号（20mm〜13mm）の写真"><br><a href="https://www.ishinazaka.co.jp/post-491/" title=""><strong>5号　20mm～13mm </strong></a>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a></td><td>生コン材料やアスファルト材料に使われます<br>家の周りに敷いて、歩けば、ジャクジャクとなり防犯度UPになります</td></tr><tr><td><img class="wp-image-609" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/６号.jpg" alt="単粒度砕石6号（13mm〜5mm）の写真"><br><a href="https://www.ishinazaka.co.jp/post-491/" title=""><strong>6号　13mm～5mm</strong></a>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a></td><td>生コン材料やアスファルト材料に使われます<br>家の周りに敷いて、歩けば、ジャクジャクとなり防犯度UPになります</td></tr><tr><td><img class="wp-image-623" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/7号.jpg" alt="単粒度砕石7号（5mm〜2.5mm）の写真"><br><a href="https://www.ishinazaka.co.jp/post-491/" title="">7号　5mm～2.5mm</a>　→　<a href="https://www.ishinazaka.co.jp/post-547/" title="">配達価格</a></td><td>浸透桝や箱型擁壁の基礎砕石に40～20で高さを整えますが、若干の高さ調整に使う場合があります。</td></tr><tr><td><strong><a href="https://www.ishinazaka.co.jp/post-497/">4号　30mm～20mm</a></strong>（盛岡管内の砕石業者で、取り扱いをしてる業者がおりません）<br>→　コンクリート骨材の４０～２０をおすすめします</td><td>浸透桝の関係で、お問い合わせがありますが、盛岡近郊の砕石業者で取り扱いとしてる業者はおりません。しかしながら、4号砕石と同等の実積率を確保できるなら、別な砕石でも良いとの指針が、雨水浸透施設技術指針[案]で記載されてます。<br>そのため、当社では、生コン用<strong>40～20</strong>がその指定されている実積率をクリアできるので、そちらへの変更をおねがいしております。公共事業での実績もございます。</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">路盤材用</h4>
+<!-- /wp:heading -->
+
+<!-- wp:table {"fontSize":"medium"} -->
+<figure class="wp-block-table has-medium-font-size"><table class="has-fixed-layout"><tbody><tr><th>規格</th><th>用途・説明</th></tr><tr><td><img class="wp-image-610" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/80-0.jpg" alt="砕石80〜0（路盤材）の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-491/">砕石　80～0</a>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　</strong>（最大粒径が80mmで最小０mmのサイズがバランスよく混ざっているイメージです）</td><td>砕石フィルター層や道路の路盤材などに使います</td></tr><tr><td><img class="wp-image-611" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/80-40.jpg" alt="砕石80〜40の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-497/">砕石　80～40</a>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　</strong>（最大粒径が80mmで最小が４０mmのサイズ混ざっていて、見た目がガラガラとしているイメージです）</td><td>粘土の多い農道などや水たまりやすい場所に使えば、一粒の大きさが大きいので車が乗っても沈下しづらいです。</td></tr><tr><td><img class="wp-image-612" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/40-0.jpg" alt="砕石40〜0（クラッシャラン）の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-491/">砕石　40～0</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が40mmで最小０mmのサイズが、バランスよく混ざっているイメージです）</td><td><br>一般的な路盤材。道路や基礎砕石など、多くの用途に使います。</td></tr><tr><td><img class="wp-image-613" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/25-0.jpg" alt="砕石25〜0の写真"><br><strong>砕石　25～0</strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が25mmで最小０mmのサイズが、バランスよく混ざっているイメージです）</td><td>スコップで人力で敷きならすなら、スコップが入りやすい細かいサイズがおすすめです。道路の水たまりなど使います</td></tr><tr><td><img class="wp-image-614" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/M40.jpg" alt="粒度調整砕石 粒調40〜0の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-491/">粒調　40～0</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が40mmで最小０mmのサイズがバランスよく混ざっているイメージです）</td><td>主に道路の上層路盤材に使用しますが、40～0との違いは、粉分が多く入っていて強固になります<br>アスファルトの下に敷いているのがこちらです。</td></tr><tr><td><img class="wp-image-615" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/M25.jpg" alt="粒度調整砕石 粒調25〜0の写真"><br><strong>粒調　25～0</strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が25mmで最小０mmのサイズがバランスよく混ざっているイメージです）</td><td>主に道路の上層路盤材に使用しますが、40～0との違いは、粉分が多く入っていて強固になります<br>アスファルトの下に敷いているのがこちらです。</td></tr><tr><td><img class="wp-image-616" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/80-0-1.jpg" alt="再生砕石80〜0の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-491/">再生砕石　80～0</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（廃材入りの最大粒径が80mmで最小０mmのサイズがバランスよく混ざっているイメージです）</td><td>コンクリートなどの廃材を混ぜて、リサイクルした砕石80～0<br></td></tr><tr><td><img class="wp-image-617" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/RC-40.jpg" alt="再生砕石40〜0の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-491/" title="">再生砕石　40～0</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（廃材入りの最大粒径が40mmで最小０mmのサイズがバランスよく混ざっているイメージです）</td><td>コンクリートなどの廃材を混ぜて、リサイクルした砕石40～0</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">生コン·浸透桝用</h4>
+<!-- /wp:heading -->
+
+<!-- wp:table {"fontSize":"medium"} -->
+<figure class="wp-block-table has-medium-font-size"><table class="has-fixed-layout"><tbody><tr><th>規格</th><th>用途・説明</th></tr><tr><td><img class="wp-image-618" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/40-20.jpg" alt="砕石40〜20（生コン骨材・浸透桝用）の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-497/">40～20</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が40mmで最小が20mmのサイズ混ざっていて、見た目がガラガラとしているイメージです）</td><td>主に、生コンやコンクリート二次製品の骨材になりますが、最近は、盛岡近郊には４号砕石をつくっている業者がいないことから、浸透桝の砕石に使用しております。実積率など基準に合格しているので公共工事でも使用しています。</td></tr><tr><td><img class="wp-image-619" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/20-05.jpg" alt="砕石20〜5（生コン骨材用）の写真"><br><strong><a href="https://www.ishinazaka.co.jp/post-497/">20～5</a></strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　（最大粒径が20mmで最小が5mmのサイズ混ざっていて、見た目がガラガラとしているイメージです）</td><td>主に、生コンやコンクリート二次製品の骨材</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">その他</h4>
+<!-- /wp:heading -->
+
+<!-- wp:table {"fontSize":"medium"} -->
+<figure class="wp-block-table has-medium-font-size"><table class="has-fixed-layout"><tbody><tr><th>規格</th><th>用途・説明</th></tr><tr><td><img class="wp-image-620" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/50ズリ.jpg" alt="50ズリ（50mm〜0mm）の写真"><br><strong>50ズリ</strong>　50ｍｍ～0ｍｍ　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a></td><td>軟岩を50ｍｍサイズに砕いたもの。土分も混ざります。造成の仕上げ材に使ってます</td></tr><tr><td><strong>割栗石（150～200）</strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>（最大粒径が200mmで最小が150mmのサイズ混ざっていて、見た目がガラガラとしているイメージです）</td><td>河川の浸食防止のためのふとんかごの中に使用します。水が多い箇所にふとんかごが有効な手段なので、詰め材として使用します。そのため、法面にも使用します。</td></tr><tr><td><strong>割栗石（50～150）</strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>（最大粒径が150mmで最小が50mmのサイズ混ざっていて、見た目がガラガラとしているイメージです）</td><td>河川の浸食防止のためのふとんかごの中に使用します水が多い箇所にふとんかごが有効な手段なので、詰め材として使用します。そのため、法面にも使用します。</td></tr><tr><td><img class="wp-image-621" style="width: 150px;" src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/ダスト.jpg" alt="ダスト（砕石の粉分）の写真"><br><strong>ダスト</strong>　砕石の粉分　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a></td><td>公園などに主に敷いている石粉です。<br>生石灰とダストを混ぜて、公園に納品しますが、生石灰の一時保管は消防法の届け出も必要ですので、事前にご連絡ください。</td></tr><tr><td><strong>砕砂　</strong>砕石の粉分を粒度調整し砂にしたもの</td><td>山砕石の砂で、洗砂ではないので、川砂よりは角張っている印象です。</td></tr><tr><td><strong>岩ズリ</strong>　→　<a href="https://www.ishinazaka.co.jp/post-547/">配達価格</a>　軟岩を砕いただけなので、大きさは様々。</td><td>主に造成の盛土材に使います。とてもぬかるんでいる場所などにはガラガラを使い、地盤の支持力を高めます。</td></tr><tr><td><strong>山土</strong></td><td>主に路肩盛土や堤防など使います。土分の細やかな部分が多いことから止水性も高い。</td></tr><tr><td><strong>川砂</strong>　</td><td>砂場に主に使います。最近は透水性舗装の下に水はけの向上にも使います。地下埋設物の埋戻しで、地下水がくみ上げきれない場合には、川砂を選択します。山砂より水はけが良いので。</td></tr><tr><td><strong>山砂</strong></td><td>川砂と異なり、山にある角が多めの砂。川砂と違いは、水洗いしていないので、粉分が多めです。使い方は地下埋設物の保護など、庭先などにも使います。</td></tr><tr><td><strong>黒土</strong>　→　<a href="https://www.ishinazaka.co.jp/post-1080/" title="">詳しくはコチラ<br></a></td><td>農園や花壇に使います。<br>盛岡近郊にある黒土のほとんどが、岩手山の火山灰土になります。岩手山周辺の火山灰土壌の主な性質は、腐植の蓄積とリン酸の固定力が高いことです。また、一般的に排水性が良く、耕しやすく、透水性・保水性も高いという特徴があります。植える作物によっては土壌改良が必要な場合があります。</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">概算のお見積りはこちらをご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉&nbsp;<a href="https://www.ishinazaka.co.jp/simulation/">[概算お見積もりを知りたい場合]</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final cat2"></div>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"black","textColor":"white","fontSize":"medium"} -->
+<h2 class="wp-block-heading has-white-color has-black-background-color has-text-color has-background has-link-color has-medium-font-size">雨降り後がぬかるんで、わだちができる</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":318,"width":"256px","height":"auto","sizeSlug":"medium","linkDestination":"none","className":"is-style-rounded"} -->
+<figure class="wp-block-image size-medium is-resized is-style-rounded"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2025/11/Firefly_一軒家の周りに泥濘があり、車が進めない-959237-1-300x233.png" alt="ぬかるみを表しているイメージ写真" class="wp-image-318" style="width:256px;height:auto"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今お使いの道路の高さを変えたくない場合は、ぬかるみになる粘土を、厚さ３０ｃｍ程度取り除いて、砕石を敷いて、同じ高さの道路とします。（ぬかるんでいるイメージ図）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今お使いの道路の高さが多少高くなってもよい場合は、砕石を足して、車両がぬかるみにとられないようにします。その際の砕石のサイズは大きめのC-80をおすすめします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"24px"} -->
+<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"black","textColor":"white","fontSize":"medium"} -->
+<h2 class="wp-block-heading has-white-color has-black-background-color has-text-color has-background has-link-color has-medium-font-size">家の周りに単粒度砕石を敷いて、防犯UP</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">家の周りを砕石するとザクザクを音がなり、防犯上の役立ちます。その際は単粒度砕石の５号（20mm～13mm)をおすすめします。単粒度砕石は砕石同士の空隙が大きく、水はけも良い状況にもなります。（下はイメージ図）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":319,"sizeSlug":"medium","linkDestination":"none","className":"is-style-rounded"} -->
+<figure class="wp-block-image size-medium is-style-rounded"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2025/11/Firefly_足音のザクザクを増やしてほしい。-957575-300x224.png" alt="泥棒が家の周りを歩いてザクザク音が鳴るイメージ図" class="wp-image-319"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
+<div class="wp-block-column" style="flex-basis:100%"><!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>道路用砕石　A 5001　粒度の一覧表</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「ふるいに留まった骨材の質量百分率」とは、例えば骨材全部の質量(m<sub>all</sub>)が100ｇで、最も目の大きな40ｍｍのふるいに留まった骨材の質量(m<sub>40</sub>)が20ｇ、次に大きい20ｍｍのふるいに溜まった骨材の質量(m<sub>20</sub>)が10ｇの場合、以下のような計算になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">X40=m40/mall=20/100=20(％)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"100%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:100%"><!-- wp:flexible-table-block/table {"isScrollOnPc":true,"isScrollOnMobile":true,"fontSize":"small"} -->
+<figure class="wp-block-flexible-table-block-table is-scroll-on-pc is-scroll-on-mobile has-small-font-size"><table class="has-fixed-layout" style="width:auto;border-collapse:collapse;border-style:solid;border-color:#000000"><tbody><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">種類</td><td rowspan="3" style="width:60px;font-size:10px;border-style:solid;border-color:#000000">呼び名</td><td colspan="17" style="font-size:10px;border-style:solid;border-color:#000000">ふるいを通るもの質量百分率　％</td></tr><tr><td colspan="17" style="font-size:10px;border-style:solid;border-color:#000000">ふるいの呼び寸法　ｍｍ</td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">80</td><td style="font-size:10px;border-style:solid;border-color:#000000">60</td><td style="font-size:10px;border-style:solid;border-color:#000000">50</td><td style="font-size:10px;border-style:solid;border-color:#000000">40</td><td style="font-size:10px;border-style:solid;border-color:#000000">30</td><td style="font-size:10px;border-style:solid;border-color:#000000">25</td><td style="font-size:10px;border-style:solid;border-color:#000000">20</td><td style="font-size:10px;border-style:solid;border-color:#000000">13</td><td style="font-size:10px;border-style:solid;border-color:#000000">5</td><td style="font-size:10px;border-style:solid;border-color:#000000">2.5</td><td style="font-size:10px;border-style:solid;border-color:#000000">1.2</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.6</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.4</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.3</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.15</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.075</td></tr><tr><td rowspan="7" style="font-size:10px;border-style:solid;border-color:#000000">単粒度砕石</td><td style="font-size:10px;border-style:solid;border-color:#000000">S-80(1号)</td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-60(2号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-40(3号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-30(4号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-20(5号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-13(6号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-5(7号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>25</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>5</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">クラッシャラン</td><td style="font-size:10px;border-style:solid;border-color:#000000">C-40</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">50<br>～<br>80</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">5<br>～<br>25</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">C-30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">55<br>～<br>85</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">5<br>～<br>30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">C-20</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000">20<br>～<br>50</td><td style="font-size:10px;border-style:solid;border-color:#000000">10<br>～<br>35</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">スクリーニングス</td><td style="font-size:10px;border-style:solid;border-color:#000000">F-2.5</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">25<br>～<br>55</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">7<br>～<br>28</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>20</td></tr><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">粒度調整砕石</td><td style="font-size:10px;border-style:solid;border-color:#000000">M-40</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">30<br>～<br>65</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">20<br>～<br>50</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">10<br>～<br>30</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">2<br>～<br>10</td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">M-30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">M-20</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;color:#000000;border-style:solid;border-color:#000000">55<br>～<br>85</td></tr></tbody></table></figure>
+<!-- /wp:flexible-table-block/table --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ふるいに留まった骨材の質量百分率の上記に当てはまれば、それはふるい分けにおいては、JIS相当品になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">実際のJIS認定は、その他の項目も同時にクリアしないといけないことから、岩手県で JIS A5001を認証している砕石工場はありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「砕石配達についてよくわからない場合は、👉[<a href="https://www.ishinazaka.co.jp/faq/">FAQ（よくある質問）ページ</a>] をご覧ください。」</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/post-573/">㎥（りゅうべい）って何？</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/2318-2/">敷砂利の様子をご覧になりたい方はコチラをクリック</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/post-2117/">ホームセンターで砕石を買う場合のメリット・デメリット</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"black","textColor":"white","fontSize":"medium"} -->
+<h2 class="wp-block-heading has-white-color has-black-background-color has-text-color has-background has-link-color has-medium-font-size">DIY・個人のお客様向け お役立ち記事</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>【買う前に】</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><li><a href="https://www.ishinazaka.co.jp/post-3836/">庭や駐車場に必要な砕石・砂利の量はどれくらい？自動計算ツール</a></li><li><a href="https://www.ishinazaka.co.jp/post-547/">砕石・砂利の概算価格</a></li><li><a href="https://www.ishinazaka.co.jp/post-573/">㎥（りゅうべい）って何？単位の説明</a></li><li><a href="https://www.ishinazaka.co.jp/post-2117/">ホームセンターで砕石を買うメリット・デメリット</a></li></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>【用途別の使い方】</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><li><a href="https://www.ishinazaka.co.jp/parking-saiseki/">駐車場の砕石は何号？C-40と5号の使い分け</a></li><li><a href="https://www.ishinazaka.co.jp/nukarumi-taisaku/">庭や砂利道のぬかるみ対策｜砕石で直す2つの方法</a></li><li><a href="https://www.ishinazaka.co.jp/post-2414/">家の周りの防犯砂利・クマ対策に使うなら</a></li><li><a href="https://www.ishinazaka.co.jp/post-2426/">ご自宅のお庭、熊の「隠れ家」になっていませんか？</a></li><li><a href="https://www.ishinazaka.co.jp/2318-2/">敷砂利（砕石）の施工実例｜水たまり・ボコボコ道を平らに</a></li><li><a href="https://www.ishinazaka.co.jp/post-1080/">黒土の特徴と農園・花壇での使い方</a></li></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>【選び方・豆知識】</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><li><a href="https://www.ishinazaka.co.jp/post-3190/">砕石は丸いほうがよい？尖ったほうがよい？</a></li><li><a href="https://www.ishinazaka.co.jp/post-4112/">個人のお客様向け配達実績のご紹介</a></li></ul>
+<!-- /wp:list -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"id":1209,"width":"200px","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775539219598_260407143021.png" alt="ホームページからのお問い合わせ" class="wp-image-1209" style="width:200px;height:auto"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/戻るボタン2-e1776823039293.png" alt="前のページへ戻る" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

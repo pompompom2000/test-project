@@ -47,7 +47,8 @@ for e in edits:
 
 results = []
 for pid, items in by_post.items():
-    kind = 'pages' if pid == 8 else 'posts'
+    # 投稿か固定ページか。edits 側で kind を指定できる（既定は投稿）
+    kind = items[0].get('kind', 'posts')
 
     current = api('/wp-json/wp/v2/%s/%d?context=edit' % (kind, pid))
     raw = current['content']['raw']

@@ -1,0 +1,228 @@
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ホームページ経由での「 個人 様向け」 配達 依頼が増えています！</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">いつも株式会社石名坂をご愛顧いただき、誠にありがとうございます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最近、当ホームページをご覧になった<strong>一般の 個人 のお客様</strong>から、「自宅まで 砕石 （砂利）を 配達 してほしい」というお問い合わせを非常に多くいただいております。数ある業者の中から当社を見つけていただき、本当にありがとうございます！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「砕石プラントやダンプトラックの会社は、プロの建設業者にしか販売してくれないのでは…？」とご不安に思われる方も多いかもしれませんが、<strong>石名坂では個人のお客様への砕石販売・ダンプ配達を大歓迎しております！</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今回は、最近の個人様向け配達の実績と、よくご相談いただく内容をご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最近の配達実績（一例）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">最近の個人様向け配達実績（ホームページからのお問い合わせのみ）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月17日　紫波町 T様 ／ C-25 4t （駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月11日：盛岡市 Y様 ／ M-40 3t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月9日：雫石町 T様 ／ ５号砕石 ４t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月8日：盛岡市 個人のお客様 ／ 7号砕石 3t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月8日：紫波町 S様 ／ 黒土 3t（畑）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年6月3日：矢巾町 F様 ／ C-50 4t（DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年5月17日：滝沢市 S様 ／ 山砂 3t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年5月16日：滝沢市 T様 ／ 山砂 3t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年5月14日：盛岡市 S様 ／ C40 ４t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2026年5月12日：盛岡市 S様 ／ ５号砕石　3t（駐車場DIY用）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>その他（集計を取ってません🙇）・・・</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">お電話からのお問い合わせも承っております</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<p style="margin-top: 10px; font-size: 0.9em; line-height: 1.6;">
+	<br>
+					TEL：<a href="tel:019-638-7521" style="color: #003366; text-decoration: none; font-size: 1.5em; font-weight: bold;">019-638-7521</a><br></p>
+<!-- /wp:html -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">1. 「自宅の前の道が狭いけど、ダンプは入れる？」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">一番多いご質問です。ご自宅周辺の道路状況や入り口の広さをお伺いし、進入可能かどうかを判断いたします。まずは「〇〇町の〇〇という施設の近くです」など、お気軽にご相談ください。「荷降ろし付近にカーポートや架空線ありますか？」などを伺います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 「どの種類の石を、どれくらい頼めばいいかわからない」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「駐車場にしたい」「庭を歩きやすくしたい」といった【用途】と、「〇メートル×〇メートルくらい」という【広さ】を教えていただければ、最適な砕石の種類と、必要な量（立米数・トン数）をアドバイスいたします！それでも、わかりにくい場合は、弊社営業マンを現地にて相談に伺います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. 「費用がいくらかかるか不安…」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">石名坂のホームページには、ご住所と必要な量を入力するだけで、おおよその金額がその場ですぐにわかる「お見積りシミュレーション」をご用意しております。明朗会計で安心してお取引いただけます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">安心・安全な配達は石名坂にお任せください</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">私たち株式会社石名坂は、安全第一で砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">住宅街の細い道や、お子様・歩行者の多い地域を通行する際も、プロのドライバーが細心の注意を払って運転いたしますので、どうぞ安心してご依頼ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">お庭の模様替え、DIY、駐車場の補修など、砕石・砂利のことでお困りなら、ぜひ「お見積りシミュレーション」やお問い合わせフォームから、お気軽にご連絡ください！お待ちしております！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉&nbsp;<a href="https://www.ishinazaka.co.jp/simulation/"><strong>費用がすぐわかる！お見積りシミュレーションはこちら</strong></a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「配達についてよくわからない場合は、👉[<a href="https://www.ishinazaka.co.jp/faq/">FAQ（よくある質問）ページ</a>] をご覧ください。」</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/post-573/">㎥（りゅうべい）って何？</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石の種類やサイズを知りたい場合はコチラをClick</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/2318-2/">敷砂利の様子をご覧になりたい方はコチラをクリック</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉<a href="https://www.ishinazaka.co.jp/post-2117/">ホームセンターで砕石を買う場合のメリット・デメリット</a></p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2117/">【徹底比較】 ホームセンター で 砕石 を買うメリット・デメリット！</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2414/">【防犯＆クマ対策】家の周りに敷くならホームセンターの 防犯 砂利？それとも「5号砕石」？ 防犯 DIY対策！</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-547/">砕石 の概算価格</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-4095/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-4151/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="トップページへ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
