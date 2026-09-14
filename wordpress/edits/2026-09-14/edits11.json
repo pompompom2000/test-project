@@ -1,0 +1,47 @@
+[
+ {
+  "pid": 895,
+  "kind": "posts",
+  "tag": "中-2",
+  "name": "句点の前の空白",
+  "nth": "all",
+  "old": " 。",
+  "new": "。"
+ },
+ {
+  "pid": 4363,
+  "kind": "posts",
+  "tag": "中-2",
+  "name": "句点の前の空白",
+  "nth": "all",
+  "old": " 。",
+  "new": "。"
+ },
+ {
+  "pid": 2264,
+  "kind": "posts",
+  "tag": "中-2",
+  "name": "句点の前の空白",
+  "nth": "all",
+  "old": " 。",
+  "new": "。"
+ },
+ {
+  "pid": 4599,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 満鉄調査部",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E6%BA%80%E9%89%84%E8%AA%BF%E6%9F%BB%E9%83%A8\" target=\"_blank\" rel=\"noopener\">Wikipedia「満鉄調査部」</a></li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E6%BA%80%E9%89%84%E8%AA%BF%E6%9F%BB%E9%83%A8\" target=\"_blank\" rel=\"noopener\">Wikipedia「満鉄調査部」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ },
+ {
+  "pid": 4599,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 日本の改軌論争",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E6%94%B9%E8%BB%8C%E8%AB%96%E4%BA%89\" target=\"_blank\" rel=\"noopener\">Wikipedia「日本の改軌論争」</a></li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E6%94%B9%E8%BB%8C%E8%AB%96%E4%BA%89\" target=\"_blank\" rel=\"noopener\">Wikipedia「日本の改軌論争」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "pid": 4571,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "出典名をWikipediaと明示＋ライセンス",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/東日本大震災に対する自衛隊の対応\" target=\"_blank\" rel=\"noopener\">「東日本大震災に対する自衛隊の対応」記録</a>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/東日本大震災に対する自衛隊の対応\" target=\"_blank\" rel=\"noopener\">Wikipedia「東日本大震災に対する自衛隊の対応」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）"
+ }
+]
