@@ -1,0 +1,197 @@
+<title>記事の書き換え文集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F4F0; --surface:#FBFBF8; --ink:#1C201D; --ink-2:#4A514B;
+    --ink-3:#757C76; --rule:#D7DAD2; --rule-soft:#E6E8E1;
+    --accent:#2E5A4D; --accent-soft:#E2EBE6;
+    --warn:#8A6410; --warn-bg:#F4ECDA;
+    --cut:#9A2B20; --cut-bg:#F6E6E2;
+    --code-bg:#EDEFE9;
+    --f-disp:"Zen Old Mincho",serif;
+    --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+      --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+      --accent:#79B49F; --accent-soft:#22322D;
+      --warn:#D7AE5C; --warn-bg:#2E2818;
+      --cut:#E08A7C; --cut-bg:#33211E;
+      --code-bg:#232829;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+    --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+    --accent:#79B49F; --accent-soft:#22322D;
+    --warn:#D7AE5C; --warn-bg:#2E2818;
+    --cut:#E08A7C; --cut-bg:#33211E;
+    --code-bg:#232829;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--f-body); font-size:16px; line-height:1.85;
+    margin:0; padding:0 20px; padding-block:0 72px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+  header.cover{padding-block:52px 30px;border-bottom:2px solid var(--ink)}
+  .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+  h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(28px,7vw,42px);line-height:1.34;letter-spacing:.02em;margin:0 0 16px;text-wrap:balance}
+  .lede{margin:0;color:var(--ink-2);max-width:60ch}
+
+  h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(20px,4.4vw,25px);line-height:1.45;margin:56px 0 6px;padding-top:20px;border-top:1px solid var(--rule);text-wrap:balance}
+  h2 .num{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--accent);display:block;letter-spacing:.1em;margin-bottom:4px}
+  h2 + .sub{color:var(--ink-3);font-size:14.5px;margin:0 0 22px;max-width:60ch}
+  h3{font-family:var(--f-body);font-weight:700;font-size:16.5px;margin:0 0 8px}
+  p{margin:0 0 1.05em;max-width:63ch}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:700}
+
+  .block{background:var(--surface);border:1px solid var(--rule);margin:0 0 20px}
+  .bhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--rule-soft);background:var(--code-bg)}
+  .bhead .where{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+  .copy{font-family:var(--f-body);font-size:13px;font-weight:700;padding:7px 15px;border:1px solid var(--accent);border-radius:2px;background:var(--accent);color:var(--surface);cursor:pointer;white-space:nowrap;transition:opacity .15s}
+  .copy:hover{opacity:.88}
+  .copy:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .copy[data-done="1"]{background:var(--surface);color:var(--accent)}
+  pre{margin:0;padding:16px 14px;font-family:var(--f-body);font-size:14.5px;line-height:1.9;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+
+  .before{border-left:4px solid var(--cut);background:var(--cut-bg);padding:14px 16px;margin:0 0 16px;font-size:15px;line-height:1.8}
+  .before .lab{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--cut);margin-bottom:8px}
+  .before del{text-decoration:line-through;text-decoration-color:var(--cut);text-decoration-thickness:2px}
+
+  .check{background:var(--warn-bg);border-left:5px solid var(--warn);padding:20px 20px 22px;margin:0 0 20px}
+  .check h3{margin-bottom:10px}
+  .check p{font-size:15px}
+
+  ol.look{list-style:none;counter-reset:s;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  ol.look li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+  ol.look li::before{content:counter(s);font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--surface);background:var(--warn);width:30px;height:30px;display:grid;place-items:center;border-radius:50%}
+  ol.look p{margin:0;font-size:15px}
+
+  .note{border-left:3px solid var(--rule);padding-left:14px;color:var(--ink-2);font-size:14.5px;margin:0 0 20px}
+  code{font-family:var(--f-mono);font-size:13px;background:var(--code-bg);padding:1px 5px;border-radius:2px}
+  .foot{margin-top:58px;padding-top:20px;border-top:2px solid var(--ink);font-size:14.5px;color:var(--ink-2)}
+  .foot h2{border:0;margin:0 0 10px;padding:0;font-size:19px}
+  @media (max-width:480px){ body{font-size:15px} pre{font-size:14px} }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+
+<div class="wrap">
+
+  <header class="cover">
+    <p class="eyebrow">Ishinazaka / Rewrites</p>
+    <h1>記事の書き換え文集</h1>
+    <p class="lede">台帳で指摘した箇所の、そのまま貼れる書き換え文です。<strong>記事の値打ちは減らさずに、危ういところだけ外してあります。</strong>ボタンでコピーできます。</p>
+  </header>
+
+  <h2><span class="num">高-04</span>除雪動画の記事、本文の2か所</h2>
+  <p class="sub"><code>post-640</code>「【動画】盛岡市の除雪・排雪現場を公開｜水道メーターを守るプロの技術」</p>
+
+  <div class="before">
+    <span class="lab">いまの本文 ／ 外したいところ</span>
+    状況は住宅地の<del>カギ型道路の正面</del>に雪を押し込んだらしく、<del>その一般住宅からの要望で</del>雪塊を撤去してほしいとのことでした。
+  </div>
+
+  <p><strong>「その一般住宅からの要望で」</strong>は、その家が市に要望を出したという事実まで書いています。ご近所の中では、知られたくない種類の情報です。<strong>「カギ型道路の正面」</strong>は、場所を絞り込む手がかりになります。</p>
+
+  <p><strong>技術の話は、1文字も削っていません。</strong>この記事のいちばんの値打ちは、水道メーターを壊さないために舗装道路と同じようには除雪しない、という判断のところだからです。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">本文をまるごと置き換え ／ 1段落め</span>
+      <button type="button" class="copy" id="c1" data-t="1">コピー</button>
+    </div>
+    <pre id="t1">今年は例年に比べて、雪の多い年になりました。除雪の際の雪の置き場所などに苦労した年でもありました。今回は、弊社の担当路線ではないですが、市役所からの依頼で除雪・排雪に出動しました。排雪状況を動画にしてみましたので、ご覧ください。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">2段落め</span>
+      <button type="button" class="copy" id="c2" data-t="2">コピー</button>
+    </div>
+    <pre id="t2">住宅地では、道路の除雪で寄せた雪が、住宅の出入口の前にたまってしまうことがあります。今回はその雪塊の撤去でした。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">3段落め</span>
+      <button type="button" class="copy" id="c3" data-t="3">コピー</button>
+    </div>
+    <pre id="t3">敷地内には水道のメーターボックスがあり、雪塊で覆われて検針できない状態でした。下に何が埋まっているかは見ただけでは分かりませんでしたが、ストリートビューで確認してから作業しました。下は舗装ではなく、砕石や土でした。舗装道路と同じように除雪すると、メーターなどを破損する可能性がありますので、ゆっくり慎重に作業しました。</pre>
+  </div>
+
+  <p class="note"><strong>3つに分けてあるのは、前回の経験からです。</strong>まとめて貼ると改行が消えるので、1つ貼ってEnter、また1つ貼ってEnter、の順でお願いします。</p>
+
+  <h2><span class="num">高-04</span>動画のほうは、確認をお願いします</h2>
+  <p class="sub">YouTubeの埋め込み（<code>RgEWzMvzKnw</code>／タイトル「盛岡　除雪　排雪」）。<strong>私の環境ではYouTubeへの接続が遮断されていて、中身もサムネイルも見られません。</strong></p>
+
+  <div class="check">
+    <h3>動画を再生して、この3つだけ見てください</h3>
+    <ol class="look">
+      <li><p><strong>表札・門柱・郵便受け</strong>に、名字が読める形で写っていないか</p></li>
+      <li><p><strong>車のナンバープレート</strong>が読めないか（近所に停まっている車も含めて）</p></li>
+      <li><p><strong>家の外観</strong>が、その家だと分かる形で長く写っていないか</p></li>
+    </ol>
+  </div>
+
+  <p><strong>3つとも無ければ、動画はそのままで問題ありません。</strong>作業そのものを写した動画に、公開できない理由はありません。</p>
+
+  <p>どれかが写っていた場合、いちばん簡単なのは<strong>YouTube側で「限定公開」に切り替える</strong>ことです。削除ではないので元に戻せますし、記事の埋め込みは見られなくなるだけで壊れません。そのうえで、撮り直すか、その場面を切るかを考えれば十分です。</p>
+
+  <p class="note">なお、現場の動画を今後も出されるなら、<strong>公開前に上の3つを見る、という手順を決めておく</strong>と毎回悩まずに済みます。3つとも「写っているか、いないか」だけの話なので、誰が見ても同じ答えになります。</p>
+
+  <h2>このあと足す予定のもの</h2>
+  <p>台帳の <strong>高-11〜高-15</strong>（広告の言い切り5件）の書き換え文を、次にここへ足します。「半永久的」「雑草が生えなくなる」「メンテナンスフリー」「音で撃退」「足りなくなる心配はありません」の5つです。</p>
+
+  <div class="foot">
+    <h2>済んだもの</h2>
+    <p><strong>旧 高-03（中学生の重機試乗会）は解消しました。</strong>本番記事を調べたところ、画像は重機3種のイラスト解説図1枚のみで、実在の人物は写っていません。動画・音声の埋め込みも0件でした。生徒さんの肖像も、合唱の録音も、そもそも存在しませんでした。</p>
+    <p style="margin-bottom:0;color:var(--ink-3);font-size:13px">2026年9月14日 確認。学校名と学年が本文に出ている点は残りますが、個人が特定される記述はないため、学校への一報で足りる水準です。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  document.addEventListener('click', function(ev){
+    var btn = ev.target && ev.target.closest ? ev.target.closest('.copy') : null;
+    if (!btn) { return; }
+    var pre = document.getElementById('t' + btn.getAttribute('data-t'));
+    if (!pre) { return; }
+    var text = pre.textContent;
+    function done(){
+      var old = btn.textContent;
+      btn.textContent = 'コピーしました';
+      btn.setAttribute('data-done','1');
+      setTimeout(function(){ btn.textContent = old; btn.removeAttribute('data-done'); }, 1800);
+    }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly','');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove();
+      if (ok) { done(); }
+      else {
+        btn.textContent = '長押しで選択を';
+        setTimeout(function(){ btn.textContent = 'コピー'; }, 2200);
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
