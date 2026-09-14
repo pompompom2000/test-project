@@ -92,6 +92,207 @@
     <p class="lede">台帳で指摘した箇所の、そのまま貼れる書き換え文です。<strong>記事の値打ちは減らさずに、危ういところだけ外してあります。</strong>ボタンでコピーできます。</p>
   </header>
 
+  <h2><span class="num">STEP 1</span>まず、数を数えます（書き換えません）</h2>
+  <p class="sub">高-11〜高-15の作業は、2段階で進めます。これは1段階めです。</p>
+
+  <div class="check" style="border-left-color:var(--accent);background:var(--accent-soft)">
+    <h3>このコードは、1文字も書き換えません</h3>
+    <p>機械的に確かめました。<strong>更新・削除の関数は0件</strong>で、使っているのは読み取り用の命令だけです。結果は<strong>管理画面にしか出ません</strong>し、管理者以外には何も表示されません。</p>
+    <p style="margin-bottom:0">なぜ先に調べるかというと、<strong>画面に見えている文字と、データベースに入っている文字が違うことがある</strong>からです。見出しやリンクのタグが混ざっています。そこを取り違えたまま置き換えると、記事が壊れます。</p>
+  </div>
+
+  <p>それと、担当が挙げた5件より<strong>範囲が広いことが分かりました。</strong>本番を見たところ、こんな箇所も出てきています。</p>
+
+  <div class="before">
+    <span class="lab">担当の報告に無かったもの</span>
+    熊が隠れられる「ヤブ」が<del>半永久的に</del>無くなり（post-2426）<br>
+    踏んで<del>割れることもなく</del>（post-2414）
+  </div>
+
+  <p>「半永久的」は2ページにまたがっています。<strong>何ページに何か所あるのかを先に確定させてから</strong>、書き換え文を作ります。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">WPCode ／ PHPスニペット ／ どこでも実行</span>
+      <button type="button" class="copy" id="cS" data-t="S">コードをコピー</button>
+    </div>
+    <pre id="tS" style="font-family:var(--f-mono);font-size:12px;line-height:1.65;max-height:340px;overflow:auto">&lt;?php
+/**
+ * 石名坂：言い切り表現の棚卸し（調べるだけ。1文字も書き換えません）
+ *
+ * 使い方
+ *   1. WPCode に「PHPスニペット」として貼り、「どこでも実行」で有効化する。
+ *   2. WordPress の管理画面（ダッシュボードなど）を開く。
+ *      画面の上に、見つかった箇所の一覧が出ます。
+ *   3. 結果を確認したら、このスニペットは無効にするか削除してください。
+ *
+ * 安全について
+ *   ・データベースは読むだけです。書き込み・更新・削除は一切しません。
+ *   ・結果は管理画面にしか出ません。訪問者には見えません。
+ *   ・管理者（manage_options 権限）以外には、何も表示しません。
+ */
+
+add_action( &#x27;admin_notices&#x27;, function () {
+
+	if ( ! current_user_can( &#x27;manage_options&#x27; ) ) {
+		return;
+	}
+
+	// 探す言葉。左が探す文字、右が台帳の番号
+	$phrases = array(
+		&#x27;半永久的&#x27;                   =&gt; &#x27;高-11&#x27;,
+		&#x27;割れない&#x27;                   =&gt; &#x27;高-11&#x27;,
+		&#x27;踏んで割れることもなく&#x27;     =&gt; &#x27;高-11&#x27;,
+		&#x27;粉砕される&#x27;                 =&gt; &#x27;高-12&#x27;,
+		&#x27;デシベル&#x27;                   =&gt; &#x27;高-14&#x27;,
+		&#x27;音で撃退&#x27;                   =&gt; &#x27;高-14&#x27;,
+		&#x27;雑草が生えなくなる&#x27;         =&gt; &#x27;高-13&#x27;,
+		&#x27;雑草が生えない&#x27;             =&gt; &#x27;高-13&#x27;,
+		&#x27;メンテナンスフリー&#x27;         =&gt; &#x27;高-13&#x27;,
+		&#x27;足りなくなる心配&#x27;           =&gt; &#x27;高-15&#x27;,
+	);
+
+	global $wpdb;
+
+	$rows  = array();
+	$total = 0;
+
+	foreach ( $phrases as $needle =&gt; $tag ) {
+
+		$like = &#x27;%&#x27; . $wpdb-&gt;esc_like( $needle ) . &#x27;%&#x27;;
+
+		// --- 1. 記事・固定ページの本文 ---
+		$found = $wpdb-&gt;get_results(
+			$wpdb-&gt;prepare(
+				&quot;SELECT ID, post_type, post_title, post_content
+				   FROM {$wpdb-&gt;posts}
+				  WHERE post_status = &#x27;publish&#x27;
+				    AND post_type IN (&#x27;post&#x27;,&#x27;page&#x27;)
+				    AND post_content LIKE %s
+				  ORDER BY ID
+				  LIMIT 30&quot;,
+				$like
+			)
+		);
+
+		foreach ( $found as $p ) {
+			$n = substr_count( $p-&gt;post_content, $needle );
+			$total += $n;
+			$rows[] = array(
+				&#x27;tag&#x27;   =&gt; $tag,
+				&#x27;word&#x27;  =&gt; $needle,
+				&#x27;where&#x27; =&gt; $p-&gt;post_type . &#x27; &#x27; . $p-&gt;ID,
+				&#x27;title&#x27; =&gt; $p-&gt;post_title,
+				&#x27;count&#x27; =&gt; $n,
+				&#x27;ctx&#x27;   =&gt; izk_scan_context( $p-&gt;post_content, $needle ),
+			);
+		}
+
+		// --- 2. カスタムフィールド（ACFなど） ---
+		$meta = $wpdb-&gt;get_results(
+			$wpdb-&gt;prepare(
+				&quot;SELECT post_id, meta_key, meta_value
+				   FROM {$wpdb-&gt;postmeta}
+				  WHERE meta_value LIKE %s
+				    AND meta_key NOT LIKE &#x27;\_%%&#x27;
+				  ORDER BY post_id
+				  LIMIT 30&quot;,
+				$like
+			)
+		);
+
+		foreach ( $meta as $m ) {
+			$n = substr_count( $m-&gt;meta_value, $needle );
+			$total += $n;
+			$rows[] = array(
+				&#x27;tag&#x27;   =&gt; $tag,
+				&#x27;word&#x27;  =&gt; $needle,
+				&#x27;where&#x27; =&gt; &#x27;meta &#x27; . $m-&gt;post_id . &#x27; / &#x27; . $m-&gt;meta_key,
+				&#x27;title&#x27; =&gt; get_the_title( $m-&gt;post_id ),
+				&#x27;count&#x27; =&gt; $n,
+				&#x27;ctx&#x27;   =&gt; izk_scan_context( $m-&gt;meta_value, $needle ),
+			);
+		}
+	}
+
+	// --- 3. post-640 の段落の重複も、ついでに数える ---
+	$p640 = get_post( 640 );
+	$dup  = &#x27;&#x27;;
+	if ( $p640 ) {
+		$head = &#x27;今年は例年に比べて、雪の多い年になりました&#x27;;
+		$c    = substr_count( $p640-&gt;post_content, $head );
+		$dup  = sprintf( &#x27;投稿640「今年は例年に比べて…」の段落： %d 回&#x27;, $c );
+		if ( false !== strpos( $p640-&gt;post_content, &#x27;住宅地では、道路の除雪で寄せた雪&#x27; ) ) {
+			$dup .= &#x27;　／　2段落めは入っています&#x27;;
+		} else {
+			$dup .= &#x27;　／　2段落めは入っていません&#x27;;
+		}
+	}
+
+	echo &#x27;&lt;div class=&quot;notice notice-info&quot; style=&quot;padding:14px 16px&quot;&gt;&#x27;;
+	echo &#x27;&lt;h2 style=&quot;margin:0 0 10px&quot;&gt;石名坂：言い切り表現の棚卸し（調べただけ。何も変えていません）&lt;/h2&gt;&#x27;;
+	echo &#x27;&lt;p style=&quot;margin:0 0 10px&quot;&gt;見つかった合計： &lt;strong&gt;&#x27; . intval( $total ) . &#x27; か所&lt;/strong&gt;&#x27;;
+	if ( $dup ) {
+		echo &#x27;&lt;br&gt;&#x27; . esc_html( $dup );
+	}
+	echo &#x27;&lt;/p&gt;&#x27;;
+
+	if ( empty( $rows ) ) {
+		echo &#x27;&lt;p&gt;該当する言葉は見つかりませんでした。&lt;/p&gt;&#x27;;
+	} else {
+		echo &#x27;&lt;div style=&quot;max-height:520px;overflow:auto;background:#fff;border:1px solid #ccd0d4;padding:10px&quot;&gt;&#x27;;
+		echo &#x27;&lt;table style=&quot;border-collapse:collapse;font-size:12px;width:100%&quot;&gt;&#x27;;
+		echo &#x27;&lt;tr style=&quot;text-align:left;background:#f0f0f1&quot;&gt;&#x27;
+			. &#x27;&lt;th style=&quot;padding:5px&quot;&gt;台帳&lt;/th&gt;&lt;th style=&quot;padding:5px&quot;&gt;言葉&lt;/th&gt;&#x27;
+			. &#x27;&lt;th style=&quot;padding:5px&quot;&gt;場所&lt;/th&gt;&lt;th style=&quot;padding:5px&quot;&gt;記事名&lt;/th&gt;&#x27;
+			. &#x27;&lt;th style=&quot;padding:5px&quot;&gt;回数&lt;/th&gt;&lt;th style=&quot;padding:5px&quot;&gt;前後の文&lt;/th&gt;&lt;/tr&gt;&#x27;;
+
+		foreach ( $rows as $r ) {
+			echo &#x27;&lt;tr style=&quot;border-top:1px solid #e5e5e5;vertical-align:top&quot;&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px;white-space:nowrap&quot;&gt;&#x27; . esc_html( $r[&#x27;tag&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px;white-space:nowrap&quot;&gt;&#x27; . esc_html( $r[&#x27;word&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px;white-space:nowrap&quot;&gt;&#x27; . esc_html( $r[&#x27;where&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px&quot;&gt;&#x27; . esc_html( $r[&#x27;title&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px;text-align:right&quot;&gt;&#x27; . intval( $r[&#x27;count&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;td style=&quot;padding:5px;font-family:monospace&quot;&gt;&#x27; . esc_html( $r[&#x27;ctx&#x27;] ) . &#x27;&lt;/td&gt;&#x27;;
+			echo &#x27;&lt;/tr&gt;&#x27;;
+		}
+		echo &#x27;&lt;/table&gt;&lt;/div&gt;&#x27;;
+	}
+
+	echo &#x27;&lt;p style=&quot;margin:10px 0 0;color:#646970&quot;&gt;&#x27;
+		. &#x27;このスニペットはデータベースを読むだけです。書き込みは行いません。&#x27;
+		. &#x27;確認が済んだら、無効にするか削除してください。&lt;/p&gt;&#x27;;
+	echo &#x27;&lt;/div&gt;&#x27;;
+} );
+
+/** 見つかった箇所の前後を、短く切り出す */
+function izk_scan_context( $haystack, $needle ) {
+	$pos = mb_strpos( $haystack, $needle );
+	if ( false === $pos ) {
+		return &#x27;&#x27;;
+	}
+	$start = max( 0, $pos - 45 );
+	$out   = mb_substr( $haystack, $start, 45 + mb_strlen( $needle ) + 55 );
+	$out   = preg_replace( &#x27;/\s+/u&#x27;, &#x27; &#x27;, wp_strip_all_tags( $out ) );
+	return &#x27;…&#x27; . trim( $out ) . &#x27;…&#x27;;
+}
+</pre>
+  </div>
+
+  <div class="check">
+    <h3>手順</h3>
+    <ol class="look">
+      <li><p>WPCode で新しい<strong>PHPスニペット</strong>を作り、上のコードを貼る。名前は「言い切り表現の棚卸し（調査用）」など。</p></li>
+      <li><p><strong>「どこでも実行」</strong>で有効化する。</p></li>
+      <li><p>WordPressの<strong>ダッシュボードを開く。</strong>画面の上に一覧が出ます。</p></li>
+      <li><p>その画面を<strong>スクリーンショットで送ってください。</strong>それを見て、書き換え文を作ります。</p></li>
+      <li><p>終わったら、このスニペットは<strong>無効にするか削除</strong>してください。</p></li>
+    </ol>
+  </div>
+
+  <p class="note"><strong>ついでに post-640 の段落の重複も数えます。</strong>「今年は例年に比べて…」が何回入っているかが、同じ画面に出ます。</p>
+
   <h2><span class="num">済＋直し</span>除雪動画の記事、本文</h2>
   <p class="sub"><code>post-640</code>／2026年9月14日、本番で確認しました。</p>
 
@@ -135,8 +336,9 @@
 
   <p class="note">今後、現場の動画を出されるときは<strong>公開前に「表札・ナンバー・家の外観」の3つを見る</strong>という手順にしておくと、毎回悩まずに済みます。今回やられたことを、そのまま手順にするだけです。</p>
 
-  <h2>このあと足す予定のもの</h2>
-  <p>台帳の <strong>高-11〜高-15</strong>（広告の言い切り5件）の書き換え文を、次にここへ足します。「半永久的」「雑草が生えなくなる」「メンテナンスフリー」「音で撃退」「足りなくなる心配はありません」の5つです。</p>
+  <h2>STEP 2 でやること</h2>
+  <p>棚卸しの結果が出たら、<strong>箇所ごとの書き換え文</strong>をここに足します。そのうえで、置き換えを行うコードを作ります。</p>
+  <p>置き換えのコードにも、同じ段取りを踏みます。<strong>まず「何をどう変えるか」を表示するだけの版</strong>を動かし、中身を見て納得してから、実際に変える版に差し替えます。WordPressは投稿ごとに履歴（リビジョン）を残すので、<strong>変えたあとでも元に戻せます。</strong></p>
 
   <div class="foot">
     <h2>済んだもの</h2>
