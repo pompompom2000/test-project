@@ -87,7 +87,7 @@ td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;w
   font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .gauge .row b{font-size:15px;color:var(--ink)}
 .gauge .track{height:8px;background:var(--line-soft);margin-top:6px;border:1px solid var(--line)}
-.gauge .fill{height:100%;background:var(--accent);width:74%}
+.gauge .fill{height:100%;background:var(--accent);width:75%}
 
 .asks{list-style:none;padding:0;margin:14px 0;display:grid;gap:7px;max-width:64ch}
 .asks li{padding-left:1.5em;position:relative;font-size:14.5px}
@@ -114,9 +114,9 @@ td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;w
   <p>サイト全ページから事実を集めて作りました。配達価格表、<b>単価表21規格（1㎥あたり・税抜）</b>、砕石の種類、除雪料金、採用条件、よくある質問、そして<b>「答えてはいけないこと」</b>まで入っています。</p>
 
   <div class="gauge">
-    <div class="row"><span>原稿の分量</span><span><b>12,160</b> / 16,384 文字</span></div>
+    <div class="row"><span>原稿の分量</span><span><b>12,307</b> / 16,384 文字</span></div>
     <div class="track"><div class="fill"></div></div>
-    <div class="row" style="margin-top:5px"><span>上限まで 4,224 文字の余裕</span><span>74% 使用</span></div>
+    <div class="row" style="margin-top:5px"><span>上限まで 4,077 文字の余裕</span><span>75% 使用</span></div>
   </div>
 
   <div class="codewrap">
@@ -267,6 +267,7 @@ B砕｜2,700｜4,500｜4,800
 ・お届け先の場所
 TEL 019-638-7521（平日8:00〜17:00）
 お客様が「注文したい」「いつ来られるか」とおっしゃったら、この3点をご案内してください。
+営業時間外や、お電話より文章のほうがよいとおっしゃる場合は、お問い合わせフォームをご案内してください。そのとき、チャット画面の下にある「この会話をお問い合わせに送る」を押していただければ、ここまでのやりとりがそのまま問い合わせ本文に入ることを添えてください。書き直していただく手間が省けます。
 
 数量がまとまるご注文では、一度にすべてお届けできるとは限りません。砕石場の配車の都合で、何回かに分けてのお届けになる場合があります。聞かれたら「配車の都合で、分けてお届けになる場合があります。お電話でご相談ください」とご案内してください。何台で、何回で、といった具体的な話はしないでください。
 チャットの中で日時を確約してはいけません。「お日にちの確定はお電話で承ります」と伝えてください。
@@ -522,6 +523,256 @@ A 昭和25年10月の創業で、盛岡市で土木工事と砕石販売を続�
     <span class="lbl">保有台数は持たせていません</span>
     <p>3ｔ車1台・4ｔ車2台という台数は、<b>ボットには入れていません。</b>持たせると必ずそれを使って「2台で2往復すれば」といった勝手な配車計画を答え始めます。配車は砕石場が決めることです。</p>
     <p>台数は <code>wordpress/chatbot/price-sheet-notes.md</code> に記録してあります。ボットに言わせたい場合は教えてください。</p>
+  </div>
+
+  <h2>会話をお問い合わせに引き継ぐ</h2>
+  <p>チャットの内容を、お問い合わせフォームの本文に引き継げるようにしました。<b>送信ボタンはお客様に押していただきます。</b>自動送信はしません。</p>
+  <div class="callout good">
+    <span class="lbl">チャットの中にボタンを置ける場所がありました</span>
+    <p>HTMLを無理やり書き換える必要はありませんでした。AI Engine の <b>Compliance Text</b> という設定欄が、入力欄の下にHTMLをそのまま表示する作りになっています（<code>.mwai-compliance</code>）。ここにリンクを置けば、プラグインの構造に手を入れずに済みます。</p>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:700;margin-top:24px">手順1　設定にリンクを入れる</h3>
+  <p>チャットボット編集画面の <b>Compliance Text</b> に、次の1行を貼ります。</p>
+  <div class="codewrap">
+    <div class="codebar">
+      <span class="fn">Compliance Text に貼る1行</span>
+      <button class="copybtn" type="button" data-target="compsrc">コピー</button>
+    </div>
+    <pre id="compsrc"><code>&lt;a href="/contact/" class="izk-to-form"&gt;この会話をお問い合わせに送る&lt;/a&gt;</code></pre>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:700;margin-top:24px">手順2　スニペットを追加する</h3>
+  <p>WPCodeに <b>PHPスニペット</b>として追加し、<b>自動挿入 → どこでも実行</b>で有効にします。名前は <b>チャットの会話をお問い合わせへ</b>。</p>
+  <div class="codewrap">
+    <div class="codebar">
+      <span class="fn">WPCodeに追加するPHPコード</span>
+      <button class="copybtn" type="button" data-target="formsrc">コピー</button>
+    </div>
+    <pre id="formsrc"><code>&lt;?php
+/**
+ * 石名坂：チャットの会話を、お問い合わせフォームの本文に引き継ぐ
+ *
+ * 使い方は2つに分かれます。
+ *
+ * 1) チャットボットの設定「Compliance Text」に、次の1行を入れる。
+ *      &lt;a href=&quot;/contact/&quot; class=&quot;izk-to-form&quot;&gt;この会話をお問い合わせに送る&lt;/a&gt;
+ *    ここはAI Engineが HTML をそのまま表示する欄なので、
+ *    プラグインの構造をいじらずにリンクを置けます。
+ *
+ * 2) このスニペットを WPCode に「PHPスニペット」で入れ、「どこでも実行」で有効化する。
+ *
+ * 動き
+ *   ・上のリンクが押されたら、その時点のチャットの会話を読み取って
+ *     ブラウザに一時保存し、お問い合わせページへ移動します。
+ *   ・お問い合わせページで、本文欄にその会話を貼り付けます。
+ *   ・送信ボタンはお客様に押していただきます。自動送信はしません。
+ *
+ * 壊れ方について
+ *   会話が読み取れなかった場合は、何も保存せずに、ただのリンクとして
+ *   お問い合わせページへ移動します。「押しても何も起きない」状態にはなりません。
+ *   AI Engine の更新でクラス名が変わったときは、この形で表に出ます。
+ */
+
+add_action( &#x27;wp_footer&#x27;, function () {
+
+	if ( is_admin() ) {
+		return;
+	}
+	?&gt;
+&lt;script id=&quot;izk-chat-to-form&quot; data-noptimize=&quot;1&quot;&gt;
+(function () {
+	&#x27;use strict&#x27;;
+
+	// AI Engine 側のクラス名。更新で変わったらここだけ直す
+	var SEL_CONVERSATION = &#x27;.mwai-conversation&#x27;;
+	var SEL_MESSAGE      = &#x27;.mwai-reply&#x27;;
+	var CLASS_AI         = &#x27;mwai-ai&#x27;;
+	var CLASS_USER       = &#x27;mwai-user&#x27;;
+
+	var STORE_KEY   = &#x27;izkChatTranscript&#x27;;
+	var LINK_CLASS  = &#x27;izk-to-form&#x27;;
+	var CONTACT_PATH = &#x27;/contact/&#x27;;
+	var HEADING     = &#x27;──── チャットでのやりとり ────&#x27;;
+
+	function store() {
+		try {
+			return window.sessionStorage;
+		} catch (e) {
+			return null;
+		}
+	}
+
+	/** チャットの会話を文章にする。読めなければ空文字を返す */
+	function readTranscript() {
+		var box = document.querySelector(SEL_CONVERSATION);
+		if (!box) { return &#x27;&#x27;; }
+
+		var nodes = box.querySelectorAll(SEL_MESSAGE);
+		var lines = [];
+
+		for (var i = 0; i &lt; nodes.length; i++) {
+			var el = nodes[i];
+			var who;
+			if (el.classList.contains(CLASS_USER)) {
+				who = &#x27;お客様&#x27;;
+			} else if (el.classList.contains(CLASS_AI)) {
+				who = &#x27;案内係&#x27;;
+			} else {
+				continue; // system や error は入れない
+			}
+			var text = (el.innerText || el.textContent || &#x27;&#x27;)
+				.replace(/\u00a0/g, &#x27; &#x27;)
+				.replace(/[ \t]+\n/g, &#x27;\n&#x27;)
+				.replace(/\n{3,}/g, &#x27;\n\n&#x27;)
+				.trim();
+			if (text) {
+				lines.push(who + &#x27;：&#x27; + text);
+			}
+		}
+
+		// お客様の発言が1つもなければ、引き継ぐ意味がない
+		var hasUser = lines.some(function (l) { return l.indexOf(&#x27;お客様：&#x27;) === 0; });
+		if (!hasUser) { return &#x27;&#x27;; }
+
+		return lines.join(&#x27;\n\n&#x27;);
+	}
+
+	/** 本文欄に収まる長さに整える。古いやりとりから削る */
+	function fit(transcript, room) {
+		var head = HEADING + &#x27;\n\n&#x27;;
+		var tail = &#x27;\n\n──── ここまで ────&#x27;;
+		var budget = room - head.length - tail.length;
+		if (budget &lt; 200) { return &#x27;&#x27;; }
+
+		if (transcript.length &gt; budget) {
+			var note = &#x27;（前半のやりとりは省略しています）\n\n&#x27;;
+			transcript = note + transcript.slice(transcript.length - (budget - note.length));
+		}
+		return head + transcript + tail;
+	}
+
+	// ── 1. リンクが押されたら会話を保存する ────────────────
+	document.addEventListener(&#x27;click&#x27;, function (ev) {
+		var link = ev.target &amp;&amp; ev.target.closest
+			? ev.target.closest(&#x27;a.&#x27; + LINK_CLASS)
+			: null;
+		if (!link) { return; }
+
+		var s = store();
+		if (!s) { return; }           // 保存できなくても、リンクとしては動く
+
+		var transcript = readTranscript();
+		try {
+			if (transcript) {
+				s.setItem(STORE_KEY, transcript);
+			} else {
+				s.removeItem(STORE_KEY);
+			}
+		} catch (e) { /* 保存できなければ、そのまま移動する */ }
+	}, true);
+
+	// ── 2. お問い合わせページで本文欄に貼り付ける ──────────
+	function paste() {
+		if (location.pathname.indexOf(CONTACT_PATH) !== 0) { return; }
+
+		var s = store();
+		if (!s) { return; }
+
+		var transcript;
+		try {
+			transcript = s.getItem(STORE_KEY);
+		} catch (e) { return; }
+		if (!transcript) { return; }
+
+		var field = document.querySelector(&#x27;textarea[name=&quot;your-message&quot;]&#x27;);
+		if (!field) { return; }
+
+		try { s.removeItem(STORE_KEY); } catch (e) {}
+
+		var max = parseInt(field.getAttribute(&#x27;maxlength&#x27;), 10);
+		if (!max || max &lt; 1) { max = 2000; }
+
+		var before = field.value || &#x27;&#x27;;
+		var room = max - before.length - (before ? 2 : 0);
+		var block = fit(transcript, room);
+		if (!block) { return; }
+
+		var after = before ? (before.replace(/\s+$/, &#x27;&#x27;) + &#x27;\n\n&#x27; + block) : block;
+		field.value = after;
+		field.dispatchEvent(new Event(&#x27;input&#x27;, { bubbles: true }));
+
+		notice(field, before);
+	}
+
+	/** 貼り付けたことを知らせる。元に戻せるようにする */
+	function notice(field, previous) {
+		if (document.getElementById(&#x27;izk-paste-notice&#x27;)) { return; }
+
+		var box = document.createElement(&#x27;div&#x27;);
+		box.id = &#x27;izk-paste-notice&#x27;;
+		box.setAttribute(&#x27;role&#x27;, &#x27;status&#x27;);
+		box.style.cssText = &#x27;margin:12px 0;padding:12px 14px;border-left:4px solid #b34a18;&#x27;
+			+ &#x27;background:#f6e5db;color:#25231e;font-size:14px;line-height:1.7;border-radius:2px;&#x27;;
+
+		var msg = document.createElement(&#x27;span&#x27;);
+		msg.textContent = &#x27;チャットでのやりとりを、下の「お問い合わせ内容」に貼り付けました。&#x27;
+			+ &#x27;内容をご確認のうえ、必要なところを書き足して送信してください。&#x27;;
+		box.appendChild(msg);
+
+		var undo = document.createElement(&#x27;button&#x27;);
+		undo.type = &#x27;button&#x27;;
+		undo.textContent = &#x27;貼り付けをやめる&#x27;;
+		undo.style.cssText = &#x27;margin-left:10px;padding:4px 12px;font:inherit;font-size:13px;&#x27;
+			+ &#x27;border:1px solid #b34a18;background:#fff;color:#b34a18;border-radius:2px;cursor:pointer;&#x27;;
+		undo.addEventListener(&#x27;click&#x27;, function () {
+			field.value = previous;
+			field.dispatchEvent(new Event(&#x27;input&#x27;, { bubbles: true }));
+			box.remove();
+		});
+		box.appendChild(undo);
+
+		// 「お問い合わせ内容」の見出しの上に出す。段落の外に置いて、体裁を崩さない
+		var label = field.id ? document.querySelector(&#x27;label[for=&quot;&#x27; + field.id + &#x27;&quot;]&#x27;) : null;
+		var anchor = (label &amp;&amp; label.closest(&#x27;p&#x27;))
+			|| field.closest(&#x27;p&#x27;)
+			|| field.closest(&#x27;.wpcf7-form-control-wrap&#x27;)
+			|| field;
+		anchor.parentNode.insertBefore(box, anchor);
+		if (typeof box.scrollIntoView === &#x27;function&#x27;) {
+			box.scrollIntoView({ block: &#x27;center&#x27; });
+		}
+	}
+
+	if (document.readyState === &#x27;loading&#x27;) {
+		document.addEventListener(&#x27;DOMContentLoaded&#x27;, paste);
+	} else {
+		paste();
+	}
+})();
+&lt;/script&gt;
+	&lt;?php
+}, 99 );</code></pre>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:700;margin-top:24px">どう動くか</h3>
+  <div class="tbl"><table>
+    <tr><th>場面</th><th>動き</th></tr>
+    <tr><td>リンクを押す</td><td>その時点の会話を読み取り、ブラウザに一時保存してお問い合わせページへ移動</td></tr>
+    <tr><td>お問い合わせページ</td><td>本文欄に会話を貼り付け、上に案内と「貼り付けをやめる」ボタンを表示</td></tr>
+    <tr><td>送信</td><td class="num">お客様が押す</td></tr>
+  </table></div>
+
+  <div class="callout warn">
+    <span class="lbl">壊れ方を決めてあります</span>
+    <p>ご心配されていた「押しても何も起きない」状態にならないようにしました。会話が読み取れなかった場合は<b>何も保存せず、ただのリンクとしてお問い合わせページへ移動します。</b>AI Engine の更新でクラス名が変われば、「会話が貼り付けられない」という形で表に出ます。黙って壊れません。</p>
+    <p>クラス名はコードの先頭4行にまとめてあります。変わったときはそこだけ直せば戻ります。</p>
+  </div>
+
+  <div class="callout">
+    <span class="lbl">検証したこと</span>
+    <p>PHPとJavaScriptの構文チェックを通し、会話の読み取りと文字数の切り詰めを実際に動かして確かめました。本文欄は<b>2,000文字が上限</b>なので、長い会話は古いほうから削り、「前半のやりとりは省略しています」と断りを入れます。5,000文字の会話を入れても、ちょうど2,000文字に収まりました。</p>
+    <p>あいさつだけ・お客様の発言なし・エラーのみ・会話欄が見つからない、のいずれも「保存しない」と判定します。空の問い合わせが飛ぶことはありません。</p>
   </div>
 
   <h2>貼る手順</h2>
