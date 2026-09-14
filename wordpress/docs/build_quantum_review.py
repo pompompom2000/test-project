@@ -139,6 +139,14 @@ h2{
 .draft ul{margin:14px 0 0;padding-left:1.25em}
 .draft li{margin-top:9px}
 .draft a{color:var(--keep);word-break:break-all}
+.draft figure{margin:20px 0 0;overflow-x:auto}
+.draft figure table{border-collapse:collapse;width:100%;font-size:.88rem;background:transparent}
+.draft figure th,.draft figure td{
+  border:1px solid var(--rule);padding:9px 11px;text-align:left;vertical-align:top;line-height:1.7;
+}
+.draft figure th{background:var(--ground);font-weight:700}
+.draft figcaption{font-size:.82rem;color:var(--ink-soft);text-align:center;margin-top:8px}
+.draft svg{margin:22px auto}
 
 /* 貼り付け */
 details{border:1px solid var(--rule);background:var(--paper)}
