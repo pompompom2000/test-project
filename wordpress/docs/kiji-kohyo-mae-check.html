@@ -1,0 +1,228 @@
+<title>記事を出す前の6つ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F4F0; --surface:#FBFBF8; --ink:#1C201D; --ink-2:#4A514B;
+    --ink-3:#757C76; --rule:#D7DAD2; --rule-soft:#E6E8E1;
+    --accent:#2E5A4D; --accent-soft:#E2EBE6;
+    --cut:#9A2B20; --cut-bg:#F6E6E2;
+    --warn:#8A6410; --warn-bg:#F4ECDA;
+    --code-bg:#EDEFE9;
+    --f-disp:"Zen Old Mincho",serif;
+    --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+      --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+      --accent:#79B49F; --accent-soft:#22322D;
+      --cut:#E08A7C; --cut-bg:#33211E;
+      --warn:#D7AE5C; --warn-bg:#2E2818;
+      --code-bg:#232829;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+    --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+    --accent:#79B49F; --accent-soft:#22322D;
+    --cut:#E08A7C; --cut-bg:#33211E;
+    --warn:#D7AE5C; --warn-bg:#2E2818;
+    --code-bg:#232829;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--f-body); font-size:16px; line-height:1.85;
+    margin:0; padding:0 20px; padding-block:0 72px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:700px;margin:0 auto}
+
+  header.cover{padding-block:52px 26px;border-bottom:2px solid var(--ink)}
+  .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+  h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,7.6vw,44px);line-height:1.3;letter-spacing:.02em;margin:0 0 16px;text-wrap:balance}
+  .lede{margin:0;color:var(--ink-2);max-width:58ch}
+
+  /* ── チェック項目 ────────────────── */
+  .item{border-top:1px solid var(--rule-soft);padding:30px 0 8px}
+  .item:first-of-type{border-top:0;padding-top:34px}
+  .ihead{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;margin-bottom:16px}
+  .num{
+    font-family:var(--f-mono);font-size:15px;font-weight:600;
+    width:44px;height:44px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--accent);color:var(--surface);
+  }
+  .ihead h2{
+    font-family:var(--f-disp);font-weight:900;
+    font-size:clamp(20px,4.6vw,26px);line-height:1.4;
+    margin:6px 0 0;text-wrap:balance;
+  }
+  .item p{margin:0 0 1em;max-width:62ch}
+  .item p:last-child{margin-bottom:0}
+
+  .ex{
+    background:var(--cut-bg);border-left:4px solid var(--cut);
+    padding:14px 16px;margin:0 0 16px;font-size:15px;line-height:1.8;
+  }
+  .ex .lab{
+    display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;
+    color:var(--cut);margin-bottom:8px;
+  }
+  .ex del{text-decoration:line-through;text-decoration-color:var(--cut);text-decoration-thickness:2px}
+  .ex .to{display:block;margin-top:9px;padding-top:9px;border-top:1px solid var(--rule);color:var(--ink-2)}
+  .ex .to b{color:var(--accent)}
+
+  .why{
+    border-left:3px solid var(--rule);padding-left:14px;
+    color:var(--ink-2);font-size:15px;margin:0 0 4px;
+  }
+
+  h3{font-family:var(--f-body);font-weight:700;font-size:16px;margin:0 0 8px}
+
+  .box{
+    background:var(--warn-bg);border-left:5px solid var(--warn);
+    padding:20px;margin:34px 0 0;
+  }
+  .box h3{margin-bottom:10px}
+  .box p{font-size:15px;margin:0 0 .8em;max-width:60ch}
+  .box p:last-child{margin-bottom:0}
+
+  .closing{
+    margin-top:56px;padding-top:22px;border-top:2px solid var(--ink);
+  }
+  .closing h2{font-family:var(--f-disp);font-weight:900;font-size:21px;margin:0 0 12px}
+  .closing p{font-size:15px;color:var(--ink-2);margin:0 0 .9em;max-width:62ch}
+  .closing p:last-child{margin-bottom:0}
+
+  ul.plain{margin:0 0 1em;padding-left:1.2em}
+  ul.plain li{margin-bottom:.45em;max-width:60ch}
+  code{font-family:var(--f-mono);font-size:13px;background:var(--code-bg);padding:1px 5px;border-radius:2px}
+  strong{font-weight:700}
+  @media (max-width:480px){
+    body{font-size:15px}
+    .ihead{grid-template-columns:38px 1fr;gap:12px}
+    .num{width:38px;height:38px;font-size:14px}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="cover">
+    <p class="eyebrow">Ishinazaka / Pre-publication Check</p>
+    <h1>記事を出す前の6つ</h1>
+    <p class="lede">2026年9月14日に、公開中の164ページを点検して<strong>実際に直した80か所</strong>から作りました。すべて、この会社で本当に起きたことです。</p>
+  </header>
+
+  <div class="item">
+    <div class="ihead"><span class="num">1</span><h2>言い切っていないか</h2></div>
+
+    <div class="ex">
+      <span class="lab">実際にあった例</span>
+      一度敷けば<del>半永久的に</del>効果が持続します<br>
+      耐久性｜<del>半永久的（割れない・減らない）</del><br>
+      <del>雑草が生えなくなる</del>ため<br>
+      <del>メンテナンスフリー</del>：土と違って靴が汚れず<br>
+      <del>音で撃退！</del>『5号砕石』で安心の住まいづくり<br>
+      途中で砕石が<del>足りなくなる心配はありません！</del>
+      <span class="to">→ <b>長く効果が持続します／生えにくくなります／お手入れが楽／踏むと音が出る／足りなくなりにくくなります</b></span>
+    </div>
+
+    <p class="why"><strong>売り文句としての強さは、ほとんど変わりません。</strong>変わるのは、1年後にお客様から「話が違う」と言われるかどうかです。</p>
+  </div>
+
+  <div class="item">
+    <div class="ihead"><span class="num">2</span><h2>自社の他の記述と、食い違っていないか</h2></div>
+
+    <p><strong>これがいちばん危ないものでした。</strong>外から指摘されるより先に、自分の書いたものどうしが矛盾していました。</p>
+
+    <div class="ex">
+      <span class="lab">2つとも、自社の中で食い違っていた</span>
+      「<del>半永久的（割れない・減らない）</del>」 ↔ 見積りで使っている<b>締固め係数1.26</b>（＝減る前提の数字）<br><br>
+      「<del>足りなくなる心配はありません</del>」 ↔ チャットボットの「<b>敷いてみて足りなければ追加注文を</b>」
+    </div>
+
+    <p class="why">価格表、チャットボット、見積りフォーム、記事。<strong>同じことを4か所で言っています。</strong>1か所だけ直すと、必ずどこかがずれます。</p>
+  </div>
+
+  <div class="item">
+    <div class="ihead"><span class="num">3</span><h2>他社のことを、断定していないか</h2></div>
+
+    <div class="ex">
+      <span class="lab">実際にあった例</span>
+      盛岡近郊の砕石業者で取り扱いとしてる業者は<del>おりません</del><br>
+      岩手県で JIS A5005を認証している砕石工場は<del>一関で一社のみです</del><br>
+      岩手県で JIS A5001を認証している砕石工場は<del>ありません</del><br>
+      駐車場への使用｜<del>不可（車の重みで粉砕される）</del>
+      <span class="to">→ <b>弊社が把握している範囲では／認証工場は限られています／製品により異なります</b></span>
+    </div>
+
+    <p class="why"><strong>地域まで書くと、どの会社か分かってしまいます。</strong>事実と違ったとき、相手方から言われる形になります。「弊社が把握している範囲では」を頭に付けるだけで、意味は通ったまま危うさが消えます。</p>
+  </div>
+
+  <div class="item">
+    <div class="ihead"><span class="num">4</span><h2>数字と引用に、出どころがあるか</h2></div>
+
+    <div class="ex">
+      <span class="lab">実際にあった例</span>
+      特大（<del>約70デシベル以上</del>）　← 測り方も条件も書いていない<br>
+      <del>提供された資料に基づき</del>説明します　← 読者には何の資料か分からない<br>
+      JIS規格の粒度表を<del>丸ごと掲載</del>（出典表示なし・記事の68%）<br>
+      Wikipedia「正力松太郎」　← <del>ライセンス表示なし</del>
+      <span class="to">→ <b>数字は測った条件ごと／資料は名前・発行元・年・ページまで／Wikipediaは CC BY-SA 4.0 も書く</b></span>
+    </div>
+
+    <p class="why"><strong>御社には、すでに良いお手本があります。</strong>許可更新制のシリーズは通達名・制定日・文書番号まで書いてあり、河川の記事には「出典：国土地理院ウェブサイト（地理院地図）を加工して作成」とあります。<strong>そこに揃えれば十分です。</strong></p>
+  </div>
+
+  <div class="item">
+    <div class="ihead"><span class="num">5</span><h2>法令・規格は、原典を見たか</h2></div>
+
+    <p><strong>ここは、思い出しで書くと必ず外します。</strong>今日、条文と指針の現物を取り寄せて初めて分かったことが3つありました。</p>
+
+    <div class="ex">
+      <span class="lab">思い込みで書いていた例</span>
+      第2種荷主＝<del>利用運送事業者など</del>　→ 実際は<b>運転者から貨物を受け取る者</b>（第30条第9号）。<b>「第二種貨物利用運送事業」と取り違えていた</b><br><br>
+      <del>4号砕石と同等の実積率</del>　→ 指針は<b>実積率ではなく空隙率</b>。基準も<b>4号ではなくS-40（3号）</b><br><br>
+      生コンは<del>含まれない</del>　→ 第1種荷主の計算では含まれないが、<b>第2種荷主の計算では別</b>。判定は2本立て
+    </div>
+
+    <p class="why">用語が1つ違うだけで、まったく別のことになります。<strong>条文番号・用語・分冊名。この3つは現物で確かめてください。</strong></p>
+  </div>
+
+  <div class="item">
+    <div class="ihead"><span class="num">6</span><h2>人が特定されないか</h2></div>
+
+    <div class="ex">
+      <span class="lab">実際にあった例</span>
+      <del>2026年6月17日　紫波町 T様 ／ C-25 4t（駐車場DIY用）</del>　← 10件<br>
+      去年は、<del>上田中学校</del>の生徒を2名受け入れました<br>
+      その<del>一般住宅からの要望で</del>雪塊を撤去してほしいとのことでした
+      <span class="to">→ <b>2026年5〜6月：盛岡市・紫波町ほかで計10件／市内の中学校から2名／市の判断により排雪を行いました</b></span>
+    </div>
+
+    <p class="why"><strong>市町村＋イニシャル＋日付＋品目が揃うと、ご近所には分かります。</strong>件数・地域・品目を残せば、宣伝としての中身は落ちません。</p>
+
+    <p class="why" style="margin-top:12px"><strong>写真と動画は、公開前に3つ見る。</strong>表札・門柱、車のナンバー、家の外観。社員やお子さんが写るものは、同意を取ったうえで<strong>その記録も残す</strong>（メール1通で足ります）。</p>
+  </div>
+
+  <div class="box">
+    <h3>おまけ：貼り付けたときに、消えるもの</h3>
+    <p>このサイトでは、<strong>貼り付けた文字列の空白と改行が落ちます。</strong>今日、これで3回やり直しました。</p>
+    <p><strong>空白や改行で見た目を作らない。</strong>段落を分けたいなら、1つ貼って Enter、また1つ貼って Enter。見出しの区切りは空白ではなく<strong>「：」などの記号</strong>を使う。記号は消えません。</p>
+    <p style="margin-bottom:0">貼ったあとは、<strong>必ずログアウトした状態で本番ページを見る。</strong>編集画面では正しく見えていても、表示が崩れていることがあります。</p>
+  </div>
+
+  <div class="closing">
+    <h2>この6つが生まれた経緯</h2>
+    <p>点検を担当した4人が「高」と判定したのは18件でした。<strong>そのうち6件は、見立てが外れていました。</strong>引用はすべて実在したのに、そこから導いた結論が違っていたのです。</p>
+    <p>逆に、<strong>担当が挙げなかったものが5件以上見つかりました。</strong>そして高-07と高-08は、担当が言ったのとは<strong>別の理由で</strong>本物でした。</p>
+    <p>分かったのは、記事を頭から読み、画像を開き、条文と指針の現物を取り寄せてからです。<strong>引用の照合だけでは、どれも見抜けませんでした。</strong></p>
+    <p style="margin-bottom:0"><strong>だからこの6つは、「読み返すときに何を見るか」の一覧です。</strong>書く前ではなく、出す前に使ってください。</p>
+  </div>
+
+</div>
