@@ -7,7 +7,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">このニュースをきっかけに、「そもそも量子コンピュータとは何なのか」を調べてみました。前編では<strong>仕組みと原理</strong>を、後編では<strong>いまどこまで来ているのか</strong>をご紹介します。</p>
+<p class="has-medium-font-size">このニュースをきっかけに、「そもそも量子コンピュータとは何なのか」を調べてみました。前編では<strong>どういう仕組みで動き、なぜ普通のコンピュータより速いのか</strong>を、後編では<strong>いまどこまで来ているのか</strong>をご紹介します。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
@@ -17,10 +17,6 @@
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
 <h3 class="wp-block-heading has-medium-font-size">まず、ニュースを正確に</h3>
 <!-- /wp:heading -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">先に、ニュースの中身を正確にしておきます。</p>
-<!-- /wp:paragraph -->
 
 <!-- wp:list -->
 <ul class="wp-block-list">
@@ -45,10 +41,6 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">この話には、きれいな筋道があります。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
 <p class="has-medium-font-size"><strong>1984年から85年。</strong>クラーク、ドヴォレ、マルティニスの3氏が、ジョセフソン接合という部品を使った超電導の電気回路で、量子の世界の現象が「目に見える大きさの回路」でも起きることを実験で示しました。この業績に対して、<strong>2025年のノーベル物理学賞</strong>が贈られています。</p>
 <!-- /wp:paragraph -->
 
@@ -57,99 +49,268 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size"><strong>2007年。</strong>この回路を改良した「トランズモン」という方式が提案されます。論文の題名は、そのものずばりこうです。</p>
+<p class="has-medium-font-size"><strong>2007年。</strong>この回路を改良した「トランズモン」という方式が提案されます。論文の題名は、そのものずばり「<strong>クーパー対箱から導かれた</strong>、電荷ノイズに鈍感な量子ビット設計」。NECが使った回路の名前が、題名にそのまま入っています。そしてこの論文の共著者のひとりが、先ほどのドヴォレ氏です。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">「<strong>クーパー対箱から導かれた</strong>、電荷ノイズに鈍感な量子ビット設計」</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">NECが使った回路の名前が、題名にそのまま入っています。そしてこの論文の共著者のひとりが、先ほどのドヴォレ氏。2025年のノーベル賞受賞者です。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。私たちの仕事でも、地盤の改良や河川の護岸は、効き目が出るまでに何十年もかかります。似たところがあるかもしれません。</p>
+<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
-<h3 class="wp-block-heading has-medium-font-size">量子ビットとは何か</h3>
+<h3 class="wp-block-heading has-medium-font-size">ここからが本題です。量子ビットは「矢印」を持っています</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">いまのコンピュータは、すべての情報を0と1で表しています。この0か1かのひとつぶを「ビット」と呼びます。ビットは必ず0か1のどちらかです。</p>
+<p class="has-medium-font-size">いまのコンピュータは、すべての情報を0と1で表しています。この0か1かのひとつぶを「ビット」と呼びます。ビットは必ず0か1のどちらかです。スイッチと同じで、入っているか切れているか。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">量子ビットは違います。0と1を<strong>どういう割合で混ぜるか</strong>、そのものが状態になります。これを「重ね合わせ」と呼びます。</p>
+<p class="has-medium-font-size">量子ビットは違います。ここを、ひとつずつ積み上げてご説明します。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">よく「0でもあり1でもある、不思議な状態」と説明されますが、この言い方には問題があります。あいまいだとか、まだ決まっていないという印象を与えてしまうからです。<strong>重ね合わせは、数学的にはっきり定まったひとつの状態</strong>で、あいまいでもでたらめでもありません。</p>
+<p class="has-medium-font-size">量子ビットは、0と1を<strong>どういう割合で混ぜるか</strong>、そのものが状態になります。そして混ぜ具合には、<strong>「向き」がついています。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">そしてもうひとつ。量子ビットは「どちらにどれだけ寄っているか」だけでなく、<strong>「位相」</strong>という、普通の確率にはない向きのようなものを持っています。</p>
+<p class="has-medium-font-size">この「向きのある量」を、<strong>矢印</strong>だと思ってください。長さと、向き。長さは「その答えが出やすいかどうか」を、向きは「位相」と呼ばれるものを表します。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">この位相が、この記事でいちばん大事なところです。<strong>位相があるから、後で答えどうしを打ち消し合わせることができます。</strong>「0と1が同時」とだけ言ってしまうと、量子コンピュータが速い理由が、まるごと説明から抜け落ちてしまうのです。</p>
+<p class="has-medium-font-size">この矢印は、私たちが思いついた説明ではありません。ノーベル物理学賞を受けたリチャード・ファインマンが、一般向けの講演で量子の世界を説明したとき、<strong>数式をひとつも使わず、ぐるぐる回る矢印の足し算だけで</strong>説明しました（『光と物質のふしぎな理論』）。専門家が一般の人に伝えるときに使う、正統なやり方です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして<strong>この「向き」こそが、普通の確率との決定的な違いです。</strong>サイコロの目が出る確率には、向きがありません。3割は3割で、それ以上のものではない。ところが量子の世界では、同じ「3割」でも向きが違うと、その後の振る舞いがまるで変わります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">よく「0でもあり1でもある、不思議な状態」と説明されますが、この言い方だと<strong>向きの話がまるごと抜け落ちます。</strong>そして向きが抜けると、量子コンピュータが速い理由も、まるごと消えてしまうのです。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
-<h3 class="wp-block-heading has-medium-font-size">「すべての答えを同時に計算する」は本当か</h3>
+<h3 class="wp-block-heading has-medium-font-size">量子ビットが増えると、矢印の数が爆発します</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">量子コンピュータの説明で、いちばんよく見かけるのがこれです。</p>
+<p class="has-medium-font-size">ここが、いちばん大事なところです。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">「量子ビットは0と1を同時に表せるので、すべての答えを一度に計算できる。だから速い」</p>
+<p class="has-medium-font-size">量子ビットを2個並べると、「00」「01」「10」「11」という4通りの組み合わせができます。<strong>量子ビットの世界では、この4通りのそれぞれに、1本ずつ矢印がつきます。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size"><strong>これは、正しくありません。</strong>そしてこの誤解は、専門家が最も困っているものでもあります。</p>
+<p class="has-medium-font-size">3個なら8通りで8本。4個なら16通りで16本。1個増えるごとに、矢印の数は倍になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"fontSize":"small"} -->
+<figure class="wp-block-table has-small-font-size"><table><thead><tr><th>量子ビットの数</th><th>矢印の本数</th></tr></thead><tbody><tr><td>10個</td><td>1,024本</td></tr><tr><td>20個</td><td>約100万本</td></tr><tr><td>50個</td><td>約1,126兆本</td></tr><tr><td>300個</td><td>観測できる宇宙にある原子の数より多い</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここで大事なことを、はっきり申し上げます。<strong>これは「2の300乗個のデータを保存できる」という意味ではありません。</strong>そういう説明をときどき見かけますが、間違いです。取り出せる情報の量は、量子ビットの数だけです。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">量子計算の理論を研究しているスコット・アーロンソン氏（テキサス大学）は、自身のブログの看板に、わざわざこう掲げています。「量子コンピュータは、すべての可能な解を一度に試すことによって難しい問題を瞬時に解くわけではない」。IBMの公式ブログにも、「量子コンピュータがあらゆる解を並列に探索して最適化問題を効率的に解けるという初期の主張は誤解であり、<strong>いまだに時々見かける</strong>」と書かれています。</p>
+<p class="has-medium-font-size">正しくはこうです。<strong>その状態を普通のコンピュータで書き留めようとすると、それだけの本数の矢印を並べる必要がある</strong>、ということです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">では、どうやって答えが出るのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">たくさんの矢印を抱えていても、それだけでは何の役にも立ちません。<strong>測ってみると、出てくる答えはたったひとつ</strong>で、しかもそのままではでたらめだからです。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">なぜ正しくないのか。理由はこうです。</p>
+<p class="has-medium-font-size">ここで矢印が効いてきます。<strong>矢印は、足し算ができます。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">たくさんの可能性を「抱える」ことは、確かにできます。ところが<strong>測ってみると、出てくる答えはたったひとつ</strong>で、しかもそのままではでたらめです。全部の答えを読み出す手立てがありません。抱えているだけでは、何の役にも立たないのです。</p>
+<p class="has-medium-font-size">矢印の足し算は、測量で使う方位と距離の足し算と同じです。北へ10m、東へ10m、南へ10m、西へ10m。順につないでいくと、元の場所に戻ってきます。<strong>合計はゼロです。</strong>一本ずつは長さを持っているのに、向きがばらばらだと、全部足すと消えてしまう。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">では、どうやって答えを出すのか。ここで先ほどの<strong>位相</strong>が効いてきます。</p>
+<p class="has-medium-font-size">逆に、全部が同じ向きに揃っていたら。北へ10mを4回。<strong>合計は北へ40mです。</strong>ばらばらのときとは、天と地ほど違います。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">量子コンピュータの計算では、<strong>間違った答えに至る道どうしが打ち消し合って消え、正しい答えに至る道どうしが強め合う</strong>ように、回路を組みます。波の山と谷がぶつかると平らになり、山と山が重なると大きくなる。あの打ち消し合いを、答えの候補に対して起こしているのです。ノイズキャンセリングのイヤホンが、外の音と反対の波をぶつけて静かにするのと、同じ考え方です。</p>
+<p class="has-medium-font-size"><strong>量子コンピュータがやっているのは、これです。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 400" role="img" aria-label="はずれの答えは矢印がばらばらな向きにつながり、八角形になって元の位置に戻るため合計がゼロになる。正しい答えは矢印が同じ向きに揃ってつながり、合計が長くなる。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+  <defs>
+    <marker id="qc-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+    </marker>
+    <marker id="qc-ah-hi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon>
+    </marker>
+  </defs>
+
+  <text x="185" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">はずれの答え</text>
+  <text x="185" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きがばらばら</text>
+
+  <text x="515" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">正しい答え</text>
+  <text x="515" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きが揃う</text>
+
+  <line x1="350" y1="80" x2="350" y2="330" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="168" y1="191" x2="202" y2="191"></line>
+    <line x1="202" y1="191" x2="226" y2="167"></line>
+    <line x1="226" y1="167" x2="226" y2="133"></line>
+    <line x1="226" y1="133" x2="202" y2="109"></line>
+    <line x1="202" y1="109" x2="168" y2="109"></line>
+    <line x1="168" y1="109" x2="144" y2="133"></line>
+    <line x1="144" y1="133" x2="144" y2="167"></line>
+    <line x1="144" y1="167" x2="168" y2="191"></line>
+  </g>
+  <circle cx="168" cy="191" r="4" fill="#C1803A"></circle>
+  <text x="185" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと元の場所に戻る</text>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="411" y1="150" x2="437" y2="150"></line>
+    <line x1="437" y1="150" x2="463" y2="150"></line>
+    <line x1="463" y1="150" x2="489" y2="150"></line>
+    <line x1="489" y1="150" x2="515" y2="150"></line>
+    <line x1="515" y1="150" x2="541" y2="150"></line>
+    <line x1="541" y1="150" x2="567" y2="150"></line>
+    <line x1="567" y1="150" x2="593" y2="150"></line>
+    <line x1="593" y1="150" x2="619" y2="150"></line>
+  </g>
+  <text x="515" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと、どんどん伸びる</text>
+
+  <text x="185" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <circle cx="140" cy="298" r="5" fill="#C1803A"></circle>
+  <text x="158" y="303" text-anchor="start" font-size="15" font-weight="bold" fill="#C1803A">ほぼ ゼロ</text>
+
+  <text x="515" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <line x1="411" y1="298" x2="619" y2="298" stroke="#C1803A" stroke-width="4" marker-end="url(#qc-ah-hi)"></line>
+  <text x="515" y="330" text-anchor="middle" font-size="15" font-weight="bold" fill="#C1803A">大きい</text>
+
+  <text x="350" y="372" text-anchor="middle" font-size="13" fill="currentColor">この形になるように回路を組むのが、量子コンピュータの設計です</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">矢印の足し算。向きがばらばらだと合計が消え、向きが揃うと合計が大きくなる。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータの計算とは、<strong>はずれの答えについている矢印の向きがばらばらになって打ち消し合い、正しい答えについている矢印だけが同じ向きに揃うように、回路を組むこと</strong>です。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">そうしておいてから測ると、正しい答えが高い確率で出てきます。</p>
+<p class="has-medium-font-size">そうしておいてから測ると、<strong>はずれはほとんど出てこず、正しい答えが高い確率で出てきます。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">ですから、量子コンピュータは「<strong>全部試す機械</strong>」ではありません。「<strong>間違いを消す機械</strong>」と言ったほうが、実態にずっと近いのです。</p>
+<p class="has-medium-font-size">ですから量子コンピュータは、「<strong>全部試す機械</strong>」ではありません。「<strong>間違いを消す機械</strong>」です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">なぜ、普通のコンピュータでは追いつけないのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここまで読むと、当然の疑問が出てきます。「矢印を足すだけなら、普通のコンピュータでもできるのでは？」</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">石の塊から余計なところを削り落として像を彫り出すのに似ています。ただしこの例えも、一点で壊れます。彫刻家は最初から完成形を知っていますが、量子コンピュータの設計者が知っているのは<strong>「削り方のきまり」だけ</strong>です。</p>
+<p class="has-medium-font-size"><strong>そのとおりです。できます。</strong>ただし、<strong>矢印を一本ずつ、順番に計算しなければなりません。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">そして、その削り方をうまく組み立てられた問題は、いまのところごくわずかしかありません。<strong>ここが後編の主題になります。</strong></p>
+<p class="has-medium-font-size">ここに、両者の違いのすべてがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>普通のコンピュータ</strong>：矢印を全部メモリに並べて、一本ずつ向きを計算する。本数が倍になれば、手間も倍になる。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>量子コンピュータ</strong>：矢印を「並べて持っている」のではありません。物理現象そのものが矢印を担っていて、<strong>装置に一回操作をかけると、何本あろうと全部の矢印がいっせいに向きを変えます。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">実際にどれくらい違うのか。2026年に、ドイツの研究所がスーパーコンピュータを使って、<strong>50量子ビットの状態を普通のコンピュータで再現する</strong>ことに成功しました。そのとき必要だったメモリは、<strong>1ペタバイト（100万ギガバイト）を超えています。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして<strong>51量子ビットなら、約4ペタバイト。</strong>たった1個増えるだけで、必要なメモリが跳ね上がります。60個、70個と増やしていけば、どんなスーパーコンピュータでも手が出せなくなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">一方、量子コンピュータにとって50量子ビットは<strong>50個の部品</strong>です。1,126兆本の矢印を「覚えておく」必要がありません。物理が勝手に持っていてくれるからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>これが、量子コンピュータが普通のコンピュータより優れている点の、すべてです。</strong>計算が一つひとつ速いわけではありません。むしろ、一回の操作にかかる時間は普通のコンピュータより遅いくらいです。<strong>扱える量の桁が違う</strong>、ということなのです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ただし、都合よく打ち消し合ってはくれません</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここまでが「すごい」側の話です。そしてここからが、この記事でいちばん正直に書きたいところです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">先ほどの図のように、はずれの矢印をきれいに打ち消し、正解の矢印だけを揃える。<strong>そんな都合のいい回路は、どんな問題に対しても組めるわけではありません。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">組めるのは、<strong>問題の中に「隠れた繰り返し」があるとき</strong>です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">音叉を思い浮かべてください。ある高さの音を出すと、同じ高さに合わせた音叉だけが共鳴して鳴りだします。それ以外の音には反応しません。同じ調子の振動が重なったときだけ、揺れが積み上がるからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">矢印の足し算も同じです。<strong>隠れた繰り返しの周期にぴったり合ったときだけ、矢印が揃って合計が大きくなります。</strong>ずれていれば、矢印はばらけて消えます。量子コンピュータは、この「共鳴する周期」を探し当てるのが、飛び抜けて得意なのです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">では、暗号を破るとよく言われる「ショアのアルゴリズム」は何をしているのか。<strong>大きな数を素因数分解するという問題を、「隠れた繰り返しの周期を見つける問題」に書き換えているのです。</strong>書き換えてしまえば、あとは量子コンピュータのいちばん得意な形になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">逆に言えば、<strong>繰り返しのない問題には、この手が使えません。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">たとえば、何の手がかりもない候補の山から正解をひとつ探す。名簿をひたすらめくるような作業です。ここには繰り返しがないので、きれいな打ち消し合いが作れません。速くはなりますが、<strong>手間が「平方根になる」程度</strong>にとどまります。100万件が1,000件になる。ありがたい話ではありますが、桁違いではありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">音叉の例えも、ここで壊れます。音叉は自分の高さの音にしか反応しませんが、量子コンピュータは<strong>候補になる周期を一度にまとめて調べています。</strong>そこは音叉より、はるかに贅沢な仕掛けです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">まとめると、こうなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>すごいところ</strong>：普通のコンピュータなら天文学的な本数の矢印を並べないと追えない計算を、部品の数だけで扱える。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>すごくないところ</strong>：その力が使えるのは、<strong>問題の中に隠れた繰り返しがあって、打ち消し合いを設計できるとき</strong>だけ。</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">見積書の計算にも、日報の集計にも、隠れた繰り返しはありません。<strong>だから速くならないのです。</strong>「量子コンピュータは何でも速い万能機ではない」とよく言われますが、その理由は、ここにあります。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
@@ -165,15 +326,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。</p>
+<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。相関があるとわかるのは、あとで普通の通信で結果を突き合わせたときです。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">相関があることがわかるのは、あとで普通の通信、電話でもメールでも構いませんが、それで結果を突き合わせたときです。その普通の通信は、光より速くありません。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">ここで<strong>気をつけたい例え</strong>があります。「離れた双子が同じことを感じるようなもの」という説明です。これは使えません。双子の例えは「<strong>最初から決まっていたことが、後でわかっただけ</strong>」という話で、量子もつれの実験が否定したのは、まさにその考え方だからです。2022年のノーベル物理学賞は、その実証に対して贈られています。この例えを使うと、ノーベル賞の中身を真逆に説明することになってしまいます。</p>
+<p class="has-medium-font-size">ここで<strong>気をつけたい例え</strong>があります。「離れた双子が同じことを感じるようなもの」という説明です。これは使えません。双子の例えは「<strong>最初から決まっていたことが、後でわかっただけ</strong>」という話で、量子もつれの実験が否定したのは、まさにその考え方だからです。2022年のノーベル物理学賞は、その実証に対して贈られています。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
@@ -181,11 +338,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">量子コンピュータの写真というと、シャンデリアのような金色の装置が出てきます。あれは冷凍機です。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">重ね合わせは、とても壊れやすい状態です。まわりの熱や電波や振動が少しでも触れると、量子ビットは外の世界と関わりを持ってしまい、重ね合わせが失われます。これを「デコヒーレンス」と呼びます。<strong>量子コンピュータが難しい、いちばんの理由がこれです。</strong></p>
+<p class="has-medium-font-size">矢印の向きは、とても壊れやすいものです。まわりの熱や電波や振動が少しでも触れると、量子ビットは外の世界と関わりを持ってしまい、向きが乱れます。向きが乱れれば、打ち消し合いも揃いも作れません。これを「デコヒーレンス」と呼びます。<strong>量子コンピュータが難しい、いちばんの理由がこれです。</strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
@@ -209,7 +362,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">壊れやすい量子ビットを何個も束ねて、誤りを打ち消しながら1個分の確かな量子ビットとして使う。この仕組みを「量子誤り訂正」といい、束ねてできた1個を「<strong>論理量子ビット</strong>」、材料になった個々のものを「<strong>物理量子ビット</strong>」と呼びます。</p>
+<p class="has-medium-font-size">先ほどのとおり、矢印の向きはすぐ乱れます。そこで、壊れやすい量子ビットを何個も束ねて、誤りを打ち消しながら1個分の確かな量子ビットとして使います。この仕組みを「量子誤り訂正」といい、束ねてできた1個を「<strong>論理量子ビット</strong>」、材料になった個々のものを「<strong>物理量子ビット</strong>」と呼びます。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
@@ -231,19 +384,22 @@
 <!-- wp:list -->
 <ul class="wp-block-list">
 <!-- wp:list-item -->
-<li>NECが世界で初めて実現したのは<strong>量子ビットという部品</strong>。量子の発見ではありません。</li>
+<li>量子ビットは、答えの候補ごとに<strong>長さと向きを持った「矢印」</strong>を持ちます。この<strong>向き</strong>が、普通の確率との決定的な違いです。</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>1984年の実験、1999年のNEC、2007年のトランズモン、そして現在のIBM・Google。<strong>一本の線でつながっています。40年かかりました。</strong></li>
+<li>量子ビットが1個増えるごとに、矢印の数は倍。<strong>50個で約1,126兆本</strong>になります。</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>量子コンピュータは「全部試す機械」ではなく、<strong>「間違いを消す機械」</strong>です。</li>
+<li>計算とは、<strong>はずれの矢印を打ち消し合わせて消し、正解の矢印だけを揃えること。</strong>だから「全部試す機械」ではなく「間違いを消す機械」です。</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>量子もつれで<strong>瞬間通信はできません。</strong>相関はありますが、合図は送れません。</li>
+<li>普通のコンピュータも同じ計算はできますが、<strong>矢印を一本ずつ数えなければなりません。</strong>50量子ビットの再現に1ペタバイト超、51個で約4ペタバイト。ここで差がつきます。</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>冷やすのは<strong>超電導方式の話</strong>。すべての方式が冷たいわけではありません。</li>
+<li>ただし打ち消し合いを設計できるのは、<strong>問題に隠れた繰り返しがあるとき</strong>だけ。<strong>見積書も日報も速くなりません。</strong></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>矢印の向きは壊れやすく、だから冷やします。ただし<strong>冷やすのは超電導方式の話</strong>です。</li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li>量子ビットの数は、そのままでは性能ではありません。<strong>物理か論理か</strong>を見てください。</li>
@@ -266,6 +422,9 @@
 <!-- wp:list -->
 <ul class="wp-block-list">
 <!-- wp:list-item -->
+<li>R.P.ファインマン『光と物質のふしぎな理論 私の量子電磁力学』岩波現代文庫（矢印による説明）<br><a href="https://www.iwanami.co.jp/book/b255808.html">https://www.iwanami.co.jp/book/b255808.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
 <li>ノーベル財団「2025年ノーベル物理学賞」（クラーク、ドヴォレ、マルティニス）<br><a href="https://www.nobelprize.org/prizes/physics/2025/press-release/">https://www.nobelprize.org/prizes/physics/2025/press-release/</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
@@ -284,13 +443,7 @@
 <li>NEC「2023年度『C&amp;C賞』受賞者を決定」（中村氏・蔡氏の受賞）<br><a href="https://jpn.nec.com/press/202310/20231010_01.html">https://jpn.nec.com/press/202310/20231010_01.html</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>日本経済新聞「NEC、量子コンピューターの実機開発中止 国産機開発の先駆け」<br><a href="https://www.nikkei.com/article/DGXZQOUC051KF0V00C26A9000000/">https://www.nikkei.com/article/DGXZQOUC051KF0V00C26A9000000/</a></li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li>時事通信「NEC、量子コンピューター開発中止 実用化に課題多く」<br><a href="https://www.jiji.com/jc/article?k=2026090700732&amp;g=eco">https://www.jiji.com/jc/article?k=2026090700732&amp;g=eco</a></li>
-<!-- /wp:list-item -->
-<!-- wp:list-item -->
-<li>ITmedia NEWS「NEC、量子コンピュータの実機開発を中止か 実用化への課題重く 報道」<br><a href="https://www.itmedia.co.jp/news/article/2609/08/2000001250/">https://www.itmedia.co.jp/news/article/2609/08/2000001250/</a></li>
+<li>ユーリヒ研究所ほか「Universal quantum computer simulation of 50 qubits on Europe's first exascale supercomputer」（50量子ビットの再現に要したメモリ）<br><a href="https://arxiv.org/pdf/2511.03359">https://arxiv.org/pdf/2511.03359</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li>IBM「What is a qubit?」（量子ビットの定義）<br><a href="https://www.ibm.com/think/topics/qubit">https://www.ibm.com/think/topics/qubit</a></li>
@@ -302,7 +455,7 @@
 <li>Scott Aaronson「Shtetl-Optimized」<br><a href="https://scottaaronson.blog/">https://scottaaronson.blog/</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
-<li>QuEra「Quantum Interference」「Dilution Refrigerator」（干渉、冷凍機）<br><a href="https://www.quera.com/glossary/quantum-interference">https://www.quera.com/glossary/quantum-interference</a></li>
+<li>QuEra「Quantum Interference」「Grover's Algorithm」「Dilution Refrigerator」（干渉、探索、冷凍機）<br><a href="https://www.quera.com/glossary/quantum-interference">https://www.quera.com/glossary/quantum-interference</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li>NIST「What is Decoherence?」<br><a href="https://www.nist.gov/video/what-decoherence">https://www.nist.gov/video/what-decoherence</a></li>
@@ -312,6 +465,15 @@
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li>理化学研究所 量子コンピュータポータル（量子もつれと通信について）<br><a href="https://q-portal.riken.jp/poster-quantum/colums/colum1-6.html">https://q-portal.riken.jp/poster-quantum/colums/colum1-6.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日本経済新聞「NEC、量子コンピューターの実機開発中止 国産機開発の先駆け」<br><a href="https://www.nikkei.com/article/DGXZQOUC051KF0V00C26A9000000/">https://www.nikkei.com/article/DGXZQOUC051KF0V00C26A9000000/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>時事通信「NEC、量子コンピューター開発中止 実用化に課題多く」<br><a href="https://www.jiji.com/jc/article?k=2026090700732&amp;g=eco">https://www.jiji.com/jc/article?k=2026090700732&amp;g=eco</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>ITmedia NEWS「NEC、量子コンピュータの実機開発を中止か 実用化への課題重く 報道」<br><a href="https://www.itmedia.co.jp/news/article/2609/08/2000001250/">https://www.itmedia.co.jp/news/article/2609/08/2000001250/</a></li>
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
