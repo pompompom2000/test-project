@@ -1,0 +1,202 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading">お庭の「 雑草 対策」に砕石が大活躍する理由</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">いつも株式会社石名坂のホームページをご覧いただき、ありがとうございます。気温が上がってくると同時に、お庭を持つ皆さまの頭を悩ませるのが「 雑草 」の存在ではないでしょうか。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「週末に草むしりをしたばかりなのに、もう次の草が生えてきている……」猛暑の中での草むしりは、熱中症や虫刺されのリスクもあり、本当に重労働です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">本格的な夏が来る前に、今年は<strong>「砕石」</strong>を使った雑草対策（DIY）に挑戦してみませんか？</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">【画像で解説】「防草シート＋砕石」DIYの4ステップ</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>雑草を根本から防ぐための、「防草シート＋砕石」の正しい敷き方を順番にご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ステップ1：地道だけど一番大事！「除草と整地」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":3272,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006831-1024x559.jpg" alt="除草と整地をしている様子" class="wp-image-3272"/><figcaption class="wp-element-caption">除草と整地をしている様子</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">まずは、今生えている雑草を根っこからきれいに抜きます。石コロやゴミも取り除き、スコップやレーキ（トンボ）を使って、地面を平らに平らにならします。ここをサボると、シートの上に砕石を敷いた時にデコボコしてしまいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ステップ2：光を遮断！「防草シートを敷く」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":3278,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006834-1024x558.jpg" alt="&quot;防草シートを敷いている様子" class="wp-image-3278"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">きれいになった地面に、防草シートを敷き詰めます。シート同士の継ぎ目は10cmほど重ねて、隙間から雑草が生えないようにします。風で飛ばないように、専用のピンでしっかり固定しましょう。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ステップ3：【ここが石名坂の出番！】「砕石のダンプ配達」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":3283,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006836.jpg" alt="砕石のダンプ配達" class="wp-image-3283"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">シートが敷けたら、いよいよ砕石です！ホームセンターで何十袋も運ぶ重労働は不要です。株式会社石名坂にご依頼いただければ、ダンプトラックでお客様のご自宅前まで、必要な量の砕石を一度にお届けします！ 袋を運ぶ労力はゼロ。指定の場所に降ろされた砕石を広げるだけで作業がスタートできます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ステップ4：最後の仕上げ！「砕石を均等に広げる」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":3288,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/05/Screenshot_20260504-084433.jpg" alt="砕石の人力敷き慣らし" class="wp-image-3288"/><figcaption class="wp-element-caption">砕石の人力敷き慣らし</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">降ろされた砕石を、スコップなどを使ってシートの上に広げます。厚さは5cm程度を目安に、シートが完全に隠れるように均一にならします。これで、美しくて雑草が生えないお庭の完成です！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">なぜ「防草シート＋砕石」が最適なのか？</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">雑草を根本から防ぐには、日光を遮断することが一番です。そこでおすすめなのが、<strong>「防草シートを敷いた上に、砕石（砂利）を敷き詰める」</strong>という方法です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">圧倒的な防草効果： シートで日光を遮り、さらに砕石の重みで雑草が突き破ってくるのを防ぎます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">景観が美しくなる： 土のままよりも、お庭や駐車場の見栄えが格段に良くなります。雨の日のぬかるみや泥はね防止にも最適です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">防犯対策にもなる： 石名坂で販売している「5号砕石」などを敷くと、上を歩いた時に「ジャリッ、ジャリッ」と大きな音が鳴るため、不審者を遠ざける防犯砂利としても大活躍します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ホームセンターで買うより「ダンプ配達」が圧倒的にラクな理由</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><br>いざ「お庭に砕石を敷こう！」と思った時、ホームセンターへ買いに行く方が多いと思います。しかし、ここに大きな落とし穴があります。<br>お庭の一部や駐車場に砕石を敷く場合、目安として<strong>「1㎥（りゅうべい）＝約1.6トン」ほどの量が必要になることがよくあります。 これをホームセンターで売っている一般的な20kgの袋入り砂利で計算すると、なんと「約80袋分」</strong>にもなります！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><br><strong>自家用車が重みで沈んでしまう（何度も往復する必要がある）<br>車内が泥や砂で汚れてしまう<br>重い袋を車に積み下ろしするだけで腰を痛めてしまう</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">株式会社石名坂にご依頼いただければ、プロの運転手がダンプトラックでご自宅まで直接お届け（配達）いたします！<br>お客様は重い石を運ぶ必要がなく、指定の場所に降ろされた砕石をスコップで平らに広げるだけで作業がスタートできます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><br>お庭の広さに合わせた「お見積り目安」も公開中！<br>「うちの庭には、どれくらいの量の砕石が必要なの？」<br>「配達してもらうと、全部でいくらかかるの？」<br>そんな疑問にお答えするため、当ホームページでは面積を入力するだけで概算がわかるシミュレーションページをご用意しています。<br>👉 <a href="https://www.ishinazaka.co.jp/simulation/" title="">砕石 お見積り目安（シミュレーション）はこちら</a><br>盛岡市、矢巾町、紫波町、滝沢市周辺で、お庭の雑草対策やDIYをご検討中の方は、ぜひお気軽に株式会社石名坂へご相談ください！<br></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「ちょっと軽トラで引き取りに行きたいんだけど」<br>「ダンプが入れる道幅か不安で……」<br>といったご相談も大歓迎です。お電話（019-638-7521）、またはホームページ右上の「お問い合わせ」からお気軽にお問い合わせください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">▶<a href="https://maps.app.goo.gl/fBNRNvqE7vd3b3FU7" title="">参照：Googleマップ（石名坂砕石場からのルート確認などにご利用ください）</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/nukarumi-taisaku/">庭や砂利道の ぬかるみ対策 ｜砕石で直す2つの方法を解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2426/">【地域情報】ご自宅のお庭、熊の「隠れ家」になっていませんか？〜 砕石 でできる身近な防獣・防犯対策〜</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2414/">【防犯＆クマ対策】家の周りに敷くならホームセンターの 防犯 砂利？それとも「5号砕石」？ 防犯 DIY対策！</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/josetsu-game/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-3423/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="トップページへ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

@@ -1,0 +1,427 @@
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size"> ちょっとした 防犯 意識で変わってくる</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>最近、空き巣などの 防犯 が必要性のある物騒なニュースや、住宅街へのクマ出没のニュースが多く、不安を感じている方も多いのではないでしょうか？</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>「手軽にできる対策はないかな…」と考えている方に、石名坂がおすすめしたいのが「家の周り（犬走り）に、5号砕石を敷き詰めること」です！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>実はこれ、防犯対策としてはもちろん、野生動物の侵入対策としても非常に効果的なんです。今回は、なぜ5号砕石がおすすめなのか、その理由と敷き方のコツをプロの目線で分かりやすく解説します！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4,"fontSize":"medium"} -->
+<h4 class="wp-block-heading has-medium-font-size">1. なぜ「5号砕石」が防犯やクマ対策に効くのか？</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>5号砕石（単粒度砕石）とは、大きさが13mm〜20mmくらい（10円玉〜100円玉くらい）に揃えられた、角張った石のことです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":608,"width":"200px","sizeSlug":"large","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-large is-resized"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2025/12/５号-1024x768.jpg" alt="５号砕石のアップ写真" class="wp-image-608" style="width:200px"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>この石の上を歩くと、石と石がこすれ合って<strong>「ジャリッ！ジャリッ！」とかなり大きな音</strong>が鳴ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>空き巣対策：</strong> 泥棒は「音」を最も嫌います。窓に近づく前に足音が鳴る家は、それだけでターゲットから外されやすくなります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>クマ・獣害対策：</strong> クマなどの野生動物も警戒心が強いため、自分の足音が大きく鳴る場所を嫌がります。ただ、生ゴミや果実など「食べ物の匂い」の魅力が勝ってしまえば、足音など気にせずに敷地内に侵入してきます。しかしながら、万が一敷地内に侵入された場合でも、家の中にいて「ジャリッ」という足音で異変にいち早く気づくことができます。あくまでも敷地内に侵入したことを確認するという意味になります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>身近にできる熊対策は👉<a href="https://www.ishinazaka.co.jp/post-2426/" title="">こちら</a></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":3475,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1000006852-1024x559.jpg" alt="身近にできるクマ対策の基本" class="wp-image-3475"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル --- */
+.walking-cat-stage-final {
+  width: 100%; overflow: hidden; position: relative; height: 100px; margin: 20px 0; display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important; position: absolute; width: 100px; height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat; background-size: contain;
+  animation: urochoro-left-final 25s linear infinite; cursor: pointer; z-index: 9999 !important; transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active { animation-play-state: paused; transform: translateY(-20px) !important; }
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); } 30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); } 45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); } 65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); } 100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 100000; overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute; top: 0; left: 0; background-repeat: no-repeat; background-size: contain;
+  will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);
+}
+
+/* --- 肉球スタンプのスタイル --- */
+.paw-stamp-overlay {
+  position: absolute; top: 50%; left: 50%; width: 60vmin; height: 60vmin; margin-top: -30vmin; margin-left: -30vmin;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232c3e50' d='M256 224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm-114-60c30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97 23 30 67 35 97 11zm245 0c23 30 67 35 97 11 30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97zm-130-55c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: contain;
+  z-index: 200000; opacity: 0; pointer-events: none;
+  animation: smash-stamp 2s ease-out forwards;
+}
+
+@keyframes smash-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  10% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false;
+
+function catMagicClick() {
+  if (isRunning) return; 
+
+  clickCount++;
+
+  // ★ 5回に1回、肉球スタンプを出す
+  if (clickCount % 5 === 0) {
+    showPawStamp();
+  }
+
+  // ★ ご希望の3パターンループ（左→右、右→左、上→下）
+  const pattern = (clickCount - 1) % 3;
+  if (pattern === 0) {
+    releaseCats('left-to-right'); // 1回目
+  } else if (pattern === 1) {
+    releaseCats('right-to-left'); // 2回目
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom'); // 3回目
+  }
+}
+
+function showPawStamp() {
+  const container = document.getElementById('cat-horde-container');
+  const stamp = document.createElement('div');
+  stamp.className = 'paw-stamp-overlay';
+  container.appendChild(stamp);
+  setTimeout(() => { stamp.remove(); }, 2000);
+}
+
+function releaseCats(direction) {
+  isRunning = true;
+  const container = document.getElementById('cat-horde-container');
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに一匹だけ混ぜる別の生き物のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+
+  // ★ 迫力と滑らかさを両立する「50匹」に設定
+  const catCount = 100; 
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    // ★ 渋滞解消：3.5秒かけてパラパラと分散して出現させる
+    const delay = Math.random() * 3500;
+
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+      
+      // 画像の振り分け
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      // サイズ設定（遠近感を出す）
+      const size = Math.floor(Math.random() * 70) + 40;
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      // 速度設定（2秒〜4.5秒）
+      const duration = (Math.random() * 2.5) + 2.0;
+      let startX, startY, endX, endY, flip;
+
+      // ==========================================
+      // ★ 点ではなく「範囲（エリア）」から出現させる計算
+      // ==========================================
+      if (direction === 'left-to-right') {
+        // 左側の範囲から右側の範囲へ
+        startX = -20 - Math.random() * 30; // 画面左外（-20vw 〜 -50vw）
+        startY = Math.random() * 90;       // 高さの範囲（0vh 〜 90vh）バラバラ
+        endX = 110 + Math.random() * 30;   // 画面右外へ
+        endY = startY + (Math.random() * 20 - 10); // 真横ではなく少し上下にブレながら走る
+        flip = 1; // 右向き
+        
+      } else if (direction === 'right-to-left') {
+        // 右側の範囲から左側の範囲へ
+        startX = 110 + Math.random() * 30; // 画面右外（110vw 〜 140vw）
+        startY = Math.random() * 90;       // 高さの範囲（0vh 〜 90vh）
+        endX = -20 - Math.random() * 30;   // 画面左外へ
+        endY = startY + (Math.random() * 20 - 10); 
+        flip = -1; // 左向き
+        
+      } else if (direction === 'top-to-bottom') {
+        // 上の範囲から下の範囲へ
+        startX = Math.random() * 95;       // 横幅の範囲（0vw 〜 95vw）バラバラ
+        startY = -20 - Math.random() * 30; // 画面上外（-20vh 〜 -50vh）
+        endX = startX + (Math.random() * 20 - 10); // 真下ではなく少し左右にブレながら降る
+        endY = 110 + Math.random() * 30;   // 画面下外へ
+        flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは左右ランダム
+      }
+
+      container.appendChild(cat);
+
+      // 最軽量のアニメーション処理（GPU駆動）
+      cat.animate([
+        { transform: `translate3d(${startX}vw, ${startY}vh, 0) scaleX(${flip})` },
+        { transform: `translate3d(${endX}vw, ${endY}vh, 0) scaleX(${flip})` }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        fill: 'forwards'
+      });
+
+      // 走り終わったら削除
+      setTimeout(() => {
+        cat.remove();
+      }, duration * 1000);
+
+    }, delay); 
+  }
+
+  // 大群が全員走り終わるまで（出現3.5秒＋移動約4.5秒 ＝ 約8秒）次のクリックを待つ
+  setTimeout(() => {
+    isRunning = false;
+  }, 8000);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":4,"fontSize":"medium"} -->
+<h4 class="wp-block-heading has-medium-font-size">2. ホームセンターの「防犯砂利」とどう違うの？</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ホームセンターに行くと、白いガラス製などの「防犯砂利」が売られています。音も大きくて良い商品ですが、実は大きな弱点があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>ホームセンターの防犯砂利（ガラス発泡材など）</strong><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>【弱点】とにかく軽い！</strong> 大雨が降ると水に浮いて流されてしまったり、強風で飛んでいってしまうことがあります。また、何度も踏んでいるうちに砕けて粉々になり、数年で補充が必要になることも…。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>【価格】</strong> 1袋（10kg〜20kg）で買うと数百円〜千円程度ですが、家の周り全体に敷くとなると何十袋も必要になり、<strong>結果的にかなり割高</strong>になってしまいます。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>石名坂の「5号砕石」</strong><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>【強み】本物の石だから頑丈！</strong> 重さがあるので、大雨や台風でも流されたり飛んでいく心配がありません。踏んで割れることもなく、<strong>一度敷けば半永久的に効果が持続</strong>します。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>【価格】</strong> 弊社なら、3tダンプでお庭まで直接ドサーッと配達します。大量に使う場合、袋買いするよりも<strong>圧倒的にコストパフォーマンスが高い</strong>です！</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">５号砕石と専用の防犯砂利との違い</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><td><strong>特徴</strong></td><td><strong>5号砕石（砕石）</strong></td><td><strong>専用の防犯砂利（ガラス発泡石など）</strong></td></tr></thead><tbody><tr><td><strong>音の大きさ</strong></td><td>中〜大（普通の砂利よりは鳴る）</td><td><strong>特大（約70デシベル以上）</strong></td></tr><tr><td><strong>耐久性</strong></td><td><strong>半永久的（割れない・減らない）</strong></td><td>低い（踏むと粉々に砕けて減っていく）</td></tr><tr><td><strong>価格</strong></td><td><strong>安い（広範囲に敷きやすい）</strong></td><td>高い</td></tr><tr><td><strong>重量・安定感</strong></td><td>重い（風雨で飛ばされない・流れない）</td><td>軽い（大雨で浮いたり、強風で飛ぶことがある）</td></tr><tr><td><strong>駐車場への使用</strong></td><td><strong>可能（車が乗っても大丈夫）</strong></td><td>不可（車の重みで粉砕される）</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 素人でも簡単！5号砕石の敷き方 3ステップ</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>業者に頼まなくても、週末のDIYで十分に敷くことができますよ！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true,"start":1} -->
+<ol start="1" class="wp-block-list"><!-- wp:list-item -->
+<li><strong>草むしりと整地:</strong> まずは敷きたい場所の雑草を抜き、平らにならします。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>防草シートを敷く（★ここが意外と重要！）:</strong> 直接土の上に石を敷くと、泥に埋もれて音が鳴らなくなったり、隙間から雑草が生えてきます。必ずホームセンター等で「防草シート」を買ってきて下に敷いてください。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>5号砕石を敷きならす:</strong> 防草シートの上に、<strong>厚さ5cm以上</strong>になるように5号砕石を敷き詰めていきます。厚すぎると歩きにくく、薄すぎると防草シートが見えてしまうので、5cm以上が一番良い音が鳴るベストな厚さです！</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. どれくらいの量が必要か分からない方へ！</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>「家の周りに敷きたいけど、3tダンプ何台分頼めばいいか全然分からない…」という方もご安心ください！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>スマートフォンのLINEから、敷きたい場所の写真と「大体の歩幅（縦〇歩、横〇歩くらい）」を送っていただければ、大体の量を計算し、概算お見積り金額を無料でお見積りいたします！</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>お見積りだけでも大歓迎ですので、ぜひお気軽に下のボタンから石名坂のLINEをご登録くださいね！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<a href="https://lin.ee/Tiign6m"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+<!-- /wp:html -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph -->
+<p>砕石の種類や価格についてはこちらをご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>👉 [<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/" title="">砕石の種類を知りたい場合</a>]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>概算のお見積りはこちらをご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>👉 [<a href="https://www.ishinazaka.co.jp/simulation/" title="">概算お見積もりを知りたい場合</a>]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2117/">【徹底比較】 ホームセンター で 砕石 を買うメリット・デメリット！</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/nukarumi-taisaku/">庭や砂利道の ぬかるみ対策 ｜砕石で直す2つの方法を解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-3836/">【DIY必見】庭や駐車場の砕石・砂利はどれくらい必要？いびつな土地もOKの自動計算ツール！</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/2318-2/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-2426/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/saiseki-hanbai/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="砕石販売ページへ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

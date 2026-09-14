@@ -1,0 +1,391 @@
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">砕石 でできる身近な防獣・防犯対策</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>地域の皆様、こんにちは。 砕石 販売の株式会社 石名坂です。 春になり、盛岡市周辺でもツキノワグマの出没ニュースを耳にする機会が増えてきました。皆様、身の回りの安全対策は万全でしょうか？</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>実は、熊を住宅街や敷地に近づけないためには「家や庭を、熊にとって魅力のない・安心できない場所にすること」が一番の対策になると言われています。 本日は、ご自宅ですぐにできる熊対策と、私たち「石名坂」がお手伝いできるお庭の環境づくりについてご紹介します！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"10px"} -->
+<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"id":3475,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1000006852-1024x559.jpg" alt="身近にできるクマ対策の基本" class="wp-image-3475"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">🐻 <strong>身近でできる熊対策の基本</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true,"start":1} -->
+<ol start="1" class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>エサ（匂い）を絶つ</strong> ・生ゴミの夜間出しを控えたり、庭の果樹（柿や栗など）の実は早めに収穫・処分しましょう。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>隠れ場所（ヤブ）をなくす</strong> ・熊は明るく開けた場所を嫌い、身を隠せる草むらやヤブを好んで移動します。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>家の周囲の雑草を刈り取り、見通しを良くしておくこと</strong>が非常に重要です。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size">熊の出没情報をこまめに確認する👉<a href="https://www.pref.iwate.jp/kurashikankyou/shizen/yasei/1049881/1096154.html" title="">Bears（ベアーズ）の利用方法について</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size">熊を発見した場合（人的被害が無い場合）の緊急連絡先👇</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:table {"fontSize":"medium"} -->
+<figure class="wp-block-table has-medium-font-size"><table class="has-fixed-layout"><tbody><tr><td class="has-text-align-center" data-align="center">区分</td><td class="has-text-align-center" data-align="center">目撃等の場所</td><td class="has-text-align-left" data-align="left">電話番号</td></tr><tr><td class="has-text-align-center" data-align="center">市役所に<strong>通報</strong>する場合</td><td class="has-text-align-center" data-align="center"><strong>盛岡</strong>地域・都南地域</td><td class="has-text-align-left" data-align="left">019-651-4111（代表電話)<br>019-613-8457（直通）</td></tr><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">玉山地域</td><td class="has-text-align-left" data-align="left">019-651-4111（代表電話)<br>019-683-3852（直通）</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　６. 熊を発見した場合（<strong>人的被害などを確認した場合</strong>）の緊急連絡先👉１１０番や１１９番（スマートフォンの位置情報をオンにしていた方が、警察や消防に位置を詳しく説明することが無くなります。）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">※通報をする際は、ご自身の身の安全を確保の上、通報することが必要になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル --- */
+.walking-cat-stage-final {
+  width: 100%; overflow: hidden; position: relative; height: 100px; margin: 20px 0; display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important; position: absolute; width: 100px; height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat; background-size: contain;
+  animation: urochoro-left-final 25s linear infinite; cursor: pointer; z-index: 9999 !important; transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active { animation-play-state: paused; transform: translateY(-20px) !important; }
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); } 30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); } 45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); } 65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); } 100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 100000; overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute; top: 0; left: 0; background-repeat: no-repeat; background-size: contain;
+  will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);
+}
+
+/* --- 肉球スタンプのスタイル --- */
+.paw-stamp-overlay {
+  position: absolute; top: 50%; left: 50%; width: 60vmin; height: 60vmin; margin-top: -30vmin; margin-left: -30vmin;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232c3e50' d='M256 224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm-114-60c30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97 23 30 67 35 97 11zm245 0c23 30 67 35 97 11 30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97zm-130-55c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: contain;
+  z-index: 200000; opacity: 0; pointer-events: none;
+  animation: smash-stamp 2s ease-out forwards;
+}
+
+@keyframes smash-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  10% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false;
+
+function catMagicClick() {
+  if (isRunning) return; 
+
+  clickCount++;
+
+  // ★ 5回に1回、肉球スタンプを出す
+  if (clickCount % 5 === 0) {
+    showPawStamp();
+  }
+
+  // ★ ご希望の3パターンループ（左→右、右→左、上→下）
+  const pattern = (clickCount - 1) % 3;
+  if (pattern === 0) {
+    releaseCats('left-to-right'); // 1回目
+  } else if (pattern === 1) {
+    releaseCats('right-to-left'); // 2回目
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom'); // 3回目
+  }
+}
+
+function showPawStamp() {
+  const container = document.getElementById('cat-horde-container');
+  const stamp = document.createElement('div');
+  stamp.className = 'paw-stamp-overlay';
+  container.appendChild(stamp);
+  setTimeout(() => { stamp.remove(); }, 2000);
+}
+
+function releaseCats(direction) {
+  isRunning = true;
+  const container = document.getElementById('cat-horde-container');
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに一匹だけ混ぜる別の生き物のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+
+  // ★ 迫力と滑らかさを両立する「50匹」に設定
+  const catCount = 100; 
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    // ★ 渋滞解消：3.5秒かけてパラパラと分散して出現させる
+    const delay = Math.random() * 3500;
+
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+      
+      // 画像の振り分け
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      // サイズ設定（遠近感を出す）
+      const size = Math.floor(Math.random() * 70) + 40;
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      // 速度設定（2秒〜4.5秒）
+      const duration = (Math.random() * 2.5) + 2.0;
+      let startX, startY, endX, endY, flip;
+
+      // ==========================================
+      // ★ 点ではなく「範囲（エリア）」から出現させる計算
+      // ==========================================
+      if (direction === 'left-to-right') {
+        // 左側の範囲から右側の範囲へ
+        startX = -20 - Math.random() * 30; // 画面左外（-20vw 〜 -50vw）
+        startY = Math.random() * 90;       // 高さの範囲（0vh 〜 90vh）バラバラ
+        endX = 110 + Math.random() * 30;   // 画面右外へ
+        endY = startY + (Math.random() * 20 - 10); // 真横ではなく少し上下にブレながら走る
+        flip = 1; // 右向き
+        
+      } else if (direction === 'right-to-left') {
+        // 右側の範囲から左側の範囲へ
+        startX = 110 + Math.random() * 30; // 画面右外（110vw 〜 140vw）
+        startY = Math.random() * 90;       // 高さの範囲（0vh 〜 90vh）
+        endX = -20 - Math.random() * 30;   // 画面左外へ
+        endY = startY + (Math.random() * 20 - 10); 
+        flip = -1; // 左向き
+        
+      } else if (direction === 'top-to-bottom') {
+        // 上の範囲から下の範囲へ
+        startX = Math.random() * 95;       // 横幅の範囲（0vw 〜 95vw）バラバラ
+        startY = -20 - Math.random() * 30; // 画面上外（-20vh 〜 -50vh）
+        endX = startX + (Math.random() * 20 - 10); // 真下ではなく少し左右にブレながら降る
+        endY = 110 + Math.random() * 30;   // 画面下外へ
+        flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは左右ランダム
+      }
+
+      container.appendChild(cat);
+
+      // 最軽量のアニメーション処理（GPU駆動）
+      cat.animate([
+        { transform: `translate3d(${startX}vw, ${startY}vh, 0) scaleX(${flip})` },
+        { transform: `translate3d(${endX}vw, ${endY}vh, 0) scaleX(${flip})` }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        fill: 'forwards'
+      });
+
+      // 走り終わったら削除
+      setTimeout(() => {
+        cat.remove();
+      }, duration * 1000);
+
+    }, delay); 
+  }
+
+  // 大群が全員走り終わるまで（出現3.5秒＋移動約4.5秒 ＝ 約8秒）次のクリックを待つ
+  setTimeout(() => {
+    isRunning = false;
+  }, 8000);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">💡 草刈りの負担を減らし、防犯・防獣を兼ねる「5号 砕石 」</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「見通しを良くしたいけれど、毎年夏場の草刈りが大変…」という方におすすめなのが、【防草シートと砕石（砂利）】の組み合わせです！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">お庭や家の裏の通路に防草シートを敷き、その上に当社の「5号砕石」を敷き詰めることで、以下のようなメリットがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>防獣効果（対 熊）：</strong> 雑草が生えなくなるため、熊が隠れられる「ヤブ」が半永久的に無くなり、見通しが良くなります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>防犯効果（対 人）：</strong> 5号砕石は角張っているため、人が歩くと「ジャリッ」としっかり足音が鳴り、空き巣などの侵入を躊躇させる防犯効果があります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>メンテナンスフリー：</strong> 土と違って靴が汚れず、水はけも良くなります。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">🚚 <strong>個人のお客様・DIYでのご購入も大歓迎です！</strong> 株式会社 石名坂では、企業様だけでなく<strong>個人のお客様への砕石販売</strong>も行っております。「ホームセンターの袋売りでは足りない」「庭のDIY用にたくさん欲しい」という場合も大歓迎です！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>軽トラ等での直接のお引き取りOK！</strong>（盛岡市黒川の砕石プラントにて）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>ご自宅への配達も承ります！</strong>（盛岡市周辺、矢巾町、紫波町など ※配達エリアや量はお気軽にご相談ください）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「うちの庭にはどれくらいの量が必要？」など、お見積りやご相談だけでもお気軽にお問い合わせください。 地域ぐるみで身の回りの環境を整え、安全に過ごしていきましょう！</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👇<strong>砕石の販売・お問い合わせに関する詳細はこちら</strong> 　電話番号：019-638-7521 </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1209,"width":"150px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/contact/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775539219598_260407143021.png" alt="お問い合わせボタン" class="wp-image-1209" style="width:150px"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">砕石の種類や価格についてはこちらをご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉 [<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/" title="">砕石の種類を知りたい場合</a>]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">概算のお見積りはこちらをご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">👉 [<a href="https://www.ishinazaka.co.jp/simulation/" title="">概算お見積もりを知りたい場合</a>]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-3265/">5月の連休明けから要注意！お庭の「 雑草 対策」に砕石が大活躍する理由</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2414/">【防犯＆クマ対策】家の周りに敷くならホームセンターの 防犯 砂利？それとも「5号砕石」？ 防犯 DIY対策！</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/nukarumi-taisaku/">庭や砂利道の ぬかるみ対策 ｜砕石で直す2つの方法を解説</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-2414/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-2480/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
