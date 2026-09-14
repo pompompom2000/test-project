@@ -155,20 +155,118 @@
   <header class="cover">
     <p class="eyebrow">Ishinazaka / Privacy Policy Addendum</p>
     <h1>AIチャットの追記案</h1>
-    <p class="lede">プライバシーポリシーに足す文章です。ボタンを押すとコピーできます。<strong>上から順に、6か所。</strong>全部で15分ほどの作業です。</p>
+    <p class="lede"><strong>6か所すべて反映されました。</strong>本番ページを読んで照合済みです。文章の中身は1文字も違いません。<strong>残っているのは、見た目の直しが2つだけ。</strong></p>
   </header>
 
-  <h2><span class="num">STEP 0</span>確認は済みました</h2>
-  <p class="sub">2026年9月14日、管理画面の画面で確認しました。</p>
+  <h2><span class="num">照合</span>本番ページと突き合わせました</h2>
+  <p class="sub">2026年9月14日、ログアウトした状態で <code>/privacy-policy/</code> を取得して確認しました。</p>
 
   <div class="check" style="border-left-color:var(--accent);background:var(--accent-soft)">
-    <h3>会話の中身は、保存されていません</h3>
-    <p>AI Engine のタブは「ダッシュボード／モジュール／チャットボット／設定／ライセンス」の5つで、<strong>「Discussions」はありません。</strong>会話の中身を貯める機能が動いていない、ということです。</p>
-    <p style="margin-bottom:0">いっぽう、ダッシュボードには「<strong>This week　36 queries</strong>」と出ていました。<strong>使われた回数は記録されています。</strong>ただしこれは回数と費用の集計で、会話の中身は含まれません。下の文章は、この違いが分かるように書いてあります。</p>
+    <h3>6か所すべて、正しく入っています</h3>
+    <p style="margin-bottom:0">利用目的の1行、委託の一文、新しい第7項（1〜5すべて）、見出しの8.への変更、［事業者名］、改定日2026年9月14日。<strong>文言の取り違えや抜けはありません。</strong></p>
   </div>
-  <p class="note">あとで「Discussions」を有効にした場合は、<strong>保存期間を書き足す必要があります。</strong>そのときの文案も STEP 3 の下に置いてあります。</p>
 
-  <h2><span class="num">STEP 1</span>利用目的に、1行足す</h2>
+  <h2><span class="num">直す 1</span>第7項が、ひとかたまりになっています</h2>
+  <p class="sub">貼り付けのときに改行が消えました。（1）〜（5）が本文に埋もれています。</p>
+
+  <p>いま本番はこう出ています。</p>
+  <div class="block">
+    <div class="bhead"><span class="where">いまの状態</span></div>
+    <pre style="color:var(--ink-2)">…設置しています。（1）送信される内容お客様がチャットに入力された文章は、回答を作成するために、Google LLC が…委託しています。チャットで送信できるのは…できません。（2）入力をお控えいただきたい情報チャットは、一般的な…</pre>
+  </div>
+
+  <p><strong>これでは、いちばん大事な一文が読まれません。</strong>この項目が効くのは「お名前、ご住所、電話番号…は入力しないでください」をお客様が<strong>入力する前に</strong>目にするからです。埋もれていると意味がなくなります。</p>
+
+  <div class="check">
+    <h3>直し方</h3>
+    <p>第7項の長い段落を<strong>いったん全部消して</strong>、下の7つを<strong>1つずつ、別々の段落として</strong>貼り直します。</p>
+    <p style="margin-bottom:0">1つ貼ったら<strong>改行（Enter）を1回押して</strong>、次を貼る。これを7回くり返すだけです。改行を押すと、WordPressが新しい段落として扱ってくれます。</p>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">1つめ ／ 書き出し</span>
+      <button type="button" class="copy" id="c11" data-t="11">コピー</button>
+    </div>
+    <pre id="t11">当社のウェブサイトでは、砕石・砂利の種類や配達に関するご質問にお答えするため、生成AIを利用したチャットボットを設置しています。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">2つめ</span>
+      <button type="button" class="copy" id="c12" data-t="12">コピー</button>
+    </div>
+    <pre id="t12">（1）送信される内容　お客様がチャットに入力された文章は、回答を作成するために、Google LLC が提供する生成AIサービスへ送信され、処理されます。当社は、この処理を同社に委託しています。チャットで送信できるのは、お客様が入力された文章のみです。画像やファイルを送信することはできません。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">3つめ ／ いちばん大事なところ</span>
+      <button type="button" class="copy" id="c13" data-t="13">コピー</button>
+    </div>
+    <pre id="t13">（2）入力をお控えいただきたい情報　チャットは、一般的なご質問にお答えするためのものです。お名前、ご住所、電話番号、メールアドレスなどの個人情報は、入力しないでください。お見積りやご注文など、個人情報が必要なお問い合わせは、お問い合わせフォームまたはお電話をご利用ください。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">4つめ</span>
+      <button type="button" class="copy" id="c14" data-t="14">コピー</button>
+    </div>
+    <pre id="t14">（3）会話内容の保存　チャットの会話内容は、当社のウェブサイトには保存していません。ブラウザを閉じると、会話は残りません。当社が記録しているのは、チャットが利用された回数のみで、会話の内容は含まれません。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">5つめ</span>
+      <button type="button" class="copy" id="c15" data-t="15">コピー</button>
+    </div>
+    <pre id="t15">（4）お問い合わせフォームへの引き継ぎ　チャット画面の「この会話をお問い合わせに送る」を押された場合に限り、その時点までの会話内容が、お問い合わせフォームの入力欄に貼り付けられます。送信ボタンを押されるまで、当社に送信されることはありません。貼り付けられた内容は、お客様ご自身で確認・修正・削除していただけます。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">6つめ</span>
+      <button type="button" class="copy" id="c16" data-t="16">コピー</button>
+    </div>
+    <pre id="t16">（5）回答の正確性について　チャットボットの回答は、AIが自動で作成するものです。内容に誤りが含まれる場合があります。金額・数量・納期などの確定的なご回答は、お電話またはお問い合わせフォームにて承ります。</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">7つめ ／ 最後</span>
+      <button type="button" class="copy" id="c17" data-t="17">コピー</button>
+    </div>
+    <pre id="t17">Google による情報の取り扱いについては、同社のプライバシーポリシーをご確認ください。</pre>
+  </div>
+
+  <p class="note"><strong>（1）などの番号のうしろは、全角の空白にしてあります。</strong>見出しを別の行にすると、また改行が消えて同じことになります。1つの段落のまま、頭に番号を置く形が、いちばん崩れません。</p>
+
+  <h2><span class="num">直す 2</span>点（・）の前に、空白がありません</h2>
+  <p class="sub">利用目的の箇条書きです。1文字の話ですが、続けて読むと詰まって見えます。</p>
+
+  <div class="block">
+    <div class="bhead"><span class="where">いまの状態</span></div>
+    <pre style="color:var(--ink-2)">・商品の配達・AIチャットボットによるご質問への応対</pre>
+  </div>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">2.個人情報の利用目的 ／ 段落をまるごと置き換え</span>
+      <button type="button" class="copy" id="c18" data-t="18">コピー</button>
+    </div>
+    <pre id="t18">当社は、取得した個人情報を、以下の目的で利用します。 ・サービスに関する情報提供 ・お問い合わせへの回答 ・商品の配達 ・AIチャットボットによるご質問への応対</pre>
+  </div>
+
+  <p class="note">ほかの点（・）と同じ、半角の空白を入れてあります。段落ごと置き換えるほうが、1文字だけ足すより確実です。</p>
+
+  <h2>終わったら</h2>
+  <p>ログアウトした状態でプライバシーポリシーのページを開いて、<strong>（1）〜（5）が別々の行になっているか</strong>だけ見てください。なっていれば完了です。</p>
+  <p>教えていただければ、<strong>もう一度こちらで本番を読んで照合します。</strong></p>
+
+  <h2 style="margin-top:72px">記録：最初に貼った6か所</h2>
+  <p class="sub">すべて反映済みです。やり直す必要はありません。下は、何をどこに入れたかの控えです。</p>
+
+  <h2><span class="num">済 1</span>利用目的に、1行足す</h2>
   <p class="sub">「2.個人情報の利用目的」の箇条書きの、いちばん最後に足します。</p>
 
   <div class="block">
@@ -179,7 +277,7 @@
     <pre id="t1">・AIチャットボットによるご質問への応対</pre>
   </div>
 
-  <h2><span class="num">STEP 2</span>「第三者提供」に、委託の一文を足す</h2>
+  <h2><span class="num">済 2</span>「第三者提供」に、委託の一文を足す</h2>
   <p class="sub">「4.個人情報の第三者提供」の文章のうしろに、続けて足します。</p>
 
   <div class="block">
@@ -192,7 +290,7 @@
 
   <p class="note"><strong>なぜこれが要るか。</strong>お客様がチャットに書いた文字は、Googleへ送られて処理されます。これは法律上「第三者提供」ではなく「委託」にあたります。ところが、いまのポリシーには「第三者に提供しません」としか書いていないため、委託の説明がどこにもありません。この一文で、その穴がふさがります。</p>
 
-  <h2><span class="num">STEP 3</span>新しい項目を、まるごと足す</h2>
+  <h2><span class="num">済 3</span>新しい項目を、まるごと足す</h2>
   <p class="sub">「6.アクセス解析ツールおよび広告配信について」の<strong>あと</strong>、「7.お問い合わせ窓口」の<strong>前</strong>に入れます。ここが本体です。</p>
 
   <div class="block">
@@ -237,7 +335,7 @@ Google による情報の取り扱いについては、同社のプライバシ�
 
   <p class="note"><strong>いまは、上の本文をそのまま使ってください。</strong>下の差し替え文は、将来「Discussions」を有効にして会話を貯めはじめたときのものです。そのときは「6か月」という期間も自分で決めることになります。<strong>書いた期間は守る必要があります。</strong>実際に消す手だてがないうちは、有効にしないほうが安全です。</p>
 
-  <h2><span class="num">STEP 4</span>番号を1つずつ、ずらす</h2>
+  <h2><span class="num">済 4</span>番号を1つずつ、ずらす</h2>
   <p class="sub">新しい7を入れたので、いまの7が8になります。</p>
   <div class="block">
     <div class="bhead">
@@ -247,7 +345,7 @@ Google による情報の取り扱いについては、同社のプライバシ�
     <pre id="t5">8.お問い合わせ窓口</pre>
   </div>
 
-  <h2><span class="num">STEP 5</span>残っているひな形の1語を直す</h2>
+  <h2><span class="num">済 5</span>残っているひな形の1語を直す</h2>
   <p class="sub">お問い合わせ窓口の欄に、ひな形の <code>[氏名]</code> が残っています。会社が事業者なので、そこには会社名が入ります。</p>
 
   <div class="block">
@@ -263,7 +361,7 @@ Google による情報の取り扱いについては、同社のプライバシ�
     <p style="margin-bottom:0">先日わたしは「住所が2通りあって矛盾している」とお伝えしましたが、<strong>あれは私の誤りでした。</strong>ポリシーは <code>[本店所在地]</code> と <code>[お問い合わせ窓口]</code> をラベルで分けて、登記上の本店と事業所を正しく書き分けています。フッターに揃えると、登記上の住所が消えてしまいます。<strong>そのままが正解です。</strong></p>
   </div>
 
-  <h2><span class="num">STEP 6</span>改定日を、今日にする</h2>
+  <h2><span class="num">済 6</span>改定日を、今日にする</h2>
   <div class="block">
     <div class="bhead">
       <span class="where">ページ末尾 ／ 改定日の行</span>
@@ -272,7 +370,7 @@ Google による情報の取り扱いについては、同社のプライバシ�
     <pre id="t7">改定日：2026年9月14日</pre>
   </div>
 
-  <h2>スマホでの手順</h2>
+  <h2>貼り付けのコツ</h2>
   <ol class="steps">
     <li><p>WordPressの管理画面 → <strong>固定ページ</strong> → <strong>プライバシーポリシー</strong> を開きます。</p></li>
     <li><p>上のボタンでコピーして、該当箇所に貼り付けます。<strong>1か所貼るたびに「更新」を押してください。</strong>まとめてやらないほうが、途中で失敗しても戻せます。</p></li>
