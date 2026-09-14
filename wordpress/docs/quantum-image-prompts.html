@@ -1,0 +1,400 @@
+<title>量子記事の画像プロンプト集</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#EDF0F1;
+  --paper:#FAFBFB;
+  --ink:#14181C;
+  --ink-soft:#4B545B;
+  --rule:#CBD2D5;
+  --copper:#A8642A;
+  --keep:#2C6257;
+  --drop:#8A3F32;
+  --warn-bg:#F7EEE6;
+  --code-bg:#F1F3F4;
+  --shadow:rgba(20,24,28,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121618;
+    --paper:#191E21;
+    --ink:#E6EBED;
+    --ink-soft:#9CA7AD;
+    --rule:#2F373B;
+    --copper:#D9945A;
+    --keep:#72B9A5;
+    --drop:#D08A76;
+    --warn-bg:#251E19;
+    --code-bg:#111618;
+    --shadow:rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121618;
+  --paper:#191E21;
+  --ink:#E6EBED;
+  --ink-soft:#9CA7AD;
+  --rule:#2F373B;
+  --copper:#D9945A;
+  --keep:#72B9A5;
+  --drop:#D08A76;
+  --warn-bg:#251E19;
+  --code-bg:#111618;
+  --shadow:rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  font-size:16px;line-height:1.85;margin:0;
+  padding-inline:18px;padding-block:0;
+}
+.wrap{max-width:44rem;margin-inline:auto;padding-block:44px 72px}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin:0 0 12px
+}
+h1{
+  font-family:"Zen Antique",serif;font-weight:400;
+  font-size:clamp(1.7rem,6.2vw,2.35rem);line-height:1.42;
+  text-wrap:balance;margin:0 0 16px;
+}
+.sub{color:var(--ink-soft);margin:0 0 6px;font-size:.98rem}
+.stamp{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink-soft);letter-spacing:.04em}
+
+section{margin-top:52px;display:flex;flex-direction:column;gap:16px}
+h2{
+  font-weight:700;font-size:1.2rem;line-height:1.5;text-wrap:balance;
+  margin:0;padding-bottom:9px;border-bottom:2px solid var(--ink);
+}
+
+.caveat{background:var(--warn-bg);border-left:4px solid var(--drop);padding:16px 18px}
+.caveat p{margin:0}
+.caveat p + p{margin-top:10px}
+.caveat strong{color:var(--drop)}
+
+.note{background:var(--paper);border:1px solid var(--rule);padding:16px 18px}
+.note p{margin:0}
+.note p + p{margin-top:10px}
+
+/* 使い分け表 */
+.tblwrap{overflow-x:auto;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:.9rem}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.08em;
+  color:var(--ink-soft);font-weight:500;background:var(--ground);white-space:nowrap;
+}
+tr:last-child td{border-bottom:0}
+td.g{color:var(--keep);font-weight:700;white-space:nowrap}
+td.s{color:var(--copper);font-weight:700;white-space:nowrap}
+
+/* プロンプト札 */
+.card{
+  background:var(--paper);border:1px solid var(--rule);
+  box-shadow:0 1px 3px var(--shadow);
+  display:flex;flex-direction:column;
+}
+.card > header{
+  display:grid;grid-template-columns:2.6rem 1fr;gap:0 12px;
+  padding:16px 18px 12px;border-bottom:1px solid var(--rule);
+}
+.card .num{
+  font-family:"IBM Plex Mono",monospace;font-size:1.3rem;font-weight:500;
+  color:var(--copper);font-variant-numeric:tabular-nums;line-height:1.3;
+}
+.card h3{margin:0;font-size:1.05rem;font-weight:700;line-height:1.55;text-wrap:balance}
+.card .where{
+  grid-column:2;margin:5px 0 0;font-family:"IBM Plex Mono",monospace;
+  font-size:.73rem;letter-spacing:.06em;color:var(--ink-soft);
+}
+.card .why{grid-column:2;margin:8px 0 0;font-size:.93rem;color:var(--ink-soft)}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px}
+
+.label{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.1em;
+  color:var(--copper);margin:0;
+}
+pre{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;line-height:1.7;
+  background:var(--code-bg);border:1px solid var(--rule);
+  padding:13px;margin:0;white-space:pre-wrap;word-break:break-word;
+}
+.cap{
+  margin:0;padding:11px 13px;background:var(--ground);
+  border-left:3px solid var(--keep);font-size:.92rem;
+}
+button{
+  font-family:inherit;font-size:.9rem;font-weight:500;
+  background:var(--copper);color:#fff;border:0;padding:10px 16px;
+  cursor:pointer;align-self:flex-start;
+}
+button:focus-visible{outline:3px solid var(--keep);outline-offset:2px}
+button[data-done="1"]{background:var(--keep)}
+
+ol.steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:10px}
+ol.steps strong{color:var(--copper)}
+
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft)}
+
+@media (max-width:430px){
+  .card > header{grid-template-columns:2.2rem 1fr;gap:0 10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+<p class="eyebrow">量子コンピュータ 前編・後編</p>
+<h1>記事に入れる画像の<br>プロンプト集</h1>
+<p class="sub">Gemini（Nano Banana）で作る8枚と、SVGで作るべき4枚の分け方</p>
+<p class="stamp">2026年9月14日</p>
+
+<section>
+<h2>先に、いちばん大事なこと</h2>
+<div class="caveat">
+<p><strong>絵に文字を入れさせないでください。</strong>いまの画像生成AIは、短い単語なら描けますが、長い文章では3〜4割の確率で崩れます。日本語はさらに苦手です。<strong>崩れた日本語が載った記事は、それだけで信用を落とします。</strong></p>
+<p>そこで、<strong>文字はすべてWordPress側のキャプションで付けます。</strong>各プロンプトの末尾に文字を禁じる一文を入れてあります。消さないでください。</p>
+<p><strong>もうひとつ。生成した絵を、実物の写真のように見せないこと。</strong>各画像に「<strong>イメージ図（生成AIで作成）</strong>」と必ず添えてください。キャプション案にはすべて入れてあります。</p>
+</div>
+</section>
+
+<section>
+<h2>画像で作るもの／SVGで作るもの</h2>
+<p style="margin:0;font-size:.93rem;color:var(--ink-soft)">正確さが要るもの（数字・年表・比較）は、生成AIに任せると必ずどこかが狂います。そこはSVGで描くべきところです。</p>
+<div class="tblwrap">
+<table>
+<thead><tr><th>作るもの</th><th>方法</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td>矢印の打ち消し合い</td><td class="s">SVG（作成済）</td><td>本数も向きも正確でないと、説明が成立しない</td></tr>
+<tr><td>1984年からの40年の流れ</td><td class="s">SVG</td><td>年号が入る。生成AIでは必ず狂う</td></tr>
+<tr><td>矢印の本数の爆発（10→50→300）</td><td class="s">SVG</td><td>桁が命。数字が崩れたら意味がない</td></tr>
+<tr><td>工場と根粒菌の条件くらべ</td><td class="s">SVG</td><td>温度と気圧の数字が入る</td></tr>
+<tr><td>冷凍機、分子、チップ、根粒、工場など</td><td class="g">Gemini</td><td>雰囲気が伝わればよい。文字が要らない</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><strong>SVGの4枚は、こちらで描けます。</strong>ご希望でしたら言ってください。すでに1枚（矢印の打ち消し合い）は記事に入っています。</p>
+</div>
+</section>
+
+<section>
+<h2>共通の画風（毎回これを末尾に付ける）</h2>
+<p style="margin:0;font-size:.93rem;color:var(--ink-soft)">8枚がばらばらの絵柄だと、記事が散らかります。<strong>この一文を全部のプロンプトの最後に付けてください。</strong>各プロンプトには、すでに組み込んであります。</p>
+<div class="card">
+<div class="body">
+<p class="label">STYLE SUFFIX</p>
+<pre id="p0">Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p0">この画風をコピー</button>
+</div>
+</div>
+</section>
+
+<section>
+<h2>前編に入れる4枚</h2>
+
+<div class="card">
+<header>
+  <span class="num">1</span>
+  <h3>冷凍機（前編のアイキャッチ）</h3>
+  <p class="where">記事の冒頭／アイキャッチ画像</p>
+  <p class="why">「量子コンピュータ」と聞いて多くの人が思い浮かべる、あの金色の装置。ただし本文で「冷やすのは超電導方式だけ」と断っているので、キャプションでもそう書きます。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p1">A tall chandelier-like dilution refrigerator for a superconducting quantum computer, seen from a slightly low angle in a quiet empty laboratory. Several large circular copper-gold plates stacked horizontally at different heights, connected by vertical rods, with dense bundles of thin coaxial cables running down between the plates. The lowest stage is smallest. A cylindrical vacuum shell is lifted away and visible at the side. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p1">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">超電導方式の量子コンピュータを冷やす装置。すべての方式がこうなっているわけではありません。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">2</span>
+  <h3>量子ビットのチップ</h3>
+  <p class="where">「1984年から、一本の線がつながっています」の節</p>
+  <p class="why">1999年のNECのクーパー対箱から、いまのトランズモンへ。実物がどんなものかの見当がつきます。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p2">Extreme close-up of a small square superconducting quantum processor chip resting on a polished copper mount. On the chip surface, a regular grid of symmetric cross-shaped metal patterns connected by fine meandering traces. Very thin bond wires arc from the chip edge to a surrounding circuit board. Shallow depth of field, the far corner slightly soft. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p2">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">超電導方式の量子ビットを載せたチップ。1999年にNECが作った回路の子孫にあたります。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">3</span>
+  <h3>矢印を持った分子</h3>
+  <p class="where">「もうひとつ、圧倒的に得意なことがあります」の節</p>
+  <p class="why"><strong>この記事でいちばん大事な一枚です。</strong>「分子の中の電子も矢印を持っている」を、絵で見せます。図の矢印と同じ形にすることで、前の節とつながります。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p3">A single small molecule floating in empty space: five or six simple spheres joined by short straight rods, arranged in three dimensions. Around and between the spheres, soft translucent grey clouds suggest where electrons might be. Scattered through those clouds, many small copper-colored directional arrows point in many different directions, like iron filings. Some arrows in one region line up together and point the same way. Clean off-white background. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p3">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">分子の中の電子も「矢印」を持っています。だから量子の機械と相性がよいのです。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">4</span>
+  <h3>一本ずつ数えるスーパーコンピュータ</h3>
+  <p class="where">「なぜ、普通のコンピュータでは追いつけないのか」の節</p>
+  <p class="why">1ペタバイトのメモリという話に、絵をあてます。整然と並ぶラックの列が、そのまま「量」を語ります。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p4">A long aisle inside a supercomputer hall, seen straight down the middle in one-point perspective. Identical tall equipment cabinets line both sides, receding far into the distance and fading out. Thick cable trays overhead. Cool blue-grey light. The aisle is empty, no people. The scale feels endless.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p4">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">50量子ビットを普通のコンピュータで再現するには、1ペタバイトを超えるメモリが要りました。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+</section>
+
+<section>
+<h2>後編に入れる4枚</h2>
+
+<div class="card">
+<header>
+  <span class="num">5</span>
+  <h3>方式が定まっていない（後編のアイキャッチ）</h3>
+  <p class="where">記事の冒頭／アイキャッチ画像</p>
+  <p class="why">「六つの方式が並立していて、まだ本命が決まっていない」を一枚で。まったく違う装置が横に並んでいる絵が、そのまま答えになります。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p5">One long laboratory bench photographed straight on, with four completely different pieces of apparatus standing side by side in a row, evenly spaced. From left to right: a small hanging gold-copper cryostat tower; a sealed vacuum chamber crossed by thin straight laser beams; an optical table with mirrors and beam splitters and folded light paths; a bare silicon chip under a fine probe needle. They look unrelated to each other. Plain wall behind. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p5">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">作り方は六通りあり、まだ本命が決まっていません。主な方式のイメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">6</span>
+  <h3>アンモニアの工場</h3>
+  <p class="where">「本命は、分子と材料のシミュレーションです」の節</p>
+  <p class="why">次の7番と<strong>並べて使います。</strong>400〜500度・数百気圧のほう。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p6">A large industrial ammonia synthesis plant at dusk. Tall steel reactor columns and pressure vessels, thick insulated pipework, valves and flanges, steam rising and drifting sideways, a faint shimmer of heat. Cold blue evening sky behind, warm lights low on the structure. Seen from middle distance. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p6">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">肥料のもとになるアンモニアは、400〜500度・数百気圧で作られています。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">7</span>
+  <h3>マメ科の根と、根粒</h3>
+  <p class="where">6番のすぐ下。対にして使う</p>
+  <p class="why"><strong>この記事でいちばん効く一枚だと思います。</strong>工場が高温高圧でやっていることを、畑の土の中で常温常圧でやっている。畑をやる読者には、説明なしで伝わります。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p7">The root system of a soybean plant just lifted from the ground, held up against plain soft daylight. Fine pale roots spread out, and along them cluster many small round nodules, some cut open to show a pink-red interior. Dark crumbs of soil still cling to the roots and a few fall away. A couple of green leaves at the top edge of the frame. Quiet, ordinary, close up. No people, no hands.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p7">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">マメ科の根につく根粒。ここでは常温・常圧で、同じことが行われています。しくみはまだ解明されていません。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <span class="num">8</span>
+  <h3>錠前の付け替え</h3>
+  <p class="where">「セキュリティのための機械ではありません」の節</p>
+  <p class="why">量子コンピュータは<strong>壊す側</strong>で、2035年の話は<strong>守る側が錠前を替える</strong>話。この関係を一枚で。</p>
+</header>
+<div class="body">
+<p class="label">PROMPT</p>
+<pre id="p8">Two padlocks lying side by side on a worn wooden workbench, seen from directly above. On the left, an old brass padlock, its shackle sprung open, slightly tarnished. On the right, a new steel padlock, still closed and clean. Between them, a single key and a small screwdriver. Plain bench, soft daylight from one side. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="p8">コピー</button>
+<p class="label">キャプション案</p>
+<p class="cap">量子コンピュータは暗号を「壊す側」です。国は2035年を目処に、錠前の付け替えを進めています。イメージ図（生成AIで作成）</p>
+</div>
+</div>
+
+</section>
+
+<section>
+<h2>作るときの手順</h2>
+<ol class="steps">
+<li><strong>プロンプトをそのまま貼る。</strong>短くしないでください。最後の画風の一文まで含めて1つのプロンプトです。</li>
+<li><strong>出てきた絵に文字が入っていたら、作り直す。</strong>「no text」と書いても、まれに入ります。日本語が崩れた絵は使えません。</li>
+<li><strong>同じ画風で8枚そろえる。</strong>1枚だけ雰囲気が違うと、かえって目立ちます。うまくいった絵が出たら、その調子を覚えておいて他も揃えてください。</li>
+<li><strong>WordPressに入れるときは、代替テキスト（alt）も日本語で書く。</strong>キャプション案をそのまま入れて差し支えありません。目の見えない方の読み上げに使われます。</li>
+<li><strong>キャプションから「イメージ図（生成AIで作成）」を消さない。</strong>実物の写真と思われると、それは事実と違う印象を与えたことになります。</li>
+</ol>
+</section>
+
+<footer>
+<p style="margin:0">画像生成AIは、短い単語なら描けますが、長い文章では3〜4割の確率で誤りが出るとされています。日本語はさらに苦手です。だからこの8枚には、一文字も入れさせません。数字と年号が要る4枚は、SVGで描きます。そちらもご希望でしたら言ってください。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function attach(btn){
+    var pre = document.getElementById(btn.getAttribute('data-src'));
+    if(!pre) return;
+    var label = btn.textContent;
+    btn.addEventListener('click', function(){
+      var text = pre.textContent;
+      function done(){
+        btn.textContent = 'コピーしました';
+        btn.setAttribute('data-done','1');
+        setTimeout(function(){
+          btn.textContent = label;
+          btn.removeAttribute('data-done');
+        }, 2000);
+      }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly','');
+        ta.style.position = 'fixed'; ta.style.top = '-1000px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); }
+        catch(e){ btn.textContent = 'コピーできませんでした'; }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+  }
+  var btns = document.querySelectorAll('button[data-src]');
+  for (var i = 0; i < btns.length; i++) attach(btns[i]);
+})();
+</script>
