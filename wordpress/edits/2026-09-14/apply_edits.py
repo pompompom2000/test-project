@@ -58,6 +58,16 @@ for pid, items in by_post.items():
     applied = []
     for e in items:
         found = new_raw.count(e['old'])
+
+        # nth が "all" のときは、見つかったものを全部置き換える
+        if e['nth'] == 'all':
+            if found == 0:
+                results.append((pid, e['name'], '× 見つからない'))
+                continue
+            new_raw = new_raw.replace(e['old'], e['new'])
+            applied.append('%s（%d件）' % (e['name'], found))
+            continue
+
         if found < e['nth']:
             results.append((pid, e['name'], '× 見つからない（%d件）' % found))
             continue

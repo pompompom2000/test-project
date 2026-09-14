@@ -1,0 +1,327 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading"> 物流 の効率化に関する法律（物流効率化法）Q&amp;Aの要点</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":940,"width":"400px","sizeSlug":"large","linkDestination":"custom"} -->
+<figure class="wp-block-image size-large is-resized"><a href="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/001992628.pdf"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/03/1000006670-734x1024.png" alt="" class="wp-image-940" style="width:400px"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル（猫） --- */
+.walking-cat-stage-final {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; 
+  margin: 20px 0;
+  display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: urochoro-left-final 25s linear infinite;
+  cursor: pointer;
+  z-index: 9999 !important;
+  transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active {
+  animation-play-state: paused;
+  transform: translateY(-20px) !important;
+}
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); }
+  30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); }
+  45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); }
+  65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); }
+  100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: transform, left, right, top; /* スマホの処理を軽くする */
+}
+
+/* パターン1：左から右へ */
+@keyframes horde-run-lr {
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+
+/* パターン2：右から左へ */
+@keyframes horde-run-rl {
+  0% { right: -200px; }
+  100% { right: 110vw; }
+}
+
+/* パターン3：上から下へ */
+@keyframes horde-fall-tb {
+  0% { top: -200px; }
+  100% { top: 110vh; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false; // 大群が走っている最中かどうかを判定するフラグ
+
+function catMagicClick() {
+  // もし大群が走っている最中なら、クリックを無視する（重くなるのを防ぐ）
+  if (isRunning) return; 
+
+  const pattern = clickCount % 3;
+  
+  if (pattern === 0) {
+    releaseCats('left-to-right');
+  } else if (pattern === 1) {
+    releaseCats('right-to-left');
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom');
+  }
+  
+  clickCount++;
+}
+
+function releaseCats(direction) {
+  isRunning = true; // 大群発生スタート！追加クリックを禁止する
+
+  const container = document.getElementById('cat-horde-container');
+  // ▼ ここに通常の大群用の猫のURLを貼り付け ▼
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに【一匹だけ混ぜる別の生き物】のGIF画像のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775735437402.png'; 
+
+  const catCount = 20; // 猫の数
+
+  // 大群（catCount匹）の中から、ランダムに「一匹」を選ぶ
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+
+      // 通常は猫の画像、選ばれた一匹だけ別の生き物の画像にする
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 70) + 50; // サイズもランダム
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 2.5) + 1.5; // 速度もランダム
+
+      if (direction === 'left-to-right') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.left = '-200px';
+        cat.style.transform = 'scaleX(1)'; // 右向き
+        cat.style.animation = `horde-run-lr ${duration}s linear forwards`;
+      } else if (direction === 'right-to-left') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.right = '-200px';
+        cat.style.transform = 'scaleX(-1)'; // 左向き
+        cat.style.animation = `horde-run-rl ${duration}s linear forwards`;
+      } else if (direction === 'top-to-bottom') {
+        cat.style.left = `${Math.floor(Math.random() * 95)}vw`;
+        cat.style.top = '-200px';
+        const flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは向きもランダム
+        cat.style.transform = `scaleX(${flip})`;
+        cat.style.animation = `horde-fall-tb ${duration}s linear forwards`;
+      }
+
+      container.appendChild(cat);
+
+      setTimeout(() => {
+        cat.remove(); // 走り終わった猫を消去
+      }, duration * 1000);
+
+    }, Math.random() * 1500); // 出現のバラつき
+  }
+
+  // 大群が全員走り終わるころ（約4.5秒後）に、クリック禁止を解除する
+  setTimeout(() => {
+    isRunning = false;
+  }, 4500);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>この資料は、物流効率化法に基づき、荷主が取り組むべき荷待ち時間や荷役時間の削減に関する具体的な基準をQ&amp;A形式でまとめたものです。待機時間の起算点の考え方や、業務の実態に応じた把握方法、さらに偽装請負を回避するための荷主と運送事業者間の適切なコミュニケーションについて詳細に解説しています。原則として1時間以内の受渡しを目指す目標値が示される一方で、危険物や重量物の取り扱いといった業界特有の事情による例外規定も明記されました。物流現場の負担軽減と法令遵守を両立させるため、実務上の疑問に応える指針となっています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">荷待ち時間の起算点はどのように判断されますか？</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>荷待ち時間の起算点は、荷主からの指示内容やトラックの到着時刻などの状況に応じて、以下のように判断されます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">1.指示された時刻や受付時間がある場合</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>·受付時間が指定されている場合:「O時~○時まで」といった受付時間(開門時刻など)が明示的に指示されていた場合、 トラックがその受付開始時刻よりも前に到着したときは、受付開始時刻が起算点となります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>特定の時刻が指示されている場合: トラック事業者の運行計画などの都合により、指示された時刻よりも前に到着した場合は、指示時刻が起算点となります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>·周辺で待機している場合:集貨場所の周辺で待機している時間も荷待ち時間に含まれますが、指示時刻よりも前に到着している場合は、指示時刻から起算されます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">2. 休憩時間が絡む場合</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>·受取施設の休憩時間: 原則として、荷主等の休憩時間中に荷卸しができず待機した時間は荷待ち時間に含まれます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><br>·指示があった場合: 休憩時間を避けて到着するように指示があったにもかかわらず、トラック側の都合で休憩時間内に到着した場合は、休憩時間の終了時刻が起算点となります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">3. 到着が遅れた場合</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>·トラック側の都合で遅れた場合:到着の遅れによって荷役の順番が後ろ倒しになり、それによって生じた追加的な待機時間は、荷待ち時間には含まれません 。ただし、意図的に過度な長時間待機を強要された場合は、荷待ち時間に含まれる可能性があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">4. 実質的に「指示がない」とみなされる特例</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>·毎回2時間以上の待機が発生しているようなケースで、トラック事業者が改善交渉を行ったにもかかわらず荷主側が対応しない場合などは、実質的に指示がないものとみなされます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>この場合、指示時刻ではなく実際の到着時刻から荷待ち時間を起算する可能性があ ります。なお、指示時刻よりも前に到着し、指示時刻よりも早く荷役が終了した場合には、荷待ち時間は「O」として扱われま す。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>個別の事案について貨物自動車運送事業法上（以下「法」という。）の許可の要否について判断に迷われる場合には、各運輸局にご相談ください。</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-732/">特定荷主の物流効率化法への対応の手引きについて 1</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-747/">特定荷主の物流効率化法への対応の手引きについて 2</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/kaisei-kamotsu/">【令和7年改訂】 改正貨物自動車運送事業法 のポイント（書面化・実運送体制管理簿）</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">運搬・工事のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は自社ダンプで砕石や残土の運搬を行っています。法令に沿った運用についてのご相談も承ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-895/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-955/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

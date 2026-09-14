@@ -1,0 +1,335 @@
+<!-- wp:image {"lightbox":{"enabled":false},"id":749,"width":"400px","sizeSlug":"large","linkDestination":"custom"} -->
+<figure class="wp-block-image size-large is-resized"><a href="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/cfb7e7ffca5254d50c634370237778b9.pdf"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/03/1000006577-1-725x1024.png" alt="1000006577" class="wp-image-749" style="width:400px"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル（猫） --- */
+.walking-cat-stage-final {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; 
+  margin: 20px 0;
+  display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: urochoro-left-final 25s linear infinite;
+  cursor: pointer;
+  z-index: 9999 !important;
+  transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active {
+  animation-play-state: paused;
+  transform: translateY(-20px) !important;
+}
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); }
+  30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); }
+  45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); }
+  65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); }
+  100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: transform, left, right, top; /* スマホの処理を軽くする */
+}
+
+/* パターン1：左から右へ */
+@keyframes horde-run-lr {
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+
+/* パターン2：右から左へ */
+@keyframes horde-run-rl {
+  0% { right: -200px; }
+  100% { right: 110vw; }
+}
+
+/* パターン3：上から下へ */
+@keyframes horde-fall-tb {
+  0% { top: -200px; }
+  100% { top: 110vh; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false; // 大群が走っている最中かどうかを判定するフラグ
+
+function catMagicClick() {
+  // もし大群が走っている最中なら、クリックを無視する（重くなるのを防ぐ）
+  if (isRunning) return; 
+
+  const pattern = clickCount % 3;
+  
+  if (pattern === 0) {
+    releaseCats('left-to-right');
+  } else if (pattern === 1) {
+    releaseCats('right-to-left');
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom');
+  }
+  
+  clickCount++;
+}
+
+function releaseCats(direction) {
+  isRunning = true; // 大群発生スタート！追加クリックを禁止する
+
+  const container = document.getElementById('cat-horde-container');
+  // ▼ ここに通常の大群用の猫のURLを貼り付け ▼
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに【一匹だけ混ぜる別の生き物】のGIF画像のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775735437402.png'; 
+
+  const catCount = 20; // 猫の数
+
+  // 大群（catCount匹）の中から、ランダムに「一匹」を選ぶ
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+
+      // 通常は猫の画像、選ばれた一匹だけ別の生き物の画像にする
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 70) + 50; // サイズもランダム
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 2.5) + 1.5; // 速度もランダム
+
+      if (direction === 'left-to-right') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.left = '-200px';
+        cat.style.transform = 'scaleX(1)'; // 右向き
+        cat.style.animation = `horde-run-lr ${duration}s linear forwards`;
+      } else if (direction === 'right-to-left') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.right = '-200px';
+        cat.style.transform = 'scaleX(-1)'; // 左向き
+        cat.style.animation = `horde-run-rl ${duration}s linear forwards`;
+      } else if (direction === 'top-to-bottom') {
+        cat.style.left = `${Math.floor(Math.random() * 95)}vw`;
+        cat.style.top = '-200px';
+        const flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは向きもランダム
+        cat.style.transform = `scaleX(${flip})`;
+        cat.style.animation = `horde-fall-tb ${duration}s linear forwards`;
+      }
+
+      container.appendChild(cat);
+
+      setTimeout(() => {
+        cat.remove(); // 走り終わった猫を消去
+      }, duration * 1000);
+
+    }, Math.random() * 1500); // 出現のバラつき
+  }
+
+  // 大群が全員走り終わるころ（約4.5秒後）に、クリック禁止を解除する
+  setTimeout(() => {
+    isRunning = false;
+  }, 4500);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Q.物流統括管理者に求められる役割や選任の要件は何ですか？</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A.物流統括管理者に求められる役割や選任の要件について、提供された資料に基づき説明します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>・物流統括管理者に求められる役割</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>物流統括管理者は、単なる物流部門の責任者にとどまらず、経営全体を俯瞰して物流効率化を推進する役割を担います。具体的には、以下の業務を統括管理することが義務付けられています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>・計画・報告の作成</strong>： 中長期計画書および定期報告書の作成。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>・体制の整備と連携</strong>： トラックドライバーの負荷低減に向けた事業運営方針の作成や管理体制の整備。また、開発、生産、販売、調達、在庫管理などの関係各部門間の連携体制の構築および従業者の意識向上。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・<strong>設備·標準化の推進</strong>:効率化のための情報システムや設備の整備、器具·データ等の標準化に関する計画の作成、実施、評価。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・<strong>対外的な調整</strong>： 取引先などの関係者との連携・調整、および国が行う報告徴収や立入り検査への対応。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>選任の要件</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>物流統括管理者の選任には、以下の法的な要 件があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・地位の要件:特定荷主の事業運営上の重要な決定に参画する管理的地位にある者(役員等の経営幹部)でなければなりません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・権限の範囲： 社内において生産や販売など経営全体を見た上で物流効率化の判断・調整ができ、かつ対外的にも他社の物流統括管理者等と折衝できる人物である必要があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・兼任のルール</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>・ー人の人物が、グループ会社内の複数事業者の物流統括管理者を兼任することは可能です。ただし、その人物がそれぞれの事業者の役員等として籍を置いている 必要があります。<br>・同一の事業者が「特定第一種荷主」と「特定第二種荷主」の両方に指定されて いる場合は、同じ人物を選任しなければ なりません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">・届出の時期</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>特定荷主としての指定通知を受けた後、すみやかに選任し、「物流統括管理者 選任・解任届出書（様式第4）」を提出する必要があります。遅くとも、最初の中長期計画書や定期報告書を提出するまでが目安とされています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>※届出提出先（システムでの選択先）<br>　特定荷主→　主たる事務所の所在地の各地方運輸局交通政策部環境・物流課等、各地方整備局建政部 建設産業課等、各地方航空局地域航空事業課</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>なお、物流統括管理者を選任しなかった場合、100万円以下の罰金が科される可能性があるため注意が必要です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>詳細なガイドラインは、<a href="https://www.revised-logistics-act-portal.mlit.go.jp/sippers/"><strong>物流効率化法理解促進ポータルサイト</strong></a>や、管轄の経済産業局の情報を必ず確認してください。&nbsp;</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-732/">特定荷主の物流効率化法への対応の手引きについて 1</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-939/">【 荷主 Q&amp;amp;A 】 物流 効率化法ガイド｜荷待ち時間の起算点と削減のポイント</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-4151/">【解説】 特定荷主 の制度とは？基準や対象企業の義務まとめ</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">運搬・工事のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は自社ダンプで砕石や残土の運搬を行っています。法令に沿った運用についてのご相談も承ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-732/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-803/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

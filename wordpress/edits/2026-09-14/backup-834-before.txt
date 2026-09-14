@@ -1,0 +1,391 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading">【徹底解説】トラック・物流Gメン の是正指導とは？荷主が守るべき運用指針</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":837,"width":"400px","sizeSlug":"large","linkDestination":"custom"} -->
+<figure class="wp-block-image size-large is-resized"><a href="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/001913224.pdf"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/03/1000006621-742x1024.png" alt="" class="wp-image-837" style="width:400px"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル（猫） --- */
+.walking-cat-stage-final {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; 
+  margin: 20px 0;
+  display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: urochoro-left-final 25s linear infinite;
+  cursor: pointer;
+  z-index: 9999 !important;
+  transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active {
+  animation-play-state: paused;
+  transform: translateY(-20px) !important;
+}
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); }
+  30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); }
+  45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); }
+  65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); }
+  100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: transform, left, right, top; /* スマホの処理を軽くする */
+}
+
+/* パターン1：左から右へ */
+@keyframes horde-run-lr {
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+
+/* パターン2：右から左へ */
+@keyframes horde-run-rl {
+  0% { right: -200px; }
+  100% { right: 110vw; }
+}
+
+/* パターン3：上から下へ */
+@keyframes horde-fall-tb {
+  0% { top: -200px; }
+  100% { top: 110vh; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false; // 大群が走っている最中かどうかを判定するフラグ
+
+function catMagicClick() {
+  // もし大群が走っている最中なら、クリックを無視する（重くなるのを防ぐ）
+  if (isRunning) return; 
+
+  const pattern = clickCount % 3;
+  
+  if (pattern === 0) {
+    releaseCats('left-to-right');
+  } else if (pattern === 1) {
+    releaseCats('right-to-left');
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom');
+  }
+  
+  clickCount++;
+}
+
+function releaseCats(direction) {
+  isRunning = true; // 大群発生スタート！追加クリックを禁止する
+
+  const container = document.getElementById('cat-horde-container');
+  // ▼ ここに通常の大群用の猫のURLを貼り付け ▼
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに【一匹だけ混ぜる別の生き物】のGIF画像のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775735437402.png'; 
+
+  const catCount = 20; // 猫の数
+
+  // 大群（catCount匹）の中から、ランダムに「一匹」を選ぶ
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+
+      // 通常は猫の画像、選ばれた一匹だけ別の生き物の画像にする
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 70) + 50; // サイズもランダム
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 2.5) + 1.5; // 速度もランダム
+
+      if (direction === 'left-to-right') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.left = '-200px';
+        cat.style.transform = 'scaleX(1)'; // 右向き
+        cat.style.animation = `horde-run-lr ${duration}s linear forwards`;
+      } else if (direction === 'right-to-left') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.right = '-200px';
+        cat.style.transform = 'scaleX(-1)'; // 左向き
+        cat.style.animation = `horde-run-rl ${duration}s linear forwards`;
+      } else if (direction === 'top-to-bottom') {
+        cat.style.left = `${Math.floor(Math.random() * 95)}vw`;
+        cat.style.top = '-200px';
+        const flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは向きもランダム
+        cat.style.transform = `scaleX(${flip})`;
+        cat.style.animation = `horde-fall-tb ${duration}s linear forwards`;
+      }
+
+      container.appendChild(cat);
+
+      setTimeout(() => {
+        cat.remove(); // 走り終わった猫を消去
+      }, duration * 1000);
+
+    }, Math.random() * 1500); // 出現のバラつき
+  }
+
+  // 大群が全員走り終わるころ（約4.5秒後）に、クリック禁止を解除する
+  setTimeout(() => {
+    isRunning = false;
+  }, 4500);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>この資料は、トラックドライバーの労働環境改善を目指し、国土交通省が荷主に対して行う是正指導の運用指針をまとめたものです。長時間の荷待ちや不当な運賃の据え置きなど、物流の停滞を招く違反原因行為を定義し、それらに対する「働きかけ」「要請」「勧告」という三段階の指導プロセスを詳しく規定しています。専門組織であるトラック・物流Gメンによる調査や、情報の提供者保護、さらには悪質なケースにおける荷主名の公表についても具体的な基準が示されています。また、行政指導の透明性を確保するための様式例や、関係省庁との連携体制も網羅されています。全体として、荷主と運送事業者の適正な取引環境を構築し、持続可能な物流を実現するための実務的なガイドラインとなっています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer -->
+<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Q. トラック・物流Gメン による是正指導の仕組みを教えて</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A.トラック・物流Gメンによる荷主への是正指導は、トラックドライバーの労働条件改善と物流の適正化を目的としており、主に<strong>「働きかけ」「要請」「勧告」の3段階の措置</strong>で構成されています 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>以下にその具体的な仕組みを解説します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">1. トラック・物流Gメンによる是正指導：3つのステップ</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>荷主による「違反原因行為（運送事業者が法令違反をする原因となる行為）」の疑いの程度や状況に応じて、以下の指導が行われます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>働きかけ:</strong> 荷主が違反原因行為をしている<strong>疑いがある場合</strong>に実施されます 。荷主に対し、運送事業者が法令を遵守できるよう配慮することの重要性を伝え、<strong>自主的な確認と改善</strong>を促す文書を発出します 。この段階では、行政側から改善報告を求めることはありません 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>要請:</strong> 違反原因行為をしていると疑うに足りる<strong>相当な理由がある場合</strong>に行われる、より強い措置です 。荷主に対して違反原因行為をしないよう正式に求め、<strong>改善計画の作成と報告</strong>を義務付けます 。大企業や悪質なケースではヒアリングも実施されます 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>勧告:</strong> 要請を受けた後も<strong>なお違反原因行為を継続している</strong>と認められる場合、あるいは改善計画の提出を拒む場合などに行われます 。勧告がなされると、<strong>荷主名と内容が公表される</strong>ため、社会的な影響が非常に大きい措置です 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 指導の端緒となる情報収集（Gメン調査員・意見募集）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>トラック・物流Gメンは、以下のルートで得た情報を元に調査を開始します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>意見募集窓口:</strong> 国土交通省のホームページに設置された窓口への投稿 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>実態調査:</strong> トラック業者や倉庫業者へのヒアリング、荷主へのパトロール 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Gメン調査員:</strong> 各都道府県のトラック協会に配置された「Gメン調査員」からの情報提供 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>街頭活動:</strong> サービスエリアや物流拠点付近でのトラックドライバーへの聞き取り 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. 荷主による「違反原因行為」の具体例（荷待ち・不当な据置きなど）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>是正指導の対象となる主な行為は以下の通りです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>長時間の荷待ち:</strong> 恒常的に<strong>1時間以上</strong>（荷役込みで2時間以上）待機させている場合 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>契約にない附帯業務:</strong> 仕分け、棚入れ、ラベル貼りなどを、契約や対価の合意なしに行わせること 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>運賃・料金の不当な据置き:</strong> 燃料費高騰などの根拠を示した交渉に応じず、一方的に運賃を据え置くこと 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>過積載運送の指示・容認:</strong> 最大積載量を超える荷積みを指示、または知りながら容認すること 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>異常気象時の運送依頼:</strong> 台風や大雪などで安全確保が困難な状況下で、運送を強要すること 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>無理な運送依頼:</strong> 法定の拘束時間を超えなければ不可能な配送指示や、高速代を払わず高速利用を強いる時間設定など 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>なお、運賃が据え置かれた結果として適正原価を下回り続けた場合、荷主に対しては働きかけや勧告にとどまる一方で、<a href="https://www.ishinazaka.co.jp/tekisei-genka-kyoka-koushin/">許可を更新できなくなるのは運送事業者の側</a>という仕組みが検討されています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">4. 特徴的な仕組み</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>体制の強化:</strong> 2024年11月に「トラックGメン」から「トラック・物流Gメン」に改組され、倉庫業者からの情報収集も対象に加わるとともに、<strong>総勢360名規模</strong>へ体制が拡充されました 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>情報提供者の保護:</strong> 指導の際、情報提供者が特定されないよう十分留意されます [23]。また、提供者が希望すれば、どのような指導を行ったかの結果通知を受けることも可能です 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>関係機関との連携:</strong> 国土交通省だけでなく、荷主を所管する経済産業省や農林水産省、労働基準法を所管する厚生労働省、不公正な取引を監視する公正取引委員会などと情報を共有し、連携して対応します 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>個別の事案について貨物自動車運送事業法上（以下「法」という。）の許可の要否について判断に迷われる場合には、各運輸局にご相談ください。</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-647/">【解説】 トラック適正化二法 とは？岩手県トラック協会の講習会で感じた物流の未来</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/tekisei-genka-torakku-unso/">「適正原価」とは？トラック運賃の新ルールをわかりやすく解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/3761-2/">【問題】トラックの430（ヨンサンマル）休憩とは?</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">運搬・工事のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は自社ダンプで砕石や残土の運搬を行っています。法令に沿った運用についてのご相談も承ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-831/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-895/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

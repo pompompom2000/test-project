@@ -1,0 +1,363 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading">自家用ダンプカー の貨物自動車運送事業法における取扱いについて</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":956,"width":"560px","height":"auto","aspectRatio":"0.7185420885160544","scale":"cover","sizeSlug":"full","linkDestination":"custom","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><a href="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/001993363.pdf"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/スクリーンショット-170.png" alt="自家用ダンプカーの取扱いに関する国交省Q&amp;Aの資料" class="wp-image-956" style="aspect-ratio:0.7185420885160544;object-fit:cover;width:560px;height:auto"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル（猫） --- */
+.walking-cat-stage-final {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; 
+  margin: 20px 0;
+  display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: urochoro-left-final 25s linear infinite;
+  cursor: pointer;
+  z-index: 9999 !important;
+  transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active {
+  animation-play-state: paused;
+  transform: translateY(-20px) !important;
+}
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); }
+  30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); }
+  45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); }
+  65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); }
+  100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: transform, left, right, top; /* スマホの処理を軽くする */
+}
+
+/* パターン1：左から右へ */
+@keyframes horde-run-lr {
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+
+/* パターン2：右から左へ */
+@keyframes horde-run-rl {
+  0% { right: -200px; }
+  100% { right: 110vw; }
+}
+
+/* パターン3：上から下へ */
+@keyframes horde-fall-tb {
+  0% { top: -200px; }
+  100% { top: 110vh; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false; // 大群が走っている最中かどうかを判定するフラグ
+
+function catMagicClick() {
+  // もし大群が走っている最中なら、クリックを無視する（重くなるのを防ぐ）
+  if (isRunning) return; 
+
+  const pattern = clickCount % 3;
+  
+  if (pattern === 0) {
+    releaseCats('left-to-right');
+  } else if (pattern === 1) {
+    releaseCats('right-to-left');
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom');
+  }
+  
+  clickCount++;
+}
+
+function releaseCats(direction) {
+  isRunning = true; // 大群発生スタート！追加クリックを禁止する
+
+  const container = document.getElementById('cat-horde-container');
+  // ▼ ここに通常の大群用の猫のURLを貼り付け ▼
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに【一匹だけ混ぜる別の生き物】のGIF画像のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775735437402.png'; 
+
+  const catCount = 20; // 猫の数
+
+  // 大群（catCount匹）の中から、ランダムに「一匹」を選ぶ
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+
+      // 通常は猫の画像、選ばれた一匹だけ別の生き物の画像にする
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 70) + 50; // サイズもランダム
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 2.5) + 1.5; // 速度もランダム
+
+      if (direction === 'left-to-right') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.left = '-200px';
+        cat.style.transform = 'scaleX(1)'; // 右向き
+        cat.style.animation = `horde-run-lr ${duration}s linear forwards`;
+      } else if (direction === 'right-to-left') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.right = '-200px';
+        cat.style.transform = 'scaleX(-1)'; // 左向き
+        cat.style.animation = `horde-run-rl ${duration}s linear forwards`;
+      } else if (direction === 'top-to-bottom') {
+        cat.style.left = `${Math.floor(Math.random() * 95)}vw`;
+        cat.style.top = '-200px';
+        const flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは向きもランダム
+        cat.style.transform = `scaleX(${flip})`;
+        cat.style.animation = `horde-fall-tb ${duration}s linear forwards`;
+      }
+
+      container.appendChild(cat);
+
+      setTimeout(() => {
+        cat.remove(); // 走り終わった猫を消去
+      }, duration * 1000);
+
+    }, Math.random() * 1500); // 出現のバラつき
+  }
+
+  // 大群が全員走り終わるころ（約4.5秒後）に、クリック禁止を解除する
+  setTimeout(() => {
+    isRunning = false;
+  }, 4500);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>自家用ダンプカーの貨物自動車運送事業法における取扱いについて、国交省がQ＆Aを提示してくれました。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>白ナンバー（自家用）のダンプトラックで資材や残土を運搬するための条件は、主に<strong>「運搬を行う者が建設工事そのものを行っていること」「運転手と雇用関係があること」「運送の対価（運賃）が発生しないこと」</strong>の3点に集約されます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>具体的な条件は以下の通りです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">1. 建設工事の実施と雇用関係</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>資材や残土を運搬する者が、その<strong>建設工事を自ら行っている</strong>必要があります 。また、運転手はその建設会社と<strong>雇用関係にある従業員</strong>（期間雇用や日雇いを含む）でなければなりません 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>工事を行わず運搬のみ</strong>を請け負う場合や、建設工事を行う者と運転手の間に雇用関係がない場合は、貨物自動車運送事業法の許可（緑ナンバー）が必要です 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>ただし、残土の「処分」のみを請け負っている会社が、その業務に付帯して運搬を行う場合は、処分の内容や運賃の有無により許可が不要となる場ふ合があります 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">2. 業務への付帯性と密接不可分性</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>その運搬行為が、本来の生業である建設工事と<strong>密接不可分</strong>であり、業務に<strong>付帯して行われるもの</strong>と認められる必要があります 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>例えば、下請会社が自ら施工する工事のために資材を運んだり、現場で発生した残土を運搬したりする行為はこれに該当します 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>一方で、積込みと運搬のみを行う契約（工事本体は行わない）の場合は、建設工事に付帯するものとは言えず、緑ナンバーが必要と判断されます 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">3. 運送の対価（運賃）がないこと</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>運搬に対して、独立した<strong>「運送の対価としての有償性」がない</strong>ことが必須条件です 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>材工（材料費と施工費）の請負契約の中で、別途「運賃」や「ダンプ費用」を支払う形になっている場合は、法の許可が必要になる可能性があります 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>廃棄物処理業者が、元請との包括的な契約に基づき、収集運搬と処分を一体的に実施する場合も、業務に付帯する運搬とみなされ許可不要となる場合があります 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">4. その他のケース</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>自ら所有する貨物の運送</strong>: 個人事業主などが資材を自ら購入し、<strong>自ら所有する貨物を自ら運送</strong>して現場へ運搬・販売する場合は、基本的に法の許可は不要です 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>場内運搬</strong>: 公道に出ず、一般の交通に使われない<strong>工事現場内（敷地内）のみ</strong>での運搬であれば、白ナンバーでも違反になりません 。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>リース機の運搬</strong>: 自ら建設工事を行う者が、その工事で必要なリース機械を自ら運搬する場合も、運賃が発生しなければ許可は不要です 。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>個別の事案により判断が異なる場合があるため、判断に迷う際は各運輸局への相談が推奨されています 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>※ 本資料での回答は、質問の文面から把握できる情報のみをもとに一般的な回答を示したものであるため、個別の事案について貨物自動車運送事業法上（以下「法」という。）の許可の要否について判断に迷われる場合には、各運輸局にご相談ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>▶ <a href="https://www.mlit.go.jp/jidosha/index.html" title="">国土交通省（貨物自動車運送事業法について）</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-715/">【改正トラック法】自家用ダンプカーの取扱いや違法にならない条件を解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/shiro-number-torakku-kisei/">白ナンバーはどこまでOK?建設業がおさえておきたい「白トラ規制」の注意点</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-1470/">【最新】改正貨物自動車運送事業法のQ&amp;amp;Aが更新！国交省の解釈を確認</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">運搬・工事のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は自社ダンプで砕石や残土の運搬を行っています。法令に沿った運用についてのご相談も承ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-939/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-967/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
