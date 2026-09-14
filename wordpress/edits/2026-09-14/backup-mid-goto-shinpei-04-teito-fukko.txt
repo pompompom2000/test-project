@@ -1,0 +1,172 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「後藤新平の生涯」シリーズ第4回です。第3回では、満鉄初代総裁、逓信大臣、内務大臣を歴任し、満州経営と都市計画の思想を深めていった時代をご紹介しました。今回は、67歳で東京市長に就任し「八億円計画」を掲げた時代から、関東大震災後に帝都復興院総裁として東京の復興を指揮した、後藤新平の集大成ともいえる時代をご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">東京市長就任と「八億円計画」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1920年(大正9年)12月17日、後藤新平は東京市長に就任します。内務大臣・外務大臣まで務めた大臣経験者が東京市長に転じるのは異例のことでした。後藤はここで「八億円計画」と呼ばれる壮大な都市改造計画を提唱します。土地区画整理、幹線道路の整備、上下水道の拡充などによる都市の不燃化事業で、当時の国家予算(約15億円)の半分以上にのぼる規模の構想でした。(出典: 事業構想オンライン「都市計画の父 後藤新平」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">市長として、後藤新平は市政改革にも着手します。米国の行政学者チャールズ・ビーアドの助言と、実業家・安田善次郎の寄付をもとに、1923年に東京市政調査会を設立。科学的な調査に基づいて都市政策を進める体制を整えるとともに、吏員・教員の大量整理など、行政の効率化にも踏み込みました。(出典: 奥州市「後藤新平 略年譜」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">関東大震災 — 内務大臣兼帝都復興院総裁へ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1923年(大正12年)9月1日、関東大震災が発生します。死者・行方不明者は約10万5千人にのぼり、東京の市街地は壊滅的な被害を受けました。震災直後の9月2日、後藤新平は第2次山本内閣の内務大臣に任命され、同年9月29日には新設された帝都復興院の総裁を兼任します。後藤は、復興に関する国・自治体の権限を一元的に集約する「帝都復興省」の設立を目指しましたが、この案は閣議で否決され、妥協案として帝都復興院が設置されるかたちとなりました。(出典: 岩手県立図書館「いわて復興偉人伝 後藤新平」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">後藤は当初、総額41億円にのぼる壮大な帝都復興計画を立案します。しかし大蔵省との折衝の過程で予算規模は次第に縮小され、最終的には6億円余りの復興計画に落ち着きました。幹線道路の幅員も当初案より狭められ、公園・広場の数も削減、電線類の地中化を目指した共同溝構想も見送られるなど、後藤の理想は財政的制約の前に大きく後退することになります。(出典: CIDIR「後藤新平"復興論"」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">昭和通りと震災復興橋梁</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">縮小されながらも、後藤が主導した復興計画は東京の骨格を大きく作り変えました。後藤は延焼を食い止める「延焼遮断帯」としての道路の役割に着目し、新橋から三ノ輪まで約16kmにおよぶ幅44mの幹線道路を建設します。これが現在の「昭和通り」です。南北の昭和通り(幅員33〜44m)、東西の靖国通り(幅員15〜36m)を十字の軸として、街路網が再構築されました。(出典: 国土交通省「ニューズレター新時代」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">焼失区域では土地区画整理事業により、幅4m以上の生活道路と上下水道・ガスなどのインフラが一体的に整備されました。あわせて、鉄筋コンクリート製の不燃化された「復興小学校」、隅田川などに架かる「震災復興橋梁」が数多く建設され、防災性の高い近代都市へと生まれ変わっていきます。オープンスペースの確保のため、隅田公園・浜町公園・錦糸公園という「震災復興三大公園」も整備されました。(出典: Wikipedia「震災復興公園」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":4604,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/08/Gemini_Generated_Image_azbtcyazbtcyazbt.jpg" alt="後藤新平④東京市長・関東大震災からの帝都復興インフォグラフィック。1920年東京市長就任と「八億円計画」(土地区画整理・幹線道路・上下水道)、1923年9月1日関東大震災発生(死者・行方不明者約10万5千人)から内務大臣兼帝都復興院総裁就任への流れ、復興予算が当初41億円から最終6億円余りへ縮小された経緯、復興の成果(幅44m・全長16kmの昭和通り、復興小学校・復興橋梁、隅田公園・浜町公園・錦糸公園の3大公園)を図解" class="wp-image-4604"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「金を残して死ぬは下、事業を残して死ぬは中、人を残して死ぬは上」</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">帝都復興院総裁としての激務は、後藤新平にとって公職の集大成となりました。1924年1月7日、山本内閣総辞職により内務大臣を退任しますが、その後もボーイスカウト日本連盟初代総長、東京放送局(現NHK)初代総裁、拓殖大学第3代学長など、社会教育や人材育成の分野でも活動を続けます。「金を残して死ぬは下、事業を残して死ぬは中、人を残して死ぬは上なり」という言葉は、後藤の生涯を象徴する言葉として今に伝えられています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">まとめ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">東京市長として「八億円計画」を掲げ、関東大震災後は内務大臣兼帝都復興院総裁として、財政的制約と闘いながらも昭和通りをはじめとする東京の骨格を築いた後藤新平。台湾統治や満鉄経営で培った、現地調査に基づく大規模インフラ整備という手法は、この帝都復興でも一貫していました。次回は最終回として、後藤新平の晩年の活動と、正力松太郎による読売新聞買収を後押ししたエピソードなど、現在に残る遺産をご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">※本稿は公開されている資料・記録をもとに構成した時点情報です。年号・日付・金額は出典元の一次資料をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li><a href="https://www.city.oshu.iwate.jp/shinpei/shogai/1306.html" target="_blank" rel="noopener">奥州市「後藤新平 略年譜」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.projectdesign.jp/201311/japanese-pd/000930.php" target="_blank" rel="noopener">事業構想オンライン「都市計画の父 後藤新平」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.library.pref.iwate.jp/0311jisin/ijinden/03.html" target="_blank" rel="noopener">岩手県立図書館「いわて復興偉人伝 後藤新平」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://cidir.iii.u-tokyo.ac.jp/report/nl55-04/" target="_blank" rel="noopener">東京大学CIDIR「後藤新平"復興論"」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.mlit.go.jp/kokudokeikaku/iten/service/newsletter/i_02_64.html" target="_blank" rel="noopener">国土交通省 ニューズレター「新時代」第64号</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://ja.wikipedia.org/wiki/%E9%9C%87%E7%81%BD%E5%BE%A9%E8%88%88%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">Wikipedia「震災復興公園」</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">このシリーズの記事</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-01-seiritsu/">後藤新平の生涯①｜水沢の生い立ちから内務省衛生局長へ</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-02-taiwan/">後藤新平の生涯②｜似島検疫所と台湾統治「近代化の父」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-03-mantetsu/">後藤新平の生涯③｜満鉄総裁・逓信大臣・内務大臣時代</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-05-ishin/">後藤新平の生涯⑤(最終回)｜晩年の活動と読売新聞・現在への遺産</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">株式会社石名坂について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市で土木工事と砕石・砂利の販売を行っています。地域の暮らしを支える仕事に取り組んでいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/about/">会社概要</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/recruit/">採用情報</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/goto-shinpei-03-mantetsu/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/goto-shinpei-05-ishin/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

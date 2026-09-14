@@ -1,0 +1,254 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">令和8年（2026年）7月21日に閣議決定された「経済財政運営と改革の基本方針2026」（いわゆる 骨太方針2026 ）は、副題に「『責任ある積極財政』元年～日本の挑戦を起動する！～」を掲げ、日本の中長期的な経済財政運営の転換を示す内容となっている。本稿では、方針の背景と主要施策のポイントを整理する。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":4389,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/07/Gemini_Generated_Image_bopjfzbopjfzbopj.jpg" alt="経済財政運営と改革の基本方針2026" class="wp-image-4389"/><figcaption class="wp-element-caption">骨太方針2026の全体像</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">1. 経済の現状認識と課題</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">日本の潜在成長率は、長年にわたる「未来への投資不足」により主要先進国と比べて低迷してきた。単に生産能力が不足しているだけでなく、科学技術力・産業競争力・人材力といった成長の質的基盤そのものが弱体化している点が問題視されている。長期のデフレによって企業や家計に固定的な物価・賃金観が定着し、国内投資やイノベーションが抑制されてきたことが背景にある。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">一方、欧米をはじめとする主要先進国では、市場原理に委ねるだけでは解決できない課題に対応するため、官民が連携して大規模かつ長期的な財政支出を伴う産業政策を展開する潮流が強まっている。方針では、これを「経済財政運営の在り方そのものに関するコペルニクス的転回」と位置づけ、日本もこうした時代の変化を踏まえた国家運営への転換が求められるとしている。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 「責任ある積極財政」という基本方針</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">骨太方針2026の中核となる考え方が「責任ある積極財政」である。政府が一歩前に出て官民が手を携え、戦略分野への投資を進めることで、様々なリスクを最小化する「危機管理投資」と、先端技術を花開かせる「成長投資」を大胆かつ戦略的に推進する。これにより、日本を世界有数の知的創造・イノベーション拠点へと押し上げ、中長期的な成長力強化につなげる狙いがある。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">令和9年度（2027年度）を「責任ある積極財政元年」と位置づけ、「強い経済」の構築と「財政の持続可能性」を両立させることを掲げている点も特徴である。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. 中長期経済財政計画</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">目指す経済・財政の姿として、以下の数値目標が示されている。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"className":"wp-block-list","fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size"><!-- wp:list-item -->
+<li>GDP：2040年度に1,100兆円に近づける</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>実質成長率1％超、名目成長率3％超をできるだけ早期に定着させ、さらに引き上げる</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>債務残高対GDP比を安定的に低下させる</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">これらを実現するための新たな枠組みとして、通常歳出とは別枠で予見可能性を持って投資を実施できる「『強く豊かな日本』投資枠」を創設する。経済安全保障上特に重要な分野などは特別会計で別枠管理する方針だ。また、補正予算依存からの脱却を掲げ、恒常的な施策は原則として当初予算で措置するとともに、基金ルールの抜本的見直しも進める。財政運営目標としては、国・地方の債務残高対GDP比の安定的低下を中核に据え、プライマリーバランス（PB）はこれと整合するかたちで複数年で改善・管理していくとしている。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">計画の実効性を担保するため、経済財政諮問会議のもとで毎年度、投資の実行状況や制度改革の進捗、KPI達成状況を点検するほか、半年ごとの中長期試算公表時に主要指標の進捗を分析し、5年ごとに計画全体を包括的に検証する仕組みも導入する。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">4. 賃金・物価動向を反映した予算編成への転換</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">デフレ・低成長時代の一律抑制型の予算編成から脱却し、物価・賃金の上昇を的確に反映した予算編成へと転換する。具体的には、官公需における価格転嫁の徹底、医療・介護・保育・福祉等の公定価格への対応、予算・税制における各種基準額や閾値の点検・見直しを進める。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">5. 日本成長戦略の推進</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">成長戦略の柱となるのが、AI・半導体、デジタル・サイバーセキュリティ、量子、防衛産業、航空・宇宙、海洋、造船、マテリアル、合成生物学・バイオ、創薬・先端医療、資源・エネルギー安全保障・GX、フュージョンエネルギー、防災・国土強靱化、フードテック、コンテンツの「17の戦略分野」である。これらの分野で官民投資を優先的に支援すべき62の主要な製品・技術等を特定した「官民投資ロードマップ」を策定し、2040年度までに累計370兆円超の官民投資を見込んでいる。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">さらに、17分野に共通する課題に対応するため、次の「8つの分野横断的課題」への取組を進める。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"className":"wp-block-list","fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size"><!-- wp:list-item -->
+<li>新技術立国・競争力強化</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>スタートアップ振興</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>金融を通じた潜在力の解放</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>人材育成</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>労働市場改革</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>家事等の負担軽減</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>賃上げ環境整備</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>サイバーセキュリティ</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">6. 強い地域経済の構築</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「47都道府県のどこに住んでいても、安全に生活でき、必要な医療・福祉や質の高い教育を受けられ、働く場所がある社会」を目指し、「地域未来戦略」を推進する。地域ブロック単位で危機管理投資・成長投資を起爆剤とする「戦略産業クラスター計画」、都道府県主導の「地域産業クラスター計画」、市町村主導の「地場産業成長プラン」の三層構造により、各地に産業クラスターを戦略的に形成していく方針である。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">7. 全世代型社会保障の構築</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">国民皆保険・皆年金を堅持しつつ、年齢にかかわらず能力に応じて公平に負担し合う全世代型社会保障の構築を掲げる。連立政権合意書に盛り込まれた13の社会保障改革項目について、2026年度中に具体的な制度設計を行い、順次実行するとしている。医療保険における高齢者の窓口負担の見直しや介護保険の2割負担の判断基準の見直しなど、給付と負担の改革を進め、現役世代の保険料率の上昇を止め、引き下げていくことを目指す。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">あわせて、健康増進・疾病予防・早期発見・行動変容に関係機関が連携して取り組む「攻めの予防医療」を推進し、がん検診の受診率向上や生活習慣病予防、認知症の早期診断・早期対応などに取り組む。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">8. 公教育の再生・研究活動の活性化</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">AIの社会実装を見据え、高校・大学の理系人材育成を強化する方針を示す。2040年には普通科高校での理系・文系生徒の割合を同程度にし、大学の理工農・デジタル・保健系定員を5割とするKPIを掲げる。研究面では、官民研究開発投資額を2021～2024年度の86.3兆円から2026～2030年度には180兆円へ拡大する目標のもと、国立大学法人運営費交付金や科学研究費（科研費）の大幅拡充を進める。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">9. 強い外交・安全保障の確立</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">安全保障環境の急速な変化を踏まえ、外交力・防衛力・経済力・技術力・情報力・人材力を有機的に連携させて総合的な国力を強化する方針を示す。国家安全保障戦略など新たな三文書の検討を加速し、5年以内に防衛力の変革を実現するとしている。経済安全保障の面では、サプライチェーン・製造基盤の強靱化、対日外国投資委員会の創設による投資審査体制の抜本強化などを進める。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">10. 国民の安全・安心の確保（外国人政策）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">電子渡航認証制度（JESTA）の導入による入管DXの推進、「不法滞在者ゼロプラン」の強力な推進、外国人の土地取得等に関するルール整備など、訪日外国人・在留外国人の増加を踏まえた秩序ある共生に向けた対応策を講じる。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">まとめ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">骨太方針2026は、長年の投資不足からの脱却を掲げ、「責任ある積極財政」のもとで危機管理投資・成長投資を大胆に進めつつ、財政の持続可能性を両立させるという、従来の緊縮的な予算編成からの大きな方針転換を打ち出している。17の戦略分野と8つの分野横断的課題を軸とした成長戦略、地域経済の強化、全世代型社会保障の改革、外交・安全保障の強化など、幅広い政策領域にわたる取組の進捗が今後注目される。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www5.cao.go.jp/keizai-shimon/kaigi/cabinet/honebuto/2026/decision0721.html" title="">経済財政運営と改革の基本方針2026</a></p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/yosan-hensei-kaikaku-2026/">「 予算編成 」何が変わる？骨太方針2026とこれまでの違いを比較解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/senzai-seichoritsu-2026/">日本の「 潜在成長率 」はなぜ低い？骨太方針2026の国際比較データで解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/kensetsugyoho-kaisei-2026/">「 建設業法改正 」2026年本格施行とは？何が変わるかわかりやすく解説</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">建設・運搬のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市周辺で土木工事と砕石販売を行っています。制度の変更にあわせた対応についてもご相談ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/recruit/">採用情報</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/yosan-hensei-process/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/tekisei-genka-torakku-unso/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

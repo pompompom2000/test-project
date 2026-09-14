@@ -1,0 +1,173 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「後藤新平の生涯」シリーズ最終回です。第4回では、東京市長として「八億円計画」を掲げ、関東大震災後は内務大臣兼帝都復興院総裁として昭和通りをはじめとする東京の骨格を築いた時代をご紹介しました。最終回は、政界引退後も精力的に活動を続けた後藤新平の晩年と、読売新聞の再建を支えたエピソード、そして現在に残る遺産をご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">日ソ国交への布石 — ヨッフェ会談から訪ソまで</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">後藤新平は、日本・中国・ロシアが連携してこそアジアの安定が保たれるという「新旧大陸対峙論」を信念としていました。1923年、ソ連の外交官アドリフ・ヨッフェと会談し、ソ連との国交正常化に向けて動きます。この流れもあって1925年に日ソ基本条約が締結され、日本とソ連の国交が樹立されました。(出典: 日本経済新聞「後藤新平の知られざる『対ソ連交渉』」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1928年(昭和3年)、後藤新平は少年団日本連盟会長という肩書きで訪ソし、スターリンと会見、国賓待遇を受けました。満州における緩衝国家構想を打診しようとしたとも指摘されますが、詳細は今も研究が続いています。政界の要職を退いたあとも、後藤は日本の対外関係の裏側で動き続けていました。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">東京放送局初代総裁 — 日本のラジオ放送に立ち会う</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1924年(大正13年)10月16日、後藤新平は社団法人東京放送局(現在のNHKの前身の一つ)の初代総裁に就任します。1925年3月22日、日本初のラジオ仮放送が始まった際には、後藤自らが放送で挨拶を行いました。同年7月12日の本放送開始時にも挨拶を放送しており、日本のラジオ放送黎明期に総裁として立ち会った人物として知られています。(出典: 奥州市「後藤新平 略年譜」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">少年団日本連盟総長と拓殖大学学長</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">後藤新平は、のちのボーイスカウト日本連盟にあたる少年団日本連盟の総長も務めました。1926年6月6日には古稀(70歳)を連盟に祝われ、1928年12月6日には総長として加盟する健児8万人の代表4,000人を率い、天皇の御親閲を受けています。また1919年2月24日には拓殖大学の第3代学長にも就任しており、社会教育・人材育成の分野でも幅広く活動を続けました。(出典: 奥州市「後藤新平 略年譜」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">正力松太郎と読売新聞 — 私邸を担保にした支援</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1923年12月、摂政宮(のちの昭和天皇)が狙撃された虎ノ門事件が発生し、当時警視庁警務部長だった正力松太郎は、警視総監の湯浅倉平とともに引責辞職します。後藤新平はかつて内務大臣として警視庁を管轄する立場にあり、正力にとっては上司にあたる人物でした。職を失った正力に対し、後藤は自らの私邸を担保に資金を用立て、何も言わずに援助したと伝えられています。(出典: 読売新聞興隆の祖「日本の新聞人」ニュースパーク)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この資金をもとに、正力松太郎は1924年(大正13年)2月、経営難に陥っていた読売新聞の経営権を取得し、第7代社長に就任します。後藤新平が満鉄総裁として満鉄調査部を設け、東京市長・帝都復興院総裁として都市を作り変えたように、正力もまた読売新聞に次々と新企画を打ち出し、当初は二流紙とされていた読売新聞を、1941年には発行部数で朝日新聞・毎日新聞を抜く東日本最大の新聞へと押し上げていきました。後藤新平自身が読売新聞の経営者になったわけではありませんが、その再建の出発点を財政面で支えた人物として、新聞史にも名を残しています。(出典: Wikipedia「正力松太郎」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":4608,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/08/Gemini_Generated_Image_5r50wm5r50wm5r50.jpg" alt="後藤新平⑤最終回・晩年の活動と読売新聞・現在への遺産インフォグラフィック。晩年の役職年表(1919拓殖大学学長→1924東京放送局総裁→1925ラジオ放送開始→1928訪ソ・スターリン会見)、正力松太郎と読売新聞のエピソード(1923年虎ノ門事件で正力引責辞職→後藤が私邸を担保に資金援助→1924年正力が読売新聞買収・社長就任→1941年発行部数で朝日・毎日を抜く)、1929年4月13日京都府立病院で死去、「金を残して死ぬは下、事業を残して死ぬは中、人を残して死ぬは上なり」の言葉を図解" class="wp-image-4608"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">最期の日々 — 演説旅行先での逝去</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1929年(昭和4年)4月4日、後藤新平は演説旅行の途上、滋賀県の米原付近で脳溢血を発病します。そのまま療養が続けられましたが、同年4月13日午前5時30分、京都府立病院で逝去しました。72歳でした。台湾統治から満鉄経営、帝都復興、そして晩年の対ソ外交やラジオ放送、新聞界への支援まで、後藤新平は最後まで活動的な生涯を送りました。(出典: 奥州市「後藤新平 略年譜」)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">まとめ — シリーズを振り返って</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">全5回にわたり、水沢での誕生から、似島検疫所・台湾統治での実務手腕、満鉄・逓信大臣・内務大臣での構想、東京市長・帝都復興院総裁としての集大成、そして晩年の対ソ外交や読売新聞への支援まで、後藤新平の生涯をたどってきました。現地の実情を丹念に調査したうえで大規模な構想を描き、実行に移すという一貫した姿勢は、時に「大風呂敷」と評されながらも、台湾・満州・東京という異なる舞台で確かな成果を残しました。岩手県奥州市水沢の生んだこの人物の足跡は、現在の日本の都市計画・防災・放送・新聞のあり方にも、なお息づいています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">※本稿は公開されている資料・記録をもとに構成した時点情報です。年号・日付は出典元の一次資料をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li><a href="https://www.city.oshu.iwate.jp/shinpei/shogai/1306.html" target="_blank" rel="noopener">奥州市「後藤新平 略年譜」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.nikkei.com/article/DGXZQOCD097SM0Z00C25A7000000/" target="_blank" rel="noopener">日本経済新聞「後藤新平の知られざる『対ソ連交渉』」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://newspark.jp/shinbunjin/no_12/" target="_blank" rel="noopener">ニュースパーク(日本新聞博物館)「読売新聞興隆の祖、テレビ事業の先駆者 正力松太郎」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%8A%9B%E6%9D%BE%E5%A4%AA%E9%83%8E" target="_blank" rel="noopener">Wikipedia「正力松太郎」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://ja.wikipedia.org/wiki/%E5%BE%8C%E8%97%A4%E6%96%B0%E5%B9%B3" target="_blank" rel="noopener">Wikipedia「後藤新平」</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">このシリーズの記事</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-01-seiritsu/">後藤新平の生涯①｜水沢の生い立ちから内務省衛生局長へ</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-02-taiwan/">後藤新平の生涯②｜似島検疫所と台湾統治「近代化の父」</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-03-mantetsu/">後藤新平の生涯③｜満鉄総裁・逓信大臣・内務大臣時代</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/goto-shinpei-04-teito-fukko/">後藤新平の生涯④｜東京市長・関東大震災からの帝都復興</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">株式会社石名坂について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市で土木工事と砕石・砂利の販売を行っています。地域の暮らしを支える仕事に取り組んでいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/about/">会社概要</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/recruit/">採用情報</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/goto-shinpei-04-teito-fukko/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/claude-code-01-overview/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

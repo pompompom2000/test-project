@@ -1,0 +1,92 @@
+[
+ {
+  "pid": 1080,
+  "kind": "posts",
+  "tag": "中-3",
+  "name": "「提供された資料」①",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\">提供された資料には「盛岡」という特定の地名についての直接的な言及はありませんが、資料では北海道から関東にかけて広く分布する「火山灰土壌（黒ぼく土）」の性質と理由について、盛岡を含む東北地方の火山灰土壌が持つ一般的な特殊性と、その理由は以下の通りです。</p>",
+  "new": "<p class=\"has-medium-font-size\">「盛岡」に限定した記述は見当たりませんでしたが、北海道から関東にかけて広く分布する「火山灰土壌（黒ぼく土）」の性質は、盛岡を含む東北地方にも共通します。その特殊性と理由は以下のとおりです。</p>"
+ },
+ {
+  "pid": 1080,
+  "kind": "posts",
+  "tag": "中-3",
+  "name": "「提供された資料」②",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\">提供された資料には「盛岡」という特定の地名についての記述はありませんが、資料によると、日本の火山灰土壌（黒ぼく土）は<strong>北海道から関東にかけて非常に広く分布しており</strong>、盛岡を含む地域の土壌もこの共通した性質を持っていると考えられます。</p>",
+  "new": "<p class=\"has-medium-font-size\">日本の火山灰土壌（黒ぼく土）は<strong>北海道から関東にかけて非常に広く分布しており</strong>、盛岡を含む地域の土壌もこの共通した性質を持っていると考えられます。</p>"
+ },
+ {
+  "pid": 1080,
+  "kind": "posts",
+  "tag": "中-3",
+  "name": "「資料に記載がない」",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\">なお、盛岡周辺の具体的な土壌データや岩手山との関連性については資料に記載がないため、詳細な地質的背景については別途専門の資料を確認することをお勧めします。</p>",
+  "new": "<p class=\"has-medium-font-size\">なお、盛岡周辺の具体的な土壌データや岩手山との関連については、本記事では扱っていません。詳しい地質的背景をお調べの際は、専門の資料をご確認ください。</p>"
+ },
+ {
+  "pid": 2480,
+  "kind": "posts",
+  "tag": "中-7",
+  "name": "学校名と表現",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\">去年は、上田中学校の生徒を２名受け入れました。料理をさせました。なぜ？これには理由があります。</p>",
+  "new": "<p class=\"has-medium-font-size\">昨年は、市内の中学校から生徒2名を受け入れました。現場での作業のほか、調理の体験にも取り組んでもらいました。</p>"
+ },
+ {
+  "pid": 715,
+  "kind": "posts",
+  "tag": "中-1",
+  "name": "国の文書と自社の意見を分ける",
+  "nth": 1,
+  "old": "<!-- wp:paragraph -->\n<p>すべての白ダンプが違法ではない。上記の例に当てはまるのかどうかは、国土交通省等へ問い合わせてください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>国は様々な具体的なケースを示し、違法か合法を示さないと、白トラの不要な廃業を招く可能性がある。分かりやすい情報提供をお願いしたい。</p>",
+  "new": "<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">【当社の見解】</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>ここまでは国土交通省の文書の内容です。ここからは弊社の受け止めを記します。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>すべての白ダンプが違法というわけではありません。上記の例に当てはまるかどうかは、国土交通省等へお問い合わせください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>国には、様々な具体的なケースを示していただきたいと考えています。違法か合法かがはっきりしないままでは、白トラの不要な廃業を招く可能性があります。分かりやすい情報提供をお願いしたいところです。</p>"
+ },
+ {
+  "pid": 4387,
+  "kind": "posts",
+  "tag": "中-9",
+  "name": "出典の表記を整える",
+  "nth": 1,
+  "old": "<p><a href=\"https://www5.cao.go.jp/keizai-shimon/kaigi/cabinet/honebuto/2026/decision0721.html\" title=\"\">経済財政運営と改革の基本方針2026</a></p>",
+  "new": "<p>出典：内閣府「<a href=\"https://www5.cao.go.jp/keizai-shimon/kaigi/cabinet/honebuto/2026/decision0721.html\" title=\"\">経済財政運営と改革の基本方針2026</a>」（令和8年7月21日 閣議決定）</p>"
+ },
+ {
+  "pid": 4603,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 Wikipedia「震災復興",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E9%9C%87%E7%81%BD%E5%BE%A9%E8%88%88%E5%85%AC%E5%9C%92\" target=\"_blank\" rel=\"noopener\">Wikipedia「震災復興公園」</a></li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E9%9C%87%E7%81%BD%E5%BE%A9%E8%88%88%E5%85%AC%E5%9C%92\" target=\"_blank\" rel=\"noopener\">Wikipedia「震災復興公園」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ },
+ {
+  "pid": 4607,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 Wikipedia「正力松太",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%8A%9B%E6%9D%BE%E5%A4%AA%E9%83%8E\" target=\"_blank\" rel=\"noopener\">Wikipedia「正力松太郎」</a></li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%8A%9B%E6%9D%BE%E5%A4%AA%E9%83%8E\" target=\"_blank\" rel=\"noopener\">Wikipedia「正力松太郎」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ },
+ {
+  "pid": 4607,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 Wikipedia「後藤新平",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E5%BE%8C%E8%97%A4%E6%96%B0%E5%B9%B3\" target=\"_blank\" rel=\"noopener\">Wikipedia「後藤新平」</a></li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E5%BE%8C%E8%97%A4%E6%96%B0%E5%B9%B3\" target=\"_blank\" rel=\"noopener\">Wikipedia「後藤新平」</a>（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ },
+ {
+  "pid": 4552,
+  "kind": "posts",
+  "tag": "中-4",
+  "name": "ライセンス表示 四十四田ダム - Wikip",
+  "nth": 1,
+  "old": "<a href=\"https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%8D%81%E5%9B%9B%E7%94%B0%E3%83%80%E3%83%A0\" target=\"_blank\" rel=\"noopener\">四十四田ダム - Wikipedia</a>」</li>",
+  "new": "<a href=\"https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%8D%81%E5%9B%9B%E7%94%B0%E3%83%80%E3%83%A0\" target=\"_blank\" rel=\"noopener\">四十四田ダム - Wikipedia</a>」（クリエイティブ・コモンズ 表示-継承ライセンス CC BY-SA 4.0 のもとで提供されています）</li>"
+ }
+]

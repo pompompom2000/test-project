@@ -1,0 +1,167 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">石名坂コラム「北上川を知る」第3回、最終回です。第1回では源流「弓弭の泉」を、第2回では松尾鉱山による汚染と再生の歴史をご紹介しました。今回は、 北上川 が江戸時代から幾度も繰り返してきた水害と、それに立ち向かってきた治水の歴史をたどります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">400年で334回｜北上川流域の水害の歴史</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">北上川流域では、江戸時代の記録が残る約1600年以降のおよそ400年間に、334回もの水害が発生してきたとされています。内訳を見ると、江戸時代の約270年間で213回、明治期から1960年（昭和35年）までの93年間で116回。その後は治水対策の進展により、人的被害は減少傾向にあります。洪水の発生場所は、北上川中流部（川幅が狭くなる狭窄部の上流側）が最も多く、次いで胆沢扇状地や江刺地方などが続きます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">江戸時代の治水｜仙台藩による河道改修</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">江戸時代には、仙台藩によるさまざまな河川改修が行われました。代表的なものが、伊達相模宗直による河道の付け替え（通称「相模土手」）と、川村孫兵衛による北上川・迫川・江合川の三川合流事業です。当時から水害への対応と、舟運を活かした物流の両立が図られており、北上川は古くから治水と利水の両面で地域の暮らしを左右する存在でした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">昭和の大水害｜カスリーン台風・アイオン台風</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">近代以降も、北上川は幾度となく大水害に見舞われてきました。1910年（明治43年）8〜9月の水害では、岩手県内だけで320人が死亡、357戸の家屋が損壊。1947年（昭和22年）9月のカスリーン台風では最大水位16.89mを記録し、109人が死亡、263戸が損壊する甚大な被害をもたらしました。翌1948年（昭和23年）9月のアイオン台風でも、北上川の水位が6m以上異常上昇するなど、立て続けに大きな被害を受けています。近年でも1998年（平成10年）8月には345世帯・176人が、2002年（平成14年）7月には最大水位13.51mを記録する洪水が発生するなど、水害のリスクは今も続いています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">北上川五大ダムの誕生｜半世紀にわたる治水事業</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">相次ぐ水害を受け、北上川流域では洪水調節・発電・灌漑用水の供給などを目的とした多目的ダムの建設が進められました。これが「北上川五大ダム」と呼ばれる一連の事業です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size"><!-- wp:list-item -->
+<li>石淵ダム（奥州市）：1953年（昭和28年）竣工</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>田瀬ダム（花巻市）：1954年（昭和29年）竣工</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>湯田ダム（西和賀町）：1964年（昭和39年）竣工</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>四十四田ダム（盛岡市）：1968年（昭和43年）竣工</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>御所ダム（盛岡市）：1981年（昭和56年）竣工</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">石淵ダムから御所ダムまで、実に28年の歳月をかけて整備されたこれらのダムは、洪水調節はもちろん、発電や灌漑用水の供給など、複数の役割を担う多目的ダムとして今も稼働しています。四十四田ダムと御所ダムは、いずれも盛岡市内に位置しており、石名坂が拠点を置く地域とも深く結びついています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">まとめ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">北上川は、江戸時代から400年の間に334回もの水害を経験しながら、仙台藩による河道改修、そして北上川五大ダムという半世紀以上にわたる治水事業によって、少しずつ安全な川へと姿を変えてきました。全3回にわたってご紹介してきた「北上川を知る」シリーズを通じて、源流の伝説、水質汚染からの再生、そして治水の歴史という3つの側面から、この川の奥深さを感じていただけたなら幸いです。石名坂は、これからも地域のインフラを支える立場として、北上川とともに歩んでまいります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">※本稿は公開されている資料・情報をもとに構成しています。詳細な数値・年号は出典元の一次資料をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size"><!-- wp:list-item -->
+<li>国土交通省 東北地方整備局「<a href="https://www.thr.mlit.go.jp/iwate/iport/kitakami/rekisi/suigai/index.htm" target="_blank" rel="noopener">北上川の歴史 北上川の水害</a>」</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>国土交通省 東北地方整備局 北上川ダム統合管理事務所「<a href="https://www.thr.mlit.go.jp/kitakato/01dam/index.html" target="_blank" rel="noopener">北上川と五大ダムの関係</a>」</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>「<a href="https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%8D%81%E5%9B%9B%E7%94%B0%E3%83%80%E3%83%A0" target="_blank" rel="noopener">四十四田ダム - Wikipedia</a>」</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">このシリーズの記事</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/kitakamigawa-genryu-yuhazunoizumi/">北上川を知る①｜源流は岩手町「弓弭の泉」―源義家伝説と東北最大の川のはじまり</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/kitakamigawa-matsuo-kozan-saisei/">北上川を知る②｜「死の川」からの再生―松尾鉱山と北上川の水質汚染の歴史</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">地域の守り手として</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は盛岡市周辺で、道路や河川を守る工事と、冬の除雪を担っています。災害時の復旧にも地域の一員として取り組んでいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/category/information/works/">これまでの工事を見る</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/about/">会社概要</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/kitakamigawa-matsuo-kozan-saisei/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/ikkyuu-nikyuu-kasen-morioka/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

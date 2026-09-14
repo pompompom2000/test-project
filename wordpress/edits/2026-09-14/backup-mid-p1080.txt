@@ -1,0 +1,406 @@
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size"> 黒土「火山灰土壌（黒ぼく土）」について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">盛岡の火山灰土壌がもつ特殊な性質とその理由を教えてください。</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">提供された資料には「盛岡」という特定の地名についての直接的な言及はありませんが、資料では北海道から関東にかけて広く分布する「火山灰土壌（黒ぼく土）」の性質と理由について、盛岡を含む東北地方の火山灰土壌が持つ一般的な特殊性と、その理由は以下の通りです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">1. 物理的な特殊性と理由</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>性質：</strong> <strong>黒くて非常に軽く</strong>、<strong>透水性（水はけ）・保水性（水持ち）・通気性</strong>のすべてに優れています。また、土が軽いため耕しやすい（易耕性）という特徴もあります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>理由：</strong><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>多孔質な構造：</strong> 土壌に含まれる有機物が「接着剤」の役割をして土壌粒子を結合させ、<strong>空隙（隙間）の多い構造</strong>を発達させているためです。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>低密度：</strong> 土壌の主要鉱物の密度が通常2.5〜2.8 g cm⁻³であるのに対し、火山灰土壌は0.9 g cm⁻³以下と非常に多くの隙間を含んでいます。大きな隙間が水はけや通気を、小さな隙間が毛管力による水の保持を担っています。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 化学的な特殊性と理由</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>性質：</strong> <strong>リン酸を極めて強く吸着し</strong>、植物が利用しにくい状態にします。また、<strong>有機物（炭素）を大量に蓄積する</strong>性質があります。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>理由：</strong><!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>活性Al・Feの存在：</strong> 火山灰が風化して生成された<strong>アロフェン、イモゴライト、フェリハイドライト、有機Al（Fe）複合体</strong>（総称して「活性Al・Fe」）が含まれているためです。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>巨大な比表面積：</strong> これらの鉱物は直径数ナノメートルと極めて小さいため、表面積が桁違いに大きくなります。例えばアロフェンの比表面積は、一般的な粘土鉱物の数十倍に達します。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>強い結合：</strong> 鉱物表面のアルミニウム（Al）や鉄（Fe）と結合した水酸基が、リン酸と<strong>「配位子結合」</strong>という非常に強い共有結合を作るため、リン酸が土壌に固定されます。また、Alは有機物とも反応しやすく、安定した複合体を作ることで有機物の分解を抑え、蓄積を促進します。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. 農業利用上の特徴</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>性質：</strong> かつてはリン酸不足や酸性化が問題となる「問題土壌」とされていました。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>改善：</strong> 現在は、<strong>リン酸肥料や石灰の施用</strong>によって化学性を改善することで、優れた物理性を活かした主要な畑地や樹園地として活用されています。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">なお、盛岡周辺の具体的な土壌データや岩手山との関連性については資料に記載がないため、詳細な地質的背景については別途専門の資料を確認することをお勧めします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":1129,"width":"536px","height":"auto","aspectRatio":"1.3755612572161642","sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full is-resized"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/image-2.png" alt="黒土（火山灰土壌）のイメージ" class="wp-image-1129" style="aspect-ratio:1.3755612572161642;width:536px;height:auto"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル --- */
+.walking-cat-stage-final {
+  width: 100%; overflow: hidden; position: relative; height: 100px; margin: 20px 0; display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important; position: absolute; width: 100px; height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat; background-size: contain;
+  animation: urochoro-left-final 25s linear infinite; cursor: pointer; z-index: 9999 !important; transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active { animation-play-state: paused; transform: translateY(-20px) !important; }
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); } 30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); } 45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); } 65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); } 100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 100000; overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute; top: 0; left: 0; background-repeat: no-repeat; background-size: contain;
+  will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: translateZ(0);
+}
+
+/* --- 肉球スタンプのスタイル --- */
+.paw-stamp-overlay {
+  position: absolute; top: 50%; left: 50%; width: 60vmin; height: 60vmin; margin-top: -30vmin; margin-left: -30vmin;
+  
+  /* ★ WordPressでもエラーにならない安全なエンコード済みの肉球データ */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232c3e50' d='M256 224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm-114-60c30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97 23 30 67 35 97 11zm245 0c23 30 67 35 97 11 30-23 35-67 11-97-23-30-67-35-97-11-30 23-35 67-11 97zm-130-55c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z'/%3E%3C/svg%3E");
+  
+  background-repeat: no-repeat; background-position: center; background-size: contain;
+  z-index: 200000; opacity: 0;
+  pointer-events: none; /* ★追加：スタンプが画面のクリックを邪魔しないようにする */
+  animation: smash-stamp 2s ease-out forwards;
+}
+
+@keyframes smash-stamp {
+  0% { transform: scale(3); opacity: 0; }
+  10% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+// ★ クリックを邪魔していた isRunning を完全に削除しました！いつでもクリックできます。
+
+function catMagicClick() {
+  clickCount++; // クリックされたらすぐに数を数える
+
+  // ★ 5回に1回、肉球スタンプを出す！
+  if (clickCount % 5 === 0) {
+    showPawStamp();
+  }
+
+  // 3パターンループ
+  const pattern = (clickCount - 1) % 3;
+  if (pattern === 0) {
+    releaseCats('bl-to-tr'); // 1回目：左下→右上
+  } else if (pattern === 1) {
+    releaseCats('tr-to-bl'); // 2回目：右上→左下
+  } else if (pattern === 2) {
+    releaseCats('bottom-to-top'); // 3回目：下→上
+  }
+}
+
+function showPawStamp() {
+  const container = document.getElementById('cat-horde-container');
+  const stamp = document.createElement('div');
+  stamp.className = 'paw-stamp-overlay';
+  
+  container.appendChild(stamp);
+
+  // スタンプが消えたらデータごと削除して軽くする
+  setTimeout(() => {
+    stamp.remove();
+  }, 2000);
+}
+
+function releaseCats(direction) {
+  const container = document.getElementById('cat-horde-container');
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに一匹だけ混ぜる別の生き物のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+
+  const catCount = 10; 
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+      
+      // 画像の振り分け
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 80) + 40;
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 1.8) + 1.2;
+      let startX, startY, endX, endY, flip;
+
+      if (direction === 'bl-to-tr') {
+        startX = Math.random() * 50 - 30; startY = Math.random() * 50 + 80; endX = Math.random() * 50 + 80; endY = Math.random() * 50 - 30; flip = 1; 
+      } else if (direction === 'tr-to-bl') {
+        startX = Math.random() * 50 + 80; startY = Math.random() * 50 - 30; endX = Math.random() * 50 - 30; endY = Math.random() * 50 + 80; flip = -1; 
+      } else if (direction === 'bottom-to-top') {
+        startX = Math.random() * 120 - 10; startY = 120; endX = startX + (Math.random() * 40 - 20); endY = -30; flip = Math.random() > 0.5 ? 1 : -1; 
+      }
+
+      container.appendChild(cat);
+
+      cat.animate([
+        { transform: `translate3d(${startX}vw, ${startY}vh, 0) scaleX(${flip})` },
+        { transform: `translate3d(${endX}vw, ${endY}vh, 0) scaleX(${flip})` }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        fill: 'forwards'
+      });
+
+      setTimeout(() => {
+        cat.remove();
+      }, duration * 1000);
+
+    }, Math.random() * 800); // すぐに出現するように調整
+  }
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">盛岡の火山灰土壌を農業の土壌に使用する場合の注意点は？</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">提供された資料には「盛岡」という特定の地名についての記述はありませんが、資料によると、日本の火山灰土壌（黒ぼく土）は<strong>北海道から関東にかけて非常に広く分布しており</strong>、盛岡を含む地域の土壌もこの共通した性質を持っていると考えられます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">これらの資料に基づき、火山灰土壌を農業に利用する際の主な注意点を説明します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">1. リン酸欠乏への対策</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最も重要な注意点は、この土壌が<strong>リン酸を極めて強く吸着し、植物が利用できる分を少なくしてしまう</strong>ことです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>理由：</strong> 土壌に含まれる「活性Al・Fe」（アロフェン、イモゴライト、有機Al複合体など）の表面にある水酸基が、リン酸と非常に強い共有結合（配位子結合）を作るためです。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>対策：</strong> 現代の農業では、<strong>リン酸肥料を十分に施用する</strong>ことで、この化学的な難点を克服しています。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 土壌の酸性化への対応</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">日本のような降水量の多い地域では、<strong>土壌が酸性化しやすい</strong>という特徴があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>対策：</strong> リン酸の施用とあわせて、<strong>石灰（カルシウム）を施用する</strong>ことで土壌の化学性を改善する必要があります。かつては「問題土壌」とされていましたが、これらの改善により現在は主要な畑地として活用されています。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. 物理的メリットの維持</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">火山灰土壌は、非常に優れた物理性を持っています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>利点：</strong> 有機物が「接着剤」となり、空隙の多い構造を発達させているため、<strong>透水性（水はけ）、保水性（水持ち）、通気性</strong>のすべてに優れています。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size"><strong>管理：</strong> 単位体積当たりの重さが0.9 g cm⁻³以下と非常に軽く、<strong>耕しやすい（易耕性）</strong>というメリットがあります。この良好な物理的基盤を損なわないような管理が重要です。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">4. 養分供給能力（地質学的施肥）の理解</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">火山灰土壌は生成年代が「若い」土壌であり、風化していない<strong>一次鉱物（Ca, Mg, K, Naなどを含む）を多く含んでいます</strong>。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item {"fontSize":"medium"} -->
+<li class="has-medium-font-size">これらが時間とともに溶解して養分を放出するため、本来は<strong>生物生産性が高い土壌</strong>であるというポテンシャルを理解して利用することが有効です。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">まとめると、盛岡を含む地域の火山灰土壌を利用する際は、<strong>「リン酸と石灰を適切に補うこと」<strong>が最大の注意点であり、それによって</strong>「優れた水はけ・保水性・耕しやすさ」</strong>という物理的な強みを最大限に引き出すことができます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">▶ 参考：<a href="https://www.maff.go.jp/" title="">農林水産省</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+<!-- /wp:html -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/parking-saiseki/">駐車場の 砕石 は何号？C-40と5号の使い分けを盛岡の砕石屋が解説</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-491/">道路用砕石　JIS　A5001</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-497/">コンクリート用砕石及び砕砂　JIS　A5005</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-967/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-1432/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/saiseki-hanbai/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="砕石販売ページへ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
