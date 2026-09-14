@@ -174,3 +174,56 @@ Google公式ブログ・The Quantum Insider・HPCwire・DCD・Quantum Computing 
 CRYPTREC改定日2026年3月30日（**原文未確認。書くなら総務省ページで要再確認**）。
 「金融庁が銀行に要請」（日経1件のみ、金融庁の一次発表を確認できず）。
 富士通「デジタルアニーラ」を量子の実用例として紹介すること（**量子ではなく専用デジタル回路**）。
+
+---
+
+## 追記：すごい／すごくない（採用）
+
+### できること
+| 事実 | 出典 |
+|---|---|
+| ショアのアルゴリズムは素因数分解を古典より指数的に速く解く。RSA・楕円曲線暗号の根拠を直接崩す | 教科書的事実 |
+| **実機で実際に因数分解できた最大の数は 15 と 21。**しかも答えを知った上で回路を簡略化したという批判がある | 学術サーベイ arXiv:2410.14397 https://arxiv.org/html/2410.14397v1 |
+| RSA2048破りの見積もりは**2,000万物理量子ビット/8時間（2019）→ 100万未満/1週間未満（2025）**。6年で20分の1 | ◎Gidney & Ekerå, Quantum 5, 433 https://quantum-journal.org/papers/q-2021-04-15-433/ ／Google Research https://arxiv.org/abs/2505.15917 |
+| **グローバーの加速は2乗どまり。**しかもGoogleの研究者自身が「2乗では初期の誤り耐性機で優位は出ない」と論文に書いている | ◎Babbush ほか, PRX Quantum 2, 010103 (2021) https://arxiv.org/abs/2011.04149 |
+| **共通鍵暗号（AES）は鍵を2倍にすれば足りる。**NISTはAES-128も依然安全とみなす | ◎NIST PQC FAQ https://csrc.nist.gov/projects/post-quantum-cryptography/faqs |
+| **日本政府は2025年11月20日、政府機関等のPQC移行を「原則2035年を目処」とする中間とりまとめを公表。**2026年度中に工程表を策定 | ◎内閣官房 国家サイバー統括室 https://www.cas.go.jp/jp/seisaku/pqc/pdf/report_202511.pdf ／ https://www.cyber.go.jp/pdf/press/20251120_PQC_chukantorimatome.pdf ／@IT https://atmarkit.itmedia.co.jp/ait/articles/2512/08/news045.html |
+| NISTが2024年8月13日に最初のPQC標準3件を最終化（FIPS 203/204/205） | ◎NIST https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved |
+
+### すごくないところ（記事の要）
+| 事実 | 出典 |
+|---|---|
+| **2019年 Google「スパコンで1万年」→ IBMが直後に「2.5日で可能」と反論** | ◎IBM公式 https://www.ibm.com/quantum/blog/on-quantum-supremacy ／Science https://www.science.org/content/article/ibm-casts-doubt-googles-claims-quantum-supremacy |
+| **2022年、古典側が実際に解いた。**Science の見出しは「Ordinary computers can beat Google's quantum computer after all」 | ◎PRL 129, 090502 (2022) https://link.aps.org/doi/10.1103/PhysRevLett.129.090502 ／Science https://www.science.org/content/article/ordinary-computers-can-beat-google-s-quantum-computer-after-all |
+| **2023年 IBMの「量子ユーティリティ」は数週間で古典に再現された。ひとつはノートPCの1コアで、実機より桁違いに速かった** | Begušić & Chan arXiv:2306.16372 ／Tindall ほか arXiv:2306.14887（いずれも査読誌掲載） |
+| **2025年3月 D-Waveの主張にも数日で2本の反論プレプリント。**D-Waveが再反論 | HPCwire https://www.hpcwire.com/2025/03/13/d-wave-reports-quantum-supremacy-stirs-immediate-challenge-and-rebuttal/ |
+| **量子化学の分野で、専門家自身が「指数的な量子優位の証拠はまだ見つかっていない」と結論** | ◎Nature Communications 14, 1952 (2023) https://www.nature.com/articles/s41467-023-37587-6 |
+| **量子機械学習12種を160データセットで比較したら、古典モデルのほうが軒並み高性能。**しかも量子ソフト企業（Xanadu）自身の研究 | Bowles ほか arXiv:2403.07059 |
+| **表計算・文書作成・動画・ウェブ閲覧は速くならない。**専用の補助装置であって汎用機の置き換えではない | 複数一致 |
+| **NP完全問題（巡回セールスマン等）を多項式時間で解けるとは考えられていない** | Scott Aaronson https://www.scottaaronson.com/papers/npcomplete.pdf |
+| 交通流最適化の実験で、D-Waveのハイブリッドソルバは**古典の商用ソルバ Gurobi に及ばなかった** | arXiv:2510.06053（プレプリント） |
+| **ノイズがある限り、ランダム回路サンプリングは古典の多項式時間で模倣できる**（原理的な限界） | Aharonov ほか STOC 2023 arXiv:2211.03999 |
+
+### 予測が当てにならない実例（採用）
+| 事実 | 出典 |
+|---|---|
+| **NVIDIAのフアンCEOは2025年1月「有用な量子計算は15〜30年先、20年なら多くが納得」と発言。<br>2025年3月のGTCで撤回**し「企業のCEOが、自分がなぜ間違っていたかを説明するために全員を招待した史上初のイベント」と述べた | ◎CNBC 2025-01-08 https://www.cnbc.com/2025/01/08/quantum-stocks-like-rigetti-plunge-after-nvidias-huang-says-the-computers-are-15-to-30-years-away.html ／◎CNBC 2025-03-20 https://www.cnbc.com/2025/03/20/nvidia-ceo-huang-says-was-wrong-about-timeline-for-quantum-computing.html ／HPCwire |
+| 見通しの幅：IBM・Googleの**自社目標が2029年**／日本政府の**暗号移行が2035年**／**ムーンショット目標6が2050年**／そして**「実現しない」とする物理学者の反対論**（Dyakonov, IEEE Spectrum） | ◎内閣府 https://www8.cao.go.jp/cstp/moonshot/sub6.html ／IEEE Spectrum https://spectrum.ieee.org/the-case-against-quantum-computing |
+
+**→ 株価・銘柄・投資判断には一切触れない。**フアン氏の件は「予測の不確かさ」の実例としてのみ使う。
+
+### 不採用（追加）
+| 内容 | 理由 |
+|---|---|
+| 株価の下落率 | 出典により「30〜40%」「60%」と食い違う |
+| 希釈冷凍機の消費電力・価格 | 同一記事内で数字が矛盾。「数十キロワット規模とされる」までにとどめる |
+| 論理量子ビット96個/94個 | 業界メディア経由。**「100個に満たない」という桁感だけ使う** |
+| 2026年のIBM量子優位3件とその反論 | 二次情報のみ。「2026年も同じ応酬が続いている」までにとどめる |
+| クリーブランドクリニック＋IBMの303原子計算 | 一次発表に到達できず。**載せない** |
+| NIST IR 8547 の2030年/2035年 | **草案段階。**日本の2035年（内閣官房）は確定なのでそちらを使う |
+
+### 記事全体を貫かせる一文
+> 量子コンピュータの歴史は、「**できた**」という発表と「**それは普通のコンピュータでもできた**」という
+> 反論の応酬の歴史でもある。2019年のGoogle、2023年のIBM、2025年のD-Wave、いずれも
+> 数日から数週間で反論が出ている。**それは不正でも失敗でもなく、科学が正常に働いている姿。**
+> ただしニュースの見出しだけを読むと、その後半分が見えない。
