@@ -1,0 +1,202 @@
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">産廃収集運搬契約書 のほかに、書面化は必要なのか？</h2>
+<!-- /wp:heading -->
+
+<!-- wp:spacer {"height":"29px"} -->
+<div style="height:29px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>産廃収集運搬契約書</strong> のほかに、運送申込書などの書面化は必要になるのだと思います。理由としては、改正貨物自動車運送事業法には次の項目を記載しなければなりません。今現行の産廃収集運搬契約書をお手元に置いて、下記の項目を記載されているのかを確認する必要があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">運送契約の締結時に必要な「6つの法定事項」</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">運送契約の締結時に相互に交付する書面には、以下の「法定事項」を記載する必要があります 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">1. 運送の役務の内容及び対価　 </h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→　これは産廃収集運搬契約書に記載してますよね。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">2. 運送の役務以外の役務（荷役作業、附帯業務等）が含まれる場合には、その内容及び対価 * 原則として「運賃」と「運送の役務以外の役務（積込みや取卸し等）に係る料金」は、別建てで対価を設定し、記載する必要があります 。　</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→　これは、弊社の契約書には記載してませんでした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">3. その他特別に生じる費用に係る料金（例：有料道路利用料、燃料サーチャージなど）　</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→　これは、弊社の契約書には記載してませんでした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">4. 運送契約の当事者の氏名又は名称及び住所　</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→　これは、契約書に記載していますよね。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">5. 運賃・料金の支払方法　</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→　これは、弊社の契約書には記載してませんでした。何月何日銀行振込のことです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">6. 書面の交付年月日</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">　→これは、判断に迷うところですが、契約日は記載しておりますが、工期の設定もしてるので問題なさそうですが、書面化の交付年月日と契約書の契約年月日の意味では、意味が違う場合があるので、詳しくは国交省に問い合わせてください</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size"> <strong>その他の留意点：</strong> </h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">合計金額の記載：合計金額自体の記載は法定事項ではありませんが、受託者が対価を明確に把握できるよう、単価・料率等を基本契約書等に関連付け、一義的に算出できるよう記載することが必要です 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">書面の形式：必要な事項が網羅されていれば、1つの文書で完結させる必要はなく、基本契約書、覚書、運送依頼書、送り状、単価表などの複数の書面で法定事項を補完し合っても問題ありません</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">他法との関係：トラック法と中小受託取引適正化法が同時に適用される取引では、上記の項目に加え、「支払期日」や、電子記録債権を利用する場合の「当該債権の額及び支払期日」の記載も求められます 。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="wp-block-heading has-medium-font-size">トラック協会が推奨する3点セットで補完する</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">なかなか、これらの項目を網羅されてる産業廃棄物収集運搬契約書の作成は難しいと思います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">トラック協会推奨しているのは、産廃収集運搬契約書に限らずですが、運送の契約は、契約書、覚書、運送申込書・引受書の3点セットで、産廃収集運搬契約書の足りない部分の補完をしていくことが必要です</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">運送業の適正化に向けた法改正の背景と今後の対応</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そもそも、なぜこのような細かな書面化が厳しく求められるようになったのでしょうか。その背景には、運送業界全体が抱えるドライバー不足や、口約束など曖昧な契約による運送以外の付帯作業（長時間の待機や積み下ろし作業など）の負担増加といった問題があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今回の改正貨物自動車運送事業法では、適正な運賃・料金の収受と労働環境の改善を目的として、対価や業務内容を明確に書面に残すことが義務付けられました。これにより、依頼する側も受ける側もトラブルを防ぐことができます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">書面の話とは別に、許可そのものにも期限の話が出てきています。産廃の収集運搬業の許可が原則5年ごとの更新なのはご存じのとおりですが、運送事業の許可にも同じように更新制が設けられる見込みです（改正法は公布済み、2026年9月時点で施行日は未定）。弊社でも気になったので、<a href="https://www.ishinazaka.co.jp/kensetsugyo-unso-kyoka-koushin/">産廃許可の5年更新と、トラックの 運送許可 の更新を並べて見る</a>でまとめてみました。産廃を運ぶのに運送許可が要るのかどうかも触れています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">弊社（株式会社石名坂）においても、これらの関係法令をしっかりと遵守し、お客様に安心して土木工事や砕石・産業廃棄物の運搬をお任せいただけるよう、適切な書面（運送申込書や引受書など）のやり取りと情報提供に努めてまいります。ご不明な点がございましたら、いつでもお気軽に<a href="https://www.ishinazaka.co.jp/contact/" title="">ご相談ください</a>。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1472,"width":"400px","sizeSlug":"large","linkDestination":"custom"} -->
+<figure class="wp-block-image size-large is-resized"><a href="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/001993961.pdf"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/Screenshot_20260409-213848-747x1024.png" alt="産廃収集運搬 契約書" class="wp-image-1472" style="width:400px;height:auto"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/kaisei-kamotsu/">【令和7年改訂】 改正貨物自動車運送事業法 のポイント（書面化・実運送体制管理簿）</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-3955/">運送業の要！「 運行管理者 （貨物）」とは？</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-1470/">【最新】改正貨物自動車運送事業法のQ&amp;amp;Aが更新！国交省の解釈を確認</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">運搬・工事のご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>石名坂は自社ダンプで砕石や残土の運搬を行っています。法令に沿った運用についてのご相談も承ります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/product/">事業内容を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/kitakamigawa-cleanup/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-2276/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
