@@ -82,12 +82,6 @@ th{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:12.5px
 tr:last-child td{border-bottom:none}
 td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-.gauge{margin:14px 0;max-width:64ch}
-.gauge .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.gauge .row b{font-size:15px;color:var(--ink)}
-.gauge .track{height:8px;background:var(--line-soft);margin-top:6px;border:1px solid var(--line)}
-.gauge .fill{height:100%;background:var(--accent);width:76%}
 
 .asks{list-style:none;padding:0;margin:14px 0;display:grid;gap:7px;max-width:64ch}
 .asks li{padding-left:1.5em;position:relative;font-size:14.5px}
@@ -103,25 +97,34 @@ td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;w
 
   <h2>何を直すのか</h2>
   <p>訪問者からチャットが使えるようになり、知識も入りました。ただし価格の計算方法が間違っていました。ダンプ1台単位で数えて端数を切り上げていたため、2.52㎥のご相談に4.0㎥ぶんの金額を出していました。</p>
-  <p>AI Engine の無料版では、覚えさせる方法が<b>1つだけ</b>あります。設定画面の<b>「Knowledge &amp; Context」</b>という入力欄です。ここに書いた文章を、チャットボットは毎回の会話で読んでから答えます。上限は16,384文字です。</p>
+  <p>AI Engine の無料版で知識を持たせる場所は、チャットボット編集画面の<b>「Instructions」</b>欄です。ここに書いた文章は、会話のたびに最初の1通目（system メッセージ）としてモデルに渡されます。<b>文字数の上限はありません。</b></p>
 
   <div class="callout good">
     <span class="lbl">窓口は開通しました</span>
     <p>スニペットが効いて、訪問者からもチャットが使えるようになりました。外から9問投げて全問正解、<code>wp/v2/users</code> などは閉じたままであることも確認済みです。</p>
   </div>
 
+  <div class="callout warn">
+    <span class="lbl">お詫びと訂正：欄の名前と上限が間違っていました</span>
+    <p>これまで<b>「Knowledge &amp; Context」に貼ってください、上限は16,384文字です</b>とご案内していました。どちらも誤りでした。</p>
+    <p>正しい貼り先は <b>Instructions</b> です。「Knowledge &amp; Context」というラベルも実在しますが、<b>Pro限定の知識ベース（Embeddings）の見出し</b>で、無料版には中身がありません。</p>
+    <p>16,384という数字は <code>Context Max Length</code> という別の設定でした。プラグインの説明文は「Content-Aware や Embeddings から差し込まれる文章を、この文字数以下に切り詰める」となっており、Instructions 欄とは無関係です。<b>Instructions 欄に文字数制限はありません</b>（入力欄に maxLength の指定がありません）。</p>
+    <p>お手数をおかけしました。artifact内の表記もすべて直しました。</p>
+  </div>
+
   <h2>貼る原稿（差し替え版）</h2>
   <p>サイト全ページから事実を集めて作りました。配達価格表、<b>単価表21規格（1㎥あたり・税抜）</b>、砕石の種類、除雪料金、採用条件、よくある質問、そして<b>「答えてはいけないこと」</b>まで入っています。</p>
 
-  <div class="gauge">
-    <div class="row"><span>原稿の分量</span><span><b>12,499</b> / 16,384 文字</span></div>
-    <div class="track"><div class="fill"></div></div>
-    <div class="row" style="margin-top:5px"><span>上限まで 3,885 文字の余裕</span><span>76% 使用</span></div>
-  </div>
+  <div class="tbl"><table>
+    <tr><th>原稿の分量</th><th>12,499 文字（325 行）</th></tr>
+    <tr><td>貼る場所</td><td>チャットボット編集画面の <b>Instructions</b></td></tr>
+    <tr><td>文字数の上限</td><td>なし</td></tr>
+    <tr><td>読み込まれ方</td><td>会話のたびに、最初の1通目として毎回渡される</td></tr>
+  </table></div>
 
   <div class="codewrap">
     <div class="codebar">
-      <span class="fn">Knowledge &amp; Context に貼る全文</span>
+      <span class="fn">Instructions に貼る全文</span>
       <button class="copybtn" type="button" data-target="ksrc">全文コピー</button>
     </div>
     <pre id="ksrc"><code>あなたは岩手県盛岡市の「株式会社石名坂（いしなざか）」の案内係です。砕石・砂利・砂の販売と配達、土木工事、冬の除雪について、サイトを見に来たお客様の質問に答えます。
@@ -809,7 +812,7 @@ add_action( &#x27;wp_footer&#x27;, function () {
       <p>上のタブで <b>Chatbots</b>（チャットボット）を選びます。一覧に出ているボットの名前をクリックして編集画面に入ります。</p>
     </div></div>
     <div class="step"><div class="no">3</div><div class="body">
-      <p>設定項目の中に <b>Knowledge &amp; Context</b> という見出しの、8行ほどの大きな入力欄があります。すでに何か書かれていたら、<b>すべて消してから</b>貼ってください。足すのではなく、置き換えです。</p>
+      <p>設定項目の中に <b>Instructions</b> という見出しの、10行ほどの入力欄があります。すでに何か書かれていたら、<b>すべて消してから</b>貼ってください。足すのではなく、置き換えです。</p>
     </div></div>
     <div class="step"><div class="no">4</div><div class="body">
       <p>上の「全文コピー」を押して、その欄に貼り付けます。スマホの場合は、欄を長押しして「貼り付け」です。</p>
@@ -849,7 +852,7 @@ add_action( &#x27;wp_footer&#x27;, function () {
     <span class="lbl">価格を変えたら、ここも変える</span>
     <p>この原稿には価格表20品目と除雪料金6項目が<b>そのまま書き写してあります。</b>サイトの価格を改定したら、この欄も同じように直してください。直さないと、チャットボットだけが古い値段を言い続けます。</p>
   </div>
-  <p>原稿の元ファイルはリポジトリの <code>wordpress/chatbot/knowledge-context.txt</code> に置いてあります。次に価格を変えるときは、そちらを直してから貼り直すのがおすすめです。</p>
+  <p>原稿の元ファイルはリポジトリの <code>wordpress/chatbot/chatbot-instructions.txt</code> に置いてあります。次に価格を変えるときは、そちらを直してから貼り直すのがおすすめです。</p>
 
   <h2>あとでよいこと</h2>
   <ul class="later">
