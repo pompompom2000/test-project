@@ -1,0 +1,56 @@
+[
+ {
+  "pid": 491,
+  "kind": "posts",
+  "tag": "体裁",
+  "name": "割り込んだ説明を外す",
+  "nth": 1,
+  "old": "<!-- wp:paragraph -->\n<p>道路用砕石 の粒度は、日本産業規格 JIS A5001「道路用砕石」 に定められています。粒度の一覧表は規格票に掲載されているものですので、当ページには掲載しておりません。正確な数値は、日本規格協会が公開している規格票でご確認ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>弊社で取り扱っている砕石の種類と用途は、<a href=\"https://www.ishinazaka.co.jp/saiseki-hanbai/\">砕石・砂利・砂 販売及び配達</a>のページにまとめています。どのサイズが合うか迷われたときは、お電話（019-638-7521）でもご相談を承ります。</p>\n<!-- /wp:paragraph -->\n\n",
+  "new": ""
+ },
+ {
+  "pid": 491,
+  "kind": "posts",
+  "tag": "体裁",
+  "name": "計算例の後ろに置き直す",
+  "nth": 1,
+  "old": "<!-- wp:paragraph -->\n<p>X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>\n<!-- /wp:paragraph -->",
+  "new": "<!-- wp:paragraph -->\n<p>X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>道路用砕石 の粒度は、日本産業規格 JIS A5001「道路用砕石」 に定められています。粒度の一覧表は規格票に掲載されているものですので、当ページには掲載しておりません。正確な数値は、日本規格協会が公開している規格票でご確認ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>弊社で取り扱っている砕石の種類と用途は、<a href=\"https://www.ishinazaka.co.jp/saiseki-hanbai/\">砕石・砂利・砂 販売及び配達</a>のページにまとめています。どのサイズが合うか迷われたときは、お電話（019-638-7521）でもご相談を承ります。</p>\n<!-- /wp:paragraph -->"
+ },
+ {
+  "pid": 497,
+  "kind": "posts",
+  "tag": "体裁",
+  "name": "割り込んだ説明を外す",
+  "nth": 1,
+  "old": "<!-- wp:paragraph -->\n<p>コンクリート用の砕石・砕砂 の粒度は、日本産業規格 JIS A5005「コンクリート用砕石及び砕砂」 に定められています。粒度の一覧表は規格票に掲載されているものですので、当ページには掲載しておりません。正確な数値は、日本規格協会が公開している規格票でご確認ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>弊社で取り扱っている砕石の種類と用途は、<a href=\"https://www.ishinazaka.co.jp/saiseki-hanbai/\">砕石・砂利・砂 販売及び配達</a>のページにまとめています。どのサイズが合うか迷われたときは、お電話（019-638-7521）でもご相談を承ります。</p>\n<!-- /wp:paragraph -->\n\n",
+  "new": ""
+ },
+ {
+  "pid": 497,
+  "kind": "posts",
+  "tag": "体裁",
+  "name": "計算例の後ろに置き直す",
+  "nth": 1,
+  "old": "<!-- wp:paragraph -->\n<p>X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>\n<!-- /wp:paragraph -->",
+  "new": "<!-- wp:paragraph -->\n<p>X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>コンクリート用の砕石・砕砂 の粒度は、日本産業規格 JIS A5005「コンクリート用砕石及び砕砂」 に定められています。粒度の一覧表は規格票に掲載されているものですので、当ページには掲載しておりません。正確な数値は、日本規格協会が公開している規格票でご確認ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>弊社で取り扱っている砕石の種類と用途は、<a href=\"https://www.ishinazaka.co.jp/saiseki-hanbai/\">砕石・砂利・砂 販売及び配達</a>のページにまとめています。どのサイズが合うか迷われたときは、お電話（019-638-7521）でもご相談を承ります。</p>\n<!-- /wp:paragraph -->"
+ },
+ {
+  "pid": 306,
+  "kind": "pages",
+  "tag": "体裁",
+  "name": "宙に浮いた見出しを直す",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\"><strong>道路用砕石　A 5001　粒度の一覧表</strong></p>",
+  "new": "<p class=\"has-medium-font-size\"><strong>道路用砕石　JIS A5001　粒度の考え方</strong></p>"
+ },
+ {
+  "pid": 306,
+  "kind": "pages",
+  "tag": "高-17",
+  "name": "規格票の案内を足す",
+  "nth": 1,
+  "old": "<p class=\"has-medium-font-size\">X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>",
+  "new": "<p class=\"has-medium-font-size\">X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"medium\"} -->\n<p class=\"has-medium-font-size\">粒度の一覧表は日本産業規格の規格票に掲載されているものですので、当ページには掲載しておりません。正確な数値は、日本規格協会が公開している規格票でご確認ください。</p>"
+ }
+]

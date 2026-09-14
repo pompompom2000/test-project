@@ -1,0 +1,287 @@
+<!-- wp:paragraph -->
+<p>「ふるいに留まった骨材の質量百分率」とは、呼び名のふるいをかけて、とどまった量を全質量で割合で求めたものです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>道路用砕石　粒度一覧</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:flexible-table-block/table {"isScrollOnPc":true,"isScrollOnMobile":true,"fontSize":"small"} -->
+<figure class="wp-block-flexible-table-block-table is-scroll-on-pc is-scroll-on-mobile has-small-font-size"><table class="has-fixed-layout" style="width:auto;border-collapse:collapse;border-style:solid;border-color:#000000"><tbody><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">種類</td><td rowspan="3" style="width:60px;font-size:10px;border-style:solid;border-color:#000000">呼び名</td><td colspan="17" style="font-size:10px;border-style:solid;border-color:#000000">ふるいを通るもの質量百分率　％</td></tr><tr><td colspan="17" style="font-size:10px;border-style:solid;border-color:#000000">ふるいの呼び寸法　ｍｍ</td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">80</td><td style="font-size:10px;border-style:solid;border-color:#000000">60</td><td style="font-size:10px;border-style:solid;border-color:#000000">50</td><td style="font-size:10px;border-style:solid;border-color:#000000">40</td><td style="font-size:10px;border-style:solid;border-color:#000000">30</td><td style="font-size:10px;border-style:solid;border-color:#000000">25</td><td style="font-size:10px;border-style:solid;border-color:#000000">20</td><td style="font-size:10px;border-style:solid;border-color:#000000">13</td><td style="font-size:10px;border-style:solid;border-color:#000000">5</td><td style="font-size:10px;border-style:solid;border-color:#000000">2.5</td><td style="font-size:10px;border-style:solid;border-color:#000000">1.2</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.6</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.4</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.3</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.15</td><td style="font-size:10px;border-style:solid;border-color:#000000">0.075</td></tr><tr><td rowspan="7" style="font-size:10px;border-style:solid;border-color:#000000">単粒度砕石</td><td style="font-size:10px;border-style:solid;border-color:#000000">S-80(1号)</td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-60(2号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-40(3号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-30(4号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-20(5号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-13(6号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>15</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">S-5(7号)</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>25</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>5</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">クラッシャラン</td><td style="font-size:10px;border-style:solid;border-color:#000000">C-40</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">50<br>～<br>80</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">5<br>～<br>25</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">C-30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">55<br>～<br>85</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">5<br>～<br>30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">C-20</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000">20<br>～<br>50</td><td style="font-size:10px;border-style:solid;border-color:#000000">10<br>～<br>35</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">スクリーニングス</td><td style="font-size:10px;border-style:solid;border-color:#000000">F-2.5</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">85<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">25<br>～<br>55</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">15<br>～<br>40</td><td style="font-size:10px;border-style:solid;border-color:#000000">7<br>～<br>28</td><td style="font-size:10px;border-style:solid;border-color:#000000">0<br>～<br>20</td></tr><tr><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">粒度調整砕石</td><td style="font-size:10px;border-style:solid;border-color:#000000">M-40</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">30<br>～<br>65</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">20<br>～<br>50</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">10<br>～<br>30</td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000"></td><td rowspan="3" style="font-size:10px;border-style:solid;border-color:#000000">2<br>～<br>10</td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">M-30</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;border-style:solid;border-color:#000000">60<br>～<br>90</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td></tr><tr><td style="font-size:10px;border-style:solid;border-color:#000000">M-20</td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000"></td><td style="font-size:10px;border-style:solid;border-color:#000000">100</td><td style="font-size:10px;border-style:solid;border-color:#000000">95<br>～<br>100</td><td style="font-size:10px;border-style:solid;border-color:#000000">-</td><td style="font-size:10px;color:#000000;border-style:solid;border-color:#000000">55<br>～<br>85</td></tr></tbody></table></figure>
+<!-- /wp:flexible-table-block/table -->
+
+<!-- wp:html -->
+<div class="walking-cat-stage-final">
+  <div onclick="catMagicClick()" class="walking-cat-gif-final"></div>
+</div>
+
+<div id="cat-horde-container"></div>
+
+<style>
+/* --- 最初の1匹のスタイル（猫） --- */
+.walking-cat-stage-final {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; 
+  margin: 20px 0;
+  display: block !important;
+}
+
+.walking-cat-gif-final {
+  display: block !important;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* ▼ ここに最初の1匹（猫）のURLを貼り付け ▼ */
+  background-image: url('https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif') !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: urochoro-left-final 25s linear infinite;
+  cursor: pointer;
+  z-index: 9999 !important;
+  transition: transform 0.1s ease-out;
+}
+
+.walking-cat-gif-final:hover { filter: brightness(1.1); }
+.walking-cat-gif-final:active {
+  animation-play-state: paused;
+  transform: translateY(-20px) !important;
+}
+
+@keyframes urochoro-left-final {
+  0% { right: -120px; transform: scaleX(-1); }
+  30% { right: 40%; transform: scaleX(-1); }
+  32% { right: 40%; transform: scaleX(1); }
+  45% { right: 20%; transform: scaleX(1); }
+  47% { right: 20%; transform: scaleX(-1); }
+  65% { right: 70%; transform: scaleX(-1); }
+  85% { right: 110%; transform: scaleX(-1); }
+  100% { right: 110%; transform: scaleX(-1); }
+}
+
+/* --- ここから大群用のスタイル --- */
+#cat-horde-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+.horde-cat {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: transform, left, right, top; /* スマホの処理を軽くする */
+}
+
+/* パターン1：左から右へ */
+@keyframes horde-run-lr {
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+
+/* パターン2：右から左へ */
+@keyframes horde-run-rl {
+  0% { right: -200px; }
+  100% { right: 110vw; }
+}
+
+/* パターン3：上から下へ */
+@keyframes horde-fall-tb {
+  0% { top: -200px; }
+  100% { top: 110vh; }
+}
+</style>
+
+<script>
+let clickCount = 0;
+let isRunning = false; // 大群が走っている最中かどうかを判定するフラグ
+
+function catMagicClick() {
+  // もし大群が走っている最中なら、クリックを無視する（重くなるのを防ぐ）
+  if (isRunning) return; 
+
+  const pattern = clickCount % 3;
+  
+  if (pattern === 0) {
+    releaseCats('left-to-right');
+  } else if (pattern === 1) {
+    releaseCats('right-to-left');
+  } else if (pattern === 2) {
+    releaseCats('top-to-bottom');
+  }
+  
+  clickCount++;
+}
+
+function releaseCats(direction) {
+  isRunning = true; // 大群発生スタート！追加クリックを禁止する
+
+  const container = document.getElementById('cat-horde-container');
+  // ▼ ここに通常の大群用の猫のURLを貼り付け ▼
+  const catUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/ezgif.com-animated-gif-maker.gif'; 
+  
+  // ★ ▼ ここに【一匹だけ混ぜる別の生き物】のGIF画像のURLを貼り付け ▼ ★
+  const otherImageUrl = 'https://www.ishinazaka.co.jp/common/files/uploads/2026/04/1775735437402.png'; 
+
+  const catCount = 20; // 猫の数
+
+  // 大群（catCount匹）の中から、ランダムに「一匹」を選ぶ
+  const otherIndex = Math.floor(Math.random() * catCount);
+
+  for (let i = 0; i < catCount; i++) {
+    setTimeout(() => {
+      const cat = document.createElement('div');
+      cat.className = 'horde-cat';
+
+      // 通常は猫の画像、選ばれた一匹だけ別の生き物の画像にする
+      if (i === otherIndex) {
+        cat.style.backgroundImage = `url('${otherImageUrl}')`;
+      } else {
+        cat.style.backgroundImage = `url('${catUrl}')`;
+      }
+
+      const size = Math.floor(Math.random() * 70) + 50; // サイズもランダム
+      cat.style.width = `${size}px`;
+      cat.style.height = `${size}px`;
+
+      const duration = (Math.random() * 2.5) + 1.5; // 速度もランダム
+
+      if (direction === 'left-to-right') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.left = '-200px';
+        cat.style.transform = 'scaleX(1)'; // 右向き
+        cat.style.animation = `horde-run-lr ${duration}s linear forwards`;
+      } else if (direction === 'right-to-left') {
+        cat.style.top = `${Math.floor(Math.random() * 90)}vh`;
+        cat.style.right = '-200px';
+        cat.style.transform = 'scaleX(-1)'; // 左向き
+        cat.style.animation = `horde-run-rl ${duration}s linear forwards`;
+      } else if (direction === 'top-to-bottom') {
+        cat.style.left = `${Math.floor(Math.random() * 95)}vw`;
+        cat.style.top = '-200px';
+        const flip = Math.random() > 0.5 ? 1 : -1; // 落ちるときは向きもランダム
+        cat.style.transform = `scaleX(${flip})`;
+        cat.style.animation = `horde-fall-tb ${duration}s linear forwards`;
+      }
+
+      container.appendChild(cat);
+
+      setTimeout(() => {
+        cat.remove(); // 走り終わった猫を消去
+      }, duration * 1000);
+
+    }, Math.random() * 1500); // 出現のバラつき
+  }
+
+  // 大群が全員走り終わるころ（約4.5秒後）に、クリック禁止を解除する
+  setTimeout(() => {
+    isRunning = false;
+  }, 4500);
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>例えば骨材全部の質量(m<sub>all</sub>)が100ｇで、最も目の大きな40ｍｍのふるいに留まった骨材の質量(m<sub>40</sub>)が20ｇ、次に大きい20ｍｍのふるいに溜まった骨材の質量(m<sub>20</sub>)が10ｇの場合、以下のような計算になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>X40=m40/mall=20/100=20(％)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>X20=（m40+m20）/mall=（20+10）/100=20+10=30(％)<br>ということになります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>ふるいに留まった骨材の質量百分率の上記の表に当てはまれば、それはふるい分けにおいては、JIS相当品になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>実際のJIS認定は、その他の項目も同時にクリアしないといけないことから、岩手県で JIS A5001を認証している砕石工場はありません。</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-497/">コンクリート用砕石及び砕砂　JIS　A5005</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-547/">砕石 の概算価格</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/post-2276/">砕石グラグラパズル</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">砕石・砂利のご注文・ご相談</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市・矢巾町・紫波町・滝沢市・花巻市の近郊へ、自社ダンプで砕石・砂利をお届けしています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/simulation/">料金の目安を自動計算する</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/post-547/">砕石の概算価格を見る</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-437/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1731,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/post-497/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%AC%A1%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8%E3%83%9C%E3%82%BF%E3%83%B3-e1776822959719.png" alt="次の記事へ" class="wp-image-1731" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->
