@@ -1,0 +1,1123 @@
+<title>AI・Web3の記事 原稿</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --stone:#EFF1F0;
+  --paper:#FBFBFA;
+  --ink:#1A1E1C;
+  --ink-soft:#4E5654;
+  --rule:#CDD3D1;
+  --survey:#24425C;
+  --keep:#2E6B4F;
+  --drop:#8A4B22;
+  --warn-bg:#F6EEE6;
+  --keep-bg:#E8F0EB;
+  --shadow:rgba(26,30,28,.09);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --stone:#15191A;
+    --paper:#1C2122;
+    --ink:#E7EBEA;
+    --ink-soft:#A3ADAB;
+    --rule:#333B3C;
+    --survey:#8FB4D4;
+    --keep:#79BE9A;
+    --drop:#D79A6B;
+    --warn-bg:#2A2320;
+    --keep-bg:#1E2A25;
+    --shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --stone:#15191A;
+  --paper:#1C2122;
+  --ink:#E7EBEA;
+  --ink-soft:#A3ADAB;
+  --rule:#333B3C;
+  --survey:#8FB4D4;
+  --keep:#79BE9A;
+  --drop:#D79A6B;
+  --warn-bg:#2A2320;
+  --keep-bg:#1E2A25;
+  --shadow:rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--stone);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  font-size:16px;
+  line-height:1.9;
+  margin:0;
+  padding-inline:18px;
+  padding-block:0;
+}
+.wrap{max-width:44rem;margin-inline:auto;padding-block:44px 72px}
+
+/* ---- 見出し ---- */
+.eyebrow{
+  font-family:"Roboto Mono",monospace;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 0 10px
+}
+h1{
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.42;
+  text-wrap:balance;margin:0 0 14px;letter-spacing:.01em;
+}
+.sub{color:var(--ink-soft);margin:0 0 6px;font-size:.98rem}
+.stamp{
+  font-family:"Roboto Mono",monospace;font-size:.76rem;
+  color:var(--ink-soft);letter-spacing:.04em
+}
+
+h2{
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:1.3rem;line-height:1.5;text-wrap:balance;
+  margin:0;padding-bottom:9px;border-bottom:2px solid var(--ink);
+}
+section{margin-top:56px;display:flex;flex-direction:column;gap:18px}
+
+/* ---- 数の並び ---- */
+.tally{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
+}
+.tally div{background:var(--paper);padding:14px 12px;text-align:center}
+.tally b{
+  display:block;font-family:"Roboto Mono",monospace;font-weight:500;
+  font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.2;
+  color:var(--survey)
+}
+.tally span{display:block;font-size:.76rem;color:var(--ink-soft);margin-top:4px}
+
+/* ---- 但し書き ---- */
+.caveat{
+  background:var(--warn-bg);
+  border-left:4px solid var(--drop);
+  padding:16px 18px;
+}
+.caveat p{margin:0}
+.caveat p + p{margin-top:10px}
+.caveat strong{color:var(--drop)}
+
+/* ---- 原稿 ---- */
+.draft{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 3px var(--shadow);
+  padding:26px 22px;
+}
+.draft h3{
+  font-family:"Shippori Mincho",serif;font-weight:700;
+  font-size:1.1rem;line-height:1.55;margin:34px 0 0;
+  padding-left:12px;border-left:3px solid var(--survey);
+  text-wrap:balance;
+}
+.draft h3:first-child{margin-top:0}
+.draft h2{
+  font-size:1.05rem;border:0;border-top:1px solid var(--rule);
+  padding-top:20px;margin-top:34px;
+}
+.draft p{margin:14px 0 0}
+.draft ul{margin:14px 0 0;padding-left:1.25em}
+.draft li{margin-top:9px}
+.draft a{color:var(--survey);word-break:break-all}
+.draft strong{font-weight:700}
+
+/* ---- 貼り付け ---- */
+details{border:1px solid var(--rule);background:var(--paper)}
+summary{
+  cursor:pointer;padding:13px 16px;font-weight:500;font-size:.95rem;
+  list-style:none;display:flex;align-items:center;gap:10px;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";font-family:"Roboto Mono",monospace;color:var(--survey)}
+details[open] summary::before{content:"−"}
+.paste{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+pre#raw{
+  font-family:"Roboto Mono",monospace;font-size:.72rem;line-height:1.6;
+  background:var(--stone);border:1px solid var(--rule);
+  padding:12px;margin:0;max-height:15rem;overflow:auto;white-space:pre-wrap;
+  word-break:break-all;
+}
+button{
+  font-family:inherit;font-size:.95rem;font-weight:500;
+  background:var(--survey);color:var(--paper);
+  border:0;padding:12px 18px;cursor:pointer;align-self:flex-start;
+}
+button:focus-visible{outline:3px solid var(--keep);outline-offset:2px}
+button[data-done="1"]{background:var(--keep)}
+
+/* ---- 点検 ---- */
+.check{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.check > div{
+  display:grid;grid-template-columns:2.4rem 1fr;gap:0 14px;
+  padding:16px 0;border-bottom:1px solid var(--rule);
+}
+.check .no{
+  font-family:"Roboto Mono",monospace;font-size:1.05rem;
+  color:var(--survey);font-variant-numeric:tabular-nums;
+}
+.check h3{margin:0;font-size:1rem;font-weight:700;line-height:1.6}
+.check p{margin:7px 0 0;grid-column:2;font-size:.93rem;color:var(--ink-soft)}
+.check .verdict{
+  grid-column:2;margin-top:9px;font-family:"Roboto Mono",monospace;
+  font-size:.75rem;letter-spacing:.06em;
+}
+.ok{color:var(--keep)}
+.ng{color:var(--drop)}
+
+/* ---- 表 ---- */
+.tblwrap{overflow-x:auto;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:.9rem}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{
+  font-family:"Roboto Mono",monospace;font-size:.72rem;letter-spacing:.08em;
+  color:var(--ink-soft);font-weight:500;background:var(--stone);white-space:nowrap;
+}
+tr:last-child td{border-bottom:0}
+td.why{color:var(--ink-soft)}
+
+/* ---- お願い ---- */
+ol.todo{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.todo li{padding-left:4px}
+ol.todo strong{color:var(--survey)}
+
+footer{
+  margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);
+  font-size:.85rem;color:var(--ink-soft);
+}
+@media (max-width:430px){
+  .tally{grid-template-columns:1fr 1fr}
+  .tally div:last-child{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+<p class="eyebrow">下書き / 確認のお願い</p>
+<h1>AIとWeb3で暮らしはどう変わる？<br>知っておきたい基礎知識</h1>
+<p class="sub">株式会社石名坂 お知らせ・コラム／投稿前の原稿</p>
+<p class="stamp">2026年9月14日 作成　本文6,300字</p>
+
+<section>
+<h2>何を確かめて、何を落としたか</h2>
+<div class="tally">
+  <div><b>25</b><span>出典</span></div>
+  <div><b>17</b><span>本文の数字（全部出典つき）</span></div>
+  <div><b>10</b><span>出典が食い違って落とした数字</span></div>
+</div>
+
+<div class="caveat">
+<p><strong>先に、正直なところを。</strong>今回は外の検索はできましたが、<strong>官公庁のページを直接開くことは遮断されていました。</strong>金融庁・総務省・警察庁・国民生活センター・文科省・国交省・盛岡市、いずれも開けていません。</p>
+<p>つまり、出典のURLは出せますが、<strong>そのページの中身を私は読んでいません。</strong>複数の検索結果が一致したものだけを採用しています。公開前に、いくつか実際に開いて確かめてください。</p>
+</div>
+</section>
+
+<section>
+<h2>原稿</h2>
+<div class="draft">
+<p class="has-medium-font-size">「これからはAI(人工知能)の時代だ」「Web3(ウェブスリー)で世の中が変わる」。こうした言葉を目にする機会が増えました。一方で、「結局、自分の暮らしの何が変わるのか」までは、なかなか見えてこないのではないでしょうか。</p>
+
+<p class="has-medium-font-size">この記事では、AIとWeb3について「すでに変わったこと」「これから変わるかもしれないこと」「変わると言われたが、実際には起きていないこと」の三つに分けてご紹介します。専門知識がなくても読めるように、言葉の説明を添えながら進めます。</p>
+
+<p class="has-medium-font-size">石名坂は盛岡市で砕石の製造販売と土木工事を行っている会社で、AIの専門家ではありません。ですので、この記事では出どころのはっきりした公的な資料に絞り、確かめられなかったことは「確かめられていない」と書きます。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">まず、数字を見てみます</h3>
+
+<p class="has-medium-font-size">「AIの時代」と言われていますが、実際にどのくらい使われているのでしょうか。総務省の『令和7年版 情報通信白書』によれば、生成AI(文章や画像を作るAI)を使ったことがある個人の割合は、日本で26.7%でした。前回の調査では9.1%でしたので、大きく増えています。ただし、同じ調査で米国は68.8%、中国は81.2%です。</p>
+
+<p class="has-medium-font-size">役所ではどうでしょうか。総務省の調査（令和6年12月31日現在）では、生成AIを導入済みの割合は、都道府県が87.2%、政令指定都市が90.0%に対して、<strong>その他の市区町村は29.9%</strong>です。実証中や導入予定を含めても51%にとどまります。</p>
+
+<p class="has-medium-font-size">つまり、都道府県のレベルではほぼ行き渡っている一方で、<strong>市町村ではまだ7割が導入していない</strong>、というのが現在地です。そして総務省は、導入が進まない理由として「取り組むための人材が不足している」とともに「<strong>AI生成物の正確性への懸念</strong>」が挙げられていると報告しています。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">すでに変わっていること</h3>
+
+<p class="has-medium-font-size">派手ではありませんが、確実に変わっているものがあります。</p>
+
+<ul class="wp-block-list">
+
+<li><strong>お店のレジ</strong>：スーパーマーケットの業界団体の統計によれば、客が自分で商品を読み取って支払うフルセルフレジを置く企業の割合は、2022年25.2%、2023年31.1%、2024年37.9%と増えています。支払いだけを客が行うセミセルフレジは77.1%です。</li>
+
+<li><strong>スマートフォン</strong>：音声で文字を入力する、写真の中から探す、外国語を訳す。こうした機能にAIが使われています。総務省の調査では、スマートフォンの世帯保有率は90.5%（令和6年）です。</li>
+
+<li><strong>身分証</strong>：マイナンバーカードの機能をスマートフォンに入れられるようになりました。iPhoneでは2025年6月24日に始まっています。ただし、登録には実物のカードと暗証番号が必要で、カードが不要になるわけではありません。</li>
+
+<li><strong>学校</strong>：文部科学省が「初等中等教育段階における生成AIの利活用に関するガイドライン(Ver.2.0)」を2024年12月26日に公表しています。ただし実際に取り組んでいるのは指定されたパイロット校が中心で、令和6年度は全国で66校でした。全国の小中高はおよそ3万校ありますので、どの学校でも使われている段階ではありません。</li>
+
+</ul>
+
+<p class="has-medium-font-size">岩手県内の話もあります。八幡平市と、盛岡市に本社を置く岩手県北自動車が、AIが最適な経路を組み立てるオンデマンド交通「よぶきた八幡平」の実証運行を2026年2月2日に始めました。決まった路線を走るのではなく、呼ばれたところを回る仕組みです。2027年度の本格運行を目指す段階とされています。</p>
+
+<p class="has-medium-font-size">盛岡市役所でも、2024年11月から、市の業務データを使った生成AIの実証が情報企画課・会計課・職員課の3課で行われました。議事録の要約や資料作成の支援が目的とされています。これは市役所の中の仕事を対象とした実証であり、窓口の手続きがAIに置き換わったという話ではありません。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">自動運転は、どこまで来ているか</h3>
+
+<p class="has-medium-font-size">「AIの時代」で最も語られるもののひとつが自動運転です。運転者が乗らずに走る「レベル4」の移動サービスは、2023年5月に福井県永平寺町で日本で初めて始まりました。</p>
+
+<p class="has-medium-font-size">ただし中身はこうです。廃線跡を利用した専用の道を、ゴルフカートをもとにした車両が<strong>最高時速12km</strong>で走り、離れた場所の監視室から人が見守っています。一般の道路を、誰でも乗れる形で走っている段階ではありません。</p>
+
+<p class="has-medium-font-size">この落差が、この記事でお伝えしたいことの中心にあります。<strong>言葉が先に走っていて、実物はまだ入口にいます。</strong></p>
+
+<h3 class="wp-block-heading has-medium-font-size">Web3とは何か</h3>
+
+<p class="has-medium-font-size">Web3は、ブロックチェーンという技術を土台にした、特定の会社が中心にいないインターネットの構想を指す言葉として使われています。</p>
+
+<p class="has-medium-font-size">ここで大事な点をひとつ。総務省の研究会の資料（2022年8月）には、Web3について「『非中央集権的』になるとも言われているが、<strong>明確な定義が定まっているものではない</strong>」と書かれています。国の資料が、そう書いているのです。</p>
+
+<p class="has-medium-font-size">定義が定まっていない言葉について、「こうなります」と将来を断定することはできません。この記事でも断定しません。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">ブロックチェーンは「改ざんできない」のか</h3>
+
+<p class="has-medium-font-size">ブロックチェーンは、取引の記録をひとかたまり(ブロック)にまとめ、それぞれのブロックが直前のブロックの内容を要約した値を持つ形で、鎖のようにつないでいく仕組みです。途中の記録を書き換えると、それ以降の全部とつじつまが合わなくなります。</p>
+
+<p class="has-medium-font-size">ですから「改ざんが極めて難しい」と言えます。ただし「改ざんできない」と言い切るのは正確ではありません。理由は二つあります。</p>
+
+<p class="has-medium-font-size">ひとつは、ネットワークの計算能力の過半を握られると書き換えが理論上は成り立つとされること。もうひとつが、こちらのほうがはるかに大事なのですが、<strong>記録が守られることと、あなたの資産が守られることは別だ</strong>ということです。</p>
+
+<p class="has-medium-font-size">2024年5月、国内の暗号資産交換業者から4,502.9ビットコイン（当時およそ482億円）が不正に流出しました。これはブロックチェーンが破られた事件ではなく、鍵と運用の権限が奪われた事件です。同社は2025年3月にすべてのサービスを終了しています。</p>
+
+<p class="has-medium-font-size">金庫がどれだけ頑丈でも、鍵を渡してしまえば中身は出ていきます。それと同じことです。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">NFTは、その後どうなったか</h3>
+
+<p class="has-medium-font-size">2022年ごろ、デジタルの絵が高値で取引されるというNFTの話題が盛んに報じられました。その後どうなったかというと、日本経済新聞は2025年4月に「NFT市場、バブル崩壊で閉鎖相次ぐ 取引ピーク比8割減」と報じています。国内外で取引所の終了が相次ぎました。</p>
+
+<p class="has-medium-font-size">あわせて、誤解されやすい点を二つ。</p>
+
+<ul class="wp-block-list">
+
+<li><strong>NFTを買っても、その作品の著作権は移りません。</strong>著作権は原則として作った人に残り、買った人が得るのは利用規約で決められた範囲の利用権です。</li>
+
+<li><strong>日本の民法では、所有権の対象は「有体物」に限られます</strong>（民法85条）。データであるNFTに、民法上の所有権は成立しないと解されています。</li>
+
+</ul>
+
+<h3 class="wp-block-heading has-medium-font-size">ここが本題です。お金の話には、気をつけてください</h3>
+
+<p class="has-medium-font-size">この記事で、いちばんお伝えしたいのがここです。</p>
+
+<p class="has-medium-font-size">警察庁の統計（令和7年・確定値）によれば、SNSで親しくなってから投資などを持ちかける「SNS型ロマンス詐欺」は、全国で5,645件、被害額546.4億円でした。前の年から件数で47.6%、被害額で36.3%増えています。そして<strong>被害額のおよそ半分（48.6%）が、暗号資産で支払われたもの</strong>でした。</p>
+
+<p class="has-medium-font-size">岩手県も例外ではありません。岩手県の資料（令和8年2月）によれば、県内の令和7年中のSNS型投資・ロマンス詐欺は<strong>108件、被害額はおよそ7億2,904万円</strong>。前の年から58件、金額でおよそ3億7,553万円増えています。</p>
+
+<p class="has-medium-font-size">つまり、多くの方にとって「Web3の時代」が最初に姿を見せるのは、新しい便利な道具としてではなく、<strong>もうけ話として</strong>なのです。</p>
+
+<p class="has-medium-font-size">国民生活センターが2026年9月1日に公表した注意喚起には、こうした例が挙げられています。</p>
+
+<ul class="wp-block-list">
+
+<li>著名人を名乗るアカウントに勧められ、未公開株の投資金としておよそ1,000万円を振り込んだ。</li>
+
+<li>著名人が主催するとうたう投資グループの広告から暗号資産投資を始め、<strong>出金しようとしたら「税金」の名目で500万円を求められた。</strong></li>
+
+</ul>
+
+<p class="has-medium-font-size">この「<strong>出金しようとすると、税金や手数料の名目で追加のお金を求められる</strong>」という流れは、繰り返し報告されている見分けどころです。増えているように見えていた残高は、画面の上だけのものだったという例が少なくありません。</p>
+
+<p class="has-medium-font-size">国民生活センターは、暗号資産をめぐるトラブルについて「<strong>いったん振り込んでしまうと、被害を回復することは極めて困難</strong>」としています。取り返すことを当てにできない、ということです。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">確かめられること、確かめられないこと</h3>
+
+<p class="has-medium-font-size">国内で暗号資産の交換サービスを行うには、金融庁への<strong>登録</strong>が必要です。金融庁は登録を受けた業者の一覧と、無登録で営業している業者への警告の一覧を公表しています。相手が登録業者かどうかは、そこで確かめられます。</p>
+
+<p class="has-medium-font-size">ただし、ここを取り違えないでください。金融庁は、<strong>登録業者が扱う暗号資産だからといってリスクがないわけではない</strong>、と明示しています。登録は「営業してよい」という手続きであって、「安全」の保証ではありません。</p>
+
+<p class="has-medium-font-size">税金についても、よくある誤解があります。個人が暗号資産で得た利益は、現在は原則として<strong>雑所得</strong>で、給与などと合算して課税されます。しかも課税されるのは売ったときだけではありません。<strong>買い物の支払いに使ったとき、別の暗号資産に交換したときにも</strong>利益が計算されます。持っているだけなら課税されません。</p>
+
+<p class="has-medium-font-size">「税率20%」という説明を見かけることがありますが、それは将来の制度変更に向けた議論の話で、開始時期は確定していません。確定申告が必要かどうかは金額や働き方で変わりますので、国税庁の案内や税務署、税理士にご確認ください。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">AIを使うときに、押さえておきたい3つ</h3>
+
+<p class="has-medium-font-size"><strong>1. AIは、もっともらしく間違えます。</strong></p>
+
+<p class="has-medium-font-size">総務省の『令和6年版 情報通信白書』は、生成AIが「事実に基づかない誤った情報をもっともらしく生成すること」をハルシネーション(幻覚)と呼び、技術的な対策は検討されているが完全に抑えられるものではないため、利用者が検索などを併用して出力が正しいか確認することが望ましい、としています。</p>
+
+<p class="has-medium-font-size">自信のなさそうな答えではなく、<strong>自信ありげな答えが間違っている</strong>のが厄介な点です。</p>
+
+<p class="has-medium-font-size"><strong>2. 入力した内容は、手元だけの話ではないことがあります。</strong></p>
+
+<p class="has-medium-font-size">個人情報保護委員会は2023年6月2日、生成AIサービスの利用に関する注意喚起を公表しています。入力した情報がAIの学習に使われる場合があることを前提に、個人情報を入力するときは、あらかじめ定めた利用目的の範囲内かどうかを確かめる必要がある、という趣旨です。</p>
+
+<p class="has-medium-font-size">必ず学習に使われる、という意味ではありません。サービスや設定によって異なります。ただ、<strong>お客様の個人情報や、社外に出せない内容は入れない</strong>。この線を引いておくのが確実です。</p>
+
+<p class="has-medium-font-size">情報処理推進機構(IPA)の「情報セキュリティ10大脅威 2026」では、「AIの利用をめぐるサイバーリスク」が初めて選ばれ、組織向けの3位に入りました。心配しすぎではない、ということです。</p>
+
+<p class="has-medium-font-size"><strong>3. AIについての法律は、いまのところ「推進」の法律です。</strong></p>
+
+<p class="has-medium-font-size">「人工知能関連技術の研究開発及び活用の推進に関する法律」が2025年5月28日に成立し、2025年9月1日に全面施行されました。ただし、これは研究開発と活用を進めるための法律で、<strong>罰則の規定は置かれていません</strong>。「AIの使い方が法律で規制された」という理解は、実態とは逆になります。</p>
+
+<p class="has-medium-font-size">総務省と経済産業省が「AI事業者ガイドライン」を公表していますが、これは法的な拘束力を持たない指針です。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">私たちの現場では、どうなのか</h3>
+
+<p class="has-medium-font-size">建設の現場に目を移すと、動いているのはAIとデジタル技術のほうです。</p>
+
+<p class="has-medium-font-size">国土交通省は2024年4月に「i-Construction 2.0」を策定し、2040年度までに建設現場の省人化を少なくとも3割とする目標を掲げました。ドローンによる測量、3次元の設計データ、離れた場所から立会いを行う遠隔臨場といった取り組みが、国の発注する工事を中心に広がっています。</p>
+
+<p class="has-medium-font-size">ただし規模による差は大きく、中小の会社にとっては機械の費用も、扱える人を育てることも簡単ではありません。国も令和8年度の積算基準の改定で、3次元の設計データを使わない形など、<strong>小規模な工事から入れる入口</strong>を用意し始めています。</p>
+
+<p class="has-medium-font-size">一方、<strong>ブロックチェーンやWeb3が建設の現場で日常的に使われている例は、今回調べた範囲では見つかりませんでした。</strong>2020年に大手ゼネコンが、コンクリートの検査データを記録する実証実験を行った例があるだけです。</p>
+
+<p class="has-medium-font-size">「AIとWeb3の時代」とひとくくりに語られますが、少なくとも私たちの業界では、この二つの距離感はまったく違います。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">当社でもAIを使っています</h3>
+
+<p class="has-medium-font-size">このホームページにも、ご質問にお答えするAIの案内係を置いています。どのような情報を扱うかは、<a href="https://www.ishinazaka.co.jp/privacy-policy/">プライバシーポリシー</a>に記載しています。</p>
+
+<p class="has-medium-font-size">ただ、AIの答えが常に正しいとは限りません。<strong>お見積りやご注文など、間違いがあっては困る内容については、必ずお電話かお問い合わせフォームでご確認ください。</strong>最後は人がお受けします。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">今日からできる3つのこと</h3>
+
+<p class="has-medium-font-size"><strong>1. お金を動かす前に、誰かに話す。</strong></p>
+
+<p class="has-medium-font-size">見分けようとするより、こちらのほうが確実です。国民生活センターも警察庁も「振り込んでからでは回復が極めて困難」と繰り返しています。家族でも、職場の誰かでも構いません。話してから動く。それだけで防げます。</p>
+
+<p class="has-medium-font-size"><strong>2. 折り返しは、相手が言った番号にかけない。</strong></p>
+
+<p class="has-medium-font-size">岩手県警は、警察を名乗るなりすましについて注意を呼びかけています。表示される番号は偽装されることがあります。相手の所属と名前を聞いたうえで、<strong>自分で調べた番号に、自分からかけ直してください。</strong>警察官が捜査への協力を理由にお金を求めることはありません。</p>
+
+<p class="has-medium-font-size"><strong>3. AIの答えは、出どころを確かめてから使う。</strong></p>
+
+<p class="has-medium-font-size">下調べをAIに任せて、大事な判断は人が確かめる。この分け方が、いまのところ最も安全です。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">困ったときの相談先</h3>
+
+<ul class="wp-block-list">
+
+<li><strong>消費者ホットライン：188</strong>（局番なし）<br>お近くの消費生活センターにつながります。契約や悪質商法のトラブルは、まずここへ。</li>
+
+<li><strong>警察相談専用電話：#9110</strong><br>事件や事故にまでは至っていない相談の窓口です。</li>
+
+<li><strong>110番</strong><br>いま被害にあっている、危険が迫っているときは、ためらわずこちらへ。</li>
+
+</ul>
+
+<p class="has-medium-font-size">お金を渡してしまったあとでも、遅くはありません。すぐにご相談ください。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">まとめ</h3>
+
+<ul class="wp-block-list">
+
+<li>AIはすでに暮らしの中に入っていますが、生成AIを使ったことのある人は26.7%、市区町村での導入は29.9%。まだ入口です。</li>
+
+<li>Web3は、国の資料も「明確な定義が定まっているものではない」としています。断定された将来像は、疑ってかかって差し支えありません。</li>
+
+<li>ブロックチェーンは改ざんが極めて難しい仕組みですが、鍵を奪われれば資産は失われます。</li>
+
+<li>多くの人にとって、Web3は<strong>もうけ話の顔をして</strong>やってきます。岩手県内でも被害は増えています。</li>
+
+<li>AIはもっともらしく間違えます。下調べを任せ、最後は人が確かめる。</li>
+
+</ul>
+
+<p class="has-medium-font-size">新しい言葉に追い立てられる必要はありません。変わったところと、変わっていないところを、分けて見ていけば十分だと考えています。</p>
+
+<p class="has-medium-font-size">本稿は執筆時点（2026年9月）の情報です。制度・統計は改定されますので、実際のご判断にあたっては、下記の出典元で最新の情報をご確認ください。</p>
+
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+
+<ul class="wp-block-list">
+
+<li>総務省『令和7年版 情報通信白書』（生成AIの利用率）<br><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html">https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html</a></li>
+
+<li>総務省『令和6年版 情報通信白書』（ハルシネーション）<br><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd141100.html">https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd141100.html</a></li>
+
+<li>総務省『平成30年版 情報通信白書』（ブロックチェーンの概要）<br><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133310.html">https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133310.html</a></li>
+
+<li>総務省「自治体における生成AI導入状況（令和7年6月30日版）」<br><a href="https://www.soumu.go.jp/main_content/001018084.pdf">https://www.soumu.go.jp/main_content/001018084.pdf</a></li>
+
+<li>総務省「Web3時代に向けたメタバース等の利活用に関する研究会」事務局資料（2022年8月1日）<br><a href="https://www.soumu.go.jp/main_content/000827944.pdf">https://www.soumu.go.jp/main_content/000827944.pdf</a></li>
+
+<li>内閣府「人工知能関連技術の研究開発及び活用の推進に関する法律」<br><a href="https://www8.cao.go.jp/cstp/ai/ai_act/ai_act.html">https://www8.cao.go.jp/cstp/ai/ai_act/ai_act.html</a></li>
+
+<li>金融庁「暗号資産の利用者のみなさまへ」（登録業者一覧・無登録業者への警告）<br><a href="https://www.fsa.go.jp/policy/virtual_currency/index.html">https://www.fsa.go.jp/policy/virtual_currency/index.html</a></li>
+
+<li>国税庁「暗号資産等に関する税務上の取扱いについて（FAQ）」<br><a href="https://www.nta.go.jp/publication/pamph/pdf/virtual_currency_faq_03.pdf">https://www.nta.go.jp/publication/pamph/pdf/virtual_currency_faq_03.pdf</a></li>
+
+<li>警察庁「令和7年における特殊詐欺及びSNS型投資・ロマンス詐欺の認知・検挙状況等について（確定値）」<br><a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/260605/01.html">https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/260605/01.html</a></li>
+
+<li>国民生活センター「SNSで著名人が勧める“もうかる方法” それって本当！？」（2026年9月1日）<br><a href="https://www.kokusen.go.jp/news/data/n-20260901_1.html">https://www.kokusen.go.jp/news/data/n-20260901_1.html</a></li>
+
+<li>国民生活センター「暗号資産に関する相談」<br><a href="https://www.kokusen.go.jp/soudan_topics/data/crypto.html">https://www.kokusen.go.jp/soudan_topics/data/crypto.html</a></li>
+
+<li>個人情報保護委員会「生成AIサービスの利用に関する注意喚起等について」（2023年6月2日）<br><a href="https://www.ppc.go.jp/news/press/2023/230602kouhou/">https://www.ppc.go.jp/news/press/2023/230602kouhou/</a></li>
+
+<li>情報処理推進機構(IPA)「情報セキュリティ10大脅威 2026」<br><a href="https://www.ipa.go.jp/security/10threats/10threats2026.html">https://www.ipa.go.jp/security/10threats/10threats2026.html</a></li>
+
+<li>文部科学省「初等中等教育段階における生成AIの利活用に関するガイドライン(Ver.2.0)」<br><a href="https://www.mext.go.jp/a_menu/other/mext_02412.html">https://www.mext.go.jp/a_menu/other/mext_02412.html</a></li>
+
+<li>国土交通省「i-Construction 2.0」<br><a href="https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html">https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html</a></li>
+
+<li>経済産業省・国土交通省「RoAD to the L4」（永平寺町のレベル4）<br><a href="https://www.road-to-the-l4.go.jp/activity/theme01/eiheiji-autholization/">https://www.road-to-the-l4.go.jp/activity/theme01/eiheiji-autholization/</a></li>
+
+<li>岩手県「令和7年度 第9回 希望郷いわてモニターアンケート」（県内の被害状況）<br><a href="https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/085/835/r7a9.pdf">https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/085/835/r7a9.pdf</a></li>
+
+<li>岩手県警察「特殊詐欺、SNS型投資・ロマンス詐欺」<br><a href="https://www.pref.iwate.jp/kenkei/anzen/sagi/index.html">https://www.pref.iwate.jp/kenkei/anzen/sagi/index.html</a></li>
+
+<li>八幡平市・岩手県北自動車「AIを活用したオンデマンド交通『よぶきた八幡平』の実証運行を開始」<br><a href="https://www.iwate-kenpokubus.co.jp/wp/wp-content/uploads/20260130_yobukita.pdf">https://www.iwate-kenpokubus.co.jp/wp/wp-content/uploads/20260130_yobukita.pdf</a></li>
+
+<li>日本電気「盛岡市とNEC、生成AIを活用した職員の業務効率化の実証を開始」（2024年12月2日）<br><a href="https://jpn.nec.com/press/202412/20241202_02.html">https://jpn.nec.com/press/202412/20241202_02.html</a></li>
+
+<li>全国スーパーマーケット協会ほか「スーパーマーケット年次統計調査報告書」（2024年10月）<br><a href="https://www.super.or.jp/wp/wp-content/uploads/2024/10/2024nenji-tokei.pdf">https://www.super.or.jp/wp/wp-content/uploads/2024/10/2024nenji-tokei.pdf</a></li>
+
+<li>日本経済新聞「NFT市場、バブル崩壊で閉鎖相次ぐ 取引ピーク比8割減」（2025年4月）<br><a href="https://www.nikkei.com/article/DGXZQOUB23C6H0T20C25A4000000/">https://www.nikkei.com/article/DGXZQOUB23C6H0T20C25A4000000/</a></li>
+
+<li>日本経済新聞「金融庁、DMM系に業務改善命令 ビットコイン不正流出」（暗号資産の流出事件と秘密鍵の管理）<br><a href="https://www.nikkei.com/article/DGXZQOUB2656L0W4A920C2000000/">https://www.nikkei.com/article/DGXZQOUB2656L0W4A920C2000000/</a></li>
+
+</ul>
+
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+
+<ul class="wp-block-list">
+
+<li><a href="https://www.ishinazaka.co.jp/claude-code-01-overview/">Claude Code とは？できることを初心者にもわかりやすく解説【第1回】</a></li>
+
+<li><a href="https://www.ishinazaka.co.jp/claude-code-05-safety/">Claude Code 注意点【最終回】安全に使うためのポイント</a></li>
+
+</ul>
+
+<h2 class="wp-block-heading isnz-cta-heading">株式会社石名坂について</h2>
+
+<p>盛岡市で土木工事と砕石・砂利の販売を行っています。地域の暮らしを支える仕事に取り組んでいます。</p>
+
+<ul class="wp-block-list">
+
+<li>👉<a href="https://www.ishinazaka.co.jp/about/">会社概要</a></li>
+
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+
+</ul>
+
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+</div>
+</section>
+
+<section>
+<h2>WordPressに貼る</h2>
+<details>
+<summary>ブロック形式の原稿を開く</summary>
+<div class="paste">
+<p style="margin:0;font-size:.9rem;color:var(--ink-soft)">投稿の編集画面で、右上のメニューから<strong>「コードエディター」</strong>に切り替えて貼り付けてください。</p>
+<pre id="raw">&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「これからはAI(人工知能)の時代だ」「Web3(ウェブスリー)で世の中が変わる」。こうした言葉を目にする機会が増えました。一方で、「結局、自分の暮らしの何が変わるのか」までは、なかなか見えてこないのではないでしょうか。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;この記事では、AIとWeb3について「すでに変わったこと」「これから変わるかもしれないこと」「変わると言われたが、実際には起きていないこと」の三つに分けてご紹介します。専門知識がなくても読めるように、言葉の説明を添えながら進めます。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;石名坂は盛岡市で砕石の製造販売と土木工事を行っている会社で、AIの専門家ではありません。ですので、この記事では出どころのはっきりした公的な資料に絞り、確かめられなかったことは「確かめられていない」と書きます。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;まず、数字を見てみます&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「AIの時代」と言われていますが、実際にどのくらい使われているのでしょうか。総務省の『令和7年版 情報通信白書』によれば、生成AI(文章や画像を作るAI)を使ったことがある個人の割合は、日本で26.7%でした。前回の調査では9.1%でしたので、大きく増えています。ただし、同じ調査で米国は68.8%、中国は81.2%です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;役所ではどうでしょうか。総務省の調査（令和6年12月31日現在）では、生成AIを導入済みの割合は、都道府県が87.2%、政令指定都市が90.0%に対して、&lt;strong&gt;その他の市区町村は29.9%&lt;/strong&gt;です。実証中や導入予定を含めても51%にとどまります。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;つまり、都道府県のレベルではほぼ行き渡っている一方で、&lt;strong&gt;市町村ではまだ7割が導入していない&lt;/strong&gt;、というのが現在地です。そして総務省は、導入が進まない理由として「取り組むための人材が不足している」とともに「&lt;strong&gt;AI生成物の正確性への懸念&lt;/strong&gt;」が挙げられていると報告しています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;すでに変わっていること&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;派手ではありませんが、確実に変わっているものがあります。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;お店のレジ&lt;/strong&gt;：スーパーマーケットの業界団体の統計によれば、客が自分で商品を読み取って支払うフルセルフレジを置く企業の割合は、2022年25.2%、2023年31.1%、2024年37.9%と増えています。支払いだけを客が行うセミセルフレジは77.1%です。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;スマートフォン&lt;/strong&gt;：音声で文字を入力する、写真の中から探す、外国語を訳す。こうした機能にAIが使われています。総務省の調査では、スマートフォンの世帯保有率は90.5%（令和6年）です。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;身分証&lt;/strong&gt;：マイナンバーカードの機能をスマートフォンに入れられるようになりました。iPhoneでは2025年6月24日に始まっています。ただし、登録には実物のカードと暗証番号が必要で、カードが不要になるわけではありません。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;学校&lt;/strong&gt;：文部科学省が「初等中等教育段階における生成AIの利活用に関するガイドライン(Ver.2.0)」を2024年12月26日に公表しています。ただし実際に取り組んでいるのは指定されたパイロット校が中心で、令和6年度は全国で66校でした。全国の小中高はおよそ3万校ありますので、どの学校でも使われている段階ではありません。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;岩手県内の話もあります。八幡平市と、盛岡市に本社を置く岩手県北自動車が、AIが最適な経路を組み立てるオンデマンド交通「よぶきた八幡平」の実証運行を2026年2月2日に始めました。決まった路線を走るのではなく、呼ばれたところを回る仕組みです。2027年度の本格運行を目指す段階とされています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;盛岡市役所でも、2024年11月から、市の業務データを使った生成AIの実証が情報企画課・会計課・職員課の3課で行われました。議事録の要約や資料作成の支援が目的とされています。これは市役所の中の仕事を対象とした実証であり、窓口の手続きがAIに置き換わったという話ではありません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;自動運転は、どこまで来ているか&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「AIの時代」で最も語られるもののひとつが自動運転です。運転者が乗らずに走る「レベル4」の移動サービスは、2023年5月に福井県永平寺町で日本で初めて始まりました。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ただし中身はこうです。廃線跡を利用した専用の道を、ゴルフカートをもとにした車両が&lt;strong&gt;最高時速12km&lt;/strong&gt;で走り、離れた場所の監視室から人が見守っています。一般の道路を、誰でも乗れる形で走っている段階ではありません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;この落差が、この記事でお伝えしたいことの中心にあります。&lt;strong&gt;言葉が先に走っていて、実物はまだ入口にいます。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;Web3とは何か&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;Web3は、ブロックチェーンという技術を土台にした、特定の会社が中心にいないインターネットの構想を指す言葉として使われています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ここで大事な点をひとつ。総務省の研究会の資料（2022年8月）には、Web3について「『非中央集権的』になるとも言われているが、&lt;strong&gt;明確な定義が定まっているものではない&lt;/strong&gt;」と書かれています。国の資料が、そう書いているのです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;定義が定まっていない言葉について、「こうなります」と将来を断定することはできません。この記事でも断定しません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;ブロックチェーンは「改ざんできない」のか&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ブロックチェーンは、取引の記録をひとかたまり(ブロック)にまとめ、それぞれのブロックが直前のブロックの内容を要約した値を持つ形で、鎖のようにつないでいく仕組みです。途中の記録を書き換えると、それ以降の全部とつじつまが合わなくなります。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ですから「改ざんが極めて難しい」と言えます。ただし「改ざんできない」と言い切るのは正確ではありません。理由は二つあります。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ひとつは、ネットワークの計算能力の過半を握られると書き換えが理論上は成り立つとされること。もうひとつが、こちらのほうがはるかに大事なのですが、&lt;strong&gt;記録が守られることと、あなたの資産が守られることは別だ&lt;/strong&gt;ということです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;2024年5月、国内の暗号資産交換業者から4,502.9ビットコイン（当時およそ482億円）が不正に流出しました。これはブロックチェーンが破られた事件ではなく、鍵と運用の権限が奪われた事件です。同社は2025年3月にすべてのサービスを終了しています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;金庫がどれだけ頑丈でも、鍵を渡してしまえば中身は出ていきます。それと同じことです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;NFTは、その後どうなったか&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;2022年ごろ、デジタルの絵が高値で取引されるというNFTの話題が盛んに報じられました。その後どうなったかというと、日本経済新聞は2025年4月に「NFT市場、バブル崩壊で閉鎖相次ぐ 取引ピーク比8割減」と報じています。国内外で取引所の終了が相次ぎました。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;あわせて、誤解されやすい点を二つ。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;NFTを買っても、その作品の著作権は移りません。&lt;/strong&gt;著作権は原則として作った人に残り、買った人が得るのは利用規約で決められた範囲の利用権です。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;日本の民法では、所有権の対象は「有体物」に限られます&lt;/strong&gt;（民法85条）。データであるNFTに、民法上の所有権は成立しないと解されています。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;ここが本題です。お金の話には、気をつけてください&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;この記事で、いちばんお伝えしたいのがここです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;警察庁の統計（令和7年・確定値）によれば、SNSで親しくなってから投資などを持ちかける「SNS型ロマンス詐欺」は、全国で5,645件、被害額546.4億円でした。前の年から件数で47.6%、被害額で36.3%増えています。そして&lt;strong&gt;被害額のおよそ半分（48.6%）が、暗号資産で支払われたもの&lt;/strong&gt;でした。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;岩手県も例外ではありません。岩手県の資料（令和8年2月）によれば、県内の令和7年中のSNS型投資・ロマンス詐欺は&lt;strong&gt;108件、被害額はおよそ7億2,904万円&lt;/strong&gt;。前の年から58件、金額でおよそ3億7,553万円増えています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;つまり、多くの方にとって「Web3の時代」が最初に姿を見せるのは、新しい便利な道具としてではなく、&lt;strong&gt;もうけ話として&lt;/strong&gt;なのです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;国民生活センターが2026年9月1日に公表した注意喚起には、こうした例が挙げられています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;著名人を名乗るアカウントに勧められ、未公開株の投資金としておよそ1,000万円を振り込んだ。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;著名人が主催するとうたう投資グループの広告から暗号資産投資を始め、&lt;strong&gt;出金しようとしたら「税金」の名目で500万円を求められた。&lt;/strong&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;この「&lt;strong&gt;出金しようとすると、税金や手数料の名目で追加のお金を求められる&lt;/strong&gt;」という流れは、繰り返し報告されている見分けどころです。増えているように見えていた残高は、画面の上だけのものだったという例が少なくありません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;国民生活センターは、暗号資産をめぐるトラブルについて「&lt;strong&gt;いったん振り込んでしまうと、被害を回復することは極めて困難&lt;/strong&gt;」としています。取り返すことを当てにできない、ということです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;確かめられること、確かめられないこと&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;国内で暗号資産の交換サービスを行うには、金融庁への&lt;strong&gt;登録&lt;/strong&gt;が必要です。金融庁は登録を受けた業者の一覧と、無登録で営業している業者への警告の一覧を公表しています。相手が登録業者かどうかは、そこで確かめられます。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ただし、ここを取り違えないでください。金融庁は、&lt;strong&gt;登録業者が扱う暗号資産だからといってリスクがないわけではない&lt;/strong&gt;、と明示しています。登録は「営業してよい」という手続きであって、「安全」の保証ではありません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;税金についても、よくある誤解があります。個人が暗号資産で得た利益は、現在は原則として&lt;strong&gt;雑所得&lt;/strong&gt;で、給与などと合算して課税されます。しかも課税されるのは売ったときだけではありません。&lt;strong&gt;買い物の支払いに使ったとき、別の暗号資産に交換したときにも&lt;/strong&gt;利益が計算されます。持っているだけなら課税されません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「税率20%」という説明を見かけることがありますが、それは将来の制度変更に向けた議論の話で、開始時期は確定していません。確定申告が必要かどうかは金額や働き方で変わりますので、国税庁の案内や税務署、税理士にご確認ください。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;AIを使うときに、押さえておきたい3つ&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;1. AIは、もっともらしく間違えます。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;総務省の『令和6年版 情報通信白書』は、生成AIが「事実に基づかない誤った情報をもっともらしく生成すること」をハルシネーション(幻覚)と呼び、技術的な対策は検討されているが完全に抑えられるものではないため、利用者が検索などを併用して出力が正しいか確認することが望ましい、としています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;自信のなさそうな答えではなく、&lt;strong&gt;自信ありげな答えが間違っている&lt;/strong&gt;のが厄介な点です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;2. 入力した内容は、手元だけの話ではないことがあります。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;個人情報保護委員会は2023年6月2日、生成AIサービスの利用に関する注意喚起を公表しています。入力した情報がAIの学習に使われる場合があることを前提に、個人情報を入力するときは、あらかじめ定めた利用目的の範囲内かどうかを確かめる必要がある、という趣旨です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;必ず学習に使われる、という意味ではありません。サービスや設定によって異なります。ただ、&lt;strong&gt;お客様の個人情報や、社外に出せない内容は入れない&lt;/strong&gt;。この線を引いておくのが確実です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;情報処理推進機構(IPA)の「情報セキュリティ10大脅威 2026」では、「AIの利用をめぐるサイバーリスク」が初めて選ばれ、組織向けの3位に入りました。心配しすぎではない、ということです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;3. AIについての法律は、いまのところ「推進」の法律です。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「人工知能関連技術の研究開発及び活用の推進に関する法律」が2025年5月28日に成立し、2025年9月1日に全面施行されました。ただし、これは研究開発と活用を進めるための法律で、&lt;strong&gt;罰則の規定は置かれていません&lt;/strong&gt;。「AIの使い方が法律で規制された」という理解は、実態とは逆になります。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;総務省と経済産業省が「AI事業者ガイドライン」を公表していますが、これは法的な拘束力を持たない指針です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;私たちの現場では、どうなのか&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;建設の現場に目を移すと、動いているのはAIとデジタル技術のほうです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;国土交通省は2024年4月に「i-Construction 2.0」を策定し、2040年度までに建設現場の省人化を少なくとも3割とする目標を掲げました。ドローンによる測量、3次元の設計データ、離れた場所から立会いを行う遠隔臨場といった取り組みが、国の発注する工事を中心に広がっています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ただし規模による差は大きく、中小の会社にとっては機械の費用も、扱える人を育てることも簡単ではありません。国も令和8年度の積算基準の改定で、3次元の設計データを使わない形など、&lt;strong&gt;小規模な工事から入れる入口&lt;/strong&gt;を用意し始めています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;一方、&lt;strong&gt;ブロックチェーンやWeb3が建設の現場で日常的に使われている例は、今回調べた範囲では見つかりませんでした。&lt;/strong&gt;2020年に大手ゼネコンが、コンクリートの検査データを記録する実証実験を行った例があるだけです。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;「AIとWeb3の時代」とひとくくりに語られますが、少なくとも私たちの業界では、この二つの距離感はまったく違います。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;当社でもAIを使っています&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;このホームページにも、ご質問にお答えするAIの案内係を置いています。どのような情報を扱うかは、&lt;a href=&quot;https://www.ishinazaka.co.jp/privacy-policy/&quot;&gt;プライバシーポリシー&lt;/a&gt;に記載しています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;ただ、AIの答えが常に正しいとは限りません。&lt;strong&gt;お見積りやご注文など、間違いがあっては困る内容については、必ずお電話かお問い合わせフォームでご確認ください。&lt;/strong&gt;最後は人がお受けします。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;今日からできる3つのこと&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;1. お金を動かす前に、誰かに話す。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;見分けようとするより、こちらのほうが確実です。国民生活センターも警察庁も「振り込んでからでは回復が極めて困難」と繰り返しています。家族でも、職場の誰かでも構いません。話してから動く。それだけで防げます。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;2. 折り返しは、相手が言った番号にかけない。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;岩手県警は、警察を名乗るなりすましについて注意を呼びかけています。表示される番号は偽装されることがあります。相手の所属と名前を聞いたうえで、&lt;strong&gt;自分で調べた番号に、自分からかけ直してください。&lt;/strong&gt;警察官が捜査への協力を理由にお金を求めることはありません。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;strong&gt;3. AIの答えは、出どころを確かめてから使う。&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;下調べをAIに任せて、大事な判断は人が確かめる。この分け方が、いまのところ最も安全です。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;困ったときの相談先&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;消費者ホットライン：188&lt;/strong&gt;（局番なし）&lt;br&gt;お近くの消費生活センターにつながります。契約や悪質商法のトラブルは、まずここへ。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;警察相談専用電話：#9110&lt;/strong&gt;&lt;br&gt;事件や事故にまでは至っていない相談の窓口です。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;strong&gt;110番&lt;/strong&gt;&lt;br&gt;いま被害にあっている、危険が迫っているときは、ためらわずこちらへ。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;お金を渡してしまったあとでも、遅くはありません。すぐにご相談ください。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;まとめ&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;AIはすでに暮らしの中に入っていますが、生成AIを使ったことのある人は26.7%、市区町村での導入は29.9%。まだ入口です。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;Web3は、国の資料も「明確な定義が定まっているものではない」としています。断定された将来像は、疑ってかかって差し支えありません。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;ブロックチェーンは改ざんが極めて難しい仕組みですが、鍵を奪われれば資産は失われます。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;多くの人にとって、Web3は&lt;strong&gt;もうけ話の顔をして&lt;/strong&gt;やってきます。岩手県内でも被害は増えています。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;AIはもっともらしく間違えます。下調べを任せ、最後は人が確かめる。&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;新しい言葉に追い立てられる必要はありません。変わったところと、変わっていないところを、分けて見ていけば十分だと考えています。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;本稿は執筆時点（2026年9月）の情報です。制度・統計は改定されますので、実際のご判断にあたっては、下記の出典元で最新の情報をご確認ください。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
+&lt;h3 class=&quot;wp-block-heading has-medium-font-size&quot;&gt;参考・出典&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;総務省『令和7年版 情報通信白書』（生成AIの利用率）&lt;br&gt;&lt;a href=&quot;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html&quot;&gt;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;総務省『令和6年版 情報通信白書』（ハルシネーション）&lt;br&gt;&lt;a href=&quot;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd141100.html&quot;&gt;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r06/html/nd141100.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;総務省『平成30年版 情報通信白書』（ブロックチェーンの概要）&lt;br&gt;&lt;a href=&quot;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133310.html&quot;&gt;https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133310.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;総務省「自治体における生成AI導入状況（令和7年6月30日版）」&lt;br&gt;&lt;a href=&quot;https://www.soumu.go.jp/main_content/001018084.pdf&quot;&gt;https://www.soumu.go.jp/main_content/001018084.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;総務省「Web3時代に向けたメタバース等の利活用に関する研究会」事務局資料（2022年8月1日）&lt;br&gt;&lt;a href=&quot;https://www.soumu.go.jp/main_content/000827944.pdf&quot;&gt;https://www.soumu.go.jp/main_content/000827944.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;内閣府「人工知能関連技術の研究開発及び活用の推進に関する法律」&lt;br&gt;&lt;a href=&quot;https://www8.cao.go.jp/cstp/ai/ai_act/ai_act.html&quot;&gt;https://www8.cao.go.jp/cstp/ai/ai_act/ai_act.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;金融庁「暗号資産の利用者のみなさまへ」（登録業者一覧・無登録業者への警告）&lt;br&gt;&lt;a href=&quot;https://www.fsa.go.jp/policy/virtual_currency/index.html&quot;&gt;https://www.fsa.go.jp/policy/virtual_currency/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;国税庁「暗号資産等に関する税務上の取扱いについて（FAQ）」&lt;br&gt;&lt;a href=&quot;https://www.nta.go.jp/publication/pamph/pdf/virtual_currency_faq_03.pdf&quot;&gt;https://www.nta.go.jp/publication/pamph/pdf/virtual_currency_faq_03.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;警察庁「令和7年における特殊詐欺及びSNS型投資・ロマンス詐欺の認知・検挙状況等について（確定値）」&lt;br&gt;&lt;a href=&quot;https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/260605/01.html&quot;&gt;https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/260605/01.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;国民生活センター「SNSで著名人が勧める“もうかる方法” それって本当！？」（2026年9月1日）&lt;br&gt;&lt;a href=&quot;https://www.kokusen.go.jp/news/data/n-20260901_1.html&quot;&gt;https://www.kokusen.go.jp/news/data/n-20260901_1.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;国民生活センター「暗号資産に関する相談」&lt;br&gt;&lt;a href=&quot;https://www.kokusen.go.jp/soudan_topics/data/crypto.html&quot;&gt;https://www.kokusen.go.jp/soudan_topics/data/crypto.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;個人情報保護委員会「生成AIサービスの利用に関する注意喚起等について」（2023年6月2日）&lt;br&gt;&lt;a href=&quot;https://www.ppc.go.jp/news/press/2023/230602kouhou/&quot;&gt;https://www.ppc.go.jp/news/press/2023/230602kouhou/&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;情報処理推進機構(IPA)「情報セキュリティ10大脅威 2026」&lt;br&gt;&lt;a href=&quot;https://www.ipa.go.jp/security/10threats/10threats2026.html&quot;&gt;https://www.ipa.go.jp/security/10threats/10threats2026.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;文部科学省「初等中等教育段階における生成AIの利活用に関するガイドライン(Ver.2.0)」&lt;br&gt;&lt;a href=&quot;https://www.mext.go.jp/a_menu/other/mext_02412.html&quot;&gt;https://www.mext.go.jp/a_menu/other/mext_02412.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;国土交通省「i-Construction 2.0」&lt;br&gt;&lt;a href=&quot;https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html&quot;&gt;https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;経済産業省・国土交通省「RoAD to the L4」（永平寺町のレベル4）&lt;br&gt;&lt;a href=&quot;https://www.road-to-the-l4.go.jp/activity/theme01/eiheiji-autholization/&quot;&gt;https://www.road-to-the-l4.go.jp/activity/theme01/eiheiji-autholization/&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;岩手県「令和7年度 第9回 希望郷いわてモニターアンケート」（県内の被害状況）&lt;br&gt;&lt;a href=&quot;https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/085/835/r7a9.pdf&quot;&gt;https://www.pref.iwate.jp/_res/projects/default_project/_page_/001/085/835/r7a9.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;岩手県警察「特殊詐欺、SNS型投資・ロマンス詐欺」&lt;br&gt;&lt;a href=&quot;https://www.pref.iwate.jp/kenkei/anzen/sagi/index.html&quot;&gt;https://www.pref.iwate.jp/kenkei/anzen/sagi/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;八幡平市・岩手県北自動車「AIを活用したオンデマンド交通『よぶきた八幡平』の実証運行を開始」&lt;br&gt;&lt;a href=&quot;https://www.iwate-kenpokubus.co.jp/wp/wp-content/uploads/20260130_yobukita.pdf&quot;&gt;https://www.iwate-kenpokubus.co.jp/wp/wp-content/uploads/20260130_yobukita.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;日本電気「盛岡市とNEC、生成AIを活用した職員の業務効率化の実証を開始」（2024年12月2日）&lt;br&gt;&lt;a href=&quot;https://jpn.nec.com/press/202412/20241202_02.html&quot;&gt;https://jpn.nec.com/press/202412/20241202_02.html&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;全国スーパーマーケット協会ほか「スーパーマーケット年次統計調査報告書」（2024年10月）&lt;br&gt;&lt;a href=&quot;https://www.super.or.jp/wp/wp-content/uploads/2024/10/2024nenji-tokei.pdf&quot;&gt;https://www.super.or.jp/wp/wp-content/uploads/2024/10/2024nenji-tokei.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;日本経済新聞「NFT市場、バブル崩壊で閉鎖相次ぐ 取引ピーク比8割減」（2025年4月）&lt;br&gt;&lt;a href=&quot;https://www.nikkei.com/article/DGXZQOUB23C6H0T20C25A4000000/&quot;&gt;https://www.nikkei.com/article/DGXZQOUB23C6H0T20C25A4000000/&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;日本経済新聞「金融庁、DMM系に業務改善命令 ビットコイン不正流出」（暗号資産の流出事件と秘密鍵の管理）&lt;br&gt;&lt;a href=&quot;https://www.nikkei.com/article/DGXZQOUB2656L0W4A920C2000000/&quot;&gt;https://www.nikkei.com/article/DGXZQOUB2656L0W4A920C2000000/&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:spacer {&quot;height&quot;:&quot;20px&quot;} --&gt;
+&lt;div style=&quot;height:20px&quot; aria-hidden=&quot;true&quot; class=&quot;wp-block-spacer&quot;&gt;&lt;/div&gt;
+&lt;!-- /wp:spacer --&gt;
+
+&lt;!-- ISNZ-REL --&gt;
+&lt;!-- wp:heading {&quot;level&quot;:3} --&gt;
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;あわせて読みたい&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ishinazaka.co.jp/claude-code-01-overview/&quot;&gt;Claude Code とは？できることを初心者にもわかりやすく解説【第1回】&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ishinazaka.co.jp/claude-code-05-safety/&quot;&gt;Claude Code 注意点【最終回】安全に使うためのポイント&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- ISNZ-CTA --&gt;
+&lt;!-- wp:spacer {&quot;height&quot;:&quot;30px&quot;} --&gt;
+&lt;div style=&quot;height:30px&quot; aria-hidden=&quot;true&quot; class=&quot;wp-block-spacer&quot;&gt;&lt;/div&gt;
+&lt;!-- /wp:spacer --&gt;
+
+&lt;!-- wp:heading {&quot;className&quot;:&quot;isnz-cta-heading&quot;} --&gt;
+&lt;h2 class=&quot;wp-block-heading isnz-cta-heading&quot;&gt;株式会社石名坂について&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;盛岡市で土木工事と砕石・砂利の販売を行っています。地域の暮らしを支える仕事に取り組んでいます。&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:list --&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;👉&lt;a href=&quot;https://www.ishinazaka.co.jp/about/&quot;&gt;会社概要&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;!-- wp:list-item --&gt;
+&lt;li&gt;👉&lt;a href=&quot;https://www.ishinazaka.co.jp/saiseki-hanbai/&quot;&gt;砕石・砂利の販売と配達&lt;/a&gt;&lt;/li&gt;
+&lt;!-- /wp:list-item --&gt;
+&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;お電話：&lt;a href=&quot;tel:0196387521&quot;&gt;019-638-7521&lt;/a&gt;（平日8:00〜17:00）／ &lt;a href=&quot;https://www.ishinazaka.co.jp/contact/&quot;&gt;お問い合わせフォームはこちら&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+</pre>
+<button id="copy" type="button">原稿をコピー</button>
+</div>
+</details>
+</section>
+
+<section>
+<h2>公開前の6つ、自己点検の結果</h2>
+<div class="check">
+
+<div>
+<span class="no">1</span>
+<h3>言い切っていないか</h3>
+<p>「ブロックチェーンは改ざんできない」「Web3で社会が変わる」「AI新法で規制がかかった」。書きたくなる形を6か所、意識して外しました。残した「必ず」は3か所で、うち2つは否定とお願いです。</p>
+<span class="verdict ok">● 通過</span>
+</div>
+
+<div>
+<span class="no">2</span>
+<h3>自社の他の記述と食い違っていないか</h3>
+<p>Claude Code 第5回の「出力結果は必ず人の目で確認する」「下ごしらえをAIに、最終確認は人が」と突き合わせ、3点すべて一致させました。サイトのAI案内係についても「お見積りやご注文は必ずお電話かフォームで」と書き、自社を例外扱いしていません。</p>
+<span class="verdict ok">● 通過</span>
+</div>
+
+<div>
+<span class="no">3</span>
+<h3>他社のことを断定していないか</h3>
+<p>暗号資産の流出事件は社名を書かず「国内の暗号資産交換業者」としました。無登録業者も名指しせず、金融庁の一覧で確認する方法を案内しています。施工管理アプリのシェアは各社の自社公表値だったので書きませんでした。</p>
+<span class="verdict ok">● 通過</span>
+</div>
+
+<div>
+<span class="no">4</span>
+<h3>数字と引用に出どころがあるか</h3>
+<p>本文の数字17個すべてに出典があります。複数の出典が一致しなかった数字10種類は、下の表のとおり全部落としました。</p>
+<span class="verdict ok">● 通過</span>
+</div>
+
+<div>
+<span class="no">5</span>
+<h3>法令・規格は原典を見たか</h3>
+<p><strong>見ていません。</strong>この環境から官公庁のページを開けないためです。そこで条文番号は民法85条だけにとどめ、資金決済法は条番号を書かず「資金決済法に定義があります」の粒度にしました。<strong>ここだけは、そちらで確かめていただく必要があります。</strong></p>
+<span class="verdict ng">▲ 未了 — 公開前に確認が要る</span>
+</div>
+
+<div>
+<span class="no">6</span>
+<h3>人が特定されないか</h3>
+<p>実在の個人は一人も出てきません。被害事例は国民生活センターが公表しているもので、年代も地域も書いていません。</p>
+<span class="verdict ok">● 通過</span>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>載せなかったもの</h2>
+<p style="margin:0;color:var(--ink-soft);font-size:.93rem">調べはしたが、記事に入れなかったものです。入れなかった理由のほうが大事だと思うので残します。</p>
+<div class="tblwrap">
+<table>
+<thead><tr><th>内容</th><th>落とした理由</th></tr></thead>
+<tbody>
+<tr><td>盛岡市消費生活センターの直通番号</td><td class="why">検索するたび <span style="font-family:'Roboto Mono',monospace">019-604-4111</span> と <span style="font-family:'Roboto Mono',monospace">019-624-4111</span> の二つが出た。市のページを開けず確定できないので、<strong>188だけ</strong>を載せた（188から同センターにつながる）</td></tr>
+<tr><td>AI音声で家族の声をまねる詐欺</td><td class="why">国内の被害について、公的機関の注意喚起が見つからなかった。「急増しています」と書くと事実に反するおそれ</td></tr>
+<tr><td>中小企業の生成AI導入率</td><td class="why">5% / 23.4% / 23.5% と三説あり、調査元が特定できない</td></tr>
+<tr><td>スマートスピーカーの普及率</td><td class="why">民間2調査が 8% と 21.6% で2倍以上開く。官庁統計なし</td></tr>
+<tr><td>暗号資産の登録業者数</td><td class="why">28社 / 29社 で食い違う。「金融庁の一覧で確認できます」と誘導に切り替えた</td></tr>
+<tr><td>暗号資産の税率20%</td><td class="why">移行の議論はあるが、全出典が「見込み」「有力」と留保。開始時期を断定できない</td></tr>
+<tr><td>インボイスの経過措置（2026年10月からの変更）</td><td class="why">公開月と重なり、間違えると実害が出る。税理士の確認が要るので、この記事では扱わない</td></tr>
+<tr><td>岩手県の遠隔臨場要領・JCIP対応</td><td class="why">地元の話ほど裏が取れなかった</td></tr>
+<tr><td>盛岡市の実証の「その後」</td><td class="why">続報がない。<strong>過去形・3課限定</strong>で書いた</td></tr>
+<tr><td>手口の細かい説明</td><td class="why">実行できる粒度になる。「こういう連絡が来たら疑う」にとどめた</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>公開前に、お願いしたいこと</h2>
+<ol class="todo">
+<li><strong>出典のURLを何本か開いて、生きているか確かめる。</strong>特に金融庁・警察庁・国民生活センターの3つ。読者がいちばん頼る先です。</li>
+<li><strong>相談先の 188 と #9110 を、目で見て確認する。</strong>ここを間違えると、困った人が助けを求められません。</li>
+<li><strong>盛岡市の実証について書いた段落を読む。</strong>市に対して失礼がないか、地元の感覚で見てください。</li>
+<li><strong>「当社でもAIを使っています」の段落</strong>が、いまのチャットボットの実態と合っているか。</li>
+</ol>
+</section>
+
+<footer>
+<p style="margin:0">この原稿は、5人の担当が集めた材料を突き合わせて作りました。うち1件、出典の取り違えが見つかっています。「Web3の明確な定義が定まっていない」という一文の出どころは情報通信白書ではなく、総務省の研究会資料でした。白書を出典にしていたら、リンクを開いた読者に食い違いを指摘されていたところです。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy');
+  var pre = document.getElementById('raw');
+  if(!btn || !pre) return;
+  btn.addEventListener('click', function(){
+    var text = pre.textContent;
+    function done(){
+      btn.textContent = 'コピーしました';
+      btn.setAttribute('data-done','1');
+      setTimeout(function(){
+        btn.textContent = '原稿をコピー';
+        btn.removeAttribute('data-done');
+      }, 2200);
+    }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch(e){ btn.textContent = 'コピーできませんでした'; }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
