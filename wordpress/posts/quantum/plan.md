@@ -74,3 +74,48 @@ NECが1999年に世界で初めて実現したのは **固体素子による超�
 
 既存記事に合わせる（`../ai-web3/plan.md` と同じ）。
 **空白で見た目を作らない。** 貼り付けで落ちる。
+
+---
+
+## 方式の分け方（2026年9月14日 追記）
+
+石名坂から日経BPの業界地図（2026年版）の画像を受領。
+**画像そのものは著作権があるため使えない。** 日経BOOKプラス
+「量子コンピューターの業界地図2026」https://bookplus.nikkei.com/atcl/column/020500658/020500004/
+
+ただし**方式の分け方は事実**なので、**自分たちで図を作り直せば使える。**
+記事には自作のSVGを置く方針。
+
+| 方式 | 主なプレイヤー（図より） |
+|---|---|
+| 超電導 | IBM(米)、Google(米)、富士通(日)、本源量子計算科技(中)、IQM(フィンランド)、Rigetti(米) |
+| 中性原子 | Google(米)、QuEra(米)、Atom Computing(米)、Pasqal(仏) |
+| イオントラップ | Quantinuum(米)、IonQ(米)、Qubitcore(日) |
+| マヨラナ粒子 | Microsoft(米) |
+| 光 | NTT/OptQC(日)、PsiQuantum(米)、Xanadu(カナダ) |
+| シリコン | Intel(米)、日立製作所(日)、Diraq(豪) |
+
+### 自分で確かめたこと
+
+**「中性原子方式にGoogle」は正しい。** 当初これを疑ったが、誤りは私のほうだった。
+Google Quantum AI は2026年3月、超電導に加えて中性原子にも取り組むと発表している。
+超電導と中性原子を補完的な二本立てと位置づけ、中性原子チームは
+Adam Kaufman 氏（コロラド大ボルダー校）が率いる。24か月以内に100量子ビット超の
+プロセッサを示すとしている。2025年10月には Atlantic Quantum を買収。
+
+- Google公式ブログ https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/
+- The Quantum Insider https://thequantuminsider.com/2026/03/24/google-paves-a-two-lane-quantum-roadmap-by-adding-neutral-atom-systems/
+- HPCwire https://www.hpcwire.com/2026/04/03/google-expands-quantum-efforts-to-include-neutral-atom-systems/
+- DCD https://www.datacenterdynamics.com/en/news/google-expands-quantum-roadmap-to-include-neutral-atoms-as-well-as-superconducting-qubits/
+
+**この図は、超電導の欄にNECを載せていない。** 富士通は載っている。
+業界地図がすでに今回の報道を反映している。記事で触れる価値がある。
+
+### 表記の統一
+図は「超**電**導」。学術では「超**伝**導」も多い。**日経・時事・NECの報道は「超電導」。**
+→ 記事では **「超電導」** に統一する。ただし引用元が「超伝導」ならそのまま引く。
+
+### 残りの確認事項（世界の動向の担当の報告と突き合わせる）
+- マヨラナ粒子方式（Microsoft）には強い異論があるはず。**図には異論が書かれていない**
+- Qubitcore(日)、OptQC(日)、Diraq(豪) の実態
+- 「方式は決まっていない」ことが、この図の最大のメッセージ
