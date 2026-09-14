@@ -1,0 +1,342 @@
+<title>AIチャット追記案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F4F0;
+    --surface:#FBFBF8;
+    --ink:#1C201D;
+    --ink-2:#4A514B;
+    --ink-3:#757C76;
+    --rule:#D7DAD2;
+    --rule-soft:#E6E8E1;
+    --accent:#2E5A4D;
+    --accent-soft:#E2EBE6;
+    --warn:#8A6410;
+    --warn-bg:#F4ECDA;
+    --code-bg:#EDEFE9;
+    --ok:#2E5A4D;
+    --f-disp:"Zen Old Mincho",serif;
+    --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+      --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+      --accent:#79B49F; --accent-soft:#22322D;
+      --warn:#D7AE5C; --warn-bg:#2E2818;
+      --code-bg:#232829; --ok:#79B49F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15181A; --surface:#1D2124; --ink:#E7EAE4; --ink-2:#B0B7B1;
+    --ink-3:#848C86; --rule:#333A3C; --rule-soft:#272D2F;
+    --accent:#79B49F; --accent-soft:#22322D;
+    --warn:#D7AE5C; --warn-bg:#2E2818;
+    --code-bg:#232829; --ok:#79B49F;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--f-body); font-size:16px; line-height:1.85;
+    margin:0; padding:0 20px; padding-block:0 72px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+
+  header.cover{padding-block:52px 30px;border-bottom:2px solid var(--ink)}
+  .eyebrow{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-3);margin:0 0 16px;
+  }
+  h1{
+    font-family:var(--f-disp);font-weight:900;
+    font-size:clamp(28px,7vw,42px);line-height:1.34;letter-spacing:.02em;
+    margin:0 0 16px;text-wrap:balance;
+  }
+  .lede{margin:0;color:var(--ink-2);max-width:60ch}
+
+  h2{
+    font-family:var(--f-disp);font-weight:900;
+    font-size:clamp(20px,4.4vw,25px);line-height:1.45;
+    margin:56px 0 6px;padding-top:20px;border-top:1px solid var(--rule);
+    text-wrap:balance;
+  }
+  h2 .num{
+    font-family:var(--f-mono);font-size:13px;font-weight:600;
+    color:var(--accent);display:block;letter-spacing:.1em;margin-bottom:4px;
+  }
+  h2 + .sub{color:var(--ink-3);font-size:14.5px;margin:0 0 22px;max-width:60ch}
+  h3{font-family:var(--f-body);font-weight:700;font-size:16.5px;margin:0 0 8px}
+  p{margin:0 0 1.05em;max-width:63ch}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:700}
+
+  .check{
+    background:var(--warn-bg);border-left:5px solid var(--warn);
+    padding:20px 20px 22px;margin:0 0 8px;
+  }
+  .check h3{margin-bottom:10px}
+  .check p{font-size:15px}
+
+  /* ── コピー用ブロック ───────────────── */
+  .block{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    margin:0 0 20px;
+  }
+  .bhead{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;
+    padding:11px 14px;
+    border-bottom:1px solid var(--rule-soft);
+    background:var(--code-bg);
+  }
+  .bhead .where{
+    font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;
+    color:var(--ink-3);
+  }
+  .copy{
+    font-family:var(--f-body);font-size:13px;font-weight:700;
+    padding:7px 15px;border:1px solid var(--accent);border-radius:2px;
+    background:var(--accent);color:var(--surface);
+    cursor:pointer;white-space:nowrap;
+    transition:background .15s,color .15s;
+  }
+  .copy:hover{opacity:.88}
+  .copy:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .copy[data-done="1"]{background:var(--surface);color:var(--accent)}
+  pre{
+    margin:0;padding:16px 14px;
+    font-family:var(--f-body);
+    font-size:14.5px;line-height:1.9;
+    white-space:pre-wrap;word-break:break-word;
+    color:var(--ink);
+  }
+  .variant{
+    border-top:1px dashed var(--rule);
+  }
+  .vlabel{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
+    color:var(--warn);padding:12px 14px 0;display:block;
+  }
+
+  ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start}
+  ol.steps li::before{
+    content:counter(s);font-family:var(--f-mono);font-size:13px;font-weight:600;
+    color:var(--surface);background:var(--ink-2);
+    width:32px;height:32px;display:grid;place-items:center;border-radius:50%;
+  }
+  ol.steps p{margin:0;font-size:15px}
+
+  ul.plain{margin:0 0 1.05em;padding-left:1.2em}
+  ul.plain li{margin-bottom:.45em;max-width:61ch}
+
+  .note{
+    border-left:3px solid var(--rule);padding-left:14px;
+    color:var(--ink-2);font-size:14.5px;margin:0 0 20px;
+  }
+  .foot{
+    margin-top:58px;padding-top:20px;border-top:2px solid var(--ink);
+    font-size:14.5px;color:var(--ink-2);
+  }
+  .foot h2{border:0;margin:0 0 10px;padding:0;font-size:19px}
+  code{font-family:var(--f-mono);font-size:13px;background:var(--code-bg);padding:1px 5px;border-radius:2px}
+  @media (max-width:480px){ body{font-size:15px} pre{font-size:14px} }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+
+<div class="wrap">
+
+  <header class="cover">
+    <p class="eyebrow">Ishinazaka / Privacy Policy Addendum</p>
+    <h1>AIチャットの追記案</h1>
+    <p class="lede">プライバシーポリシーに足す文章です。ボタンを押すとコピーできます。<strong>上から順に、5か所。</strong>全部で15分ほどの作業です。</p>
+  </header>
+
+  <h2><span class="num">STEP 0</span>先に1つだけ、確認してください</h2>
+  <p class="sub">ここだけは、私には見えません。答えによって STEP 3 の文章が変わります。</p>
+
+  <div class="check">
+    <h3>チャットの会話が、サイトに保存されているか</h3>
+    <p>WordPressの管理画面を開き、左のメニューから <code>Meow Apps</code> → <code>AI Engine</code> を開いてください。</p>
+    <p style="margin-bottom:0">上のほうに並んでいるタブに <strong>「Discussions」</strong>（または「会話」）があるかどうかを見てください。<strong>あれば保存されています。なければ保存されていません。</strong></p>
+  </div>
+  <p class="note">迷ったら、タブがあるかないかをそのまま教えてください。こちらでどちらか選びます。<strong>分からないまま進めて、事実と違うことを書くのがいちばん良くありません。</strong></p>
+
+  <h2><span class="num">STEP 1</span>利用目的に、1行足す</h2>
+  <p class="sub">「2.個人情報の利用目的」の箇条書きの、いちばん最後に足します。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">2.個人情報の利用目的 ／ 末尾に追加</span>
+      <button type="button" class="copy" id="c1" data-t="1">コピー</button>
+    </div>
+    <pre id="t1">・AIチャットボットによるご質問への応対</pre>
+  </div>
+
+  <h2><span class="num">STEP 2</span>「第三者提供」に、委託の一文を足す</h2>
+  <p class="sub">「4.個人情報の第三者提供」の文章のうしろに、続けて足します。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">4.個人情報の第三者提供 ／ 末尾に追加</span>
+      <button type="button" class="copy" id="c2" data-t="2">コピー</button>
+    </div>
+    <pre id="t2">なお、利用目的の達成に必要な範囲内で、業務の一部を外部の事業者に委託する場合があります。この場合、委託先との間で必要な契約を結び、適切な監督を行います。</pre>
+  </div>
+
+  <p class="note"><strong>なぜこれが要るか。</strong>お客様がチャットに書いた文字は、Googleへ送られて処理されます。これは法律上「第三者提供」ではなく「委託」にあたります。ところが、いまのポリシーには「第三者に提供しません」としか書いていないため、委託の説明がどこにもありません。この一文で、その穴がふさがります。</p>
+
+  <h2><span class="num">STEP 3</span>新しい項目を、まるごと足す</h2>
+  <p class="sub">「6.アクセス解析ツールおよび広告配信について」の<strong>あと</strong>、「7.お問い合わせ窓口」の<strong>前</strong>に入れます。ここが本体です。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">新しい「7.」として挿入 ／ 保存している場合</span>
+      <button type="button" class="copy" id="c3" data-t="3">コピー</button>
+    </div>
+    <pre id="t3">7.AIチャットボットについて
+
+当社のウェブサイトでは、砕石・砂利の種類や配達に関するご質問にお答えするため、生成AIを利用したチャットボットを設置しています。
+
+（1）送信される内容
+お客様がチャットに入力された文章は、回答を作成するために、Google LLC が提供する生成AIサービスへ送信され、処理されます。当社は、この処理を同社に委託しています。
+チャットで送信できるのは、お客様が入力された文章のみです。画像やファイルを送信することはできません。
+
+（2）入力をお控えいただきたい情報
+チャットは、一般的なご質問にお答えするためのものです。お名前、ご住所、電話番号、メールアドレスなどの個人情報は、入力しないでください。
+お見積りやご注文など、個人情報が必要なお問い合わせは、お問い合わせフォームまたはお電話をご利用ください。
+
+（3）会話内容の保存
+チャットの会話内容は、応対品質の確認と改善のため、当社のウェブサイト内に保存し、保存から6か月を経過したものは削除します。
+
+（4）お問い合わせフォームへの引き継ぎ
+チャット画面の「この会話をお問い合わせに送る」を押された場合に限り、その時点までの会話内容が、お問い合わせフォームの入力欄に貼り付けられます。送信ボタンを押されるまで、当社に送信されることはありません。貼り付けられた内容は、お客様ご自身で確認・修正・削除していただけます。
+
+（5）回答の正確性について
+チャットボットの回答は、AIが自動で作成するものです。内容に誤りが含まれる場合があります。金額・数量・納期などの確定的なご回答は、お電話またはお問い合わせフォームにて承ります。
+
+Google による情報の取り扱いについては、同社のプライバシーポリシーをご確認ください。</pre>
+
+    <div class="variant">
+      <span class="vlabel">保存していない場合 ／ （3）だけを、こちらに差し替え</span>
+      <div class="bhead" style="border-top:0;background:transparent">
+        <span class="where">（3）会話内容の保存</span>
+        <button type="button" class="copy" id="c4" data-t="4">コピー</button>
+      </div>
+      <pre id="t4">（3）会話内容の保存
+チャットの会話内容は、当社のウェブサイトには保存していません。ブラウザを閉じると、会話は残りません。</pre>
+    </div>
+  </div>
+
+  <p class="note"><strong>「6か月」は、いま決めた数字です。</strong>長すぎず、応対の振り返りには足りる長さとして置きました。変えたければ、その数字だけ書き換えてください。<strong>書いた期間は守る必要があります。</strong>実際に消す手だてがないうちは、保存していない場合の文（下のほう）を選ぶほうが安全です。</p>
+
+  <h2><span class="num">STEP 4</span>番号を1つずつ、ずらす</h2>
+  <p class="sub">新しい7を入れたので、いまの7が8になります。</p>
+  <div class="block">
+    <div class="bhead">
+      <span class="where">いまの「7.お問い合わせ窓口」の見出し</span>
+      <button type="button" class="copy" id="c5" data-t="5">コピー</button>
+    </div>
+    <pre id="t5">8.お問い合わせ窓口</pre>
+  </div>
+
+  <h2><span class="num">STEP 5</span>残っているひな形の1語を直す</h2>
+  <p class="sub">お問い合わせ窓口の欄に、ひな形の <code>[氏名]</code> が残っています。会社が事業者なので、そこには会社名が入ります。</p>
+
+  <div class="block">
+    <div class="bhead">
+      <span class="where">［氏名］株式会社　石名坂 ← この1行を置き換え</span>
+      <button type="button" class="copy" id="c6" data-t="6">コピー</button>
+    </div>
+    <pre id="t6">［事業者名］　株式会社　石名坂（代表取締役　藤原　猛）</pre>
+  </div>
+
+  <div class="check" style="border-left-color:var(--accent);background:var(--accent-soft)">
+    <h3>住所は、触らないでください</h3>
+    <p style="margin-bottom:0">先日わたしは「住所が2通りあって矛盾している」とお伝えしましたが、<strong>あれは私の誤りでした。</strong>ポリシーは <code>[本店所在地]</code> と <code>[お問い合わせ窓口]</code> をラベルで分けて、登記上の本店と事業所を正しく書き分けています。フッターに揃えると、登記上の住所が消えてしまいます。<strong>そのままが正解です。</strong></p>
+  </div>
+
+  <h2><span class="num">STEP 6</span>改定日を、今日にする</h2>
+  <div class="block">
+    <div class="bhead">
+      <span class="where">ページ末尾 ／ 改定日の行</span>
+      <button type="button" class="copy" id="c7" data-t="7">コピー</button>
+    </div>
+    <pre id="t7">改定日：2026年9月14日</pre>
+  </div>
+
+  <h2>スマホでの手順</h2>
+  <ol class="steps">
+    <li><p>WordPressの管理画面 → <strong>固定ページ</strong> → <strong>プライバシーポリシー</strong> を開きます。</p></li>
+    <li><p>上のボタンでコピーして、該当箇所に貼り付けます。<strong>1か所貼るたびに「更新」を押してください。</strong>まとめてやらないほうが、途中で失敗しても戻せます。</p></li>
+    <li><p>全部終わったら、<strong>ログアウトした状態で</strong>プライバシーポリシーのページを開いて、見た目を確認します。</p></li>
+    <li><p>確認したら教えてください。<strong>本番ページを私が読んで、抜けがないか照合します。</strong></p></li>
+  </ol>
+
+  <h2>これで何が変わるか</h2>
+  <ul class="plain">
+    <li>お客様が<strong>入力する前に</strong>、Googleへ送られることを知れます。いまは書いていません。</li>
+    <li>「個人情報は入力しないでください」と先に伝えられます。<strong>これがいちばん効きます。</strong>そもそも書き込まれなければ、リスクは生じません。</li>
+    <li>「委託」の説明が入り、「第三者に提供しません」との食い違いが解けます。</li>
+    <li>AIの回答に誤りがありうることを、事前にお伝えできます。</li>
+  </ul>
+  <p class="note" style="margin-top:4px"><strong>アクセス解析・広告の項目（6番）は、直す必要がありません。</strong>AdSenseは記事ページで動いていますので、いまの記載のままで正しいです。先日「整合を取る必要がある」とお伝えしましたが、確認したところ現状で合っていました。</p>
+
+  <div class="foot">
+    <h2>このあと</h2>
+    <p>高-01が終わったら、台帳の順番では次が<strong>高-03・高-04（中学生の試乗会と、個人宅の除雪動画）の写真の確認</strong>です。これは私には見えないので、御社にお願いすることになります。そのあいだに、私は<strong>高-11〜高-15の言い切りの直し文</strong>を用意しておきます。</p>
+    <p style="margin-bottom:0;color:var(--ink-3);font-size:13px">本番サイトで確認済み：画像・ファイル送信は不可（文章のみ）／1回512文字まで／ブラウザへの会話保存なし／「この会話をお問い合わせに送る」稼働中。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  document.addEventListener('click', function(ev){
+    var btn = ev.target && ev.target.closest ? ev.target.closest('.copy') : null;
+    if (!btn) { return; }
+    var pre = document.getElementById('t' + btn.getAttribute('data-t'));
+    if (!pre) { return; }
+    var text = pre.textContent;
+
+    function done(){
+      var old = btn.textContent;
+      btn.textContent = 'コピーしました';
+      btn.setAttribute('data-done','1');
+      setTimeout(function(){
+        btn.textContent = old;
+        btn.removeAttribute('data-done');
+      }, 1800);
+    }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove();
+      if (ok) { done(); }
+      else {
+        btn.textContent = '長押しで選択を';
+        setTimeout(function(){ btn.textContent = 'コピー'; }, 2200);
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
