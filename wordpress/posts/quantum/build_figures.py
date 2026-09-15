@@ -654,6 +654,59 @@ def fig_harvest_now():
                 u'この手口があるので、国はもう動き始めています。')
 
 
+# ---------------------------------------------------------------- 図I 六つの方式
+def fig_six_ways():
+    """量子ビットの作り方が六通りあることを、並べて見せる。
+
+    箇条書きだけだと「六つある」が字面で流れてしまう。並べて置くと、
+    どれも一長一短で本命が決まっていないことが、ひと目で伝わる。
+    行の折り返しは手で決める。自動で折ると枠からはみ出すため。
+    """
+    cards = [
+        (u'超電導', [u'極低温に冷やした', u'電気回路を使う'], u'IBM・Google・富士通'),
+        (u'中性原子', [u'原子を光のピンセット', u'で並べる'], u'冷凍機が要らない'),
+        (u'イオントラップ', [u'イオンを電場で', u'閉じ込める'], u'演算の正確さが高い'),
+        (u'光', [u'光そのものを使う。', u'光ファイバで運べる'], u'常温で動く・NTTほか'),
+        (u'シリコン', [u'いまの半導体の', u'製造技術が使える'], u'日立製作所'),
+        (u'マヨラナ粒子', [u'原理的にノイズに', u'強いとされる'], u'いま議論の最中'),
+    ]
+    W, H, GX, GY = 214, 104, 12, 14
+    p = []
+    p.append(u'<svg viewBox="0 0 700 362" role="img" aria-label="量子ビットの作り方は'
+             u'超電導、中性原子、イオントラップ、光、シリコン、マヨラナ粒子の六通りあり、'
+             u'それぞれ長所が違う。三十年以上研究されているが、まだ本命が決まっていない。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<text x="350" y="32" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'量子ビットの作り方は、六通りあります</text>')
+    for i, (name, lines, who) in enumerate(cards):
+        x = 20 + (i % 3) * (W + GX)
+        y = 56 + (i // 3) * (H + GY)
+        p.append(u'<rect x="%d" y="%d" width="%d" height="%d" rx="7" fill="none" '
+                 u'stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>'
+                 % (x, y, W, H))
+        p.append(u'<circle cx="%d" cy="%d" r="11" fill="%s"></circle>'
+                 % (x + 22, y + 24, COPPER))
+        p.append(u'<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+                 u'font-weight="bold" fill="#fff">%d</text>' % (x + 22, y + 28, i + 1))
+        p.append(u'<text x="%d" y="%d" font-size="14.5" font-weight="bold" '
+                 u'fill="%s">%s方式</text>' % (x + 40, y + 29, COPPER, name))
+        for k, ln in enumerate(lines):
+            p.append(u'<text x="%d" y="%d" font-size="12.5" fill="currentColor">%s</text>'
+                     % (x + 16, y + 52 + k * 18, ln))
+        p.append(u'<text x="%d" y="%d" font-size="11.5" fill="currentColor" '
+                 u'opacity="0.65">%s</text>' % (x + 16, y + 92, who))
+    p.append(u'<line x1="20" y1="312" x2="680" y2="312" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.25"></line>')
+    p.append(u'<text x="350" y="340" text-anchor="middle" font-size="14" '
+             u'fill="currentColor">三十年以上研究されていて、'
+             u'<tspan font-weight="bold">まだ本命が決まっていません</tspan></text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'どれも一長一短で、まだ一本に絞れていません。'
+                u'Googleは2026年3月、超電導に加えて中性原子にも取り組むと発表しました。')
+
+
 INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。</p>\n<!-- /wp:paragraph -->',
@@ -679,6 +732,10 @@ INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size">それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、<strong>133量子ビットの機械を主力に切り替えました。</strong>数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。</p>\n<!-- /wp:paragraph -->',
      fig_logical_qubit),
+    ('article-02.html',
+     u'<p class="has-medium-font-size">六つあります。<strong>三十年以上研究されて'
+     u'いて、まだ本命が決まっていない</strong>のです。</p>\n<!-- /wp:paragraph -->',
+     fig_six_ways),
     ('article-02.html',
      u'<p class="has-medium-font-size">誤解のないように申し添えます。<strong>これは不正でも失敗でもありません。科学が正常に働いている姿です。</strong>発表があり、検証があり、議論がある。そうやって確かなことが積み上がっていきます。</p>\n<!-- /wp:paragraph -->',
      fig_claim_rebuttal),
