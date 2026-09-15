@@ -1,0 +1,857 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">前編では、量子コンピュータの仕組みをご紹介しました。答えの候補ごとに<strong>向きを持った矢印</strong>があり、はずれの矢印は打ち消し合って消え、正解の矢印だけが揃う。だから「全部試す機械」ではなく「<strong>間違いを消す機械</strong>」であること。</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして、その打ち消し合いを設計できるのは、<strong>問題の中に隠れた繰り返しがあるときだけ</strong>だということ。だから見積書も日報も速くなりません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">後編では、<strong>実用化がいまどこまで来ているのか</strong>を見ていきます。何がすごくて、何がすごくないのか。そして私たちの暮らしに関わってくる話を、最後にご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">まだ、作り方が決まっていません</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子ビットの作り方は、ひとつではありません。いま世界で取り組まれているものを並べると、こうなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>超電導方式</strong>：極低温に冷やした電気回路を使う。IBM、Google、富士通など</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>中性原子方式</strong>：原子を光のピンセットで並べる。冷凍機が要らない</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>イオントラップ方式</strong>：イオンを電場で閉じ込める。演算の正確さが高い</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>光方式</strong>：光そのものを使う。常温で動き、光ファイバで運べる</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>シリコン方式</strong>：既存の半導体の製造技術を使える</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>マヨラナ粒子方式</strong>：原理的にノイズに強いとされる。ただし後述のとおり議論の最中</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">六つあります。<strong>三十年以上研究されていて、まだ本命が決まっていない</strong>のです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 362" role="img" aria-label="量子ビットの作り方は超電導、中性原子、イオントラップ、光、シリコン、マヨラナ粒子の六通りあり、それぞれ長所が違う。三十年以上研究されているが、まだ本命が決まっていない。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<text x="350" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">量子ビットの作り方は、六通りあります</text>
+<rect x="20" y="56" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="42" cy="80" r="11" fill="#C1803A"></circle>
+<text x="42" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">1</text>
+<text x="60" y="85" font-size="14.5" font-weight="bold" fill="#C1803A">超電導方式</text>
+<text x="36" y="108" font-size="12.5" fill="currentColor">極低温に冷やした</text>
+<text x="36" y="126" font-size="12.5" fill="currentColor">電気回路を使う</text>
+<text x="36" y="148" font-size="11.5" fill="currentColor" opacity="0.65">IBM・Google・富士通</text>
+<rect x="246" y="56" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="268" cy="80" r="11" fill="#C1803A"></circle>
+<text x="268" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">2</text>
+<text x="286" y="85" font-size="14.5" font-weight="bold" fill="#C1803A">中性原子方式</text>
+<text x="262" y="108" font-size="12.5" fill="currentColor">原子を光のピンセット</text>
+<text x="262" y="126" font-size="12.5" fill="currentColor">で並べる</text>
+<text x="262" y="148" font-size="11.5" fill="currentColor" opacity="0.65">冷凍機が要らない</text>
+<rect x="472" y="56" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="494" cy="80" r="11" fill="#C1803A"></circle>
+<text x="494" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">3</text>
+<text x="512" y="85" font-size="14.5" font-weight="bold" fill="#C1803A">イオントラップ方式</text>
+<text x="488" y="108" font-size="12.5" fill="currentColor">イオンを電場で</text>
+<text x="488" y="126" font-size="12.5" fill="currentColor">閉じ込める</text>
+<text x="488" y="148" font-size="11.5" fill="currentColor" opacity="0.65">演算の正確さが高い</text>
+<rect x="20" y="174" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="42" cy="198" r="11" fill="#C1803A"></circle>
+<text x="42" y="202" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">4</text>
+<text x="60" y="203" font-size="14.5" font-weight="bold" fill="#C1803A">光方式</text>
+<text x="36" y="226" font-size="12.5" fill="currentColor">光そのものを使う。</text>
+<text x="36" y="244" font-size="12.5" fill="currentColor">光ファイバで運べる</text>
+<text x="36" y="266" font-size="11.5" fill="currentColor" opacity="0.65">常温で動く・NTTほか</text>
+<rect x="246" y="174" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="268" cy="198" r="11" fill="#C1803A"></circle>
+<text x="268" y="202" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">5</text>
+<text x="286" y="203" font-size="14.5" font-weight="bold" fill="#C1803A">シリコン方式</text>
+<text x="262" y="226" font-size="12.5" fill="currentColor">いまの半導体の</text>
+<text x="262" y="244" font-size="12.5" fill="currentColor">製造技術が使える</text>
+<text x="262" y="266" font-size="11.5" fill="currentColor" opacity="0.65">日立製作所</text>
+<rect x="472" y="174" width="214" height="104" rx="7" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<circle cx="494" cy="198" r="11" fill="#C1803A"></circle>
+<text x="494" y="202" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">6</text>
+<text x="512" y="203" font-size="14.5" font-weight="bold" fill="#C1803A">マヨラナ粒子方式</text>
+<text x="488" y="226" font-size="12.5" fill="currentColor">原理的にノイズに</text>
+<text x="488" y="244" font-size="12.5" fill="currentColor">強いとされる</text>
+<text x="488" y="266" font-size="11.5" fill="currentColor" opacity="0.65">いま議論の最中</text>
+<line x1="20" y1="312" x2="680" y2="312" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+<text x="350" y="340" text-anchor="middle" font-size="14" fill="currentColor">三十年以上研究されていて、<tspan font-weight="bold">まだ本命が決まっていません</tspan></text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">どれも一長一短で、まだ一本に絞れていません。Googleは2026年3月、超電導に加えて中性原子にも取り組むと発表しました。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そしてGoogleは2026年3月、超電導に加えて中性原子方式にも取り組むと発表しました。<strong>世界最大級の企業が、一本に絞らずに二本立てにした</strong>ということです。それだけ、どれが本命かわからない。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">方式が決まらないというのは、お金を出す側にとっては重い話です。どれが正解かわからないまま、十年以上お金を出し続けることになります。<strong>そう考えると、この分野に取り組む難しさが少し想像できます。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「できた」と「それは普通のパソコンでもできた」の応酬</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この分野を理解するのに、いちばん大事なことをお伝えします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>量子コンピュータの歴史は、「できた」という発表と、「それは普通のコンピュータでもできた」という反論の応酬の歴史でもあります。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">例を三つ挙げます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>2019年。</strong>Googleが「スーパーコンピュータで1万年かかる計算を200秒で解いた」と発表しました。ところが直後にIBMが「工夫すれば2日半でできる」と反論。そして2022年、別の研究チームが実際に普通のコンピュータで解いてしまいました。このときの科学誌『Science』の見出しは「<strong>結局、普通のコンピュータがGoogleの量子コンピュータに勝てる</strong>」でした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>2023年。</strong>IBMが「誤り訂正の前の段階でも、量子コンピュータが役に立つ証拠だ」とする成果を発表しました。数週間のうちに、複数の研究チームが同じ結果を普通のコンピュータで再現しました。<strong>そのうちのひとつは、ノートパソコンの1コアで動きました。</strong>量子の実機より、桁違いに速かったと報告されています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>2025年3月。</strong>D-Wave社が科学誌に成果を発表すると、数日のうちに二つの研究機関から「普通のコンピュータで再現できる」という論文が出ました。D-Wave社はそれにさらに反論しています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">誤解のないように申し添えます。<strong>これは不正でも失敗でもありません。科学が正常に働いている姿です。</strong>発表があり、検証があり、議論がある。そうやって確かなことが積み上がっていきます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 490" role="img" aria-label="2019年のGoogle、2023年のIBM、2025年のD-Waveの発表に対して、いずれも普通のコンピュータで再現できるという反論が続いた。発表と検証と議論がくり返されている。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="cr-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="currentColor" opacity="0.5"></polygon></marker></defs>
+<text x="180" y="42" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">「できた」という発表</text>
+<text x="502" y="42" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">「普通のパソコンでもできた」</text>
+<line x1="338" y1="58" x2="338" y2="414" stroke="currentColor" stroke-width="1" opacity="0.2"></line>
+<text x="30" y="118" font-size="13.5" font-weight="bold" fill="currentColor" opacity="0.5">2019</text>
+<rect x="76" y="96" width="250" height="72" rx="6" fill="none" stroke="#C1803A" stroke-width="2"></rect>
+<text x="90" y="118" font-size="14" font-weight="bold" fill="#C1803A">Google</text>
+<text x="90" y="138" font-size="12.5" fill="currentColor">スパコンで1万年かかる計算を</text>
+<text x="90" y="157" font-size="12.5" fill="currentColor">200秒で解いた</text>
+<line x1="334" y1="132" x2="358" y2="132" stroke="currentColor" stroke-width="2" opacity="0.5" marker-end="url(#cr-ah)"></line>
+<text x="370" y="118" font-size="12.5" fill="currentColor">IBM「工夫すれば2日半でできる」。</text>
+<text x="370" y="137" font-size="12.5" fill="currentColor">2022年、別の研究チームが</text>
+<text x="370" y="156" font-size="12.5" fill="currentColor">普通のコンピュータで実際に解いた</text>
+<text x="30" y="230" font-size="13.5" font-weight="bold" fill="currentColor" opacity="0.5">2023</text>
+<rect x="76" y="208" width="250" height="72" rx="6" fill="none" stroke="#C1803A" stroke-width="2"></rect>
+<text x="90" y="230" font-size="14" font-weight="bold" fill="#C1803A">IBM</text>
+<text x="90" y="250" font-size="12.5" fill="currentColor">誤り訂正の前の段階でも</text>
+<text x="90" y="269" font-size="12.5" fill="currentColor">役に立つ証拠だ</text>
+<line x1="334" y1="244" x2="358" y2="244" stroke="currentColor" stroke-width="2" opacity="0.5" marker-end="url(#cr-ah)"></line>
+<text x="370" y="230" font-size="12.5" fill="currentColor">数週間のうちに複数のチームが再現。</text>
+<text x="370" y="249" font-size="12.5" fill="currentColor">ひとつはノートパソコンの1コアで動き、</text>
+<text x="370" y="268" font-size="12.5" fill="currentColor">量子の実機より桁違いに速かった</text>
+<text x="30" y="342" font-size="13.5" font-weight="bold" fill="currentColor" opacity="0.5">2025</text>
+<rect x="76" y="320" width="250" height="53" rx="6" fill="none" stroke="#C1803A" stroke-width="2"></rect>
+<text x="90" y="342" font-size="14" font-weight="bold" fill="#C1803A">D-Wave</text>
+<text x="90" y="362" font-size="12.5" fill="currentColor">科学誌に成果を発表</text>
+<line x1="334" y1="346" x2="358" y2="346" stroke="currentColor" stroke-width="2" opacity="0.5" marker-end="url(#cr-ah)"></line>
+<text x="370" y="342" font-size="12.5" fill="currentColor">数日のうちに二つの研究機関が</text>
+<text x="370" y="361" font-size="12.5" fill="currentColor">「普通のコンピュータで再現できる」。</text>
+<text x="370" y="380" font-size="12.5" fill="currentColor">同社はさらに反論している</text>
+<rect x="30" y="432" width="640" height="44" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"></rect>
+<text x="350" y="460" text-anchor="middle" font-size="14" fill="currentColor">見出しに出るのは<tspan font-weight="bold">左だけ</tspan>。数週間後の右は、まず届きません</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">発表があり、検証があり、議論がある。不正でも失敗でもなく、科学が正常に働いている姿です。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ただ、ニュースの見出しだけを読むと、<strong>その後半分が見えません。</strong>「量子コンピュータがスパコンに勝った」という記事は大きく出ますが、数週間後の「普通のパソコンで再現された」という記事は、まず届きません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">発表されたことと、確かめられたこと</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">もうひとつ、はっきりした例があります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2025年2月、Microsoftが「世界初のトポロジカル量子ビットを載せたプロセッサ」を発表しました。先ほどの六つの方式のうち、マヨラナ粒子方式にあたるものです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ところが、同じ時期に科学誌『Nature』に載った論文に、<strong>編集部が異例の注記をつけました。</strong>「本原稿の結果は、報告されたデバイスの中にマヨラナ・ゼロモードが存在する証拠を示すものではない」。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">つまり、<strong>会社の発表は「できた」と言い、同じ時期の論文の掲載誌の編集部は「その証拠にはなっていない」と書いた</strong>のです。複数の物理学者から異論が出ており、決着はついていません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この分野では、<strong>企業の発表と、科学的に確かめられたことの間に、しばしば隔たりがあります。</strong>これは私たちの印象ではなく、Nature編集部自身が書き残した事実です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">なお同じ2024年12月、Googleが発表した誤り訂正の成果は『Nature』の査読を通っています。<strong>すべての発表が怪しいという話ではありません。</strong>査読を通ったものと、会社が発表しただけのものを、読み分ける必要があるということです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">結局、何の分野で使えるのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここまで慎重な話が続きましたが、<strong>すごいことは、確かにあります。</strong>そして「どの分野で役に立つのか」には、はっきりした答えがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">先に、<strong>いちばん多い誤解</strong>をひとつ片づけさせてください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「セキュリティのための機械」ではありません</h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":6186,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/09/08-padlock-old-and-new.jpg" alt="古い真鍮の南京錠と新しい鋼の南京錠を並べたイメージ図。左は開いており、右は閉じている" class="wp-image-6186"/><figcaption class="wp-element-caption">量子コンピュータは暗号を「壊す側」です。国は2035年を目処に、錠前の付け替えを進めています。イメージ図（生成AIで作成）</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータと暗号がよく一緒に語られるので、「セキュリティを強くするための機械」だと思われることがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>逆です。量子コンピュータは、いまの暗号を「壊す側」です。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この記事の後半でご紹介する「2035年までに暗号を切り替える」という話は、<strong>壊される側が守りを固める話</strong>であって、量子コンピュータが守ってくれるわけではありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">紛らわしい言葉が二つあるので、分けておきます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>耐量子暗号</strong>：量子コンピュータでも破られにくい、新しい暗号の作り方。<strong>普通のコンピュータで動きます。</strong>いま世界で切り替えが進んでいるのはこちら。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>量子暗号（量子鍵配送）</strong>：光の粒の性質を使って鍵を配る、専用の設備が要る技術。<strong>量子コンピュータとは別の技術です。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">どちらも「量子コンピュータの使い道」ではありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">本命は、分子と材料のシミュレーションです</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">前編でご説明したとおり、<strong>分子の中の電子も矢印を持っています。</strong>だから分子を普通のコンピュータで正確に計算しようとすると、量子ビットを再現しようとしたときと同じ爆発が起きる。ならば量子の機械で扱おう、というのが、そもそも量子コンピュータが考えられた理由でした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">どういう役に立つのか。よく挙げられる例をひとつ、具体的にご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">肥料の原料になるアンモニアは、<strong>ハーバー・ボッシュ法</strong>という方法で作られています。400〜500度、数百気圧。人類が使う全エネルギーの数パーセントを、この工程が使っているとされます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":6187,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/09/06-ammonia-plant-haber-bosch.jpg" alt="アンモニアを作る工場のイメージ図。背の高い反応塔と太い配管が並び、蒸気が立ちのぼっている" class="wp-image-6187"/><figcaption class="wp-element-caption">肥料のもとになるアンモニアは、400〜500度・数百気圧で作られています。イメージ図（生成AIで作成）</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ところが、<strong>同じことを常温・常圧でやっている生き物がいます。</strong>マメ科の植物の根につく根粒菌です。「ニトロゲナーゼ」という酵素が、空気中の窒素からアンモニアを作っています。畑をやっている方にはおなじみの話だと思います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":6184,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/09/07-soybean-root-nodules.jpg" alt="マメ科の植物の根と根粒のイメージ図。細い根に沿って丸い粒が連なり、土がついたまま持ち上げられている" class="wp-image-6184"/><figcaption class="wp-element-caption">マメ科の根につく根粒。ここでは常温・常圧で、同じことが行われています。しくみはまだ解明されていません。イメージ図（生成AIで作成）</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>この酵素がどうやっているのか、まだ解明されていません。</strong>電子のふるまいが複雑すぎて、いまのコンピュータでは計算しきれないからです。2017年の論文は、<strong>量子コンピュータならこれを解き明かせる可能性がある</strong>と論じています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">もし解明されれば、常温常圧で肥料を作る道が開けるかもしれません。<strong>これが、量子コンピュータに期待されていることの、いちばんわかりやすい形です。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 380" role="img" aria-label="アンモニアを作るのに、工場では400から500度・数百気圧を要し人類の全エネルギーの数パーセントを使う一方、マメ科の根につく根粒では常温・常圧で同じことが行われており、そのしくみは未解明である、という比較。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+  <text x="350" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">どちらも、空気の窒素からアンモニアを作っている</text>
+  <line x1="350" y1="52" x2="350" y2="330" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+  <text x="175" y="80" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">工場</text>
+  <g fill="none" stroke="currentColor" stroke-width="2"><rect x="108" y="150" width="46" height="70"></rect><rect x="162" y="128" width="34" height="92"></rect><rect x="204" y="162" width="40" height="58"></rect><line x1="120" y1="150" x2="120" y2="112"></line><line x1="142" y1="150" x2="142" y2="122"></line><line x1="108" y1="220" x2="244" y2="220"></line></g>
+  <text x="175" y="256" text-anchor="middle" font-size="17" font-weight="bold" fill="#C1803A">400〜500度</text>
+  <text x="175" y="282" text-anchor="middle" font-size="17" font-weight="bold" fill="#C1803A">数百気圧</text>
+  <text x="175" y="314" text-anchor="middle" font-size="13" fill="currentColor">人類が使う全エネルギーの数パーセント</text>
+  <text x="525" y="80" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">マメ科の根</text>
+  <g fill="none" stroke="currentColor" stroke-width="2"><line x1="525" y1="104" x2="525" y2="150"></line><path d="M 525 150 C 500 172 486 196 478 222"></path><path d="M 525 150 C 545 176 556 200 560 224"></path><path d="M 525 150 C 522 180 520 202 516 226"></path></g>
+  <circle cx="506" cy="172" r="6.5" fill="#C1803A"></circle>
+  <circle cx="488" cy="203" r="6.5" fill="#C1803A"></circle>
+  <circle cx="543" cy="178" r="6.5" fill="#C1803A"></circle>
+  <circle cx="556" cy="208" r="6.5" fill="#C1803A"></circle>
+  <circle cx="521" cy="190" r="6.5" fill="#C1803A"></circle>
+  <circle cx="518" cy="216" r="6.5" fill="#C1803A"></circle>
+  <text x="525" y="256" text-anchor="middle" font-size="17" font-weight="bold" fill="#C1803A">常温</text>
+  <text x="525" y="282" text-anchor="middle" font-size="17" font-weight="bold" fill="#C1803A">常圧</text>
+  <text x="525" y="314" text-anchor="middle" font-size="13" fill="currentColor">根粒菌の酵素が、土の中で</text>
+  <text x="350" y="360" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">このしくみは、まだ解明されていません</text>
+  </svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">同じことを、工場は高温高圧で、根粒は常温常圧で行っています。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">実際、専門家の予測でも<strong>最初に本格応用するのは化学メーカー</strong>とされ、最初の用途は<strong>触媒の探索</strong>——化学反応を助ける物質を探すこと——だろうと見られています。化学メーカーはすでに分子の計算にスーパーコンピュータを使っているので、その補助として入れやすいからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ただし、ここでも正直に。<strong>2023年に『Nature Communications』に載った論文の結論は、「指数的な量子の優位があるという証拠は、まだ見つかっていない」でした。</strong>著者にはGoogleの研究者も含まれます。本命と目されている分野でも、まだその段階です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">分野ごとに、どこまで来ているか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今回調べた範囲で、分野ごとに整理するとこうなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"fontSize":"small"} -->
+<figure class="wp-block-table has-small-font-size"><table><thead><tr><th>分野</th><th>いまの状況</th></tr></thead><tbody><tr><td><strong>分子・材料のシミュレーション</strong><br>（触媒、電池、薬）</td><td><strong>本命とされる。</strong>専門家も最初の本格応用は化学メーカーと予測。ただし「指数的な優位の証拠はまだない」とする2023年の論文もある</td></tr><tr><td><strong>暗号の解読</strong></td><td>理論上は効くことがはっきりしている。ただし<strong>実機で分解できた最大の数は15と21</strong></td></tr><tr><td>組合せ最適化<br>（配送、工程）</td><td>期待されているが、交通流の実験では<strong>普通のコンピュータ用の市販ソフトのほうが良い答えを出した</strong></td></tr><tr><td>金融のリスク計算</td><td>期待されているが、速くなる度合いが小さく<strong>割に合わない可能性</strong>が指摘されている</td></tr><tr><td>AI・機械学習</td><td>12種類を160のデータで比べた研究では、<strong>既存の普通のAIのほうが軒並み成績が良かった</strong></td></tr><tr><td>日常の事務作業<br>（見積、集計、文書）</td><td><strong>効きません。</strong>隠れた繰り返しがなく、分子でもないため</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">私たちの業界は、どうか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">建設や土木、砕石の分野はどうなのか。気になるところですので、調べました。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>今回調べた範囲では、見つかりませんでした。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">セメントやコンクリートの材料研究で量子コンピュータを使った例も、確認できていません。建設分野でブロックチェーンや量子技術が日常的に使われている例も見つかりませんでした。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">理屈のうえでは、セメントの水和反応も、骨材と結合材の界面も、突き詰めれば分子の話です。将来つながる可能性はあります。ですが<strong>いまは、そういう研究を確認できていない。</strong>それが正直なところです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">私たちの現場でいま効いているのは、前編でも触れたとおり<strong>量子ではなくAIとデジタル技術のほう</strong>です。ドローンによる測量、3次元の設計データ、遠隔での立会い。そちらは、もう動いています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">暗号の話を、もう少し</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">壊す側の話に戻ります。1994年に発表された「ショアのアルゴリズム」という手順を使うと、大きな数を素因数分解する計算が、普通のコンピュータとは桁違いに速くなります。</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">前編でご説明したとおり、この手順の正体は<strong>「素因数分解を、隠れた繰り返しの周期を見つける問題に書き換えること」</strong>です。書き換えてしまえば、あとは矢印がきれいに揃う、量子コンピュータのいちばん得意な形になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">これは大ごとです。インターネットで使われているRSAという暗号は、「大きな数を素因数分解するのは、事実上不可能なほど時間がかかる」ことを安全の根拠にしているからです。その根拠が崩れます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ただし、これは<strong>理論上の話</strong>です。実際の量子コンピュータでこの手順を使って因数分解できた最大の数は、<strong>15と21</strong>だと2024年の学術的な調査は報告しています。しかもそれは、答えを知ったうえで回路を簡略化したものだという批判もあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">では、本当にRSAを破るには何が必要か。研究者の見積もりでは、<strong>2019年の時点で2,000万個の量子ビットで8時間。2025年には100万個未満で1週間未満</strong>にまで下がってきています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">6年で20分の1。<strong>ゴールポストは動き続けています。</strong>それでも、いま動いている機械は百個台から数百個台です。差はまだ桁違いにあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「万能の速いコンピュータ」ではありません</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">表を見ていただくとわかるとおり、効く分野ははっきり限られています。ここははっきり申し上げます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>見積書も、日報も、経理の集計も、量子コンピュータでは速くなりません。</strong>表計算、文書作成、動画、ウェブ閲覧。日常の仕事のほとんどは、関係がありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータは、いまのコンピュータの上位互換ではありません。<strong>特定の形をした計算にだけ効く、専用の装置</strong>です。普通のコンピュータの隣に置いて、向いた仕事だけを任せる。そういう位置づけになります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>置き換えではなく、持ち場が違う。</strong>そう考えるのが、いちばん近いと思います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">表に入れた慎重な報告のうち、二つだけ補足します。どちらも<strong>「推す側」が自分で出した結果</strong>なので、重みが違います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>総当たりの探索</strong>について、Googleの研究者自身が「<strong>その程度の速さでは、誤り訂正の手間を考えると割に合わない</strong>」と論文に書いています。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>量子AIの比較研究</strong>で古典のほうが良い成績を出したという報告は、<strong>量子ソフトを売っている会社自身の研究者</strong>によるものです。</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">いつ実用化されるのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">よく聞かれる質問だと思います。答えは<strong>「わかりません」</strong>です。ただ、どれくらいわからないかは、お伝えできます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>IBMとGoogleは、<strong>2029年</strong>を自社の目標に掲げています（目標であって、確定した予定ではありません）</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日本政府は、暗号の切り替えの目処を<strong>2035年</strong>としています</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>国の研究目標「ムーンショット」では、誤りに強い汎用の（何にでも使える）量子コンピュータの実現を<strong>2050年</strong>としています</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>そして、<strong>「そもそも実現しない」</strong>とする物理学者の反対論もあります</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">2029年から2050年、そして「来ない」まで。<strong>これが、いまの見通しの幅です。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">予測がどれだけ当てにならないか、わかりやすい出来事があります。半導体大手NVIDIAのフアン最高経営責任者は、2025年1月に「本当に役に立つ量子コンピュータは15年から30年先」と述べました。ところが<strong>2か月後の3月</strong>、自社のイベントでこの見方を撤回します。そのときの本人の言葉が残っています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「企業の最高経営責任者が、自分がなぜ間違っていたかを説明してもらうために、全員を招待した。<strong>史上初のイベントです</strong>」</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">業界の第一人者ですら、2か月で見方が変わります。<strong>「何年に実用化」と書いてある記事は、そのつもりで読んでください。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 330" role="img" aria-label="実用化の見通しは、IBMとGoogleの目標が2029年、日本政府の暗号切り替えの目処が2035年、国の研究目標ムーンショットが2050年、そして そもそも実現しないという反対論まで、大きく開いている。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<text x="350" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">「いつ実用化されるのか」の答えは、これだけ開いています</text>
+<line x1="90" y1="126" x2="600" y2="126" stroke="currentColor" stroke-width="2" opacity="0.35"></line>
+<line x1="130" y1="114" x2="130" y2="138" stroke="#C1803A" stroke-width="2"></line>
+<text x="130" y="104" text-anchor="middle" font-size="18" font-weight="bold" fill="#C1803A">2029年</text>
+<text x="130" y="162" text-anchor="middle" font-size="13.5" font-weight="bold" fill="currentColor">IBM・Googleの目標</text>
+<text x="130" y="182" text-anchor="middle" font-size="11.5" fill="currentColor" opacity="0.7">会社の目標であって、予定ではない</text>
+<line x1="330" y1="114" x2="330" y2="138" stroke="#C1803A" stroke-width="2"></line>
+<text x="330" y="104" text-anchor="middle" font-size="18" font-weight="bold" fill="#C1803A">2035年</text>
+<text x="330" y="162" text-anchor="middle" font-size="13.5" font-weight="bold" fill="currentColor">国が暗号を切り替える目処</text>
+<text x="330" y="182" text-anchor="middle" font-size="11.5" fill="currentColor" opacity="0.7">内閣官房。2026年度中に工程表</text>
+<line x1="530" y1="114" x2="530" y2="138" stroke="#C1803A" stroke-width="2"></line>
+<text x="530" y="104" text-anchor="middle" font-size="18" font-weight="bold" fill="#C1803A">2050年</text>
+<text x="530" y="162" text-anchor="middle" font-size="13.5" font-weight="bold" fill="currentColor">ムーンショット</text>
+<text x="530" y="182" text-anchor="middle" font-size="11.5" fill="currentColor" opacity="0.7">誤りに強い汎用の機械の実現</text>
+<text x="628" y="132" font-size="22" fill="currentColor" opacity="0.45">…</text>
+<rect x="90" y="212" width="510" height="48" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.45"></rect>
+<text x="345" y="242" text-anchor="middle" font-size="15" fill="currentColor">そして「<tspan font-weight="bold">そもそも実現しない</tspan>」とする物理学者の反対論もあります</text>
+<text x="350" y="294" text-anchor="middle" font-size="13" fill="currentColor">NVIDIAの最高経営責任者は、<tspan font-weight="bold" fill="#C1803A">2か月で見方を撤回</tspan>しました</text>
+<text x="350" y="316" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">「何年に実用化」と書いてある記事は、そのつもりで読んでください</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">2029年から2050年、そして「来ない」まで。これが、いまの見通しの幅です。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">日本は、どこまで来ているのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">海外の大企業の話ばかりが目につきますが、日本の状況もご紹介しておきます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>2026年3月26日、理化学研究所と大阪大学は144量子ビットの国産機「叡-Ⅱ（えいツー）」の運用を始めました。</strong>2023年に公開された64量子ビットの初号機「叡」の後継機です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">富士通と理化学研究所は2025年4月に256量子ビットの機械を開発し、外部への提供を始めました。富士通は2026年9月、光でつなぐ新しい方式の試作機も発表しています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">先ほどの六つの方式を見ると、日本の組織は<strong>そのうち四つに名前が出てきます。</strong>超電導（富士通）、イオントラップ、光（NTTほか）、シリコン（日立製作所）。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">私たちの暮らしに、いちばん近い話</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここからが、この記事でいちばんお伝えしたいところです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータが暗号を破れるのは、早くても十年以上先と見られています。<strong>それなのに、国はもう動き始めています。</strong>なぜでしょうか。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「<strong>いま盗んで、あとで読む</strong>」という考え方があるからです。暗号化された通信を今のうちに記録して保存しておき、将来、解読できる機械ができた時点でさかのぼって読む。この手口は、G7の金融当局の文書でも取り上げられており、日本では金融庁と日本銀行が2024年9月26日に同じ文書を公表しています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして2025年11月20日、内閣官房の国家サイバー統括室が、政府機関などの暗号を新しい方式（<strong>耐量子計算機暗号</strong>）へ切り替える方針をまとめました。<strong>目処は、原則2035年。</strong>2026年度中に工程表を作るとされています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 300" role="img" aria-label="暗号化された通信をいまのうちに記録して保存し、解読できる機械ができた時点でさかのぼって読む、という考え方。だから機械がまだなくても、暗号の切り替えがすでに始まっている。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="hn-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon></marker></defs>
+<text x="350" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">「いま盗んで、あとで読む」</text>
+<circle cx="140" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="140" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">1</text>
+<text x="140" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">いま</text>
+<text x="140" y="190" text-anchor="middle" font-size="13" fill="currentColor">鍵のかかった通信を、</text>
+<text x="140" y="210" text-anchor="middle" font-size="13" fill="currentColor">そのまま記録して保存する</text>
+<line x1="184" y1="104" x2="306" y2="104" stroke="#C1803A" stroke-width="2.5" marker-end="url(#hn-ah)"></line>
+<circle cx="350" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="350" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">2</text>
+<text x="350" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">何年も</text>
+<text x="350" y="190" text-anchor="middle" font-size="13" fill="currentColor">解ける機械ができるまで、</text>
+<text x="350" y="210" text-anchor="middle" font-size="13" fill="currentColor">寝かせておく</text>
+<line x1="394" y1="104" x2="516" y2="104" stroke="#C1803A" stroke-width="2.5" marker-end="url(#hn-ah)"></line>
+<circle cx="560" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="560" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">3</text>
+<text x="560" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">そのあと</text>
+<text x="560" y="190" text-anchor="middle" font-size="13" fill="currentColor">さかのぼって、</text>
+<text x="560" y="210" text-anchor="middle" font-size="13" fill="currentColor">中身を読む</text>
+<line x1="60" y1="244" x2="640" y2="244" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+<text x="350" y="272" text-anchor="middle" font-size="15" fill="currentColor">だから、機械がまだなくても<tspan font-weight="bold">いま切り替えが始まっています</tspan>（目処 2035年）</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">解ける機械ができるのを待って、あとから読む。この手口があるので、国はもう動き始めています。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここで、<strong>読者の方に安心していただきたいこと</strong>を書きます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>個人が、自分で何か暗号を入れ替える必要はありません。</strong>切り替えは、パソコンやスマートフォンの基本ソフト、ブラウザ、通信事業者、サービス提供者の側で行われるものです。今回調べた範囲で、国が一般の方に「各自で対応してください」と求めている発表は、ひとつも見つかりませんでした。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>いまの銀行口座や電子マネーが、明日破られるという話ではありません。</strong>G7の文書も、金融機関に「動きを見守り、検討を始めること」を求める段階のものです。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>暗号がすべて破られるわけでもありません。</strong>作り直しが必要なのは、インターネットの通信などに使う<strong>「公開鍵暗号」</strong>——鍵を二つに分け、片方を誰にでも見える形で配る方式——のほうです。もうひとつの<strong>「共通鍵暗号」</strong>——送る側と受け取る側が同じ鍵を使う方式——は、鍵を長くすれば当面は大丈夫とされています。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>「量子コンピュータ対応」をうたう個人向けの有料の製品やサービスを、いま急いで買う必要はありません。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">したほうがよいことは、ひとつだけです。<strong>基本ソフトとブラウザ、アプリを最新に保つこと。</strong>新しい暗号は、まさにその更新を通じて配られてきています。量子のためだけでなく、普段のセキュリティ対策としても正しいことです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「量子」と名のついた話に、ひとつだけ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最後に、正直に書いておきたいことがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「量子」という言葉は、いま商品名にもよく使われています。健康にまつわるもの、投資にまつわるもの、いろいろあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今回、消費者庁・国民生活センター・厚生労働省・金融庁・公正取引委員会の発表を調べました。<strong>「量子」と名のついた商品を名指しして処分や注意喚起をした発表は、ひとつも見つかりませんでした。</strong>ですので、この記事では特定の商品や会社について、何も申し上げません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">同時に、<strong>「量子とつく商品はすべて怪しい」というのも誤りです。</strong>量子の技術には、医療機器や計測の分野で本物の研究と製品があります。ひとくくりにはできません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">申し上げられるのは、これだけです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この記事をここまでお読みいただいたなら、量子コンピュータが<strong>いまどの段階にあるか</strong>は、おわかりいただけたと思います。実機で因数分解できた最大の数は15と21。方式すら決まっていない。専門家の予測は2か月で覆る。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">その段階の技術を根拠に、<strong>「すぐに効果が出る」「確実にもうかる」</strong>という説明がされていたら、そこは立ち止まってよいところだと思います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">判断がつかないときは、<strong>お金を動かす前に、消費者ホットライン「188」</strong>にご相談ください。局番なしの3桁で、お近くの消費生活センターにつながります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">量子コンピュータの実用化、まとめ（後編）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>作り方は<strong>六通り</strong>あり、まだ本命が決まっていません。Googleでさえ二本立てにしています。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>「できた」という発表と「<strong>普通のパソコンでもできた</strong>」という反論の応酬が続いています。見出しだけでは後半分が見えません。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>会社の発表と、確かめられたことは違います。</strong>Nature編集部が「証拠にはなっていない」と注記した例があります。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>「セキュリティのための機械」ではありません。</strong>いまの暗号を<strong>壊す側</strong>です。「耐量子暗号」も「量子暗号」も、量子コンピュータの使い道ではありません。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>本命は分子と材料のシミュレーション。</strong>分子の中の電子も矢印を持っているので、もともと形が同じです。専門家も<strong>最初の本格応用は化学メーカー、用途は触媒の探索</strong>と予測しています。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>暗号の解読は理論上はっきり効きます。ただし<strong>実機で因数分解できた最大の数は15と21</strong>です。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>見積書も日報も速くなりません。</strong>専用の装置であって、パソコンの置き換えではありません。<strong>建設・砕石の分野での活用例も、今回は見つかりませんでした。</strong></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>実用化の見通しは<strong>2029年から2050年、そして「来ない」まで</strong>。NVIDIAの最高経営責任者は2か月で見方を撤回しました。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日本も動いています。<strong>2026年3月、理研と大阪大学は144量子ビットの国産機を動かし始めました。</strong>六つの方式のうち四つに、日本の組織の名前が出てきます。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>暗号の切り替えは<strong>2035年が目処</strong>。ただし<strong>個人が自分で何かする必要はありません。</strong>基本ソフトとアプリを最新に保つ。それだけです。</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1984年の実験から40年かけて、ここまで来ました。あと何年かかるのかは、誰にもわかりません。それでも、何が本当で何がまだなのかを分けて見ておけば、次のニュースは少し読みやすくなるはずです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">本稿は執筆時点（2026年9月）の情報です。この分野は動きが速く、内容は変わっていきます。下記の出典元で最新の情報をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>内閣官房 国家サイバー統括室「政府機関等における耐量子計算機暗号（PQC）への移行について（中間とりまとめ）」2025年11月20日<br><a href="https://www.cas.go.jp/jp/seisaku/pqc/pdf/report_202511.pdf">https://www.cas.go.jp/jp/seisaku/pqc/pdf/report_202511.pdf</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>金融庁「量子コンピュータに関するG7サイバー・エキスパート・グループのステートメント」2024年9月26日<br><a href="https://www.fsa.go.jp/inter/etc/20240926/quantum_letter.html">https://www.fsa.go.jp/inter/etc/20240926/quantum_letter.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日本銀行（同ステートメント）<br><a href="https://www.boj.or.jp/intl_finance/meeting/group/gro240926a.htm">https://www.boj.or.jp/intl_finance/meeting/group/gro240926a.htm</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>CRYPTREC「暗号技術ガイドライン（耐量子計算機暗号）2024年度版」<br><a href="https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf">https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>NIST「NIST Releases First 3 Finalized Post-Quantum Encryption Standards」2024年8月<br><a href="https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved">https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>内閣府「ムーンショット目標6」（2050年の目標）<br><a href="https://www8.cao.go.jp/cstp/moonshot/sub6.html">https://www8.cao.go.jp/cstp/moonshot/sub6.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>理化学研究所「量子コンピュータ『叡-Ⅱ』の運用開始」2026年3月26日<br><a href="https://www.riken.jp/pr/news/2026/20260326_1/index.html">https://www.riken.jp/pr/news/2026/20260326_1/index.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>大阪大学 量子情報・量子生命研究センター（同上）<br><a href="https://qiqb.osaka-u.ac.jp/newstopics/pr20260326">https://qiqb.osaka-u.ac.jp/newstopics/pr20260326</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>理化学研究所「世界最大級の256量子ビットの超伝導量子コンピュータを開発」2025年4月22日<br><a href="https://www.riken.jp/pr/news/2025/20250422_1/index.html">https://www.riken.jp/pr/news/2025/20250422_1/index.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Google「Google Quantum AI to include neutral atom computing」（中性原子方式への拡大）<br><a href="https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/">https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>IBM「On quantum supremacy」（2019年のGoogleの発表への反論）<br><a href="https://www.ibm.com/quantum/blog/on-quantum-supremacy">https://www.ibm.com/quantum/blog/on-quantum-supremacy</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Science「Ordinary computers can beat Google's quantum computer after all」<br><a href="https://www.science.org/content/article/ordinary-computers-can-beat-google-s-quantum-computer-after-all">https://www.science.org/content/article/ordinary-computers-can-beat-google-s-quantum-computer-after-all</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Science「Debate erupts around Microsoft's blockbuster quantum computing claims」<br><a href="https://www.science.org/content/article/debate-erupts-around-microsoft-s-blockbuster-quantum-computing-claims">https://www.science.org/content/article/debate-erupts-around-microsoft-s-blockbuster-quantum-computing-claims</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Physics World「Experts weigh in on Microsoft's topological qubit claim」<br><a href="https://physicsworld.com/a/experts-weigh-in-on-microsofts-topological-qubit-claim/">https://physicsworld.com/a/experts-weigh-in-on-microsofts-topological-qubit-claim/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Gidney &amp; Ekerå「How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits」Quantum 5, 433 (2021)<br><a href="https://quantum-journal.org/papers/q-2021-04-15-433/">https://quantum-journal.org/papers/q-2021-04-15-433/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Gidney「How to factor 2048 bit RSA integers with less than a million noisy qubits」(2025)<br><a href="https://arxiv.org/abs/2505.15917">https://arxiv.org/abs/2505.15917</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>「The State of Factoring on Quantum Computers」（実機で分解できた数についての調査）<br><a href="https://arxiv.org/html/2410.14397v1">https://arxiv.org/html/2410.14397v1</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Lee ほか「Evaluating the evidence for exponential quantum advantage in ground-state quantum chemistry」Nature Communications 14, 1952 (2023)<br><a href="https://www.nature.com/articles/s41467-023-37587-6">https://www.nature.com/articles/s41467-023-37587-6</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Reiher ほか「Elucidating reaction mechanisms on quantum computers」PNAS 114(29), 7555-7560 (2017)（ニトロゲナーゼの解明への応用）<br><a href="https://www.pnas.org/doi/10.1073/pnas.1619152114">https://www.pnas.org/doi/10.1073/pnas.1619152114</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>R.P.Feynman「Simulating Physics with Computers」（1981年の講演。量子コンピュータの着想）<br><a href="https://www.wisdom.weizmann.ac.il/~naor/COURSE/feynman-simulating.pdf">https://www.wisdom.weizmann.ac.il/~naor/COURSE/feynman-simulating.pdf</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日経クロステック「最初に量子コンピューターを本格応用するのは『あの業界』、世界の専門家が予測」<br><a href="https://xtech.nikkei.com/atcl/nxt/column/18/01138/121500003/">https://xtech.nikkei.com/atcl/nxt/column/18/01138/121500003/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>科学技術振興機構「画期的なアンモニア合成法」（ハーバー・ボッシュ法とニトロゲナーゼ）<br><a href="https://www.jst.go.jp/seika/bt2020-04.html">https://www.jst.go.jp/seika/bt2020-04.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Bowles ほか「Better than classical? The subtle art of benchmarking quantum machine learning models」<br><a href="https://arxiv.org/abs/2403.07059">https://arxiv.org/abs/2403.07059</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Babbush ほか「Focus beyond Quadratic Speedups for Error-Corrected Quantum Advantage」PRX Quantum 2, 010103 (2021)<br><a href="https://arxiv.org/abs/2011.04149">https://arxiv.org/abs/2011.04149</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>CNBC「Quantum stocks plunge after Nvidia's Huang says the computers are 15 to 30 years away」2025年1月8日<br><a href="https://www.cnbc.com/2025/01/08/quantum-stocks-like-rigetti-plunge-after-nvidias-huang-says-the-computers-are-15-to-30-years-away.html">https://www.cnbc.com/2025/01/08/quantum-stocks-like-rigetti-plunge-after-nvidias-huang-says-the-computers-are-15-to-30-years-away.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>CNBC「Nvidia CEO Huang says was wrong about timeline for quantum computing」2025年3月20日<br><a href="https://www.cnbc.com/2025/03/20/nvidia-ceo-huang-says-was-wrong-about-timeline-for-quantum-computing.html">https://www.cnbc.com/2025/03/20/nvidia-ceo-huang-says-was-wrong-about-timeline-for-quantum-computing.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>IEEE Spectrum「The Case Against Quantum Computing」（実現への反対論）<br><a href="https://spectrum.ieee.org/the-case-against-quantum-computing">https://spectrum.ieee.org/the-case-against-quantum-computing</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>消費者庁「消費者ホットライン」<br><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/">https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- ISNZ-REL -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">このシリーズの記事</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/quantum-computer-01-mechanism/">量子コンピュータとは何か【前編】仕組みと原理を。</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">あわせて読みたい</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><a href="https://www.ishinazaka.co.jp/claude-code-05-safety/">Claude Code 注意点【最終回】安全に使うためのポイント</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- ISNZ-CTA -->
+<!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"className":"isnz-cta-heading"} -->
+<h2 class="wp-block-heading isnz-cta-heading">株式会社石名坂について</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>盛岡市で土木工事と砕石・砂利の販売を行っています。地域の暮らしを支える仕事に取り組んでいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/about/">会社概要</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>👉<a href="https://www.ishinazaka.co.jp/saiseki-hanbai/">砕石・砂利の販売と配達</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>お電話：<a href="tel:0196387521">019-638-7521</a>（平日8:00〜17:00）／ <a href="https://www.ishinazaka.co.jp/contact/">お問い合わせフォームはこちら</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"isStackedOnMobile":false} -->
+<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"lightbox":{"enabled":false},"id":1730,"width":"100px","sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full is-resized"><a href="https://www.ishinazaka.co.jp/quantum-computer-01-mechanism/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png" alt="前の記事へ" class="wp-image-1730" style="width:100px;height:auto"/></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:image {"lightbox":{"enabled":false},"id":1361,"sizeSlug":"full","linkDestination":"custom"} -->
+<figure class="wp-block-image size-full"><a href="https://www.ishinazaka.co.jp/category/information/"><img src="https://www.ishinazaka.co.jp/common/files/uploads/2026/04/%E6%88%BB%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B32-e1776823039293.png" alt="お知らせ一覧へ" class="wp-image-1361"/></a></figure>
+<!-- /wp:image -->

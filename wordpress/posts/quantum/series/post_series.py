@@ -119,13 +119,8 @@ def image_block(media, shot):
             % (media['id'], shot['url'], shot['alt'], media['id'], shot['caption']))
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--dry-run', action='store_true')
-    args = ap.parse_args()
-
-    import set_media_meta as smm
-    auth = smm.auth_header()
+def gather(smm, auth):
+    """写真の情報を集める。"""
     shots = {s['n']: s for s in smm.load_shots()}
     media = {}
     for n in range(1, 9):
@@ -133,23 +128,37 @@ def main():
         if not md:
             sys.exit(u'× %d番の画像がサイトに見つかりません' % n)
         media[n] = md
+    return shots, media
+
+
+def build_full(k, shots, media):
+    """第k+1回の本文を、末尾まで組み立てて返す。"""
+    spec = plan.PARTS[k]
+    body = io.open(os.path.join(HERE, 'part-%d.html' % spec['n']), encoding='utf-8').read()
+    for mark in re.findall(r'<!-- ISNZ-PHOTO-(\d+) -->', body):
+        n = int(mark)
+        tag = u'<!-- ISNZ-PHOTO-%d -->' % n
+        if body.count(tag) != 1:
+            sys.exit(u'× 第%d回：%d番の差し込み先が %d件' % (spec['n'], n, body.count(tag)))
+        body = body.replace(tag, image_block(media[n], shots[n]))
+    prev_url = FIRST_PREV if k == 0 else '/%s/' % plan.PARTS[k-1]['slug']
+    next_url = None if k == len(plan.PARTS)-1 else '/%s/' % plan.PARTS[k+1]['slug']
+    full = u'\n\n'.join([body.rstrip(), u'<!-- ISNZ-REL -->',
+                         series_list(spec['n']), AWASETE, cta(), nav(prev_url, next_url)])
+    return full, prev_url, next_url
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--dry-run', action='store_true')
+    args = ap.parse_args()
+
+    import set_media_meta as smm
+    auth = smm.auth_header()
+    shots, media = gather(smm, auth)
 
     for k, spec in enumerate(plan.PARTS):
-        body = io.open(os.path.join(HERE, 'part-%d.html' % spec['n']), encoding='utf-8').read()
-
-        # 写真の目印を、本物の画像ブロックに替える
-        for mark in re.findall(r'<!-- ISNZ-PHOTO-(\d+) -->', body):
-            n = int(mark)
-            tag = u'<!-- ISNZ-PHOTO-%d -->' % n
-            if body.count(tag) != 1:
-                sys.exit(u'× 第%d回：%d番の差し込み先が %d件' % (spec['n'], n, body.count(tag)))
-            body = body.replace(tag, image_block(media[n], shots[n]))
-
-        prev_url = FIRST_PREV if k == 0 else '/%s/' % plan.PARTS[k-1]['slug']
-        next_url = None if k == len(plan.PARTS)-1 else '/%s/' % plan.PARTS[k+1]['slug']
-
-        full = u'\n\n'.join([body.rstrip(), u'<!-- ISNZ-REL -->',
-                             series_list(spec['n']), AWASETE, cta(), nav(prev_url, next_url)])
+        full, prev_url, next_url = build_full(k, shots, media)
 
         txt = re.sub(r'\s+', '', re.sub(r'<[^>]+>', '',
                      re.sub(r'<svg.*?</svg>|<!--.*?-->', '', full, flags=re.S)))

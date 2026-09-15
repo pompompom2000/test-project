@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """全6回のSEO設定（All in One SEO）を書き込む。
 
+plan.py の slug で引いた6本だけが対象。ほかの記事には触れない。
+
 公開済みの記事は、狙う言葉を必ず1つ決め、説明文を手書きしている。
 下書きは初期値のままなので、plan.py の keyword と desc を入れる。
 
@@ -54,8 +56,10 @@ def main():
             sys.exit(u'× 第%d回の記事がありません' % spec['n'])
         p = got[0]
         print(u'\n=== 第%d回 ID%d（%s）===' % (spec['n'], p['id'], p['status']))
-        if p['status'] != 'draft':
-            print(u'  ! 下書きではありません。触りません。')
+        # 連載は公開済みになったので、公開記事にも書き込む。
+        # ただし、この連載の6本以外には決して触らない（slug で引いている）。
+        if p['status'] not in ('draft', 'publish'):
+            print(u'  ! 下書きでも公開でもありません（%s）。触りません。' % p['status'])
             continue
         cur = call('%s/post?postId=%d' % (AIO, p['id']), h)['data']['currentPost']
         print(u'  いま: 説明文「%s」／狙う言葉「%s」'
