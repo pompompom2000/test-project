@@ -1,0 +1,326 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">前回までのおさらいです。<strong>量子ビットは、答えの候補ごとに「矢印」を持っています。</strong>長さだけでなく向きがあり、向きの合わない矢印どうしは打ち消し合って消えます。量子コンピュータの計算とは、はずれの矢印を消して、正解の矢印だけを揃えることです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">第2回は、<strong>量子コンピュータはなぜ速いのか</strong>——その矢印から、どうやって答えが出るのかをご紹介します。そして、なぜ普通のコンピュータでは追いつけないのかも。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「量子コンピュータはすべての答えを同時に試すから速い」という説明をよく見かけます。<strong>これは正しくありません。</strong>何が起きているのかを、そのままご説明します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">では、どうやって答えが出るのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">たくさんの矢印を抱えていても、それだけでは何の役にも立ちません。<strong>測ってみると、出てくる答えはたったひとつ</strong>で、しかもそのままではでたらめだからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここで矢印が効いてきます。<strong>矢印は、足し算ができます。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">矢印の足し算は、測量で使う方位と距離の足し算と同じです。北へ10m、東へ10m、南へ10m、西へ10m。順につないでいくと、元の場所に戻ってきます。<strong>合計はゼロです。</strong>一本ずつは長さを持っているのに、向きがばらばらだと、全部足すと消えてしまう。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">逆に、全部が同じ向きに揃っていたら。北へ10mを4回。<strong>合計は北へ40mです。</strong>ばらばらのときとは、天と地ほど違います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>量子コンピュータがやっているのは、これです。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 400" role="img" aria-label="はずれの答えは矢印がばらばらな向きにつながり、八角形になって元の位置に戻るため合計がゼロになる。正しい答えは矢印が同じ向きに揃ってつながり、合計が長くなる。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+  <defs>
+    <marker id="qc-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+    </marker>
+    <marker id="qc-ah-hi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon>
+    </marker>
+  </defs>
+
+  <text x="185" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">はずれの答え</text>
+  <text x="185" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きがばらばら</text>
+
+  <text x="515" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">正しい答え</text>
+  <text x="515" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きが揃う</text>
+
+  <line x1="350" y1="80" x2="350" y2="330" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="168" y1="191" x2="202" y2="191"></line>
+    <line x1="202" y1="191" x2="226" y2="167"></line>
+    <line x1="226" y1="167" x2="226" y2="133"></line>
+    <line x1="226" y1="133" x2="202" y2="109"></line>
+    <line x1="202" y1="109" x2="168" y2="109"></line>
+    <line x1="168" y1="109" x2="144" y2="133"></line>
+    <line x1="144" y1="133" x2="144" y2="167"></line>
+    <line x1="144" y1="167" x2="168" y2="191"></line>
+  </g>
+  <circle cx="168" cy="191" r="4" fill="#C1803A"></circle>
+  <text x="185" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと元の場所に戻る</text>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="411" y1="150" x2="437" y2="150"></line>
+    <line x1="437" y1="150" x2="463" y2="150"></line>
+    <line x1="463" y1="150" x2="489" y2="150"></line>
+    <line x1="489" y1="150" x2="515" y2="150"></line>
+    <line x1="515" y1="150" x2="541" y2="150"></line>
+    <line x1="541" y1="150" x2="567" y2="150"></line>
+    <line x1="567" y1="150" x2="593" y2="150"></line>
+    <line x1="593" y1="150" x2="619" y2="150"></line>
+  </g>
+  <text x="515" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと、どんどん伸びる</text>
+
+  <text x="185" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <circle cx="140" cy="298" r="5" fill="#C1803A"></circle>
+  <text x="158" y="303" text-anchor="start" font-size="15" font-weight="bold" fill="#C1803A">ほぼ ゼロ</text>
+
+  <text x="515" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <line x1="411" y1="298" x2="619" y2="298" stroke="#C1803A" stroke-width="4" marker-end="url(#qc-ah-hi)"></line>
+  <text x="515" y="330" text-anchor="middle" font-size="15" font-weight="bold" fill="#C1803A">大きい</text>
+
+  <text x="350" y="372" text-anchor="middle" font-size="13" fill="currentColor">この形になるように回路を組むのが、量子コンピュータの設計です</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">矢印の足し算。向きがばらばらだと合計が消え、向きが揃うと合計が大きくなる。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータの計算とは、<strong>はずれの答えについている矢印の向きがばらばらになって打ち消し合い、正しい答えについている矢印だけが同じ向きに揃うように、回路を組むこと</strong>です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そうしておいてから測ると、<strong>はずれはほとんど出てこず、正しい答えが高い確率で出てきます。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ですから量子コンピュータは、「<strong>全部試す機械</strong>」ではありません。「<strong>間違いを消す機械</strong>」です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">なぜ、普通のコンピュータでは追いつけないのか</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここまで読むと、当然の疑問が出てきます。「矢印を足すだけなら、普通のコンピュータでもできるのでは？」</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>そのとおりです。できます。</strong>ただし、<strong>矢印を一本ずつ、順番に計算しなければなりません。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここに、両者の違いのすべてがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>普通のコンピュータ</strong>：矢印を全部メモリに並べて、一本ずつ向きを計算する。本数が倍になれば、手間も倍になる。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>量子コンピュータ</strong>：矢印を「並べて持っている」のではありません。物理現象そのものが矢印を担っていて、<strong>装置に一回操作をかけると、何本あろうと全部の矢印がいっせいに向きを変えます。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">実際にどれくらい違うのか。2026年に、ドイツの研究所がスーパーコンピュータを使って、<strong>50量子ビットの状態を普通のコンピュータで再現する</strong>ことに成功しました。そのとき必要だったメモリは、<strong>1ペタバイト（100万ギガバイト）を超えています。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして<strong>51量子ビットなら、約4ペタバイト。</strong>たった1個増えるだけで、必要なメモリが跳ね上がります。60個、70個と増やしていけば、どんなスーパーコンピュータでも手が出せなくなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">一方、量子コンピュータにとって50量子ビットは<strong>50個の部品</strong>です。1,126兆本の矢印を「覚えておく」必要がありません。物理が勝手に持っていてくれるからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 400" role="img" aria-label="50量子ビットを扱うとき、普通のコンピュータは約1126兆本の矢印を一本ずつ記憶する必要があり1ペタバイトを超えるメモリを要するが、量子コンピュータにとっては部品が50個あるだけである、という比較。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+  <defs><pattern id="qc-dots" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r="1.5" fill="currentColor" opacity="0.6"></circle></pattern></defs>
+  <text x="350" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">どちらも「50量子ビット」を扱う</text>
+  <line x1="350" y1="52" x2="350" y2="352" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+  <text x="180" y="78" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">普通のコンピュータ</text>
+  <rect x="42" y="98" width="276" height="176" fill="url(#qc-dots)" stroke="currentColor" stroke-width="1.5" opacity="0.9"></rect>
+  <text x="180" y="300" text-anchor="middle" font-size="14" fill="currentColor">この点が 約1,126兆個</text>
+  <text x="180" y="324" text-anchor="middle" font-size="14" fill="currentColor">一本ずつ、記憶しておく</text>
+  <text x="180" y="356" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">メモリ 1ペタバイト超</text>
+  <text x="520" y="78" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">量子コンピュータ</text>
+  <circle cx="403" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="429" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="455" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="481" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="507" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="533" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="559" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="585" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="611" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="637" cy="118" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="403" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="429" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="455" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="481" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="507" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="533" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="559" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="585" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="611" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="637" cy="144" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="403" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="429" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="455" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="481" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="507" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="533" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="559" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="585" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="611" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="637" cy="170" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="403" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="429" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="455" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="481" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="507" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="533" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="559" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="585" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="611" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="637" cy="196" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="403" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="429" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="455" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="481" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="507" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="533" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="559" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="585" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="611" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <circle cx="637" cy="222" r="6" fill="none" stroke="#C1803A" stroke-width="2"></circle>
+  <text x="520" y="300" text-anchor="middle" font-size="14" fill="currentColor">部品が 50個 あるだけ</text>
+  <text x="520" y="324" text-anchor="middle" font-size="14" fill="currentColor">矢印は物理が持っている</text>
+  <text x="520" y="356" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">記憶しなくてよい</text>
+  <text x="350" y="390" text-anchor="middle" font-size="13" fill="currentColor">1量子ビット増えるごとに、左の点の数は倍になります</text>
+  </svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">速さではなく、扱える量の桁が違います。ここが量子コンピュータの強みです。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size"><strong>これが、量子コンピュータが普通のコンピュータより優れている点の、すべてです。</strong>計算が一つひとつ速いわけではありません。むしろ、一回の操作にかかる時間は普通のコンピュータより遅いくらいです。<strong>扱える量の桁が違う</strong>、ということなのです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">ただし、都合よく打ち消し合ってはくれません</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここまでが「すごい」側の話です。そしてここからが、この記事でいちばん正直に書きたいところです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">先ほどの図のように、はずれの矢印をきれいに打ち消し、正解の矢印だけを揃える。<strong>そんな都合のいい回路は、どんな問題に対しても組めるわけではありません。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">組めるのは、<strong>問題の中に「隠れた繰り返し」があるとき</strong>です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ブランコを思い浮かべてください。<strong>ちょうどよい間隔で押してやると、どんどん高くなります。</strong>ところが、でたらめな調子で押すと、かえって止まってしまう。押した力どうしが、打ち消し合うからです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">矢印の足し算も、これと同じです。<strong>隠れた繰り返しの周期——くり返しの間隔のことです——にぴったり合ったときだけ、矢印が揃って合計が大きくなります。</strong>ずれていれば、矢印はばらけて消えます。量子コンピュータは、この「ぴったり合う間隔」を探し当てるのが、飛び抜けて得意なのです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">では、暗号を破るとよく言われる「ショアのアルゴリズム」は何をしているのか。<strong>大きな数を素因数分解するという問題を、「隠れた繰り返しの周期を見つける問題」に書き換えているのです。</strong>書き換えてしまえば、あとは量子コンピュータのいちばん得意な形になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">逆に言えば、<strong>繰り返しのない問題には、この手が使えません。</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">たとえば、何の手がかりもない候補の山から正解をひとつ探す。名簿をひたすらめくるような作業です。ここには繰り返しがないので、きれいな打ち消し合いが作れません。速くはなりますが、<strong>手間が「平方根になる」程度</strong>にとどまります。100万件が1,000件になる。ありがたい話ではありますが、桁違いではありません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ブランコのたとえも、ここで壊れます。ブランコは一つの調子にしか合いませんが、量子コンピュータは<strong>候補になる間隔を一度にまとめて調べています。</strong>そこはブランコより、はるかに贅沢な仕掛けです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">まとめると、こうなります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>すごいところ</strong>：普通のコンピュータなら天文学的な本数の矢印を並べないと追えない計算を、部品の数だけで扱える。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>すごくないところ</strong>：その力が使えるのは、<strong>問題の中に隠れた繰り返しがあって、打ち消し合いを設計できるとき</strong>だけ。</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">見積書の計算にも、日報の集計にも、隠れた繰り返しはありません。<strong>だから速くならないのです。</strong>「量子コンピュータは何でも速い万能機ではない」とよく言われますが、その理由は、ここにあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">量子コンピュータはなぜ速いのか、まとめ（第2回）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li>計算とは、はずれの矢印を打ち消し合わせて消し、正解の矢印だけを揃えること。だから「全部試す機械」ではなく<strong>「間違いを消す機械」</strong>です。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>普通のコンピュータも同じ計算はできますが、矢印を一本ずつ数えなければなりません。50量子ビットの再現に1ペタバイト超、51個で約4ペタバイト。ここで差がつきます。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>ただし打ち消し合いを設計できるのは、問題に隠れた繰り返しがあるときだけ。<strong>見積書も日報も速くなりません。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">次回は、<strong>もうひとつの得意技</strong>と、この分野でよくある誤解を三つご紹介します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">本稿は執筆時点（2026年9月）の情報です。この分野は動きが速く、内容は変わっていきます。下記の出典元で最新の情報をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li>ユーリヒ研究所ほか「Universal quantum computer simulation of 50 qubits on Europe's first exascale supercomputer」（50量子ビットの再現に要したメモリ）<br><a href="https://arxiv.org/pdf/2511.03359">https://arxiv.org/pdf/2511.03359</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>IBM Quantum「Searching for quantum advantage in mathematical optimization」（「あらゆる解を並列に探索する」は誤解であるとの記述）<br><a href="https://www.ibm.com/quantum/blog/optimization-white-paper">https://www.ibm.com/quantum/blog/optimization-white-paper</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Scott Aaronson「Shtetl-Optimized」<br><a href="https://scottaaronson.blog/">https://scottaaronson.blog/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>QuEra「Quantum Interference」「Grover's Algorithm」「Dilution Refrigerator」（干渉、探索、冷凍機）<br><a href="https://www.quera.com/glossary/quantum-interference">https://www.quera.com/glossary/quantum-interference</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->

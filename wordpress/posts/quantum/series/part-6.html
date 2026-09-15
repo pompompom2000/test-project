@@ -1,0 +1,271 @@
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最終回は<strong>暗号</strong>の話です。その前に、前回までのおさらいです。<strong>量子ビットは、答えの候補ごとに「矢印」を持っています。</strong>長さだけでなく向きがあり、向きの合わない矢印どうしは打ち消し合って消えます。量子コンピュータの計算とは、はずれの矢印を消して、正解の矢印だけを揃えることです。そして、<strong>この打ち消し合いが設計できるのは、問題の中に隠れた繰り返しがあるときだけ</strong>でした。暗号は、その繰り返しがある問題です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">全6回の最終回は、<strong>私たちの暮らしにいちばん近い話</strong>です。国は2035年を目処に、暗号の切り替えを進めています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">機械はまだ無いのに、なぜいま切り替えるのか。そして<strong>私たちは何をすればよいのか</strong>をご紹介して、この連載を終わります。盛岡で砕石と土木工事をしている当社も、取引先の銀行も、同じ切り替えの中にいます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">暗号の話を、もう少し</h3>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 400" role="img" aria-label="はずれの答えは矢印がばらばらな向きにつながり、八角形になって元の位置に戻るため合計がゼロになる。正しい答えは矢印が同じ向きに揃ってつながり、合計が長くなる。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+  <defs>
+    <marker id="qc-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+    </marker>
+    <marker id="qc-ah-hi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon>
+    </marker>
+  </defs>
+
+  <text x="185" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">はずれの答え</text>
+  <text x="185" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きがばらばら</text>
+
+  <text x="515" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">正しい答え</text>
+  <text x="515" y="56" text-anchor="middle" font-size="13" fill="currentColor">矢印の向きが揃う</text>
+
+  <line x1="350" y1="80" x2="350" y2="330" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="168" y1="191" x2="202" y2="191"></line>
+    <line x1="202" y1="191" x2="226" y2="167"></line>
+    <line x1="226" y1="167" x2="226" y2="133"></line>
+    <line x1="226" y1="133" x2="202" y2="109"></line>
+    <line x1="202" y1="109" x2="168" y2="109"></line>
+    <line x1="168" y1="109" x2="144" y2="133"></line>
+    <line x1="144" y1="133" x2="144" y2="167"></line>
+    <line x1="144" y1="167" x2="168" y2="191"></line>
+  </g>
+  <circle cx="168" cy="191" r="4" fill="#C1803A"></circle>
+  <text x="185" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと元の場所に戻る</text>
+
+  <g stroke="currentColor" stroke-width="2.5" fill="none" marker-end="url(#qc-ah)">
+    <line x1="411" y1="150" x2="437" y2="150"></line>
+    <line x1="437" y1="150" x2="463" y2="150"></line>
+    <line x1="463" y1="150" x2="489" y2="150"></line>
+    <line x1="489" y1="150" x2="515" y2="150"></line>
+    <line x1="515" y1="150" x2="541" y2="150"></line>
+    <line x1="541" y1="150" x2="567" y2="150"></line>
+    <line x1="567" y1="150" x2="593" y2="150"></line>
+    <line x1="593" y1="150" x2="619" y2="150"></line>
+  </g>
+  <text x="515" y="228" text-anchor="middle" font-size="13" fill="currentColor">つないでいくと、どんどん伸びる</text>
+
+  <text x="185" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <circle cx="140" cy="298" r="5" fill="#C1803A"></circle>
+  <text x="158" y="303" text-anchor="start" font-size="15" font-weight="bold" fill="#C1803A">ほぼ ゼロ</text>
+
+  <text x="515" y="272" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">合計</text>
+  <line x1="411" y1="298" x2="619" y2="298" stroke="#C1803A" stroke-width="4" marker-end="url(#qc-ah-hi)"></line>
+  <text x="515" y="330" text-anchor="middle" font-size="15" font-weight="bold" fill="#C1803A">大きい</text>
+
+  <text x="350" y="372" text-anchor="middle" font-size="13" fill="currentColor">この形になるように回路を組むのが、量子コンピュータの設計です</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">矢印の足し算。向きがばらばらだと合計が消え、向きが揃うと合計が大きくなる。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">壊す側の話に戻ります。1994年に発表された「ショアのアルゴリズム」という手順を使うと、大きな数を素因数分解する計算が、普通のコンピュータとは桁違いに速くなります。</p>
+
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">第2回でご説明したとおり、この手順の正体は<strong>「素因数分解を、隠れた繰り返しの周期を見つける問題に書き換えること」</strong>です。書き換えてしまえば、あとは矢印がきれいに揃う、量子コンピュータのいちばん得意な形になります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">これは大ごとです。インターネットで使われているRSAという暗号は、「大きな数を素因数分解するのは、事実上不可能なほど時間がかかる」ことを安全の根拠にしているからです。その根拠が崩れます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ただし、これは<strong>理論上の話</strong>です。実際の量子コンピュータでこの手順を使って因数分解できた最大の数は、<strong>15と21</strong>だと2024年の学術的な調査は報告しています。しかもそれは、答えを知ったうえで回路を簡略化したものだという批判もあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">では、本当にRSAを破るには何が必要か。研究者の見積もりでは、<strong>2019年の時点で2,000万個の量子ビットで8時間。2025年には100万個未満で1週間未満</strong>にまで下がってきています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">6年で20分の1。<strong>ゴールポストは動き続けています。</strong>それでも、いま動いている機械は百個台から数百個台です。差はまだ桁違いにあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">私たちの暮らしに、いちばん近い話</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここからが、この記事でいちばんお伝えしたいところです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">量子コンピュータが暗号を破れるのは、早くても十年以上先と見られています。<strong>それなのに、国はもう動き始めています。</strong>なぜでしょうか。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「<strong>いま盗んで、あとで読む</strong>」という考え方があるからです。暗号化された通信を今のうちに記録して保存しておき、将来、解読できる機械ができた時点でさかのぼって読む。この手口は、G7の金融当局の文書でも取り上げられており、日本では金融庁と日本銀行が2024年9月26日に同じ文書を公表しています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">そして2025年11月20日、内閣官房の国家サイバー統括室が、政府機関などの暗号を新しい方式（<strong>耐量子計算機暗号</strong>）へ切り替える方針をまとめました。<strong>目処は、原則2035年。</strong>2026年度中に工程表を作るとされています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 300" role="img" aria-label="暗号化された通信をいまのうちに記録して保存し、解読できる機械ができた時点でさかのぼって読む、という考え方。だから機械がまだなくても、暗号の切り替えがすでに始まっている。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="hn-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon></marker></defs>
+<text x="350" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">「いま盗んで、あとで読む」</text>
+<circle cx="140" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="140" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">1</text>
+<text x="140" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">いま</text>
+<text x="140" y="190" text-anchor="middle" font-size="13" fill="currentColor">鍵のかかった通信を、</text>
+<text x="140" y="210" text-anchor="middle" font-size="13" fill="currentColor">そのまま記録して保存する</text>
+<line x1="184" y1="104" x2="306" y2="104" stroke="#C1803A" stroke-width="2.5" marker-end="url(#hn-ah)"></line>
+<circle cx="350" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="350" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">2</text>
+<text x="350" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">何年も</text>
+<text x="350" y="190" text-anchor="middle" font-size="13" fill="currentColor">解ける機械ができるまで、</text>
+<text x="350" y="210" text-anchor="middle" font-size="13" fill="currentColor">寝かせておく</text>
+<line x1="394" y1="104" x2="516" y2="104" stroke="#C1803A" stroke-width="2.5" marker-end="url(#hn-ah)"></line>
+<circle cx="560" cy="104" r="34" fill="none" stroke="#C1803A" stroke-width="2.5"></circle>
+<text x="560" y="112" text-anchor="middle" font-size="24" font-weight="bold" fill="#C1803A">3</text>
+<text x="560" y="166" text-anchor="middle" font-size="14" font-weight="bold" fill="#C1803A">そのあと</text>
+<text x="560" y="190" text-anchor="middle" font-size="13" fill="currentColor">さかのぼって、</text>
+<text x="560" y="210" text-anchor="middle" font-size="13" fill="currentColor">中身を読む</text>
+<line x1="60" y1="244" x2="640" y2="244" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+<text x="350" y="272" text-anchor="middle" font-size="15" fill="currentColor">だから、機械がまだなくても<tspan font-weight="bold">いま切り替えが始まっています</tspan>（目処 2035年）</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">解ける機械ができるのを待って、あとから読む。この手口があるので、国はもう動き始めています。</figcaption>
+</figure>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">ここで、<strong>読者の方に安心していただきたいこと</strong>を書きます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
+<li><strong>個人が、自分で何か暗号を入れ替える必要はありません。</strong>切り替えは、パソコンやスマートフォンの基本ソフト、ブラウザ、通信事業者、サービス提供者の側で行われるものです。今回調べた範囲で、国が一般の方に「各自で対応してください」と求めている発表は、ひとつも見つかりませんでした。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>いまの銀行口座や電子マネーが、明日破られるという話ではありません。</strong>G7の文書も、金融機関に「動きを見守り、検討を始めること」を求める段階のものです。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>暗号がすべて破られるわけでもありません。</strong>作り直しが必要なのは、インターネットの通信などに使う<strong>「公開鍵暗号」</strong>——鍵を二つに分け、片方を誰にでも見える形で配る方式——のほうです。もうひとつの<strong>「共通鍵暗号」</strong>——送る側と受け取る側が同じ鍵を使う方式——は、鍵を長くすれば当面は大丈夫とされています。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><strong>「量子コンピュータ対応」をうたう個人向けの有料の製品やサービスを、いま急いで買う必要はありません。</strong></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">したほうがよいことは、ひとつだけです。<strong>基本ソフトとブラウザ、アプリを最新に保つこと。</strong>新しい暗号は、まさにその更新を通じて配られてきています。量子のためだけでなく、普段のセキュリティ対策としても正しいことです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">「量子」と名のついた話に、ひとつだけ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">最後に、正直に書いておきたいことがあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">「量子」という言葉は、いま商品名にもよく使われています。健康にまつわるもの、投資にまつわるもの、いろいろあります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">今回、消費者庁・国民生活センター・厚生労働省・金融庁・公正取引委員会の発表を調べました。<strong>「量子」と名のついた商品を名指しして処分や注意喚起をした発表は、ひとつも見つかりませんでした。</strong>ですので、この記事では特定の商品や会社について、何も申し上げません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">同時に、<strong>「量子とつく商品はすべて怪しい」というのも誤りです。</strong>量子の技術には、医療機器や計測の分野で本物の研究と製品があります。ひとくくりにはできません。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">申し上げられるのは、これだけです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">この記事をここまでお読みいただいたなら、量子コンピュータが<strong>いまどの段階にあるか</strong>は、おわかりいただけたと思います。実機で因数分解できた最大の数は15と21。方式すら決まっていない。専門家の予測は2か月で覆る。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">その段階の技術を根拠に、<strong>「すぐに効果が出る」「確実にもうかる」</strong>という説明がされていたら、そこは立ち止まってよいところだと思います。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">判断がつかないときは、<strong>お金を動かす前に、消費者ホットライン「188」</strong>にご相談ください。局番なしの3桁で、お近くの消費生活センターにつながります。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">量子コンピュータと暗号、まとめ（第6回）</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li>暗号の解読は理論上はっきり効きます。ただし実機で因数分解できた最大の数は15と21です。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>暗号の切り替えは2035年が目処。<strong>ただし個人が自分で何かする必要はありません。</strong>基本ソフトとアプリを最新に保つ。それだけです。</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>「量子」と名のついた金融商品や健康グッズは、ここまでご紹介してきた量子コンピュータとは関係がありません。おかしいと思ったら、消費者ホットライン188へ。</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">1984年の実験から40年かけて、ここまで来ました。あと何年かかるのかは、誰にもわかりません。それでも、何が本当で何がまだなのかを分けて見ておけば、次のニュースは少し読みやすくなるはずです。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">本稿は執筆時点（2026年9月）の情報です。この分野は動きが速く、内容は変わっていきます。下記の出典元で最新の情報をご確認ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"medium"} -->
+<h3 class="wp-block-heading has-medium-font-size">参考・出典</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list {"fontSize":"medium"} -->
+<ul class="wp-block-list has-medium-font-size">
+<!-- wp:list-item -->
+<li>内閣官房 国家サイバー統括室「政府機関等における耐量子計算機暗号（PQC）への移行について（中間とりまとめ）」2025年11月20日<br><a href="https://www.cas.go.jp/jp/seisaku/pqc/pdf/report_202511.pdf">https://www.cas.go.jp/jp/seisaku/pqc/pdf/report_202511.pdf</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>金融庁「量子コンピュータに関するG7サイバー・エキスパート・グループのステートメント」2024年9月26日<br><a href="https://www.fsa.go.jp/inter/etc/20240926/quantum_letter.html">https://www.fsa.go.jp/inter/etc/20240926/quantum_letter.html</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>日本銀行（同ステートメント）<br><a href="https://www.boj.or.jp/intl_finance/meeting/group/gro240926a.htm">https://www.boj.or.jp/intl_finance/meeting/group/gro240926a.htm</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>CRYPTREC「暗号技術ガイドライン（耐量子計算機暗号）2024年度版」<br><a href="https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf">https://www.cryptrec.go.jp/report/cryptrec-gl-2007-2024.pdf</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>NIST「NIST Releases First 3 Finalized Post-Quantum Encryption Standards」2024年8月<br><a href="https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved">https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Gidney &amp; Ekerå「How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits」Quantum 5, 433 (2021)<br><a href="https://quantum-journal.org/papers/q-2021-04-15-433/">https://quantum-journal.org/papers/q-2021-04-15-433/</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Gidney「How to factor 2048 bit RSA integers with less than a million noisy qubits」(2025)<br><a href="https://arxiv.org/abs/2505.15917">https://arxiv.org/abs/2505.15917</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>「The State of Factoring on Quantum Computers」（実機で分解できた数についての調査）<br><a href="https://arxiv.org/html/2410.14397v1">https://arxiv.org/html/2410.14397v1</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>消費者庁「消費者ホットライン」<br><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/">https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
