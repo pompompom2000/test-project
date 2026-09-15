@@ -152,11 +152,19 @@ def check(path):
              u'段落の %d%% にしか fontSize:medium がない（公開済み 63%%）' % r)
 
     # 書きぶり
+    # 地名と自社は、記事の種類で分かれる。
+    # 技術やしくみの解説そのものには入れない（Claude Code 連載 全5回とも無し）。
+    # 制度や業務の話には入れる（トラック連載 全4回とも有り）。
+    # 藤原様の指示：「今回みたいなケースは、盛岡も自社の話を無理に入れなくても良い」
     local = [w for w in (u'盛岡', u'岩手') if w in body]
-    test(bool(local), u'地名が入っている（%s）' % u'・'.join(local),
-         u'盛岡も岩手も出てこない（公開済み 84%／46%）')
-    test(any(w in body for w in (u'石名坂', u'当社', u'弊社', u'自社', u'私たち')),
-         u'自社に触れている', u'自社にまったく触れていない')
+    jisha = any(w in body for w in (u'石名坂', u'当社', u'弊社', u'自社', u'私たち'))
+    if any(w in body for w in TECH_WORDS):
+        ok.append(u'地名 %s／自社 %s（技術の解説なので、無くてよい）'
+                  % (u'あり' if local else u'なし', u'あり' if jisha else u'なし'))
+    else:
+        test(bool(local), u'地名が入っている（%s）' % u'・'.join(local),
+             u'盛岡も岩手も出てこない（制度・業務の記事なら入れる）')
+        test(jisha, u'自社に触れている', u'自社にまったく触れていない')
     for w in AVOID:
         if w in body:
             warn.append(u'「%s」を使っている。公開済みではほとんど使っていない' % w)
