@@ -7,37 +7,42 @@ import base64
 import html
 import io
 import os
-import re
 import urllib.request
+
+from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'gazou-seo.html')
 CACHE = os.path.join(HERE, '.thumb-cache')
 
 
-def thumb_data_uri(url):
-    """サイトが生成済みの768px版を取ってきて data URI にする。
+def thumb_data_uri(url, width=768):
+    """本体を取ってきて、こちらで縮めて data URI にする。
 
     確認用ページは外部の画像を読み込めないため、埋め込む必要がある。
-    取れなければ空を返し、プレビューなしで作る。
+    サイトが作る縮小版（-768x429 など）の名前は、絵の縦横比で変わる。
+    文字の帯を足してから比が変わり、決め打ちの名前では取れなくなったので、
+    本体を取って自分で縮める作りに変えた。これなら比が何であれ通る。
     """
     if not url:
         return u''
-    small = re.sub(r'\.jpg$', '-768x429.jpg', url)
     if not os.path.isdir(CACHE):
         os.makedirs(CACHE)
-    key = os.path.join(CACHE, os.path.basename(small))
-    if os.path.exists(key):
-        raw = open(key, 'rb').read()
-    else:
+    key = os.path.join(CACHE, '%d-%s' % (width, os.path.basename(url)))
+    if not os.path.exists(key):
         try:
-            with urllib.request.urlopen(small, timeout=30) as r:
+            with urllib.request.urlopen(url, timeout=60) as r:
                 raw = r.read()
         except Exception as e:
-            print('  ! 縮小版を取得できず（%s）: %s' % (e, small))
+            print('  ! 取得できず（%s）: %s' % (e, url))
             return u''
-        open(key, 'wb').write(raw)
+        im = Image.open(io.BytesIO(raw)).convert('RGB')
+        im = im.resize((width, max(1, int(round(width * im.size[1] / float(im.size[0]))))),
+                       Image.LANCZOS)
+        im.save(key, 'JPEG', quality=80, optimize=True)
+    raw = open(key, 'rb').read()
     return u'data:image/jpeg;base64,' + base64.b64encode(raw).decode('ascii')
+
 
 SHOTS = [
     dict(
