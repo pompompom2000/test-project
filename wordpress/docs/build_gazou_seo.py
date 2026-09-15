@@ -138,7 +138,9 @@ SHOTS = [
     ),
     dict(
         n=7, part=u'後編', where=u'6番のすぐ下。対にして使う',
-        title=u'マメ科の根粒', url=u'',
+        title=u'マメ科の根粒',
+        url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
+            u'Gemini_Generated_Image_ck7649ck7649ck76.jpg',
         fname=u'07-soybean-root-nodules.jpg',
         alt=u'マメ科の植物の根と根粒のイメージ図。細い根に沿って丸い粒が連なり、'
             u'土がついたまま持ち上げられている',
