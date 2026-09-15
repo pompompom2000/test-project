@@ -196,7 +196,10 @@ def main():
                     print(u'  ! 古いほう（ID %s）は消していません。'
                           u'消すなら --yes を付けてください' % m['id'])
                 else:
-                    call('/media/%d?force=true' % m['id'], auth, method='DELETE')
+                    # このサーバー（カゴヤ）は DELETE を WAF で塞いでいる。
+                    # WordPress 公式のメソッド上書きなら通る。
+                    call('/media/%d?force=true&_method=DELETE' % m['id'], auth,
+                         data={}, headers={'X-HTTP-Method-Override': 'DELETE'})
                     print(u'  ○ 古いほう（ID %s）を削除しました' % m['id'])
             else:
                 print(u'  古いほう（ID %s）はそのまま残しています' % m['id'])
