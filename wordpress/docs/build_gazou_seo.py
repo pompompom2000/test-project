@@ -95,7 +95,7 @@ SHOTS = [
         n=4, part=u'前編', where=u'「なぜ、普通のコンピュータでは追いつけないのか」',
         title=u'スーパーコンピュータの列',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'Gemini_Generated_Image_eim8xseim8xseim8.jpg',
+            u'04-supercomputer-server-aisle.jpg',
         fname=u'04-supercomputer-server-aisle.jpg',
         alt=u'スーパーコンピュータの並ぶ通路のイメージ図。同じ形の背の高い装置が'
             u'両側に果てしなく続いている',
