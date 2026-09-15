@@ -59,7 +59,7 @@ SHOTS = [
         n=2, part=u'前編', where=u'「1984年から、一本の線がつながっています」',
         title=u'量子ビットのチップ',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'superconducting-qubit-chip.jpg',
+            u'02-superconducting-qubit-chip.jpg',
         fname=u'02-superconducting-qubit-chip.jpg',
         alt=u'超電導方式の量子ビットを載せたチップのイメージ図。十字の形をした電極が'
             u'格子状に並び、チップの縁から細い金線が周囲の基板へ弧を描いている',
