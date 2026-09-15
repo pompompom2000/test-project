@@ -107,7 +107,13 @@ LABELS = {
     8: dict(
         head=u'量子コンピュータは暗号を「壊す側」',
         sub=u'国は2035年を目処に、錠前の付け替えを進めています',
-        callouts=[],
+        # 左右が何を指しているかは、絵だけでは伝わらない。
+        # 帯の「錠前の付け替え」と同じ言葉で揃える。
+        callouts=[
+            (0.342, 0.578, 0.085, 0.600, u'いまの錠前', False),
+            (0.704, 0.578, 0.940, 0.600, u'新しい錠前', True),
+        ],
+        trim=True,  # 生成りの枠が付いて出てきたので切る
     ),
 }
 
@@ -122,6 +128,9 @@ def load_shots():
 
 
 def fetch(url):
+    # site に上げる前の絵を、手元のファイルから読む場合
+    if not url.startswith('http://') and not url.startswith('https://'):
+        return Image.open(url).convert('RGB')
     if not os.path.isdir(CACHE):
         os.makedirs(CACHE)
     key = os.path.join(CACHE, url.rsplit('/', 1)[-1])
@@ -281,13 +290,20 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('nums', nargs='*', type=int)
     ap.add_argument('--no-callouts', action='store_true')
+    ap.add_argument('--from', dest='src', default=None,
+                    help=u'元の絵を手元のファイルから読む（site に上げる前のもの）')
     args = ap.parse_args()
+    if args.src and len(args.nums) != 1:
+        sys.stderr.write(u'--from は番号をひとつだけ指定してください\n')
+        sys.exit(2)
 
     shots = load_shots()
     targets = args.nums or sorted(shots)
     made = 0
     for n in targets:
         s = shots.get(n)
+        if s and args.src:
+            s = dict(s, url=args.src)
         if not s or not s['url']:
             print(u'%d番：まだアップロードされていません' % n)
             continue
