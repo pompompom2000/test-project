@@ -310,7 +310,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 
 <p class="has-medium-font-size">量子ビットは、0と1を<strong>どういう割合で混ぜるか</strong>、そのものが状態になります。そして混ぜ具合には、<strong>「向き」がついています。</strong></p>
 
-<p class="has-medium-font-size">この「向きのある量」を、<strong>矢印</strong>だと思ってください。長さと、向き。長さは「その答えが出やすいかどうか」を、向きは「位相」と呼ばれるものを表します。</p>
+<p class="has-medium-font-size">この「向きのある量」を、<strong>矢印</strong>だと思ってください。長さと、向き。長さは「その答えが出やすいかどうか」を、向きは「位相」と呼ばれるものを表します。位相という名前は、覚えなくて結構です。<strong>大事なのは「向きがある」ということだけ</strong>です。</p>
 
 <p class="has-medium-font-size">この矢印は、私たちが思いついた説明ではありません。ノーベル物理学賞を受けたリチャード・ファインマンが、一般向けの講演で量子の世界を説明したとき、<strong>数式をひとつも使わず、ぐるぐる回る矢印の足し算だけで</strong>説明しました（『光と物質のふしぎな理論』）。専門家が一般の人に伝えるときに使う、正統なやり方です。</p>
 
@@ -609,7 +609,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 
 <p class="has-medium-font-size"><strong>分子の中の電子も、同じように矢印を持っています。</strong>電子は量子の世界の住人だからです。</p>
 
-<p class="has-medium-font-size">つまり、<strong>分子の振る舞いを普通のコンピュータで正確に計算しようとすると、量子ビットを再現しようとしたときと、まったく同じ爆発が起きます。</strong>電子が増えるほど矢印が倍々に増えて、どんなスーパーコンピュータでも追いつかなくなる。だから化学の計算は、いまでも近似に頼っています。</p>
+<p class="has-medium-font-size">つまり、<strong>分子の振る舞いを普通のコンピュータで正確に計算しようとすると、量子ビットを再現しようとしたときと、まったく同じ爆発が起きます。</strong>電子が増えるほど矢印が倍々に増えて、どんなスーパーコンピュータでも追いつかなくなる。だから化学の計算は、いまでも近似——おおよその値で済ませるやり方——に頼っています。</p>
 
 <p class="has-medium-font-size">ならば、どうすればよいか。<strong>量子のものは、量子で真似すればいい。</strong></p>
 
@@ -617,7 +617,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 
 <p class="has-medium-font-size">ここが大事なところです。<strong>この場合、隠れた繰り返しを探す必要すらありません。</strong>矢印を持ったものを、矢印を持った機械で扱う。<strong>もともと形が同じ</strong>なのです。</p>
 
-<p class="has-medium-font-size">後編で、この「分子と材料のシミュレーション」が、いまどの分野でいちばん期待されているかをご紹介します。</p>
+<p class="has-medium-font-size">後編で、この「分子と材料のシミュレーション」——計算で分子のふるまいを真似ること——が、いまどの分野でいちばん期待されているかをご紹介します。</p>
 
 <h3 class="wp-block-heading has-medium-font-size">「量子もつれ」で瞬間通信はできません</h3>
 
@@ -625,7 +625,39 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 
 <p class="has-medium-font-size">これも正しくありません。<strong>物理学には「通信不可能定理」という結論があり、量子もつれを使って情報を送ることはできないことがわかっています。</strong></p>
 
-<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。相関があるとわかるのは、あとで普通の通信で結果を突き合わせたときです。</p>
+<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。<strong>二人の目が揃っていたとわかるのは、あとで電話やメールなど普通の方法で結果を見せ合ったとき</strong>です。</p>
+
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 372" role="img" aria-label="離れた二つの量子ビットは測るたびに必ず同じ目が出るが、その目はどちらの側でも選べないでたらめな値であるため、合図として使えず、量子もつれで通信はできない。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<line x1="350" y1="46" x2="350" y2="282" stroke="currentColor" stroke-width="1" opacity="0.22"></line>
+<text x="190" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">測ると、必ず揃う</text>
+<circle cx="95" cy="86" r="21" fill="none" stroke="currentColor" stroke-width="2"></circle>
+<text x="95" y="92" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">A</text>
+<circle cx="285" cy="86" r="21" fill="none" stroke="currentColor" stroke-width="2"></circle>
+<text x="285" y="92" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">B</text>
+<line x1="120" y1="86" x2="260" y2="86" stroke="#C1803A" stroke-width="2" stroke-dasharray="5 5" opacity="0.8"></line>
+<text x="190" y="120" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">どんなに離れていても</text>
+<text x="95" y="158" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">0</text>
+<text x="190" y="158" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.6">＝</text>
+<text x="285" y="158" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">0</text>
+<text x="95" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">1</text>
+<text x="190" y="192" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.6">＝</text>
+<text x="285" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">1</text>
+<text x="95" y="226" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">0</text>
+<text x="190" y="226" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.6">＝</text>
+<text x="285" y="226" text-anchor="middle" font-size="19" font-weight="bold" fill="#C1803A">0</text>
+<text x="190" y="268" text-anchor="middle" font-size="13" fill="currentColor">何度測っても、二人の目は同じ</text>
+<text x="520" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">でも、出る目は選べない</text>
+<rect x="470" y="72" width="100" height="100" rx="14" fill="none" stroke="currentColor" stroke-width="2"></rect>
+<text x="520" y="141" text-anchor="middle" font-size="58" font-weight="bold" fill="#C1803A">?</text>
+<text x="520" y="200" text-anchor="middle" font-size="13" fill="currentColor">「1を出そう」と思っても</text>
+<text x="520" y="222" text-anchor="middle" font-size="13" fill="currentColor">出る目は、毎回でたらめ</text>
+<text x="520" y="268" text-anchor="middle" font-size="13" fill="currentColor">どちらの側でも決められない</text>
+<rect x="60" y="298" width="580" height="54" rx="6" fill="none" stroke="#C1803A" stroke-width="2"></rect>
+<text x="350" y="331" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">決められないものは、合図に使えません</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">揃うことと、伝えられることは別です。相関はありますが、合図は送れません（通信不可能定理）。</figcaption>
+</figure>
 
 <p class="has-medium-font-size">ここで<strong>気をつけたい例え</strong>があります。「離れた双子が同じことを感じるようなもの」という説明です。これは使えません。双子の例えは「<strong>最初から決まっていたことが、後でわかっただけ</strong>」という話で、量子もつれの実験が否定したのは、まさにその考え方だからです。2022年のノーベル物理学賞は、その実証に対して贈られています。</p>
 
@@ -676,6 +708,98 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 <p class="has-medium-font-size">1個の論理量子ビットを作るのに必要な物理量子ビットは、<strong>千から万の単位</strong>とされています。ですから「256量子ビット」と「論理量子ビット256個」は、まったく違う話です。ニュースを読むときは、どちらの数字かを見てください。</p>
 
 <p class="has-medium-font-size">それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、<strong>133量子ビットの機械を主力に切り替えました。</strong>数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。</p>
+
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 372" role="img" aria-label="壊れやすい物理量子ビットを千から万の単位で束ねて、ようやく確かに計算できる論理量子ビットが1個できる。ニュースで見る量子ビットの数は、たいてい物理量子ビットのほうである。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="lq-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon></marker></defs>
+<text x="350" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">ニュースの「◯◯量子ビット」は、どちらの数でしょう</text>
+<circle cx="66" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="88" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="66" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="110" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="66" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="132" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="66" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="154" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="66" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="176" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="66" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="86" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="106" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="126" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="146" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="166" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="186" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="206" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="226" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="246" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="266" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<circle cx="286" cy="198" r="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.65"></circle>
+<text x="176" y="252" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">物理量子ビット</text>
+<text x="176" y="276" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.75">壊れやすい部品。これを数えた数</text>
+<line x1="322" y1="154" x2="392" y2="154" stroke="#C1803A" stroke-width="3" marker-end="url(#lq-ah)"></line>
+<text x="357" y="134" text-anchor="middle" font-size="15" font-weight="bold" fill="#C1803A">千〜万個</text>
+<text x="357" y="180" text-anchor="middle" font-size="13" fill="currentColor">束ねて</text>
+<circle cx="530" cy="154" r="52" fill="none" stroke="#C1803A" stroke-width="3"></circle>
+<text x="530" y="164" text-anchor="middle" font-size="30" font-weight="bold" fill="#C1803A">1個</text>
+<text x="530" y="252" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">論理量子ビット</text>
+<text x="530" y="276" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.75">誤りを打ち消して、確かに使える1個</text>
+<line x1="60" y1="300" x2="640" y2="300" stroke="currentColor" stroke-width="1" opacity="0.25"></line>
+<text x="350" y="326" text-anchor="middle" font-size="14" fill="currentColor">ニュースの数字は、たいてい<tspan font-weight="bold">左</tspan>のほうです</text>
+<text x="350" y="352" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.75">IBMは1,121個の機械から、133個の機械に主力を移しました</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">「256量子ビット」と「論理量子ビット256個」は、まったく違う話です。</figcaption>
+</figure>
 
 <p class="has-medium-font-size">砕石で言えば、粒の数を数えても品質はわかりません。粒度や締固めの具合を見なければ意味がない。それと似た話です。</p>
 
@@ -889,7 +1013,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
-&lt;p class=&quot;has-medium-font-size&quot;&gt;この「向きのある量」を、&lt;strong&gt;矢印&lt;/strong&gt;だと思ってください。長さと、向き。長さは「その答えが出やすいかどうか」を、向きは「位相」と呼ばれるものを表します。&lt;/p&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;この「向きのある量」を、&lt;strong&gt;矢印&lt;/strong&gt;だと思ってください。長さと、向き。長さは「その答えが出やすいかどうか」を、向きは「位相」と呼ばれるものを表します。位相という名前は、覚えなくて結構です。&lt;strong&gt;大事なのは「向きがある」ということだけ&lt;/strong&gt;です。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
@@ -1292,7 +1416,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
-&lt;p class=&quot;has-medium-font-size&quot;&gt;つまり、&lt;strong&gt;分子の振る舞いを普通のコンピュータで正確に計算しようとすると、量子ビットを再現しようとしたときと、まったく同じ爆発が起きます。&lt;/strong&gt;電子が増えるほど矢印が倍々に増えて、どんなスーパーコンピュータでも追いつかなくなる。だから化学の計算は、いまでも近似に頼っています。&lt;/p&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;つまり、&lt;strong&gt;分子の振る舞いを普通のコンピュータで正確に計算しようとすると、量子ビットを再現しようとしたときと、まったく同じ爆発が起きます。&lt;/strong&gt;電子が増えるほど矢印が倍々に増えて、どんなスーパーコンピュータでも追いつかなくなる。だから化学の計算は、いまでも近似——おおよその値で済ませるやり方——に頼っています。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
@@ -1308,7 +1432,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
-&lt;p class=&quot;has-medium-font-size&quot;&gt;後編で、この「分子と材料のシミュレーション」が、いまどの分野でいちばん期待されているかをご紹介します。&lt;/p&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;後編で、この「分子と材料のシミュレーション」——計算で分子のふるまいを真似ること——が、いまどの分野でいちばん期待されているかをご紹介します。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:heading {&quot;level&quot;:3,&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
@@ -1324,8 +1448,42 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
-&lt;p class=&quot;has-medium-font-size&quot;&gt;理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが&lt;strong&gt;その結果は、どちらの側でも決められない、でたらめな値&lt;/strong&gt;なのです。決められないものは、合図に使えません。相関があるとわかるのは、あとで普通の通信で結果を突き合わせたときです。&lt;/p&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが&lt;strong&gt;その結果は、どちらの側でも決められない、でたらめな値&lt;/strong&gt;なのです。決められないものは、合図に使えません。&lt;strong&gt;二人の目が揃っていたとわかるのは、あとで電話やメールなど普通の方法で結果を見せ合ったとき&lt;/strong&gt;です。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:html --&gt;
+&lt;figure style=&quot;margin:0;padding:0&quot;&gt;
+&lt;svg viewBox=&quot;0 0 700 372&quot; role=&quot;img&quot; aria-label=&quot;離れた二つの量子ビットは測るたびに必ず同じ目が出るが、その目はどちらの側でも選べないでたらめな値であるため、合図として使えず、量子もつれで通信はできない。&quot; style=&quot;max-width:100%;height:auto;display:block;margin:0 auto&quot;&gt;
+&lt;line x1=&quot;350&quot; y1=&quot;46&quot; x2=&quot;350&quot; y2=&quot;282&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1&quot; opacity=&quot;0.22&quot;&gt;&lt;/line&gt;
+&lt;text x=&quot;190&quot; y=&quot;40&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;測ると、必ず揃う&lt;/text&gt;
+&lt;circle cx=&quot;95&quot; cy=&quot;86&quot; r=&quot;21&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
+&lt;text x=&quot;95&quot; y=&quot;92&quot; text-anchor=&quot;middle&quot; font-size=&quot;15&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;A&lt;/text&gt;
+&lt;circle cx=&quot;285&quot; cy=&quot;86&quot; r=&quot;21&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
+&lt;text x=&quot;285&quot; y=&quot;92&quot; text-anchor=&quot;middle&quot; font-size=&quot;15&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;B&lt;/text&gt;
+&lt;line x1=&quot;120&quot; y1=&quot;86&quot; x2=&quot;260&quot; y2=&quot;86&quot; stroke=&quot;#C1803A&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;5 5&quot; opacity=&quot;0.8&quot;&gt;&lt;/line&gt;
+&lt;text x=&quot;190&quot; y=&quot;120&quot; text-anchor=&quot;middle&quot; font-size=&quot;12&quot; fill=&quot;currentColor&quot; opacity=&quot;0.7&quot;&gt;どんなに離れていても&lt;/text&gt;
+&lt;text x=&quot;95&quot; y=&quot;158&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;0&lt;/text&gt;
+&lt;text x=&quot;190&quot; y=&quot;158&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;currentColor&quot; opacity=&quot;0.6&quot;&gt;＝&lt;/text&gt;
+&lt;text x=&quot;285&quot; y=&quot;158&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;0&lt;/text&gt;
+&lt;text x=&quot;95&quot; y=&quot;192&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;1&lt;/text&gt;
+&lt;text x=&quot;190&quot; y=&quot;192&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;currentColor&quot; opacity=&quot;0.6&quot;&gt;＝&lt;/text&gt;
+&lt;text x=&quot;285&quot; y=&quot;192&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;1&lt;/text&gt;
+&lt;text x=&quot;95&quot; y=&quot;226&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;0&lt;/text&gt;
+&lt;text x=&quot;190&quot; y=&quot;226&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;currentColor&quot; opacity=&quot;0.6&quot;&gt;＝&lt;/text&gt;
+&lt;text x=&quot;285&quot; y=&quot;226&quot; text-anchor=&quot;middle&quot; font-size=&quot;19&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;0&lt;/text&gt;
+&lt;text x=&quot;190&quot; y=&quot;268&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot;&gt;何度測っても、二人の目は同じ&lt;/text&gt;
+&lt;text x=&quot;520&quot; y=&quot;40&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;でも、出る目は選べない&lt;/text&gt;
+&lt;rect x=&quot;470&quot; y=&quot;72&quot; width=&quot;100&quot; height=&quot;100&quot; rx=&quot;14&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;/rect&gt;
+&lt;text x=&quot;520&quot; y=&quot;141&quot; text-anchor=&quot;middle&quot; font-size=&quot;58&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;?&lt;/text&gt;
+&lt;text x=&quot;520&quot; y=&quot;200&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot;&gt;「1を出そう」と思っても&lt;/text&gt;
+&lt;text x=&quot;520&quot; y=&quot;222&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot;&gt;出る目は、毎回でたらめ&lt;/text&gt;
+&lt;text x=&quot;520&quot; y=&quot;268&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot;&gt;どちらの側でも決められない&lt;/text&gt;
+&lt;rect x=&quot;60&quot; y=&quot;298&quot; width=&quot;580&quot; height=&quot;54&quot; rx=&quot;6&quot; fill=&quot;none&quot; stroke=&quot;#C1803A&quot; stroke-width=&quot;2&quot;&gt;&lt;/rect&gt;
+&lt;text x=&quot;350&quot; y=&quot;331&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;決められないものは、合図に使えません&lt;/text&gt;
+&lt;/svg&gt;
+&lt;figcaption style=&quot;font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8&quot;&gt;揃うことと、伝えられることは別です。相関はありますが、合図は送れません（通信不可能定理）。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;!-- /wp:html --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
 &lt;p class=&quot;has-medium-font-size&quot;&gt;ここで&lt;strong&gt;気をつけたい例え&lt;/strong&gt;があります。「離れた双子が同じことを感じるようなもの」という説明です。これは使えません。双子の例えは「&lt;strong&gt;最初から決まっていたことが、後でわかっただけ&lt;/strong&gt;」という話で、量子もつれの実験が否定したのは、まさにその考え方だからです。2022年のノーベル物理学賞は、その実証に対して贈られています。&lt;/p&gt;
@@ -1400,6 +1558,100 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
 &lt;p class=&quot;has-medium-font-size&quot;&gt;それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、&lt;strong&gt;133量子ビットの機械を主力に切り替えました。&lt;/strong&gt;数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
+
+&lt;!-- wp:html --&gt;
+&lt;figure style=&quot;margin:0;padding:0&quot;&gt;
+&lt;svg viewBox=&quot;0 0 700 372&quot; role=&quot;img&quot; aria-label=&quot;壊れやすい物理量子ビットを千から万の単位で束ねて、ようやく確かに計算できる論理量子ビットが1個できる。ニュースで見る量子ビットの数は、たいてい物理量子ビットのほうである。&quot; style=&quot;max-width:100%;height:auto;display:block;margin:0 auto&quot;&gt;
+&lt;defs&gt;&lt;marker id=&quot;lq-ah&quot; viewBox=&quot;0 0 10 10&quot; refX=&quot;9&quot; refY=&quot;5&quot; markerWidth=&quot;6&quot; markerHeight=&quot;6&quot; orient=&quot;auto-start-reverse&quot;&gt;&lt;polygon points=&quot;0,1 10,5 0,9&quot; fill=&quot;#C1803A&quot;&gt;&lt;/polygon&gt;&lt;/marker&gt;&lt;/defs&gt;
+&lt;text x=&quot;350&quot; y=&quot;36&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;ニュースの「◯◯量子ビット」は、どちらの数でしょう&lt;/text&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;110&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;132&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;154&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;176&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;66&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;86&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;106&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;126&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;146&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;166&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;186&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;206&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;226&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;246&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;266&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;circle cx=&quot;286&quot; cy=&quot;198&quot; r=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; opacity=&quot;0.65&quot;&gt;&lt;/circle&gt;
+&lt;text x=&quot;176&quot; y=&quot;252&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;物理量子ビット&lt;/text&gt;
+&lt;text x=&quot;176&quot; y=&quot;276&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot; opacity=&quot;0.75&quot;&gt;壊れやすい部品。これを数えた数&lt;/text&gt;
+&lt;line x1=&quot;322&quot; y1=&quot;154&quot; x2=&quot;392&quot; y2=&quot;154&quot; stroke=&quot;#C1803A&quot; stroke-width=&quot;3&quot; marker-end=&quot;url(#lq-ah)&quot;&gt;&lt;/line&gt;
+&lt;text x=&quot;357&quot; y=&quot;134&quot; text-anchor=&quot;middle&quot; font-size=&quot;15&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;千〜万個&lt;/text&gt;
+&lt;text x=&quot;357&quot; y=&quot;180&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot;&gt;束ねて&lt;/text&gt;
+&lt;circle cx=&quot;530&quot; cy=&quot;154&quot; r=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#C1803A&quot; stroke-width=&quot;3&quot;&gt;&lt;/circle&gt;
+&lt;text x=&quot;530&quot; y=&quot;164&quot; text-anchor=&quot;middle&quot; font-size=&quot;30&quot; font-weight=&quot;bold&quot; fill=&quot;#C1803A&quot;&gt;1個&lt;/text&gt;
+&lt;text x=&quot;530&quot; y=&quot;252&quot; text-anchor=&quot;middle&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot; fill=&quot;currentColor&quot;&gt;論理量子ビット&lt;/text&gt;
+&lt;text x=&quot;530&quot; y=&quot;276&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot; opacity=&quot;0.75&quot;&gt;誤りを打ち消して、確かに使える1個&lt;/text&gt;
+&lt;line x1=&quot;60&quot; y1=&quot;300&quot; x2=&quot;640&quot; y2=&quot;300&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1&quot; opacity=&quot;0.25&quot;&gt;&lt;/line&gt;
+&lt;text x=&quot;350&quot; y=&quot;326&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;currentColor&quot;&gt;ニュースの数字は、たいてい&lt;tspan font-weight=&quot;bold&quot;&gt;左&lt;/tspan&gt;のほうです&lt;/text&gt;
+&lt;text x=&quot;350&quot; y=&quot;352&quot; text-anchor=&quot;middle&quot; font-size=&quot;13&quot; fill=&quot;currentColor&quot; opacity=&quot;0.75&quot;&gt;IBMは1,121個の機械から、133個の機械に主力を移しました&lt;/text&gt;
+&lt;/svg&gt;
+&lt;figcaption style=&quot;font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8&quot;&gt;「256量子ビット」と「論理量子ビット256個」は、まったく違う話です。&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;!-- /wp:html --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
 &lt;p class=&quot;has-medium-font-size&quot;&gt;砕石で言えば、粒の数を数えても品質はわかりません。粒度や締固めの具合を見なければ意味がない。それと似た話です。&lt;/p&gt;
@@ -1707,7 +1959,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 <figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">同じことを、工場は高温高圧で、根粒は常温常圧で行っています。</figcaption>
 </figure>
 
-<p class="has-medium-font-size">実際、専門家の予測でも<strong>最初に本格応用するのは化学メーカー</strong>とされ、最初の用途は<strong>触媒の探索</strong>だろうと見られています。化学メーカーはすでに分子の計算にスーパーコンピュータを使っているので、その補助として入れやすいからです。</p>
+<p class="has-medium-font-size">実際、専門家の予測でも<strong>最初に本格応用するのは化学メーカー</strong>とされ、最初の用途は<strong>触媒の探索</strong>——化学反応を助ける物質を探すこと——だろうと見られています。化学メーカーはすでに分子の計算にスーパーコンピュータを使っているので、その補助として入れやすいからです。</p>
 
 <p class="has-medium-font-size">ただし、ここでも正直に。<strong>2023年に『Nature Communications』に載った論文の結論は、「指数的な量子の優位があるという証拠は、まだ見つかっていない」でした。</strong>著者にはGoogleの研究者も含まれます。本命と目されている分野でも、まだその段階です。</p>
 
@@ -1815,7 +2067,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 
 <li><strong>いまの銀行口座や電子マネーが、明日破られるという話ではありません。</strong>G7の文書も、金融機関に「動きを見守り、検討を始めること」を求める段階のものです。</li>
 
-<li><strong>暗号がすべて破られるわけでもありません。</strong>作り直しが必要なのは、インターネットの通信などに使う「公開鍵暗号」のほうです。もうひとつの「共通鍵暗号」は、鍵を長くすれば当面は大丈夫とされています。</li>
+<li><strong>暗号がすべて破られるわけでもありません。</strong>作り直しが必要なのは、インターネットの通信などに使う<strong>「公開鍵暗号」</strong>——鍵を二つに分け、片方を誰にでも見える形で配る方式——のほうです。もうひとつの<strong>「共通鍵暗号」</strong>——送る側と受け取る側が同じ鍵を使う方式——は、鍵を長くすれば当面は大丈夫とされています。</li>
 
 <li><strong>「量子コンピュータ対応」をうたう個人向けの有料の製品やサービスを、いま急いで買う必要はありません。</strong></li>
 
@@ -2189,7 +2441,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;!-- /wp:html --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
-&lt;p class=&quot;has-medium-font-size&quot;&gt;実際、専門家の予測でも&lt;strong&gt;最初に本格応用するのは化学メーカー&lt;/strong&gt;とされ、最初の用途は&lt;strong&gt;触媒の探索&lt;/strong&gt;だろうと見られています。化学メーカーはすでに分子の計算にスーパーコンピュータを使っているので、その補助として入れやすいからです。&lt;/p&gt;
+&lt;p class=&quot;has-medium-font-size&quot;&gt;実際、専門家の予測でも&lt;strong&gt;最初に本格応用するのは化学メーカー&lt;/strong&gt;とされ、最初の用途は&lt;strong&gt;触媒の探索&lt;/strong&gt;——化学反応を助ける物質を探すこと——だろうと見られています。化学メーカーはすでに分子の計算にスーパーコンピュータを使っているので、その補助として入れやすいからです。&lt;/p&gt;
 &lt;!-- /wp:paragraph --&gt;
 
 &lt;!-- wp:paragraph {&quot;fontSize&quot;:&quot;medium&quot;} --&gt;
@@ -2390,7 +2642,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);font-si
 &lt;li&gt;&lt;strong&gt;いまの銀行口座や電子マネーが、明日破られるという話ではありません。&lt;/strong&gt;G7の文書も、金融機関に「動きを見守り、検討を始めること」を求める段階のものです。&lt;/li&gt;
 &lt;!-- /wp:list-item --&gt;
 &lt;!-- wp:list-item --&gt;
-&lt;li&gt;&lt;strong&gt;暗号がすべて破られるわけでもありません。&lt;/strong&gt;作り直しが必要なのは、インターネットの通信などに使う「公開鍵暗号」のほうです。もうひとつの「共通鍵暗号」は、鍵を長くすれば当面は大丈夫とされています。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;暗号がすべて破られるわけでもありません。&lt;/strong&gt;作り直しが必要なのは、インターネットの通信などに使う&lt;strong&gt;「公開鍵暗号」&lt;/strong&gt;——鍵を二つに分け、片方を誰にでも見える形で配る方式——のほうです。もうひとつの&lt;strong&gt;「共通鍵暗号」&lt;/strong&gt;——送る側と受け取る側が同じ鍵を使う方式——は、鍵を長くすれば当面は大丈夫とされています。&lt;/li&gt;
 &lt;!-- /wp:list-item --&gt;
 &lt;!-- wp:list-item --&gt;
 &lt;li&gt;&lt;strong&gt;「量子コンピュータ対応」をうたう個人向けの有料の製品やサービスを、いま急いで買う必要はありません。&lt;/strong&gt;&lt;/li&gt;

@@ -362,6 +362,129 @@ def fig_temperature():
                 u'ただし、すべての量子コンピュータがこうではありません。')
 
 
+# ---------------------------------------------------------------- 図D 量子もつれ
+def fig_entangle():
+    """「必ず揃う」のに「通信はできない」を、一枚で並べる。
+
+    ここは記事のなかでいちばん誤解の多いところ。文章だけだと
+    「揃うなら送れるのでは」と読まれてしまう。
+    """
+    p = []
+    p.append(u'<svg viewBox="0 0 700 372" role="img" aria-label="離れた二つの量子ビットは'
+             u'測るたびに必ず同じ目が出るが、その目はどちらの側でも選べないでたらめな値'
+             u'であるため、合図として使えず、量子もつれで通信はできない。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+
+    p.append(u'<line x1="350" y1="46" x2="350" y2="282" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.22"></line>')
+
+    # 左：必ず揃う
+    p.append(u'<text x="190" y="40" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">測ると、必ず揃う</text>')
+    for cx, lab in [(95, u'A'), (285, u'B')]:
+        p.append(u'<circle cx="%d" cy="86" r="21" fill="none" stroke="currentColor" '
+                 u'stroke-width="2"></circle>' % cx)
+        p.append(u'<text x="%d" y="92" text-anchor="middle" font-size="15" '
+                 u'font-weight="bold" fill="currentColor">%s</text>' % (cx, lab))
+    p.append(u'<line x1="120" y1="86" x2="260" y2="86" stroke="%s" stroke-width="2" '
+             u'stroke-dasharray="5 5" opacity="0.8"></line>' % COPPER)
+    p.append(u'<text x="190" y="120" text-anchor="middle" font-size="12" '
+             u'fill="currentColor" opacity="0.7">どんなに離れていても</text>')
+
+    for i, v in enumerate([('0', '0'), ('1', '1'), ('0', '0')]):
+        y = 158 + i * 34
+        p.append(u'<text x="95" y="%d" text-anchor="middle" font-size="19" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (y, COPPER, v[0]))
+        p.append(u'<text x="190" y="%d" text-anchor="middle" font-size="14" '
+                 u'fill="currentColor" opacity="0.6">＝</text>' % y)
+        p.append(u'<text x="285" y="%d" text-anchor="middle" font-size="19" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (y, COPPER, v[1]))
+    p.append(u'<text x="190" y="268" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">何度測っても、二人の目は同じ</text>')
+
+    # 右：でも選べない
+    p.append(u'<text x="520" y="40" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">でも、出る目は選べない</text>')
+    p.append(u'<rect x="470" y="72" width="100" height="100" rx="14" fill="none" '
+             u'stroke="currentColor" stroke-width="2"></rect>')
+    p.append(u'<text x="520" y="141" text-anchor="middle" font-size="58" '
+             u'font-weight="bold" fill="%s">?</text>' % COPPER)
+    p.append(u'<text x="520" y="200" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">「1を出そう」と思っても</text>')
+    p.append(u'<text x="520" y="222" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">出る目は、毎回でたらめ</text>')
+    p.append(u'<text x="520" y="268" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">どちらの側でも決められない</text>')
+
+    # まとめ
+    p.append(u'<rect x="60" y="298" width="580" height="54" rx="6" fill="none" '
+             u'stroke="%s" stroke-width="2"></rect>' % COPPER)
+    p.append(u'<text x="350" y="331" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'決められないものは、合図に使えません</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'揃うことと、伝えられることは別です。'
+                u'相関はありますが、合図は送れません（通信不可能定理）。')
+
+
+# ---------------------------------------------------------------- 図E 物理と論理
+def fig_logical_qubit():
+    """「何量子ビット」の数字が、どちらを指しているかを見せる。"""
+    p = []
+    p.append(u'<svg viewBox="0 0 700 372" role="img" aria-label="壊れやすい物理量子ビットを'
+             u'千から万の単位で束ねて、ようやく確かに計算できる論理量子ビットが1個できる。'
+             u'ニュースで見る量子ビットの数は、たいてい物理量子ビットのほうである。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<defs><marker id="lq-ah" viewBox="0 0 10 10" refX="9" refY="5" '
+             u'markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+             u'<polygon points="0,1 10,5 0,9" fill="%s"></polygon></marker></defs>' % COPPER)
+
+    p.append(u'<text x="350" y="36" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'ニュースの「◯◯量子ビット」は、どちらの数でしょう</text>')
+
+    # 左：物理量子ビット（たくさんの粒）
+    for r in range(6):
+        for c in range(12):
+            p.append(u'<circle cx="%d" cy="%d" r="5" fill="none" stroke="currentColor" '
+                     u'stroke-width="1.5" opacity="0.65"></circle>'
+                     % (66 + c * 20, 88 + r * 22))
+    p.append(u'<text x="176" y="252" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">物理量子ビット</text>')
+    p.append(u'<text x="176" y="276" text-anchor="middle" font-size="13" '
+             u'fill="currentColor" opacity="0.75">壊れやすい部品。これを数えた数</text>')
+
+    # 矢印
+    p.append(u'<line x1="322" y1="154" x2="392" y2="154" stroke="%s" stroke-width="3" '
+             u'marker-end="url(#lq-ah)"></line>' % COPPER)
+    p.append(u'<text x="357" y="134" text-anchor="middle" font-size="15" '
+             u'font-weight="bold" fill="%s">千〜万個</text>' % COPPER)
+    p.append(u'<text x="357" y="180" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">束ねて</text>')
+
+    # 右：論理量子ビット（ひとつ）
+    p.append(u'<circle cx="530" cy="154" r="52" fill="none" stroke="%s" '
+             u'stroke-width="3"></circle>' % COPPER)
+    p.append(u'<text x="530" y="164" text-anchor="middle" font-size="30" '
+             u'font-weight="bold" fill="%s">1個</text>' % COPPER)
+    p.append(u'<text x="530" y="252" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">論理量子ビット</text>')
+    p.append(u'<text x="530" y="276" text-anchor="middle" font-size="13" '
+             u'fill="currentColor" opacity="0.75">誤りを打ち消して、確かに使える1個</text>')
+
+    p.append(u'<line x1="60" y1="300" x2="640" y2="300" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.25"></line>')
+    p.append(u'<text x="350" y="326" text-anchor="middle" font-size="14" '
+             u'fill="currentColor">ニュースの数字は、たいてい<tspan font-weight="bold">左</tspan>のほうです</text>')
+    p.append(u'<text x="350" y="352" text-anchor="middle" font-size="13" '
+             u'fill="currentColor" opacity="0.75">'
+             u'IBMは1,121個の機械から、133個の機械に主力を移しました</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'「256量子ビット」と「論理量子ビット256個」は、まったく違う話です。')
+
+
 INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。</p>\n<!-- /wp:paragraph -->',
@@ -381,6 +504,12 @@ INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size">「量子コンピュータは絶対零度に冷やす機械です」と言い切ってしまうと、それは嘘になります。<strong>あの写真は、超電導方式のものです。</strong></p>\n<!-- /wp:paragraph -->',
      fig_temperature),
+    ('article-01.html',
+     u'<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。相関があるとわかるのは、あとで普通の通信で結果を突き合わせたときです。</p>\n<!-- /wp:paragraph -->',
+     fig_entangle),
+    ('article-01.html',
+     u'<p class="has-medium-font-size">それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、<strong>133量子ビットの機械を主力に切り替えました。</strong>数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。</p>\n<!-- /wp:paragraph -->',
+     fig_logical_qubit),
 ]
 
 for fname, anchor, maker in INSERTS:
