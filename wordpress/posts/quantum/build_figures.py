@@ -190,6 +190,178 @@ def fig_ammonia():
 
 
 # ---------------------------------------------------------------- 差し込み
+# ---------------------------------------------------------------- 図A ビットと量子ビット
+def fig_bit_vs_qubit():
+    """ふつうのビットと量子ビットの違いを、一枚にする。
+
+    記事のいちばん大事な一歩なのに、ここだけ図がなかった。
+    「0か1か」と「向きのある矢印」を、並べて見せる。
+    """
+    p = []
+    p.append(u'<svg viewBox="0 0 700 340" role="img" aria-label="ふつうのビットは0か1の'
+             u'どちらか一方であるのに対し、量子ビットは長さと向きを持つ矢印で表される。'
+             u'長さはその答えの出やすさ、向きは位相を表す。長さが同じでも向きが違えば'
+             u'別のものになる。" style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<defs><marker id="qb-ah" viewBox="0 0 10 10" refX="9" refY="5" '
+             u'markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+             u'<polygon points="0,1 10,5 0,9" fill="%s"></polygon></marker></defs>' % COPPER)
+
+    # まんなかの仕切り
+    p.append(u'<line x1="350" y1="24" x2="350" y2="316" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.2"></line>')
+
+    # 左：ふつうのビット
+    p.append(u'<text x="175" y="42" text-anchor="middle" font-size="17" '
+             u'font-weight="bold" fill="currentColor">ふつうのビット</text>')
+    for i, (x, lab, on) in enumerate([(85, u'0', False), (180, u'1', True)]):
+        fill = COPPER if on else 'none'
+        tx = '#FFFFFF' if on else 'currentColor'
+        p.append(u'<rect x="%d" y="78" width="85" height="85" rx="8" fill="%s" '
+                 u'stroke="currentColor" stroke-width="2" opacity="%s"></rect>'
+                 % (x, fill, '1' if on else '0.55'))
+        p.append(u'<text x="%d" y="135" text-anchor="middle" font-size="40" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (x + 42, tx, lab))
+    p.append(u'<text x="175" y="205" text-anchor="middle" font-size="15" '
+             u'fill="currentColor">どちらか一方。必ず、どちらか</text>')
+    p.append(u'<text x="175" y="232" text-anchor="middle" font-size="15" '
+             u'fill="currentColor" opacity="0.7">スイッチと同じです</text>')
+
+    # 右：量子ビット
+    p.append(u'<text x="525" y="42" text-anchor="middle" font-size="17" '
+             u'font-weight="bold" fill="currentColor">量子ビット</text>')
+    p.append(u'<circle cx="525" cy="130" r="56" fill="none" stroke="currentColor" '
+             u'stroke-width="1.5" opacity="0.25"></circle>')
+    p.append(u'<circle cx="525" cy="130" r="4" fill="currentColor" opacity="0.5"></circle>')
+    p.append(u'<line x1="525" y1="130" x2="566" y2="92" stroke="%s" stroke-width="3" '
+             u'marker-end="url(#qb-ah)"></line>' % COPPER)
+    # 角度がどこのことか分かるように、基準の線と弧を描く
+    p.append(u'<line x1="525" y1="130" x2="596" y2="130" stroke="currentColor" '
+             u'stroke-width="1.5" stroke-dasharray="4 4" opacity="0.35"></line>')
+    p.append(u'<path d="M 565 130 A 40 40 0 0 0 554 103" fill="none" stroke="%s" '
+             u'stroke-width="2" opacity="0.7"></path>' % COPPER)
+    p.append(u'<text x="604" y="100" font-size="13" font-weight="bold" fill="%s">長さ</text>' % COPPER)
+    p.append(u'<text x="604" y="118" font-size="12" fill="currentColor" opacity="0.75">出やすさ</text>')
+    p.append(u'<text x="604" y="150" font-size="13" font-weight="bold" fill="%s">向き</text>' % COPPER)
+    p.append(u'<text x="604" y="168" font-size="12" fill="currentColor" opacity="0.75">位相</text>')
+
+    # 同じ長さで向きだけ違う三本
+    for i, (cx, dx, dy) in enumerate([(425, 30, -18), (525, 0, -35), (625, -30, -18)]):
+        p.append(u'<line x1="%d" y1="272" x2="%d" y2="%d" stroke="%s" stroke-width="3" '
+                 u'marker-end="url(#qb-ah)"></line>' % (cx, cx + dx, 272 + dy, COPPER))
+        p.append(u'<circle cx="%d" cy="272" r="3" fill="currentColor" opacity="0.4"></circle>' % cx)
+    p.append(u'<text x="525" y="306" text-anchor="middle" font-size="15" '
+             u'fill="currentColor">長さが同じでも、向きが違えば別のもの</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'ふつうのビットは0か1。量子ビットは、長さと向きを持つ矢印です。'
+                u'この「向き」が、普通の確率にはないものです。')
+
+
+# ---------------------------------------------------------------- 図B 矢印の数が倍になる
+def fig_doubling():
+    """量子ビットが1個増えるごとに矢印が倍になることを、実際に描いて見せる。"""
+    rows = [(1, 2), (2, 4), (3, 8)]
+    p = []
+    p.append(u'<svg viewBox="0 0 700 390" role="img" aria-label="量子ビットが1個のとき'
+             u'矢印は2本、2個で4本、3個で8本と、1個増えるごとに倍になる。50個では'
+             u'約1126兆本になり、絵に描くことはできない。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<defs><marker id="dbl-ah" viewBox="0 0 10 10" refX="9" refY="5" '
+             u'markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+             u'<polygon points="0,1 10,5 0,9" fill="%s"></polygon></marker></defs>' % COPPER)
+
+    p.append(u'<text x="350" y="34" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">1個増えるごとに、矢印の数は倍になります</text>')
+    p.append(u'<text x="108" y="70" text-anchor="end" font-size="12" '
+             u'fill="currentColor" opacity="0.6">量子ビット</text>')
+    p.append(u'<text x="140" y="70" font-size="12" fill="currentColor" opacity="0.6">矢印</text>')
+
+    y = 108
+    for qubits, arrows in rows:
+        p.append(u'<text x="108" y="%d" text-anchor="end" font-size="17" '
+                 u'font-weight="bold" fill="currentColor">%d個</text>' % (y + 6, qubits))
+        for i in range(arrows):
+            x = 140 + i * 30
+            p.append(u'<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" '
+                     u'stroke-width="2.5" marker-end="url(#dbl-ah)"></line>'
+                     % (x, y + 14, x + 12, y - 12, COPPER))
+        p.append(u'<text x="%d" y="%d" font-size="15" fill="currentColor" '
+                 u'opacity="0.8">%d本</text>' % (140 + arrows * 30 + 10, y + 6, arrows))
+        y += 58
+
+    # 途中を省く
+    p.append(u'<text x="150" y="%d" font-size="20" fill="currentColor" opacity="0.4">⋮</text>' % (y + 4))
+
+    # 50個
+    y += 44
+    p.append(u'<line x1="60" y1="%d" x2="640" y2="%d" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.2"></line>' % (y - 22, y - 22))
+    p.append(u'<text x="108" y="%d" text-anchor="end" font-size="17" '
+             u'font-weight="bold" fill="currentColor">50個</text>' % (y + 6))
+    p.append(u'<text x="140" y="%d" font-size="20" font-weight="bold" fill="%s">'
+             u'約 1,126 兆本</text>' % (y + 8, COPPER))
+    p.append(u'<text x="140" y="%d" font-size="13" fill="currentColor" opacity="0.7">'
+             u'ここまで来ると、もう描けません</text>' % (y + 32))
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'矢印の本数は、量子ビットが1個増えるごとに倍になります。'
+                u'ただしこれは「その本数のデータをしまえる」という意味ではありません。')
+
+
+# ---------------------------------------------------------------- 図C 温度のものさし
+def fig_temperature():
+    """冷やす話。ただし「全部が冷たいわけではない」まで含めて一枚にする。
+
+    札は線の上下に振り分ける。横に並べると、目盛りの間隔が狭いところで
+    文字どうしが重なって読めなくなるため。
+    """
+    # (x, 温度, 見出し, 補足, 線の上に置くか)
+    marks = [
+        (90, u'0 K', u'絶対零度', u'到達できません', False),
+        (235, u'0.01 K', u'超電導方式の冷凍機', u'絶対零度の100分の1度ほど', True),
+        (390, u'2.7 K', u'宇宙のかすかな熱', u'冷凍機の中は、宇宙より冷たい', False),
+        (600, u'300 K', u'室温', u'およそ27度', True),
+    ]
+    p = []
+    p.append(u'<svg viewBox="0 0 700 348" role="img" aria-label="絶対零度0ケルビン、'
+             u'超電導方式の冷凍機が0.01ケルビン、宇宙のかすかな熱が2.7ケルビン、'
+             u'室温が300ケルビン。冷凍機の中は宇宙より冷たい。'
+             u'中性原子方式・イオン方式・光方式は、この冷凍機を必要としない。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+
+    p.append(u'<text x="350" y="34" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">冷やすのは、矢印の向きが壊れないように</text>')
+    p.append(u'<text x="640" y="56" text-anchor="end" font-size="11" '
+             u'fill="currentColor" opacity="0.5">目盛りは等間隔ではありません</text>')
+    p.append(u'<line x1="70" y1="158" x2="640" y2="158" stroke="currentColor" '
+             u'stroke-width="2" opacity="0.35"></line>')
+
+    for x, k, title, sub, above in marks:
+        hot = (k == u'300 K')
+        col = 'currentColor' if hot else COPPER
+        p.append(u'<line x1="%d" y1="146" x2="%d" y2="170" stroke="%s" '
+                 u'stroke-width="2"></line>' % (x, x, col))
+        ys = (136, 108, 88) if above else (188, 212, 232)
+        p.append(u'<text x="%d" y="%d" text-anchor="middle" font-size="16" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (x, ys[0], col, k))
+        p.append(u'<text x="%d" y="%d" text-anchor="middle" font-size="14" '
+                 u'font-weight="bold" fill="currentColor">%s</text>' % (x, ys[1], title))
+        p.append(u'<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+                 u'fill="currentColor" opacity="0.7">%s</text>' % (x, ys[2], sub))
+
+    # 冷やさない方式
+    p.append(u'<rect x="70" y="258" width="570" height="74" rx="6" fill="none" '
+             u'stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>')
+    p.append(u'<text x="92" y="288" font-size="15" font-weight="bold" '
+             u'fill="currentColor">この冷凍機が要らない作り方もあります</text>')
+    p.append(u'<text x="92" y="313" font-size="13" fill="currentColor" opacity="0.8">'
+             u'中性原子方式／イオン方式／光方式。光の方式は、量子ビットそのものが常温です</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'超電導方式の冷凍機の中は、宇宙のかすかな熱よりも冷たい世界です。'
+                u'ただし、すべての量子コンピュータがこうではありません。')
+
+
 INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。</p>\n<!-- /wp:paragraph -->',
@@ -200,6 +372,15 @@ INSERTS = [
     ('article-02.html',
      u'<p class="has-medium-font-size">もし解明されれば、常温常圧で肥料を作る道が開けるかもしれません。<strong>これが、量子コンピュータに期待されていることの、いちばんわかりやすい形です。</strong></p>\n<!-- /wp:paragraph -->',
      fig_ammonia),
+    ('article-01.html',
+     u'<p class="has-medium-font-size">よく「0でもあり1でもある、不思議な状態」と説明されますが、この言い方だと<strong>向きの話がまるごと抜け落ちます。</strong>そして向きが抜けると、量子コンピュータが速い理由も、まるごと消えてしまうのです。</p>\n<!-- /wp:paragraph -->',
+     fig_bit_vs_qubit),
+    ('article-01.html',
+     u'<p class="has-medium-font-size">正しくはこうです。<strong>その状態を普通のコンピュータで書き留めようとすると、それだけの本数の矢印を並べる必要がある</strong>、ということです。</p>\n<!-- /wp:paragraph -->',
+     fig_doubling),
+    ('article-01.html',
+     u'<p class="has-medium-font-size">「量子コンピュータは絶対零度に冷やす機械です」と言い切ってしまうと、それは嘘になります。<strong>あの写真は、超電導方式のものです。</strong></p>\n<!-- /wp:paragraph -->',
+     fig_temperature),
 ]
 
 for fname, anchor, maker in INSERTS:
@@ -209,6 +390,12 @@ for fname, anchor, maker in INSERTS:
         sys.stderr.write('× 差し込み先が %d 件（1件でないと止めます）: %s\n'
                          % (t.count(anchor), fname))
         sys.exit(1)
-    t = t.replace(anchor, anchor + u'\n\n' + maker())
+    block = maker()
+    # 二度流しても重ねない。図ごとの読み上げ文の頭を目印にする。
+    key = block[block.index('aria-label="') + 12:][:40]
+    if key in t:
+        print(u'－ %s には、この図がすでにあります（何もしません）' % fname)
+        continue
+    t = t.replace(anchor, anchor + u'\n\n' + block)
     io.open(path, 'w', encoding='utf-8').write(t)
     print(u'○ %s に図を1枚 差し込みました' % fname)

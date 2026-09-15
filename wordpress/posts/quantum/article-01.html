@@ -119,6 +119,40 @@
 <p class="has-medium-font-size">よく「0でもあり1でもある、不思議な状態」と説明されますが、この言い方だと<strong>向きの話がまるごと抜け落ちます。</strong>そして向きが抜けると、量子コンピュータが速い理由も、まるごと消えてしまうのです。</p>
 <!-- /wp:paragraph -->
 
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 340" role="img" aria-label="ふつうのビットは0か1のどちらか一方であるのに対し、量子ビットは長さと向きを持つ矢印で表される。長さはその答えの出やすさ、向きは位相を表す。長さが同じでも向きが違えば別のものになる。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="qb-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon></marker></defs>
+<line x1="350" y1="24" x2="350" y2="316" stroke="currentColor" stroke-width="1" opacity="0.2"></line>
+<text x="175" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">ふつうのビット</text>
+<rect x="85" y="78" width="85" height="85" rx="8" fill="none" stroke="currentColor" stroke-width="2" opacity="0.55"></rect>
+<text x="127" y="135" text-anchor="middle" font-size="40" font-weight="bold" fill="currentColor">0</text>
+<rect x="180" y="78" width="85" height="85" rx="8" fill="#C1803A" stroke="currentColor" stroke-width="2" opacity="1"></rect>
+<text x="222" y="135" text-anchor="middle" font-size="40" font-weight="bold" fill="#FFFFFF">1</text>
+<text x="175" y="205" text-anchor="middle" font-size="15" fill="currentColor">どちらか一方。必ず、どちらか</text>
+<text x="175" y="232" text-anchor="middle" font-size="15" fill="currentColor" opacity="0.7">スイッチと同じです</text>
+<text x="525" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">量子ビット</text>
+<circle cx="525" cy="130" r="56" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.25"></circle>
+<circle cx="525" cy="130" r="4" fill="currentColor" opacity="0.5"></circle>
+<line x1="525" y1="130" x2="566" y2="92" stroke="#C1803A" stroke-width="3" marker-end="url(#qb-ah)"></line>
+<line x1="525" y1="130" x2="596" y2="130" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.35"></line>
+<path d="M 565 130 A 40 40 0 0 0 554 103" fill="none" stroke="#C1803A" stroke-width="2" opacity="0.7"></path>
+<text x="604" y="100" font-size="13" font-weight="bold" fill="#C1803A">長さ</text>
+<text x="604" y="118" font-size="12" fill="currentColor" opacity="0.75">出やすさ</text>
+<text x="604" y="150" font-size="13" font-weight="bold" fill="#C1803A">向き</text>
+<text x="604" y="168" font-size="12" fill="currentColor" opacity="0.75">位相</text>
+<line x1="425" y1="272" x2="455" y2="254" stroke="#C1803A" stroke-width="3" marker-end="url(#qb-ah)"></line>
+<circle cx="425" cy="272" r="3" fill="currentColor" opacity="0.4"></circle>
+<line x1="525" y1="272" x2="525" y2="237" stroke="#C1803A" stroke-width="3" marker-end="url(#qb-ah)"></line>
+<circle cx="525" cy="272" r="3" fill="currentColor" opacity="0.4"></circle>
+<line x1="625" y1="272" x2="595" y2="254" stroke="#C1803A" stroke-width="3" marker-end="url(#qb-ah)"></line>
+<circle cx="625" cy="272" r="3" fill="currentColor" opacity="0.4"></circle>
+<text x="525" y="306" text-anchor="middle" font-size="15" fill="currentColor">長さが同じでも、向きが違えば別のもの</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">ふつうのビットは0か1。量子ビットは、長さと向きを持つ矢印です。この「向き」が、普通の確率にはないものです。</figcaption>
+</figure>
+<!-- /wp:html -->
+
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
 <h3 class="wp-block-heading has-medium-font-size">量子ビットが増えると、矢印の数が爆発します</h3>
 <!-- /wp:heading -->
@@ -146,6 +180,43 @@
 <!-- wp:paragraph {"fontSize":"medium"} -->
 <p class="has-medium-font-size">正しくはこうです。<strong>その状態を普通のコンピュータで書き留めようとすると、それだけの本数の矢印を並べる必要がある</strong>、ということです。</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 390" role="img" aria-label="量子ビットが1個のとき矢印は2本、2個で4本、3個で8本と、1個増えるごとに倍になる。50個では約1126兆本になり、絵に描くことはできない。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<defs><marker id="dbl-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><polygon points="0,1 10,5 0,9" fill="#C1803A"></polygon></marker></defs>
+<text x="350" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">1個増えるごとに、矢印の数は倍になります</text>
+<text x="108" y="70" text-anchor="end" font-size="12" fill="currentColor" opacity="0.6">量子ビット</text>
+<text x="140" y="70" font-size="12" fill="currentColor" opacity="0.6">矢印</text>
+<text x="108" y="114" text-anchor="end" font-size="17" font-weight="bold" fill="currentColor">1個</text>
+<line x1="140" y1="122" x2="152" y2="96" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="170" y1="122" x2="182" y2="96" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<text x="210" y="114" font-size="15" fill="currentColor" opacity="0.8">2本</text>
+<text x="108" y="172" text-anchor="end" font-size="17" font-weight="bold" fill="currentColor">2個</text>
+<line x1="140" y1="180" x2="152" y2="154" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="170" y1="180" x2="182" y2="154" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="200" y1="180" x2="212" y2="154" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="230" y1="180" x2="242" y2="154" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<text x="270" y="172" font-size="15" fill="currentColor" opacity="0.8">4本</text>
+<text x="108" y="230" text-anchor="end" font-size="17" font-weight="bold" fill="currentColor">3個</text>
+<line x1="140" y1="238" x2="152" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="170" y1="238" x2="182" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="200" y1="238" x2="212" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="230" y1="238" x2="242" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="260" y1="238" x2="272" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="290" y1="238" x2="302" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="320" y1="238" x2="332" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<line x1="350" y1="238" x2="362" y2="212" stroke="#C1803A" stroke-width="2.5" marker-end="url(#dbl-ah)"></line>
+<text x="390" y="230" font-size="15" fill="currentColor" opacity="0.8">8本</text>
+<text x="150" y="286" font-size="20" fill="currentColor" opacity="0.4">⋮</text>
+<line x1="60" y1="304" x2="640" y2="304" stroke="currentColor" stroke-width="1" opacity="0.2"></line>
+<text x="108" y="332" text-anchor="end" font-size="17" font-weight="bold" fill="currentColor">50個</text>
+<text x="140" y="334" font-size="20" font-weight="bold" fill="#C1803A">約 1,126 兆本</text>
+<text x="140" y="358" font-size="13" fill="currentColor" opacity="0.7">ここまで来ると、もう描けません</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">矢印の本数は、量子ビットが1個増えるごとに倍になります。ただしこれは「その本数のデータをしまえる」という意味ではありません。</figcaption>
+</figure>
+<!-- /wp:html -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
 <h3 class="wp-block-heading has-medium-font-size">では、どうやって答えが出るのか</h3>
@@ -494,6 +565,36 @@
 <!-- wp:paragraph {"fontSize":"medium"} -->
 <p class="has-medium-font-size">「量子コンピュータは絶対零度に冷やす機械です」と言い切ってしまうと、それは嘘になります。<strong>あの写真は、超電導方式のものです。</strong></p>
 <!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<figure style="margin:0;padding:0">
+<svg viewBox="0 0 700 348" role="img" aria-label="絶対零度0ケルビン、超電導方式の冷凍機が0.01ケルビン、宇宙のかすかな熱が2.7ケルビン、室温が300ケルビン。冷凍機の中は宇宙より冷たい。中性原子方式・イオン方式・光方式は、この冷凍機を必要としない。" style="max-width:100%;height:auto;display:block;margin:0 auto">
+<text x="350" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">冷やすのは、矢印の向きが壊れないように</text>
+<text x="640" y="56" text-anchor="end" font-size="11" fill="currentColor" opacity="0.5">目盛りは等間隔ではありません</text>
+<line x1="70" y1="158" x2="640" y2="158" stroke="currentColor" stroke-width="2" opacity="0.35"></line>
+<line x1="90" y1="146" x2="90" y2="170" stroke="#C1803A" stroke-width="2"></line>
+<text x="90" y="188" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">0 K</text>
+<text x="90" y="212" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">絶対零度</text>
+<text x="90" y="232" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">到達できません</text>
+<line x1="235" y1="146" x2="235" y2="170" stroke="#C1803A" stroke-width="2"></line>
+<text x="235" y="136" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">0.01 K</text>
+<text x="235" y="108" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">超電導方式の冷凍機</text>
+<text x="235" y="88" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">絶対零度の100分の1度ほど</text>
+<line x1="390" y1="146" x2="390" y2="170" stroke="#C1803A" stroke-width="2"></line>
+<text x="390" y="188" text-anchor="middle" font-size="16" font-weight="bold" fill="#C1803A">2.7 K</text>
+<text x="390" y="212" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">宇宙のかすかな熱</text>
+<text x="390" y="232" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">冷凍機の中は、宇宙より冷たい</text>
+<line x1="600" y1="146" x2="600" y2="170" stroke="currentColor" stroke-width="2"></line>
+<text x="600" y="136" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">300 K</text>
+<text x="600" y="108" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">室温</text>
+<text x="600" y="88" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">およそ27度</text>
+<rect x="70" y="258" width="570" height="74" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"></rect>
+<text x="92" y="288" font-size="15" font-weight="bold" fill="currentColor">この冷凍機が要らない作り方もあります</text>
+<text x="92" y="313" font-size="13" fill="currentColor" opacity="0.8">中性原子方式／イオン方式／光方式。光の方式は、量子ビットそのものが常温です</text>
+</svg>
+<figcaption style="font-size:0.85em;text-align:center;margin-top:8px;opacity:0.8">超電導方式の冷凍機の中は、宇宙のかすかな熱よりも冷たい世界です。ただし、すべての量子コンピュータがこうではありません。</figcaption>
+</figure>
+<!-- /wp:html -->
 
 <!-- wp:heading {"level":3,"fontSize":"medium"} -->
 <h3 class="wp-block-heading has-medium-font-size">量子ビットの数が、そのまま性能ではありません</h3>
