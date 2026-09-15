@@ -1,0 +1,258 @@
+<title>冷凍機の画像 SEO設定</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#EDF0F1; --paper:#FAFBFB; --ink:#14181C; --ink-soft:#4B545B;
+  --rule:#CBD2D5; --copper:#A8642A; --keep:#2C6257; --drop:#8A3F32;
+  --warn-bg:#F7EEE6; --ok-bg:#E9F0ED; --code-bg:#F1F3F4; --shadow:rgba(20,24,28,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121618; --paper:#191E21; --ink:#E6EBED; --ink-soft:#9CA7AD;
+    --rule:#2F373B; --copper:#D9945A; --keep:#72B9A5; --drop:#D08A76;
+    --warn-bg:#251E19; --ok-bg:#16211D; --code-bg:#111618; --shadow:rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121618; --paper:#191E21; --ink:#E6EBED; --ink-soft:#9CA7AD;
+  --rule:#2F373B; --copper:#D9945A; --keep:#72B9A5; --drop:#D08A76;
+  --warn-bg:#251E19; --ok-bg:#16211D; --code-bg:#111618; --shadow:rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground);color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  font-size:16px;line-height:1.85;margin:0;padding-inline:18px;padding-block:0;
+}
+.wrap{max-width:42rem;margin-inline:auto;padding-block:44px 72px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--copper);margin:0 0 12px}
+h1{font-family:"Zen Antique",serif;font-weight:400;font-size:clamp(1.65rem,6vw,2.2rem);
+  line-height:1.42;text-wrap:balance;margin:0 0 14px}
+.sub{color:var(--ink-soft);margin:0;font-size:.97rem}
+section{margin-top:50px;display:flex;flex-direction:column;gap:16px}
+h2{font-weight:700;font-size:1.18rem;line-height:1.5;text-wrap:balance;margin:0;
+  padding-bottom:9px;border-bottom:2px solid var(--ink)}
+
+.done{background:var(--ok-bg);border-left:4px solid var(--keep);padding:15px 18px}
+.done p{margin:0}
+.done ul{margin:10px 0 0;padding-left:1.2em}
+.done li{margin-top:5px}
+.done strong{color:var(--keep)}
+
+.caveat{background:var(--warn-bg);border-left:4px solid var(--drop);padding:15px 18px}
+.caveat p{margin:0}
+.caveat p + p{margin-top:9px}
+.caveat strong{color:var(--drop)}
+
+.card{background:var(--paper);border:1px solid var(--rule);box-shadow:0 1px 3px var(--shadow)}
+.card > header{padding:15px 18px 11px;border-bottom:1px solid var(--rule)}
+.card h3{margin:0;font-size:1rem;font-weight:700;line-height:1.5}
+.card .where{margin:5px 0 0;font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.06em;color:var(--ink-soft)}
+.body{padding:14px 18px 17px;display:flex;flex-direction:column;gap:11px}
+pre{font-family:"IBM Plex Mono",monospace;font-size:.82rem;line-height:1.75;
+  background:var(--code-bg);border:1px solid var(--rule);padding:12px;margin:0;
+  white-space:pre-wrap;word-break:break-word}
+pre.ja{font-family:inherit;font-size:.95rem;line-height:1.8}
+.why{margin:0;font-size:.89rem;color:var(--ink-soft)}
+button{font-family:inherit;font-size:.88rem;font-weight:500;background:var(--copper);
+  color:#fff;border:0;padding:9px 15px;cursor:pointer;align-self:flex-start}
+button:focus-visible{outline:3px solid var(--keep);outline-offset:2px}
+button[data-done="1"]{background:var(--keep)}
+
+ol.steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:11px}
+ol.steps strong{color:var(--copper)}
+.tblwrap{overflow-x:auto;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:.9rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:"IBM Plex Mono",monospace;font-size:.71rem;letter-spacing:.08em;
+  color:var(--ink-soft);font-weight:500;background:var(--ground);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.y{color:var(--keep);font-weight:700;white-space:nowrap}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  font-size:.85rem;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+<p class="eyebrow">量子コンピュータ 前編／アイキャッチ</p>
+<h1>冷凍機の画像の<br>SEO設定</h1>
+<p class="sub">2026年9月15日　2560×1429px／330KB</p>
+
+<section>
+<h2>先に。サイト側は、もう整っています</h2>
+<div class="done">
+<p><strong>調べたところ、技術面はすでに手当てされていました。</strong>ここは何もしなくて結構です。</p>
+<ul>
+<li><strong>WebPの自動生成</strong>（EWWW Image Optimizer が入っています）</li>
+<li><strong>画面幅に応じた出し分け</strong>（300／768／1024／2048px を自動生成）</li>
+<li><strong>遅延読み込み</strong>と、先頭画像の優先読み込み</li>
+<li><strong>サイトマップに画像を登録</strong>（All in One SEO。すでに1,336枚が入っています）</li>
+<li><strong>検索結果に画像を大きく出せる設定</strong>（max-image-preview:large）</li>
+</ul>
+<p style="margin-top:10px">ですので、やることは<strong>この1枚に名前と説明を付けることだけ</strong>です。</p>
+</div>
+</section>
+
+<section>
+<h2>いちばん大事なこと</h2>
+<div class="caveat">
+<p><strong>記事に貼る前に、いったん消して、名前を変えて入れ直してください。</strong></p>
+<p>いまのファイル名は <span style="font-family:'IBM Plex Mono',monospace;font-size:.85em">Gemini_Generated_Image_l1hwcdl1hwcdl1hw.jpg</span> です。中身が何も分かりません。<strong>ファイル名は画像検索の手がかりのひとつ</strong>で、しかもこのURLはサイトマップに載って検索エンジンに送られます。</p>
+<p>WordPressは<strong>アップロードしたあとにファイル名を変えられません。</strong>記事で使い始めてから変えると、URLが変わって画像が表示されなくなります。<strong>まだどこにも貼っていない今が、いちばん楽です。</strong></p>
+</div>
+</section>
+
+<section>
+<h2>入れる中身（5か所）</h2>
+
+<div class="card">
+<header>
+  <h3>1. ファイル名</h3>
+  <p class="where">入れ直すときのファイル名</p>
+</header>
+<div class="body">
+<pre id="f1">quantum-computer-dilution-refrigerator.jpg</pre>
+<button type="button" data-src="f1">コピー</button>
+<p class="why">英数字と半角ハイフンだけにします。日本語のファイル名は、URLで文字化けしたような並びになります（このサイトにも「前の記事へ」の画像がそうなっている例があります）。<strong>dilution refrigerator</strong> は「希釈冷凍機」の正式な英語名です。</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <h3>2. 代替テキスト（alt）</h3>
+  <p class="where">メディアライブラリ／いちばん効く欄</p>
+</header>
+<div class="body">
+<pre class="ja" id="f2">超電導方式の量子コンピュータを冷やす希釈冷凍機のイメージ図。銅色の円盤が段状に吊り下がり、細い同軸ケーブルの束が下へ伸びている</pre>
+<button type="button" data-src="f2">コピー</button>
+<p class="why"><strong>画像SEOで最も重みがある欄</strong>です。同時に、目の見えない方が読み上げで聞く文章でもあります。<strong>キーワードを詰め込まないこと。</strong>「量子コンピュータ 量子 コンピュータ 冷凍機 SEO」のような書き方は、かえって評価を落とします。<strong>見えているものを、そのまま書く。</strong>それが結果的にいちばん強い。</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <h3>3. タイトル</h3>
+  <p class="where">メディアライブラリ</p>
+</header>
+<div class="body">
+<pre class="ja" id="f3">超電導方式の量子コンピュータの希釈冷凍機（イメージ図）</pre>
+<button type="button" data-src="f3">コピー</button>
+<p class="why">入れ直すと、ファイル名がそのままタイトルになります（<span style="font-family:'IBM Plex Mono',monospace;font-size:.85em">quantum-computer-dilution-refrigerator</span>）。日本語に直してください。</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <h3>4. キャプション</h3>
+  <p class="where">記事の画像の下に表示される文</p>
+</header>
+<div class="body">
+<pre class="ja" id="f4">超電導方式の量子コンピュータを冷やす装置。すべての方式がこうなっているわけではありません。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f4">コピー</button>
+<p class="why"><strong>「イメージ図（生成AIで作成）」を必ず残してください。</strong>調べたところ、この画像には作成元の情報がひとつも残っていませんでした（アップロード時に削られています）。<strong>機械が読める印がない以上、人が読む文で書くしかありません。</strong>実在の装置の写真だと思われると、事実と違う印象を与えたことになります。</p>
+</div>
+</div>
+
+<div class="card">
+<header>
+  <h3>5. 説明</h3>
+  <p class="where">メディアライブラリ</p>
+</header>
+<div class="body">
+<pre class="ja" id="f5">「量子コンピュータとは何か【前編】」の挿絵。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f5">コピー</button>
+<p class="why">表には出ませんが、社内で後から見たときに、どの記事のどういう画像かが分かります。</p>
+</div>
+</div>
+
+</section>
+
+<section>
+<h2>手順</h2>
+<div class="caveat" style="margin-bottom:4px">
+<p><strong>キャプションを入れていただいた分は、入れ直すと消えます。</strong>申し訳ありません。ただ、まだどの公開記事にも使われていないことは確認しました。<strong>入れ直すなら、いまがいちばん安いところです。</strong></p>
+<p>下の4欄はコピーボタンで入れられるので、やり直しても2分ほどです。<strong>もし「ファイル名はこのままでよい」とお考えなら、1と2を飛ばして3から進めてください。</strong>それでも代替テキストを入れれば、効き目の大半は取れます。</p>
+</div>
+<ol class="steps">
+<li><strong>いまの画像を、メディアライブラリから削除。</strong>まだ記事に貼っていないので、影響はありません。</li>
+<li>手元のファイル名を <strong>quantum-computer-dilution-refrigerator.jpg</strong> に変えて、アップロードし直す。</li>
+<li><strong>代替テキスト・タイトル・キャプション・説明</strong>の4欄を、上の文で埋める。</li>
+<li>記事の<strong>アイキャッチ画像に設定する。</strong>検索結果に出るサムネイルと、SNSで共有されたときの画像になります。</li>
+<li>記事の<strong>いちばん上に置く。</strong>最初に目に入る画像は、ページの表示速度の測定対象になります。この画像は330KBと軽いので、ここは問題ありません。</li>
+</ol>
+</section>
+
+<section>
+<h2>やらなくてよいこと</h2>
+<div class="tblwrap">
+<table>
+<thead><tr><th>よく言われること</th><th>このサイトでは</th></tr></thead>
+<tbody>
+<tr><td>WebPに変換する</td><td class="y">不要</td></tr>
+<tr><td>画像を圧縮する</td><td class="y">不要</td></tr>
+<tr><td>スマホ用に小さい画像を用意する</td><td class="y">不要</td></tr>
+<tr><td>遅延読み込みを入れる</td><td class="y">不要</td></tr>
+<tr><td>サイトマップに画像を追加する</td><td class="y">不要</td></tr>
+<tr><td>2560pxを縮める</td><td>気にしなくて結構です。実際に読者へ送られるのは、画面幅に合った小さいほうです</td></tr>
+</tbody>
+</table>
+</div>
+<p class="why" style="margin:0">すべて自動で行われています。<strong>ここに手を出すと、かえって壊す危険があります。</strong></p>
+</section>
+
+<section>
+<h2>ついでに、もっと効くこと</h2>
+<p style="margin:0;font-size:.95rem">画像のSEOは、正直なところ<strong>効き目は小さいほう</strong>です。同じ手間をかけるなら、こちらのほうが効きます。</p>
+<div class="tblwrap">
+<table>
+<thead><tr><th>項目</th><th>案</th></tr></thead>
+<tbody>
+<tr><td>記事のURL</td><td><span style="font-family:'IBM Plex Mono',monospace;font-size:.85em">quantum-01-kihon</span> ／ <span style="font-family:'IBM Plex Mono',monospace;font-size:.85em">quantum-02-doko</span></td></tr>
+<tr><td>記事の見出し</td><td>量子コンピュータとは何か【前編】仕組みと原理を、嘘をつかずに</td></tr>
+<tr><td>前編と後編を<br>互いにリンク</td><td>すでに原稿に「このシリーズの記事」として入れてあります</td></tr>
+<tr><td>公開日</td><td>NECの報道が2026年9月上旬です。<strong>早いほうが読まれます</strong></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<footer>
+<p style="margin:0">画像は、指定した画風どおりに出ています。落ち着いた色、文字なし、人物なし。<strong>絵の中に文字が一つも入っていないことを確認しました。</strong>残りの7枚も同じ調子で出れば、8枚がひとまとまりに見えます。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function attach(btn){
+    var pre = document.getElementById(btn.getAttribute('data-src'));
+    if(!pre) return;
+    var label = btn.textContent;
+    btn.addEventListener('click', function(){
+      var text = pre.textContent;
+      function done(){
+        btn.textContent = 'コピーしました';
+        btn.setAttribute('data-done','1');
+        setTimeout(function(){ btn.textContent = label; btn.removeAttribute('data-done'); }, 2000);
+      }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.top='-1000px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); }
+        catch(e){ btn.textContent = 'コピーできませんでした'; }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+  }
+  var b = document.querySelectorAll('button[data-src]');
+  for (var i=0;i<b.length;i++) attach(b[i]);
+})();
+</script>
