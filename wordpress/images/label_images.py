@@ -67,7 +67,13 @@ LABELS = {
     4: dict(
         head=u'50量子ビットを普通のコンピュータで',
         sub=u'再現するのに1ペタバイトを超えるメモリが要りました',
-        callouts=[],
+        callouts=[
+            # 頼んでいない矢印が天井に出てきた。記事では矢印は
+            # 「量子ビットの矢印」を指す言葉なので、放っておくと誤解を招く。
+            # 記事の趣旨どおりの意味を与えて回収する。
+            (0.470, 0.150, 0.045, 0.105, u'矢印を数で覚える', False),
+        ],
+        trim=True,  # 生成りの枠が付いて出てきたので切る
     ),
     5: dict(
         head=u'作り方は、まだ決まっていない',
@@ -111,6 +117,52 @@ def fetch(url):
     return Image.open(key).convert('RGB')
 
 
+def trim_border(im):
+    """絵のまわりの生成りの枠を切り落とす。
+
+    自動判定はしない。背景そのものが生成りの絵（3番など）を
+    壊してしまうため、LABELS に trim=True と書いたものだけに使う。
+    """
+    w, h = im.size
+    px = im.convert('RGB').load()
+
+    def paper(x, y):
+        r, g, b = px[x, y]
+        return (r + g + b) / 3.0 > 235 and (max(r, g, b) - min(r, g, b)) < 22
+
+    def ratio_row(y):
+        xs = range(0, w, 8)
+        return sum(1 for x in xs if paper(x, y)) / float(len(xs))
+
+    def ratio_col(x):
+        ys = range(0, h, 8)
+        return sum(1 for y in ys if paper(x, y)) / float(len(ys))
+
+    def first(rng, f):
+        for i in rng:
+            if f(i) < 0.5:
+                return i
+        return None
+
+    top = first(range(h), ratio_row)
+    bot = first(range(h - 1, -1, -1), ratio_row)
+    left = first(range(w), ratio_col)
+    right = first(range(w - 1, -1, -1), ratio_col)
+    if None in (top, bot, left, right):
+        raise SystemExit(u'枠を切ろうとしましたが、絵の範囲が分かりませんでした。')
+    if (left, top, right, bot) == (0, 0, w - 1, h - 1):
+        print(u'  枠はありませんでした（切らずに進みます）')
+        return im
+    im = im.crop((left, top, right + 1, bot + 1))
+    print(u'  枠を切りました 上%d 下%d 左%d 右%d → %dx%d'
+          % (top, h - 1 - bot, left, w - 1 - right, im.size[0], im.size[1]))
+    # ほかの絵と大きさを揃える
+    if im.size[0] != w:
+        im = im.resize((w, int(round(w * im.size[1] / float(im.size[0])))), Image.LANCZOS)
+        print(u'  ほかの絵に合わせて %dx%d に拡大' % im.size)
+    return im
+
+
 def bold(draw, xy, text, font, fill, weight=1):
     """そのまま描く。
 
@@ -148,6 +200,8 @@ def draw_callout(d, im, c, f_small):
 
 def label_one(shot, spec, no_callouts=False):
     im = fetch(shot['url'])
+    if spec.get('trim'):
+        im = trim_border(im)
     w, h = im.size
     # 帯を足した絵は 16:9 ではなくなる。それをもう一度食わせると
     # 帯が二重になり、引き出し線の座標も全部ずれる。ここで止める。
