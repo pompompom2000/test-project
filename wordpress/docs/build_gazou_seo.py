@@ -110,7 +110,7 @@ SHOTS = [
         n=5, part=u'後編', where=u'冒頭／アイキャッチ',
         title=u'四つの違う装置',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'Gemini_Generated_Image_vexvw8vexvw8vexv.jpg',
+            u'05-quantum-computer-four-modalities.jpg',
         fname=u'05-quantum-computer-four-modalities.jpg',
         alt=u'量子コンピュータの四つの方式を並べたイメージ図。冷凍機、レーザーの通る'
             u'真空容器、鏡を並べた光学台、探針の下のシリコンチップが一台ずつ置かれている',
