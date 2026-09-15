@@ -172,7 +172,7 @@ def main():
             print(u'-- 入れ直す --')
             # 文字を焼き込んだものがあれば、そちらを上げる。
             # 焼き込む前のものを上げてしまうと、見出しのない絵が site に載る。
-            lab = os.path.join(HERE, 'labeled', '%02d-%s' % (n, s['fname']))
+            lab = os.path.join(HERE, 'labeled', s['fname'])
             if os.path.exists(lab):
                 blob = open(lab, 'rb').read()
                 print(u'  文字入り: %s' % os.path.basename(lab))

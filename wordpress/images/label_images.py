@@ -146,6 +146,14 @@ def draw_callout(d, im, c, f_small):
 def label_one(shot, spec, no_callouts=False):
     im = fetch(shot['url'])
     w, h = im.size
+    # 帯を足した絵は 16:9 ではなくなる。それをもう一度食わせると
+    # 帯が二重になり、引き出し線の座標も全部ずれる。ここで止める。
+    if abs(w / float(h) - 16 / 9.0) > 0.03:
+        raise SystemExit(
+            u'%d番：もとの絵が 16:9 ではありません（%dx%d、比 %.3f）。\n'
+            u'すでに文字を焼き込んだ絵を指していませんか。\n'
+            u'SHOTS の url を、文字を入れる前の絵に戻してください。'
+            % (shot['n'], w, h, w / float(h)))
     band_h = max(120, int(h * 0.125))
     out = Image.new('RGB', (w, h + band_h), INK)
     out.paste(im, (0, 0))
@@ -180,7 +188,7 @@ def label_one(shot, spec, no_callouts=False):
 
     if not os.path.isdir(OUTDIR):
         os.makedirs(OUTDIR)
-    path = os.path.join(OUTDIR, '%02d-%s' % (shot['n'], shot['fname']))
+    path = os.path.join(OUTDIR, shot['fname'])
     out.save(path, 'JPEG', quality=88, optimize=True)
     return path, out.size, os.path.getsize(path)
 

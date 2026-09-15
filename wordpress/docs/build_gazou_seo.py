@@ -44,8 +44,8 @@ SHOTS = [
         n=1, part=u'前編', where=u'冒頭／アイキャッチ',
         title=u'冷凍機',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'quantum-computer-dilution-refrigerator.jpg',
-        fname=u'quantum-computer-dilution-refrigerator.jpg',
+            u'01-quantum-computer-dilution-refrigerator.jpg',
+        fname=u'01-quantum-computer-dilution-refrigerator.jpg',
         alt=u'超電導方式の量子コンピュータを冷やす希釈冷凍機のイメージ図。'
             u'銅色の円盤が段状に吊り下がり、細い同軸ケーブルの束が下へ伸びている',
         mtitle=u'超電導方式の量子コンピュータの希釈冷凍機（イメージ図）',
@@ -60,7 +60,7 @@ SHOTS = [
         title=u'量子ビットのチップ',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'superconducting-qubit-chip.jpg',
-        fname=u'superconducting-qubit-chip.jpg',
+        fname=u'02-superconducting-qubit-chip.jpg',
         alt=u'超電導方式の量子ビットを載せたチップのイメージ図。十字の形をした電極が'
             u'格子状に並び、チップの縁から細い金線が周囲の基板へ弧を描いている',
         mtitle=u'超電導方式の量子ビットを載せたチップ（イメージ図）',
@@ -74,7 +74,7 @@ SHOTS = [
     dict(
         n=3, part=u'前編', where=u'「もうひとつ、圧倒的に得意なことがあります」',
         title=u'矢印を持った分子', url=u'',
-        fname=u'molecule-electron-arrows.jpg',
+        fname=u'03-molecule-electron-arrows.jpg',
         alt=u'分子の中の電子を矢印で表したイメージ図。球と棒でできた分子のまわりに'
             u'淡い雲が広がり、その中に向きの異なる小さな矢印が散らばっている',
         mtitle=u'分子の中の電子と「矢印」（イメージ図）',
@@ -87,7 +87,7 @@ SHOTS = [
     dict(
         n=4, part=u'前編', where=u'「なぜ、普通のコンピュータでは追いつけないのか」',
         title=u'スーパーコンピュータの列', url=u'',
-        fname=u'supercomputer-server-aisle.jpg',
+        fname=u'04-supercomputer-server-aisle.jpg',
         alt=u'スーパーコンピュータの並ぶ通路のイメージ図。同じ形の背の高い装置が'
             u'両側に果てしなく続いている',
         mtitle=u'スーパーコンピュータの並ぶ通路（イメージ図）',
@@ -100,7 +100,7 @@ SHOTS = [
     dict(
         n=5, part=u'後編', where=u'冒頭／アイキャッチ',
         title=u'四つの違う装置', url=u'',
-        fname=u'quantum-computer-four-modalities.jpg',
+        fname=u'05-quantum-computer-four-modalities.jpg',
         alt=u'量子コンピュータの四つの方式を並べたイメージ図。冷凍機、レーザーの通る'
             u'真空容器、鏡を並べた光学台、探針の下のシリコンチップが一台ずつ置かれている',
         mtitle=u'量子コンピュータの主な方式（イメージ図）',
@@ -113,7 +113,7 @@ SHOTS = [
     dict(
         n=6, part=u'後編', where=u'「本命は、分子と材料のシミュレーションです」（7番と対）',
         title=u'アンモニアの工場', url=u'',
-        fname=u'ammonia-plant-haber-bosch.jpg',
+        fname=u'06-ammonia-plant-haber-bosch.jpg',
         alt=u'アンモニアを作る工場のイメージ図。背の高い反応塔と太い配管が並び、'
             u'蒸気が立ちのぼっている',
         mtitle=u'アンモニアを合成する工場（イメージ図）',
@@ -126,7 +126,7 @@ SHOTS = [
     dict(
         n=7, part=u'後編', where=u'6番のすぐ下。対にして使う',
         title=u'マメ科の根粒', url=u'',
-        fname=u'soybean-root-nodules.jpg',
+        fname=u'07-soybean-root-nodules.jpg',
         alt=u'マメ科の植物の根と根粒のイメージ図。細い根に沿って丸い粒が連なり、'
             u'土がついたまま持ち上げられている',
         mtitle=u'マメ科の根につく根粒（イメージ図）',
@@ -139,7 +139,7 @@ SHOTS = [
     dict(
         n=8, part=u'後編', where=u'「セキュリティのための機械ではありません」',
         title=u'錠前の付け替え', url=u'',
-        fname=u'padlock-old-and-new.jpg',
+        fname=u'08-padlock-old-and-new.jpg',
         alt=u'古い真鍮の南京錠と新しい鋼の南京錠を並べたイメージ図。'
             u'左は開いており、右は閉じている',
         mtitle=u'古い錠前と新しい錠前（イメージ図）',
