@@ -80,7 +80,7 @@ SHOTS = [
         n=3, part=u'前編', where=u'「もうひとつ、圧倒的に得意なことがあります」',
         title=u'矢印を持った分子',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'Gemini_Generated_Image_8gvbb38gvbb38gvb.jpg',
+            u'03-molecule-electron-arrows.jpg',
         fname=u'03-molecule-electron-arrows.jpg',
         alt=u'分子の中の電子を矢印で表したイメージ図。球と棒でできた分子のまわりに'
             u'淡い雲が広がり、その中に向きの異なる小さな矢印が散らばっている',
