@@ -29,7 +29,7 @@ POSTS = [
     dict(
         file='article-01.html',
         slug='quantum-computer-01-mechanism',
-        title=u'量子コンピュータとは何か【前編】仕組みと原理を、嘘をつかずに',
+        title=u'量子コンピュータとは何か【前編】仕組みと原理を。',
         excerpt=u'2025年のノーベル物理学賞は、1984年の電気回路の実験に贈られました。'
                 u'そこから40年。量子ビットが持つ「矢印」とは何か、'
                 u'なぜ普通のコンピュータでは追いつけないのか。'
@@ -69,9 +69,9 @@ POSTS = [
             (u'<h3 class="wp-block-heading has-medium-font-size">'
              u'「セキュリティのための機械」ではありません</h3>\n<!-- /wp:heading -->', 8),
         ],
-        links=[(u'<li>量子コンピュータとは何か【前編】仕組みと原理を、嘘をつかずに</li>',
+        links=[(u'<li>量子コンピュータとは何か【前編】仕組みと原理を。</li>',
                 u'<li><a href="%s/quantum-computer-01-mechanism/">'
-                u'量子コンピュータとは何か【前編】仕組みと原理を、嘘をつかずに</a></li>' % SITE)],
+                u'量子コンピュータとは何か【前編】仕組みと原理を。</a></li>' % SITE)],
     ),
 ]
 
