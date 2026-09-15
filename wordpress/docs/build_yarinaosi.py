@@ -28,10 +28,12 @@ def pick(path, start, end):
 
 def load():
     img = os.path.join(HERE, '..', 'images')
-    g = pick(os.path.join(img, 'gen_images.py'), 'STYLE = (', 'def prompt_of')
+    # prompt_of まで取り込んで、そのまま呼ぶ。ここで組み立て直すと
+    # 矢印禁止のような後からの決めごとが手順書に反映されない。
+    g = pick(os.path.join(img, 'gen_images.py'), 'STYLE = (', 'def get_key')
     s = pick(os.path.join(HERE, 'build_gazou_seo.py'), 'SHOTS = [', 'FIELDS = [')
     l = pick(os.path.join(img, 'label_images.py'), 'LABELS = {', 'def load_shots')
-    prompts = {x['n']: x['scene'] + u'\n\n' + g['STYLE'] for x in g['SHOTS']}
+    prompts = {x['n']: g['prompt_of'](x) for x in g['SHOTS']}
     return [dict(seo, prompt=prompts[seo['n']], label=l['LABELS'].get(seo['n'], {}))
             for seo in s['SHOTS']]
 

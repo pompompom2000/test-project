@@ -67,7 +67,7 @@ SHOTS = [
                 u'イメージ図（生成AIで作成）',
     ),
     dict(
-        n=3, slug='bunshi', part=u'前編',
+        n=3, slug='bunshi', part=u'前編', arrows=True,
         where=u'「もうひとつ、圧倒的に得意なことがあります」',
         scene=u'A single small molecule floating in empty space: five or six simple spheres joined '
               u'by short straight rods, arranged in three dimensions. Around and between the '
@@ -135,8 +135,22 @@ SHOTS = [
 ]
 
 
+NO_ARROWS = (
+    u' Do not draw any arrows, arrowheads, chevrons, flow lines or diagram '
+    u'symbols anywhere in the picture, including on ceilings, trays and walls.'
+)
+
+
 def prompt_of(shot):
-    return shot['scene'] + u'\n\n' + STYLE
+    """矢印は3番だけのもの。ほかの絵では禁じる。
+
+    記事のなかで矢印は「量子ビットの矢印」を指す言葉なので、
+    関係のない絵に出ると読み手が混乱する。
+    """
+    p = shot['scene'] + u'\n\n' + STYLE
+    if not shot.get('arrows'):
+        p += NO_ARROWS
+    return p
 
 
 def get_key():
