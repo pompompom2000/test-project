@@ -20,6 +20,9 @@
   ・代替テキスト・タイトル・キャプション・説明 → APIで書き換えられる
   ・ファイル名そのもの → 書き換えられない。入れ直すしかない
 
+入れ直すときは、labeled/NN-ファイル名 があればそれを上げる。
+つまり先に label_images.py を走らせておくこと。
+
 安全のための決めごと：
   ・削除は --delete-old と --yes の両方がないと絶対に行わない
   ・変える前に、いまの値を必ず表示する
@@ -167,9 +170,18 @@ def main():
 
         if args.reupload:
             print(u'-- 入れ直す --')
-            with urllib.request.urlopen(s['url'], timeout=90) as r:
-                blob = r.read()
-            print(u'  取得: %.2f MB' % (len(blob) / 1048576.0))
+            # 文字を焼き込んだものがあれば、そちらを上げる。
+            # 焼き込む前のものを上げてしまうと、見出しのない絵が site に載る。
+            lab = os.path.join(HERE, 'labeled', '%02d-%s' % (n, s['fname']))
+            if os.path.exists(lab):
+                blob = open(lab, 'rb').read()
+                print(u'  文字入り: %s' % os.path.basename(lab))
+            else:
+                with urllib.request.urlopen(s['url'], timeout=90) as r:
+                    blob = r.read()
+                print(u'  ! 文字入りが見つからないので、元の絵をそのまま上げます')
+                print(u'    （先に python3 label_images.py %d を実行してください）' % n)
+            print(u'  大きさ: %.2f MB' % (len(blob) / 1048576.0))
             new = call('/media', auth, raw=blob, headers={
                 'Content-Type': 'image/jpeg',
                 'Content-Disposition': 'attachment; filename="%s"' % s['fname'],

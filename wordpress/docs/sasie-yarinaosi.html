@@ -1,0 +1,604 @@
+<title>挿絵の作り直し手順</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#E9ECED; --paper:#FBFBFA; --sunk:#F1F2F1;
+  --ink:#1C2124; --ink-soft:#585F63; --ink-faint:#868E92;
+  --rule:#CDD2D3; --rule-soft:#E0E4E4;
+  --copper:#A8642A; --copper-soft:#F3EBE2;
+  --new:#2C6257; --new-soft:#E7EFEC;
+  --shadow:rgba(28,33,36,.09);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#111516; --paper:#191D1F; --sunk:#131819;
+    --ink:#E8ECEC; --ink-soft:#A0A9AC; --ink-faint:#798286;
+    --rule:#2C3336; --rule-soft:#232A2C;
+    --copper:#D2925B; --copper-soft:#241C14;
+    --new:#77BBA8; --new-soft:#14201D;
+    --shadow:rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#111516; --paper:#191D1F; --sunk:#131819;
+  --ink:#E8ECEC; --ink-soft:#A0A9AC; --ink-faint:#798286;
+  --rule:#2C3336; --rule-soft:#232A2C;
+  --copper:#D2925B; --copper-soft:#241C14;
+  --new:#77BBA8; --new-soft:#14201D;
+  --shadow:rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  font-size:16px; line-height:1.85;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 18px; padding-block:clamp(28px,6vw,56px)}
+h1{
+  font-family:"Zen Antique",serif; font-weight:400;
+  font-size:clamp(28px,7vw,40px); line-height:1.35; letter-spacing:.02em;
+  margin:0 0 .5em; text-wrap:balance;
+}
+.lede{color:var(--ink-soft); margin:0 0 6px; font-size:15px}
+.stamp{
+  display:inline-block; font-size:12px; letter-spacing:.14em;
+  color:var(--copper); border:1px solid var(--copper);
+  padding:3px 10px; border-radius:2px; margin-bottom:18px;
+}
+
+/* 進め方 */
+.flow{
+  background:var(--paper); border:1px solid var(--rule);
+  border-radius:3px; padding:20px 20px 8px; margin:26px 0 40px;
+  box-shadow:0 1px 2px var(--shadow);
+}
+.flow h2{font-size:15px; margin:0 0 14px; letter-spacing:.06em}
+.flow ol{margin:0; padding:0; list-style:none; display:grid; gap:14px}
+.flow li{display:grid; grid-template-columns:26px 1fr; gap:12px; align-items:start}
+.flow b{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:13px;
+  color:var(--copper); border:1px solid var(--rule); border-radius:50%;
+  width:26px; height:26px; display:grid; place-items:center; margin-top:3px;
+}
+.flow p{margin:0; font-size:15px}
+.flow p span{display:block; color:var(--ink-soft); font-size:13.5px; line-height:1.7}
+.flow footer{
+  border-top:1px solid var(--rule-soft); margin-top:16px; padding:12px 0 10px;
+  font-size:13.5px; color:var(--ink-soft);
+}
+
+/* 1枚ぶん */
+.shot{
+  background:var(--paper); border:1px solid var(--rule);
+  border-radius:3px; margin:0 0 30px; overflow:hidden;
+  box-shadow:0 1px 2px var(--shadow);
+}
+.head{
+  display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
+  padding:20px; border-bottom:1px solid var(--rule-soft);
+}
+.num{
+  font-family:"Zen Antique",serif; font-size:34px; line-height:1;
+  color:var(--copper); width:40px; text-align:center;
+}
+.head h2{font-size:19px; margin:0; line-height:1.4; letter-spacing:.01em}
+.where{margin:2px 0 0; font-size:13.5px; color:var(--ink-soft)}
+.where b{color:var(--ink); font-weight:500}
+.chip{
+  grid-column:2; justify-self:start; font-size:12px; letter-spacing:.06em;
+  padding:2px 9px; border-radius:2px; margin-top:8px;
+}
+.chip.redo{background:var(--copper-soft); color:var(--copper)}
+.chip.new{background:var(--new-soft); color:var(--new)}
+
+.slots{margin:0; padding:0; list-style:none}
+.slots li{padding:16px 20px; border-bottom:1px solid var(--rule-soft)}
+.lab{
+  margin:0 0 8px; font-size:14px; font-weight:500;
+  display:flex; align-items:center; gap:9px; flex-wrap:wrap;
+}
+.step{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
+  color:var(--ink-faint); border:1px solid var(--rule);
+  width:19px; height:19px; border-radius:2px; display:grid; place-items:center;
+}
+.lab em{font-style:normal; font-size:12.5px; color:var(--ink-faint); font-weight:400}
+.val{display:flex; gap:10px; align-items:flex-start}
+pre{
+  flex:1; min-width:0; margin:0; padding:11px 13px;
+  background:var(--sunk); border:1px solid var(--rule-soft); border-radius:2px;
+  white-space:pre-wrap; word-break:break-word; overflow-wrap:anywhere;
+}
+pre.mono{font-family:"IBM Plex Mono",monospace; font-size:13px; line-height:1.75}
+pre.ja{font-family:inherit; font-size:14px; line-height:1.8}
+button{
+  flex:none; font:inherit; font-size:13px; cursor:pointer;
+  background:transparent; color:var(--copper);
+  border:1px solid var(--copper); border-radius:2px; padding:7px 12px;
+  min-width:64px;
+}
+button:hover{background:var(--copper-soft)}
+button:focus-visible{outline:2px solid var(--copper); outline-offset:2px}
+button.done{background:var(--copper); color:var(--paper)}
+
+.burn{padding:16px 20px 18px; background:var(--sunk)}
+.bl{
+  margin:0 0 9px; font-size:11.5px; letter-spacing:.12em; color:var(--ink-faint);
+}
+.bh{margin:0; font-size:17px; font-weight:700; line-height:1.5}
+.bs{margin:3px 0 0; font-size:13.5px; color:var(--ink-soft); line-height:1.75}
+.bc{
+  margin:9px 0 0; font-size:13px; color:var(--copper);
+  border-top:1px solid var(--rule-soft); padding-top:9px;
+}
+footer.end{
+  color:var(--ink-soft); font-size:13.5px; line-height:1.85;
+  border-top:1px solid var(--rule); padding-top:18px; margin-top:8px;
+}
+@media (max-width:420px){
+  .val{flex-direction:column}
+  button{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<p class="stamp">株式会社石名坂／量子コンピュータ記事</p>
+<h1>挿絵の作り直し手順</h1>
+<p class="lede">1番から8番まで、上から順に。1枚ずつ片づけてください。</p>
+
+<div class="flow">
+<h2>1枚あたりの進め方</h2>
+<ol>
+<li><b>1</b><p>Gemini アプリに「Gemini に貼る文」を貼る<span>英語のままで結構です。日本語に直すと絵が変わります。文字は入れさせません——あとでこちらが正確に焼き込みます。</span></p></li>
+<li><b>2</b><p>出てきた絵を保存する<span>気に入らなければ、同じ文でもう一度。何度でも構いません。</span></p></li>
+<li><b>3</b><p>WordPress に上げて、URL を送る<span>ファイル名はそのままで結構です。こちらで正しい名前に付け替えます。</span></p></li>
+<li><b>4</b><p>あとはこちらで<span>日本語の見出しを焼き込み、正しいファイル名で入れ直し、代替テキスト・タイトル・キャプション・説明を入れて、古いほうを消します。</span></p></li>
+</ol>
+<footer>いま使っている Gemini 3.6 Flash は、絵そのものを描くモデルではありません。アプリが裏で Nano Banana 2 に渡しています。つまり絵の出来は Flash の番号では変わりません。</footer>
+</div>
+
+<section class="shot" id="n1">
+<header class="head">
+<span class="num">1</span>
+<div><h2>冷凍機</h2><p class="where"><b>前編</b>／冒頭／アイキャッチ</p></div>
+<span class="chip redo">いまの絵を差し替え</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f1prompt" class="mono">A tall chandelier-like dilution refrigerator for a superconducting quantum computer, seen from a slightly low angle in a quiet empty laboratory. Several large circular copper-gold plates stacked horizontally at different heights, connected by vertical rods, with dense bundles of thin coaxial cables running down between the plates. The lowest stage is smallest. A cylindrical vacuum shell is lifted away and visible at the side. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f1prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f1fname" class="mono">quantum-computer-dilution-refrigerator.jpg</pre>
+<button type="button" data-src="f1fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f1alt" class="ja">超電導方式の量子コンピュータを冷やす希釈冷凍機のイメージ図。銅色の円盤が段状に吊り下がり、細い同軸ケーブルの束が下へ伸びている</pre>
+<button type="button" data-src="f1alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f1mtitle" class="ja">超電導方式の量子コンピュータの希釈冷凍機（イメージ図）</pre>
+<button type="button" data-src="f1mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f1caption" class="ja">超電導方式の量子コンピュータを冷やす装置。すべての方式がこうなっているわけではありません。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f1caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f1desc" class="ja">「量子コンピュータとは何か【前編】」のアイキャッチ。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f1desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">量子コンピュータを冷やす装置</p>
+<p class="bs">超電導方式の希釈冷凍機。すべての方式がこうなっているわけではありません</p>
+<p class="bc">引き出し線：銅の円盤／同軸ケーブル／真空の容器</p>
+</div>
+</section>
+<section class="shot" id="n2">
+<header class="head">
+<span class="num">2</span>
+<div><h2>量子ビットのチップ</h2><p class="where"><b>前編</b>／「1984年から、一本の線がつながっています」</p></div>
+<span class="chip redo">いまの絵を差し替え</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f2prompt" class="mono">Extreme close-up of a small square superconducting quantum processor chip resting on a polished copper mount. On the chip surface, a regular grid of symmetric cross-shaped metal patterns connected by fine meandering traces. Very thin bond wires arc from the chip edge to a surrounding circuit board. Shallow depth of field, the far corner slightly soft. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f2prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f2fname" class="mono">superconducting-qubit-chip.jpg</pre>
+<button type="button" data-src="f2fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f2alt" class="ja">超電導方式の量子ビットを載せたチップのイメージ図。十字の形をした電極が格子状に並び、チップの縁から細い金線が周囲の基板へ弧を描いている</pre>
+<button type="button" data-src="f2alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f2mtitle" class="ja">超電導方式の量子ビットを載せたチップ（イメージ図）</pre>
+<button type="button" data-src="f2mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f2caption" class="ja">超電導方式の量子ビットを載せたチップ。1999年にNECが作った回路の子孫にあたります。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f2caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f2desc" class="ja">「量子コンピュータとは何か【前編】」の挿絵。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f2desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">量子ビットを載せたチップ</p>
+<p class="bs">十字の形がひとつの量子ビット。1999年にNECが作った回路の子孫にあたります</p>
+<p class="bc">引き出し線：量子ビットの電極／金の細線</p>
+</div>
+</section>
+<section class="shot" id="n3">
+<header class="head">
+<span class="num">3</span>
+<div><h2>矢印を持った分子</h2><p class="where"><b>前編</b>／「もうひとつ、圧倒的に得意なことがあります」</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f3prompt" class="mono">A single small molecule floating in empty space: five or six simple spheres joined by short straight rods, arranged in three dimensions. Around and between the spheres, soft translucent grey clouds suggest where electrons might be. Scattered through those clouds, many small copper-colored directional arrows point in many different directions, like iron filings. Some arrows in one region line up together and point the same way. Clean off-white background. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f3prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f3fname" class="mono">molecule-electron-arrows.jpg</pre>
+<button type="button" data-src="f3fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f3alt" class="ja">分子の中の電子を矢印で表したイメージ図。球と棒でできた分子のまわりに淡い雲が広がり、その中に向きの異なる小さな矢印が散らばっている</pre>
+<button type="button" data-src="f3alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f3mtitle" class="ja">分子の中の電子と「矢印」（イメージ図）</pre>
+<button type="button" data-src="f3mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f3caption" class="ja">分子の中の電子も「矢印」を持っています。だから量子の機械と相性がよいのです。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f3caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f3desc" class="ja">「量子コンピュータとは何か【前編】」の挿絵。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f3desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">分子の中の電子も「矢印」を持つ</p>
+<p class="bs">だから量子の機械と相性がよい。普通のコンピュータでは追えなくなります</p>
+</div>
+</section>
+<section class="shot" id="n4">
+<header class="head">
+<span class="num">4</span>
+<div><h2>スーパーコンピュータの列</h2><p class="where"><b>前編</b>／「なぜ、普通のコンピュータでは追いつけないのか」</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f4prompt" class="mono">A long aisle inside a supercomputer hall, seen straight down the middle in one-point perspective. Identical tall equipment cabinets line both sides, receding far into the distance and fading out. Thick cable trays overhead. Cool blue-grey light. The aisle is empty, no people. The scale feels endless.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f4prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f4fname" class="mono">supercomputer-server-aisle.jpg</pre>
+<button type="button" data-src="f4fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f4alt" class="ja">スーパーコンピュータの並ぶ通路のイメージ図。同じ形の背の高い装置が両側に果てしなく続いている</pre>
+<button type="button" data-src="f4alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f4mtitle" class="ja">スーパーコンピュータの並ぶ通路（イメージ図）</pre>
+<button type="button" data-src="f4mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f4caption" class="ja">50量子ビットを普通のコンピュータで再現するには、1ペタバイトを超えるメモリが要りました。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f4caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f4desc" class="ja">「量子コンピュータとは何か【前編】」の挿絵。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f4desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">50量子ビットを普通のコンピュータで</p>
+<p class="bs">再現するのに1ペタバイトを超えるメモリが要りました</p>
+</div>
+</section>
+<section class="shot" id="n5">
+<header class="head">
+<span class="num">5</span>
+<div><h2>四つの違う装置</h2><p class="where"><b>後編</b>／冒頭／アイキャッチ</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f5prompt" class="mono">One long laboratory bench photographed straight on, with four completely different pieces of apparatus standing side by side in a row, evenly spaced. From left to right: a small hanging gold-copper cryostat tower; a sealed vacuum chamber crossed by thin straight laser beams; an optical table with mirrors and beam splitters and folded light paths; a bare silicon chip under a fine probe needle. They look unrelated to each other. Plain wall behind. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f5prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f5fname" class="mono">quantum-computer-four-modalities.jpg</pre>
+<button type="button" data-src="f5fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f5alt" class="ja">量子コンピュータの四つの方式を並べたイメージ図。冷凍機、レーザーの通る真空容器、鏡を並べた光学台、探針の下のシリコンチップが一台ずつ置かれている</pre>
+<button type="button" data-src="f5alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f5mtitle" class="ja">量子コンピュータの主な方式（イメージ図）</pre>
+<button type="button" data-src="f5mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f5caption" class="ja">作り方は六通りあり、まだ本命が決まっていません。主な方式のイメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f5caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f5desc" class="ja">「量子コンピュータとは何か【後編】」のアイキャッチ。生成AIで作成したイメージ図であり、実在の装置の写真ではありません。</pre>
+<button type="button" data-src="f5desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">作り方は、まだ決まっていない</p>
+<p class="bs">六つの方式が並び立っています。どれが本命かは分かっていません</p>
+</div>
+</section>
+<section class="shot" id="n6">
+<header class="head">
+<span class="num">6</span>
+<div><h2>アンモニアの工場</h2><p class="where"><b>後編</b>／「本命は、分子と材料のシミュレーションです」（7番と対）</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f6prompt" class="mono">A large industrial ammonia synthesis plant at dusk. Tall steel reactor columns and pressure vessels, thick insulated pipework, valves and flanges, steam rising and drifting sideways, a faint shimmer of heat. Cold blue evening sky behind, warm lights low on the structure. Seen from middle distance. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f6prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f6fname" class="mono">ammonia-plant-haber-bosch.jpg</pre>
+<button type="button" data-src="f6fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f6alt" class="ja">アンモニアを作る工場のイメージ図。背の高い反応塔と太い配管が並び、蒸気が立ちのぼっている</pre>
+<button type="button" data-src="f6alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f6mtitle" class="ja">アンモニアを合成する工場（イメージ図）</pre>
+<button type="button" data-src="f6mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f6caption" class="ja">肥料のもとになるアンモニアは、400〜500度・数百気圧で作られています。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f6caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f6desc" class="ja">「量子コンピュータとは何か【後編】」の挿絵。7番（根粒）と対で使います。生成AIで作成したイメージ図であり、実在の設備の写真ではありません。</pre>
+<button type="button" data-src="f6desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">工場は 400〜500度・数百気圧</p>
+<p class="bs">アンモニアを作るのに、人類が使う全エネルギーの数パーセントを使います</p>
+</div>
+</section>
+<section class="shot" id="n7">
+<header class="head">
+<span class="num">7</span>
+<div><h2>マメ科の根粒</h2><p class="where"><b>後編</b>／6番のすぐ下。対にして使う</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f7prompt" class="mono">The root system of a soybean plant just lifted from the ground, held up against plain soft daylight. Fine pale roots spread out, and along them cluster many small round nodules, some cut open to show a pink-red interior. Dark crumbs of soil still cling to the roots and a few fall away. A couple of green leaves at the top edge of the frame. Quiet, ordinary, close up. No people, no hands.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f7prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f7fname" class="mono">soybean-root-nodules.jpg</pre>
+<button type="button" data-src="f7fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f7alt" class="ja">マメ科の植物の根と根粒のイメージ図。細い根に沿って丸い粒が連なり、土がついたまま持ち上げられている</pre>
+<button type="button" data-src="f7alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f7mtitle" class="ja">マメ科の根につく根粒（イメージ図）</pre>
+<button type="button" data-src="f7mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f7caption" class="ja">マメ科の根につく根粒。ここでは常温・常圧で、同じことが行われています。しくみはまだ解明されていません。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f7caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f7desc" class="ja">「量子コンピュータとは何か【後編】」の挿絵。6番（工場）と対で使います。生成AIで作成したイメージ図であり、実物の写真ではありません。</pre>
+<button type="button" data-src="f7desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">根粒は 常温・常圧</p>
+<p class="bs">同じことを土の中でやっています。そのしくみは、まだ解明されていません</p>
+</div>
+</section>
+<section class="shot" id="n8">
+<header class="head">
+<span class="num">8</span>
+<div><h2>錠前の付け替え</h2><p class="where"><b>後編</b>／「セキュリティのための機械ではありません」</p></div>
+<span class="chip new">これから作る</span>
+</header>
+<ol class="slots">
+<li>
+<p class="lab"><span class="step">1</span>Gemini に貼る文<em>英語のまま貼ってください</em></p>
+<div class="val">
+<pre id="f8prompt" class="mono">Two padlocks lying side by side on a worn wooden workbench, seen from directly above. On the left, an old brass padlock, its shackle sprung open, slightly tarnished. On the right, a new steel padlock, still closed and clean. Between them, a single key and a small screwdriver. Plain bench, soft daylight from one side. No people.
+
+Editorial illustration for a print magazine. Calm and precise, not flashy. Muted palette: slate grey, deep indigo, warm copper, off-white paper ground. Soft even light, subtle paper grain, flat shapes with light shading, generous empty space. Absolutely no text, no letters, no numbers, no logos, no watermarks, no signatures. Aspect ratio 16:9.</pre>
+<button type="button" data-src="f8prompt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">2</span>ファイル名<em>保存するときの名前</em></p>
+<div class="val">
+<pre id="f8fname" class="mono">padlock-old-and-new.jpg</pre>
+<button type="button" data-src="f8fname">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">3</span>代替テキスト<em>いちばん効く欄</em></p>
+<div class="val">
+<pre id="f8alt" class="ja">古い真鍮の南京錠と新しい鋼の南京錠を並べたイメージ図。左は開いており、右は閉じている</pre>
+<button type="button" data-src="f8alt">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">4</span>タイトル<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f8mtitle" class="ja">古い錠前と新しい錠前（イメージ図）</pre>
+<button type="button" data-src="f8mtitle">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">5</span>キャプション<em>画像の下に出る文</em></p>
+<div class="val">
+<pre id="f8caption" class="ja">量子コンピュータは暗号を「壊す側」です。国は2035年を目処に、錠前の付け替えを進めています。イメージ図（生成AIで作成）</pre>
+<button type="button" data-src="f8caption">コピー</button>
+</div></li>
+<li>
+<p class="lab"><span class="step">6</span>説明<em>メディアライブラリ</em></p>
+<div class="val">
+<pre id="f8desc" class="ja">「量子コンピュータとは何か【後編】」の挿絵。生成AIで作成したイメージ図であり、実物の写真ではありません。</pre>
+<button type="button" data-src="f8desc">コピー</button>
+</div></li>
+</ol>
+<div class="burn"><p class="bl">このあと、こちらで焼き込む文字</p>
+<p class="bh">量子コンピュータは暗号を「壊す側」</p>
+<p class="bs">国は2035年を目処に、錠前の付け替えを進めています</p>
+</div>
+</section>
+
+<footer class="end">
+1番と2番は、すでにサイトに上がっているものと差し替えになります。新しいほうが入り、そのあと古いほうを消します。消す前に必ずお伝えします。<br><br>
+キャプションの「イメージ図（生成AIで作成）」は、8枚すべてに付けたままにしてください。実在の装置の写真ではないことを、読む人に伝えるためです。
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('button[data-src]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = document.getElementById(b.dataset.src);
+    if(!t) return;
+    var txt = t.textContent;
+    var done = function(){
+      var was = b.textContent;
+      b.textContent = 'コピーしました';
+      b.classList.add('done');
+      setTimeout(function(){ b.textContent = was; b.classList.remove('done'); }, 1600);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt, done); });
+    } else { fallback(txt, done); }
+  });
+});
+function fallback(txt, done){
+  var a = document.createElement('textarea');
+  a.value = txt; a.setAttribute('readonly','');
+  a.style.position='fixed'; a.style.top='-1000px';
+  document.body.appendChild(a); a.select();
+  try{ document.execCommand('copy'); done(); }catch(e){}
+  document.body.removeChild(a);
+}
+</script>
