@@ -90,7 +90,10 @@ LABELS = {
     6: dict(
         head=u'工場は 400〜500度・数百気圧',
         sub=u'アンモニアを作るのに、人類が使う全エネルギーの数パーセントを使います',
+        # 塔のどれが反応器かは絵から判じられないので、指さない。
+        # 見出しの数字と、7番との対比が伝えるべきことを伝えている。
         callouts=[],
+        trim=True,  # 生成りの枠が付いて出てきたので切る
     ),
     7: dict(
         head=u'根粒は 常温・常圧',
@@ -163,6 +166,17 @@ def trim_border(im):
     im = im.crop((left, top, right + 1, bot + 1))
     print(u'  枠を切りました 上%d 下%d 左%d 右%d → %dx%d'
           % (top, h - 1 - bot, left, w - 1 - right, im.size[0], im.size[1]))
+
+    # 枠の幅は上下左右で揃っていないので、切っただけでは 16:9 からずれる。
+    # ほかの絵と形が違うと、記事に並べたとき背の高さがまちまちになる。
+    iw, ih = im.size
+    tw, th = (int(round(ih * 16 / 9.0)), ih) if iw / float(ih) > 16 / 9.0 \
+        else (iw, int(round(iw * 9 / 16.0)))
+    if (tw, th) != (iw, ih):
+        x, y = (iw - tw) // 2, (ih - th) // 2
+        im = im.crop((x, y, x + tw, y + th))
+        print(u'  16:9 に切り揃えました → %dx%d' % im.size)
+
     # ほかの絵と大きさを揃える
     if im.size[0] != w:
         im = im.resize((w, int(round(w * im.size[1] / float(im.size[0])))), Image.LANCZOS)
@@ -207,17 +221,19 @@ def draw_callout(d, im, c, f_small):
 
 def label_one(shot, spec, no_callouts=False):
     im = fetch(shot['url'])
-    if spec.get('trim'):
-        im = trim_border(im)
-    w, h = im.size
     # 帯を足した絵は 16:9 ではなくなる。それをもう一度食わせると
     # 帯が二重になり、引き出し線の座標も全部ずれる。ここで止める。
+    # 枠を切る前に見ること。切ったあとの比は当てにならない。
+    w, h = im.size
     if abs(w / float(h) - 16 / 9.0) > 0.03:
         raise SystemExit(
             u'%d番：もとの絵が 16:9 ではありません（%dx%d、比 %.3f）。\n'
             u'すでに文字を焼き込んだ絵を指していませんか。\n'
             u'SHOTS の url を、文字を入れる前の絵に戻してください。'
             % (shot['n'], w, h, w / float(h)))
+    if spec.get('trim'):
+        im = trim_border(im)
+    w, h = im.size
     band_h = max(120, int(h * 0.125))
     out = Image.new('RGB', (w, h + band_h), INK)
     out.paste(im, (0, 0))

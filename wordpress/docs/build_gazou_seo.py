@@ -123,7 +123,9 @@ SHOTS = [
     ),
     dict(
         n=6, part=u'後編', where=u'「本命は、分子と材料のシミュレーションです」（7番と対）',
-        title=u'アンモニアの工場', url=u'',
+        title=u'アンモニアの工場',
+        url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
+            u'06-ammonia-plant-haber-bosch.jpg',
         fname=u'06-ammonia-plant-haber-bosch.jpg',
         alt=u'アンモニアを作る工場のイメージ図。背の高い反応塔と太い配管が並び、'
             u'蒸気が立ちのぼっている',
