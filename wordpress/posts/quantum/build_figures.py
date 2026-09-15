@@ -11,6 +11,7 @@
 """
 import io
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -484,6 +485,175 @@ def fig_logical_qubit():
                 u'「256量子ビット」と「論理量子ビット256個」は、まったく違う話です。')
 
 
+# ---------------------------------------------------------------- 図F 応酬
+def fig_claim_rebuttal():
+    """「できた」と「普通のパソコンでもできた」の応酬を、三つ並べる。
+
+    本文が「この分野を理解するのにいちばん大事」と言っている節なのに、
+    図がなかった。見出しだけ読むと左半分しか目に入らないことを見せる。
+
+    改行は手で決める。文字数で折ると、枠からはみ出したり
+    変なところで切れたりするため。
+    """
+    rows = [
+        (u'2019', u'Google',
+         [u'スパコンで1万年かかる計算を', u'200秒で解いた'],
+         [u'IBM「工夫すれば2日半でできる」。', u'2022年、別の研究チームが',
+          u'普通のコンピュータで実際に解いた']),
+        (u'2023', u'IBM',
+         [u'誤り訂正の前の段階でも', u'役に立つ証拠だ'],
+         [u'数週間のうちに複数のチームが再現。', u'ひとつはノートパソコンの1コアで動き、',
+          u'量子の実機より桁違いに速かった']),
+        (u'2025', u'D-Wave',
+         [u'科学誌に成果を発表'],
+         [u'数日のうちに二つの研究機関が', u'「普通のコンピュータで再現できる」。',
+          u'同社はさらに反論している']),
+    ]
+    h = 92 + 112 * len(rows) + 62
+    p = []
+    p.append(u'<svg viewBox="0 0 700 %d" role="img" aria-label="2019年のGoogle、'
+             u'2023年のIBM、2025年のD-Waveの発表に対して、いずれも普通のコンピュータで'
+             u'再現できるという反論が続いた。発表と検証と議論がくり返されている。" '
+             u'style="max-width:100%%;height:auto;display:block;margin:0 auto">' % h)
+    p.append(u'<defs><marker id="cr-ah" viewBox="0 0 10 10" refX="9" refY="5" '
+             u'markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+             u'<polygon points="0,1 10,5 0,9" fill="currentColor" opacity="0.5">'
+             u'</polygon></marker></defs>')
+
+    p.append(u'<text x="180" y="42" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="%s">「できた」という発表</text>' % COPPER)
+    p.append(u'<text x="502" y="42" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'「普通のパソコンでもできた」</text>')
+    p.append(u'<line x1="338" y1="58" x2="338" y2="%d" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.2"></line>' % (h - 76))
+
+    y = 96
+    for year, who, claim, back in rows:
+        box_h = 34 + 19 * len(claim)
+        p.append(u'<text x="30" y="%d" font-size="13.5" font-weight="bold" '
+                 u'fill="currentColor" opacity="0.5">%s</text>' % (y + 22, year))
+        p.append(u'<rect x="76" y="%d" width="250" height="%d" rx="6" fill="none" '
+                 u'stroke="%s" stroke-width="2"></rect>' % (y, box_h, COPPER))
+        p.append(u'<text x="90" y="%d" font-size="14" font-weight="bold" fill="%s">%s</text>'
+                 % (y + 22, COPPER, who))
+        for k, ln in enumerate(claim):
+            p.append(u'<text x="90" y="%d" font-size="12.5" fill="currentColor">%s</text>'
+                     % (y + 42 + k * 19, ln))
+        p.append(u'<line x1="334" y1="%d" x2="358" y2="%d" stroke="currentColor" '
+                 u'stroke-width="2" opacity="0.5" marker-end="url(#cr-ah)"></line>'
+                 % (y + box_h / 2, y + box_h / 2))
+        for k, ln in enumerate(back):
+            p.append(u'<text x="370" y="%d" font-size="12.5" fill="currentColor">%s</text>'
+                     % (y + 22 + k * 19, ln))
+        y += 112
+
+    p.append(u'<rect x="30" y="%d" width="640" height="44" rx="6" fill="none" '
+             u'stroke="currentColor" stroke-width="1.5" opacity="0.4"></rect>' % (h - 58))
+    p.append(u'<text x="350" y="%d" text-anchor="middle" font-size="14" '
+             u'fill="currentColor">見出しに出るのは'
+             u'<tspan font-weight="bold">左だけ</tspan>。'
+             u'数週間後の右は、まず届きません</text>' % (h - 30))
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'発表があり、検証があり、議論がある。'
+                u'不正でも失敗でもなく、科学が正常に働いている姿です。')
+
+
+# ---------------------------------------------------------------- 図G 実用化の見通し
+def fig_when():
+    """「いつ実用化されるのか」の答えの幅を、そのまま見せる。"""
+    p = []
+    p.append(u'<svg viewBox="0 0 700 330" role="img" aria-label="実用化の見通しは、'
+             u'IBMとGoogleの目標が2029年、日本政府の暗号切り替えの目処が2035年、'
+             u'国の研究目標ムーンショットが2050年、そして そもそも実現しないという'
+             u'反対論まで、大きく開いている。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<text x="350" y="36" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'「いつ実用化されるのか」の答えは、これだけ開いています</text>')
+
+    marks = [(130, u'2029年', u'IBM・Googleの目標', u'会社の目標であって、予定ではない'),
+             (330, u'2035年', u'国が暗号を切り替える目処', u'内閣官房。2026年度中に工程表'),
+             (530, u'2050年', u'ムーンショット', u'誤りに強い汎用の機械の実現')]
+    p.append(u'<line x1="90" y1="126" x2="600" y2="126" stroke="currentColor" '
+             u'stroke-width="2" opacity="0.35"></line>')
+    for x, yr, title, sub in marks:
+        p.append(u'<line x1="%d" y1="114" x2="%d" y2="138" stroke="%s" '
+                 u'stroke-width="2"></line>' % (x, x, COPPER))
+        p.append(u'<text x="%d" y="104" text-anchor="middle" font-size="18" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (x, COPPER, yr))
+        p.append(u'<text x="%d" y="162" text-anchor="middle" font-size="13.5" '
+                 u'font-weight="bold" fill="currentColor">%s</text>' % (x, title))
+        p.append(u'<text x="%d" y="182" text-anchor="middle" font-size="11.5" '
+                 u'fill="currentColor" opacity="0.7">%s</text>' % (x, sub))
+
+    p.append(u'<text x="628" y="132" font-size="22" fill="currentColor" '
+             u'opacity="0.45">…</text>')
+    p.append(u'<rect x="90" y="212" width="510" height="48" rx="6" fill="none" '
+             u'stroke="currentColor" stroke-width="1.5" opacity="0.45"></rect>')
+    p.append(u'<text x="345" y="242" text-anchor="middle" font-size="15" '
+             u'fill="currentColor">そして「<tspan font-weight="bold">そもそも実現しない'
+             u'</tspan>」とする物理学者の反対論もあります</text>')
+    p.append(u'<text x="350" y="294" text-anchor="middle" font-size="13" '
+             u'fill="currentColor">NVIDIAの最高経営責任者は、'
+             u'<tspan font-weight="bold" fill="%s">2か月で見方を撤回</tspan>しました</text>'
+             % COPPER)
+    p.append(u'<text x="350" y="316" text-anchor="middle" font-size="12" '
+             u'fill="currentColor" opacity="0.7">'
+             u'「何年に実用化」と書いてある記事は、そのつもりで読んでください</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'2029年から2050年、そして「来ない」まで。これが、いまの見通しの幅です。')
+
+
+# ---------------------------------------------------------------- 図H いま盗んで、あとで読む
+def fig_harvest_now():
+    """なぜ機械がまだないのに、いま暗号を切り替えるのかを三つの段で見せる。"""
+    steps = [
+        (140, u'いま', u'鍵のかかった通信を、\nそのまま記録して保存する'),
+        (350, u'何年も', u'解ける機械ができるまで、\n寝かせておく'),
+        (560, u'そのあと', u'さかのぼって、\n中身を読む'),
+    ]
+    p = []
+    p.append(u'<svg viewBox="0 0 700 300" role="img" aria-label="暗号化された通信を'
+             u'いまのうちに記録して保存し、解読できる機械ができた時点でさかのぼって読む、'
+             u'という考え方。だから機械がまだなくても、暗号の切り替えがすでに始まっている。" '
+             u'style="max-width:100%;height:auto;display:block;margin:0 auto">')
+    p.append(u'<defs><marker id="hn-ah" viewBox="0 0 10 10" refX="9" refY="5" '
+             u'markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+             u'<polygon points="0,1 10,5 0,9" fill="%s"></polygon></marker></defs>' % COPPER)
+    p.append(u'<text x="350" y="36" text-anchor="middle" font-size="16" '
+             u'font-weight="bold" fill="currentColor">'
+             u'「いま盗んで、あとで読む」</text>')
+
+    for i, (x, when, what) in enumerate(steps):
+        p.append(u'<circle cx="%d" cy="104" r="34" fill="none" stroke="%s" '
+                 u'stroke-width="2.5"></circle>' % (x, COPPER))
+        p.append(u'<text x="%d" y="112" text-anchor="middle" font-size="24" '
+                 u'font-weight="bold" fill="%s">%d</text>' % (x, COPPER, i + 1))
+        p.append(u'<text x="%d" y="166" text-anchor="middle" font-size="14" '
+                 u'font-weight="bold" fill="%s">%s</text>' % (x, COPPER, when))
+        for k, ln in enumerate(what.split('\n')):
+            p.append(u'<text x="%d" y="%d" text-anchor="middle" font-size="13" '
+                     u'fill="currentColor">%s</text>' % (x, 190 + k * 20, ln))
+        if i < len(steps) - 1:
+            p.append(u'<line x1="%d" y1="104" x2="%d" y2="104" stroke="%s" '
+                     u'stroke-width="2.5" marker-end="url(#hn-ah)"></line>'
+                     % (x + 44, x + 166, COPPER))
+
+    p.append(u'<line x1="60" y1="244" x2="640" y2="244" stroke="currentColor" '
+             u'stroke-width="1" opacity="0.25"></line>')
+    p.append(u'<text x="350" y="272" text-anchor="middle" font-size="15" '
+             u'fill="currentColor">だから、機械がまだなくても'
+             u'<tspan font-weight="bold">いま切り替えが始まっています</tspan>'
+             u'（目処 2035年）</text>')
+    p.append(u'</svg>')
+    return wrap(u'\n'.join(p),
+                u'解ける機械ができるのを待って、あとから読む。'
+                u'この手口があるので、国はもう動き始めています。')
+
+
 INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size"><strong>そして現在。</strong>このトランズモンが、IBMやGoogleの量子コンピュータの主力部品になっています。1984年の実験から数えて、40年。基礎研究が形になるまでに、それだけの時間がかかっています。</p>\n<!-- /wp:paragraph -->',
@@ -509,6 +679,15 @@ INSERTS = [
     ('article-01.html',
      u'<p class="has-medium-font-size">それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、<strong>133量子ビットの機械を主力に切り替えました。</strong>数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。</p>\n<!-- /wp:paragraph -->',
      fig_logical_qubit),
+    ('article-02.html',
+     u'<p class="has-medium-font-size">誤解のないように申し添えます。<strong>これは不正でも失敗でもありません。科学が正常に働いている姿です。</strong>発表があり、検証があり、議論がある。そうやって確かなことが積み上がっていきます。</p>\n<!-- /wp:paragraph -->',
+     fig_claim_rebuttal),
+    ('article-02.html',
+     u'<p class="has-medium-font-size">業界の第一人者ですら、2か月で見方が変わります。<strong>「何年に実用化」と書いてある記事は、そのつもりで読んでください。</strong></p>\n<!-- /wp:paragraph -->',
+     fig_when),
+    ('article-02.html',
+     u'<p class="has-medium-font-size">そして2025年11月20日、内閣官房の国家サイバー統括室が、政府機関などの暗号を新しい方式（<strong>耐量子計算機暗号</strong>）へ切り替える方針をまとめました。<strong>目処は、原則2035年。</strong>2026年度中に工程表を作るとされています。</p>\n<!-- /wp:paragraph -->',
+     fig_harvest_now),
 ]
 
 for fname, anchor, maker in INSERTS:

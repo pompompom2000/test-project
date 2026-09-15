@@ -132,6 +132,19 @@ SHOTS = [
         caption=u'量子コンピュータは暗号を「壊す側」です。国は2035年を目処に、錠前の付け替えを'
                 u'進めています。イメージ図（生成AIで作成）',
     ),
+    dict(
+        n=9, slug='genba', part=u'後編',
+        where=u'「私たちの業界は、どうか」',
+        scene=u'A crushed-stone quarry and civil engineering yard in soft early morning '
+              u'light, seen from middle distance. On the left, stepped rock benches cut '
+              u'into a hillside. In the centre, three separate conical stockpiles of '
+              u'graded aggregate, coarse to fine. A wheel loader stands beside them, '
+              u'engine off. A small four-rotor survey drone hovers in the air above the '
+              u'yard, seen small against the sky. Two slender survey poles stand planted '
+              u'in the ground. Long quiet shadows. No people.',
+        caption=u'いま現場で効いているのは、量子ではなくドローンによる測量や3次元の設計データです。'
+                u'イメージ図（生成AIで作成）',
+    ),
 ]
 
 

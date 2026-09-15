@@ -39,7 +39,7 @@ def load():
 
 
 SHOTS = load()
-assert len(SHOTS) == 8, len(SHOTS)
+assert len(SHOTS) >= 8, len(SHOTS)
 
 SLOTS = [
     ('prompt', u'Gemini に貼る文',  u'英語のまま貼ってください', True),
@@ -239,7 +239,7 @@ footer.end{
 <div class="wrap">
 <p class="stamp">株式会社石名坂／量子コンピュータ記事</p>
 <h1>挿絵の作り直し手順</h1>
-<p class="lede">1番から8番まで、上から順に。1枚ずつ片づけてください。</p>
+<p class="lede">上から順に。1枚ずつ片づけてください。</p>
 
 <div class="flow">
 <h2>1枚あたりの進め方</h2>
