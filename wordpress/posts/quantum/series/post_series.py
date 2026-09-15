@@ -27,9 +27,9 @@ sys.path.insert(0, os.path.join(SRC, '..', '..', 'images'))
 
 SITE = plan.SITE
 CATEGORIES = [1, 10]
-# 第1回の「前の記事へ」。いま公開されている最新の記事。
-# 前編・後編を引退させる場合は、ここを /kensetsugyo-unso-kyoka-koushin/ に変える。
-FIRST_PREV = '/quantum-computer-02-status/'
+# 第1回の「前の記事へ」。
+# 前編・後編は引退させる方針になったので、その一つ手前の記事を指す。
+FIRST_PREV = '/kensetsugyo-unso-kyoka-koushin/'
 
 UP = SITE + '/common/files/uploads/2026/04'
 PREV_IMG = UP + '/%E5%89%8D%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%B8-e1776822939829.png'
