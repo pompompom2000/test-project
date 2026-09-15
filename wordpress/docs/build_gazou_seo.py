@@ -125,7 +125,7 @@ SHOTS = [
         n=6, part=u'後編', where=u'「本命は、分子と材料のシミュレーションです」（7番と対）',
         title=u'アンモニアの工場',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'06-ammonia-plant-haber-bosch-1.jpg',
+            u'06-ammonia-plant-haber-bosch.jpg',
         fname=u'06-ammonia-plant-haber-bosch.jpg',
         alt=u'アンモニアを作る工場のイメージ図。背の高い反応塔と太い配管が並び、'
             u'蒸気が立ちのぼっている',
@@ -153,7 +153,9 @@ SHOTS = [
     ),
     dict(
         n=8, part=u'後編', where=u'「セキュリティのための機械ではありません」',
-        title=u'錠前の付け替え', url=u'',
+        title=u'錠前の付け替え',
+        url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
+            u'08-padlock-old-and-new.jpg',
         fname=u'08-padlock-old-and-new.jpg',
         alt=u'古い真鍮の南京錠と新しい鋼の南京錠を並べたイメージ図。'
             u'左は開いており、右は閉じている',
