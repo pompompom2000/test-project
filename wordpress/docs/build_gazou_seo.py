@@ -44,7 +44,7 @@ SHOTS = [
         n=1, part=u'前編', where=u'冒頭／アイキャッチ',
         title=u'冷凍機',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
-            u'Gemini_Generated_Image_l1hwcdl1hwcdl1hw.jpg',
+            u'quantum-computer-dilution-refrigerator.jpg',
         fname=u'quantum-computer-dilution-refrigerator.jpg',
         alt=u'超電導方式の量子コンピュータを冷やす希釈冷凍機のイメージ図。'
             u'銅色の円盤が段状に吊り下がり、細い同軸ケーブルの束が下へ伸びている',
