@@ -33,8 +33,7 @@ def fig_timeline():
         (u'1984-85', u'ジョセフソン接合の実験', u'2025年のノーベル物理学賞の対象'),
         (u'1999', u'NECが量子ビットを世界初実現', u'「クーパー対箱」。Nature の表紙に'),
         (u'2007', u'トランズモンの提案', u'論文の題名は「クーパー対箱から導かれた設計」'),
-        (u'いま', u'IBM・Google の主力部品に', u''),
-        (u'2026', u'NECが実機開発を中止と報じられる', u'同じ月に理研・阪大が144量子ビットを稼働'),
+        (u'いま', u'IBM・Google の主力部品に', u'2025年のノーベル物理学賞は、この線の出発点に贈られた'),
     ]
     x_line = 150
     x_text = 176
@@ -43,8 +42,8 @@ def fig_timeline():
 
     p = []
     p.append(u'<svg viewBox="0 0 640 %d" role="img" aria-label="1984年から85年のジョセフソン接合の実験、'
-             u'1999年のNECによる量子ビットの世界初実現、2007年のトランズモンの提案、現在のIBMとGoogleの'
-             u'主力部品、2026年のNECの実機開発中止の報道までを並べた年表。1984年から現在までが40年。" '
+             u'1999年のNECによる量子ビットの世界初実現、2007年のトランズモンの提案、'
+             u'現在のIBMとGoogleの主力部品までを並べた年表。1984年から現在までが40年。" '
              u'style="max-width:100%%;height:auto;display:block;margin:0 auto">' % h)
 
     # 40年のかっこ（1984 → いま）
@@ -505,7 +504,7 @@ INSERTS = [
      u'<p class="has-medium-font-size">「量子コンピュータは絶対零度に冷やす機械です」と言い切ってしまうと、それは嘘になります。<strong>あの写真は、超電導方式のものです。</strong></p>\n<!-- /wp:paragraph -->',
      fig_temperature),
     ('article-01.html',
-     u'<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。相関があるとわかるのは、あとで普通の通信で結果を突き合わせたときです。</p>\n<!-- /wp:paragraph -->',
+     u'<p class="has-medium-font-size">理由は単純です。離れた2つの量子ビットを測ると、必ず示し合わせたような結果になります。ところが<strong>その結果は、どちらの側でも決められない、でたらめな値</strong>なのです。決められないものは、合図に使えません。<strong>二人の目が揃っていたとわかるのは、あとで電話やメールなど普通の方法で結果を見せ合ったとき</strong>です。</p>\n<!-- /wp:paragraph -->',
      fig_entangle),
     ('article-01.html',
      u'<p class="has-medium-font-size">それを示す出来事があります。IBMは2023年に1,121量子ビットの機械を発表しましたが、その後、<strong>133量子ビットの機械を主力に切り替えました。</strong>数を減らしたのに、性能は上がっています。数ではなく質に舵を切ったのです。</p>\n<!-- /wp:paragraph -->',
@@ -515,16 +514,18 @@ INSERTS = [
 for fname, anchor, maker in INSERTS:
     path = os.path.join(HERE, fname)
     t = io.open(path, encoding='utf-8').read()
-    if t.count(anchor) != 1:
-        sys.stderr.write('× 差し込み先が %d 件（1件でないと止めます）: %s\n'
-                         % (t.count(anchor), fname))
-        sys.exit(1)
     block = maker()
     # 二度流しても重ねない。図ごとの読み上げ文の頭を目印にする。
+    # 先に「もう入っているか」を見ること。差し込み先の文はあとから
+    # 言い換えることがあり、入っているのに止まってしまうため。
     key = block[block.index('aria-label="') + 12:][:40]
     if key in t:
         print(u'－ %s には、この図がすでにあります（何もしません）' % fname)
         continue
+    if t.count(anchor) != 1:
+        sys.stderr.write('× 差し込み先が %d 件（1件でないと止めます）: %s\n'
+                         % (t.count(anchor), fname))
+        sys.exit(1)
     t = t.replace(anchor, anchor + u'\n\n' + block)
     io.open(path, 'w', encoding='utf-8').write(t)
     print(u'○ %s に図を1枚 差し込みました' % fname)
