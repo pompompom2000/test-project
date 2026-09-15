@@ -1,0 +1,216 @@
+# -*- coding: utf-8 -*-
+"""生成した挿絵に、日本語の見出しを焼き込む。
+
+生成AIに文字を描かせると日本語が崩れる。だから絵は文字なしで作らせ、
+文字は**あとからこちらで正確に入れる**。
+
+使い方：
+    python3 label_images.py            # URLが登録済みのものを全部
+    python3 label_images.py 1 2        # 番号を指定
+    python3 label_images.py 1 --no-callouts
+
+出来上がりは labeled/NN-slug.jpg。これをWordPressにアップロードする。
+
+入れるもの：
+  ・下の帯に「見出し」と「ひとこと」
+  ・右上に「イメージ図」の札（実物の写真と誤認させないため）
+  ・必要なら、絵の中の部位を指す引き出し線
+"""
+from __future__ import print_function
+
+import argparse
+import io
+import os
+import sys
+import urllib.request
+
+from PIL import Image, ImageDraw, ImageFont
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUTDIR = os.path.join(HERE, 'labeled')
+CACHE = os.path.join(HERE, '.src-cache')
+FONT = '/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf'
+
+INK = (28, 33, 36)
+PAPER = (250, 251, 251)
+COPPER = (193, 128, 58)
+GREY = (168, 178, 183)
+
+# 番号 → 焼き込む文字。座標は元画像（2560x1429）を基準にした割合で指定する。
+# callouts: (指す点x, 指す点y, 文字の位置x, 文字の位置y, 文字, 右寄せか)
+LABELS = {
+    1: dict(
+        head=u'量子コンピュータを冷やす装置',
+        sub=u'超電導方式の希釈冷凍機。すべての方式がこうなっているわけではありません',
+        callouts=[
+            (0.585, 0.395, 0.760, 0.330, u'銅の円盤', False),
+            (0.545, 0.560, 0.760, 0.560, u'同軸ケーブル', False),
+            (0.255, 0.255, 0.058, 0.135, u'真空の容器', False),
+        ],
+    ),
+    2: dict(
+        head=u'量子ビットを載せたチップ',
+        sub=u'十字の形がひとつの量子ビット。1999年にNECが作った回路の子孫にあたります',
+        callouts=[
+            (0.470, 0.500, 0.250, 0.330, u'量子ビットの電極', True),
+            (0.300, 0.560, 0.120, 0.700, u'金の細線', True),
+        ],
+    ),
+    3: dict(
+        head=u'分子の中の電子も「矢印」を持つ',
+        sub=u'だから量子の機械と相性がよい。普通のコンピュータでは追えなくなります',
+        callouts=[],
+    ),
+    4: dict(
+        head=u'50量子ビットを普通のコンピュータで',
+        sub=u'再現するのに1ペタバイトを超えるメモリが要りました',
+        callouts=[],
+    ),
+    5: dict(
+        head=u'作り方は、まだ決まっていない',
+        sub=u'六つの方式が並び立っています。どれが本命かは分かっていません',
+        callouts=[],
+    ),
+    6: dict(
+        head=u'工場は 400〜500度・数百気圧',
+        sub=u'アンモニアを作るのに、人類が使う全エネルギーの数パーセントを使います',
+        callouts=[],
+    ),
+    7: dict(
+        head=u'根粒は 常温・常圧',
+        sub=u'同じことを土の中でやっています。そのしくみは、まだ解明されていません',
+        callouts=[],
+    ),
+    8: dict(
+        head=u'量子コンピュータは暗号を「壊す側」',
+        sub=u'国は2035年を目処に、錠前の付け替えを進めています',
+        callouts=[],
+    ),
+}
+
+
+def load_shots():
+    import importlib.util  # noqa: F401
+    path = os.path.join(HERE, '..', 'docs', 'build_gazou_seo.py')
+    src = io.open(path, encoding='utf-8').read()
+    ns = {}
+    exec(compile(src[src.index('SHOTS = ['):src.index('FIELDS = [')], path, 'exec'), ns)
+    return {s['n']: s for s in ns['SHOTS']}
+
+
+def fetch(url):
+    if not os.path.isdir(CACHE):
+        os.makedirs(CACHE)
+    key = os.path.join(CACHE, url.rsplit('/', 1)[-1])
+    if not os.path.exists(key):
+        with urllib.request.urlopen(url, timeout=90) as r:
+            open(key, 'wb').write(r.read())
+    return Image.open(key).convert('RGB')
+
+
+def bold(draw, xy, text, font, fill, weight=1):
+    """そのまま描く。
+
+    以前は少しずらして重ね描きして太く見せていたが、「量」のように
+    横線の多い字は隙間が埋まって潰れる。太らせず、字を大きくして読ませる。
+    """
+    draw.text(xy, text, font=font, fill=fill)
+
+
+def draw_callout(d, im, c, f_small):
+    w, h = im.size
+    tx, ty = c[0] * w, c[1] * h
+    lx, ly = c[2] * w, c[3] * h
+    right = c[5]
+    label = c[4]
+
+    tw = d.textlength(label, font=f_small)
+    pad = int(h * 0.011)
+    bw, bh = tw + pad * 2, f_small.size + pad * 2
+    bx = lx - bw if right else lx
+    by = ly - bh / 2.0
+
+    # 引き出し線：指す点に近いほうの辺から出す
+    edge_x = bx if tx < bx + bw / 2.0 else bx + bw
+    anchor = (edge_x, by + bh / 2.0)
+    d.line([anchor, (tx, ty)], fill=COPPER, width=max(2, int(h * 0.0022)))
+    r = max(4, int(h * 0.005))
+    d.ellipse([tx - r, ty - r, tx + r, ty + r], fill=COPPER)
+
+    # 札
+    d.rectangle([bx, by, bx + bw, by + bh], fill=PAPER, outline=COPPER,
+                width=max(2, int(h * 0.0016)))
+    bold(d, (bx + pad, by + pad - f_small.size * 0.08), label, f_small, INK)
+
+
+def label_one(shot, spec, no_callouts=False):
+    im = fetch(shot['url'])
+    w, h = im.size
+    band_h = max(120, int(h * 0.125))
+    out = Image.new('RGB', (w, h + band_h), INK)
+    out.paste(im, (0, 0))
+    d = ImageDraw.Draw(out)
+
+    f_head = ImageFont.truetype(FONT, int(band_h * 0.37))
+    f_sub = ImageFont.truetype(FONT, int(band_h * 0.215))
+    f_tag = ImageFont.truetype(FONT, int(h * 0.024))
+    f_call = ImageFont.truetype(FONT, int(h * 0.030))
+
+    # 右上：イメージ図の札（実物の写真と誤認させない）
+    tag = u'イメージ図'
+    tw = d.textlength(tag, font=f_tag)
+    pad = int(h * 0.012)
+    m = int(h * 0.028)
+    d.rectangle([w - m - tw - pad * 2, m, w - m, m + f_tag.size + pad * 2], fill=COPPER)
+    bold(d, (w - m - tw - pad, m + pad - f_tag.size * 0.08), tag, f_tag, PAPER)
+
+    # 引き出し線
+    if not no_callouts:
+        for c in spec.get('callouts', []):
+            draw_callout(d, im, c, f_call)
+
+    # 下の帯
+    bar = int(w * 0.006)
+    left = int(w * 0.030)
+    d.rectangle([left, h + int(band_h * 0.20), left + bar, h + int(band_h * 0.80)],
+                fill=COPPER)
+    tx = left + bar + int(w * 0.026)
+    bold(d, (tx, h + int(band_h * 0.17)), spec['head'], f_head, PAPER, weight=3)
+    d.text((tx, h + int(band_h * 0.585)), spec['sub'], font=f_sub, fill=GREY)
+
+    if not os.path.isdir(OUTDIR):
+        os.makedirs(OUTDIR)
+    path = os.path.join(OUTDIR, '%02d-%s' % (shot['n'], shot['fname']))
+    out.save(path, 'JPEG', quality=88, optimize=True)
+    return path, out.size, os.path.getsize(path)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('nums', nargs='*', type=int)
+    ap.add_argument('--no-callouts', action='store_true')
+    args = ap.parse_args()
+
+    shots = load_shots()
+    targets = args.nums or sorted(shots)
+    made = 0
+    for n in targets:
+        s = shots.get(n)
+        if not s or not s['url']:
+            print(u'%d番：まだアップロードされていません' % n)
+            continue
+        spec = LABELS.get(n)
+        if not spec:
+            print(u'%d番：焼き込む文字が未設定です' % n)
+            continue
+        path, size, nbytes = label_one(s, spec, args.no_callouts)
+        print(u'%d番 ○ %s  %dx%d  %.2f MB'
+              % (n, os.path.basename(path), size[0], size[1], nbytes / 1048576.0))
+        made += 1
+    if made:
+        print(u'\n%s に出力しました。' % OUTDIR)
+        print(u'目で見て、文字の位置と引き出し線がおかしくないか確かめてください。')
+
+
+if __name__ == '__main__':
+    main()
