@@ -123,7 +123,7 @@ def gather(smm, auth):
     """写真の情報を集める。"""
     shots = {s['n']: s for s in smm.load_shots()}
     media = {}
-    for n in range(1, 9):
+    for n in range(1, 10):
         md = smm.find_by_url(shots[n]['url'], auth)
         if not md:
             sys.exit(u'× %d番の画像がサイトに見つかりません' % n)

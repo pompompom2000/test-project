@@ -46,7 +46,7 @@ def thumb_data_uri(url, width=768):
 
 SHOTS = [
     dict(
-        n=1, part=u'前編', where=u'冒頭／アイキャッチ',
+        n=1, part=u'第1回', where=u'冒頭／アイキャッチ',
         title=u'冷凍機',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'01-quantum-computer-dilution-refrigerator.jpg',
@@ -56,12 +56,12 @@ SHOTS = [
         mtitle=u'超電導方式の量子コンピュータの希釈冷凍機（イメージ図）',
         caption=u'超電導方式の量子コンピュータを冷やす装置。すべての方式がこうなっている'
                 u'わけではありません。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【前編】」のアイキャッチ。'
+        desc=u'「量子コンピュータとは？「矢印」でわかる仕組みの基本【第1回】」のアイキャッチ。'
              u'生成AIで作成したイメージ図であり、実在の装置の写真ではありません。',
         note=u'<strong>dilution refrigerator</strong> は「希釈冷凍機」の正式な英語名です。',
     ),
     dict(
-        n=2, part=u'前編', where=u'「1984年から、一本の線がつながっています」',
+        n=2, part=u'第1回', where=u'「1984年から、一本の線がつながっています」',
         title=u'量子ビットのチップ',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'02-superconducting-qubit-chip.jpg',
@@ -71,13 +71,13 @@ SHOTS = [
         mtitle=u'超電導方式の量子ビットを載せたチップ（イメージ図）',
         caption=u'超電導方式の量子ビットを載せたチップ。1999年にNECが作った回路の'
                 u'子孫にあたります。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【前編】」の挿絵。'
+        desc=u'「量子コンピュータとは？「矢印」でわかる仕組みの基本【第1回】」の挿絵。'
              u'生成AIで作成したイメージ図であり、実在の装置の写真ではありません。',
         note=u'表面の十字の形は、実際の超電導量子ビットの電極の形です。'
              u'<strong>qubit</strong> は「量子ビット」の英語です。',
     ),
     dict(
-        n=3, part=u'前編', where=u'「もうひとつ、圧倒的に得意なことがあります」',
+        n=3, part=u'第3回', where=u'冒頭／アイキャッチ',
         title=u'矢印を持った分子',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'03-molecule-electron-arrows.jpg',
@@ -87,12 +87,12 @@ SHOTS = [
         mtitle=u'分子の中の電子と「矢印」（イメージ図）',
         caption=u'分子の中の電子も「矢印」を持っています。だから量子の機械と相性が'
                 u'よいのです。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【前編】」の挿絵。'
+        desc=u'「量子コンピュータのよくある誤解3つ【第3回】」のアイキャッチ。'
              u'生成AIで作成したイメージ図であり、実在の装置の写真ではありません。',
         note=u'記事の図（矢印の打ち消し合い）と同じ矢印が出るように頼んであります。',
     ),
     dict(
-        n=4, part=u'前編', where=u'「なぜ、普通のコンピュータでは追いつけないのか」',
+        n=4, part=u'第2回', where=u'冒頭／アイキャッチ',
         title=u'スーパーコンピュータの列',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'04-supercomputer-server-aisle.jpg',
@@ -102,12 +102,12 @@ SHOTS = [
         mtitle=u'スーパーコンピュータの並ぶ通路（イメージ図）',
         caption=u'50量子ビットを普通のコンピュータで再現するには、1ペタバイトを超える'
                 u'メモリが要りました。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【前編】」の挿絵。'
+        desc=u'「量子コンピュータはなぜ速いのか？【第2回】」のアイキャッチ。'
              u'生成AIで作成したイメージ図であり、実在の装置の写真ではありません。',
         note=u'',
     ),
     dict(
-        n=5, part=u'後編', where=u'冒頭／アイキャッチ',
+        n=5, part=u'第4回', where=u'冒頭／アイキャッチ',
         title=u'四つの違う装置',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'05-quantum-computer-four-modalities.jpg',
@@ -117,12 +117,12 @@ SHOTS = [
         mtitle=u'量子コンピュータの主な方式（イメージ図）',
         caption=u'作り方は六通りあり、まだ本命が決まっていません。主な方式のイメージ図'
                 u'（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【後編】」のアイキャッチ。'
+        desc=u'「量子コンピュータの現状｜6つの方式【第4回】」のアイキャッチ。'
              u'生成AIで作成したイメージ図であり、実在の装置の写真ではありません。',
         note=u'',
     ),
     dict(
-        n=6, part=u'後編', where=u'「本命は、分子と材料のシミュレーションです」（7番と対）',
+        n=6, part=u'第5回', where=u'冒頭／アイキャッチ',
         title=u'アンモニアの工場',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'06-ammonia-plant-haber-bosch.jpg',
@@ -132,12 +132,12 @@ SHOTS = [
         mtitle=u'アンモニアを合成する工場（イメージ図）',
         caption=u'肥料のもとになるアンモニアは、400〜500度・数百気圧で作られています。'
                 u'イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【後編】」の挿絵。7番（根粒）と対で使います。'
-             u'生成AIで作成したイメージ図であり、実在の設備の写真ではありません。',
+        desc=u'「量子コンピュータの用途｜本命は分子と材料【第5回】」のアイキャッチ。'
+             u'7番（根粒）と対で使います。生成AIで作成したイメージ図であり、実在の設備の写真ではありません。',
         note=u'<strong>Haber-Bosch</strong> は「ハーバー・ボッシュ法」の英語表記です。',
     ),
     dict(
-        n=7, part=u'後編', where=u'6番のすぐ下。対にして使う',
+        n=7, part=u'第5回', where=u'「本命は、分子と材料のシミュレーションです」',
         title=u'マメ科の根粒',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'07-soybean-root-nodules.jpg',
@@ -147,12 +147,12 @@ SHOTS = [
         mtitle=u'マメ科の根につく根粒（イメージ図）',
         caption=u'マメ科の根につく根粒。ここでは常温・常圧で、同じことが行われています。'
                 u'しくみはまだ解明されていません。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【後編】」の挿絵。6番（工場）と対で使います。'
-             u'生成AIで作成したイメージ図であり、実物の写真ではありません。',
+        desc=u'「量子コンピュータの用途｜本命は分子と材料【第5回】」の挿絵。'
+             u'6番（工場）と対で使います。生成AIで作成したイメージ図であり、実物の写真ではありません。',
         note=u'<strong>root nodule</strong> は「根粒」の英語です。',
     ),
     dict(
-        n=8, part=u'後編', where=u'「セキュリティのための機械ではありません」',
+        n=8, part=u'第6回', where=u'冒頭／アイキャッチ',
         title=u'錠前の付け替え',
         url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/'
             u'08-padlock-old-and-new.jpg',
@@ -162,20 +162,21 @@ SHOTS = [
         mtitle=u'古い錠前と新しい錠前（イメージ図）',
         caption=u'量子コンピュータは暗号を「壊す側」です。国は2035年を目処に、'
                 u'錠前の付け替えを進めています。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【後編】」の挿絵。'
+        desc=u'「量子コンピュータと暗号｜2035年に何が変わるのか【最終回】」のアイキャッチ。'
              u'生成AIで作成したイメージ図であり、実物の写真ではありません。',
         note=u'',
     ),
     dict(
-        n=9, part=u'後編', where=u'「私たちの業界は、どうか」',
-        title=u'砕石場とドローン', url=u'',
+        n=9, part=u'第5回', where=u'「私たちの業界は、どうか」',
+        title=u'砕石場とドローン',
+        url=u'https://www.ishinazaka.co.jp/common/files/uploads/2026/09/09-drone-survey-quarry.jpg',
         fname=u'09-drone-survey-quarry.jpg',
         alt=u'砕石場と土木の現場のイメージ図。段状に削られた岩肌と粒度ごとに'
             u'積まれた骨材の山があり、その上空を小型のドローンが飛んでいる',
         mtitle=u'砕石場の上を飛ぶ測量ドローン（イメージ図）',
         caption=u'いま現場で効いているのは、量子ではなくドローンによる測量や'
                 u'3次元の設計データです。イメージ図（生成AIで作成）',
-        desc=u'「量子コンピュータとは何か【後編】」の挿絵。'
+        desc=u'「量子コンピュータの用途｜本命は分子と材料【第5回】」の挿絵。'
              u'生成AIで作成したイメージ図であり、実在の現場の写真ではありません。',
         note=u'記事は「建設・砕石の分野での量子の活用例は見つからなかった」と'
              u'書いています。この絵は<strong>いま実際に効いている技術</strong>のほうです。',

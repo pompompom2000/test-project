@@ -119,6 +119,7 @@ LABELS = {
         head=u'いま現場で効いているのは、こちら',
         sub=u'ドローンによる測量、3次元の設計データ、遠隔での立会い。量子ではありません',
         callouts=[],
+        trim=True,   # まわりにクリーム色の縁があるため
     ),
 }
 
@@ -150,34 +151,40 @@ def trim_border(im):
 
     自動判定はしない。背景そのものが生成りの絵（3番など）を
     壊してしまうため、LABELS に trim=True と書いたものだけに使う。
+
+    枠の見つけ方は「明るさのばらつき」で見る。以前は「明るい画素が
+    半分以上ある行は枠」としていたが、空が生成り色の絵（9番の砕石場）
+    では空まで枠と見なして、絵の中身まで切り落としてしまった。
+    枠は一色の帯なのでばらつきがほぼ無く、空は雲や濃淡があるので
+    ばらつきが出る。そこで境目を分ける。
     """
+    from PIL import ImageStat
     w, h = im.size
-    px = im.convert('RGB').load()
+    g = im.convert('L')
+    FLAT = 2.0          # これ以下のばらつきなら、枠とみなす
 
-    def paper(x, y):
-        r, g, b = px[x, y]
-        return (r + g + b) / 3.0 > 235 and (max(r, g, b) - min(r, g, b)) < 22
+    def row_flat(y):
+        return ImageStat.Stat(g.crop((0, y, w, y + 1))).stddev[0] <= FLAT
 
-    def ratio_row(y):
-        xs = range(0, w, 8)
-        return sum(1 for x in xs if paper(x, y)) / float(len(xs))
-
-    def ratio_col(x):
-        ys = range(0, h, 8)
-        return sum(1 for y in ys if paper(x, y)) / float(len(ys))
+    def col_flat(x):
+        return ImageStat.Stat(g.crop((x, 0, x + 1, h))).stddev[0] <= FLAT
 
     def first(rng, f):
         for i in rng:
-            if f(i) < 0.5:
+            if not f(i):
                 return i
         return None
 
-    top = first(range(h), ratio_row)
-    bot = first(range(h - 1, -1, -1), ratio_row)
-    left = first(range(w), ratio_col)
-    right = first(range(w - 1, -1, -1), ratio_col)
+    # 枠は画像の1割より厚くはならない。それ以上進んだら判定を誤っている。
+    lim_v, lim_h = h // 10, w // 10
+    top = first(range(0, lim_v), row_flat)
+    bot = first(range(h - 1, h - 1 - lim_v, -1), row_flat)
+    left = first(range(0, lim_h), col_flat)
+    right = first(range(w - 1, w - 1 - lim_h, -1), col_flat)
     if None in (top, bot, left, right):
-        raise SystemExit(u'枠を切ろうとしましたが、絵の範囲が分かりませんでした。')
+        raise SystemExit(
+            u'枠を切ろうとしましたが、画像の1割を超えても枠が終わりませんでした。\n'
+            u'枠ではないものを枠と見ている恐れがあるので、止めます。')
     if (left, top, right, bot) == (0, 0, w - 1, h - 1):
         print(u'  枠はありませんでした（切らずに進みます）')
         return im
