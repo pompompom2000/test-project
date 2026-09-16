@@ -179,8 +179,11 @@ def main():
             continue
         kaku(pid, atarashii, auth)
         nochi = yomu(pid, auth)['content']['raw']
-        # 読み返して確かめる
-        nokori = [m for (bn, md, m, a, h) in NAOSHI if bn == n and m in nochi]
+        # 読み返して確かめる。
+        # 足し算の直し（新しい文が古い文を丸ごと含む）は、古い文が残っていて当たり前なので
+        # 数えない。入れ替えの直しだけを見る。
+        nokori = [m for (bn, md, m, a, h) in NAOSHI
+                  if bn == n and m not in a and m in nochi]
         if nokori:
             print(u'第%d回（ID%d）：【要注意】直したはずの文字列が残っています' % (n, pid))
         else:
