@@ -40,6 +40,8 @@ th strong, th b{ color:inherit; }
 tbody tr:nth-child(even) td{ background:#f7f9fb; }
 td.c,th.c{ text-align:center; }
 .ok{ color:var(--green); font-weight:700; }
+.pg{ font-size:.82em; font-weight:700; color:var(--green); white-space:nowrap; }
+.pw{ font-size:.82em; font-weight:700; color:var(--red); white-space:nowrap; }
 .ng{ color:var(--red); font-weight:700; }
 .warn{ color:var(--amber); font-weight:700; }
 
