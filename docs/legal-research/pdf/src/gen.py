@@ -5,7 +5,7 @@ out = d / "傭車の考え方と利用運送の登録判断.pdf"
 hdr = '<div></div>'
 ftr = ('<div style="width:100%;font-family:sans-serif;font-size:7pt;color:#5c6873;'
        'padding:0 14mm;display:flex;justify-content:space-between;">'
-       '<span>傭車の考え方と利用運送の登録判断 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月17日</span>'
+       '<span>傭車の考え方と利用運送の登録判断 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月18日</span>'
        '<span class="pageNumber"></span></div>')
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
