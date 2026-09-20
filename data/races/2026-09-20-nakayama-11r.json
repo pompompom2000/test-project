@@ -403,7 +403,8 @@
    },
    "weightDiff": 4,
    "nakayamaStarts": 0,
-   "nakayamaPlaces": 0
+   "nakayamaPlaces": 0,
+   "paddock": "good"
   }
  ],
  "courseKey": "nakayama-turf-2200",
@@ -413,5 +414,5 @@
  "trainingSource": "netkeiba 調教評価（無料公開分。詳細な追い切りタイムは有料会員限定）",
  "recordNote": "良馬場／道悪の成績は芝のレースに限定して集計（本レースが芝のため）",
  "weightNote": "当日馬体重（2026-09-20 発表）",
- "paddockNote": "7 レガレイラ=良し、9 コスモキュランダ=悪くない、4 ヴーレヴー=悪くない（他10頭は未確認のため加減点なし）"
+ "paddockNote": "7 レガレイラ=良し、13 ジューンテイク=良し、9 コスモキュランダ=悪くない、4 ヴーレヴー=悪くない（他9頭は未確認のため加減点なし）"
 }
