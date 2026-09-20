@@ -21,12 +21,12 @@
    "trainer": "萱野",
    "post": 1,
    "style": "差し",
-   "weight": 482,
+   "weight": 472,
    "firmStarts": 17,
    "firmPlaces": 8,
    "mudStarts": 5,
    "mudPlaces": 1,
-   "odds": 16.0,
+   "odds": 17.1,
    "gaikyu": "–",
    "layoff": false,
    "comment": {
@@ -37,7 +37,10 @@
    "training": {
     "rank": "B",
     "critic": "元気一杯"
-   }
+   },
+   "weightDiff": -10,
+   "nakayamaStarts": 5,
+   "nakayamaPlaces": 2
   },
   {
    "no": 2,
@@ -48,7 +51,7 @@
    "trainer": "藤岡健",
    "post": 2,
    "style": "追込",
-   "weight": 492,
+   "weight": 484,
    "firmStarts": 24,
    "firmPlaces": 7,
    "mudStarts": 7,
@@ -64,7 +67,10 @@
    "training": {
     "rank": "B",
     "critic": "仕上上々"
-   }
+   },
+   "weightDiff": -8,
+   "nakayamaStarts": 4,
+   "nakayamaPlaces": 0
   },
   {
    "no": 3,
@@ -75,12 +81,12 @@
    "trainer": "矢作",
    "post": 3,
    "style": "先行",
-   "weight": 492,
+   "weight": 502,
    "firmStarts": 17,
    "firmPlaces": 3,
    "mudStarts": 7,
    "mudPlaces": 4,
-   "odds": 30.2,
+   "odds": 28.5,
    "gaikyu": "大山ヒルズ",
    "layoff": true,
    "comment": {
@@ -91,7 +97,10 @@
    "training": {
     "rank": "B",
     "critic": "迫力十分"
-   }
+   },
+   "weightDiff": 10,
+   "nakayamaStarts": 4,
+   "nakayamaPlaces": 0
   },
   {
    "no": 4,
@@ -102,12 +111,12 @@
    "trainer": "武幸",
    "post": 4,
    "style": "先行",
-   "weight": 498,
-   "firmStarts": 9,
+   "weight": 496,
+   "firmStarts": 8,
    "firmPlaces": 4,
-   "mudStarts": 5,
+   "mudStarts": 4,
    "mudPlaces": 2,
-   "odds": 6.9,
+   "odds": 6.8,
    "gaikyu": "ノーザンＦしがらき",
    "layoff": false,
    "comment": {
@@ -118,7 +127,10 @@
    "training": {
     "rank": "B",
     "critic": "好調子"
-   }
+   },
+   "weightDiff": -2,
+   "nakayamaStarts": 0,
+   "nakayamaPlaces": 0
   },
   {
    "no": 5,
@@ -129,12 +141,12 @@
    "trainer": "梅田",
    "post": 4,
    "style": "追込",
-   "weight": 474,
+   "weight": 480,
    "firmStarts": 21,
    "firmPlaces": 6,
    "mudStarts": 7,
    "mudPlaces": 4,
-   "odds": 80.0,
+   "odds": 83.5,
    "gaikyu": "吉澤ステーブルWEST",
    "layoff": false,
    "comment": {
@@ -145,7 +157,10 @@
    "training": {
     "rank": "C",
     "critic": "目立たず"
-   }
+   },
+   "weightDiff": 6,
+   "nakayamaStarts": 0,
+   "nakayamaPlaces": 0
   },
   {
    "no": 6,
@@ -159,9 +174,9 @@
    "weight": 492,
    "firmStarts": 16,
    "firmPlaces": 10,
-   "mudStarts": 5,
+   "mudStarts": 3,
    "mudPlaces": 0,
-   "odds": 10.9,
+   "odds": 11.8,
    "gaikyu": "山元トレセン",
    "layoff": true,
    "comment": {
@@ -172,7 +187,10 @@
    "training": {
     "rank": "B",
     "critic": "仕上上々"
-   }
+   },
+   "weightDiff": 0,
+   "nakayamaStarts": 7,
+   "nakayamaPlaces": 4
   },
   {
    "no": 7,
@@ -183,7 +201,7 @@
    "trainer": "木村",
    "post": 5,
    "style": "差し",
-   "weight": 484,
+   "weight": 490,
    "firmStarts": 10,
    "firmPlaces": 6,
    "mudStarts": 3,
@@ -199,7 +217,10 @@
    "training": {
     "rank": "B",
     "critic": "キビキビ"
-   }
+   },
+   "weightDiff": 6,
+   "nakayamaStarts": 5,
+   "nakayamaPlaces": 3
   },
   {
    "no": 8,
@@ -210,12 +231,12 @@
    "trainer": "笹田",
    "post": 6,
    "style": "先行",
-   "weight": 528,
-   "firmStarts": 27,
-   "firmPlaces": 13,
-   "mudStarts": 5,
-   "mudPlaces": 2,
-   "odds": 29.6,
+   "weight": 520,
+   "firmStarts": 17,
+   "firmPlaces": 10,
+   "mudStarts": 3,
+   "mudPlaces": 1,
+   "odds": 30.9,
    "gaikyu": "宇治田原優駿Ｓ",
    "layoff": false,
    "comment": {
@@ -226,7 +247,10 @@
    "training": {
     "rank": "B",
     "critic": "出来安定"
-   }
+   },
+   "weightDiff": -8,
+   "nakayamaStarts": 1,
+   "nakayamaPlaces": 0
   },
   {
    "no": 9,
@@ -237,7 +261,7 @@
    "trainer": "加藤士",
    "post": 6,
    "style": "先行",
-   "weight": 518,
+   "weight": 514,
    "firmStarts": 18,
    "firmPlaces": 7,
    "mudStarts": 3,
@@ -253,7 +277,10 @@
    "training": {
     "rank": "C",
     "critic": "仕上がる"
-   }
+   },
+   "weightDiff": -4,
+   "nakayamaStarts": 10,
+   "nakayamaPlaces": 7
   },
   {
    "no": 10,
@@ -264,12 +291,12 @@
    "trainer": "小野",
    "post": 7,
    "style": "先行",
-   "weight": 490,
+   "weight": 486,
    "firmStarts": 17,
    "firmPlaces": 8,
    "mudStarts": 1,
    "mudPlaces": 0,
-   "odds": 80.6,
+   "odds": 86.9,
    "gaikyu": "ビッグレッドＦ鉾田",
    "layoff": false,
    "comment": {
@@ -280,7 +307,10 @@
    "training": {
     "rank": "B",
     "critic": "動き良化"
-   }
+   },
+   "weightDiff": -4,
+   "nakayamaStarts": 6,
+   "nakayamaPlaces": 3
   },
   {
    "no": 11,
@@ -291,12 +321,12 @@
    "trainer": "千葉",
    "post": 7,
    "style": "逃げ",
-   "weight": 506,
-   "firmStarts": 20,
+   "weight": 500,
+   "firmStarts": 19,
    "firmPlaces": 7,
-   "mudStarts": 4,
+   "mudStarts": 3,
    "mudPlaces": 0,
-   "odds": 92.2,
+   "odds": 99.7,
    "gaikyu": "西山牧場阿見分場",
    "layoff": true,
    "comment": {
@@ -307,7 +337,10 @@
    "training": {
     "rank": "C",
     "critic": "先着平凡"
-   }
+   },
+   "weightDiff": -6,
+   "nakayamaStarts": 8,
+   "nakayamaPlaces": 2
   },
   {
    "no": 12,
@@ -318,12 +351,12 @@
    "trainer": "武藤",
    "post": 8,
    "style": "先行",
-   "weight": 482,
+   "weight": 488,
    "firmStarts": 13,
    "firmPlaces": 8,
    "mudStarts": 1,
    "mudPlaces": 1,
-   "odds": 9.7,
+   "odds": 9.8,
    "gaikyu": "山元トレセン",
    "layoff": true,
    "comment": {
@@ -334,7 +367,10 @@
    "training": {
     "rank": "B",
     "critic": "反応上々"
-   }
+   },
+   "weightDiff": 6,
+   "nakayamaStarts": 5,
+   "nakayamaPlaces": 4
   },
   {
    "no": 13,
@@ -345,12 +381,12 @@
    "trainer": "武英",
    "post": 8,
    "style": "差し",
-   "weight": 500,
+   "weight": 504,
    "firmStarts": 15,
    "firmPlaces": 6,
    "mudStarts": 5,
    "mudPlaces": 1,
-   "odds": 10.4,
+   "odds": 10.3,
    "gaikyu": "チャンピオンヒルズ",
    "layoff": false,
    "comment": {
@@ -361,12 +397,17 @@
    "training": {
     "rank": "B",
     "critic": "態勢整う"
-   }
+   },
+   "weightDiff": 4,
+   "nakayamaStarts": 0,
+   "nakayamaPlaces": 0
   }
  ],
  "courseKey": "nakayama-turf-2200",
- "oddsAsOf": "2026-09-20 13:40 時点（単勝）",
+ "oddsAsOf": "2026-09-20 14:40 時点（単勝）",
  "commentSource": "オールカマー 厩舎コメント一覧（@kaizokuouzyo）",
  "gaikyuSource": "https://keiba-wiki.com/260920nakayama/",
- "trainingSource": "netkeiba 調教評価（無料公開分。詳細な追い切りタイムは有料会員限定）"
+ "trainingSource": "netkeiba 調教評価（無料公開分。詳細な追い切りタイムは有料会員限定）",
+ "recordNote": "良馬場／道悪の成績は芝のレースに限定して集計（本レースが芝のため）",
+ "weightNote": "当日馬体重（2026-09-20 発表）"
 }
