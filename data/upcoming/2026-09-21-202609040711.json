@@ -38,7 +38,12 @@
    "lastPopularity": 1,
    "lastField": 18,
    "daysSinceLast": 113,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "瀬間助手「体もふっくらして秋にしっかりと（前哨戦を）叩ける状態で帰ってきてくれました。仕上がり的には十分、戦えます」／房野助手「以前と違って、人間が慌てずに乗れていますし、とにかく順調ですね。究極の理想を言わせてもらえればムチなしで勝ってほしい。馬場を含めてダメージを残さずに（菊花賞に）向かいたいですね」"
+   }
   },
   {
    "no": 2,
@@ -70,7 +75,12 @@
    "lastPopularity": 3,
    "lastField": 13,
    "daysSinceLast": 29,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "中尾師「先週にしっかりと動かしていますし、息を整える程度です。体調はいいですね」"
+   }
   },
   {
    "no": 3,
@@ -102,7 +112,12 @@
    "lastPopularity": 1,
    "lastField": 8,
    "daysSinceLast": 106,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": null,
+    "text": "黒岩師「春はマイルも使ったが、もともと中距離くらいで思っていた。ここを勝って今後の選択肢を増やしたい」"
+   }
   },
   {
    "no": 4,
@@ -134,7 +149,12 @@
    "lastPopularity": 16,
    "lastField": 18,
    "daysSinceLast": 113,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "野中師「すでに仕上がっているので、（追い切りは）これでいい。動きの質が良くなっている」"
+   }
   },
   {
    "no": 5,
@@ -166,7 +186,12 @@
    "lastPopularity": 1,
    "lastField": 10,
    "daysSinceLast": 85,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "浜田師「楽にいい時計が出ましたね。動きはいいです。函館でもう1戦使うプランもありましたが、ここを目標に早めに切り上げたので馬もフレッシュです」"
+   }
   },
   {
    "no": 6,
@@ -198,7 +223,12 @@
    "lastPopularity": 15,
    "lastField": 18,
    "daysSinceLast": 113,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "友道師「2週続けてしっかりとやっていますし、そこまでやるつもりはなかったです。反応が良くなっています」"
+   }
   },
   {
    "no": 7,
@@ -230,7 +260,12 @@
    "lastPopularity": 6,
    "lastField": 18,
    "daysSinceLast": 113,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": null,
+    "text": "高野師「目に見えてめちゃくちゃ（成長して）良くなっているわけではないですがジワジワと良くなっている過程にあります」"
+   }
   },
   {
    "no": 8,
@@ -262,7 +297,12 @@
    "lastPopularity": 4,
    "lastField": 16,
    "daysSinceLast": 93,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "sharp",
+    "text": "田嶋助手「鞍上の感触は良さそうでした。精神面が大きく成長して子供っぽさがなくなってきました」"
+   }
   },
   {
    "no": 9,
@@ -294,7 +334,12 @@
    "lastPopularity": 10,
    "lastField": 18,
    "daysSinceLast": 113,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": null,
+    "text": "上原佑師「折り合いはだいぶクリアしてきたし、距離は延びるだけいい。春からの成長を見られれば」"
+   }
   },
   {
    "no": 10,
@@ -326,7 +371,12 @@
    "lastPopularity": 3,
    "lastField": 15,
    "daysSinceLast": 22,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "doubt",
+    "text": "久保助手「のんびりした馬なので併せ馬でしっかりとやりました。気合を入れましたが、まだ気が乗ってきません」"
+   }
   },
   {
    "no": 11,
@@ -358,7 +408,12 @@
    "lastPopularity": 2,
    "lastField": 13,
    "daysSinceLast": 240,
-   "handicap": null
+   "handicap": null,
+   "comment": {
+    "wet": null,
+    "condition": "doubt",
+    "text": "渡辺師「重賞レベルの力はある」「距離は延びれば延びるほどいい」。両前脚の骨折明けで8か月ぶり。池添騎手「多少は休み明けの雰囲気がある」"
+   }
   }
  ],
  "finish": [
@@ -375,5 +430,6 @@
   11
  ],
  "note": "成績はレース当日より前の芝レースのみで集計",
- "oddsAsOf": "2026-09-21 07:40 時点（単勝）"
+ "oddsAsOf": "2026-09-21 07:40 時点（単勝）",
+ "commentSource": "umanity「【神戸新聞杯】厩舎の話」、東スポ競馬、デイリースポーツ、報知"
 }

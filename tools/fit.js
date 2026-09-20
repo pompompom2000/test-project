@@ -390,6 +390,20 @@ if (target) {
     );
   });
 
+  // 厩舎コメントは過去に遡れず学習に含められないため、学習済みモデルの
+  // 出力に後から効かせる。engine.js の commentAdjust と同じ重み付け。
+  const commented = target.horses.some((h) => h.comment && h.comment.condition);
+  if (commented) {
+    const adjusted = target.horses.map((h, i) => {
+      const c = h.comment && h.comment.condition;
+      const bonus = c === 'sharp' ? 0.12 : c === 'doubt' ? -0.12 : 0;
+      return p[i] * Math.exp(bonus);
+    });
+    const sum = adjusted.reduce((a, b) => a + b, 0);
+    adjusted.forEach((v, i) => { p[i] = v / sum; });
+    console.log('\n  ※ 厩舎コメントの仕上がり評価を反映済み（良好 +12%、不安 −12%）');
+  }
+
   // 単勝オッズがあれば市場と合成する。検証では市場に勝てていないため、
   // モデルは市場からの「ずらし幅」として控えめに使う。
   const odds = target.horses.map((h) => h.odds || 0);
