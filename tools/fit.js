@@ -379,8 +379,7 @@ if (target) {
 
   const order = active.slice().sort((a, b) => p[b] - p[a]);
   console.log(`\n\n■ 予測: ${target.title}`);
-  console.log('  ※ この特徴量だけのモデルは、過去検証で市場（単勝オッズ）に0.31及ばない。');
-  console.log('     オッズが出たら市場と合成すること。\n');
+  console.log('  ※ この特徴量だけのモデルは、過去検証で市場（単勝オッズ）に0.31及ばない。\n');
   console.log('順位 馬番 馬名             勝率    複勝率   損益分岐の単勝オッズ');
   order.forEach((i, rank) => {
     const h = target.horses[i];
@@ -390,4 +389,27 @@ if (target) {
         `${(1 / p[i]).toFixed(1).padStart(8)}倍`
     );
   });
+
+  // 単勝オッズがあれば市場と合成する。検証では市場に勝てていないため、
+  // モデルは市場からの「ずらし幅」として控えめに使う。
+  const odds = target.horses.map((h) => h.odds || 0);
+  if (odds.every((o) => o > 0)) {
+    const market = context.marketProbs(odds);
+    const weight = 0.15;
+    const blend = context.blendProbs(p, market, weight);
+    const placeBlend = blend.map((_, i) => context.probPlace(blend, i));
+    const ranked = active.slice().sort((a, b) => blend[b] - blend[a]);
+
+    console.log(`\n■ 市場と合成した確率（モデルの重み ${weight}）`);
+    console.log('順位 馬番 馬名             合成勝率  市場勝率  複勝率   単勝オッズ  期待値');
+    ranked.forEach((i, rank) => {
+      const h = target.horses[i];
+      console.log(
+        `${String(rank + 1).padStart(3)}  ${String(h.no).padStart(3)}  ${h.name.padEnd(16)}` +
+          `${(blend[i] * 100).toFixed(1).padStart(6)}%  ${(market[i] * 100).toFixed(1).padStart(6)}%  ` +
+          `${(placeBlend[i] * 100).toFixed(1).padStart(5)}%  ${odds[i].toFixed(1).padStart(8)}  ` +
+          `${(blend[i] * odds[i]).toFixed(2).padStart(6)}`
+      );
+    });
+  }
 }
