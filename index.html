@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>道悪ファクター予想ツール</title>
+<meta name="description" content="馬場状態・種牡馬・馬体重・過去実績と、当日の開催傾向（枠番・脚質・騎手・調教師・血統・人気）から各馬の評価を算出する競馬予想支援ツール。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <h1>道悪ファクター予想ツール</h1>
+    <p class="lead">
+      馬場状態・血統・馬体重・過去実績に加えて、当日の開催傾向（枠番・脚質・騎手・調教師・血統・人気）から各馬を採点します。
+      良馬場での評価から順位がどれだけ動くかも出すので、「良馬場の成績がアテにならない」道悪特有の入れ替わりが見えます。
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 1. レース条件 -->
+  <section class="card" aria-labelledby="race-heading">
+    <h2 id="race-heading"><span class="step">1</span>レース条件</h2>
+    <div class="race-conditions">
+      <fieldset>
+        <legend>馬場</legend>
+        <div class="segmented" id="surface-group"></div>
+      </fieldset>
+      <fieldset>
+        <legend>馬場状態</legend>
+        <div class="segmented" id="state-group"></div>
+      </fieldset>
+      <label class="field-block course-select">
+        <span class="field-label">コース傾向</span>
+        <select id="course-select"></select>
+      </label>
+    </div>
+    <p class="course-note" id="course-note"></p>
+    <p class="surface-insight" id="surface-insight"></p>
+  </section>
+
+  <!-- 2. 本日の傾向 -->
+  <section class="card" aria-labelledby="trend-heading">
+    <h2 id="trend-heading"><span class="step">2</span>本日の傾向<span class="optional">任意</span></h2>
+    <p class="hint">
+      同じ開催の前のレースで3着内に来た馬の傾向を入れると、当日バイアスとして評価に上乗せします。
+      競馬ラボ「本日の傾向」などの成績一覧をそのまま書き写す使い方を想定しています。空欄でも判定できます。
+    </p>
+
+    <label class="field-block">
+      <span class="field-label">開催メモ</span>
+      <input type="text" id="trend-meeting" placeholder="例：4回中山6日目 2026/9/20">
+    </label>
+
+    <div class="trend-grid">
+      <label class="field-block">
+        <span class="field-label">好走血統（種牡馬）</span>
+        <textarea id="trend-sires" rows="5" placeholder="1行1件。同じ名前を並べれば回数として数えます&#10;サリオス&#10;アルアイン&#10;サリオス"></textarea>
+      </label>
+      <label class="field-block">
+        <span class="field-label">騎手</span>
+        <textarea id="trend-jockeys" rows="5" placeholder="着度数つきなら精度が上がります&#10;三浦皇成 2.0.0.3&#10;津村明秀 1.2.1.3&#10;C.ルメール 3.0.0.3"></textarea>
+      </label>
+      <label class="field-block">
+        <span class="field-label">調教師</span>
+        <textarea id="trend-trainers" rows="5" placeholder="1行1件&#10;○○厩舎"></textarea>
+      </label>
+      <label class="field-block">
+        <span class="field-label">好走枠番（1〜8）</span>
+        <textarea id="trend-posts" rows="5" placeholder="3着内馬の枠番を並べる&#10;7,2,5&#10;8,8,2&#10;3,6,3&#10;1,7,1"></textarea>
+      </label>
+      <label class="field-block">
+        <span class="field-label">好走脚質</span>
+        <textarea id="trend-styles" rows="5" placeholder="逃げ / 先行 / 差し / 追込 を並べる&#10;先行&#10;差し&#10;先行"></textarea>
+      </label>
+      <label class="field-block">
+        <span class="field-label">3着内馬の人気</span>
+        <textarea id="trend-popularity" rows="5" placeholder="1,5,8&#10;1,7,6&#10;2,3,7&#10;7,9,6"></textarea>
+      </label>
+    </div>
+
+    <div class="row-actions">
+      <button type="button" id="load-trend-sample" class="btn btn-ghost">中山 9/20 の例を入れる</button>
+      <button type="button" id="clear-trend" class="btn btn-ghost">傾向をクリア</button>
+    </div>
+    <div id="trend-readout" class="trend-readout" aria-live="polite"></div>
+  </section>
+
+  <!-- 3. 出走馬 -->
+  <section class="card" aria-labelledby="horses-heading">
+    <h2 id="horses-heading"><span class="step">3</span>出走馬</h2>
+    <p class="hint">
+      種牡馬だけでも判定できます。過去実績（良馬場／道悪それぞれの「出走数」と「3着内数」）まで入れると精度が上がります。
+    </p>
+
+    <div id="horse-rows" class="horse-inputs"></div>
+
+    <div class="row-actions">
+      <button type="button" id="add-row" class="btn">＋ 出走馬を追加</button>
+      <button type="button" id="load-sample" class="btn btn-ghost">サンプルを入れる</button>
+      <button type="button" id="clear-rows" class="btn btn-ghost">すべてクリア</button>
+    </div>
+  </section>
+
+  <!-- 4. 判定 -->
+  <section class="card" aria-labelledby="result-heading">
+    <h2 id="result-heading"><span class="step">4</span>判定結果</h2>
+    <button type="button" id="evaluate" class="btn btn-primary btn-lg">この条件で判定する</button>
+    <div id="result" class="result" aria-live="polite"></div>
+  </section>
+
+  <!-- 参考データ -->
+  <section class="card" aria-labelledby="ref-heading">
+    <h2 id="ref-heading">参考データと出典</h2>
+
+    <h3>馬場状態の内訳（2022年 JRA平地全3331レース）</h3>
+    <ul class="share-list">
+      <li><span class="share-label">良</span><span class="share-bar" style="--pct:70%"></span><span class="share-pct">2332レース / 70%</span></li>
+      <li><span class="share-label">稍重</span><span class="share-bar" style="--pct:20%"></span><span class="share-pct">651レース / 20%</span></li>
+      <li><span class="share-label">重</span><span class="share-bar" style="--pct:8%"></span><span class="share-pct">275レース / 8%</span></li>
+      <li><span class="share-label">不良</span><span class="share-bar" style="--pct:2%"></span><span class="share-pct">73レース / 2%</span></li>
+    </ul>
+    <p class="hint">重・不良は年間1割程度しかない特殊条件。だからこそ経験の少ない馬が多く、荒れやすい。</p>
+
+    <h3>馬場状態の判断基準（JRA公式）</h3>
+    <dl class="criteria">
+      <dt>良</dt><dd>芝＝踏みしめても馬場の表面はほとんど変化しない／ダート＝クッション砂を握っても固まらない、固まってもすぐ崩れる。</dd>
+      <dt>稍重</dt><dd>芝＝水は染み出ないが表面がやや凹む／ダート＝水は染み出ないが砂を握ると団子状に固まる。</dd>
+      <dt>重</dt><dd>芝・ダートとも表面に水は浮いていないが、踏みしめると水が染み出る。</dd>
+      <dt>不良</dt><dd>芝・ダートとも表面や足跡に水が浮いている。</dd>
+    </dl>
+
+    <h3>道悪で効くファクター</h3>
+    <ul class="bullets">
+      <li><strong>芝</strong>は路盤が柔らかくクッション性が落ち、濡れて滑るため<strong>パワー重視</strong>。走破タイムは遅くなる。</li>
+      <li><strong>ダート</strong>は砂が締まって脚元が沈みにくくなり<strong>スピード重視</strong>。走破タイムは速くなる。</li>
+      <li>ダートの重・不良は<strong>500kg以上</strong>が好成績。特に520〜538kgは勝率11.1%／連対率18.5%／複勝率26.2%。</li>
+      <li>芝は440kg以上なら馬体重による差はほぼ出ない。</li>
+      <li>重・不良は単勝・馬連の平均配当が上昇。自信がなければ金額を抑えるか「見」（ケン）も一手。</li>
+    </ul>
+
+    <h3>出典</h3>
+    <ul class="sources">
+      <li><a href="https://jra-van.jp/fun/baken/index23.html" target="_blank" rel="noopener">JRA-VAN「重馬場・不良馬場とは？雨の日の競馬の勝ち方！」</a>（馬場状態の定義・レース割合・馬体重傾向・買い方のスタンス）</li>
+      <li><a href="https://omokeiba.blog.jp/archives/96500810.html" target="_blank" rel="noopener">重馬場・不良馬場2024-2025種牡馬別成績（芝）</a></li>
+      <li><a href="https://omokeiba.blog.jp/archives/96495353.html" target="_blank" rel="noopener">重馬場・不良馬場2024-2025種牡馬別成績（ダート）</a></li>
+      <li><a href="https://keiba-wiki.com/nakayama-turf-2200-trend/" target="_blank" rel="noopener">中山芝2200mのコース傾向</a>（枠順・脚質・馬場状態別の傾向）</li>
+      <li>当日の傾向は競馬ラボ「本日の傾向」などの成績一覧を手入力して利用します（データの自動取得はしていません）。</li>
+    </ul>
+    <p class="disclaimer">
+      種牡馬データは全距離・全競馬場をまとめた集計です。出典記事にもあるとおり、すべてを鵜呑みにせず参考程度に。
+      当日の傾向は数レースの小サンプルであり、補正は控えめに掛けています。最終的な判断は自己責任でお願いします。馬券は20歳以上になってから。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>道悪ファクター予想ツール — 集計データは出典記事に基づく参考情報です。</p>
+  </div>
+</footer>
+
+<datalist id="sire-list"></datalist>
+
+<script src="assets/js/sire-data.js"></script>
+<script src="assets/js/course-data.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>
