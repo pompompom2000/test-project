@@ -77,6 +77,27 @@ if (!races.length) {
   process.exit(1);
 }
 
+/** 重み w でのレースごとの単勝対数損失を返す（有意性の検定用）。 */
+function perRaceWinLoss(weight) {
+  return races.map((r) => {
+    const p = weight === 0 ? r.market : weight === 1 ? r.model : context.blendProbs(r.model, r.market, weight);
+    return -Math.log(Math.max(p[r.finish[0]], 1e-12));
+  });
+}
+
+/**
+ * 対応のある差の平均と標準誤差。
+ * 同じレースを両方の重みで評価しているので、レース間のばらつきを
+ * 打ち消せる対応のある比較を使う。
+ */
+function pairedDiff(a, b) {
+  const diffs = a.map((x, i) => x - b[i]);
+  const n = diffs.length;
+  const mean = diffs.reduce((s, d) => s + d, 0) / n;
+  const variance = diffs.reduce((s, d) => s + (d - mean) ** 2, 0) / (n - 1);
+  return { mean, se: Math.sqrt(variance / n), n };
+}
+
 /** 重み w での対数損失と的中指標。 */
 function score(weight) {
   let winLoss = 0;
@@ -136,12 +157,22 @@ console.log('\n結論');
 console.log(`  単勝の対数損失が最小になる重み: w=${bestWin.weight.toFixed(2)}（損失 ${bestWin.winLoss.toFixed(4)}）`);
 console.log(`  複勝の対数損失が最小になる重み: w=${bestPlace.weight.toFixed(2)}（損失 ${bestPlace.placeLoss.toFixed(4)}）`);
 console.log(`  市場のみ（w=0）: ${marketOnly.winLoss.toFixed(4)} / モデルのみ（w=1）: ${modelOnly.winLoss.toFixed(4)}`);
-const gain = marketOnly.winLoss - bestWin.winLoss;
+// 最良の重みと市場のみを、対応のある差で比較する
+const diff = pairedDiff(perRaceWinLoss(0), perRaceWinLoss(bestWin.weight));
+const t = diff.se > 0 ? diff.mean / diff.se : 0;
 console.log(
-  gain > 0.001
-    ? `  → モデルを混ぜると対数損失が ${gain.toFixed(4)} 改善。市場に情報を足せている。`
-    : '  → モデルを混ぜても改善しない。現状のモデルは市場に情報を足せていない。'
+  `\n  市場のみ − w=${bestWin.weight.toFixed(2)} の損失差: ${diff.mean.toFixed(4)} ± ${diff.se.toFixed(4)}（標準誤差, n=${diff.n}）`
 );
+console.log(`  t値 ${t.toFixed(2)}`);
+
+if (Math.abs(t) < 2) {
+  console.log('  → 差は誤差の範囲。この標本数では、モデルが市場に情報を足しているとは言えない。');
+} else if (t > 0) {
+  console.log('  → 統計的に意味のある改善。モデルは市場に情報を足している。');
+} else {
+  console.log('  → モデルを混ぜると有意に悪化している。');
+}
+console.log(`  モデル単独（w=1）は市場より ${(modelOnly.winLoss - marketOnly.winLoss).toFixed(4)} 悪い。`);
 
 // レース数が少ないときの目安を添える
 if (races.length < 30) {

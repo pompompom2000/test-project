@@ -71,7 +71,7 @@ byNo.forEach((h, i) => {
 const args = process.argv.slice(3);
 const blendArg = args.find((a) => a.startsWith('--blend='));
 const checkArg = args.find((a) => a.startsWith('--check='));
-const weight = blendArg ? Number(blendArg.split('=')[1]) : 0.35;
+const weight = blendArg ? Number(blendArg.split('=')[1]) : 0.15;
 const pBlend = hasOdds ? context.blendProbs(p, market, weight) : p;
 
 if (hasOdds) {
