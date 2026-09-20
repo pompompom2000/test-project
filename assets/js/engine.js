@@ -37,6 +37,15 @@ const SURFACES = [
 const SEXES = ['牡', '牝', 'セン'];
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+/**
+ * 補正の合計を 5〜95 点に収める。
+ * 単純に切り詰めると上位が同点に張り付いて差が出ないので、
+ * 双曲線正接でなだらかに圧縮する（0 のとき 50 点）。
+ */
+function toScore(total) {
+  return 50 + 45 * Math.tanh(total / 45);
+}
 const stateByKey = (key) => TRACK_STATES.find((s) => s.key === key) || TRACK_STATES[0];
 
 /**
@@ -184,6 +193,8 @@ function evaluateHorse(horse, race) {
 
   const trend = trendAdjust(horse, race.trend);
   const course = courseAdjust(horse, race);
+  const gaikyu = gaikyuAdjust(horse);
+  const comment = commentAdjust(horse, race);
 
   const ability = baseAbility(horse);
   const mudBonus = sire.value + state.mud * (weight.value + record.value);
@@ -195,10 +206,12 @@ function evaluateHorse(horse, race) {
     recordInfo: record,
     trendInfo: trend,
     courseInfo: course,
+    gaikyuInfo: gaikyu,
+    commentInfo: comment,
     ability,
     mudBonus,
-    firmScore: clamp(50 + ability, 1, 99),
-    score: clamp(50 + ability + mudBonus + trend.value + course.value, 1, 99),
+    firmScore: toScore(ability),
+    score: toScore(ability + mudBonus + trend.value + course.value + gaikyu.value + comment.value),
     get mark() {
       return markFor(this.score);
     },
@@ -612,4 +625,79 @@ function courseAdjust(horse, race) {
   }
 
   return { value, notes, tags, note: notes.length ? notes.join(' / ') : 'コース傾向に該当なし' };
+}
+
+/* ===================================================================
+ * 外厩と厩舎コメント
+ * =================================================================== */
+
+/**
+ * 外厩による補正。施設ごとの複勝率を基準値と比べる。
+ * 休み明け（horse.layoff）の場合は仕上がりへの寄与が大きいので効きを強める。
+ */
+function gaikyuAdjust(horse) {
+  const facility = getGaikyu(horse.gaikyu);
+  if (!facility) {
+    return {
+      value: 0,
+      tags: [],
+      note: horse.gaikyu ? '外厩データに該当なし' : '外厩の入力なし',
+    };
+  }
+
+  const base = clamp((facility.placeRate - GAIKYU_BASELINE_PLACE) * 0.5, -6, 8);
+  const value = base * (horse.layoff ? 1.5 : 1);
+  const tags = [];
+  if (value >= 4) tags.push({ tone: 'plus', label: `外厩上位：${facility.name}` });
+  else if (value <= -4) tags.push({ tone: 'minus', label: `外厩下位：${facility.name}` });
+
+  return {
+    value,
+    tags,
+    facility,
+    note:
+      `${facility.name}（勝率${facility.winRate}% / 複勝率${facility.placeRate}%）` +
+      (horse.layoff ? '。休み明けのため外厩の比重を大きく見る' : ''),
+  };
+}
+
+/**
+ * 厩舎コメントによる補正。
+ * horse.comment = {
+ *   wet: 'welcome' | 'avoid' | null,   // 道悪を歓迎しているか、避けたがっているか
+ *   condition: 'sharp' | 'doubt' | null, // 仕上がりの評価
+ *   text: '...'                        // 表示用の原文
+ * }
+ * 道悪への言及は馬場が渋るほど効き、仕上がりの評価は馬場状態によらず効く。
+ */
+function commentAdjust(horse, race) {
+  const c = horse.comment;
+  if (!c) return { value: 0, tags: [], notes: [], note: '厩舎コメントの入力なし' };
+
+  const state = stateByKey(race.stateKey);
+  const notes = [];
+  const tags = [];
+  let value = 0;
+
+  if (c.wet === 'welcome') {
+    value += 9 * state.mud;
+    notes.push('陣営が道悪を歓迎');
+    if (state.mud > 0) tags.push({ tone: 'plus', label: '陣営が道悪歓迎' });
+  } else if (c.wet === 'avoid') {
+    value -= 11 * state.mud;
+    notes.push('陣営は良馬場で走らせたい意向');
+    if (state.mud > 0) tags.push({ tone: 'minus', label: '陣営は良馬場希望' });
+  }
+
+  if (c.condition === 'sharp') {
+    value += 5;
+    notes.push('仕上がり良好');
+    tags.push({ tone: 'plus', label: '仕上がり良好' });
+  } else if (c.condition === 'doubt') {
+    value -= 5;
+    notes.push('仕上がりに不安');
+    tags.push({ tone: 'minus', label: '仕上がりに不安' });
+  }
+
+  return { value, tags, notes, note: notes.length ? notes.join(' / ') : '道悪・仕上がりへの言及なし' };
 }

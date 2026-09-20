@@ -54,6 +54,7 @@ const FIELDS = [
   { key: 'post', label: '枠番', type: 'number', min: 1, max: 8 },
   { key: 'weight', label: '馬体重(kg)', type: 'number', min: 300, max: 700, step: 2 },
   { key: 'odds', label: '単勝オッズ', type: 'number', min: 1, step: 0.1 },
+  { key: 'gaikyu', label: '外厩先', type: 'text', placeholder: '例：ノーザンＦ天栄', list: 'gaikyu-list' },
 ];
 
 function addRow(data = {}) {
@@ -83,6 +84,26 @@ function addRow(data = {}) {
           <option value="">—</option>
           ${SEXES.map((s) => `<option value="${s}"${data.sex === s ? ' selected' : ''}>${s}</option>`).join('')}
         </select>
+      </label>
+      <label class="field">
+        <span class="field-label">厩舎コメント（道悪）</span>
+        <select class="f-commentWet">
+          <option value="">—</option>
+          <option value="welcome"${data.commentWet === 'welcome' ? ' selected' : ''}>道悪歓迎</option>
+          <option value="avoid"${data.commentWet === 'avoid' ? ' selected' : ''}>良馬場希望</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">厩舎コメント（仕上がり）</span>
+        <select class="f-commentCondition">
+          <option value="">—</option>
+          <option value="sharp"${data.commentCondition === 'sharp' ? ' selected' : ''}>良好</option>
+          <option value="doubt"${data.commentCondition === 'doubt' ? ' selected' : ''}>不安</option>
+        </select>
+      </label>
+      <label class="field field-check">
+        <input type="checkbox" class="f-layoff"${data.layoff ? ' checked' : ''}>
+        <span>休み明け</span>
       </label>
       <label class="field">
         <span class="field-label">脚質</span>
@@ -148,6 +169,10 @@ function readHorses() {
         post: num('post') || null,
         weight: num('weight'),
         odds: num('odds'),
+        gaikyu: val('gaikyu'),
+        layoff: card.querySelector('.f-layoff').checked,
+        commentWet: val('commentWet') || null,
+        commentCondition: val('commentCondition') || null,
         firmStarts: num('firmStarts'),
         firmPlaces: num('firmPlaces'),
         mudStarts: num('mudStarts'),
@@ -159,6 +184,10 @@ function readHorses() {
       ...h,
       firmPlaces: Math.min(h.firmPlaces, h.firmStarts),
       mudPlaces: Math.min(h.mudPlaces, h.mudStarts),
+      comment:
+        h.commentWet || h.commentCondition
+          ? { wet: h.commentWet, condition: h.commentCondition }
+          : null,
     }));
 }
 
@@ -269,7 +298,13 @@ function renderHorse(h) {
       ? `<span class="shift down">▼${Math.abs(h.rankShift)}</span>`
       : '<span class="shift flat">→</span>';
 
-  const tags = [...h.sireInfo.tags, ...h.courseInfo.tags, ...h.trendInfo.tags]
+  const tags = [
+    ...h.sireInfo.tags,
+    ...h.courseInfo.tags,
+    ...h.gaikyuInfo.tags,
+    ...h.commentInfo.tags,
+    ...h.trendInfo.tags,
+  ]
     .map((t) => `<span class="tag ${t.tone}">${esc(t.label)}</span>`)
     .join('');
 
@@ -278,6 +313,8 @@ function renderHorse(h) {
     { label: '馬体重', value: h.weightInfo.value * mud, note: h.weightInfo.note },
     { label: '道悪実績', value: h.recordInfo.value * mud, note: h.recordInfo.note },
     { label: 'コース傾向', value: h.courseInfo.value, note: h.courseInfo.note },
+    { label: '外厩', value: h.gaikyuInfo.value, note: h.gaikyuInfo.note },
+    { label: '厩舎コメント', value: h.commentInfo.value, note: h.commentInfo.note },
     { label: '当日の傾向', value: h.trendInfo.value, note: h.trendInfo.note },
   ];
 
@@ -380,6 +417,7 @@ const SAMPLE = [
 
 function init() {
   $('#sire-list').innerHTML = allSireNames().map((n) => `<option value="${esc(n)}"></option>`).join('');
+  $('#gaikyu-list').innerHTML = allGaikyuNames().map((n) => `<option value="${esc(n)}"></option>`).join('');
 
   const courseSelect = $('#course-select');
   courseSelect.innerHTML =

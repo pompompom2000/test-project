@@ -93,7 +93,7 @@
   <section class="card" aria-labelledby="horses-heading">
     <h2 id="horses-heading"><span class="step">3</span>出走馬</h2>
     <p class="hint">
-      種牡馬だけでも判定できます。過去実績（良馬場／道悪それぞれの「出走数」と「3着内数」）まで入れると精度が上がります。
+      種牡馬だけでも判定できます。過去実績（良馬場／道悪それぞれの「出走数」と「3着内数」）、外厩先、厩舎コメントの傾向まで入れると精度が上がります。
     </p>
 
     <div id="horse-rows" class="horse-inputs"></div>
@@ -138,6 +138,8 @@
       <li><strong>芝</strong>は路盤が柔らかくクッション性が落ち、濡れて滑るため<strong>パワー重視</strong>。走破タイムは遅くなる。</li>
       <li><strong>ダート</strong>は砂が締まって脚元が沈みにくくなり<strong>スピード重視</strong>。走破タイムは速くなる。</li>
       <li>ダートの重・不良は<strong>500kg以上</strong>が好成績。特に520〜538kgは勝率11.1%／連対率18.5%／複勝率26.2%。</li>
+      <li><strong>外厩</strong>は休み明けの仕上がりを測る材料。施設によって複勝率に10ポイント以上の差が出る。</li>
+      <li><strong>厩舎コメント</strong>で陣営自身が道悪を歓迎しているか避けたがっているかは、そのまま強い手がかりになる。</li>
       <li>芝は440kg以上なら馬体重による差はほぼ出ない。</li>
       <li>重・不良は単勝・馬連の平均配当が上昇。自信がなければ金額を抑えるか「見」（ケン）も一手。</li>
     </ul>
@@ -148,6 +150,8 @@
       <li><a href="https://omokeiba.blog.jp/archives/96500810.html" target="_blank" rel="noopener">重馬場・不良馬場2024-2025種牡馬別成績（芝）</a></li>
       <li><a href="https://omokeiba.blog.jp/archives/96495353.html" target="_blank" rel="noopener">重馬場・不良馬場2024-2025種牡馬別成績（ダート）</a></li>
       <li><a href="https://keiba-wiki.com/nakayama-turf-2200-trend/" target="_blank" rel="noopener">中山芝2200mのコース傾向</a>（枠順・脚質・馬場状態別の傾向）</li>
+      <li><a href="https://keiba-wiki.com/260920nakayama/" target="_blank" rel="noopener">かよちんの外厩情報-競馬wiki「外厩ランキング2025 TOP50」</a>（外厩施設別の勝率・複勝率）</li>
+      <li>厩舎コメントは各馬の陣営コメントを読んで「道悪歓迎／良馬場希望」「仕上がり良好／不安」に手で分類して入力します。</li>
       <li>当日の傾向は競馬ラボ「本日の傾向」などの成績一覧を手入力して利用します（データの自動取得はしていません）。</li>
     </ul>
     <p class="disclaimer">
@@ -165,9 +169,11 @@
 </footer>
 
 <datalist id="sire-list"></datalist>
+<datalist id="gaikyu-list"></datalist>
 
 <script src="assets/js/sire-data.js"></script>
 <script src="assets/js/course-data.js"></script>
+<script src="assets/js/gaikyu-data.js"></script>
 <script src="assets/js/engine.js"></script>
 <script src="assets/js/ui.js"></script>
 </body>

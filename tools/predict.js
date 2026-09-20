@@ -10,7 +10,7 @@ const vm = require('vm');
 
 const root = path.join(__dirname, '..');
 const context = vm.createContext({ console, Math, Object, Number, Array, String, JSON });
-['assets/js/sire-data.js', 'assets/js/course-data.js', 'assets/js/engine.js'].forEach((f) => {
+['assets/js/sire-data.js', 'assets/js/course-data.js', 'assets/js/gaikyu-data.js', 'assets/js/engine.js'].forEach((f) => {
   vm.runInContext(fs.readFileSync(path.join(root, f), 'utf8'), context, { filename: f });
 });
 
@@ -40,6 +40,9 @@ const horses = input.horses.map((h) => ({
   style: h.style,
   weight: h.weight,
   odds: h.odds || 0,
+  gaikyu: h.gaikyu || '',
+  layoff: !!h.layoff,
+  comment: h.comment || null,
   firmStarts: h.firmStarts || 0,
   firmPlaces: h.firmPlaces || 0,
   mudStarts: h.mudStarts || 0,
@@ -69,6 +72,8 @@ result.horses.forEach((h) => {
   console.log(`      馬体重 ${fmt(h.weightInfo.value * result.state.mud)} : ${h.weightInfo.note}`);
   console.log(`      道悪実績 ${fmt(h.recordInfo.value * result.state.mud)} : ${h.recordInfo.note}`);
   if (h.courseInfo && h.courseInfo.value) console.log(`      コース傾向 ${fmt(h.courseInfo.value)} : ${h.courseInfo.note}`);
+  if (h.gaikyuInfo && h.gaikyuInfo.value) console.log(`      外厩 ${fmt(h.gaikyuInfo.value)} : ${h.gaikyuInfo.note}`);
+  if (h.commentInfo && h.commentInfo.value) console.log(`      厩舎コメント ${fmt(h.commentInfo.value)} : ${h.commentInfo.note}`);
   if (h.trendInfo && h.trendInfo.value) console.log(`      当日傾向 ${fmt(h.trendInfo.value)} : ${h.trendInfo.note}`);
   if (h.sireInfo.note) console.log(`      ※ ${h.sire}：${h.sireInfo.note}`);
   console.log('');
