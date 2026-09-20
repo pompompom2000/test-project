@@ -34,11 +34,14 @@ const args = process.argv.slice(2);
 const withMarket = args.includes('--with-market');
 // --g1: 秋G1向けの特徴量セットを使う（良馬場中心なので道悪以外の材料が要る）
 const useG1 = args.includes('--g1');
+// --predict=<file>: 学習したモデルで未来のレースの確率を出す
+const predictArg = args.find((a) => a.startsWith('--predict='));
 // --offset: 市場の対数確率を係数1固定のオフセットとして使う。
 // w=0 のときモデルは市場と完全に一致するので、「市場に情報を
 // 上乗せできるか」を公平に測れる。
 const useOffset = args.includes('--offset');
 const files = args.filter((a) => !a.startsWith('--'));
+const predictFile = predictArg ? predictArg.split('=')[1] : null;
 
 /* ---------- 特徴量 ---------- */
 
@@ -169,6 +172,17 @@ const races = files
 
 const featureNames = useG1 ? G1_FEATURES : FEATURES;
 const names = withMarket ? [...featureNames, '市場の対数確率'] : featureNames;
+
+/** 予測対象のレースを読む（着順が未確定でもよい）。 */
+function loadTarget(file) {
+  const input = JSON.parse(fs.readFileSync(file, 'utf8'));
+  return {
+    title: input.title,
+    horses: input.horses,
+    X: input.horses.map((h) => (useG1 ? featurizeG1(h, input) : featurize(h, input))),
+  };
+}
+const target = predictFile ? loadTarget(predictFile) : null;
 const D = names.length;
 
 // 特徴量を標準化する（係数の大きさを比べられるようにするため）
@@ -180,6 +194,7 @@ mean.forEach((_, j) => { mean[j] /= count; });
 races.forEach((r) => r.X.forEach((x) => x.forEach((v, j) => { sd[j] += (v - mean[j]) ** 2; })));
 sd.forEach((_, j) => { sd[j] = Math.sqrt(sd[j] / count) || 1; });
 races.forEach((r) => { r.Z = r.X.map((x) => x.map((v, j) => (v - mean[j]) / sd[j])); });
+if (target) target.Z = target.X.map((x) => x.map((v, j) => (v - mean[j]) / sd[j]));
 
 /* ---------- 学習 ---------- */
 
@@ -340,3 +355,39 @@ names
     const bar = '■'.repeat(Math.min(30, Math.round(Math.abs(f.w) * 20)));
     console.log(`${f.name.padEnd(18)} ${f.w >= 0 ? '+' : '-'}${Math.abs(f.w).toFixed(3)} ${bar}`);
   });
+
+
+/* ---------- 未来のレースを予測する ---------- */
+
+if (target) {
+  const active = target.Z.map((_, i) => i);
+  const p = softmaxOver(target.Z, wFinal, active, null);
+  const place = target.Z.map((_, i) => {
+    // 3着以内の確率は Harville モデルで近似する
+    const probs = p;
+    let total = probs[i];
+    for (let j = 0; j < probs.length; j += 1) {
+      if (j === i) continue;
+      total += probs[j] * (probs[i] / (1 - probs[j]));
+      for (let k = 0; k < probs.length; k += 1) {
+        if (k === i || k === j) continue;
+        total += probs[j] * (probs[k] / (1 - probs[j])) * (probs[i] / (1 - probs[j] - probs[k]));
+      }
+    }
+    return Math.min(total, 1);
+  });
+
+  const order = active.slice().sort((a, b) => p[b] - p[a]);
+  console.log(`\n\n■ 予測: ${target.title}`);
+  console.log('  ※ この特徴量だけのモデルは、過去検証で市場（単勝オッズ）に0.31及ばない。');
+  console.log('     オッズが出たら市場と合成すること。\n');
+  console.log('順位 馬番 馬名             勝率    複勝率   損益分岐の単勝オッズ');
+  order.forEach((i, rank) => {
+    const h = target.horses[i];
+    console.log(
+      `${String(rank + 1).padStart(3)}  ${String(h.no).padStart(3)}  ${h.name.padEnd(16)}` +
+        `${(p[i] * 100).toFixed(1).padStart(5)}%  ${(place[i] * 100).toFixed(1).padStart(5)}%  ` +
+        `${(1 / p[i]).toFixed(1).padStart(8)}倍`
+    );
+  });
+}
