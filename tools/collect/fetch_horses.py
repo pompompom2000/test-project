@@ -8,6 +8,10 @@ from concurrent.futures import ThreadPoolExecutor
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/125 Safari/537.36"
 CACHE = os.environ.get('HORSE_CACHE', 'horse_cache')
+# 同時接続数とリクエスト間隔。netkeiba の利用規約は「運営に支障を与える行為」を
+# 禁じているので、私的利用でも控えめな設定にしておく
+WORKERS = int(os.environ.get('FETCH_WORKERS', '3'))
+REQUEST_INTERVAL = float(os.environ.get('FETCH_INTERVAL', '0.7'))
 RACES = os.environ.get('RACES_RAW', 'races_raw.json')
 os.makedirs(CACHE, exist_ok=True)
 
@@ -26,12 +30,15 @@ def fetch(hid):
     path = os.path.join(CACHE, f'{hid}.json')
     if os.path.exists(path):
         return 0
+    # 1頭につき2リクエスト。相手のサーバに負荷をかけないよう間隔を空ける
+    time.sleep(REQUEST_INTERVAL)
     ped = get(f"https://db.netkeiba.com/horse/ped/{hid}/")
     cells = re.findall(r'(?is)<td[^>]*class="[^"]*b_ml[^"]*"[^>]*>(.*?)</td>', ped)
     sire = ''
     if cells:
         sire = re.sub(r'\s+', ' ', html.unescape(re.sub(r'(?is)<[^>]+>', '', cells[0]))).strip().split()[0]
 
+    time.sleep(REQUEST_INTERVAL)
     res = get(f"https://db.netkeiba.com/horse/result/{hid}/")
     rows = []
     tb = re.search(r'(?is)<table[^>]*db_h_race_results.*?>(.*?)</table>', res)
@@ -50,7 +57,7 @@ def main():
     ids = sorted({h['id'] for v in races.values() for h in v['horses']})
     print(f'unique horses: {len(ids)}', file=sys.stderr, flush=True)
     done = 0
-    with ThreadPoolExecutor(max_workers=10) as ex:
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for i, r in enumerate(ex.map(fetch, ids)):
             done += r
             if i % 25 == 0:

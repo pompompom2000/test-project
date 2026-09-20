@@ -9,10 +9,14 @@ from concurrent.futures import ThreadPoolExecutor
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/125 Safari/537.36"
 JYO = {'01': '札幌', '02': '函館', '03': '福島', '04': '新潟', '05': '東京',
        '06': '中山', '07': '中京', '08': '京都', '09': '阪神', '10': '小倉'}
+WORKERS = int(os.environ.get('FETCH_WORKERS', '3'))
+REQUEST_INTERVAL = float(os.environ.get('FETCH_INTERVAL', '0.7'))
 YEARS = [int(y) for y in os.environ.get('G1_YEARS', '2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025').split(',')]
 
 
 def get(url):
+    # 相手のサーバに負荷をかけないよう、1リクエストごとに間隔を空ける
+    time.sleep(REQUEST_INTERVAL)
     for _ in range(3):
         r = subprocess.run(['curl', '-sS', '-L', '--compressed', '-m', '25', '-A', UA, url],
                            capture_output=True)
@@ -105,14 +109,14 @@ def main():
     print(f'dates to scan: {len(dates)}', file=sys.stderr, flush=True)
 
     found = []
-    with ThreadPoolExecutor(max_workers=10) as ex:
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for ds, ids in zip(dates, ex.map(g1_ids_for_date, dates)):
             for rid, nm in ids:
                 found.append((ds, rid, nm))
     print(f'G1 races found: {len(found)}', file=sys.stderr, flush=True)
 
     todo = [(ds, rid, nm) for ds, rid, nm in found if rid not in races]
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for (ds, rid, nm), r in zip(todo, ex.map(lambda t: parse_result(t[1]), todo)):
             if not r:
                 continue
