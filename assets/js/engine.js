@@ -196,6 +196,7 @@ function evaluateHorse(horse, race) {
   const gaikyu = gaikyuAdjust(horse);
   const comment = commentAdjust(horse, race);
   const training = trainingAdjust(horse);
+  const paddock = paddockAdjust(horse);
 
   const ability = baseAbility(horse);
   const mudBonus = sire.value + state.mud * (weight.value + record.value);
@@ -210,11 +211,19 @@ function evaluateHorse(horse, race) {
     gaikyuInfo: gaikyu,
     commentInfo: comment,
     trainingInfo: training,
+    paddockInfo: paddock,
     ability,
     mudBonus,
     firmScore: toScore(ability),
     score: toScore(
-      ability + mudBonus + trend.value + course.value + gaikyu.value + comment.value + training.value
+      ability +
+        mudBonus +
+        trend.value +
+        course.value +
+        gaikyu.value +
+        comment.value +
+        training.value +
+        paddock.value
     ),
     get mark() {
       return markFor(this.score);
@@ -756,4 +765,30 @@ function trainingAdjust(horse) {
   }
 
   return { value, tags, note: notes.join(' / ') };
+}
+
+/* ===================================================================
+ * パドック
+ *
+ * 当日の気配は直前にしか分からない一方で、馬場が渋った日ほど
+ * 「実際に良く見えるか」の比重が上がる。
+ * 入力がない馬は加点も減点もしない（見ていないものを減点しない）。
+ * =================================================================== */
+
+const PADDOCK_ADJUST = {
+  excellent: { value: 9, label: 'パドック絶好' },
+  good: { value: 6, label: 'パドック良し' },
+  fair: { value: 3, label: 'パドック悪くない' },
+  poor: { value: -9, label: 'パドック不安' },
+};
+
+/** パドック評価による補正。horse.paddock は PADDOCK_ADJUST のキー。 */
+function paddockAdjust(horse) {
+  const hit = PADDOCK_ADJUST[horse.paddock];
+  if (!hit) return { value: 0, tags: [], note: 'パドック未確認' };
+  return {
+    value: hit.value,
+    tags: [{ tone: hit.value >= 0 ? 'plus' : 'minus', label: hit.label }],
+    note: hit.label,
+  };
 }

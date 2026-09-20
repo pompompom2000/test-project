@@ -130,7 +130,8 @@
    },
    "weightDiff": -2,
    "nakayamaStarts": 0,
-   "nakayamaPlaces": 0
+   "nakayamaPlaces": 0,
+   "paddock": "fair"
   },
   {
    "no": 5,
@@ -220,7 +221,8 @@
    },
    "weightDiff": 6,
    "nakayamaStarts": 5,
-   "nakayamaPlaces": 3
+   "nakayamaPlaces": 3,
+   "paddock": "good"
   },
   {
    "no": 8,
@@ -280,7 +282,8 @@
    },
    "weightDiff": -4,
    "nakayamaStarts": 10,
-   "nakayamaPlaces": 7
+   "nakayamaPlaces": 7,
+   "paddock": "fair"
   },
   {
    "no": 10,
@@ -409,5 +412,6 @@
  "gaikyuSource": "https://keiba-wiki.com/260920nakayama/",
  "trainingSource": "netkeiba 調教評価（無料公開分。詳細な追い切りタイムは有料会員限定）",
  "recordNote": "良馬場／道悪の成績は芝のレースに限定して集計（本レースが芝のため）",
- "weightNote": "当日馬体重（2026-09-20 発表）"
+ "weightNote": "当日馬体重（2026-09-20 発表）",
+ "paddockNote": "7 レガレイラ=良し、9 コスモキュランダ=悪くない、4 ヴーレヴー=悪くない（他10頭は未確認のため加減点なし）"
 }
