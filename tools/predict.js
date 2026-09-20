@@ -43,6 +43,7 @@ const horses = input.horses.map((h) => ({
   gaikyu: h.gaikyu || '',
   layoff: !!h.layoff,
   comment: h.comment || null,
+  training: h.training || null,
   firmStarts: h.firmStarts || 0,
   firmPlaces: h.firmPlaces || 0,
   mudStarts: h.mudStarts || 0,
@@ -73,6 +74,7 @@ result.horses.forEach((h) => {
   console.log(`      道悪実績 ${fmt(h.recordInfo.value * result.state.mud)} : ${h.recordInfo.note}`);
   if (h.courseInfo && h.courseInfo.value) console.log(`      コース傾向 ${fmt(h.courseInfo.value)} : ${h.courseInfo.note}`);
   if (h.gaikyuInfo && h.gaikyuInfo.value) console.log(`      外厩 ${fmt(h.gaikyuInfo.value)} : ${h.gaikyuInfo.note}`);
+  if (h.trainingInfo && h.trainingInfo.value) console.log(`      調教 ${fmt(h.trainingInfo.value)} : ${h.trainingInfo.note}`);
   if (h.commentInfo && h.commentInfo.value) console.log(`      厩舎コメント ${fmt(h.commentInfo.value)} : ${h.commentInfo.note}`);
   if (h.trendInfo && h.trendInfo.value) console.log(`      当日傾向 ${fmt(h.trendInfo.value)} : ${h.trendInfo.note}`);
   if (h.sireInfo.note) console.log(`      ※ ${h.sire}：${h.sireInfo.note}`);

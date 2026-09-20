@@ -86,6 +86,19 @@ function addRow(data = {}) {
         </select>
       </label>
       <label class="field">
+        <span class="field-label">調教ランク</span>
+        <select class="f-trainingRank">
+          <option value="">—</option>
+          ${['S', 'A', 'B', 'C', 'D']
+            .map((r) => `<option value="${r}"${data.trainingRank === r ? ' selected' : ''}>${r}</option>`)
+            .join('')}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">調教短評</span>
+        <input type="text" class="f-trainingCritic" placeholder="例：仕上上々" value="${esc(data.trainingCritic)}">
+      </label>
+      <label class="field">
         <span class="field-label">厩舎コメント（道悪）</span>
         <select class="f-commentWet">
           <option value="">—</option>
@@ -171,6 +184,8 @@ function readHorses() {
         odds: num('odds'),
         gaikyu: val('gaikyu'),
         layoff: card.querySelector('.f-layoff').checked,
+        trainingRank: val('trainingRank') || null,
+        trainingCritic: val('trainingCritic'),
         commentWet: val('commentWet') || null,
         commentCondition: val('commentCondition') || null,
         firmStarts: num('firmStarts'),
@@ -187,6 +202,10 @@ function readHorses() {
       comment:
         h.commentWet || h.commentCondition
           ? { wet: h.commentWet, condition: h.commentCondition }
+          : null,
+      training:
+        h.trainingRank || h.trainingCritic
+          ? { rank: h.trainingRank, critic: h.trainingCritic }
           : null,
     }));
 }
@@ -302,6 +321,7 @@ function renderHorse(h) {
     ...h.sireInfo.tags,
     ...h.courseInfo.tags,
     ...h.gaikyuInfo.tags,
+    ...h.trainingInfo.tags,
     ...h.commentInfo.tags,
     ...h.trendInfo.tags,
   ]
@@ -313,6 +333,7 @@ function renderHorse(h) {
     { label: '馬体重', value: h.weightInfo.value * mud, note: h.weightInfo.note },
     { label: '道悪実績', value: h.recordInfo.value * mud, note: h.recordInfo.note },
     { label: 'コース傾向', value: h.courseInfo.value, note: h.courseInfo.note },
+    { label: '調教', value: h.trainingInfo.value, note: h.trainingInfo.note },
     { label: '外厩', value: h.gaikyuInfo.value, note: h.gaikyuInfo.note },
     { label: '厩舎コメント', value: h.commentInfo.value, note: h.commentInfo.note },
     { label: '当日の傾向', value: h.trendInfo.value, note: h.trendInfo.note },

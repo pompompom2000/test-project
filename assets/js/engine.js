@@ -195,6 +195,7 @@ function evaluateHorse(horse, race) {
   const course = courseAdjust(horse, race);
   const gaikyu = gaikyuAdjust(horse);
   const comment = commentAdjust(horse, race);
+  const training = trainingAdjust(horse);
 
   const ability = baseAbility(horse);
   const mudBonus = sire.value + state.mud * (weight.value + record.value);
@@ -208,10 +209,13 @@ function evaluateHorse(horse, race) {
     courseInfo: course,
     gaikyuInfo: gaikyu,
     commentInfo: comment,
+    trainingInfo: training,
     ability,
     mudBonus,
     firmScore: toScore(ability),
-    score: toScore(ability + mudBonus + trend.value + course.value + gaikyu.value + comment.value),
+    score: toScore(
+      ability + mudBonus + trend.value + course.value + gaikyu.value + comment.value + training.value
+    ),
     get mark() {
       return markFor(this.score);
     },
@@ -700,4 +704,56 @@ function commentAdjust(horse, race) {
   }
 
   return { value, tags, notes, note: notes.length ? notes.join(' / ') : '道悪・仕上がりへの言及なし' };
+}
+
+/* ===================================================================
+ * 調教（追い切り）
+ *
+ * netkeiba の調教評価は S / A / B / C / D のランクと、
+ * 「仕上上々」「目立たず」といった短評で構成される。
+ * B が最も多い標準的な評価なので、B を基準（0）として増減させる。
+ * =================================================================== */
+
+const TRAINING_RANK_ADJUST = { S: 11, A: 7, B: 0, C: -6, D: -10 };
+
+/** 調教短評のキーワード。ランクだけでは拾えないニュアンスを補う。 */
+const TRAINING_CRITIC_WORDS = [
+  { value: 5, words: ['迫力', '抜群', '絶好', '上々', '態勢整う', '文句なし'] },
+  { value: 2, words: ['元気', '好調', 'キビキビ', '安定', '良化', '仕上がる', '上向'] },
+  { value: -5, words: ['目立たず', '平凡', '物足', '案外', '一息', '余裕残り'] },
+];
+
+/**
+ * 調教による補正。
+ * horse.training = { rank: 'B', critic: '仕上上々' }
+ */
+function trainingAdjust(horse) {
+  const t = horse.training;
+  if (!t || (!t.rank && !t.critic)) {
+    return { value: 0, tags: [], note: '調教データの入力なし' };
+  }
+
+  const notes = [];
+  const tags = [];
+  let value = 0;
+
+  const rank = (t.rank || '').toUpperCase();
+  if (TRAINING_RANK_ADJUST[rank] !== undefined) {
+    value += TRAINING_RANK_ADJUST[rank];
+    notes.push(`調教ランク${rank}`);
+    if (rank === 'S' || rank === 'A') tags.push({ tone: 'plus', label: `調教${rank}評価` });
+    else if (rank === 'C' || rank === 'D') tags.push({ tone: 'minus', label: `調教${rank}評価` });
+  }
+
+  if (t.critic) {
+    const hit = TRAINING_CRITIC_WORDS.find((g) => g.words.some((w) => t.critic.includes(w)));
+    if (hit) {
+      value += hit.value;
+      notes.push(`短評「${t.critic}」`);
+    } else {
+      notes.push(`短評「${t.critic}」（加減点なし）`);
+    }
+  }
+
+  return { value, tags, note: notes.join(' / ') };
 }

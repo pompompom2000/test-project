@@ -33,6 +33,10 @@
     "wet": "welcome",
     "condition": null,
     "text": "相手が一気に強くなってどんな競馬ができるか。道悪は苦にしないので、馬場が渋るのはいいでしょう"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "元気一杯"
    }
   },
   {
@@ -56,6 +60,10 @@
     "wet": null,
     "condition": null,
     "text": "年齢的に大きく変わった感じはない。前走は久々の分が影響したかも。脚は持っているのでどこまで食い込めるか"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "仕上上々"
    }
   },
   {
@@ -79,6 +87,10 @@
     "wet": null,
     "condition": null,
     "text": "骨折は軽度。立ち上げてからの調整は順調です。態勢は整っているので、展開などがうまくかみ合えば"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "迫力十分"
    }
   },
   {
@@ -102,6 +114,10 @@
     "wet": "welcome",
     "condition": "sharp",
     "text": "ここを目標に調整。距離は初めてだが、以前より乗りやすくなっている今なら大丈夫だと思う。雨予報は歓迎"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "好調子"
    }
   },
   {
@@ -125,6 +141,10 @@
     "wet": "welcome",
     "condition": "sharp",
     "text": "強いメンバー相手の別定戦だからね。馬場が重い中での最終追い切りは良く動けていたので、雨でも降って紛れがあれば"
+   },
+   "training": {
+    "rank": "C",
+    "critic": "目立たず"
    }
   },
   {
@@ -148,6 +168,10 @@
     "wet": "welcome",
     "condition": null,
     "text": "ねん挫放牧明け。反応は良くなって仕上がっている。パンパンの良馬場よりは力のある馬場のほうがチャンスがありそう"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "仕上上々"
    }
   },
   {
@@ -171,6 +195,10 @@
     "wet": "avoid",
     "condition": "sharp",
     "text": "前走の敗因は馬場や展開など複合的なもの。全体的に昨年よりいい雰囲気。あとはできればキレイな馬場で走らせたいところ"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "キビキビ"
    }
   },
   {
@@ -194,6 +222,10 @@
     "wet": null,
     "condition": null,
     "text": "障害で結果が出ないので平地へ戻す。障害を使った効果で腰がしっかりしてきた感じはある。モまれずに競馬ができるようなら"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "出来安定"
    }
   },
   {
@@ -217,6 +249,10 @@
     "wet": null,
     "condition": "sharp",
     "text": "目標は先でも前哨戦としては十分な仕上がり。あとはスタートを決めていい位置でリズムよく運べるかどうか。前半の運びが大事"
+   },
+   "training": {
+    "rank": "C",
+    "critic": "仕上がる"
    }
   },
   {
@@ -240,6 +276,10 @@
     "wet": null,
     "condition": "sharp",
     "text": "今週の追い切りは良かった。前走は展開向かず案外な内容。最も合う中山で他馬が道悪を苦にするようなら上位進出も"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "動き良化"
    }
   },
   {
@@ -263,6 +303,10 @@
     "wet": null,
     "condition": null,
     "text": "脚部不安放牧明けも在厩期間を長めに取りしっかりと仕上がった。先行力があるので頑張ってほしい。脚元の不安なく臨める"
+   },
+   "training": {
+    "rank": "C",
+    "critic": "先着平凡"
    }
   },
   {
@@ -286,6 +330,10 @@
     "wet": "welcome",
     "condition": "sharp",
     "text": "休み明けも息がいいし動きも十分。血統的にも馬場が渋るのは好材料。エリザベス女王杯につながる走りを"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "反応上々"
    }
   },
   {
@@ -309,11 +357,16 @@
     "wet": null,
     "condition": "sharp",
     "text": "追い切りの時計こそ掛かっているが動きは良かった。併せ馬で後ろにつけて折り合いも我慢できていた。いい状態でレースに向かえる"
+   },
+   "training": {
+    "rank": "B",
+    "critic": "態勢整う"
    }
   }
  ],
  "courseKey": "nakayama-turf-2200",
  "oddsAsOf": "2026-09-20 13:40 時点（単勝）",
  "commentSource": "オールカマー 厩舎コメント一覧（@kaizokuouzyo）",
- "gaikyuSource": "https://keiba-wiki.com/260920nakayama/"
+ "gaikyuSource": "https://keiba-wiki.com/260920nakayama/",
+ "trainingSource": "netkeiba 調教評価（無料公開分。詳細な追い切りタイムは有料会員限定）"
 }
