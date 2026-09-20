@@ -32,6 +32,8 @@ const context = vm.createContext({ console, Math, Object, Number, Array, String,
 
 const args = process.argv.slice(2);
 const withMarket = args.includes('--with-market');
+// --g1: 秋G1向けの特徴量セットを使う（良馬場中心なので道悪以外の材料が要る）
+const useG1 = args.includes('--g1');
 // --offset: 市場の対数確率を係数1固定のオフセットとして使う。
 // w=0 のときモデルは市場と完全に一致するので、「市場に情報を
 // 上乗せできるか」を公平に測れる。
@@ -44,6 +46,57 @@ const PRIOR_RATE = 0.3; // 複勝率の事前値。出走数が少ない馬を�
 const PRIOR_N = 2;
 
 const shrunk = (places, starts) => (places + PRIOR_N * PRIOR_RATE) / (starts + PRIOR_N) - PRIOR_RATE;
+
+/* ---------- 秋G1向けの特徴量 ---------- */
+
+const G1_FEATURES = [
+  '芝の複勝率', '芝の勝率', '芝の経験',
+  'G1の3着内率', 'G1の経験', '重賞の3着内率', '重賞の経験',
+  '同距離帯の複勝率', '同距離帯の経験', '同競馬場の複勝率', '同競馬場の経験',
+  '前走着順', '前走人気', '前走からの間隔', '長期休養明け',
+  '斤量', '年齢', '馬体重', '枠順(内→外)',
+  '脚質:逃げ', '脚質:先行', '脚質:差し',
+  '血統:道悪で狙える', '血統:道悪で狙い難い',
+];
+
+/** 前走着順を0〜1に直す。1着=1、最下位=0。 */
+function finishScore(place, field) {
+  if (!place || !field || field < 2) return 0.5;
+  return 1 - (place - 1) / (field - 1);
+}
+
+function featurizeG1(h, input) {
+  const sire = context.sireEvaluation(input.surface, input.state, h.sire, h.sex);
+  const has = (label) => sire.tags.some((t) => t.label.includes(label));
+  const days = h.daysSinceLast;
+
+  return [
+    shrunk(h.places, h.starts),
+    shrunk(h.wins, h.starts),
+    Math.log(1 + h.starts) / 3,
+    shrunk(h.g1Places, h.g1Starts),
+    Math.log(1 + h.g1Starts) / 2,
+    shrunk(h.gradePlaces, h.gradeStarts),
+    Math.log(1 + h.gradeStarts) / 2.5,
+    shrunk(h.distPlaces, h.distStarts),
+    Math.log(1 + h.distStarts) / 2.5,
+    shrunk(h.coursePlaces, h.courseStarts),
+    Math.log(1 + h.courseStarts) / 2,
+    finishScore(h.lastFinish, h.lastField),
+    h.lastPopularity ? 1 / h.lastPopularity : 0.25,
+    days ? Math.min(Math.log(1 + days) / 5, 1.5) : 0.7,
+    days && days > 120 ? 1 : 0,
+    h.handicap ? (h.handicap - 56) / 2 : 0,
+    h.age ? (h.age - 4) / 2 : 0,
+    h.weight ? (h.weight - 470) / 30 : 0,
+    h.post ? (h.post - 4.5) / 3.5 : 0,
+    h.style === '逃げ' ? 1 : 0,
+    h.style === '先行' ? 1 : 0,
+    h.style === '差し' ? 1 : 0,
+    has('狙える') ? 1 : 0,
+    has('狙い難い') ? 1 : 0,
+  ];
+}
 
 const FEATURES = [
   '良馬場複勝率', '良馬場の経験', '良馬場データなし',
@@ -103,7 +156,7 @@ const races = files
     return {
       title: input.title,
       X: horses.map((h) => {
-        const base = featurize(h, input);
+        const base = useG1 ? featurizeG1(h, input) : featurize(h, input);
         return withMarket ? [...base, Math.log(Math.max(market[horses.indexOf(h)], 1e-6))] : base;
       }),
       offset: horses.map((h, i) => Math.log(Math.max(market[i], 1e-6))),
@@ -114,7 +167,8 @@ const races = files
   })
   .filter(Boolean);
 
-const names = withMarket ? [...FEATURES, '市場の対数確率'] : FEATURES;
+const featureNames = useG1 ? G1_FEATURES : FEATURES;
+const names = withMarket ? [...featureNames, '市場の対数確率'] : featureNames;
 const D = names.length;
 
 // 特徴量を標準化する（係数の大きさを比べられるようにするため）
@@ -150,11 +204,15 @@ function lossAndGrad(trainRaces, w, lambda) {
       const p = softmaxOver(r.Z, w, active, useOffset ? r.offset : null);
       loss += -Math.log(Math.max(p[pos], 1e-12));
       // 勾配: -(x_winner - Σ p_i x_i)
-      for (let j = 0; j < w.length; j += 1) {
-        let expected = 0;
-        active.forEach((idx, k) => { expected += p[k] * r.Z[idx][j]; });
-        grad[j] -= r.Z[winner][j] - expected;
+      // 馬ごとに一度だけ回して期待値を足し込む（特徴量ごとに回すより速い）
+      const expected = new Array(w.length).fill(0);
+      for (let k = 0; k < active.length; k += 1) {
+        const z = r.Z[active[k]];
+        const pk = p[k];
+        for (let j = 0; j < w.length; j += 1) expected[j] += pk * z[j];
       }
+      const zw = r.Z[winner];
+      for (let j = 0; j < w.length; j += 1) grad[j] -= zw[j] - expected[j];
       active = active.filter((i) => i !== winner);
     });
   });
@@ -204,7 +262,7 @@ function marketLoss(testRaces) {
 
 /* ---------- 交差検証 ---------- */
 
-const K = 10;
+const K = 5;
 const folds = Array.from({ length: K }, () => []);
 races.forEach((r, i) => folds[i % K].push(r));
 
@@ -214,7 +272,7 @@ function crossValidate(lambda) {
   folds.forEach((testSet, k) => {
     if (!testSet.length) return;
     const trainSet = folds.filter((_, i) => i !== k).flat();
-    const w = fit(trainSet, lambda, 800);
+    const w = fit(trainSet, lambda, 400);
     testSet.forEach((r) => {
       perRace.push({
         model: winLoss([r], w),
@@ -242,7 +300,7 @@ console.log(
     `${useOffset ? ', 市場をオフセットに固定' : withMarket ? ', 市場の確率を特徴量に含む' : ''}）\n`
 );
 
-const lambdas = [0.3, 1, 3, 10, 30, 100, 300, 1000];
+const lambdas = [1, 3, 10, 30, 100, 300];
 console.log('正則化λ   交差検証の単勝対数損失');
 const cv = lambdas.map((l) => {
   const v = crossValidate(l);

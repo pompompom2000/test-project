@@ -56,10 +56,11 @@ def stats(h, race_date, track, distance):
         elif ba in ('稍', '重', '不'):
             s['mudStarts'] += 1; s['mudPlaces'] += top3
 
+        # グレードはローマ数字表記（GI・GII・GIII）。アラビア数字の表記も許容する
         title = r[4]
-        if re.search(r'\(G[123]\)|\(J\.G[123]\)', title):
+        if re.search(r'\((?:J\.)?G(?:III|II|I|[123])\)', title):
             s['gradeStarts'] += 1; s['gradePlaces'] += top3
-            if re.search(r'\(G1\)', title):
+            if re.search(r'\((?:J\.)?G(?:I|1)\)', title):
                 s['g1Starts'] += 1; s['g1Places'] += top3
 
         dm = num(dist[1:])
