@@ -45,10 +45,33 @@ assets/js/sire-data.js           種牡馬の道悪データ
 assets/js/course-data.js         コース傾向データ
 assets/js/gaikyu-data.js         外厩の施設別成績
 assets/js/engine.js              採点ロジック（DOM に依存しない）
+assets/js/probability.js         スコアから的中確率を求める
 assets/js/ui.js                  画面の組み立てと入出力
 tools/predict.js                 コマンドラインから判定する
+tools/probability.js             的中確率と期待値を計算する
+data/results/*.json              レース結果と検証の記録
 data/races/*.json                レースの入力データ
 ```
+
+## 的中確率を計算する
+
+```
+node tools/probability.js data/races/2026-09-20-nakayama-11r.json
+node tools/probability.js <race.json> 3連複:12,2,3,6,5 ワイド:12,2,3
+node tools/probability.js <race.json> --check=8,1,4     # 実際の着順で答え合わせ
+```
+
+評価スコアをソフトマックスで勝率に変換し、Harville モデル（復元なしの逐次抽選）で
+2着・3着の確率を求めます。ソフトマックスの温度は、市場（単勝オッズ）の確率分布と
+エントロピーが揃うように自動で決めるので、温度の決め打ちをしません。
+
+**モデル単独の確率はそのまま信じないでください。** 市場と評価順が食い違う馬では
+期待値が数倍という非現実的な値になります。既定では市場の確率と対数線形で合成し
+（モデルの重み 0.35、`--blend=` で変更可）、市場からの「ずらし幅」としてモデルを
+使う形にしています。この重みは過去成績で検証するまでは暫定値です。
+
+`--check=` を付けると、実際の着順にモデルが与えていた確率を、モデル単独・合成・
+市場の3通りで並べて表示します。
 
 ## コマンドラインから使う
 
