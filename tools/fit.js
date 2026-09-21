@@ -414,6 +414,24 @@ if (target) {
     const placeBlend = blend.map((_, i) => context.probPlace(blend, i));
     const ranked = active.slice().sort((a, b) => blend[b] - blend[a]);
 
+    // 買い目の検討に使えるよう、合成後の確率を書き出す
+    const probsOut = args.find((a) => a.startsWith('--probs-out='));
+    if (probsOut) {
+      fs.writeFileSync(
+        probsOut.split('=')[1],
+        JSON.stringify(
+          {
+            title: target.title,
+            horses: target.horses.map((h, i) => ({
+              no: h.no, name: h.name, p: blend[i], odds: odds[i],
+            })),
+          },
+          null,
+          1
+        )
+      );
+    }
+
     console.log(`\n■ 市場と合成した確率（モデルの重み ${weight}）`);
     console.log('順位 馬番 馬名             合成勝率  市場勝率  複勝率   単勝オッズ  期待値');
     ranked.forEach((i, rank) => {
