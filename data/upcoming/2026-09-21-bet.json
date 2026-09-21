@@ -1,0 +1,256 @@
+{
+ "race": "2026-09-21 阪神11R 神戸新聞杯(GII) 芝2400m",
+ "raceId": "202609040711",
+ "type": "3連複",
+ "pattern": "1 軸1頭流し → 9・3・4・7・2・11",
+ "tickets": 15,
+ "stake_per_ticket": 100,
+ "stake_total": 1500,
+ "oddsAsOf": "2026-09-21 10:40 時点",
+ "hit_probability": 0.599,
+ "expected_value": 0.954,
+ "break_even_odds": 25.0,
+ "note": "複勝を除いた中で最も期待値が高い買い方。ただし0.954で100%は下回る",
+ "combinations": [
+  {
+   "combo": [
+    1,
+    3,
+    9
+   ],
+   "names": [
+    "ロブチェン",
+    "ゴーラッキー",
+    "グリーンエナジー"
+   ],
+   "odds": 15.2,
+   "popularity": 5,
+   "probability": 0.0647,
+   "payout_if_hit": 1520
+  },
+  {
+   "combo": [
+    1,
+    4,
+    9
+   ],
+   "names": [
+    "ロブチェン",
+    "アルトラムス",
+    "グリーンエナジー"
+   ],
+   "odds": 14.8,
+   "popularity": 4,
+   "probability": 0.0571,
+   "payout_if_hit": 1480
+  },
+  {
+   "combo": [
+    1,
+    7,
+    9
+   ],
+   "names": [
+    "ロブチェン",
+    "コンジェスタス",
+    "グリーンエナジー"
+   ],
+   "odds": 13.2,
+   "popularity": 2,
+   "probability": 0.0557,
+   "payout_if_hit": 1320
+  },
+  {
+   "combo": [
+    1,
+    2,
+    9
+   ],
+   "names": [
+    "ロブチェン",
+    "エイシンインアウト",
+    "グリーンエナジー"
+   ],
+   "odds": 21.3,
+   "popularity": 7,
+   "probability": 0.0548,
+   "payout_if_hit": 2130
+  },
+  {
+   "combo": [
+    1,
+    3,
+    4
+   ],
+   "names": [
+    "ロブチェン",
+    "ゴーラッキー",
+    "アルトラムス"
+   ],
+   "odds": 17.0,
+   "popularity": 6,
+   "probability": 0.0451,
+   "payout_if_hit": 1700
+  },
+  {
+   "combo": [
+    1,
+    3,
+    7
+   ],
+   "names": [
+    "ロブチェン",
+    "ゴーラッキー",
+    "コンジェスタス"
+   ],
+   "odds": 14.1,
+   "popularity": 3,
+   "probability": 0.044,
+   "payout_if_hit": 1410
+  },
+  {
+   "combo": [
+    1,
+    2,
+    3
+   ],
+   "names": [
+    "ロブチェン",
+    "エイシンインアウト",
+    "ゴーラッキー"
+   ],
+   "odds": 24.8,
+   "popularity": 8,
+   "probability": 0.0432,
+   "payout_if_hit": 2480
+  },
+  {
+   "combo": [
+    1,
+    4,
+    7
+   ],
+   "names": [
+    "ロブチェン",
+    "アルトラムス",
+    "コンジェスタス"
+   ],
+   "odds": 13.0,
+   "popularity": 1,
+   "probability": 0.0388,
+   "payout_if_hit": 1300
+  },
+  {
+   "combo": [
+    1,
+    2,
+    4
+   ],
+   "names": [
+    "ロブチェン",
+    "エイシンインアウト",
+    "アルトラムス"
+   ],
+   "odds": 24.9,
+   "popularity": 9,
+   "probability": 0.0381,
+   "payout_if_hit": 2490
+  },
+  {
+   "combo": [
+    1,
+    2,
+    7
+   ],
+   "names": [
+    "ロブチェン",
+    "エイシンインアウト",
+    "コンジェスタス"
+   ],
+   "odds": 26.5,
+   "popularity": 10,
+   "probability": 0.0372,
+   "payout_if_hit": 2650
+  },
+  {
+   "combo": [
+    1,
+    9,
+    11
+   ],
+   "names": [
+    "ロブチェン",
+    "グリーンエナジー",
+    "ショウナンハヤナミ"
+   ],
+   "odds": 44.7,
+   "popularity": 20,
+   "probability": 0.0314,
+   "payout_if_hit": 4470
+  },
+  {
+   "combo": [
+    1,
+    3,
+    11
+   ],
+   "names": [
+    "ロブチェン",
+    "ゴーラッキー",
+    "ショウナンハヤナミ"
+   ],
+   "odds": 44.4,
+   "popularity": 19,
+   "probability": 0.0248,
+   "payout_if_hit": 4440
+  },
+  {
+   "combo": [
+    1,
+    4,
+    11
+   ],
+   "names": [
+    "ロブチェン",
+    "アルトラムス",
+    "ショウナンハヤナミ"
+   ],
+   "odds": 49.2,
+   "popularity": 22,
+   "probability": 0.0218,
+   "payout_if_hit": 4920
+  },
+  {
+   "combo": [
+    1,
+    7,
+    11
+   ],
+   "names": [
+    "ロブチェン",
+    "コンジェスタス",
+    "ショウナンハヤナミ"
+   ],
+   "odds": 40.2,
+   "popularity": 16,
+   "probability": 0.0213,
+   "payout_if_hit": 4020
+  },
+  {
+   "combo": [
+    1,
+    2,
+    11
+   ],
+   "names": [
+    "ロブチェン",
+    "エイシンインアウト",
+    "ショウナンハヤナミ"
+   ],
+   "odds": 59.6,
+   "popularity": 23,
+   "probability": 0.021,
+   "payout_if_hit": 5960
+  }
+ ]
+}
