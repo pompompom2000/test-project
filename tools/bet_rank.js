@@ -22,6 +22,9 @@ vm.runInContext(
 
 const file = process.argv[2];
 const limit = Number(process.argv[3] || 15);
+// 実オッズがあれば期待値も出す（単勝・複勝・ワイド・馬連・3連複）
+const oddsArg = process.argv.find((a) => a.startsWith('--odds='));
+const realOdds = oddsArg ? JSON.parse(fs.readFileSync(oddsArg.split('=')[1], 'utf8')) : null;
 if (!file) {
   console.error('usage: node tools/bet_rank.js <probs.json> [件数]');
   process.exit(1);
@@ -43,6 +46,23 @@ const ticketProb = {
   '3連単': (t) => context.harvilleOrder(p, t),
 };
 
+/** 馬番をオッズ表のキー（2桁ゼロ詰め、組み合わせは昇順）に直す。 */
+const key = (nos) => nos.slice().sort((a, b) => a - b).map((n) => String(n).padStart(2, '0')).join('');
+
+/** 券種とオッズ表の対応。複勝とワイドは下限・上限があるので下限で見る。 */
+const ODDS_TABLE = { 単勝: 'win', 複勝: 'place', ワイド: 'wide', 馬連: 'quinella', '3連複': 'trio' };
+
+/** 1点ぶんの実オッズ。取れなければ null。 */
+function realOddsFor(type, ticket) {
+  if (!realOdds) return null;
+  const table = realOdds[ODDS_TABLE[type]];
+  if (!table) return null;
+  const v = table[key(ticket.map((i) => no(i)))];
+  if (!v) return null;
+  const low = Number(v[0]);
+  return Number.isFinite(low) && low > 0 ? low : null;
+}
+
 const bets = [];
 const add = (type, label, tickets) => {
   // 複勝とワイドは「どれか1点でも当たれば的中」なので重複を除いて足す。
@@ -52,7 +72,13 @@ const add = (type, label, tickets) => {
     type === '複勝' || type === 'ワイド'
       ? 1 - probs.reduce((acc, q) => acc * (1 - q), 1)
       : probs.reduce((a, b) => a + b, 0);
-  bets.push({ type, label, tickets: tickets.length, hit });
+  // 期待値 = Σ(1点の的中確率 × その配当) ÷ 点数
+  let ev = null;
+  const payouts = tickets.map((t) => realOddsFor(type, t));
+  if (payouts.every((o) => o !== null)) {
+    ev = tickets.reduce((sum, t, i) => sum + probs[i] * payouts[i], 0) / tickets.length;
+  }
+  bets.push({ type, label, tickets: tickets.length, hit, ev });
 };
 
 const combos = (list, k) => {
@@ -106,11 +132,27 @@ bets.sort((a, b) => b.hit - a.hit);
 
 console.log(`\n■ ${data.title}`);
 console.log('  的中確率の高い順。損益分岐オッズ＝点数÷的中確率（1点100円で買った場合）\n');
-console.log('順  券種     買い方                                  点数  的中確率  損益分岐');
+console.log('順  券種     買い方                                  点数  的中確率  損益分岐   期待値');
 bets.slice(0, limit).forEach((b, i) => {
   console.log(
     `${String(i + 1).padStart(2)}  ${b.type.padEnd(7)} ${b.label.padEnd(38)}` +
       `${String(b.tickets).padStart(4)}  ${(b.hit * 100).toFixed(1).padStart(6)}%  ` +
-      `${(b.tickets / b.hit).toFixed(1).padStart(7)}倍`
+      `${(b.tickets / b.hit).toFixed(1).padStart(7)}倍  ` +
+      `${(b.ev === null ? '-' : b.ev.toFixed(3)).padStart(6)}`
   );
 });
+
+if (realOdds) {
+  const positive = bets.filter((b) => b.ev !== null && b.ev >= 1).sort((a, b) => b.ev - a.ev);
+  console.log(
+    positive.length
+      ? `\n■ 期待値が1.00以上の買い方（${positive.length}件）`
+      : '\n■ 期待値が1.00以上の買い方はありません'
+  );
+  positive.slice(0, 10).forEach((b) => {
+    console.log(
+      `   ${b.type.padEnd(7)} ${b.label.padEnd(38)}${String(b.tickets).padStart(3)}点  ` +
+        `的中${(b.hit * 100).toFixed(1)}%  期待値 ${b.ev.toFixed(3)}`
+    );
+  });
+}
