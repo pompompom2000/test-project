@@ -50,14 +50,24 @@ const ticketProb = {
 const key = (nos) => nos.slice().sort((a, b) => a - b).map((n) => String(n).padStart(2, '0')).join('');
 
 /** 券種とオッズ表の対応。複勝とワイドは下限・上限があるので下限で見る。 */
-const ODDS_TABLE = { 単勝: 'win', 複勝: 'place', ワイド: 'wide', 馬連: 'quinella', '3連複': 'trio' };
+const ODDS_TABLE = {
+  単勝: 'win', 複勝: 'place', ワイド: 'wide', 馬連: 'quinella',
+  '3連複': 'trio', 馬単: 'exacta', '3連単': 'trifecta',
+};
+
+/** 着順が意味を持つ券種は、組み合わせを並べ替えずにキーを作る。 */
+const ORDERED = new Set(['馬単', '3連単']);
 
 /** 1点ぶんの実オッズ。取れなければ null。 */
 function realOddsFor(type, ticket) {
   if (!realOdds) return null;
   const table = realOdds[ODDS_TABLE[type]];
   if (!table) return null;
-  const v = table[key(ticket.map((i) => no(i)))];
+  const nos = ticket.map((i) => no(i));
+  const k = ORDERED.has(type)
+    ? nos.map((n) => String(n).padStart(2, '0')).join('')
+    : key(nos);
+  const v = table[k];
   if (!v) return null;
   const low = Number(v[0]);
   return Number.isFinite(low) && low > 0 ? low : null;
