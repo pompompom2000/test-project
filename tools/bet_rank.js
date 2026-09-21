@@ -69,7 +69,8 @@ function realOddsFor(type, ticket) {
     : key(nos);
   const v = table[k];
   if (!v) return null;
-  const low = Number(v[0]);
+  // 1000倍以上は "1,312.5" のようにカンマ区切りで来るので取り除く
+  const low = Number(String(v[0]).replace(/,/g, ''));
   return Number.isFinite(low) && low > 0 ? low : null;
 }
 
