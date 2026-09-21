@@ -74,6 +74,8 @@ def parse(rid):
             continue
         field += 1
         rows.append(dict(race_id=rid, no=no, place=place, win_odds=od, popularity=pop,
+                         jockey=c[6] if len(c) > 6 else '',
+                         trainer=c[10] if len(c) > 10 else '',
                          surface=surf.group(1), distance=int(surf.group(2)),
                          going=cond.group(1),
                          placed=1 if place <= 3 else 0,
@@ -96,8 +98,8 @@ def main():
     todo = [r for r in ids if r not in done]
     print(f'races: {len(ids)} / todo: {len(todo)}', file=sys.stderr, flush=True)
 
-    fields = ['race_id', 'no', 'place', 'win_odds', 'popularity', 'surface',
-              'distance', 'going', 'placed', 'place_payout', 'field']
+    fields = ['race_id', 'no', 'place', 'win_odds', 'popularity', 'jockey', 'trainer',
+              'surface', 'distance', 'going', 'placed', 'place_payout', 'field']
     new = not os.path.exists(OUT)
     with open(OUT, 'a', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
