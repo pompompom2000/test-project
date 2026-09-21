@@ -6,11 +6,11 @@
  "tickets": 15,
  "stake_per_ticket": 100,
  "stake_total": 1500,
- "oddsAsOf": "2026-09-21 10:40 時点",
- "hit_probability": 0.599,
- "expected_value": 0.954,
- "break_even_odds": 25.0,
- "note": "複勝を除いた中で最も期待値が高い買い方。ただし0.954で100%は下回る",
+ "oddsAsOf": "単勝はJRA公式 10:57時点、3連複は netkeiba 10:40時点",
+ "hit_probability": 0.603,
+ "expected_value": 0.956,
+ "break_even_odds": 24.9,
+ "note": "複勝を除いた中で最も期待値が高い買い方。ただし0.956で100%は下回る。15点のうち25倍以上で買えるのは11番絡みの5点のみで、プラスになる的中確率は15.7%",
  "combinations": [
   {
    "combo": [
@@ -252,5 +252,6 @@
    "probability": 0.021,
    "payout_if_hit": 5960
   }
- ]
+ ],
+ "profitable_hit_probability": 0.157
 }
