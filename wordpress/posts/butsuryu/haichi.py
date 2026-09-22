@@ -143,7 +143,7 @@ def main():
     print(u'見つかったSVGの図:', len(svgs))
     assert len(svgs) == 3, u'SVGが3つではない。中止します。'
 
-    for no, k in ((2, '03'), (1, '02'), (0, '01')):      # 後ろから差し替える
+    for no, k in ((2, '03'), (1, '02'), (0, '00')):      # 後ろから差し替える
         g = G[k]
         if not g.get('id'):
             print(u'%s のIDが無いので、差し替えません' % k); continue
@@ -171,13 +171,16 @@ def main():
             midashi, midashi + u'\n\n' + zukai_block(g['id'], g['url'], g['alt'], g['soe']))
         print(u'05 を高校生の章に入れました')
 
-    # 5-4. 00 を、いちばん上の導入のすぐ下に入れる
-    if G['00'].get('id'):
-        g = G['00']
-        shirushi2 = u'<!-- wp:image'
-        ichi = atarashii.index(shirushi2)                # 最初の図（01）の直前
-        atarashii = atarashii[:ichi] + zukai_block(g['id'], g['url'], g['alt'], g['soe']) + u'\n\n' + atarashii[ichi:]
-        print(u'00 を導入の下に入れました')
+    # 5-4. 01 を、「なぜ、いま作り直したのか」の見出しの前に入れる
+    #      （00が導入の下に来るので、01は3つの説明のあとに置く）
+    midashi2 = (u'<!-- wp:heading {"level":3,"fontSize":"medium"} -->\n'
+                u'<h3 class="wp-block-heading has-medium-font-size">なぜ、いま作り直したのか</h3>')
+    assert atarashii.count(midashi2) == 1, u'「なぜ、いま作り直したのか」の見出しが1つではない'
+    if G['01'].get('id'):
+        g = G['01']
+        atarashii = atarashii.replace(
+            midashi2, zukai_block(g['id'], g['url'], g['alt'], g['soe']) + u'\n\n' + midashi2)
+        print(u'01 を「なぜ、いま作り直したのか」の前に入れました')
 
     print(u'本文 %d字 → %d字' % (len(honbun), len(atarashii)))
     print(u'画像ブロックの数:', atarashii.count(u'<!-- wp:image'))
