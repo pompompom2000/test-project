@@ -1,0 +1,232 @@
+<title>物流大綱まとめ図</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+  :root{
+    --ji:#14294A; --usu:#4A5568; --ji-haikei:#F7F4EE; --kami:#FFFFFF;
+    --sen:#DBD3C4; --daidai:#E8761E; --ao:#1F6FB2; --midori:#2E9E4F;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ji:#E9E4DA; --usu:#A8A29A; --ji-haikei:#191B1F; --kami:#22242A;
+      --sen:#35383F; --daidai:#F0924B; --ao:#5FA3D6; --midori:#5BBE77;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ji:#E9E4DA; --usu:#A8A29A; --ji-haikei:#191B1F; --kami:#22242A;
+    --sen:#35383F; --daidai:#F0924B; --ao:#5FA3D6; --midori:#5BBE77;
+  }
+  body{
+    background:var(--ji-haikei); color:var(--ji);
+    font-family:"Noto Serif JP",'Hiragino Mincho ProN',serif;
+    line-height:1.85; padding-block:28px 56px;
+  }
+  .maki{max-width:880px; margin:0 auto; padding:0 18px}
+  .mebuki{
+    font-family:"Noto Sans JP",system-ui,sans-serif; font-weight:700;
+    font-size:12px; letter-spacing:.16em; color:var(--usu); margin:0 0 6px
+  }
+  h1{
+    font-family:"Noto Sans JP",system-ui,sans-serif; font-weight:900;
+    font-size:clamp(23px,5.4vw,33px); line-height:1.3; letter-spacing:-.01em;
+    text-wrap:balance; margin:0 0 10px
+  }
+  .rido{font-size:15px; color:var(--usu); margin:0 0 26px; max-width:34em}
+
+  .waku{
+    background:var(--kami); border:1px solid var(--sen); border-radius:12px;
+    padding:12px; margin:0 0 14px
+  }
+  .fit{position:relative; width:100%; aspect-ratio:2400/1350; overflow:hidden}
+  .waku.zoom .fit{aspect-ratio:auto; height:min(74vh,560px); overflow:auto}
+  .stage{
+    position:absolute; top:0; left:0; width:2400px; height:1350px;
+    transform-origin:top left; transform:scale(var(--s,.36))
+  }
+  .waku.zoom .stage{transform:scale(var(--z,.44))}
+  .waku.zoom .fit::after{
+    content:""; display:block;
+    width:calc(2400px * var(--z,.44)); height:calc(1350px * var(--z,.44))
+  }
+
+  .te{
+    display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center;
+    font-family:"Noto Sans JP",system-ui,sans-serif; margin:0 0 40px
+  }
+  button{
+    font:700 14px/1 "Noto Sans JP",system-ui,sans-serif; color:var(--ji-haikei);
+    background:var(--ji); border:0; border-radius:8px; padding:12px 18px; cursor:pointer
+  }
+  button:focus-visible{outline:3px solid var(--daidai); outline-offset:2px}
+  .te p{margin:0; font-size:13px; color:var(--usu); font-family:inherit}
+
+  h2{
+    font-family:"Noto Sans JP",system-ui,sans-serif; font-weight:900;
+    font-size:19px; margin:0 0 4px; padding-bottom:9px; border-bottom:2px solid var(--ji)
+  }
+  .h2soe{font-size:13.5px; color:var(--usu); margin:0 0 20px}
+  dl{margin:0}
+  .kumi{
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:3px 18px;
+    align-items:baseline; padding:13px 0; border-bottom:1px solid var(--sen)
+  }
+  dt{font-size:15px; min-width:0}
+  dd{
+    margin:0; font-family:"Noto Sans JP",system-ui,sans-serif; font-weight:700;
+    font-size:17px; font-variant-numeric:tabular-nums; white-space:nowrap
+  }
+  .kumi small{
+    display:block; grid-column:1/-1; font-family:"Noto Sans JP",system-ui,sans-serif;
+    font-weight:400; font-size:12.5px; line-height:1.65; color:var(--usu)
+  }
+  .d{color:var(--daidai)} .a{color:var(--ao)} .m{color:var(--midori)}
+  .shime{
+    margin:30px 0 0; padding:18px 20px; background:var(--kami);
+    border:1px solid var(--sen); border-left:4px solid var(--midori);
+    border-radius:0 10px 10px 0; font-size:14px; line-height:1.8
+  }
+  .shime a{color:var(--ao)}
+  @media (max-width:430px){
+    .kumi{grid-template-columns:minmax(0,1fr)}
+    dd{font-size:16px}
+  }
+</style>
+<style>
+  .stage *{box-sizing:border-box;margin:0;padding:0}
+  .stage{background:#FBF8F2;color:#1A1A1A;font-family:"Noto Sans JP","IPAGothic",sans-serif;
+       font-weight:900;-webkit-font-smoothing:antialiased;
+       display:flex;flex-direction:column;padding:28px 34px 30px}
+  .stage .head{font-size:62px;text-align:center;letter-spacing:-.01em;line-height:1.2;
+        padding-bottom:24px}
+  .stage .row{display:flex;gap:26px;height:600px}
+  .stage .panel{flex:1;background:#fff;border:9px solid;border-radius:26px;padding:26px 34px 30px;position:relative;
+         display:flex;flex-direction:column}
+  .stage .fukidashi{border-radius:22px;padding:12px 38px;font-size:52px;display:inline-block;
+             position:relative;margin:0 auto 20px}
+  .stage .fukidashi:after{content:"";position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);
+                   border:18px solid transparent;border-top-width:20px;border-bottom:0}
+  .stage ul{list-style:none;display:flex;flex-direction:column;gap:26px;flex:1;justify-content:center}
+  .stage .arrows{display:flex;justify-content:center;gap:520px;margin:8px 0 6px}
+  .stage .arrow{width:0;height:0;border:36px solid transparent;border-bottom:0;border-top-width:42px}
+  .stage .conclusion{border:9px solid #2E9E4F;background:#DFF0DC;border-radius:26px;
+              padding:34px 30px;display:flex;align-items:center;gap:30px;justify-content:center}
+  .stage .strip{background:#E7E7E4;border-radius:20px;margin-top:22px;padding:24px 30px 28px}
+  .stage .strip h3{font-size:42px;text-align:center;margin-bottom:18px}
+  .stage .strip .items{display:flex;justify-content:space-around;align-items:center;gap:26px}
+  .stage .item{display:flex;align-items:center;gap:18px;font-size:38px}
+  .stage .item small{font-size:31px;opacity:.82;font-weight:700}
+</style>
+
+<div class="maki">
+  <p class="mebuki">株式会社石名坂</p>
+  <h1>総合物流施策大綱の要点</h1>
+  <p class="rido">国が決めた、物流の5年計画（2026〜2030年度）。記事を読まない人にも伝わるように、1枚にまとめました。</p>
+
+  <div class="waku" id="waku">
+    <div class="fit" id="fit">
+      <div class="stage">
+<div class="head">総合物流施策大綱 ── 国が決めた、物流の5年計画（2026〜2030年度）</div>
+
+<div class="row">
+  <div class="panel" style="border-color:#E8761E">
+    <div class="fukidashi" style="background:#FCEBDA">荷物が、運べなくなる</div>
+    <ul><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#E8761E;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">2030年度に <span style="color:#E8761E">約34％</span>の輸送力が不足する</div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">対策を何もしなかった場合の推計</div></div></li><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#E8761E;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">そのうち <span style="color:#E8761E">約14％</span>は、すでに克服</div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">「2024年問題」への官民の取組による</div></div></li><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#E8761E;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">ただし、荷物そのものも約12％減った</div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">28.4億トン（2019年）→ 25.1億トン（2024年）</div></div></li></ul>
+  </div>
+  <div class="panel" style="border-color:#1F6FB2">
+    <div class="fukidashi" style="background:#DCEBF8">運ぶ人が、足りない</div>
+    <ul><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#1F6FB2;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">大型ドライバーの年収 <span style="color:#1F6FB2">492万円</span></div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">全産業の平均は527万円</div></div></li><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#1F6FB2;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">労働時間は年 <span style="color:#1F6FB2">2,484時間</span></div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">全産業の平均は2,052時間。年400時間以上も長い</div></div></li><li style="display:flex;gap:18px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#1F6FB2;margin-top:16px"></span><div><div style="font-size:47px;font-weight:900;line-height:1.35">15〜29歳は、わずか <span style="color:#1F6FB2">10.1％</span></div><div style="font-size:32px;font-weight:700;line-height:1.4;opacity:.82">若い人が入ってこない</div></div></li></ul>
+  </div>
+</div>
+
+<div class="arrows">
+  <div class="arrow" style="border-top-color:#E8761E"></div>
+  <div class="arrow" style="border-top-color:#1F6FB2"></div>
+</div>
+
+<div class="conclusion">
+  <svg width="128" height="128" viewBox="0 0 100 100" fill="none" stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><path d="M25 42a25 25 0 0150 0z" fill="#1F6FB2"/><rect x="19" y="42" width="62" height="7" rx="3.5" fill="#1F6FB2"/><circle cx="50" cy="62" r="12" fill="#FFE0BD"/><path d="M44 60.5h.1M56 60.5h.1" stroke-width="4.6"/><path d="M25 94c0-14 11-20 25-20s25 6 25 20z" fill="#7FA8C9"/></svg>
+  <div>
+    <div style="font-size:58px;line-height:1.25">だから国は、<span style="color:#2E9E4F">
+      賃金と労働時間を『全産業平均まで』</span>と書いた</div>
+    <div style="font-size:36px;font-weight:700;margin-top:10px">
+      2030年度までが「集中改革期間」。物流を、続けられる仕事にする5年間</div>
+  </div>
+  <svg width="138" height="138" viewBox="0 0 100 100" fill="none" stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="38" width="46" height="30" rx="4" fill="#2E9E4F"/><path d="M54 46h16l12 13v9H54z" fill="#FFF3E0"/><rect x="14" y="44" width="12" height="9" rx="2" fill="#fff" stroke="none"/><circle cx="26" cy="74" r="9" fill="#3A3A3A"/><circle cx="26" cy="74" r="3.4" fill="#fff" stroke="none"/><circle cx="70" cy="74" r="9" fill="#3A3A3A"/><circle cx="70" cy="74" r="3.4" fill="#fff" stroke="none"/></svg>
+</div>
+
+<div class="strip">
+  <h3>受け取る私たちにも、できることがある</h3>
+  <div class="items">
+    <div class="item"><svg width="84" height="84" viewBox="0 0 100 100" fill="none" stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="20" y="20" width="60" height="64" rx="5" fill="#2E9E4F"/><path d="M20 42h60M20 62h60M50 20v64"/><path d="M40 32h4M70 32h4M40 52h4M70 52h4M40 72h4M70 72h4" stroke-width="5"/></svg><div>置き配・宅配ボックス<br><small>利用率 25.6％ → 50％程度へ</small></div></div>
+    <div class="item"><svg width="84" height="84" viewBox="0 0 100 100" fill="none" stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="38" width="46" height="30" rx="4" fill="#E8761E"/><path d="M54 46h16l12 13v9H54z" fill="#FFF3E0"/><rect x="14" y="44" width="12" height="9" rx="2" fill="#fff" stroke="none"/><circle cx="26" cy="74" r="9" fill="#3A3A3A"/><circle cx="26" cy="74" r="3.4" fill="#fff" stroke="none"/><circle cx="70" cy="74" r="9" fill="#3A3A3A"/><circle cx="70" cy="74" r="3.4" fill="#fff" stroke="none"/></svg><div>トラックの積載効率<br><small>41.3％ → 44％へ</small></div></div>
+    <div class="item"><svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"><circle cx="50" cy="54" r="29" fill="#1F6FB2"/><path d="M50 36v19h14" fill="none" stroke="#2B2B2B" stroke-width="5"/><path d="M38 22l-9 8M62 22l9 8" fill="none"/></svg><div>荷待ち・荷役の時間<br><small>年750時間 → 年625時間へ</small></div></div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="te">
+    <button id="btn" aria-pressed="false">文字を大きくする</button>
+    <p id="hint">小さな文字が読みにくいときに。</p>
+  </div>
+
+  <h2>図に入れた数字と、その出どころ</h2>
+  <p class="h2soe">こちらで作った数字はありません。すべて大綱の本文に書かれているものです。</p>
+  <dl>
+    <div class="kumi"><dt>2030年度に不足する輸送力</dt><dd class="d">約34％</dd>
+      <small>対策を何もしなかった場合の推計。この数字が、大綱の出発点です。</small></div>
+    <div class="kumi"><dt>そのうち、すでに克服した分</dt><dd class="d">約14％</dd>
+      <small>「2024年問題」への官民の取組による。残りをこれからの5年間で埋めます。</small></div>
+    <div class="kumi"><dt>運ぶ荷物そのものの量</dt><dd class="d">28.4 → 25.1億トン</dd>
+      <small>2019年から2024年へ。約12％減りました。輸送力不足の見え方にも関わります。</small></div>
+    <div class="kumi"><dt>大型トラック運転者の年収</dt><dd class="a">492万円</dd>
+      <small>全産業の平均は527万円。大綱は、この差を埋めると書いています。</small></div>
+    <div class="kumi"><dt>年間の労働時間</dt><dd class="a">2,484時間</dd>
+      <small>全産業の平均は2,052時間。年400時間以上も長い。</small></div>
+    <div class="kumi"><dt>15〜29歳が占める割合</dt><dd class="a">10.1％</dd>
+      <small>若い人が入ってこない。ここが、賃金と労働時間を目標に掲げた理由です。</small></div>
+    <div class="kumi"><dt>置き配・宅配ボックスの利用率</dt><dd class="m">25.6％ → 50％程度</dd>
+      <small>大綱の目標。受け取る側が変わるだけで、再配達が減ります。</small></div>
+    <div class="kumi"><dt>トラックの積載効率</dt><dd class="m">41.3％ → 44％</dd>
+      <small>大綱の目標。半分以上が空のまま走っている、ということでもあります。</small></div>
+    <div class="kumi"><dt>荷待ち・荷役の時間</dt><dd class="m">年750 → 625時間</dd>
+      <small>大綱の目標。荷を出す側・受ける側の都合で、運転者が待たされている時間です。</small></div>
+  </dl>
+
+  <p class="shime">
+    出典：国土交通省「総合物流施策大綱（2026年度〜2030年度）」本文。<br>
+    <a href="https://www.mlit.go.jp/seisakutokatsu/freight/butsuryu03100.html" target="_blank" rel="noopener">mlit.go.jp の掲載ページを開く</a>
+  </p>
+</div>
+
+<script>
+(function(){
+  var waku = document.getElementById('waku');
+  var fit  = document.getElementById('fit');
+  var btn  = document.getElementById('btn');
+  var hint = document.getElementById('hint');
+  var W = 2400;
+
+  function awaseru(){
+    var haba = fit.clientWidth || waku.clientWidth || 360;
+    waku.style.setProperty('--s', (haba / W).toFixed(5));
+    // 拡大側は、いちばん小さな文字（31px）が12px以上になる倍率を下限にする
+    var z = Math.max(12 / 31, (haba / W) * 1.9);
+    waku.style.setProperty('--z', z.toFixed(5));
+  }
+  awaseru();
+  if (window.ResizeObserver) { new ResizeObserver(awaseru).observe(waku); }
+  else { window.addEventListener('resize', awaseru); }
+
+  btn.addEventListener('click', function(){
+    var hiraku = !waku.classList.contains('zoom');
+    waku.classList.toggle('zoom', hiraku);
+    btn.setAttribute('aria-pressed', hiraku ? 'true' : 'false');
+    btn.textContent = hiraku ? '全体を表示する' : '文字を大きくする';
+    hint.textContent = hiraku
+      ? '指で動かして、見たいところを探してください。'
+      : '小さな文字が読みにくいときに。';
+    awaseru();
+    if (hiraku) { fit.scrollLeft = 0; fit.scrollTop = 0; }
+  });
+})();
+</script>
