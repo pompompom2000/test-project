@@ -23,45 +23,56 @@ GREY   = '#E7E7E4'
 INK    = '#1A1A1A'
 
 
+def _sv(w, body, vb=100):
+    return (u'<svg width="%d" height="%d" viewBox="0 0 %d %d" fill="none" '
+            u'stroke="#2B2B2B" stroke-width="3.4" stroke-linejoin="round" '
+            u'stroke-linecap="round">%s</svg>' % (w, w, vb, vb, body))
+
+
 def icon_truck(c, s=86):
-    return (u'<svg width="%d" height="%d" viewBox="0 0 100 100" fill="none">'
-            u'<rect x="6" y="34" width="52" height="34" rx="5" fill="%s"/>'
-            u'<path d="M60 44h18l14 15v9H60z" fill="%s" opacity=".55"/>'
-            u'<circle cx="26" cy="74" r="10" fill="#333"/><circle cx="26" cy="74" r="4" fill="#fff"/>'
-            u'<circle cx="74" cy="74" r="10" fill="#333"/><circle cx="74" cy="74" r="4" fill="#fff"/>'
-            u'</svg>' % (s, s, c, c))
+    return _sv(s,
+        u'<rect x="8" y="38" width="46" height="30" rx="4" fill="%s"/>'
+        u'<path d="M54 46h16l12 13v9H54z" fill="#FFF3E0"/>'
+        u'<rect x="14" y="44" width="12" height="9" rx="2" fill="#fff" stroke="none"/>'
+        u'<circle cx="26" cy="74" r="9" fill="#3A3A3A"/><circle cx="26" cy="74" r="3.4" fill="#fff" stroke="none"/>'
+        u'<circle cx="70" cy="74" r="9" fill="#3A3A3A"/><circle cx="70" cy="74" r="3.4" fill="#fff" stroke="none"/>'
+        % c)
 
 
 def icon_box(c, s=80):
-    return (u'<svg width="%d" height="%d" viewBox="0 0 100 100" fill="none">'
-            u'<rect x="16" y="28" width="68" height="52" rx="5" fill="%s"/>'
-            u'<rect x="44" y="28" width="12" height="52" fill="#fff" opacity=".75"/>'
-            u'<rect x="16" y="28" width="68" height="13" fill="#000" opacity=".12"/>'
-            u'</svg>' % (s, s, c))
+    return _sv(s,
+        u'<rect x="14" y="30" width="72" height="50" rx="4" fill="%s"/>'
+        u'<path d="M14 46h72M50 30v50" />'
+        u'<path d="M38 22l12 8 12-8" fill="none"/>' % c)
 
 
 def icon_clock(c, s=80):
-    return (u'<svg width="%d" height="%d" viewBox="0 0 100 100" fill="none">'
-            u'<circle cx="50" cy="54" r="30" fill="%s"/>'
-            u'<path d="M50 34v22h17" stroke="#fff" stroke-width="7" stroke-linecap="round"/>'
-            u'</svg>' % (s, s, c))
+    return _sv(s,
+        u'<circle cx="50" cy="54" r="29" fill="%s"/>'
+        u'<path d="M50 36v19h14" fill="none" stroke="#2B2B2B" stroke-width="5"/>'
+        u'<path d="M38 22l-9 8M62 22l9 8" fill="none"/>' % c)
 
 
 def icon_yen(c, s=80):
-    return (u'<svg width="%d" height="%d" viewBox="0 0 100 100" fill="none">'
-            u'<circle cx="50" cy="52" r="31" fill="%s"/>'
-            u'<path d="M36 34l14 18 14-18M38 56h24M38 66h24M50 52v22" stroke="#fff" '
-            u'stroke-width="7" stroke-linecap="round" fill="none"/>'
-            u'</svg>' % (s, s, c))
+    return _sv(s,
+        u'<circle cx="50" cy="52" r="29" fill="%s"/>'
+        u'<path d="M37 34l13 17 13-17M39 55h22M39 65h22M50 51v22" fill="none" stroke-width="4.6"/>' % c)
 
 
 def icon_person(c, s=84):
-    return (u'<svg width="%d" height="%d" viewBox="0 0 100 100" fill="none">'
-            u'<path d="M24 40a26 26 0 0152 0z" fill="%s"/>'
-            u'<rect x="18" y="40" width="64" height="7" rx="3" fill="%s"/>'
-            u'<circle cx="50" cy="58" r="13" fill="#333"/>'
-            u'<path d="M24 92c0-15 12-22 26-22s26 7 26 22z" fill="#333"/>'
-            u'</svg>' % (s, s, c, c))
+    return _sv(s,
+        u'<path d="M25 42a25 25 0 0150 0z" fill="%s"/>'
+        u'<rect x="19" y="42" width="62" height="7" rx="3.5" fill="%s"/>'
+        u'<circle cx="50" cy="62" r="12" fill="#FFE0BD"/>'
+        u'<path d="M44 60.5h.1M56 60.5h.1" stroke-width="4.6"/>'
+        u'<path d="M25 94c0-14 11-20 25-20s25 6 25 20z" fill="#7FA8C9"/>' % (c, c))
+
+
+def icon_locker(c, s=80):
+    return _sv(s,
+        u'<rect x="20" y="20" width="60" height="64" rx="5" fill="%s"/>'
+        u'<path d="M20 42h60M20 62h60M50 20v64"/>'
+        u'<path d="M40 32h4M70 32h4M40 52h4M70 52h4M40 72h4M70 72h4" stroke-width="5"/>' % c)
 
 
 def bullet(color, head, sub=u''):
@@ -79,13 +90,13 @@ HTML = u'''<meta charset="utf-8">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:2400px;height:1350px}
-  body{background:#fff;color:__INK__;font-family:"Noto Sans JP","IPAGothic",sans-serif;
+  body{background:#FBF8F2;color:__INK__;font-family:"Noto Sans JP","IPAGothic",sans-serif;
        font-weight:900;-webkit-font-smoothing:antialiased;
        display:flex;flex-direction:column;padding:28px 34px 30px}
   .head{font-size:62px;text-align:center;letter-spacing:-.01em;line-height:1.2;
         padding-bottom:24px}
   .row{display:flex;gap:26px;height:600px}
-  .panel{flex:1;border:8px solid;border-radius:26px;padding:26px 34px 30px;position:relative;
+  .panel{flex:1;background:#fff;border:9px solid;border-radius:26px;padding:26px 34px 30px;position:relative;
          display:flex;flex-direction:column}
   .fukidashi{border-radius:22px;padding:12px 38px;font-size:52px;display:inline-block;
              position:relative;margin:0 auto 20px}
@@ -94,7 +105,7 @@ HTML = u'''<meta charset="utf-8">
   ul{list-style:none;display:flex;flex-direction:column;gap:26px;flex:1;justify-content:center}
   .arrows{display:flex;justify-content:center;gap:520px;margin:8px 0 6px}
   .arrow{width:0;height:0;border:36px solid transparent;border-bottom:0;border-top-width:42px}
-  .conclusion{border:8px solid __GREEN__;background:__GREEN_BG__;border-radius:26px;
+  .conclusion{border:9px solid __GREEN__;background:__GREEN_BG__;border-radius:26px;
               padding:34px 30px;display:flex;align-items:center;gap:30px;justify-content:center}
   .strip{background:__GREY__;border-radius:20px;margin-top:22px;padding:24px 30px 28px}
   .strip h3{font-size:42px;text-align:center;margin-bottom:18px}
@@ -168,7 +179,7 @@ def build():
                  ('__ICON_PERSON__', icon_person(BLUE, 128)),
                  ('__ICON_TRUCK__', icon_truck(GREEN, 138)),
                  ('__ICON_TRUCK2__', icon_truck(ORANGE, 84)),
-                 ('__ICON_BOX__', icon_box(GREEN, 80)),
+                 ('__ICON_BOX__', icon_locker(GREEN, 84)),
                  ('__ICON_CLOCK__', icon_clock(BLUE, 80))]:
         t = t.replace(k, v)
     return t
