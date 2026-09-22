@@ -1,0 +1,263 @@
+<title>物流大綱の画像プロンプト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#F1F1EE; --surface:#FFFFFF; --sunk:#E8E7E2;
+    --ink:#262421; --muted:#6C6960; --line:#D6D4CD;
+    --accent:#C1803A; --accent-ink:#7A4D17; --accent-wash:#F6EBDC;
+    --warn:#8A3B2E; --warn-wash:#F7E7E3;
+    --step:clamp(15px,1.4vw,16px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+      --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+      --accent:#D89C58; --accent-ink:#F0C68C; --accent-wash:#2C2419;
+      --warn:#E29384; --warn-wash:#2E1E1A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+    --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+    --accent:#D89C58; --accent-ink:#F0C68C; --accent-wash:#2C2419;
+    --warn:#E29384; --warn-wash:#2E1E1A;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+    font-size:var(--step); line-height:1.8;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:740px; margin:0 auto; padding-inline:16px; padding-block:40px 72px;
+        display:flex; flex-direction:column; gap:34px}
+  h1{
+    font-family:"Shippori Mincho","Yu Mincho",serif; font-weight:600;
+    font-size:clamp(25px,5.6vw,34px); line-height:1.45; margin:0; text-wrap:balance;
+    letter-spacing:.01em;
+  }
+  .lede{margin:0; color:var(--muted); font-size:calc(var(--step) - .5px)}
+  .rule{height:3px; width:52px; background:var(--accent); border-radius:2px}
+  h2{
+    font-size:calc(var(--step) + 3px); margin:0 0 4px; font-weight:700;
+    display:flex; align-items:baseline; gap:10px; text-wrap:balance;
+  }
+  h2 .no{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78em;
+    color:var(--accent-ink); letter-spacing:.06em; flex:none;
+  }
+  p{margin:0}
+  .steps{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px}
+  .steps li{display:flex; gap:11px; align-items:flex-start; color:var(--muted)}
+  .steps b{
+    flex:none; width:22px; height:22px; border-radius:50%; margin-top:5px;
+    background:var(--accent); color:#fff; font-size:12px; font-weight:700;
+    display:grid; place-items:center; line-height:1;
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:20px 18px; display:flex; flex-direction:column; gap:12px;
+  }
+  .tag{
+    align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--accent-ink); background:var(--accent-wash);
+    border-radius:999px; padding:3px 11px; line-height:1.7;
+  }
+  .why{color:var(--muted); font-size:calc(var(--step) - 1px); margin:0}
+  .promptbox{position:relative}
+  pre{
+    margin:0; background:var(--sunk); border:1px solid var(--line); border-radius:8px;
+    padding:15px 14px; overflow-x:auto; white-space:pre-wrap; word-break:break-word;
+    font-family:inherit; font-size:calc(var(--step) - 1px); line-height:1.85;
+    -webkit-user-select:all; user-select:all;
+  }
+  .copy{
+    margin-top:9px; width:100%; min-height:46px; cursor:pointer;
+    font:inherit; font-weight:700; color:#fff; background:var(--accent);
+    border:none; border-radius:7px; letter-spacing:.03em;
+    transition:filter .15s ease;
+  }
+  .copy:hover{filter:brightness(1.07)}
+  .copy:focus-visible{outline:3px solid var(--accent-ink); outline-offset:2px}
+  .copy[data-done="1"]{background:var(--accent-ink)}
+  .note{
+    border-left:3px solid var(--accent); background:var(--accent-wash);
+    padding:13px 15px; border-radius:0 8px 8px 0; font-size:calc(var(--step) - 1px);
+  }
+  .note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+  .note p + p{margin-top:8px}
+  .ng{margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:5px;
+      font-size:calc(var(--step) - 1px)}
+  footer{color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:18px}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+
+<div class="wrap">
+
+  <header style="display:flex;flex-direction:column;gap:14px">
+    <div class="rule"></div>
+    <h1>総合物流施策大綱の記事に使う<br>画像プロンプト</h1>
+    <p class="lede">下書き ID 6260「 総合物流施策大綱 とは？国が決めた物流の5年計画を、やさしく解説」用。Gemini にそのまま貼れる形にしてあります。</p>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2><span class="no">使い方</span></h2>
+    <ol class="steps">
+      <li><b>1</b><span>下の枠の「コピー」を押して、Gemini に貼り付ける</span></li>
+      <li><b>2</b><span>出てきた画像を、この会話に貼るか、URL を教えていただく</span></li>
+      <li><b>3</b><span>こちらで余白を切り、軽くして、WordPress に登録します（量子の連載と同じ手順）</span></li>
+    </ol>
+  </section>
+
+  <div class="note">
+    <p><strong>文字は入れません。</strong>画像生成は日本語の文字や数字が崩れやすく、「41.3%」が「4l,3％」になるような事故が起きます。</p>
+    <p>数字の図（34%と14%、5つの柱、8回の年表）は<strong>すでに記事の中に SVG で作ってあります</strong>。そちらは崩れませんし、あとから数字だけ直せます。生成画像は<strong>情景を描く役</strong>に徹してもらいます。</p>
+  </div>
+
+  <section class="card">
+    <span class="tag">アイキャッチ 本命</span>
+    <h2><span class="no">01</span>物流の全体像</h2>
+    <p class="why">大綱は、トラックだけでなく鉄道・船・倉庫をひとつながりで扱っています。その「つながり」を1枚で見せる案です。記事の一覧やSNSに出たとき、何の話かが一目で伝わります。</p>
+    <div class="promptbox">
+<pre>日本の地方の物流を俯瞰した、写実的で落ち着いたデジタルイラストを1枚描いてください。
+
+構図：
+・早朝の澄んだ光。やや高い位置からの俯瞰。
+・手前に片側1車線の幹線道路が奥へ伸び、砕石を積んだダンプトラックが2台走っている。
+・中景に平屋の物流倉庫とトラックの荷降ろしバース。
+・その奥に貨物列車の線路が横切り、いちばん奥の水平線に小さくコンテナ船。
+・背景は東北地方の低い山並みと、刈り入れ前の田畑。
+
+色：土色・砂利の灰色・青灰色を基調に、朝日のわずかな金色をアクセント。彩度は抑えめ。
+
+条件：
+・画像の中に文字、数字、ロゴ、標識の文言を一切入れないこと。
+・実在する企業名や、官公庁の名称・紋章・印章を描かないこと。
+・ナンバープレートの番号は読み取れないようにすること。
+・人物は入れない。入れる場合は顔が判別できない遠景に留めること。
+・アスペクト比 16:9 の横長。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">アイキャッチ 別案</span>
+    <h2><span class="no">02</span>砕石プラントの朝</h2>
+    <p class="why">01 が抽象的すぎると感じた場合の案です。石名坂の現場に寄せてあり、記事の「盛岡でダンプを持つ側から見ると」の節とつながります。一覧に並んだとき、他社の記事と見分けがつきやすいのはこちらです。</p>
+    <div class="promptbox">
+<pre>砕石プラントの朝を描いた、写実的で落ち着いたデジタルイラストを1枚描いてください。
+
+構図：
+・日の出直後。斜めから差す低い光と、地面に伸びる長い影。
+・画面中央に、砕石を満載したダンプトラックが1台、出発しようとしている。
+・その背後に、粒の大きさごとに積み分けられた砕石の山が3つ4つ。
+・左手にベルトコンベアと選別機。細かい粉じんが朝の光に舞っている。
+・遠景に東北地方の山並み。
+
+色：砕石の灰色、土の茶色、鉄の濃い色を基調に、朝日の暖色をアクセント。彩度は抑えめ。
+
+条件：
+・画像の中に文字、数字、ロゴ、社名を一切入れないこと。
+・実在する企業名や、官公庁の名称・紋章・印章を描かないこと。
+・ナンバープレートの番号は読み取れないようにすること。
+・人物は入れない。
+・アスペクト比 16:9 の横長。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">本文の挿絵</span>
+    <h2><span class="no">03</span>荷待ちの3時間</h2>
+    <p class="why">「荷待ち・荷役の時間、年750時間」は、数字だけでは伝わりません。1日3時間、順番を待っている情景を1枚入れると、読者が自分の待ち時間に引き寄せて考えられます。「盛岡でダンプを持つ側から見ると」の節に置く想定です。</p>
+    <div class="promptbox">
+<pre>トラックが荷降ろしの順番を待っている情景を、写実的で落ち着いたデジタルイラストで1枚描いてください。
+
+構図：
+・曇りの日中。資材置き場や工事現場の入口。
+・ダンプトラックが3台、間隔を空けて一列に停まって待っている。
+・いちばん手前の運転席側の窓が少し開いていて、中は暗く人の姿は見えない。
+・地面は締め固めた砂利。わだちに浅く水がたまっている。
+・遠景に重機のシルエットが1台。
+
+色：曇天の灰色と砂利の灰色を基調に、トラックの塗装の色をひとつだけ控えめに効かせる。全体に静かで、時間が止まったような雰囲気。
+
+条件：
+・画像の中に文字、数字、ロゴ、社名を一切入れないこと。
+・実在する企業名や、官公庁の名称・紋章・印章を描かないこと。
+・ナンバープレートの番号は読み取れないようにすること。
+・人物の顔は描かないこと。
+・アスペクト比 4:3。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">本文の挿絵</span>
+    <h2><span class="no">04</span>受け取り方を選ぶ</h2>
+    <p class="why">高校生向けの節に置く1枚です。「置き配や宅配ボックスを選ぶと、配達員が同じ家へ二度行かずに済む」という、今日からできることの絵。読者が自分の玄関を思い浮かべられる距離感を狙います。</p>
+    <div class="promptbox">
+<pre>日本の住宅の玄関先を描いた、写実的で親しみのあるデジタルイラストを1枚描いてください。
+
+構図：
+・夕方前のやわらかい光。玄関のドアと、その脇に置かれた宅配ボックス。
+・宅配ボックスのふたが閉まっていて、使われたばかりの雰囲気。
+・足元に小さな段ボール箱がひとつ、ドアの内側に寄せて丁寧に置かれている。
+・背景に植木鉢がひとつと、自転車の後輪が少しだけ見える。
+・視点は立っている人の目の高さ。
+
+色：木と土の暖色、玄関まわりの落ち着いた色。彩度は抑えめで、穏やかな印象。
+
+条件：
+・画像の中に文字、数字、ロゴ、宅配会社名を一切入れないこと。
+・実在する企業名や、官公庁の名称・紋章・印章を描かないこと。
+・人物は入れないこと。
+・アスペクト比 4:3。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <div class="note warn">
+    <p><strong>4つのプロンプトすべてに、同じ条件を入れてあります。</strong>理由があります。</p>
+    <ul class="ng">
+      <li><strong>官公庁の紋章・印章・名称</strong> — 国の計画を扱う記事なので、公式資料と見まちがえられる絵は避けます</li>
+      <li><strong>実在企業のロゴ・社名</strong> — 他社を無断で描くことになります</li>
+      <li><strong>読めるナンバープレート</strong> — 実在の車両を指すことになります</li>
+      <li><strong>人物の顔</strong> — 掲載同意の問題が出ます（採用ページで積み残しになっている論点と同じです）</li>
+    </ul>
+  </div>
+
+  <footer>
+    生成された画像は、こちらで内容を確認してから登録します。意図と違うもの、上の条件を満たしていないものは、その場でお伝えします。
+  </footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.parentNode.querySelector('pre');
+      if(!pre) return;
+      var text = pre.textContent;
+      var done = function(ok){
+        btn.textContent = ok ? 'コピーしました' : '枠をタップして選択してください';
+        btn.dataset.done = ok ? '1' : '';
+        setTimeout(function(){ btn.textContent='コピー'; btn.dataset.done=''; }, 2200);
+      };
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
+          return;
+        }
+      }catch(e){}
+      try{
+        var sel = window.getSelection(), r = document.createRange();
+        r.selectNodeContents(pre); sel.removeAllRanges(); sel.addRange(r);
+        done(document.execCommand && document.execCommand('copy'));
+      }catch(e){ done(false); }
+    });
+  });
+})();
+</script>
