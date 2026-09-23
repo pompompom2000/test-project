@@ -1,0 +1,288 @@
+<title>石名坂サイト点検</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap">
+<style>
+  :root{
+    color-scheme:light;
+    --kami:#F4F2ED; --ji:#1F242C; --usu:#5E6672; --sen:#D9D3C8; --men:#FFFFFF;
+    --tsuchi:#9C5A22; --yoi:#2D6B4F; --warui:#A63B2B; --kage:rgba(31,36,44,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --kami:#14171B; --ji:#E6E2D9; --usu:#9AA0A9; --sen:#2C3138; --men:#1B1F24;
+      --tsuchi:#D08A4E; --yoi:#5FB287; --warui:#E08575; --kage:rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --kami:#14171B; --ji:#E6E2D9; --usu:#9AA0A9; --sen:#2C3138; --men:#1B1F24;
+    --tsuchi:#D08A4E; --yoi:#5FB287; --warui:#E08575; --kage:rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--kami); color:var(--ji);
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;
+    font-size:15px; line-height:1.85; -webkit-text-size-adjust:100%;
+  }
+  .maki{max-width:880px; margin:0 auto; padding-inline:18px; padding-block:38px 72px}
+  .mebuki{
+    font-size:11.5px; font-weight:700; letter-spacing:.18em; color:var(--tsuchi);
+    margin:0 0 8px
+  }
+  h1{
+    font-family:"Noto Serif JP",'Hiragino Mincho ProN',serif; font-weight:700;
+    font-size:clamp(26px,6vw,38px); line-height:1.35; margin:0 0 12px; text-wrap:balance;
+  }
+  .rido{margin:0 0 6px; color:var(--usu); font-size:14px; max-width:38em}
+  .itsu{margin:0; color:var(--usu); font-size:12.5px; font-variant-numeric:tabular-nums}
+
+  .kazu{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:2px solid var(--ji); border-bottom:1px solid var(--sen);
+    margin:30px 0 44px;
+  }
+  .kazu div{padding:15px 12px 16px; border-right:1px solid var(--sen)}
+  .kazu div:last-child{border-right:0}
+  .kazu b{
+    display:block; font-size:clamp(22px,5.5vw,30px); font-weight:700; line-height:1.1;
+    font-variant-numeric:tabular-nums; letter-spacing:-.01em;
+  }
+  .kazu span{display:block; font-size:11.5px; color:var(--usu); margin-top:5px; line-height:1.5}
+  @media (max-width:560px){
+    .kazu{grid-template-columns:repeat(2,1fr)}
+    .kazu div:nth-child(2){border-right:0}
+    .kazu div:nth-child(-n+2){border-bottom:1px solid var(--sen)}
+  }
+
+  h2{
+    font-family:"Noto Serif JP",'Hiragino Mincho ProN',serif; font-weight:700;
+    font-size:21px; line-height:1.45; margin:0 0 6px; text-wrap:balance;
+  }
+  section{margin:0 0 46px}
+  .soe{margin:0 0 18px; color:var(--usu); font-size:13.5px}
+  p{margin:0 0 14px}
+  p:last-child{margin-bottom:0}
+
+  .shirushi{
+    display:inline-block; font-size:11px; font-weight:700; letter-spacing:.06em;
+    padding:2px 9px; border-radius:3px; vertical-align:2px; margin-right:9px;
+    border:1px solid currentColor;
+  }
+  .s-naosu{color:var(--warui)}
+  .s-yousu{color:var(--tsuchi)}
+  .s-yoi{color:var(--yoi)}
+
+  ul{margin:0 0 14px; padding-left:1.3em}
+  li{margin-bottom:6px}
+  li:last-child{margin-bottom:0}
+
+  .hyou{overflow-x:auto; margin:0 0 16px; border:1px solid var(--sen); border-radius:5px; background:var(--men)}
+  table{border-collapse:collapse; width:100%; font-size:13px; min-width:480px}
+  th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--sen); vertical-align:top}
+  th{font-weight:700; font-size:11.5px; letter-spacing:.05em; color:var(--usu); white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td.n{font-variant-numeric:tabular-nums; white-space:nowrap}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em;
+    background:var(--kage); padding:1px 5px; border-radius:3px; word-break:break-all;
+  }
+
+  .bou{display:flex; align-items:center; gap:10px; margin-bottom:7px; font-size:13px}
+  .bou i{font-style:normal; width:7.5em; flex:none; color:var(--usu)}
+  .bou u{
+    text-decoration:none; height:15px; background:var(--tsuchi); border-radius:2px;
+    display:block; min-width:2px;
+  }
+  .bou b{font-variant-numeric:tabular-nums; font-weight:500; font-size:12.5px; color:var(--usu)}
+
+  .shime{
+    border-left:3px solid var(--tsuchi); background:var(--men);
+    padding:16px 18px; border-radius:0 6px 6px 0; margin:0 0 16px;
+  }
+  .shime p{font-size:14px}
+  ol.junban{margin:0; padding-left:1.4em}
+  ol.junban li{margin-bottom:11px}
+  footer{
+    margin-top:44px; padding-top:18px; border-top:1px solid var(--sen);
+    color:var(--usu); font-size:12.5px;
+  }
+</style>
+
+<div class="maki">
+
+  <p class="mebuki">株式会社石名坂</p>
+  <h1>ホームページ 全171ページの点検</h1>
+  <p class="rido">www.ishinazaka.co.jp の全ページを取得して、表示・出典リンク・題名・画像・記事のつながりを調べました。</p>
+  <p class="itsu">調査日 2026年9月23日 ／ 鍵を使わず、読者と同じ見え方で取得</p>
+
+  <div class="kazu">
+    <div><b>171</b><span>全ページ。すべて正常に表示</span></div>
+    <div><b>153</b><span>記事。ほかに固定9・分類9</span></div>
+    <div><b>7</b><span>出典リンクの行き先が消えている</span></div>
+    <div><b>82</b><span>URLが <code>post-数字</code> のままの記事</span></div>
+  </div>
+
+  <section>
+    <h2><span class="shirushi s-yoi">良い</span>まず、できている7つ</h2>
+    <p class="soe">ここは直す必要がありません。同じ規模のサイトで、ここまで揃っているのは珍しいことです。</p>
+    <ul>
+      <li><strong>171ページすべてが正常に表示されます。</strong>見つからないページ（404）はひとつもありません。</li>
+      <li><strong>検索避け（noindex）の付いたページがゼロ。</strong>載せたいページが隠れていません。</li>
+      <li><strong>canonical のずれがゼロ。</strong>「この記事の正式なURLはこれ」という指定が、171ページとも自分自身を指しています。</li>
+      <li><strong>説明文（検索結果に出る2〜3行）が、171ページ全部に入っています。</strong>空のページがありません。</li>
+      <li><strong>画像の代替テキストが97%。</strong>909枚のうち885枚に説明が入っています。目の見えない方の読み上げに効きます。</li>
+      <li><strong>ひとりぼっちの記事がゼロ。</strong>153本すべてが、ほかのページから辿り着けます。</li>
+      <li><strong>見出し（h1）が、どのページにもちょうど1つ。</strong>多すぎも無さすぎもありません。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>出典リンクが7本、消えている</h2>
+    <p class="soe">いちばん先に直したいのはここです。石名坂さんの記事は出典を必ず書く作りなので、その行き先が消えているのは、記事の信頼に直に関わります。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>消えている行き先</th><th>載っている記事</th></tr></thead>
+        <tbody>
+          <tr><td><code>city.oshu.iwate.jp/shinpei/story/10.html</code><br><span style="color:var(--usu);font-size:12px">http のまま。奥州市のサイト改装で移動した可能性</span></td><td><code>goto-shinpei-02-taiwan</code></td></tr>
+          <tr><td><code>iwate-np.co.jp/article/2021/1/22/90948</code></td><td><code>kikouhendou-2050-iwate-nougyou</code></td></tr>
+          <tr><td><code>iwate-np.co.jp/article/2023/11/1/152924</code></td><td>同上</td></tr>
+          <tr><td><code>mri.co.jp/news/press/20250512.html</code></td><td><code>jclp-03-energy-security</code></td></tr>
+          <tr><td><code>pref.iwate.jp/kendozukuri/…/1017258/</code></td><td><code>higashinihon-daishinsai-03-infra</code></td></tr>
+          <tr><td><code>pref.iwate.jp/morioka/tsunatori/1099596.html</code></td><td><code>post-4202</code></td></tr>
+          <tr><td><code>interriskthai.co.th/ja/blog/2011年タイ大洪水…</code></td><td><code>kikouhendou-2050-keizai</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>新聞社の記事（岩手日報2本）は、時間が経つと消えるのが普通です。<strong>消えた前提で、別の出典に差し替えるか、本文に要点を書き写しておく</strong>のが確実です。県・市のページは、たいてい同じ内容が別のURLに移っています。</p>
+    <p>ほかに<strong>2本、こちらから接続できませんでした</strong>（<code>iwanichi.co.jp</code>／<code>thr.mlit.go.jp</code>）。一時的な不調かもしれません。</p>
+    <p>なお<strong>23本は403で、自動では確かめられませんでした。</strong>経済産業省・農林水産省・Science誌など、機械的な接続を断る設定のサイトです。<strong>壊れているとは限りません。</strong>人が開けば普通に見えるはずです。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">様子見</span>URLが <code>post-数字</code> のままの記事が82本</h2>
+    <p class="soe">153本の半分以上です。<code>/post-4202/</code> のようなURLは、人にも検索にも中身が伝わりません。</p>
+    <div style="margin-bottom:16px">
+      <div class="bou"><i>施工実績</i><u style="width:34%"></u><b>26本</b></div>
+      <div class="bou"><i>運送・物流法令</i><u style="width:20%"></u><b>15本</b></div>
+      <div class="bou"><i>土木のきほん</i><u style="width:20%"></u><b>15本</b></div>
+      <div class="bou"><i>砕石販売</i><u style="width:17%"></u><b>13本</b></div>
+      <div class="bou"><i>コラム</i><u style="width:11%"></u><b>8本</b></div>
+      <div class="bou"><i>防災・環境</i><u style="width:9%"></u><b>7本</b></div>
+      <div class="bou"><i>除雪・排雪</i><u style="width:7%"></u><b>5本</b></div>
+    </div>
+    <p><strong>ただし、いま一斉に変えるのは勧めません。</strong>URLを変えると、これまでのリンクと検索の評価が切れます。転送（301）の設定を82本ぶん正しく入れる必要があり、ひとつ間違えると404が増えます。<strong>得られるものより、壊す危険のほうが大きい</strong>と思います。</p>
+    <p>現実的なのは、<strong>これから書く記事を意味のあるURLにしていくこと</strong>です。実際、新しい記事（<code>butsuryu-taiko-2026</code>、<code>quantum-computer-01-mechanism</code> など71本）はすでにそうなっています。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>題名と説明文に、不自然な空白</h2>
+    <p class="soe">題名38本、説明文41本に出ています。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>いまの題名</th></tr></thead>
+        <tbody>
+          <tr><td>盛岡の<strong> 砕石 </strong>・砂利販売と土木工事｜ホームページを公開しました</td></tr>
+          <tr><td>【隠れキャラ】<strong> 猫 </strong>を押しましたか？株式会社石名坂のオフィス<strong> 猫 </strong>が反応！</td></tr>
+          <tr><td>庭や駐車場の<strong> 砕石 必要量 </strong>は？いびつな土地もOKの自動計算ツール</td></tr>
+          <tr><td>【 AI の進化】建設業で生き残るための「共存」の道とは？</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>キーワードを目立たせる仕掛けの跡だと思われます。<strong>検索の順位には効きません。</strong>いまのGoogleは、語の前後に空白があるかどうかを見ていません。一方で<strong>読者には、日本語として不自然に見えます。</strong></p>
+    <p>直すのは簡単です。URLは変わらないので、壊れるものがありません。<strong>空白を詰めるだけ。</strong>38本なら一度に片づきます。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>VR動画3本の説明文が、取り違っている</h2>
+    <p class="soe">道明地区の基盤整備工事、第1弾・第2弾・第3弾。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>記事</th><th>題名</th><th>説明文</th></tr></thead>
+        <tbody>
+          <tr><td class="n"><code>post-284</code></td><td>第1弾</td><td>第1弾 ✓</td></tr>
+          <tr><td class="n"><code>post-286</code></td><td>第2弾</td><td><strong style="color:var(--warui)">第1弾 ✗</strong></td></tr>
+          <tr><td class="n"><code>post-289</code></td><td>第3弾</td><td><strong style="color:var(--warui)">第1弾 ✗</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>第2弾と第3弾の説明文が、第1弾のまま複製されています。<strong>検索結果に、3本とも「第1弾」と表示されます。</strong>171ページの中で、同じ説明文が重なっているのはここだけでした。2か所直せば終わります。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">様子見</span>中身の量と、見出しの組み立て</h2>
+    <p class="soe">記事153本の本文量（ヘッダーやメニューを除いた目安）。</p>
+    <div class="hyou">
+      <table>
+        <tbody>
+          <tr><td>中央値</td><td class="n">1,452字</td></tr>
+          <tr><td>平均</td><td class="n">1,948字</td></tr>
+          <tr><td>いちばん長い記事</td><td class="n">12,387字</td></tr>
+          <tr><td>1,000字未満</td><td class="n">45本</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>短い記事が悪いわけではありません。</strong>下から並べると、重機の操作ゲーム、VR動画、竣工のお知らせ、優良建設工事の選定——<strong>どれも「読ませる」記事ではなく、見せる記事や知らせる記事です。</strong>これらを無理に長くする必要はありません。</p>
+    <p>見出しについて。<strong>79本の記事が、本文の見出しを h3 から始めています</strong>（h2 は最後の呼びかけ欄のぶん1つだけ）。残り73本は h2 を使っています。<strong>作りが記事によって違う</strong>、という状態です。</p>
+    <p>実害は小さく、直すならサイト全体で揃える話になります。<strong>急ぎません。</strong></p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">様子見</span>画像の代替テキストが空、24枚</h2>
+    <p class="soe">909枚中24枚。率にすると3%です。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>記事</th><th class="n">空／全体</th></tr></thead>
+        <tbody>
+          <tr><td>ヘロンの公式 の覚え方と計算例</td><td class="n">3／9</td></tr>
+          <tr><td>除雪の支障物を回避するアラートアプリ</td><td class="n">2／6</td></tr>
+          <tr><td>SORACOMで車両のGPS追跡を試してみた</td><td class="n">2／6</td></tr>
+          <tr><td>栗駒山 神の絨毯</td><td class="n">2／6</td></tr>
+          <tr><td>輪荷重（りんかじゅう）とは？</td><td class="n">2／6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>すでに97%入っているので、<strong>慌てる話ではありません。</strong>ただ、代替テキストは目の見えない方のためのものです。残り24枚も入れておくに越したことはありません。</p>
+  </section>
+
+  <section>
+    <h2>記事153本の内訳</h2>
+    <p class="soe">分類ごとの本数（1本が複数の分類に入ることがあります）。</p>
+    <div style="margin-bottom:16px">
+      <div class="bou"><i>施工実績</i><u style="width:100%"></u><b>57本</b></div>
+      <div class="bou"><i>防災・環境</i><u style="width:61%"></u><b>35本</b></div>
+      <div class="bou"><i>コラム</i><u style="width:47%"></u><b>27本</b></div>
+      <div class="bou"><i>運送・物流法令</i><u style="width:46%"></u><b>26本</b></div>
+      <div class="bou"><i>砕石販売</i><u style="width:28%"></u><b>16本</b></div>
+      <div class="bou"><i>土木のきほん</i><u style="width:26%"></u><b>15本</b></div>
+      <div class="bou"><i>法令・制度</i><u style="width:11%"></u><b>6本</b></div>
+      <div class="bou"><i>除雪・排雪</i><u style="width:11%"></u><b>6本</b></div>
+    </div>
+    <p><strong>施工実績が57本で最多。</strong>これは土木工事会社として正しい形です。仕事を頼む人がいちばん見たいのは実績だからです。</p>
+    <p>一方で<strong>砕石販売は16本。</strong>固定ページの <code>saiseki-hanbai</code>（4,289字）と <code>simulation</code>（自動計算）が支えていますが、記事の数としては少ない。<strong>個人のお客様が砕石を買うときに検索する言葉</strong>——庭、駐車場、ぬかるみ、量の目安、配達できる範囲——で、まだ書ける余地があります。</p>
+    <p><strong>もっとも内部リンクを集めているのは「施工実績」の一覧（59回）</strong>、次いで「防災・環境」（35回）、「コラム」（27回）、「運送・物流法令」（26回）。記事どうしのつながりは、よくできています。</p>
+  </section>
+
+  <section>
+    <h2>ひとつ、数字として使えないもの</h2>
+    <div class="shime">
+      <p><strong>サイトマップ上の「更新日」は、153本すべてが2026年9月10日以降になっています。</strong>いちばん古いもので9月10日、新しいもので9月23日。</p>
+      <p>これは「全部の記事が最近書かれた」という意味ではなく、<strong>何かの作業で全記事がまとめて触られた跡</strong>です。ですから、この日付から「どの記事が古いか」を判断することはできません。記事の鮮度を見るには、本文の中の年号を読むしかありません。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>私ならこの順でやります</h2>
+    <ol class="junban">
+      <li><strong>VR動画2本の説明文を直す。</strong>2か所。5分で終わり、検索結果の見え方が直ります。</li>
+      <li><strong>消えた出典リンク7本を差し替える。</strong>記事の信頼に直接効きます。新聞社の2本は、本文に要点を書き写しておくのが確実です。</li>
+      <li><strong>題名・説明文の不自然な空白を詰める。</strong>38本。URLは変わらないので、壊れるものがありません。</li>
+      <li><strong>代替テキストが空の24枚を埋める。</strong>急ぎませんが、やっておきたい。</li>
+      <li><strong>砕石販売の記事を増やす。</strong>ここだけは「直す」ではなく「足す」話です。個人のお客様が実際に打ち込む言葉から書けます。</li>
+    </ol>
+    <p style="margin-top:18px"><strong>URLの付け替えと見出しの揃え直しは、やらないことを勧めます。</strong>どちらも手間と危険が大きく、得られるものが小さい。これから書く記事で揃えていけば足ります。</p>
+  </section>
+
+  <footer>
+    171ページを1枚ずつ取得し、表示の状態・題名・説明文・見出し・画像の代替テキスト・内部リンク・外部リンク292本の生死を調べました。外部リンクのうち23本は、相手のサイトが機械的な接続を断るため確認できていません。壊れていると決めつけないでください。
+  </footer>
+</div>
