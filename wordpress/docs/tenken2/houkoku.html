@@ -1,0 +1,277 @@
+<title>石名坂サイト点検</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap">
+<style>
+  :root{
+    color-scheme:light;
+    --kami:#F4F2ED; --ji:#1F242C; --usu:#5E6672; --sen:#D9D3C8; --men:#FFFFFF;
+    --tsuchi:#9C5A22; --yoi:#2D6B4F; --warui:#A63B2B; --kage:rgba(31,36,44,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --kami:#14171B; --ji:#E6E2D9; --usu:#9AA0A9; --sen:#2C3138; --men:#1B1F24;
+      --tsuchi:#D08A4E; --yoi:#5FB287; --warui:#E08575; --kage:rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --kami:#14171B; --ji:#E6E2D9; --usu:#9AA0A9; --sen:#2C3138; --men:#1B1F24;
+    --tsuchi:#D08A4E; --yoi:#5FB287; --warui:#E08575; --kage:rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--kami); color:var(--ji);
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;
+    font-size:15px; line-height:1.85; -webkit-text-size-adjust:100%;
+  }
+  .maki{max-width:880px; margin:0 auto; padding-inline:18px; padding-block:38px 72px}
+  .mebuki{
+    font-size:11.5px; font-weight:700; letter-spacing:.18em; color:var(--tsuchi);
+    margin:0 0 8px
+  }
+  h1{
+    font-family:"Noto Serif JP",'Hiragino Mincho ProN',serif; font-weight:700;
+    font-size:clamp(26px,6vw,38px); line-height:1.35; margin:0 0 12px; text-wrap:balance;
+  }
+  .rido{margin:0 0 6px; color:var(--usu); font-size:14px; max-width:38em}
+  .itsu{margin:0; color:var(--usu); font-size:12.5px; font-variant-numeric:tabular-nums}
+
+  .kazu{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:2px solid var(--ji); border-bottom:1px solid var(--sen);
+    margin:30px 0 44px;
+  }
+  .kazu div{padding:15px 12px 16px; border-right:1px solid var(--sen)}
+  .kazu div:last-child{border-right:0}
+  .kazu b{
+    display:block; font-size:clamp(22px,5.5vw,30px); font-weight:700; line-height:1.1;
+    font-variant-numeric:tabular-nums; letter-spacing:-.01em;
+  }
+  .kazu span{display:block; font-size:11.5px; color:var(--usu); margin-top:5px; line-height:1.5}
+  @media (max-width:560px){
+    .kazu{grid-template-columns:repeat(2,1fr)}
+    .kazu div:nth-child(2){border-right:0}
+    .kazu div:nth-child(-n+2){border-bottom:1px solid var(--sen)}
+  }
+
+  h2{
+    font-family:"Noto Serif JP",'Hiragino Mincho ProN',serif; font-weight:700;
+    font-size:21px; line-height:1.45; margin:0 0 6px; text-wrap:balance;
+  }
+  section{margin:0 0 46px}
+  .soe{margin:0 0 18px; color:var(--usu); font-size:13.5px}
+  p{margin:0 0 14px}
+  p:last-child{margin-bottom:0}
+
+  .shirushi{
+    display:inline-block; font-size:11px; font-weight:700; letter-spacing:.06em;
+    padding:2px 9px; border-radius:3px; vertical-align:2px; margin-right:9px;
+    border:1px solid currentColor;
+  }
+  .s-naosu{color:var(--warui)}
+  .s-yousu{color:var(--tsuchi)}
+  .s-yoi{color:var(--yoi)}
+
+  ul{margin:0 0 14px; padding-left:1.3em}
+  li{margin-bottom:6px}
+  li:last-child{margin-bottom:0}
+
+  .hyou{overflow-x:auto; margin:0 0 16px; border:1px solid var(--sen); border-radius:5px; background:var(--men)}
+  table{border-collapse:collapse; width:100%; font-size:13px; min-width:480px}
+  th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--sen); vertical-align:top}
+  th{font-weight:700; font-size:11.5px; letter-spacing:.05em; color:var(--usu); white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td.n{font-variant-numeric:tabular-nums; white-space:nowrap}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em;
+    background:var(--kage); padding:1px 5px; border-radius:3px; word-break:break-all;
+  }
+
+  .bou{display:flex; align-items:center; gap:10px; margin-bottom:7px; font-size:13px}
+  .bou i{font-style:normal; width:7.5em; flex:none; color:var(--usu)}
+  .bou u{
+    text-decoration:none; height:15px; background:var(--tsuchi); border-radius:2px;
+    display:block; min-width:2px;
+  }
+  .bou b{font-variant-numeric:tabular-nums; font-weight:500; font-size:12.5px; color:var(--usu)}
+
+  .shime{
+    border-left:3px solid var(--tsuchi); background:var(--men);
+    padding:16px 18px; border-radius:0 6px 6px 0; margin:0 0 16px;
+  }
+  .shime p{font-size:14px}
+  ol.junban{margin:0; padding-left:1.4em}
+  ol.junban li{margin-bottom:11px}
+  footer{
+    margin-top:44px; padding-top:18px; border-top:1px solid var(--sen);
+    color:var(--usu); font-size:12.5px;
+  }
+</style>
+
+<div class="maki">
+
+  <p class="mebuki">株式会社石名坂</p>
+  <h1>ホームページ 全171ページの点検（2回目）</h1>
+  <p class="rido">1回目の点検で直したところが保たれているかを確かめ、前回見ていなかったところ——検索エンジンに伝わる著者名、共有したときの画像、画像の重さ、サイト内のリンク——まで調べました。</p>
+  <p class="itsu">調査日 2026年9月23日 ／ 171ページを取り直し、読者と同じ見え方で調査</p>
+
+  <div class="kazu">
+    <div><b>0</b><span>表示できないページ</span></div>
+    <div><b>0</b><span>壊れた出典リンク</span></div>
+    <div><b>0</b><span>サイト内のリンク切れ</span></div>
+    <div><b>153</b><span>記事のうち、著者名が会社名でないもの</span></div>
+  </div>
+
+  <section>
+    <h2>前回からの変化</h2>
+    <p class="soe">1回目の点検で直したものは、すべて保たれていました。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>項目</th><th class="n">1回目</th><th class="n">いま</th></tr></thead>
+        <tbody>
+          <tr><td>表示できないページ</td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>壊れた出典リンク</td><td class="n">6</td><td class="n"><strong style="color:var(--yoi)">0</strong></td></tr>
+          <tr><td>同じ説明文が重なっているページ</td><td class="n">2</td><td class="n"><strong style="color:var(--yoi)">0</strong></td></tr>
+          <tr><td>題名・説明文に不自然な空白があるページ</td><td class="n">129</td><td class="n"><strong style="color:var(--yoi)">28</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>空白の残り28ページの内訳は、<strong>サイト名「株式会社 石名坂」そのものが17ページ</strong>（分類ページなどの題名の末尾と、ロゴ）、<strong>そのままにすると決めた6件</strong>、JIS規格や「栗駒山　神の絨毯」のような<strong>意図した区切り3件</strong>、そして<strong>前回の取りこぼし2件</strong>です。直すべきものは、実質2件だけです。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>検索エンジンに伝わる著者名が、会社名になっていない</h2>
+    <p class="soe">今回いちばん大きな発見です。記事には、検索エンジン向けに「誰が書いたか」が書き込まれています（構造化データ）。そこに出ている名前がこれです。</p>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>著者として出ている名前</th><th class="n">記事</th></tr></thead>
+        <tbody>
+          <tr><td><strong>管理用石名坂</strong></td><td class="n">145本</td></tr>
+          <tr><td><strong>ai-agent</strong><br><span style="color:var(--usu);font-size:12px">量子コンピュータ6本と、物流大綱の記事。私が使っていた作業用アカウント</span></td><td class="n">7本</td></tr>
+          <tr><td><strong>echnaadmin</strong><br><span style="color:var(--usu);font-size:12px">「ホームページを公開しました」。制作時のアカウントと思われます</span></td><td class="n">1本</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>画面の上では見えませんが、検索エンジンや、記事を読み込む道具（AIを含む）には、この名前が「著者」として伝わっています。<strong>会社の記事の著者が「管理用」「ai-agent」なのは、見つかったときに説明がしづらい</strong>と思います。</p>
+    <p><strong>直すのは簡単です。</strong>管理画面の「ユーザー」で、3つのアカウントそれぞれの<strong>「ブログ上の表示名」を「株式会社石名坂」に</strong>変えるだけ。記事を1本ずつ触る必要はありません。153本が一度に直ります。</p>
+    <p>これは、私の作業用アカウント（ai-agent）では直せません。ほかの利用者の設定を見る権限がないためです。管理画面から直接お願いします。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">決める</span>会社名の表記が、場所によって違う</h2>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>場所</th><th>表記</th></tr></thead>
+        <tbody>
+          <tr><td>サイト名（題名の末尾、ロゴ）</td><td>株式会社<strong>␣</strong>石名坂</td></tr>
+          <tr><td>検索エンジン向けの「組織」情報</td><td>株式会社<strong>␣</strong>石名坂</td></tr>
+          <tr><td>検索エンジン向けの「事業者」情報</td><td>株式会社石名坂</td></tr>
+          <tr><td>記事の本文・説明文の多く</td><td>株式会社石名坂</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>空白が入る場所と入らない場所があります。検索エンジンは、同じ会社かどうかを名前でも照らし合わせます。<strong>どちらが正式な表記かを決めて、揃えておく</strong>のがよいと思います。登記どおりの表記に合わせるのが確実です。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>アイキャッチ画像が無い記事が5本</h2>
+    <p class="soe">「農業とエネルギー」の連載5本すべてです。</p>
+    <ul>
+      <li>農業エネルギー効率とは？【第1回】</li>
+      <li>農業肥料エネルギーの意外な内訳【第2回】</li>
+      <li>施設園芸燃料はどれくらい？【第3回】</li>
+      <li>フードマイレージは本当に環境の指標？【第4回】</li>
+      <li>みどりの食料システム戦略で農業のエネルギーはどう変わる？【最終回】</li>
+    </ul>
+    <p>アイキャッチが無いと、<strong>LINEやXで共有されたときに画像が出ません。</strong>お知らせ一覧でも、この5本だけ画像がありません。連載の記事なので、5本で同じ画像を使っても構いません。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">様子見</span>画像の重さ</h2>
+    <p class="soe">サイト内の画像238枚。すべて正常に表示されます。</p>
+    <div class="hyou">
+      <table>
+        <tbody>
+          <tr><td>合計</td><td class="n">71.2 MB</td></tr>
+          <tr><td>1枚の中央値</td><td class="n">152 KB</td></tr>
+          <tr><td>500 KB 以上</td><td class="n">54枚</td></tr>
+          <tr><td>1 MB 以上</td><td class="n">15枚</td></tr>
+          <tr><td>いちばん重い（Geminiで作った画像）</td><td class="n">2.8 MB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>ただし、見た目ほど悪くはありません。</strong>このサイトは、スマートフォンには縮めた画像を、対応するブラウザには軽い形式（WebP）を送る仕組みが働いています。実際に量ったところ、物流大綱の記事の図は、<strong>元が686 KBでも、スマートフォンに届くのは約310 KB</strong>でした。</p>
+    <p>重いのは、<strong>PNG形式で上げたスクリーンショットと、Geminiで作った画像</strong>です。WebPにしても3割ほどしか軽くなっていません。これからは<strong>JPEG形式で上げる</strong>だけで、多くは5分の1ほどになります。急ぐ話ではありません。</p>
+    <p>1枚だけ、軽い形式の版が作られていない画像があります（<code>image-2.png</code>、1.4 MB）。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yousu">様子見</span>小さな設定2つ</h2>
+    <ul>
+      <li><strong>X（旧Twitter）向けの共有設定が、全ページで無効です。</strong>共有されても大きな画像付きの表示になりません。All in One SEO の「ソーシャルネットワーク」→「X（Twitter）」で有効にできます。1か所の設定です。</li>
+      <li><strong>分類ページ9つに、共有時の画像がありません。</strong>ほかの32ページで使っている既定の画像（<code>izk-ogimage-1200x630.jpg</code>）が、分類ページには付いていません。同じく All in One SEO の既定画像の設定で揃います。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-naosu">直す</span>前回の直しの、取りこぼしと私の失敗</h2>
+    <div class="hyou">
+      <table>
+        <thead><tr><th>記事</th><th>いま</th><th>どうするか</th></tr></thead>
+        <tbody>
+          <tr><td>黒土（説明文）</td><td>黒土<strong>␣</strong>＝火山灰土壌（黒ぼく土）は…</td><td>空白を取る</td></tr>
+          <tr><td>ICT施工と技術承継（検索向けの題名）</td><td>技術承継<strong>␣</strong>「基本」の大切さ</td><td>空白を取る</td></tr>
+          <tr><td>農業とエネルギー 第2回（記事の題名）</td><td>「農業肥料エネルギー」の意外な内訳</td><td>ご判断を</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>上の2件は、全角スペースを機械では詰めないと決めたために残ったものです。</p>
+    <p><strong>3件目は、私の直しで生まれたものです。</strong>もとは「 農業 肥料 エネルギー 」と語を空白で並べた題名で、空白を詰めた結果、語がくっつきました。<strong>お預けの6件と同じ種類のものを、私が見落として機械で詰めてしまいました。</strong>6件と同じく空白を戻すか、「農業の肥料とエネルギー」のように直すか、ご判断ください。</p>
+  </section>
+
+  <section>
+    <h2><span class="shirushi s-yoi">良い</span>できていること</h2>
+    <ul>
+      <li><strong>171ページすべてが正常に表示。</strong>転送も、検索避け（noindex）も、canonical のずれもゼロ。</li>
+      <li><strong>サイト内のリンク切れがゼロ。</strong>サイトマップに無いリンク先6つも、一覧の2ページ目などで、すべて表示されます。</li>
+      <li><strong>httpのまま読み込んでいる素材がゼロ。</strong>すべて暗号化された通信（https）です。</li>
+      <li><strong>題名・説明文の重複がゼロ。</strong>171ページすべて、別々の題名と説明文を持っています。</li>
+      <li><strong>事業者としての情報が、検索エンジン向けにしっかり書かれています。</strong>住所、電話、緯度経度、営業時間、対応地域（盛岡市・矢巾町ほか）まで揃っています。地元で「砕石」「土木」と検索されたときに効く部分で、同じ規模の会社ではあまり見ない丁寧さです。</li>
+      <li><strong>よくある質問のページに、質問と答えの構造化データが入っています。</strong>検索結果に質問がそのまま出ることがあります。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>記事を出してきた流れ</h2>
+    <p class="soe">公開記事153本の、月ごとの本数。</p>
+    <div style="margin-bottom:14px">
+      <div class="bou"><i>2025年11月</i><u style="width:33%"></u><b>14本</b></div>
+      <div class="bou"><i>2025年12月</i><u style="width:16%"></u><b>7本</b></div>
+      <div class="bou"><i>2026年1〜2月</i><u style="width:5%"></u><b>2本</b></div>
+      <div class="bou"><i>2026年3月</i><u style="width:28%"></u><b>12本</b></div>
+      <div class="bou"><i>2026年4月</i><u style="width:42%"></u><b>18本</b></div>
+      <div class="bou"><i>2026年5月</i><u style="width:44%"></u><b>19本</b></div>
+      <div class="bou"><i>2026年6月</i><u style="width:16%"></u><b>7本</b></div>
+      <div class="bou"><i>2026年7月</i><u style="width:35%"></u><b>15本</b></div>
+      <div class="bou"><i>2026年8月</i><u style="width:100%"></u><b>43本</b></div>
+      <div class="bou"><i>2026年9月</i><u style="width:28%"></u><b>12本（23日まで）</b></div>
+    </div>
+    <p>2026年に入ってからの128本が、全体の8割を占めます。<strong>8月は43本</strong>。1日1本を超える速さです。一方で1〜2月は2本。冬は除雪の季節で、現場が忙しい時期と重なっているのだと思います。</p>
+  </section>
+
+  <section>
+    <h2>次にやること（順番）</h2>
+    <ol class="junban">
+      <li><strong>3つのアカウントの表示名を「株式会社石名坂」に。</strong>管理画面で3か所。153本の著者名が一度に直ります。いちばん効果が大きく、いちばん簡単です。</li>
+      <li><strong>正式な会社名の表記を決める。</strong>空白ありか、なしか。決まれば、サイト名の設定1か所で揃います。</li>
+      <li><strong>農業とエネルギーの5本にアイキャッチを付ける。</strong></li>
+      <li><strong>取りこぼし2件と「農業肥料エネルギー」を直す。</strong>私のほうでできます。</li>
+      <li><strong>Xの共有設定と、分類ページの既定画像。</strong>All in One SEO の設定2か所。</li>
+      <li><strong>これから上げる画像はJPEGで。</strong>いまある画像は、そのままで構いません。</li>
+    </ol>
+  </section>
+
+  <footer>
+    171ページを取り直し、各ページの頭の情報、構造化データ（著者・日付・事業者情報）、見出し、画像238枚の重さと形式、サイト内リンク、外部リンク291本を調べました。リンクの生死はGETで、ブラウザと同じ見出しを付けて確かめています（1回目の点検で、この確かめ方を誤ったため）。公開本数はWordPress側の記録から数えています。
+  </footer>
+</div>
