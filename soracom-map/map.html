@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Hiragino Sans", "Meiryo", sans-serif; color: #222; background: #f4f5f7; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+             padding: 10px 16px; background: #1f3a5f; color: #fff; }
+    header h1 { margin: 0; font-size: 18px; }
+    header .meta { font-size: 12px; opacity: .85; text-align: right; }
+    #map { height: 60vh; min-height: 320px; }
+    .toolbar { display: flex; gap: 8px; padding: 8px 16px; flex-wrap: wrap; }
+    button { font: inherit; padding: 6px 12px; border: 1px solid #1f3a5f; background: #fff;
+             color: #1f3a5f; border-radius: 6px; cursor: pointer; }
+    #error { display: none; margin: 0 16px; padding: 8px 12px; background: #fdecea; color: #a4262c; border-radius: 6px; }
+    #list { list-style: none; margin: 0; padding: 0 16px 16px; display: grid; gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    #list li { background: #fff; border-radius: 8px; padding: 10px 12px; border-left: 6px solid #999; }
+    #list li.ok { border-left-color: #1a7f37; }
+    #list li.stale { border-left-color: #8c959f; }
+    #list li.nogps { border-left-color: #bf8700; }
+    .name { font-weight: bold; font-size: 16px; }
+    .status { font-size: 12px; margin-left: 6px; }
+    .sub { font-size: 13px; color: #555; margin: 4px 0 6px; }
+    .links a, .links button { font-size: 13px; margin-right: 8px; }
+    .label { background: #fff; border: 1px solid #1f3a5f; border-radius: 4px; padding: 1px 6px;
+             font-weight: bold; font-size: 12px; box-shadow: none; }
+  </style>
+</head>
+<body data-key="<?= viewKey ?>" data-stale="<?= staleMinutes ?>">
+  <header>
+    <h1>車両 現在地マップ</h1>
+    <div class="meta">最終更新 <span id="updated">-</span><br>1分ごとに自動更新</div>
+  </header>
+  <div id="map"></div>
+  <div class="toolbar">
+    <button id="fitAll">全車両を表示</button>
+    <button id="reload">今すぐ更新</button>
+  </div>
+  <div id="error"></div>
+  <ul id="list"></ul>
+
+<script>
+  const VIEW_KEY = document.body.dataset.key;
+  const STALE_MIN = Number(document.body.dataset.stale) || 30;
+  const REFRESH_MS = 60 * 1000;
+  const COLORS = { ok: '#1a7f37', stale: '#8c959f' };
+
+  const map = L.map('map').setView([39.70, 141.15], 11); // 初期表示：盛岡
+  const baseLayers = {
+    '地図': L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+      maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
+    }),
+    '航空写真': L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
+      maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
+    }),
+  };
+  baseLayers['地図'].addTo(map);
+  L.control.layers(baseLayers).addTo(map);
+
+  const markerLayer = L.layerGroup().addTo(map);
+  const markers = {};
+  let firstLoad = true;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function ageText(min) {
+    if (min === null) return '受信時刻不明';
+    if (min < 1) return 'たった今';
+    if (min < 60) return min + '分前';
+    if (min < 60 * 24) return Math.floor(min / 60) + '時間前';
+    return Math.floor(min / 60 / 24) + '日前';
+  }
+
+  function statusOf(car) {
+    if (car.lat === null || car.lon === null) return { cls: 'nogps', text: '位置不明（GPS未取得）' };
+    if (car.ageMinutes === null || car.ageMinutes > STALE_MIN) return { cls: 'stale', text: '通信途絶' };
+    return { cls: 'ok', text: '稼働中' };
+  }
+
+  function fitAll() {
+    const pts = Object.values(markers).map(m => m.getLatLng());
+    if (pts.length === 1) map.setView(pts[0], 15);
+    else if (pts.length > 1) map.fitBounds(L.latLngBounds(pts), { padding: [40, 40] });
+  }
+
+  function render(data) {
+    document.getElementById('updated').textContent = data.updated;
+    document.getElementById('error').style.display = 'none';
+
+    markerLayer.clearLayers();
+    for (const k in markers) delete markers[k];
+    const list = document.getElementById('list');
+    list.innerHTML = '';
+
+    data.cars.forEach(car => {
+      const st = statusOf(car);
+      const name = escapeHtml(car.name);
+      const extra = [
+        car.temp !== null ? '温度 ' + car.temp + '℃' : '',
+        car.humi !== null ? '湿度 ' + car.humi + '%' : '',
+      ].filter(Boolean).join(' / ');
+      const sub = '最終受信 ' + escapeHtml(car.time || '-') + '（' + ageText(car.ageMinutes) + '）'
+        + (extra ? '<br>' + escapeHtml(extra) : '');
+
+      const li = document.createElement('li');
+      li.className = st.cls;
+      let links = '';
+      if (st.cls !== 'nogps') {
+        const m = L.circleMarker([car.lat, car.lon], {
+          radius: 10, color: '#fff', weight: 2, fillColor: COLORS[st.cls], fillOpacity: 1
+        }).addTo(markerLayer);
+        m.bindTooltip(name, { permanent: true, direction: 'top', offset: [0, -10], className: 'label' });
+        m.bindPopup('<b>' + name + '</b>（' + st.text + '）<br>' + sub);
+        markers[car.name] = m;
+        const gmap = 'https://www.google.com/maps/search/?api=1&query=' + car.lat + ',' + car.lon;
+        links = '<button data-car="' + name + '">地図で見る</button>'
+          + '<a href="' + gmap + '" target="_blank" rel="noopener">Googleマップで開く</a>';
+      }
+      li.innerHTML = '<div><span class="name">' + name + '</span><span class="status">' + st.text + '</span></div>'
+        + '<div class="sub">' + sub + '</div><div class="links">' + links + '</div>';
+      list.appendChild(li);
+    });
+
+    if (data.cars.length === 0) list.innerHTML = '<li>まだデータがありません。</li>';
+    if (firstLoad) { fitAll(); firstLoad = false; }
+  }
+
+  function showError(err) {
+    const el = document.getElementById('error');
+    el.textContent = '読み込みに失敗しました：' + (err && err.message ? err.message : err);
+    el.style.display = 'block';
+  }
+
+  function load() {
+    google.script.run.withSuccessHandler(render).withFailureHandler(showError).getCurrentLocations(VIEW_KEY);
+  }
+
+  document.getElementById('fitAll').addEventListener('click', fitAll);
+  document.getElementById('reload').addEventListener('click', load);
+  document.getElementById('list').addEventListener('click', e => {
+    const car = e.target.dataset && e.target.dataset.car;
+    if (!car) return;
+    const m = markers[e.target.closest('li').querySelector('.name').textContent];
+    if (m) { map.setView(m.getLatLng(), 16); m.openPopup(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  });
+
+  load();
+  setInterval(load, REFRESH_MS);
+</script>
+</body>
+</html>
