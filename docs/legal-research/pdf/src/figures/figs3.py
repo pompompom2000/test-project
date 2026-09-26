@@ -36,7 +36,7 @@ F['fig11'] = '''<figure class="fig">
     <text class="rd" x="%.1f" y="244" font-size="12">↑ ハッチは特定適用事業所（厚年の被保険者が常時51人超）だけの話です。当社は対象外</text>
     <line x1="%.1f" y1="30" x2="%.1f" y2="236" stroke="#a8261c" stroke-width="1.4" stroke-dasharray="4 3"/>
   </svg>
-  <div class="figc">よくある「週20時間以上は社会保険」は<strong>特定適用事業所（厚年の被保険者51人以上）の話</strong>です。当社はこれに当たらないので、健保・厚年は<strong>4分の3基準だけ</strong>で判定します（健保法3条1項9号・厚年法12条5号）。適用拡大は2027年10月に36人以上へ下がるので、従業員が30名台後半に近づいたら再判定してください。</div>
+  <div class="figc">よくある「週20時間以上は社会保険」は<strong>特定適用事業所（厚年の被保険者51人以上）の話</strong>です。当社はこれに当たらないので、健保・厚年は<strong>4分の3基準だけ</strong>で判定します。4分の3未満の人がイ〜ハを問わず被保険者にならない根拠は、健保法3条1項9号・厚年法12条5号の<strong>本則ではなく平成24年法律第62号 附則17条1項・46条1項</strong>です。適用拡大は2027年10月に36人以上へ下がるので、従業員が30名台後半に近づいたら再判定してください。</div>
 </figure>
 ''' % (float(AX), hx(30), hx(30))
 
@@ -53,7 +53,7 @@ F['fig12'] = '''<figure class="fig">
     <text class="b w" x="245" y="126" font-size="30" text-anchor="middle">12-34</text>
     <text x="16" y="170" font-size="13">・根拠は<tspan class="b nv">道路運送車両法</tspan>。地名は<tspan class="b nv">「盛岡」「平泉」</tspan></text>
     <text x="16" y="190" font-size="13">・<tspan class="b gr">緑地＝事業用</tspan>、白地＝自家用。ここで緑／白が分かる</text>
-    <text x="16" y="210" font-size="13">・付いている位置は<tspan class="b nv">車両の前後</tspan>（2面）</text>
+    <text x="16" y="210" font-size="13">・位置は<tspan class="b nv">車両の前面及び後面</tspan>（法19条・規則8条の2）</text>
     <text class="gy" x="16" y="228" font-size="11.5">※車検証の「自家用・事業用の別」欄と一致します</text>
     <rect x="510" y="0" width="490" height="236" rx="3" fill="#ffffff" stroke="#c9d3dc"/>
     <rect x="510" y="0" width="490" height="30" rx="3" fill="#8a6100"/><rect x="510" y="16" width="490" height="14" fill="#8a6100"/>
@@ -63,7 +63,7 @@ F['fig12'] = '''<figure class="fig">
     <text x="526" y="170" font-size="13">・根拠は<tspan class="b am">ダンプ規制法3条・4条</tspan>。地名文字は<tspan class="b am">「岩手」のみ</tspan></text>
     <text x="526" y="190" font-size="13">・<tspan class="b rd">白ナンバーの自家用ダンプにも付いています</tspan>（3条1項）</text>
     <text x="526" y="210" font-size="13">・付いている位置は<tspan class="b am">荷台の両側面と後面</tspan>（3面）</text>
-    <text class="gy" x="526" y="228" font-size="11.5">※文字は黒・地は白。高さ200mm（規則別表第一）。後面の脱落・かすれが最多の指摘</text>
+    <text class="gy" x="526" y="228" font-size="11.5">※黒文字・白地。寸法は規則別表第一の図中の値。後面の脱落・かすれが最多の指摘</text>
   </svg>
   <div class="figc"><strong>ゼッケンの有無は、緑ナンバーかどうかの判断材料になりません。</strong>沢口砂利店（白）・熊谷砂利店（白）のダンプにも表示番号は付いています。</div>
 </figure>
@@ -102,6 +102,7 @@ F['fig13'] = '''<figure class="fig">
     <text class="b am" x="14" y="263" font-size="14">よくある誤解 ― 「砕石を運ぶから（砕）」は誤りです</text>
     <text class="gy" x="14" y="280" font-size="12">規則6条2号は「経営する事業の種類」と定めており、運ぶ物ではなく営んでいる事業で決まります。（砕）は砕石プラントを持つ者の記号で、親会社・株式会社石名坂（真荷主）の側です。</text>
   </svg>
+  <div class="figc">①は条文上、正確には「使用の本拠の位置を管轄する<strong>運輸監理部又は運輸支局（使用の本拠の位置が自動車検査登録事務所の管轄区域に属する場合にあつては、当該自動車検査登録事務所）</strong>を表示する文字」です。別表第二に岩手県分として掲げられているのは<strong>岩手運輸支局＝「岩手」だけ</strong>で、県内に自動車検査登録事務所はありません。</div>
 </figure>
 '''
 
@@ -137,7 +138,7 @@ F['fig14'] = '''<figure class="fig">
     <text x="494" y="160" font-size="12.5">ダンプ規制法4条・規則6条。後面の脱落・かすれが最も多い指摘事項です</text>
     <rect x="480" y="184" width="520" height="52" rx="3" fill="#fdf4e2" stroke="#8a6100" stroke-width="1.2"/>
     <text class="b am" x="494" y="204" font-size="14">自重計（ダンプ規制法6条）</text>
-    <text x="494" y="224" font-size="12.5">技術基準適合証で確認。計量法の検定対象ではありません。故障放置は法21条1号の罰金</text>
+    <text x="494" y="224" font-size="12.5">技術基準適合証で確認。計量法の検定対象ではありません。故障放置は法21条1号（1万円以下の罰金）</text>
     <rect x="480" y="248" width="520" height="52" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.2"/>
     <text class="b rd" x="494" y="268" font-size="14">土砂禁ダンプで砕石を運んではいけない</text>
     <text x="494" y="288" font-size="12.5">車検証備考欄の「土砂等運搬禁止車両」の記載がないことを5台すべてで確認してください</text>
@@ -249,33 +250,33 @@ F['fig16'] = '''<figure class="fig">
 def req(i, no, title, body, note):
     x = i*254
     return '\n    '.join([
-      '<rect x="%d" y="0" width="238" height="158" rx="3" fill="#ffffff" stroke="#2a5c8a" stroke-width="1.3"/>' % x,
+      '<rect x="%d" y="0" width="238" height="170" rx="3" fill="#ffffff" stroke="#2a5c8a" stroke-width="1.3"/>' % x,
       '<rect x="%d" y="0" width="238" height="28" rx="3" fill="#2a5c8a"/><rect x="%d" y="14" width="238" height="14" fill="#2a5c8a"/>' % (x, x),
       '<text class="b w" x="%d" y="20" font-size="14" text-anchor="middle">%s</text>' % (x+119, no),
       '<text class="b nv" x="%d" y="48" font-size="13.5">%s</text>' % (x+12, title),
       ] + ['<text x="%d" y="%d" font-size="11.5">%s</text>' % (x+12, 70+j*17, ln) for j, ln in enumerate(body)]
       + ['<text class="gy" x="%d" y="%d" font-size="11">%s</text>' % (x+12, 70+len(body)*17+j*15, ln) for j, ln in enumerate(note)]
-      + ['<path d="M%d,158 L%d,180" stroke="#2a5c8a" stroke-width="1.6" marker-end="url(#fa17)"/>' % (x+119, x+119)])
+      + ['<path d="M%d,170 L%d,192" stroke="#2a5c8a" stroke-width="1.6" marker-end="url(#fa17)"/>' % (x+119, x+119)])
 
 F['fig17'] = '''<figure class="fig">
   <div class="figt">図17　再委託の要件 ― 令6条の12の4つを「全部」満たしてはじめて適法</div>
-  <svg viewBox="0 0 1000 314" role="img" aria-label="令6条の12の4要件">
+  <svg viewBox="0 0 1000 326" role="img" aria-label="令6条の12の4要件">
     <defs><marker id="fa17" markerWidth="10" markerHeight="8" refX="9.5" refY="4" orient="auto">
       <path d="M0,0 L10,4 L0,8 z" fill="#2a5c8a"/></marker></defs>
     ''' + req(0, '1号', '排出事業者の事前の書面承諾', ['あらかじめ再受託者の氏名・名称と、', '再委託が基準に適合することを', '明らかにしたうえで承諾を受ける'], ['記載事項は規則10条の6の6', '★案件ごとに再受託者を特定して', '　取る必要があります']) + '''
     ''' + req(1, '2号', '引渡し時の文書交付', ['排出事業者との委託契約書に記載', 'された令6条の2第4号のイ〜ハ', '及びホを記載した文書を交付'], ['ニ（輸入廃棄物である旨）は', '交付事項に含まれません']) + '''
     ''' + req(2, '3号', '輸入廃棄物の制限', ['法15条の4の5第1項の許可を受けて', '輸入された廃棄物の処分又は再生を', '委託しないこと'], ['「処理終了の通知」は令6条の12には', 'なく、規則8条の4の2第8号です']) + '''
-    ''' + req(3, '4号', '委託基準の準用', ['令6条の2の1号・2号・4号・5号の例', '① 再受託者がその産廃の運搬を業と', '　 して行うことができる者であること', '② 書面による委託契約＋許可証の写し'], ['規則8条の4・8条の4の2']) + '''
-    <rect x="0" y="186" width="1000" height="44" rx="4" fill="#eaf5ee" stroke="#186b3f" stroke-width="1.5"/>
-    <text class="b gr" x="14" y="214" font-size="16">4つ全部を満たして、はじめて再委託できます（廃掃法14条16項ただし書）</text>
-    <rect x="0" y="240" width="490" height="72" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.2"/>
-    <text class="b rd" x="14" y="260" font-size="14">1つでも欠けたら14条16項違反</text>
-    <text x="14" y="280" font-size="12">法26条1号／3年以下の拘禁刑若しくは300万円以下の罰金、又は併科</text>
-    <text x="14" y="300" font-size="12">法人には法32条の両罰規定</text>
-    <rect x="510" y="240" width="490" height="72" rx="3" fill="#fdf4e2" stroke="#8a6100" stroke-width="1.2"/>
-    <text class="b am" x="524" y="260" font-size="14">「緊急時に限る」は法令の要件ではありません</text>
-    <text x="524" y="280" font-size="12">令6条の12に緊急性の要件はありません。東京都・大阪府の方針は</text>
-    <text x="524" y="300" font-size="12">行政指導上の運用です（岩手県の手引にも記載なし。照会事項Q9）</text>
+    ''' + req(3, '4号', '委託基準の準用', ['令6条の2の1号・2号・4号・5号の例', '① 再受託者がその産廃の運搬を業と', '　 して行うことができ、かつ委託する', '　 品目が事業の範囲に含まれること', '② 書面による委託契約＋許可証の写し'], ['規則8条の4・8条の4の2']) + '''
+    <rect x="0" y="198" width="1000" height="44" rx="4" fill="#eaf5ee" stroke="#186b3f" stroke-width="1.5"/>
+    <text class="b gr" x="14" y="226" font-size="16">4つ全部を満たして、はじめて再委託できます（廃掃法14条16項ただし書）</text>
+    <rect x="0" y="252" width="490" height="72" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.2"/>
+    <text class="b rd" x="14" y="272" font-size="14">1つでも欠けたら14条16項違反</text>
+    <text x="14" y="292" font-size="12">法26条1号／3年以下の拘禁刑若しくは300万円以下の罰金、又は併科</text>
+    <text x="14" y="312" font-size="12">法人には法32条の両罰規定</text>
+    <rect x="510" y="252" width="490" height="72" rx="3" fill="#fdf4e2" stroke="#8a6100" stroke-width="1.2"/>
+    <text class="b am" x="524" y="272" font-size="14">「緊急時に限る」は法令の要件ではありません</text>
+    <text x="524" y="292" font-size="12">令6条の12に緊急性の要件はありません。東京都・大阪府の方針は</text>
+    <text x="524" y="312" font-size="12">行政指導上の運用です（岩手県の手引にも記載なし。照会事項Q9）</text>
   </svg>
   <div class="figc">保存義務も分かれます ― <strong>再受託者との委託契約書は当社が5年</strong>（規則8条の4の3）、<strong>承諾書の写しは排出事業者が5年</strong>（令6条の2第6号・規則8条の4の4）。当社にも写しを保存しておくことを勧めます。</div>
 </figure>
@@ -318,7 +319,7 @@ F['fig18'] = '''<figure class="fig">
     <text class="gy" x="840" y="197" font-size="12" text-anchor="middle">訂正するのは再受託者です</text>
     ''' + mmsg(232, 3, 1, '④', '運搬終了後、管理票の写しを排出事業者へ送付', '運搬終了の日から10日以内（規則8条の23）') + '''
     <rect x="0" y="258" width="1000" height="32" rx="3" fill="#eaf5ee" stroke="#186b3f" stroke-width="1.2"/>
-    <text class="b gr" x="14" y="278" font-size="13">法12条の4第3項（運搬を終了していないのに終了した旨を報告すること）との衝突は起きません ― 写しを送るのは実際に運んだ再受託者だからです。</text>
+    <text class="b gr" x="14" y="278" font-size="13">法12条の4第3項（運搬を終了していないのに管理票の写しを送付・報告すること）との衝突は起きません ― 写しを送るのは実際に運んだ再受託者だからです。</text>
   </svg>
   <div class="figc">根拠は<strong>平成23年3月17日 環廃産第110317001号「産業廃棄物管理票制度の運用について」第1の3(1)①③</strong>。施行規則を全文走査しても「再受託者」欄は法定されておらず、再委託時に追加で回る票も存在しません。<span class="rd" style="font-weight:700">電子マニフェスト（JWNET）の再委託専用機能は確認できませんでした</span>（「多区間」は積替え保管施設を経由する場合のもの）。電子で扱う運用はJWNETと岩手県に確認してください（照会事項）。虚偽記載・未交付等は法27条の2（1年以下の拘禁刑又は100万円以下の罰金）。</div>
 </figure>
@@ -327,7 +328,7 @@ F['fig18'] = '''<figure class="fig">
 # ---------- 図19  建設工事の排出事業者 ----------
 F['fig19'] = '''<figure class="fig">
   <div class="figt">図19　建設工事に伴う廃棄物 ― 誰が排出事業者か</div>
-  <svg viewBox="0 0 1000 302" role="img" aria-label="建設工事の排出事業者の判定">
+  <svg viewBox="0 0 1000 320" role="img" aria-label="建設工事の排出事業者の判定">
     <defs><marker id="fa19" markerWidth="10" markerHeight="8" refX="9.5" refY="4" orient="auto">
       <path d="M0,0 L10,4 L0,8 z" fill="#2a5c8a"/></marker></defs>
     <rect x="0" y="0" width="1000" height="40" rx="3" fill="#16395c"/>
@@ -347,11 +348,11 @@ F['fig19'] = '''<figure class="fig">
     <rect x="339" y="80" width="322" height="28" rx="3" fill="#8a6100"/><rect x="339" y="94" width="322" height="14" fill="#8a6100"/>
     <text class="b w" x="500" y="100" font-size="14.5" text-anchor="middle">例外 ― 21条の3第4項本文</text>
     <text class="b am" x="353" y="130" font-size="13.5">下請負人を事業者とみなす</text>
-    <text x="353" y="152" font-size="12.5">下請が例外的にその運搬又は処分を</text>
-    <text x="353" y="172" font-size="12.5">他人に委託せざるを得なくなった場合。</text>
-    <text x="353" y="192" font-size="12.5">下請が委託基準・マニフェスト交付</text>
-    <text x="353" y="212" font-size="12.5">義務を負います。</text>
-    <text class="gr" x="353" y="232" font-size="12">下請から受託する形が一律に違法なのではありません</text>
+    <text x="353" y="152" font-size="12.5">下請がその運搬又は処分を他人に委託する</text>
+    <text x="353" y="172" font-size="12.5">場合（岩手県の手引は「例外的に委託せざる</text>
+    <text x="353" y="192" font-size="12.5">を得なくなった場合」と説明）。</text>
+    <text x="353" y="212" font-size="12.5">下請が委託基準・マニフェスト交付義務を</text>
+    <text class="gr" x="353" y="232" font-size="12.5">負います。一律に違法なのではありません</text>
     <rect x="678" y="80" width="322" height="158" rx="3" fill="#e6edf4" stroke="#2a5c8a" stroke-width="1.4"/>
     <rect x="678" y="80" width="322" height="28" rx="3" fill="#2a5c8a"/><rect x="678" y="94" width="322" height="14" fill="#2a5c8a"/>
     <text class="b w" x="839" y="100" font-size="14.5" text-anchor="middle">同項括弧書 ― 下請が産廃許可を持つ</text>
@@ -361,9 +362,10 @@ F['fig19'] = '''<figure class="fig">
     <text class="b n2" x="692" y="192" font-size="12.5">14条16項の再委託ルートになります。</text>
     <text class="gy" x="692" y="214" font-size="12">＝ 令6条の12の4要件を全部満たすこと</text>
     <text class="gy" x="692" y="230" font-size="12">（54章の図17）</text>
-    <rect x="0" y="248" width="1000" height="54" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.2"/>
+    <rect x="0" y="248" width="1000" height="72" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.2"/>
     <text class="b rd" x="14" y="270" font-size="13.5">当社が受託者として受けたものを、さらに他社へ回すことはできません</text>
-    <text x="14" y="290" font-size="12.5">14条16項ただし書は「事業者から委託を受けた」場合に限られるため、再々委託は適用除外の対象外です（53章 #9）。</text>
+    <text x="14" y="290" font-size="12.5">14条16項ただし書が認めるのは、①<tspan class="b nv">事業者から委託を受けた</tspan>ものを令6条の12の基準に従って委託する場合と、</text>
+    <text x="14" y="308" font-size="12.5">②規則10条の7の場合（中間処理業者から受けた中間処理産業廃棄物／措置命令の履行）だけです。当社の再受託はどちらにも当たりません（53章 #9）。</text>
   </svg>
 </figure>
 '''
