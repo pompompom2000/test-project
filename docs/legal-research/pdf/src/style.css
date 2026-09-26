@@ -116,3 +116,22 @@ ul.cl{ padding-left:0; }
 .toc tr.p td{ padding-top:4mm; }
 .toc tr.p td:nth-child(2){ font-weight:700; color:var(--navy); font-size:10pt;}
 .nobreak{ page-break-inside:avoid; }
+
+/* ===== 図版 ===== */
+figure.fig{ margin:3.5mm 0 4.5mm; page-break-inside:avoid; }
+figure.fig.wide{ margin:3.5mm 0 5mm; }
+figure.fig .figt{ font-size:8.8pt; font-weight:700; color:var(--navy);
+  margin-bottom:1.8mm; padding-left:2.4mm; border-left:3.4px solid var(--navy2);}
+figure.fig svg{ display:block; width:100%; height:auto; }
+figure.fig .figc{ font-size:7.9pt; color:var(--grey); margin-top:1.4mm; line-height:1.55;}
+figure.fig .figc strong{ color:#0d2438; }
+.fig text{ font-family:'Noto Sans CJK JP','Noto Sans JP',sans-serif; fill:#1b1b1b;
+  font-feature-settings:"palt" 1; }
+.fig .b{ font-weight:700; }
+.fig .w{ fill:#ffffff; }
+.fig .gy{ fill:#5c6873; }
+.fig .nv{ fill:#16395c; }
+.fig .n2{ fill:#2a5c8a; }
+.fig .gr{ fill:#186b3f; }
+.fig .rd{ fill:#a8261c; }
+.fig .am{ fill:#8a6100; }
