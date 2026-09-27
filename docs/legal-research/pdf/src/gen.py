@@ -5,12 +5,16 @@ out = d / "傭車の考え方と利用運送の登録判断.pdf"
 hdr = '<div></div>'
 ftr = ('<div style="width:100%;font-family:sans-serif;font-size:7pt;color:#5c6873;'
        'padding:0 14mm;display:flex;justify-content:space-between;">'
-       '<span>傭車の考え方と利用運送の登録判断 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月18日</span>'
+       '<span>傭車の考え方と利用運送の登録判断 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月27日</span>'
        '<span class="pageNumber"></span></div>')
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
     pg = b.new_page()
     pg.goto((d/"body.html").as_uri(), wait_until="networkidle")
+    # フォントの読み込みとレイアウト確定を待つ。待たずにpdf()を呼ぶと
+    # 末尾の数ページが欠けたPDFが出ることがある。
+    pg.evaluate("document.fonts.ready")
+    pg.wait_for_timeout(3000)
     pg.pdf(path=str(out), format="A4", print_background=True,
            display_header_footer=True, header_template=hdr, footer_template=ftr,
            margin={"top":"14mm","bottom":"16mm","left":"14mm","right":"14mm"})

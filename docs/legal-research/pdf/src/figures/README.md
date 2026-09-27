@@ -8,6 +8,7 @@
 | `figs1.py` | 図1〜図4（3軸・崩れ方・制度の全体像・判定フロー） |
 | `figs2.py` | 図5〜図10（親会社の登録比較・スケジュール・配車・書面の流れ・引取販売・労働者性） |
 | `figs3.py` | 図11〜図19（社会保険のライン・ゼッケン・表示番号・車両点検・30秒チェック・二階建て・令6条の12・マニフェスト・建設工事） |
+| `figs4.py` | 図20〜図22（自家用ダンプの事務連絡3本・雇用契約の締結主体・ダンプが足りない日の4択） |
 | `anchors.py` | 各図を `body.html` のどの文字列の直後に置くかの対応表 |
 | `ins.py` | 挿入スクリプト。既に入っている図は飛ばします |
 
@@ -15,7 +16,7 @@
 
 ```sh
 cd ../            # pdf/src/
-python3 figures/ins.py figs1 figs2 figs3   # PYTHONPATH に figures/ を通して実行
+python3 figures/ins.py figs1 figs2 figs3 figs4   # PYTHONPATH に figures/ を通して実行
 python3 gen.py                              # HTML → Chromium → PDF
 ```
 

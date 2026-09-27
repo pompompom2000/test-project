@@ -20,3 +20,15 @@ python3 gen.py
 
 ページ番号とフッターは `gen.py` の `footer_template` で付与しています
 （Chromium は `@page` のマージンボックスに対応していないため CSS では出せません）。
+
+## 注意 ― 末尾のページが欠けたPDFが出ることがあります
+
+`pg.pdf()` をレイアウト確定前に呼ぶと、**末尾の数ページが黙って落ちたPDF**が生成されます
+（ページ途中で本文が切れた状態になります）。`gen.py` では `document.fonts.ready` の待機と
+3秒のウェイトを入れてありますが、生成後は必ず**総ページ数と最終ページの末尾**を確認してください。
+
+```python
+import pypdfium2 as p
+d = p.PdfDocument('傭車の考え方と利用運送の登録判断.pdf')
+print(len(d), d[len(d)-1].get_textpage().get_text_range()[-80:])
+```
