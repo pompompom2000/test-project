@@ -15,7 +15,7 @@
 
 | 成果物 | ファイル | 中身 |
 |---|---|---|
-| **本編PDF** | [`docs/legal-research/pdf/傭車の考え方と利用運送の登録判断.pdf`](docs/legal-research/pdf/) | 全96ページ・63章・図版23点。傭車の3軸判定、全13ケース、様式9点の記入例、着手順序、運輸支局への照会事項まで |
+| **本編PDF** | [`docs/legal-research/pdf/傭車の考え方と利用運送の登録判断.pdf`](docs/legal-research/pdf/) | 全97ページ・63章・図版23点。傭車の3軸判定、全13ケース、様式9点の記入例、着手順序、運輸支局への照会事項まで |
 | **解説動画** | [`docs/legal-research/video/傭車の考え方_解説動画.mp4`](docs/legal-research/video/) | 26分32秒・全56枚。配車担当と現場向け。字幕（`.srt`）、無音版、軽量版（1280×720）、[ナレーション台本](docs/legal-research/video/ナレーション台本.md)つき |
 | **依頼書（Word）** | [`docs/legal-research/forms/許可証提出依頼書.docx`](docs/legal-research/forms/) | 傭車先に許可証の写しを求める依頼文＋確認チェックシート（A4・2ページ）。`〇〇` を自社の情報に置き換えて使います |
 | **調査ノート** | [`docs/legal-research/`](docs/legal-research/) `00`〜`18` | PDFの元になった論点別の調査記録。条文・通達・判例の引用つき |
