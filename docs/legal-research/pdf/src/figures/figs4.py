@@ -182,3 +182,55 @@ F['fig23'] = '''
   <div class="figc">記号が表すのは<strong>その日の荷主の業種ではなく、使用者（車検証上の使用者）の業種</strong>です。だから（販）のダンプが建設業者の残土を運ぶこと自体は、表示番号の問題にはなりません。問題になるのは<strong>使用者そのものを日替わりにしようとしたとき</strong>です。</div>
 </figure>
 '''
+
+# ---------- 図24  改正カレンダー ----------
+def _mile(y, date, tone, title, lines, big=False):
+    bg, st, cl = tone
+    h = 20 + 19*len(lines)
+    s = ['<rect x="150" y="%d" width="850" height="%d" rx="3" fill="%s" stroke="%s" stroke-width="1.2"/>' % (y, h, bg, st),
+         '<circle cx="118" cy="%d" r="7" fill="%s"/>' % (y+14, st),
+         '<text class="b %s" x="0" y="%d" font-size="%s">%s</text>' % (cl, y+19, '15' if big else '13.5', date),
+         '<text class="b %s" x="164" y="%d" font-size="13.5">%s</text>' % (cl, y+18, title)]
+    yy = y + 37
+    for t in lines:
+        s.append('<text x="176" y="%d" font-size="12">%s</text>' % (yy, t)); yy += 19
+    return '\n    '.join(s), h
+
+F['fig24'] = None
+_rows = [
+    ('2026年10月1日', ('#fbecea','#a8261c','rd'), '社会保険 ― 賃金要件（月8.8万円未満）が削除',
+     ['健保法3条1項9号・厚年法12条5号が「イからハまで」→「イ又はロ」に。適用除外は週20時間未満と学生の2つだけ',
+      '8.8万円は最低賃金の減額特例を受ける人だけの経過措置（健保法附則8条の3の2・厚年法附則4条の6）へ移る',
+      '当社は特定適用事業所（常時50人超）でないため、判定は4分の3基準のみのまま（35〜39章）'], True),
+    ('2027年4月1日', ('#f2f5f8','#98a5b0','gy'), '廃掃法施行規則の改正2件が施行予定',
+     ['内容は未確認。産廃の実務に関わる可能性があるため、年明けに再確認（52〜57章）'], False),
+    ('2028年6月10日', ('#fdf4e2','#8a6100','am'), 'トラック適正化2法の未施行部分がまとめて施行',
+     ['法6条の2　一般貨物の許可が5年ごとの更新制に',
+      '法9条の2　大臣が「適正原価」を定めて告示できる',
+      '法9条の3　適正原価を下回る運賃の制限。2項で傭車に出すときの単価も対象。37条で第一種にも準用',
+      '法24条の6　労働者の適切な処遇の確保',
+      '附則1条の3が削除 ＝ 標準的な運賃の廃止（9〜13章・51章）'], True),
+    ('2028年10月1日', ('#e6edf4','#2a5c8a','n2'), '雇用保険の加入要件が週10時間以上に',
+     ['週20時間以上 → 週10時間以上。短時間の車持ち運転手を雇うときに効きます（37章）'], False),
+    ('2028年12月18日', ('#f2f5f8','#98a5b0','gy'), '廃掃法の令和8年改正の残りが施行',
+     ['2026年9月16日施行分は、当社の論点には条ずれのみで実質的な影響なし'], False),
+]
+def _build():
+    parts=['<rect x="0" y="0" width="1000" height="36" rx="3" fill="#16395c"/>',
+           '<text class="b w" x="500" y="24" font-size="15.5" text-anchor="middle">いつ何が変わるか ― 2026年9月28日時点で条文が確定しているもの</text>']
+    y=52
+    ys=[]
+    for date,tone,title,lines,big in _rows:
+        blk,h=_mile(y,date,tone,title,lines,big); parts.append(blk); ys.append(y+14); y+=h+12
+    parts.insert(2,'<line x1="118" y1="%d" x2="118" y2="%d" stroke="#c9d3dc" stroke-width="2"/>'%(ys[0],ys[-1]))
+    return '\n    '.join(parts), y
+_body,_h = _build()
+F['fig24'] = '''
+<figure class="fig">
+  <div class="figt">図24　改正カレンダー ― いつ何が変わるか</div>
+  <svg viewBox="0 0 1000 %d" role="img" aria-label="改正カレンダー">
+    %s
+  </svg>
+  <div class="figc">いずれも<strong>e-Gov法令検索で、その日に施行される版の条文を直接確認</strong>したものです。報道や解説ではありません。<span class="ng">企業規模要件（特定適用事業所）の段階的引下げは、条文では確認できませんでした</span>（36章）。</div>
+</figure>
+''' % (_h+4, _body)
