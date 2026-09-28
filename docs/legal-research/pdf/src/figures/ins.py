@@ -10,7 +10,7 @@ for key, anc in anchors.A:
     if key not in F: continue
     if s.count(anc) != 1:
         print('ANCHOR MISMATCH x%d :: %s :: %s' % (s.count(anc), key, anc[:70])); sys.exit(1)
-    if F[key] in s:
+    if F[key].strip() in s:
         print('already present:', key); continue
     s = s.replace(anc, anc + '\n  ' + F[key].strip() + '\n')
     n += 1

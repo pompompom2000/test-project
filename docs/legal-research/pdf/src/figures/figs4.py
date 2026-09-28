@@ -127,3 +127,58 @@ F['fig22'] = '''
   <div class="figc">②と③の違いは<strong>誰が砕石の所有者か</strong>です。②は株式会社石名坂<span class="pn">（真荷主）</span>が最後まで売主で、届けるのも自分。③は沢口砂利店<span class="pw">（白）</span>がいったん買主になり、自分の荷物として運びます。どちらも<strong>運送の対価が別建てで動かない</strong>ことが前提です。</div>
 </figure>
 '''
+
+# ---------- 図23  貨運法とダンプ規制法のずれ ----------
+def _side(x, w, head, tone, lines):
+    bg, st, cl = tone
+    s = ['<rect x="%d" y="44" width="%d" height="214" rx="3" fill="%s" stroke="%s" stroke-width="1.5"/>' % (x, w, bg, st),
+         '<rect x="%d" y="44" width="%d" height="30" rx="3" fill="%s"/>' % (x, w, st),
+         '<rect x="%d" y="60" width="%d" height="14" fill="%s"/>' % (x, w, st),
+         '<text class="b w" x="%d" y="65" font-size="14" text-anchor="middle">%s</text>' % (x + w // 2, head)]
+    y = 96
+    for t, bold in lines:
+        c = ('b ' + cl) if bold else ''
+        s.append('<text class="%s" x="%d" y="%d" font-size="12.5">%s</text>' % (c, x + 13, y, t))
+        y += 19
+    return '\n    '.join(s)
+
+F['fig23'] = '''
+<figure class="fig">
+  <div class="figt">図23　1日に複数事業者 ― 貨運法は通しても、ダンプ規制法が通らないことがある</div>
+  <svg viewBox="0 0 1000 384" role="img" aria-label="貨運法とダンプ規制法のずれ">
+    <rect x="0" y="0" width="1000" height="38" rx="3" fill="#16395c"/>
+    <text class="b w" x="500" y="25" font-size="16" text-anchor="middle">持込みの白ダンプで、午前はA社・午後はB社の荷を運ぶ日</text>
+    ''' + _side(0, 486, '貨運法（令和8年8月20日事務連絡）', ('#eaf5ee', '#186b3f', 'gr'), [
+        ('午前　A社と日雇いの労働契約', True),
+        ('　　　労働条件通知書＋車両使用通知書', False),
+        ('午後　B社と日雇いの労働契約', True),
+        ('　　　労働条件通知書＋車両使用通知書', False),
+        ('', False),
+        ('「個々の事業者ごとに労働契約を締結し、', False),
+        ('それぞれが通知を併せて行うことが適切」', False),
+        ('', False),
+        ('→ 貨運法の許可は不要', True),
+    ]) + '''
+    ''' + _side(514, 486, 'ダンプ規制法（表示番号）', ('#fbecea', '#a8261c', 'rd'), [
+        ('表示番号＝「使用者が経営する事業に', True),
+        ('対応した」記号（東北運輸局Q12）', True),
+        ('届出時に事業の挙証書類を出して取得し、', False),
+        ('車検証に記入される（規則3条3項）', False),
+        ('事業の種類が変われば番号の取り直し', True),
+        ('（規則3条3項2号。規則4条の反対解釈）', False),
+        ('', False),
+        ('→ 雇主が替わるたびに付け替える、は', True),
+        ('　 制度上できない', True),
+    ]) + '''
+    <path d="M486,150 L514,150" fill="none" stroke="#98a5b0" stroke-width="2" stroke-dasharray="5 4"/>
+    <text class="b rd" x="500" y="140" font-size="18" text-anchor="middle">≠</text>
+    <rect x="0" y="266" width="1000" height="118" rx="3" fill="#e6edf4" stroke="#2a5c8a" stroke-width="1.4"/>
+    <text class="b nv" x="14" y="290" font-size="14.5">成り立つのは1つの形だけです</text>
+    <text x="14" y="314" font-size="12.5">① <tspan class="b n2">車検証上の使用者は運転者本人のまま</tspan>（車両使用通知書も「賃貸借その他の独立した契約関係を構成しない」としています）</text>
+    <text x="14" y="334" font-size="12.5">② <tspan class="b n2">運転者本人が、自分の事業（建設業・砂利販売業など）で表示番号の指定を受けている</tspan></text>
+    <text x="14" y="354" font-size="12.5">この2つが揃えば、ゼッケンは<tspan class="b nv">1日じゅう本人のもののまま</tspan>で、雇主が替わっても貼り替える必要はありません。</text>
+    <text class="rd" x="14" y="374" font-size="12.5">逆に、運転者が事業を営んでおらず挙証書類を出せないなら、<tspan class="b rd">表示番号が取れず、土砂等を運ぶこと自体ができません。</tspan></text>
+  </svg>
+  <div class="figc">記号が表すのは<strong>その日の荷主の業種ではなく、使用者（車検証上の使用者）の業種</strong>です。だから（販）のダンプが建設業者の残土を運ぶこと自体は、表示番号の問題にはなりません。問題になるのは<strong>使用者そのものを日替わりにしようとしたとき</strong>です。</div>
+</figure>
+'''
