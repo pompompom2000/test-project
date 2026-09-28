@@ -11,11 +11,12 @@
 
 ## 成果物
 
-すぐ使えるものは4つです。
+すぐ使えるものは5つです。
 
 | 成果物 | ファイル | 中身 |
 |---|---|---|
 | **本編PDF** | [`docs/legal-research/pdf/傭車の考え方と利用運送の登録判断.pdf`](docs/legal-research/pdf/) | 全117ページ・69章・図版28点。傭車の3軸判定、全13ケース、様式9点の記入例、着手順序、運輸支局への照会事項まで |
+| **早見表PDF** | [`docs/legal-research/pdf/白ダンプの早見表.pdf`](docs/legal-research/pdf/) | 全15ページ。本編の**第65〜69章**（図25〜28）だけを抜き出した現場用の抜き刷り。4つの関門／品目の判定／全24ケースの○▲×／現場の1枚／▲1〜▲12の手引き |
 | **解説動画** | [`docs/legal-research/video/傭車の考え方_解説動画.mp4`](docs/legal-research/video/) | 26分32秒・全56枚。配車担当と現場向け。字幕（`.srt`）、無音版、軽量版（1280×720）、[ナレーション台本](docs/legal-research/video/ナレーション台本.md)つき |
 | **書式（Word）** | [`docs/legal-research/forms/`](docs/legal-research/forms/) | 4点。**白ダンプの早見表**（全24ケースの判定表＋▲の手引き。A4・約12ページ）／**許可証提出依頼書**（傭車先へ）／**副業兼業届出書**（日雇い運転者から）／**労働時間の上限設定書（管理モデル）**（1日に複数事業者のとき） |
 | **調査ノート** | [`docs/legal-research/`](docs/legal-research/) `00`〜`19` | PDFの元になった論点別の調査記録。条文・通達・判例の引用つき |
@@ -29,7 +30,8 @@
 - **これから何がいつ変わるか** → PDF の **第64章「改正カレンダー」**（図24）、または [`verify5/H_最新情報の棚卸し.md`](docs/legal-research/verify5/H_最新情報の棚卸し.md)
 - **白ダンプは何ならよくて何がダメか** → PDF の **第65〜68章「白ダンプの早見表」**（図25〜27。全24ケースを○▲×で）、または [`19_白ダンプの早見表.md`](docs/legal-research/19_白ダンプの早見表.md)
 - **▲をどうすれば○にできるか** → PDF の **第69章「▲の手引き」**（▲1〜▲12。①条件 ②○にする手順 ③×になる典型 ④残す書面）
-- **現場に持って行くなら** → Word版の [`forms/白ダンプの早見表.docx`](docs/legal-research/forms/)（判定表はA4横。「現場の1枚」は単独ページなので抜いて掲示できます）
+- **現場に持って行くなら** → [`pdf/白ダンプの早見表.pdf`](docs/legal-research/pdf/)（15ページ。本編と同じ縦組み。そのまま印刷して配れます）、
+  または書き込んで使うなら Word版の [`forms/白ダンプの早見表.docx`](docs/legal-research/forms/)（判定表はA4横。「現場の1枚」は単独ページなので抜いて掲示できます）
 
 ---
 
@@ -109,7 +111,7 @@
 
 | 対象 | 手順 | 必要なもの |
 |---|---|---|
-| PDF | [`pdf/src/README.md`](docs/legal-research/pdf/src/README.md) | Playwright（Chromium）、`fonts-noto-cjk` |
+| PDF（本編・早見表とも） | [`pdf/src/README.md`](docs/legal-research/pdf/src/README.md) | Playwright（Chromium）、`fonts-noto-cjk` |
 | PDFの図版 | [`pdf/src/figures/README.md`](docs/legal-research/pdf/src/figures/README.md) | 同上 |
 | 動画 | [`video/README.md`](docs/legal-research/video/README.md) | 上記＋`ffmpeg`、`open-jtalk` |
 | Word | [`forms/README.md`](docs/legal-research/forms/README.md) | Node.js、`npm install docx` |

@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 docs/legal-research/pdf/src/*.pdf
 docs/legal-research/pdf/src/body.before_*.html
+docs/legal-research/pdf/src/hayami.html
