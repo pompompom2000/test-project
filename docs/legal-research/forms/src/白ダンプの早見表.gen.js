@@ -2,6 +2,7 @@ const fs = require("fs");
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, PageOrientation,
   Table, TableRow, TableCell, WidthType, ShadingType, VerticalAlign, PageBreak,
+  TableLayoutType,
 } = require("docx");
 
 const MIN = { ascii: "ＭＳ 明朝", eastAsia: "ＭＳ 明朝", hAnsi: "ＭＳ 明朝" };
@@ -41,6 +42,9 @@ const cell = (text, w, o = {}) => new TableCell({
 const mk = (cols, rows) => new Table({
   columnWidths: cols,
   width: { size: cols.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+  // 固定幅で組む。既定の autofit のままだと Word が中身に合わせて列幅を
+  // 作り直し、指定した幅を超えて版面からはみ出すことがある。
+  layout: TableLayoutType.FIXED,
   rows,
 });
 
@@ -178,6 +182,9 @@ const caseHead = new TableRow({
 });
 
 const caseRow = ([no, name, k, d, r, h, note]) => new TableRow({
+  // 1ケースが改ページで上下に割れると、判定（○▲×）と根拠が別ページになって
+  // 読めなくなる。いちばん高い行でも6行なので、横向きの版面に必ず収まる。
+  cantSplit: true,
   children: [
     cell(no, LC[0], { align: AlignmentType.CENTER, bold: true, go: true, size: 19, shade: HEAD }),
     cell(name, LC[1], { top: true }),
@@ -284,6 +291,7 @@ const GROUP3 = [
     "当該工事で必要な合材等を運び、有償性がない場合に限り許可不要。工事をしていなければ ×"]],
 ];
 const g3Table = mk(L3, [g3Head, ...GROUP3.map(([no, name, k, sum, note]) => new TableRow({
+  cantSplit: true,
   children: [
     cell(no, L3[0], { align: AlignmentType.CENTER, bold: true, go: true, size: 19, shade: HEAD }),
     cell(name, L3[1], { top: true }),
@@ -543,7 +551,11 @@ const PORT = {
 };
 const LAND = {
   page: {
-    size: { orientation: PageOrientation.LANDSCAPE, width: 16838, height: 11906 },
+    // docx は LANDSCAPE のとき width と height を入れ替えて書き出す。
+    // ここには A4 縦の寸法をそのまま渡すこと。入れ替え済みの値を渡すと二重に
+    // 入れ替わり、orient だけ landscape・幅は A4 縦（11906）のページになって、
+    // 横向きの表（14570）が右へ約87mmはみ出す。
+    size: { orientation: PageOrientation.LANDSCAPE, width: 11906, height: 16838 },
     margin: { top: 1134, bottom: 1134, left: 1134, right: 1134 },
   },
 };
