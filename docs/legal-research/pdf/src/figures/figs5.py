@@ -115,3 +115,42 @@ F['fig27'] = '''
   <div class="figc">1〜3が<strong>貨運法</strong>、4〜5が<strong>ダンプ規制法</strong>、6が<strong>廃棄物処理法</strong>です。運転席と配車室に貼って使ってください。</div>
 </figure>
 '''
+
+# ---------- 図28  労働時間の通算と管理モデル ----------
+F['fig28'] = '''
+<figure class="fig">
+  <div class="figt">図28　1日に複数事業者の荷を運ばせる日 ― 労働時間の通算と「管理モデル」</div>
+  <svg viewBox="0 0 1000 418" role="img" aria-label="労働時間の通算と管理モデル">
+    <rect x="0" y="0" width="1000" height="36" rx="3" fill="#16395c"/>
+    <text class="b w" x="500" y="24" font-size="15.5" text-anchor="middle">労基法38条1項「労働時間は、事業場を異にする場合においても……通算する」</text>
+    <text class="gy" x="0" y="58" font-size="12.5">※「事業場を異にする場合」とは<tspan class="b nv">事業主を異にする場合をも含む</tspan>（昭和23年5月14日 基発第769号）</text>
+
+    <rect x="0" y="72" width="1000" height="112" rx="3" fill="#fbecea" stroke="#a8261c" stroke-width="1.4"/>
+    <text class="b rd" x="14" y="94" font-size="14">そのままだと ― 誰も割増賃金を払わないまま37条違反になりかねない</text>
+    <rect x="14" y="106" width="300" height="34" rx="2" fill="#e6edf4" stroke="#2a5c8a"/>
+    <text class="b n2" x="164" y="128" font-size="13" text-anchor="middle">午前　A社　所定4時間</text>
+    <rect x="322" y="106" width="374" height="34" rx="2" fill="#e6edf4" stroke="#2a5c8a"/>
+    <text class="b n2" x="509" y="128" font-size="13" text-anchor="middle">午後　B社　所定5時間</text>
+    <rect x="704" y="106" width="92" height="34" rx="2" fill="#fbecea" stroke="#a8261c" stroke-width="1.6"/>
+    <text class="b rd" x="750" y="128" font-size="13" text-anchor="middle">1時間</text>
+    <text class="rd" x="806" y="128" font-size="12.5">← 通算9時間。8時間を超える部分</text>
+    <text x="14" y="160" font-size="12.5">割増賃金を払うのは<tspan class="b rd">時間的に後から労働契約を締結した使用者（B社）</tspan>。自ら労働させた時間について支払う</text>
+    <text class="gy" x="14" y="177" font-size="12">基発0901第3号 第3の2・第4の1。率は自社の就業規則等で定めた率（2割5分以上）</text>
+
+    <rect x="0" y="196" width="1000" height="90" rx="3" fill="#fdf4e2" stroke="#8a6100" stroke-width="1.4"/>
+    <text class="b am" x="14" y="218" font-size="14">まず ― 申告させる仕組みを作る（第2・第3の1(2)）</text>
+    <text x="14" y="240" font-size="12.5">・就業規則や労働契約に<tspan class="b am">副業・兼業の届出制</tspan>を定め、他社での勤務を申告させる</text>
+    <text x="14" y="259" font-size="12.5">・<tspan class="b nv">「労働者からの申告等がなかった場合には労働時間の通算は要せず」</tspan>、申告内容が事実と異なっていても</text>
+    <text x="14" y="278" font-size="12.5">　申告により把握した労働時間で通算していれば足りる ― <tspan class="b am">申告制を作ることが、そのまま防御になります</tspan></text>
+
+    <rect x="0" y="298" width="1000" height="120" rx="3" fill="#eaf5ee" stroke="#186b3f" stroke-width="1.4"/>
+    <text class="b gr" x="14" y="320" font-size="14">実務の答え ― 「管理モデル」（第5）</text>
+    <text x="14" y="342" font-size="12.5">・副業・兼業の<tspan class="b gr">開始前に</tspan>、A社の法定外労働時間とB社の労働時間の合計が単月100時間未満・複数月平均80時間以内と</text>
+    <text x="14" y="361" font-size="12.5">　なる範囲で、<tspan class="b gr">各社の労働時間の上限をあらかじめ設定</tspan>しておく</text>
+    <text x="14" y="380" font-size="12.5">・A社は自社の法定外労働時間、B社は<tspan class="b gr">自社の労働時間すべて</tspan>について割増賃金を払う</text>
+    <text x="14" y="399" font-size="12.5">・こうすれば<tspan class="b gr">「他の使用者の事業場における実労働時間の把握を要することなく法を遵守できる」</tspan>（第5の2）</text>
+  </svg>
+  <div class="figc">通算されるのは<strong>法定労働時間（32条・40条）</strong>と、36条6項2号・3号の単月100時間未満・複数月平均80時間以内の要件です。
+  <strong>休憩（34条）・休日（35条）・年次有給休暇（39条）は通算されません。</strong>36協定の限度時間も事業場ごとです（第1の3）。</div>
+</figure>
+'''
