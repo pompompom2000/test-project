@@ -57,12 +57,15 @@ COVER = """
 
   <div class="meta">
     <table>
-      <tr><td>作成日</td><td>2026年（令和8年）9月28日</td></tr>
-      <tr><td>法令基準日</td><td>2026年9月28日現在の施行法令（e-Gov法令検索の現行版）</td></tr>
+      <tr><td>作成日</td><td>2026年（令和8年）9月28日　／　<strong>改訂 9月29日</strong></td></tr>
+      <tr><td>法令基準日</td><td><strong>2026年9月29日</strong>現在の施行法令（e-Gov法令検索の現行版）</td></tr>
       <tr><td>出典</td><td>本編『傭車の考え方と利用運送の登録判断』<strong>第65〜69章</strong>（図25〜図28）を抜き出したものです。<br>
         章番号・図番号は本編と同じです。Word版は <code>docs/legal-research/forms/白ダンプの早見表.docx</code></td></tr>
     </table>
     <p class="sm" style="margin-top:3mm">
+      <strong class="ng">2026年9月29日 訂正：▲11（緑ダンプに日雇い運転者を乗せる）。</strong>
+      輸送安全規則3条2項により<strong>日雇いの運転者は事業用自動車の選任運転者にできません</strong>。
+      9月28日版をお持ちの方は差し替えてください。<span class="sm">白ダンプ（▲3）は日雇いで構いません。経緯は verify6/I_早見表の再検証.md</span><br>
       本資料は社内検討用に法令・省庁公表資料を整理したものです。個別事案の最終判断、とくに「照会事項」と記した項目は、
       岩手運輸支局・東北運輸局・岩手県・労働基準監督署への確認を経てください。
     </p>
@@ -81,7 +84,7 @@ io.open(OUT_HTML, "w", encoding="utf-8").write(html)
 hdr = "<div></div>"
 ftr = ('<div style="width:100%;font-family:sans-serif;font-size:7pt;color:#5c6873;'
        'padding:0 14mm;display:flex;justify-content:space-between;">'
-       '<span>白ダンプの早見表 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月28日</span>'
+       '<span>白ダンプの早見表 ｜ 有限会社石名坂商事・株式会社石名坂 ｜ 2026年9月29日改訂</span>'
        '<span class="pageNumber"></span></div>')
 
 with sync_playwright() as p:
