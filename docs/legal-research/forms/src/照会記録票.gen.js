@@ -16,6 +16,7 @@ const W = 9072;
 const p = (text, o = {}) => new Paragraph({
   alignment: o.align,
   spacing: { line: o.line ?? 290, lineRule: "auto", before: o.before ?? 0, after: o.after ?? 0 },
+  pageBreakBefore: o.br,
   children: [new TextRun({ text, bold: o.bold, size: o.size ?? S, font: o.go ? GO : MIN })],
 });
 const blank = (n = 1) => Array.from({ length: n }, () => p(""));
@@ -52,6 +53,7 @@ const full = (text, o = {}) => new TableRow({
 const lines = (n) => Array.from({ length: n }, () => "");
 
 const children = [
+  p("社 内 限 り", { align: AlignmentType.RIGHT, go: true, bold: true, size: 18, after: 40 }),
   p("照 会 記 録 票", { align: AlignmentType.CENTER, go: true, bold: true, size: 32, after: 80 }),
   p("運輸局・運輸支局・労働基準監督署・県への照会と、その回答の記録",
     { align: AlignmentType.CENTER, size: 18, after: 240 }),
@@ -67,6 +69,8 @@ const children = [
                    "□ その他（　　　　　　　　　　　　　　　　　　　　　　　　　　　　）"], { top: true }),
     row("応対者", "部署：　　　　　　　　　役職：　　　　　　　　　氏名："),
     row("当社担当", "氏名："),
+    row("この照会の当事者", ["□ 甲社〔緑〕　　□ 乙社〔白〕　　□ 丙社〔白〕　　□ 丁社　　□ 戊〔白〕",
+                             "□ その他（　　　　　　　　　　　　　　　　　　　　　　　　　　　）"], { top: true }),
   ]),
 
   ...blank(1),
@@ -88,7 +92,7 @@ const children = [
     row("書面回答", "□ 依頼した（回答予定：　　月　　日頃）　　□ 依頼したが断られた　　□ 依頼せず"),
   ]),
 
-  ...blank(1),
+  p("", { br: true }),
   mk([W], [new TableRow({ children: [cell("３　前提のどれが変わると結論が変わるか", W,
     { shade: NAVY, bold: true, go: true, size: 21, color: "FFFFFF" })] })]),
   mk([W], [new TableRow({ children: [cell([
@@ -125,14 +129,69 @@ const children = [
   ]),
 
   ...blank(1),
+  mk([W], [new TableRow({ children: [cell("仮称の対照（照会書と同じ記号で書いてください）", W,
+    { shade: NAVY, bold: true, go: true, size: 20, color: "FFFFFF" })] })]),
+  mk([1100, 3500, 1900, 2572], [
+    new TableRow({ children: [
+      cell("仮称", 1100, { shade: HEAD, bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("どのような会社か", 3500, { shade: HEAD, bold: true, go: true, size: 18 }),
+      cell("運送事業の許可", 1900, { shade: HEAD, bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("ナンバー", 2572, { shade: HEAD, bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("甲社", 1100, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("運送事業者（大型ダンプ5両）", 3500, { size: 18 }),
+      cell("有（一般貨物）", 1900, { align: AlignmentType.CENTER, bold: true, size: 18 }),
+      cell("〔緑〕事業用", 2572, { align: AlignmentType.CENTER, bold: true, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("乙社", 1100, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("砕石の製造販売業者。甲社の親会社", 3500, { size: 18 }),
+      cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
+      cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("丙社", 1100, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("砂利・砕石の販売業者", 3500, { size: 18 }),
+      cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
+      cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("丁社", 1100, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("建設業者（元請）", 3500, { size: 18 }),
+      cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
+      cell("―", 2572, { align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("戊", 1100, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("個人。自ら運転する（持込み運転者）", 3500, { size: 18 }),
+      cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
+      cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+  ]),
+  mk([W], [new TableRow({ children: [cell([
+    "・〔緑〕＝一般貨物の許可あり・事業用自動車　　〔白〕＝許可なし・自家用自動車",
+    "・照会書（forms/運輸局照会書.docx）と同じ仮称で聞き、同じ仮称で記録してください。",
+    "　実名で記録すると、実際に話した内容と記録が食い違い、あとで読み返せなくなります。",
+    "・仮称と実名の対応表は 21_運輸局への照会事例集.md にあります。この票には書きません。",
+    "　どの取引先の話だったかを残したいときは、下の「実名の控え」に書いてください。",
+  ], W, { top: true, size: 17, shade: WARN })] })]),
+  mk([2400, 6672], [new TableRow({ children: [
+    cell(["実名の控え", "（社内限り・任意）"], 2400, { shade: HEAD, bold: true, go: true, size: 18 }),
+    cell(["仮称　　　　＝", "仮称　　　　＝"], 6672, { top: true, size: 18 }),
+  ] })]),
+
+  ...blank(1),
   mk([W], [new TableRow({ children: [cell([
     "書き方の注意",
+    "・会社名は仮称（甲社〔緑〕・乙社〔白〕など）で書くこと。聞くときも仮称で聞きます。",
     "・応対者の氏名と日付は必ず取ること。後から「誰に聞いたか」が分からない記録は使えません。",
     "・回答は要約せず、言われた言葉のまま書くこと。とくに「一般論としては」「実態によります」",
     "　といった留保は、落とさずに書いてください。留保の有無で使える強さが変わります。",
     "・「個別具体の判断はできない」と言われた場合も、そう言われたこと自体が記録になります。",
     "・重要なものは「書面でいただけますか」と頼むこと。断られても、頼んだ事実を残します。",
     "・この票は事案ごとに1枚。まとめて書かないでください。",
+    "・この票は社内限りです。運輸局等に渡さないでください（実名の控えが入るため）。",
   ], W, { top: true, size: 17, shade: WARN })] })]),
 
   ...blank(1),
