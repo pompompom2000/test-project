@@ -15,8 +15,13 @@ body = io.open(D / "body.html", encoding="utf-8").read()
 
 MARK = "<!-- ============ 付録：白ダンプ早見表 ============ -->"
 i = body.index(MARK)
-j = body.index("</body></html>")
+# 次のパート区切りがあればそこまで。なければ本文の終わりまで。
+nxt = body.find("<!-- ============ ", i + len(MARK))
+j = nxt if nxt != -1 else body.index("</body></html>")
 part = body[i:j].strip()
+# 早見表パートの <div class="part"> を閉じ直す（次のパートを切り落としたため）
+if part.count("<div") > part.count("</div>"):
+    part += "\n</div>"
 
 # 本編のパートヘッダ（APPENDIX / 見出し / リード）は表紙に置き換える
 part = re.sub(
