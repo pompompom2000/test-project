@@ -77,12 +77,12 @@ const children = [
   ...blank(1),
   mk([W], [new TableRow({ children: [cell("１　聞いたこと", W,
     { shade: NAVY, bold: true, go: true, size: 21, color: "FFFFFF" })] })]),
-  mk([W], [new TableRow({ children: [cell(lines(6), W, { top: true })] })]),
+  mk([W], [new TableRow({ children: [cell(lines(5), W, { top: true })] })]),
 
   ...blank(1),
   mk([W], [new TableRow({ children: [cell("２　回答（できるだけ言われたとおりに書く）", W,
     { shade: NAVY, bold: true, go: true, size: 21, color: "FFFFFF" })] })]),
-  mk([W], [new TableRow({ children: [cell(lines(12), W, { top: true })] })]),
+  mk([W], [new TableRow({ children: [cell(lines(10), W, { top: true })] })]),
 
   ...blank(1),
   mk(C, [
@@ -98,7 +98,7 @@ const children = [
     { shade: NAVY, bold: true, go: true, size: 21, color: "FFFFFF" })] })]),
   mk([W], [new TableRow({ children: [cell([
     "※ここが一番大事です。必ず聞いて、聞けなかったときは「聞けなかった」と書いてください。",
-    ...lines(5),
+    ...lines(4),
   ], W, { top: true })] })]),
 
   ...blank(1),
@@ -170,29 +170,25 @@ const children = [
       cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
     ] }),
   ]),
-  mk([W], [new TableRow({ children: [cell([
-    "・〔緑〕＝一般貨物の許可あり・事業用自動車　　〔白〕＝許可なし・自家用自動車",
-    "・照会書（forms/運輸局照会書.docx）と同じ仮称で聞き、同じ仮称で記録してください。",
-    "　実名で記録すると、実際に話した内容と記録が食い違い、あとで読み返せなくなります。",
-    "・仮称と実名の対応表は 21_運輸局への照会事例集.md にあります。この票には書きません。",
-    "　どの取引先の話だったかを残したいときは、下の「実名の控え」に書いてください。",
-  ], W, { top: true, size: 17, shade: WARN })] })]),
+  p("〔緑〕＝一般貨物の許可あり・事業用自動車　　〔白〕＝許可なし・自家用自動車",
+    { size: 17, after: 60 }),
   mk([2400, 6672], [new TableRow({ children: [
-    cell(["実名の控え", "（社内限り・任意）"], 2400, { shade: HEAD, bold: true, go: true, size: 18 }),
-    cell(["仮称　　　　＝", "仮称　　　　＝"], 6672, { top: true, size: 18 }),
+    cell("実名の控え（社内限り・任意）", 2400, { shade: HEAD, bold: true, go: true, size: 18 }),
+    cell("仮称　　　　＝　　　　　　　　　　　　仮称　　　　＝", 6672, { top: true, size: 18 }),
   ] })]),
 
   ...blank(1),
   mk([W], [new TableRow({ children: [cell([
     "書き方の注意",
     "・会社名は仮称（甲社〔緑〕・乙社〔白〕など）で書くこと。聞くときも仮称で聞きます。",
+    "　実名で記録すると、実際に話した内容と記録が食い違い、あとで読み返せなくなります。",
+    "　仮称と実名の対応表は 21_運輸局への照会事例集.md にあります。この票には書きません。",
     "・応対者の氏名と日付は必ず取ること。後から「誰に聞いたか」が分からない記録は使えません。",
     "・回答は要約せず、言われた言葉のまま書くこと。とくに「一般論としては」「実態によります」",
     "　といった留保は、落とさずに書いてください。留保の有無で使える強さが変わります。",
     "・「個別具体の判断はできない」と言われた場合も、そう言われたこと自体が記録になります。",
     "・重要なものは「書面でいただけますか」と頼むこと。断られても、頼んだ事実を残します。",
-    "・この票は事案ごとに1枚。まとめて書かないでください。",
-    "・この票は社内限りです。運輸局等に渡さないでください（実名の控えが入るため）。",
+    "・この票は事案ごとに1枚。社内限りです。運輸局等に渡さないでください。",
   ], W, { top: true, size: 17, shade: WARN })] })]),
 
   ...blank(1),
