@@ -624,6 +624,39 @@ def setup_render(sc, samples=64):
     sc.view_settings.exposure = -0.6
 
 
+def setup_video(sc, fps=24):
+    """動画用カメラ：①ドローンで全景 → ②左車線を走るドライバー視点"""
+    cd = bpy.data.cameras.new("CAM_動画")
+    cd.clip_end = 2000
+    cam = bpy.data.objects.new("CAM_動画", cd)
+    sc.collection.objects.link(cam)
+    sc.camera = cam
+    sc.render.fps = fps
+    shot_a = 5 * fps          # ドローン
+    shot_b = 10 * fps         # 走行
+    frame = 1
+
+    def key(eye, target, lens, f):
+        cam.location = eye
+        cam.rotation_euler = (target - eye).to_track_quat("-Z", "Y").to_euler()
+        cd.lens = lens
+        cam.keyframe_insert("location", frame=f)
+        cam.keyframe_insert("rotation_euler", frame=f)
+        cd.keyframe_insert("lens", frame=f)
+
+    for i in range(shot_a):
+        u = smooth(0, 1, i / (shot_a - 1))
+        s = -40 + 110 * u
+        key(point(s, -32 + 12 * u, 38 - 16 * u), point(s + 75, 2, -2), 26, frame)
+        frame += 1
+    for i in range(shot_b):
+        s = -10 + 205 * i / (shot_b - 1)
+        key(point(s, 1.1, 1.25), point(s + 28, 0.9, 0.6), 28, frame)
+        frame += 1
+    sc.frame_start, sc.frame_end = 1, frame - 1
+    return cam
+
+
 if __name__ == "__main__":
     cams = build()
     sc = bpy.context.scene
@@ -643,6 +676,20 @@ if __name__ == "__main__":
             sc.camera = cam
             sc.render.filepath = os.path.join(outdir, f"{key}.png")
             bpy.ops.render.render(write_still=True)
+    if "--video" in argv:
+        import os
+        outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", "video")
+        os.makedirs(outdir, exist_ok=True)
+        setup_video(sc)
+        sc.cycles.samples = 10
+        sc.render.resolution_percentage = 50
+        sc.render.use_persistent_data = True
+        sc.render.filepath = os.path.join(outdir, "f_####")
+        for a in argv:
+            if a.startswith("--frames="):
+                f0, f1 = a.split("=", 1)[1].split("-")
+                sc.frame_start, sc.frame_end = int(f0), int(f1)
+        bpy.ops.render.render(animation=True)
     if "--save" in argv:
         import os
         bpy.ops.wm.save_as_mainfile(
