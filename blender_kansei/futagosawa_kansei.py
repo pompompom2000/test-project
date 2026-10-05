@@ -117,6 +117,27 @@ CAMS = {
 }
 
 
+SHOW_STATIONS = True            # 測点杭・表示板を置く（False で非表示）
+
+
+def station_list():
+    """(追加距離, 表示名, 主要点か)。20m ごとの測点と主要点"""
+    out = [(sta(n), f"NO.{n}", False) for n in range(50, 60)]
+    out += [(S_END, "NO.59+10.07 終点", True),
+            (BC9, "BC-9", True),
+            (EC9, "EC-9", True),
+            (CULVERT_S, "NO.55+8 函渠", True)]
+    out[0] = (0.0, "NO.50 起点", True)
+    return out
+
+
+def station_name(s):
+    """追加距離 → 'NO.53+12.4' の形"""
+    n = int(math.floor(s / STA + 1e-9))
+    plus = s - n * STA
+    return f"NO.{50 + n}" + (f"+{plus:.1f}" if plus >= 0.05 else "")
+
+
 def side_profile(a, w_channel, s):
     """片側の地盤高。a=中心からの距離、w_channel=水路側(盛土)の度合い 0〜1"""
     if a < HALF_W:
@@ -515,6 +536,46 @@ def build():
             cc.objects.unlink(ob)
         C_SAFE.objects.link(ob)
 
+    # --- 測点表示（測点杭と表示板） -------------------------------
+    if SHOW_STATIONS:
+        C_STA = collection("07_測点")
+        M["board"] = material("測点板", (0.92, 0.92, 0.88), 0.6)
+        M["board_key"] = material("主要点板", (0.95, 0.55, 0.12), 0.6)
+        M["text"] = material("測点文字", (0.02, 0.02, 0.02), 0.8)
+        M["stake"] = material("測点杭", (0.55, 0.38, 0.20), 0.9)
+        font = None
+        for fp in ("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+                   "C:/Windows/Fonts/meiryo.ttc", "C:/Windows/Fonts/msgothic.ttc",
+                   "/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc"):
+            try:
+                font = bpy.data.fonts.load(fp, check_existing=True)
+                break
+            except Exception:
+                pass
+        for s, label, key in station_list():
+            # 20m ごとの測点は右側、BC・EC・函渠などは左側に立てる
+            d = (HALF_W + 1.4) if label.startswith(("BC", "EC", "NO.55+8")) else -(HALF_W + 0.9)
+            g = point(s, d, ground(s, d))
+            a = plan(s)[2]
+            t = Vector((math.cos(a), math.sin(a), 0))
+            post_h = 1.5
+            box(f"測点杭_{label}", g + Vector((0, 0, post_h / 2)), (0.07, 0.07, post_h), a, 0, M["stake"], C_STA)
+            bc = g + Vector((0, 0, post_h - 0.05)) - t * 0.05
+            box(f"測点板_{label}", bc, (0.03, 1.3, 0.42), a, 0, M["board_key"] if key else M["board"], C_STA)
+            cu = bpy.data.curves.new(f"測点文字_{label}", "FONT")
+            cu.body = label
+            if font:
+                cu.font = font
+            cu.size = 0.26 if len(label) <= 8 else 0.19
+            cu.align_x = "CENTER"
+            cu.align_y = "CENTER"
+            cu.extrude = 0.004
+            tx = bpy.data.objects.new(f"測点文字_{label}", cu)
+            tx.location = bc - t * 0.03
+            tx.rotation_euler = (math.pi / 2, 0, a - math.pi / 2)
+            tx.data.materials.append(M["text"])
+            C_STA.objects.link(tx)
+
     # --- 樹木 ----------------------------------------------------
     bpy.ops.mesh.primitive_cone_add(vertices=10, radius1=1.6, depth=9.0, location=(0, 0, -100))
     sugi = bpy.context.active_object
@@ -649,12 +710,41 @@ def setup_video(sc, fps=24):
         s = -40 + 110 * u
         key(point(s, -32 + 12 * u, 38 - 16 * u), point(s + 75, 2, -2), 26, frame)
         frame += 1
+    drive = {}
     for i in range(shot_b):
         s = -10 + 205 * i / (shot_b - 1)
         key(point(s, 1.1, 1.25), point(s + 28, 0.9, 0.6), 28, frame)
+        drive[frame] = s
         frame += 1
     sc.frame_start, sc.frame_end = 1, frame - 1
-    return cam
+    return cam, drive
+
+
+def station_overlay(sc, cam, frames, drive=None):
+    """測点の画面上の位置（注記用）。frame → {points:[{label,x,y,key}], drive_s}"""
+    from bpy_extras.object_utils import world_to_camera_view
+    res_x = sc.render.resolution_x * sc.render.resolution_percentage / 100
+    res_y = sc.render.resolution_y * sc.render.resolution_percentage / 100
+    terrain = bpy.data.objects.get("地形")
+    out = {}
+    for f in frames:
+        sc.frame_set(f)
+        eye = cam.matrix_world.translation.copy()
+        pts = []
+        for s, label, key in station_list():
+            P = point(s, 0, 0.3)
+            co = world_to_camera_view(sc, cam, P)
+            if terrain:
+                v = P - eye        # 地形の陰に隠れる測点は出さない（地形はワールド座標のまま）
+                hit, *_ = terrain.ray_cast(eye, v.normalized(), distance=v.length - 0.5)
+                if hit:
+                    continue
+            if co.z > 0 and 0.02 < co.x < 0.98 and 0.02 < co.y < 0.98:
+                pts.append({"label": label, "key": key, "s": s,
+                            "x": co.x * res_x, "y": (1 - co.y) * res_y, "dist": co.z})
+        out[f] = {"points": pts, "drive_s": (drive or {}).get(f),
+                  "drive_name": station_name(drive[f]) if drive and f in drive and drive[f] >= 0 else None}
+    return out
 
 
 if __name__ == "__main__":
@@ -675,12 +765,16 @@ if __name__ == "__main__":
                 continue
             sc.camera = cam
             sc.render.filepath = os.path.join(outdir, f"{key}.png")
-            bpy.ops.render.render(write_still=True)
+            if "--overlay-only" not in argv:
+                bpy.ops.render.render(write_still=True)
+            import json
+            with open(os.path.join(outdir, f"{key}_stations.json"), "w", encoding="utf-8") as fp:
+                json.dump(station_overlay(sc, cam, [sc.frame_current])[sc.frame_current], fp, ensure_ascii=False)
     if "--video" in argv:
         import os
         outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", "video")
         os.makedirs(outdir, exist_ok=True)
-        setup_video(sc)
+        vcam, drive = setup_video(sc)
         sc.cycles.samples = 10
         sc.render.resolution_percentage = 50
         sc.render.use_persistent_data = True
@@ -689,7 +783,11 @@ if __name__ == "__main__":
             if a.startswith("--frames="):
                 f0, f1 = a.split("=", 1)[1].split("-")
                 sc.frame_start, sc.frame_end = int(f0), int(f1)
-        bpy.ops.render.render(animation=True)
+        import json
+        with open(os.path.join(outdir, "stations.json"), "w", encoding="utf-8") as fp:
+            json.dump(station_overlay(sc, vcam, range(sc.frame_start, sc.frame_end + 1), drive), fp, ensure_ascii=False)
+        if "--overlay-only" not in argv:
+            bpy.ops.render.render(animation=True)
     if "--save" in argv:
         import os
         bpy.ops.wm.save_as_mainfile(
