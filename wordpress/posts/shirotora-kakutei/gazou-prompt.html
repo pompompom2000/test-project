@@ -1,0 +1,422 @@
+<title>白トラ記事の画像プロンプト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#F1F1EE; --surface:#FFFFFF; --sunk:#E8E7E2;
+    --ink:#262421; --muted:#6C6960; --line:#D6D4CD;
+    --accent:#2F7A52; --accent-ink:#1E5238; --accent-wash:#E3F0E8;
+    --warn:#8A3B2E; --warn-wash:#F7E7E3;
+    --step:clamp(15px,1.4vw,16px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+      --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+      --accent:#5DB585; --accent-ink:#9AD9B4; --accent-wash:#16261D;
+      --warn:#E29384; --warn-wash:#2E1E1A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+    --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+    --accent:#5DB585; --accent-ink:#9AD9B4; --accent-wash:#16261D;
+    --warn:#E29384; --warn-wash:#2E1E1A;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+    font-size:var(--step); line-height:1.8;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:740px; margin:0 auto; padding-inline:16px; padding-block:40px 72px;
+        display:flex; flex-direction:column; gap:34px}
+  h1{
+    font-family:"Shippori Mincho","Yu Mincho",serif; font-weight:600;
+    font-size:clamp(25px,5.6vw,34px); line-height:1.45; margin:0; text-wrap:balance;
+    letter-spacing:.01em;
+  }
+  .lede{margin:0; color:var(--muted); font-size:calc(var(--step) - .5px)}
+  .rule{height:3px; width:52px; background:var(--accent); border-radius:2px}
+  h2{
+    font-size:calc(var(--step) + 3px); margin:0 0 4px; font-weight:700;
+    display:flex; align-items:baseline; gap:10px; text-wrap:balance;
+  }
+  h2 .no{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78em;
+    color:var(--accent-ink); letter-spacing:.06em; flex:none;
+  }
+  p{margin:0}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:20px 18px; display:flex; flex-direction:column; gap:12px;
+  }
+  .tag{
+    align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--accent-ink); background:var(--accent-wash);
+    border-radius:999px; padding:3px 11px; line-height:1.7;
+  }
+  .why{color:var(--muted); font-size:calc(var(--step) - 1px); margin:0}
+  .promptbox{position:relative}
+  pre{
+    margin:0; background:var(--sunk); border:1px solid var(--line); border-radius:8px;
+    padding:15px 14px; overflow-x:auto; white-space:pre-wrap; word-break:break-word;
+    font-family:inherit; font-size:calc(var(--step) - 1px); line-height:1.85;
+    -webkit-user-select:all; user-select:all;
+  }
+  .copy{
+    margin-top:9px; width:100%; min-height:46px; cursor:pointer;
+    font:inherit; font-weight:700; color:#fff; background:var(--accent);
+    border:none; border-radius:7px; letter-spacing:.03em;
+    transition:filter .15s ease;
+  }
+  .copy:hover{filter:brightness(1.07)}
+  .copy:focus-visible{outline:3px solid var(--accent-ink); outline-offset:2px}
+  .copy[data-done="1"]{background:var(--accent-ink)}
+  .note{
+    border-left:3px solid var(--accent); background:var(--accent-wash);
+    padding:13px 15px; border-radius:0 8px 8px 0; font-size:calc(var(--step) - 1px);
+  }
+  .note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+  .note p + p{margin-top:8px}
+  .ng{margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:5px;
+      font-size:calc(var(--step) - 1px)}
+  footer{color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:18px}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <div class="rule"></div>
+    <h1>白トラの行政処分、10月1日から重く<br>画像プロンプト 5枚</h1>
+    <p class="lede">1枚ずつ「コピー」を押して、そのままGeminiに貼ってください。どれも全文です。継ぎ足しはありません。添付の画像は要りません。</p>
+  </header>
+
+  <section class="card">
+    <span class="tag">アイキャッチ・書き出しの直後</span>
+    <h2><span class="no">01</span>10月1日から重く</h2>
+    <p class="why">記事の顔です。文字は3つだけにしました。「倍」とは書きません（2回目は2倍を超えるため、数字の言い方をそろえられないからです）。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で3個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　　　　　「白トラの行政処分」
+真ん中の大きな文字　　「10月1日から重く」
+下の帯　　　　　　　　「車が使えない日数が延びる」
+
+【2】置き方
+・画面を上から3つに分ける。上が2割、真ん中が6割、下が2割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・真ん中の6割：左半分に絵、右半分に大きな文字。
+　大きな文字は2行までで、右半分の幅の8割におさめる。
+・下の2割：横いっぱいの帯。下の帯の文字を中央に、1行で置く。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い紺色、文字は白。
+・真ん中の大きな文字は、濃い赤。
+・下の帯は薄い灰色、文字は黒。
+
+【4】絵
+・絵は全部で2つだけ。同じ絵を2つ描かないこと。
+・左半分の中央に、白いダンプトラックを1台、横から見た形で。
+　荷台は空。ナンバープレートは無地の白い板にする。
+・ダンプトラックの右上に、カレンダーを1つ。めくれた紙が何枚も重なった形。
+　カレンダーには数字も文字も書かない。
+・太い輪郭線の平面的なイラスト。影やグラデーションは使わない。
+
+【5】描かないもの
+・上の3個にない文字、数字、記号。丸かっこと番号。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。警察官、パトカー、手錠。
+・ナンバープレートに文字や数字を書くこと。板は無地にする。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「車が使えなくなる日数」の表の直後</span>
+    <h2><span class="no">02</span>1回目60日→120日、2回目120日→180日</h2>
+    <p class="why">いちばん大事な数字です。「120日」が2回出てくるので、どの段のどちら側かを細かく指定しました。矢印は「左から右へ」で、左が今まで、右が10月から、と書いています。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で7個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　　　　「許可なく運送の商売をしたとき」
+上の段の左端　　　　「1回目」
+上の段の左の数字　　「60日」
+上の段の右の数字　　「120日」
+下の段の左端　　　　「2回目」
+下の段の左の数字　　「120日」
+下の段の右の数字　　「180日」
+
+【2】置き方
+・画面を上下に分ける。上が2割、下が8割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・下の8割：同じ高さの段を、上下に2つ重ねる。
+・それぞれの段は、左から「見出し」「左の数字」「矢印」「右の数字」の順に横に並べる。
+・見出しは、段の左端に小さめに置く。
+・矢印は、左の数字から右の数字へ向かう太い矢印を1本だけ。
+　左が今までの日数、右が10月1日からの日数。向きを逆にしないこと。
+　矢印の中にも、横にも、文字を入れない。
+・右の数字は、左の数字より大きく、太く書く。
+・上の段と下の段で、数字の位置と大きさをそろえる。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い紺色、文字は白。
+・左の数字は灰色。右の数字は濃い赤。矢印は灰色。
+・見出しの文字は黒。
+
+【4】絵
+・絵は描かない。文字と矢印だけにする。
+
+【5】描かないもの
+・上の7個にない文字、数字、記号。丸かっこと番号。
+・「倍」「2倍」「＋60日」など、差や倍率を計算した文字。
+・「3回目」と「再々違反」。この画像には入れない。
+・グラフ、棒グラフ、目盛り、カレンダー。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。警察官、パトカー、手錠。
+・ナンバープレートに文字や数字を書くこと。板は無地にする。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「8月の記事では書いていなかったこと」の、ナンバーの段落の直後</span>
+    <h2><span class="no">03</span>使用禁止になると、ナンバーを預ける</h2>
+    <p class="why">新しく通達に書き込まれた決まりです。ナンバープレートは、実在の形や文字を描かれないよう「無地の板」と指定しました。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で4個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　「使用禁止になると」
+左の箱　　「車検証を返す」
+右の箱　　「ナンバーを預ける」
+下の帯　　「その間、その車は道路を走れない」
+
+【2】置き方
+・画面を上から3つに分ける。上が2割、真ん中が6割、下が2割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・真ん中の6割：同じ大きさの箱を2つ、左右に並べる。
+　箱と箱のすき間は、箱1つの幅の1割。左右の端にも同じ余白。
+・それぞれの箱の下のほうに、その箱の文字を1行で置く。
+　箱の上のほうには、その箱の絵を置く。
+・下の2割：横いっぱいの帯。下の帯の文字を中央に、1行で置く。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い紺色、文字は白。
+・2つの箱は、どちらも薄い灰色。箱の中の文字は黒。
+・下の帯は濃い赤、文字は白。
+
+【4】絵
+・絵は全部で2つだけ。同じ絵を2つ描かないこと。
+・左の箱に、折りたたんだ書類を1つ。書類には文字を書かない。
+・右の箱に、取り外した長方形の板を1枚。無地の白で、文字も数字も書かない。
+・絵の大きさは、箱の高さの4割まで。
+・太い輪郭線の平面的なイラスト。影やグラデーションは使わない。
+
+【5】描かないもの
+・上の4個にない文字、数字、記号。丸かっこと番号。
+・車の絵。この画像には車を描かない。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。警察官、パトカー、手錠。
+・ナンバープレートに文字や数字を書くこと。板は無地にする。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「行政処分とは別に、罰則もある」の最後の段落の直後</span>
+    <h2><span class="no">04</span>頼んだ側も、運んだ側も</h2>
+    <p class="why">4月（頼む側）と10月（運ぶ側）の二段構えを1枚にしました。罰金の対象は「無許可の業者に頼んだ場合」なので、それを下の帯に必ず入れます。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で6個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　「頼んだ側も、運んだ側も」
+左の箱　　　　「頼んだ側」
+左の箱の下　　「4月から 100万円以下の罰金」
+右の箱　　　　「運んだ側」
+右の箱の下　　「10月から 車が使えない日数が延びた」
+下の帯　　　　「無許可の業者に運送を頼んだ場合」
+
+【2】置き方
+・画面を上から3つに分ける。上が2割、真ん中が6割、下が2割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・真ん中の6割：同じ大きさの箱を2つ、左右に並べる。
+　箱と箱のすき間は、箱1つの幅の1割。左右の端にも同じ余白。
+・それぞれの箱の中に、その箱の文字を大きく置く。
+・それぞれの箱のすぐ下に、その箱の下の文字を2行までで置く。
+・下の2割：横いっぱいの帯。下の帯の文字を中央に、1行で置く。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い紺色、文字は白。
+・左の箱はオレンジ、右の箱は濃い赤。箱の中の文字は、2つとも白。
+・箱の下の文字は、2つとも黒。
+・下の帯は薄い灰色、文字は黒。
+
+【4】絵
+・絵は全部で2つだけ。同じ絵を2つ描かないこと。
+・左の箱の右上に、封筒を差し出す手を1つ。封筒には文字を書かない。
+・右の箱の右上に、ダンプトラックを1台。ナンバープレートは無地。
+・絵は箱に重ねない。箱の外に、少し離して置く。
+・絵の大きさは、箱の高さの3割まで。
+・太い輪郭線の平面的なイラスト。影やグラデーションは使わない。
+
+【5】描かないもの
+・上の6個にない文字、数字、記号。丸かっこと番号。
+・「100万円」以外の金額。「300万円」「150万円」を足さないこと。
+・お札、硬貨、天秤、裁判所。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。警察官、パトカー、手錠。
+・ナンバープレートに文字や数字を書くこと。板は無地にする。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「石名坂として気をつけていること」の最後の段落の直後</span>
+    <h2><span class="no">05</span>ナンバーの色を見る</h2>
+    <p class="why">読み手（頼む側）が明日からできることです。緑と白の板は、色の違いだけが伝わるよう無地にしました。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で5個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　「運送を頼む前に、ナンバーの色を見る」
+左の箱　　　　「緑ナンバー」
+左の箱の下　　「他社の荷物を運べる」
+右の箱　　　　「白ナンバー」
+右の箱の下　　「運べるのは基本、自社の荷物」
+
+【2】置き方
+・画面を上下に分ける。上が2割、下が8割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・下の8割：同じ大きさの箱を2つ、左右に並べる。
+　箱と箱のすき間は、箱1つの幅の1割。左右の端にも同じ余白。
+・それぞれの箱の中に、その箱の文字を大きく置く。
+・それぞれの箱のすぐ下に、その箱の下の文字を1行で置く。
+・いちばん下に空白を残さない。全体を上下いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い紺色、文字は白。
+・左の箱は濃い緑で、箱の中の文字は白。
+・右の箱は白で、太い黒の枠線。箱の中の文字は黒。
+・箱の下の文字は、2つとも黒。
+
+【4】絵
+・絵は全部で2つだけ。同じ絵を2つ描かないこと。
+・左の箱の右上に、無地の濃い緑の長方形の板を1枚。
+・右の箱の右上に、無地の白い長方形の板を1枚。黒い縁取り。
+・板には文字も数字も書かない。
+・絵は箱に重ねない。箱の外に、少し離して置く。
+・絵の大きさは、箱の高さの3割まで。
+・太い輪郭線の平面的なイラスト。影やグラデーションは使わない。
+
+【5】描かないもの
+・上の5個にない文字、数字、記号。丸かっこと番号。
+・〇と×、チェックマーク。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。警察官、パトカー、手錠。
+・ナンバープレートに文字や数字を書くこと。板は無地にする。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="note" style="display:flex;flex-direction:column;gap:8px">
+    <p><strong>受け取ったら、拡大して1字ずつ確かめてください。</strong></p>
+    <p>とくに見るところ：「120日」「180日」の位置（02）、矢印の向き（02は左から右）、ナンバープレートに文字や数字が描かれていないか、指定していない金額や出典が増えていないか。</p>
+    <p>右下のキラキラした印は、Geminiが自動で入れる透かしです。消さずにそのまま使います。</p>
+  </section>
+</main>
+<script>
+(function(){
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.parentNode.querySelector('pre');
+      if(!pre) return;
+      var text = pre.textContent;
+      var done = function(ok){
+        btn.textContent = ok ? 'コピーしました' : '枠をタップして選択してください';
+        btn.dataset.done = ok ? '1' : '';
+        setTimeout(function(){ btn.textContent='コピー'; btn.dataset.done=''; }, 2200);
+      };
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
+          return;
+        }
+      }catch(e){}
+      try{
+        var sel = window.getSelection(), r = document.createRange();
+        r.selectNodeContents(pre); sel.removeAllRanges(); sel.addRange(r);
+        done(document.execCommand && document.execCommand('copy'));
+      }catch(e){ done(false); }
+    });
+  });
+})();
+</script>
