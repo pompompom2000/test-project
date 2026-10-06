@@ -64,7 +64,7 @@ def draw_labels(img, points, max_dist=400.0):
         d.text((box[0] + pad, box[1] + pad - 1 * k), p["label"], font=f, fill=DARK)
 
 
-def draw_hud(img, data, title):
+def draw_hud(img, data, title, reverse=False):
     k = img.width / 960.0
     d = ImageDraw.Draw(img, "RGBA")
     big, small = font(int(26 * k)), font(int(13 * k))
@@ -74,7 +74,14 @@ def draw_hud(img, data, title):
         d.rounded_rectangle((x0, y0, x0 + 300 * k, y0 + 46 * k), radius=6 * k, fill=DARK + (200,))
         d.text((x0 + 14 * k, y0 + 8 * k), title, font=font(int(22 * k)), fill=LIGHT)
         return
-    if s < 0:
+    if reverse:      # BC-10（終点）→ NO.50（起点）
+        if s < 0:
+            name, sub = "起点通過", f"施工延長 {S_END:.2f}m"
+        elif s >= S_END - 0.05:
+            name, sub = "BC-10（終点）", "ここから NO.50 へ"
+        else:
+            name, sub = data["drive_name"], f"BC-10から {S_END - s:.0f}m ／ {S_END:.0f}m"
+    elif s < 0:
         name, sub = "起点手前", f"起点まで {-s:.0f}m"
     elif s > S_END:
         name, sub = "終点通過", f"施工延長 {S_END:.2f}m"
@@ -88,7 +95,7 @@ def draw_hud(img, data, title):
     # 進み具合のバー
     bx0, bx1, by = x0 + 160 * k, x0 + wbox - 14 * k, y0 + 65 * k
     d.rounded_rectangle((bx0, by, bx1, by + 6 * k), radius=3 * k, fill=(90, 100, 104, 255))
-    u = max(0.0, min(1.0, s / S_END))
+    u = max(0.0, min(1.0, (S_END - s if reverse else s) / S_END))
     d.rounded_rectangle((bx0, by, bx0 + (bx1 - bx0) * u, by + 6 * k), radius=3 * k, fill=ORANGE + (255,))
 
 
@@ -106,9 +113,9 @@ def stills():
         print("saved", os.path.basename(png))
 
 
-def video():
-    src = os.path.join(HERE, "renders", "video")
-    outdir = os.path.join(HERE, "renders", "video_annotated")
+def video(reverse=False):
+    src = os.path.join(HERE, "renders", "video_rev" if reverse else "video")
+    outdir = os.path.join(HERE, "renders", "video_rev_annotated" if reverse else "video_annotated")
     os.makedirs(outdir, exist_ok=True)
     data = json.load(open(os.path.join(src, "stations.json"), encoding="utf-8"))
     for f, fd in data.items():
@@ -119,10 +126,11 @@ def video():
         driving = fd.get("drive_s") is not None
         # 走行中は近くの測点だけ（遠い注記は画面がうるさくなる）
         draw_labels(img, fd["points"], max_dist=70.0 if driving else 400.0)
-        draw_hud(img, fd, "市道二子沢線　完成イメージ")
+        draw_hud(img, fd, "市道二子沢線　完成イメージ", reverse)
         img.save(os.path.join(outdir, os.path.basename(png)))
     print("annotated", len(data), "frames")
 
 
 if __name__ == "__main__":
-    {"stills": stills, "video": video}[sys.argv[1] if len(sys.argv) > 1 else "stills"]()
+    {"stills": stills, "video": video, "video_rev": lambda: video(reverse=True)}[
+        sys.argv[1] if len(sys.argv) > 1 else "stills"]()

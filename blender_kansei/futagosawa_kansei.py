@@ -575,6 +575,11 @@ def build():
             tx.rotation_euler = (math.pi / 2, 0, a - math.pi / 2)
             tx.data.materials.append(M["text"])
             C_STA.objects.link(tx)
+            # 裏面にも同じ文字（終点側から走ってきても読める）
+            tx2 = bpy.data.objects.new(f"測点文字裏_{label}", cu)
+            tx2.location = bc + t * 0.03
+            tx2.rotation_euler = (math.pi / 2, 0, a + math.pi / 2)
+            C_STA.objects.link(tx2)
 
     # --- 樹木 ----------------------------------------------------
     bpy.ops.mesh.primitive_cone_add(vertices=10, radius1=1.6, depth=9.0, location=(0, 0, -100))
@@ -685,8 +690,9 @@ def setup_render(sc, samples=64):
     sc.view_settings.exposure = -0.6
 
 
-def setup_video(sc, fps=24):
-    """動画用カメラ：①ドローンで全景 → ②左車線を走るドライバー視点"""
+def setup_video(sc, fps=24, reverse=False):
+    """動画用カメラ：①ドローンで全景 → ②左車線を走るドライバー視点
+    reverse=True：BC-10（終点）から NO.50（起点）へ向かって走る"""
     cd = bpy.data.cameras.new("CAM_動画")
     cd.clip_end = 2000
     cam = bpy.data.objects.new("CAM_動画", cd)
@@ -711,6 +717,19 @@ def setup_video(sc, fps=24):
         key(point(s, -32 + 12 * u, 38 - 16 * u), point(s + 75, 2, -2), 26, frame)
         frame += 1
     drive = {}
+    if reverse:
+        # BC-10（NO.59+10.07）で1秒止まってから、NO.50 へ向かって走る。
+        # 進行方向が −s なので左車線は d<0 側
+        frame = 1
+        hold, run = 1 * fps, 12 * fps
+        for i in range(hold + run):
+            u = max(0, i - hold) / (run - 1)
+            s = S_END - (S_END + 8.0) * u          # NO.50 の少し先（8m）まで
+            key(point(s, -1.1, 1.25), point(s - 28, -0.9, 0.6), 28, frame)
+            drive[frame] = s
+            frame += 1
+        sc.frame_start, sc.frame_end = 1, frame - 1
+        return cam, drive
     for i in range(shot_b):
         s = -10 + 205 * i / (shot_b - 1)
         key(point(s, 1.1, 1.25), point(s + 28, 0.9, 0.6), 28, frame)
@@ -772,9 +791,10 @@ if __name__ == "__main__":
                 json.dump(station_overlay(sc, cam, [sc.frame_current])[sc.frame_current], fp, ensure_ascii=False)
     if "--video" in argv:
         import os
-        outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", "video")
+        rev = "--reverse" in argv
+        outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", "video_rev" if rev else "video")
         os.makedirs(outdir, exist_ok=True)
-        vcam, drive = setup_video(sc)
+        vcam, drive = setup_video(sc, reverse=rev)
         sc.cycles.samples = 10
         sc.render.resolution_percentage = 50
         sc.render.use_persistent_data = True

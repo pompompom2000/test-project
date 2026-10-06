@@ -3,3 +3,6 @@ video.log
 renders/video/
 renders/video_annotated/
 __pycache__/
+video_rev.log
+renders/video_rev/
+renders/video_rev_annotated/
