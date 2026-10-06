@@ -6,3 +6,6 @@ __pycache__/
 video_rev.log
 renders/video_rev/
 renders/video_rev_annotated/
+video_rev_drone.log
+renders/video_rev_drone/
+renders/video_rev_drone_annotated/

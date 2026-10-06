@@ -113,9 +113,10 @@ def stills():
         print("saved", os.path.basename(png))
 
 
-def video(reverse=False):
-    src = os.path.join(HERE, "renders", "video_rev" if reverse else "video")
-    outdir = os.path.join(HERE, "renders", "video_rev_annotated" if reverse else "video_annotated")
+def video(reverse=False, tag=""):
+    name = ("video_rev" if reverse else "video") + tag
+    src = os.path.join(HERE, "renders", name)
+    outdir = os.path.join(HERE, "renders", name + "_annotated")
     os.makedirs(outdir, exist_ok=True)
     data = json.load(open(os.path.join(src, "stations.json"), encoding="utf-8"))
     for f, fd in data.items():
@@ -125,12 +126,13 @@ def video(reverse=False):
         img = Image.open(png).convert("RGB")
         driving = fd.get("drive_s") is not None
         # 走行中は近くの測点だけ（遠い注記は画面がうるさくなる）
-        draw_labels(img, fd["points"], max_dist=70.0 if driving else 400.0)
+        draw_labels(img, fd["points"], max_dist=70.0 if (driving and not tag) else 400.0)
         draw_hud(img, fd, "市道二子沢線　完成イメージ", reverse)
         img.save(os.path.join(outdir, os.path.basename(png)))
     print("annotated", len(data), "frames")
 
 
 if __name__ == "__main__":
-    {"stills": stills, "video": video, "video_rev": lambda: video(reverse=True)}[
+    {"stills": stills, "video": video, "video_rev": lambda: video(reverse=True),
+     "video_rev_drone": lambda: video(reverse=True, tag="_drone")}[
         sys.argv[1] if len(sys.argv) > 1 else "stills"]()

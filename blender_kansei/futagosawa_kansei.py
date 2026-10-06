@@ -690,7 +690,7 @@ def setup_render(sc, samples=64):
     sc.view_settings.exposure = -0.6
 
 
-def setup_video(sc, fps=24, reverse=False):
+def setup_video(sc, fps=24, reverse=False, angle="driver"):
     """動画用カメラ：①ドローンで全景 → ②左車線を走るドライバー視点
     reverse=True：BC-10（終点）から NO.50（起点）へ向かって走る"""
     cd = bpy.data.cameras.new("CAM_動画")
@@ -725,7 +725,11 @@ def setup_video(sc, fps=24, reverse=False):
         for i in range(hold + run):
             u = max(0, i - hold) / (run - 1)
             s = S_END - (S_END + 8.0) * u          # NO.50 の少し先（8m）まで
-            key(point(s, -1.1, 1.25), point(s - 28, -0.9, 0.6), 28, frame)
+            if angle == "drone":
+                # 後ろ上空から追いかけるドローン（高さ18m・後方20m）
+                key(point(s + 20, -4.0, 18.0), point(s - 30, 0.5, -1.0), 24, frame)
+            else:
+                key(point(s, -1.1, 1.25), point(s - 28, -0.9, 0.6), 28, frame)
             drive[frame] = s
             frame += 1
         sc.frame_start, sc.frame_end = 1, frame - 1
@@ -792,9 +796,11 @@ if __name__ == "__main__":
     if "--video" in argv:
         import os
         rev = "--reverse" in argv
-        outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", "video_rev" if rev else "video")
+        angle = next((a.split("=", 1)[1] for a in argv if a.startswith("--angle=")), "driver")
+        sub = ("video_rev" if rev else "video") + ("" if angle == "driver" else "_" + angle)
+        outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "renders", sub)
         os.makedirs(outdir, exist_ok=True)
-        vcam, drive = setup_video(sc, reverse=rev)
+        vcam, drive = setup_video(sc, reverse=rev, angle=angle)
         sc.cycles.samples = 10
         sc.render.resolution_percentage = 50
         sc.render.use_persistent_data = True
