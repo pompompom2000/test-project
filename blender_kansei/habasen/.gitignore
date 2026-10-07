@@ -1,2 +1,5 @@
 full_render.log
 *.blend1
+video_*.log
+renders/*/video/
+renders/*/video_annotated/

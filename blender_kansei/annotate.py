@@ -64,15 +64,20 @@ def draw_labels(img, points, max_dist=400.0):
         d.text((box[0] + pad, box[1] + pad - 1 * k), p["label"], font=f, fill=DARK)
 
 
-def draw_hud(img, data, title, reverse=False):
+def draw_hud(img, data, title, reverse=False, s0=0.0, s1=None, start_name="起点"):
     k = img.width / 960.0
     d = ImageDraw.Draw(img, "RGBA")
     big, small = font(int(26 * k)), font(int(13 * k))
     x0, y0 = 20 * k, 18 * k
     s = data.get("drive_s")
+    S_END = (s1 - s0) if s1 is not None else globals()["S_END"]
+    if s is not None:
+        s = s - s0
     if s is None:
-        d.rounded_rectangle((x0, y0, x0 + 300 * k, y0 + 46 * k), radius=6 * k, fill=DARK + (200,))
-        d.text((x0 + 14 * k, y0 + 8 * k), title, font=font(int(22 * k)), fill=LIGHT)
+        tf = font(int(22 * k))
+        tw = max(300 * k, d.textlength(title, font=tf) + 28 * k)
+        d.rounded_rectangle((x0, y0, x0 + tw, y0 + 46 * k), radius=6 * k, fill=DARK + (200,))
+        d.text((x0 + 14 * k, y0 + 8 * k), title, font=tf, fill=LIGHT)
         return
     if reverse:      # BC-10（終点）→ NO.50（起点）
         if s < 0:
@@ -86,14 +91,14 @@ def draw_hud(img, data, title, reverse=False):
     elif s > S_END:
         name, sub = "終点通過", f"施工延長 {S_END:.2f}m"
     else:
-        name, sub = data["drive_name"], f"起点から {s:.0f}m ／ {S_END:.0f}m"
+        name, sub = data["drive_name"], f"{start_name}から {s:.0f}m ／ {S_END:.0f}m"
     wbox = 300 * k
-    d.rounded_rectangle((x0, y0, x0 + wbox, y0 + 86 * k), radius=6 * k, fill=DARK + (205,))
+    d.rounded_rectangle((x0, y0, x0 + wbox, y0 + 94 * k), radius=6 * k, fill=DARK + (205,))
     d.text((x0 + 14 * k, y0 + 8 * k), "現在の測点", font=small, fill=(242, 166, 90))
     d.text((x0 + 14 * k, y0 + 24 * k), name, font=big, fill=LIGHT)
     d.text((x0 + 14 * k, y0 + 58 * k), sub, font=small, fill=(217, 222, 216))
     # 進み具合のバー
-    bx0, bx1, by = x0 + 160 * k, x0 + wbox - 14 * k, y0 + 65 * k
+    bx0, bx1, by = x0 + 14 * k, x0 + wbox - 14 * k, y0 + 80 * k
     d.rounded_rectangle((bx0, by, bx1, by + 6 * k), radius=3 * k, fill=(90, 100, 104, 255))
     u = max(0.0, min(1.0, (S_END - s if reverse else s) / S_END))
     d.rounded_rectangle((bx0, by, bx0 + (bx1 - bx0) * u, by + 6 * k), radius=3 * k, fill=ORANGE + (255,))

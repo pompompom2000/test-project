@@ -1013,6 +1013,53 @@ def station_overlay(sc, S, cam):
     return {"points": pts, "drive_s": None}
 
 
+# 動画の経路：(ドローン開始s, 終了s, 横d, 高さ) と (走行開始s, 終了s, 左車線のd)
+VIDEO = {
+    "haba": {"drone": (-35, 40, -30, 30), "drive": (-15, 110, 1.4)},
+    "yuden": {"drone": (410, 470, 32, 26), "drive": (422, 515, 1.9)},
+    "doumae": {"drone": (-10, 45, 40, 30), "drive": (0, 95, 1.0)},
+}
+
+
+def setup_video(S, site, fps=24):
+    """①ドローンで全景（4秒）→ ②左車線を走るドライバー視点（10秒）"""
+    sc = bpy.context.scene
+    cd = bpy.data.cameras.new("CAM_動画")
+    cd.clip_end = 2000
+    cam = bpy.data.objects.new("CAM_動画", cd)
+    sc.collection.objects.link(cam)
+    sc.camera = cam
+    sc.render.fps = fps
+    V = VIDEO[site]
+
+    def key(eye, target, lens, f):
+        cam.location = eye
+        cam.rotation_euler = (target - eye).to_track_quat("-Z", "Y").to_euler()
+        cd.lens = lens
+        cam.keyframe_insert("location", frame=f)
+        cam.keyframe_insert("rotation_euler", frame=f)
+        cd.keyframe_insert("lens", frame=f)
+
+    frame = 1
+    a0, a1, ad, ah = V["drone"]
+    n = 4 * fps
+    for i in range(n):
+        u = smooth(0, 1, i / (n - 1))
+        s = a0 + (a1 - a0) * u
+        key(S.point(s, ad * (1 - 0.35 * u), ah * (1 - 0.3 * u)), S.point(s + 55, 0, -1), 26, frame)
+        frame += 1
+    b0, b1, bd = V["drive"]
+    n = 10 * fps
+    drive = {}
+    for i in range(n):
+        s = b0 + (b1 - b0) * i / (n - 1)
+        key(S.point(s, bd, 1.25), S.point(s + 25, bd * 0.8, 0.6), 28, frame)
+        drive[frame] = s
+        frame += 1
+    sc.frame_start, sc.frame_end = 1, frame - 1
+    return cam, drive
+
+
 if __name__ == "__main__":
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     site = next((a.split("=", 1)[1] for a in argv if a.startswith("--site=")), SITE)
@@ -1033,5 +1080,30 @@ if __name__ == "__main__":
             bpy.ops.render.render(write_still=True)
             with open(os.path.join(outdir, f"{key}_stations.json"), "w", encoding="utf-8") as fp:
                 json.dump(station_overlay(sc, S, cam), fp, ensure_ascii=False)
+    if "--video" in argv:
+        vdir = os.path.join(outdir, "video")
+        os.makedirs(vdir, exist_ok=True)
+        vcam, drive = setup_video(S, site)
+        sc.cycles.samples = 10
+        sc.render.resolution_percentage = 50
+        sc.render.use_persistent_data = True
+        sc.render.filepath = os.path.join(vdir, "f_####")
+        for a in argv:
+            if a.startswith("--frames="):
+                f0, f1 = a.split("=", 1)[1].split("-")
+                sc.frame_start, sc.frame_end = int(f0), int(f1)
+        data = {}
+        for f in range(sc.frame_start, sc.frame_end + 1):
+            sc.frame_set(f)
+            d = station_overlay(sc, S, vcam)
+            if f in drive:
+                d["drive_s"] = drive[f]
+                d["drive_name"] = sta_name(drive[f])
+            data[f] = d
+        meta = {"title": S.title, "s0": S.work[0], "s1": S.work[1]}
+        with open(os.path.join(vdir, "stations.json"), "w", encoding="utf-8") as fp:
+            json.dump({"meta": meta, "frames": data}, fp, ensure_ascii=False)
+        if "--overlay-only" not in argv:
+            bpy.ops.render.render(animation=True)
     if "--save" in argv:
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(HERE, f"habasen_{site}.blend"))
