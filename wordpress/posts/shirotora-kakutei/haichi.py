@@ -14,6 +14,9 @@ GAZOU = {
   '01': (6472, u'<!-- wp:heading {"level":3,"fontSize":"medium"} -->\n<h3 class="wp-block-heading has-medium-font-size">決まったこと',
          u'白トラの行政処分が令和8年10月1日から重くなり、車が使えない日数が延びることを示す図。白いトラックとカレンダーの絵。',
          u'10月1日以降の違反から、新しい基準で処分されます。', True),
+  '02': (6473, u'<!-- wp:paragraph {"fontSize":"medium"} -->\n<p class="has-medium-font-size">白トラを商売として続けていれば',
+         u'許可なく運送の商売をしたときの、車が使えない日数の変化を示す図。1回目は60日から120日に、2回目は120日から180日に延びる。',
+         u'左が9月30日までの違反、右が10月1日以降の違反です。', False),
 }
 
 def yobu(p, obj=None):
