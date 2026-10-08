@@ -17,6 +17,15 @@ GAZOU = {
   '02': (6473, u'<!-- wp:paragraph {"fontSize":"medium"} -->\n<p class="has-medium-font-size">白トラを商売として続けていれば',
          u'許可なく運送の商売をしたときの、車が使えない日数の変化を示す図。1回目は60日から120日に、2回目は120日から180日に延びる。',
          u'左が9月30日までの違反、右が10月1日以降の違反です。', False),
+  '03': (6476, u'<!-- wp:paragraph {"fontSize":"medium"} -->\n<p class="has-medium-font-size">あわせて、8月の記事で',
+         u'使用禁止になると、車検証を返し、ナンバーを預けることを示す図。その間、その車は道路を走れない。書類とナンバーの板の絵。',
+         u'今回の改正で、通達に新しく書き加えられた決まりです。', False),
+  '04': (6477, u'<!-- wp:heading {"level":3,"fontSize":"medium"} -->\n<h3 class="wp-block-heading has-medium-font-size">岩手でも',
+         u'無許可の業者に運送を頼んだ場合、頼んだ側は4月から100万円以下の罰金、運んだ側は10月から車が使えない日数が延びたことを示す図。',
+         u'4月は頼む側、10月は運ぶ側。半年で両方の決まりが強まりました。', False),
+  '05': (6478, u'<!-- wp:heading {"level":3,"fontSize":"medium"} -->\n<h3 class="wp-block-heading has-medium-font-size">まとめ',
+         u'運送を頼む前にナンバーの色を見ることを示す図。緑ナンバーは他社の荷物を運べる。白ナンバーで運べるのは基本、自社の荷物。',
+         u'他社の荷物を運ぶトラックなら、ナンバーは緑です。', False),
 }
 
 def yobu(p, obj=None):
