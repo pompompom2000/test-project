@@ -65,14 +65,14 @@ const cover = [
 
   ...blank(1),
   band(D.cast_title),
-  mk([1100, 2900, 2400, 2672], [
-    new TableRow({ children: D.cast_head.map((h, i) => cell(h, [1100, 2900, 2400, 2672][i],
+  mk(D._cast_cols, [
+    new TableRow({ children: D.cast_head.map((h, i) => cell(h, D._cast_cols[i],
       { shade: HEAD, bold: true, go: true, align: i === 1 ? undefined : AlignmentType.CENTER })) }),
     ...D.cast.map(([no, what, kyoka, car]) => new TableRow({ children: [
-      cell(no, 1100, { bold: true, go: true, align: AlignmentType.CENTER }),
-      cell(what, 2900),
-      cell(kyoka, 2400, { align: AlignmentType.CENTER, bold: true }),
-      cell(car, 2672, { align: AlignmentType.CENTER, bold: no === "甲社" }),
+      cell(no, D._cast_cols[0], { bold: true, go: true, align: AlignmentType.CENTER }),
+      cell(what, D._cast_cols[1]),
+      cell(kyoka, D._cast_cols[2], { align: AlignmentType.CENTER, bold: true }),
+      cell(car, D._cast_cols[3], { align: AlignmentType.CENTER, bold: no === D.cast[0][0] }),
     ] })),
   ]),
   mk([W], [new TableRow({ children: [cell(D.cast_note, W, { top: true, size: 17, shade: WARN })] })]),

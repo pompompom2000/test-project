@@ -52,7 +52,8 @@ td p, th p { margin: 0; line-height: 1.6; }
 .cast th { text-align: center; width: auto; }
 .cast td { text-align: center; }
 .cast td.l { text-align: left; }
-.cast td.no { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700; width: 14mm; }
+.cast td.no { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700;
+              width: 22mm; white-space: nowrap; }
 .band { background: #16395c; color: #fff; font-family: "Noto Sans CJK JP",sans-serif;
         font-weight: 700; font-size: 10.5pt; padding: 1.3mm 2.5mm; margin: 0 0 2mm;
         break-after: avoid; }

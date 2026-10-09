@@ -54,7 +54,8 @@ td p, th p { margin: 0; line-height: 1.6; }
 .cast th { text-align: center; width: auto; }
 .cast td { text-align: center; font-size: 9pt; }
 .cast td.l { text-align: left; }
-.cast td.no { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700; width: 13mm; }
+.cast td.no { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700;
+              width: 22mm; white-space: nowrap; }
 .box { border: .4pt solid #8a6100; background: #fdf4e2; padding: 2.5mm 3mm; margin: 0 0 3mm;
        break-inside: avoid; }
 .box p { margin: 0; font-size: 8.5pt; line-height: 1.6; }
@@ -84,7 +85,8 @@ h.append("<table>%s</table>" % rows([
                 "※運輸支局の電話受付は平日 8:30〜11:45／13:00〜17:00。昼休みは出ません"]),
     ("応対者", ["部署：　　　　　　　　　役職：　　　　　　　　　氏名："]),
     ("当社担当", ["氏名："]),
-    ("この照会の当事者", ["□ 甲社〔緑〕　　□ 乙社〔白〕　　□ 丙社〔白〕　　□ 丁社　　□ 戊〔白〕",
+    ("この照会の当事者", ["□ A運送〔緑〕　　□ B砕石〔白〕　　□ C砂利店〔白〕",
+                          "□ D建設　　□ E運転者〔白〕",
                           "□ その他（　　　　　　　　　　　　　　　　　　　　　　　　　　　）"]),
 ]))
 
@@ -118,11 +120,11 @@ h.append('<table class="next"><tr><th style="width:10mm"></th><th>内容</th>'
          % "".join('<tr><td class="c">□</td><td>%s</td><td>&nbsp;</td></tr>' % e(t) for t in NEXT))
 
 h.append('<div class="band">仮称の対照（照会書と同じ記号で書いてください）</div>')
-CAST = [("甲社", "運送事業者（大型ダンプ5両）", "有（一般貨物）", "〔緑〕事業用"),
-        ("乙社", "砕石の製造販売業者。甲社の親会社", "無", "〔白〕自家用"),
-        ("丙社", "砂利・砕石の販売業者", "無", "〔白〕自家用"),
-        ("丁社", "建設業者（元請）", "無", "―"),
-        ("戊", "個人。自ら運転する（持込み運転者）", "無", "〔白〕自家用")]
+CAST = [("A運送", "運送事業者（大型ダンプ5両）", "有（一般貨物）", "〔緑〕事業用"),
+        ("B砕石", "砕石の製造販売業者。A運送の親会社", "無", "〔白〕自家用"),
+        ("C砂利店", "砂利・砕石の販売業者", "無", "〔白〕自家用"),
+        ("D建設", "建設業者（元請）", "無", "―"),
+        ("E運転者", "個人。自ら運転する（持込み運転者）", "無", "〔白〕自家用")]
 h.append('<table class="cast"><tr><th>仮称</th><th>どのような会社か</th>'
          '<th>運送事業の許可</th><th>ナンバー</th></tr>%s</table>'
          % "".join('<tr><td class="no">%s</td><td class="l">%s</td><td>%s</td><td>%s</td></tr>'
@@ -133,7 +135,7 @@ h.append("<table>%s</table>" % rows([("実名の控え（社内限り・任意�
 
 h.append('<div class="box">%s</div>' % "".join("<p>%s</p>" % e(t) for t in [
     "書き方の注意",
-    "・会社名は仮称（甲社〔緑〕・乙社〔白〕など）で書くこと。聞くときも仮称で聞きます。",
+    "・会社名は仮称（A運送〔緑〕・B砕石〔白〕など）で書くこと。聞くときも仮称で聞きます。",
     "　実名で記録すると、実際に話した内容と記録が食い違い、あとで読み返せなくなります。",
     "　仮称と実名の対応表は 21_運輸局への照会事例集.md にあります。この票には書きません。",
     "・応対者の氏名と日付は必ず取ること。後から「誰に聞いたか」が分からない記録は使えません。",
