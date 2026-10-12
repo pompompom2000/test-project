@@ -39,7 +39,9 @@
     "vrs18Norm": 26.42,
     "empirical": 16.1,
     "evVrs18Low": 1.162,
-    "evEmpiricalLow": 0.708
+    "evEmpiricalLow": 0.708,
+    "hit": true,
+    "payout": 530
    },
    {
     "venue": "東京",
@@ -54,7 +56,9 @@
     "vrs18Norm": 39.89,
     "empirical": 26.2,
     "evVrs18Low": 1.157,
-    "evEmpiricalLow": 0.76
+    "evEmpiricalLow": 0.76,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "京都",
@@ -69,7 +73,9 @@
     "vrs18Norm": 14.26,
     "empirical": 2.1,
     "evVrs18Low": 1.155,
-    "evEmpiricalLow": 0.17
+    "evEmpiricalLow": 0.17,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "京都",
@@ -84,7 +90,9 @@
     "vrs18Norm": 31.0,
     "empirical": 16.1,
     "evVrs18Low": 1.085,
-    "evEmpiricalLow": 0.564
+    "evEmpiricalLow": 0.564,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -99,7 +107,9 @@
     "vrs18Norm": 33.74,
     "empirical": 26.2,
     "evVrs18Low": 1.08,
-    "evEmpiricalLow": 0.838
+    "evEmpiricalLow": 0.838,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -114,7 +124,9 @@
     "vrs18Norm": 9.07,
     "empirical": 2.1,
     "evVrs18Low": 1.07,
-    "evEmpiricalLow": 0.248
+    "evEmpiricalLow": 0.248,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -129,7 +141,9 @@
     "vrs18Norm": 16.26,
     "empirical": 2.1,
     "evVrs18Low": 1.057,
-    "evEmpiricalLow": 0.137
+    "evEmpiricalLow": 0.137,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "京都",
@@ -144,7 +158,9 @@
     "vrs18Norm": 37.66,
     "empirical": 26.2,
     "evVrs18Low": 1.054,
-    "evEmpiricalLow": 0.734
+    "evEmpiricalLow": 0.734,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -159,7 +175,9 @@
     "vrs18Norm": 19.34,
     "empirical": 16.1,
     "evVrs18Low": 1.044,
-    "evEmpiricalLow": 0.869
+    "evEmpiricalLow": 0.869,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "京都",
@@ -174,7 +192,9 @@
     "vrs18Norm": 39.92,
     "empirical": 26.2,
     "evVrs18Low": 1.038,
-    "evEmpiricalLow": 0.681
+    "evEmpiricalLow": 0.681,
+    "hit": true,
+    "payout": 210
    },
    {
     "venue": "京都",
@@ -189,7 +209,9 @@
     "vrs18Norm": 21.0,
     "empirical": 16.1,
     "evVrs18Low": 1.029,
-    "evEmpiricalLow": 0.789
+    "evEmpiricalLow": 0.789,
+    "hit": true,
+    "payout": 350
    },
    {
     "venue": "京都",
@@ -204,7 +226,9 @@
     "vrs18Norm": 30.85,
     "empirical": 26.2,
     "evVrs18Low": 1.018,
-    "evEmpiricalLow": 0.865
+    "evEmpiricalLow": 0.865,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -219,7 +243,9 @@
     "vrs18Norm": 9.14,
     "empirical": 2.1,
     "evVrs18Low": 1.015,
-    "evEmpiricalLow": 0.233
+    "evEmpiricalLow": 0.233,
+    "hit": false,
+    "payout": 0
    },
    {
     "venue": "東京",
@@ -234,9 +260,20 @@
     "vrs18Norm": 9.63,
     "empirical": 2.1,
     "evVrs18Low": 1.011,
-    "evEmpiricalLow": 0.221
+    "evEmpiricalLow": 0.221,
+    "hit": false,
+    "payout": 0
    }
-  ]
+  ],
+  "result": {
+   "bets": 14,
+   "stake": 1400,
+   "hits": 3,
+   "return": 1090,
+   "profit": -310,
+   "roi": 0.779,
+   "note": "実際には買っていない。見送り判断の検証用。14点では運の幅が大きく、1日分では判定にならない"
+  }
  },
  "whatWouldChangeThis": "市場を25%以上上回る確率推定が検証で確認できたとき。現時点で検証した8つの材料（得意コース・同距離実績・前走着順・休み明け・斤量・脚質・外厩・市場再校正）の最大効果は再校正の相対11%で、それもp=0.150で有意でない。VRS18は本日から前向きに追跡を開始したところで、判定材料はまだない",
  "note": "買わなくても24レース分の発走前記録は残っているので検証は進む",

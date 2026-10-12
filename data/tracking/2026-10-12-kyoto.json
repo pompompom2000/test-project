@@ -245,7 +245,38 @@
       22.8
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     14,
+     8,
+     10,
+     12,
+     13,
+     4,
+     6,
+     1,
+     9,
+     11,
+     2,
+     3,
+     15,
+     7,
+     5
+    ],
+    "inTheMoney": [
+     8,
+     10,
+     14
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.3522,
+     "vrs18Raw": 0.3816,
+     "vrs18Norm": 0.3801
+    }
+   }
   },
   {
    "race": "2R",
@@ -431,7 +462,35 @@
       4.3
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     11,
+     10,
+     6,
+     4,
+     2,
+     8,
+     3,
+     7,
+     12,
+     5,
+     1,
+     9
+    ],
+    "inTheMoney": [
+     6,
+     10,
+     11
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.4768,
+     "vrs18Raw": 0.4632,
+     "vrs18Norm": 0.4621
+    }
+   }
   },
   {
    "race": "3R",
@@ -617,7 +676,35 @@
       1.8
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     5,
+     11,
+     6,
+     10,
+     1,
+     8,
+     9,
+     4,
+     7,
+     2,
+     12,
+     3
+    ],
+    "inTheMoney": [
+     5,
+     6,
+     11
+    ],
+    "marketAxisHit": false,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.5685,
+     "vrs18Raw": 0.5606,
+     "vrs18Norm": 0.5477
+    }
+   }
   },
   {
    "race": "4R",
@@ -855,7 +942,39 @@
       9.6
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     12,
+     5,
+     13,
+     9,
+     14,
+     16,
+     7,
+     8,
+     4,
+     15,
+     2,
+     10,
+     1,
+     3,
+     6,
+     11
+    ],
+    "inTheMoney": [
+     5,
+     12,
+     13
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.3966,
+     "vrs18Raw": 0.3643,
+     "vrs18Norm": 0.3648
+    }
+   }
   },
   {
    "race": "5R",
@@ -1002,7 +1121,32 @@
       1.4
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     6,
+     2,
+     4,
+     9,
+     5,
+     3,
+     7,
+     1,
+     8
+    ],
+    "inTheMoney": [
+     2,
+     4,
+     6
+    ],
+    "marketAxisHit": false,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.5243,
+     "vrs18Raw": 0.4931,
+     "vrs18Norm": 0.4953
+    }
+   }
   },
   {
    "race": "6R",
@@ -1188,7 +1332,35 @@
       1.8
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     3,
+     7,
+     11,
+     1,
+     5,
+     12,
+     8,
+     4,
+     10,
+     2,
+     6,
+     9
+    ],
+    "inTheMoney": [
+     3,
+     7,
+     11
+    ],
+    "marketAxisHit": false,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.4885,
+     "vrs18Raw": 0.462,
+     "vrs18Norm": 0.4587
+    }
+   }
   },
   {
    "race": "7R",
@@ -1426,7 +1598,39 @@
       5.0
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     2,
+     15,
+     9,
+     7,
+     12,
+     16,
+     3,
+     5,
+     8,
+     13,
+     4,
+     1,
+     10,
+     6,
+     11,
+     14
+    ],
+    "inTheMoney": [
+     2,
+     9,
+     15
+    ],
+    "marketAxisHit": false,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.3864,
+     "vrs18Raw": 0.3453,
+     "vrs18Norm": 0.3458
+    }
+   }
   },
   {
    "race": "8R",
@@ -1599,7 +1803,34 @@
       2.2
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     9,
+     1,
+     7,
+     2,
+     8,
+     5,
+     3,
+     6,
+     11,
+     4,
+     10
+    ],
+    "inTheMoney": [
+     1,
+     7,
+     9
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.507,
+     "vrs18Raw": 0.5426,
+     "vrs18Norm": 0.5396
+    }
+   }
   },
   {
    "race": "9R",
@@ -1785,7 +2016,35 @@
       2.2
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     4,
+     3,
+     12,
+     1,
+     2,
+     7,
+     5,
+     6,
+     8,
+     11,
+     10,
+     9
+    ],
+    "inTheMoney": [
+     3,
+     4,
+     12
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.4094,
+     "vrs18Raw": 0.4488,
+     "vrs18Norm": 0.4424
+    }
+   }
   },
   {
    "race": "10R",
@@ -1945,7 +2204,33 @@
       2.5
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     5,
+     2,
+     9,
+     4,
+     7,
+     1,
+     6,
+     8,
+     3,
+     10
+    ],
+    "inTheMoney": [
+     2,
+     5,
+     9
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.4134,
+     "vrs18Raw": 0.4499,
+     "vrs18Norm": 0.4526
+    }
+   }
   },
   {
    "race": "11R",
@@ -2211,15 +2496,38 @@
     }
    ],
    "result": {
+    "order": [
+     1,
+     4,
+     9,
+     8,
+     15,
+     13,
+     5,
+     18,
+     16,
+     11,
+     17,
+     14,
+     6,
+     10,
+     3,
+     12,
+     2,
+     7
+    ],
     "inTheMoney": [
      1,
      4,
      9
     ],
-    "winner": 1,
     "marketAxisHit": true,
     "vrs18AxisHit": true,
-    "source": "ワイド的中パターンから確定（着順は無料範囲では非公開）"
+    "logLoss": {
+     "market": 0.3499,
+     "vrs18Raw": 0.3591,
+     "vrs18Norm": 0.3578
+    }
    }
   },
   {
@@ -2458,7 +2766,39 @@
       4.1
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     10,
+     12,
+     9,
+     15,
+     1,
+     14,
+     6,
+     3,
+     16,
+     13,
+     8,
+     7,
+     11,
+     2,
+     4,
+     5
+    ],
+    "inTheMoney": [
+     9,
+     10,
+     12
+    ],
+    "marketAxisHit": false,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.4619,
+     "vrs18Raw": 0.4777,
+     "vrs18Norm": 0.4625
+    }
+   }
   }
  ]
 }

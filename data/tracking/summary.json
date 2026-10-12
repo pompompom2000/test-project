@@ -1,7 +1,21 @@
 {
- "updatedAt": "2026-10-12T02:08:23",
- "all": null,
- "axisSplitOnly": null,
- "pending": 24,
+ "updatedAt": "2026-10-12T08:05:55",
+ "all": {
+  "races": 24,
+  "marketAxisHit": 17,
+  "vrs18AxisHit": 16,
+  "logLoss_market": 0.4329,
+  "logLoss_vrs18Raw": 0.4423,
+  "logLoss_vrs18Norm": 0.4381
+ },
+ "axisSplitOnly": {
+  "races": 5,
+  "marketAxisHit": 4,
+  "vrs18AxisHit": 3,
+  "logLoss_market": 0.4191,
+  "logLoss_vrs18Raw": 0.4585,
+  "logLoss_vrs18Norm": 0.45
+ },
+ "pending": 0,
  "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。"
 }

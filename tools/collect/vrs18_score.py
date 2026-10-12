@@ -10,6 +10,7 @@ netkeiba の無料DB(db.netkeiba.com)は当日〜数日は未反映で、確認�
 import glob, html, json, math, os, re, sys, time, urllib.request
 
 DB = 'https://db.netkeiba.com/race/{rid}/'
+SAMEDAY = 'https://race.netkeiba.com/race/result.html?race_id={rid}'
 UA = {'User-Agent': 'Mozilla/5.0'}
 TRACK = 'data/tracking'
 
@@ -17,10 +18,48 @@ TRACK = 'data/tracking'
 _CACHE = {}
 
 
+def _sameday(rid):
+    """当日結果ページ。レース直後は2着以降がぼかされるが、数時間後に全着順が出る。"""
+    with urllib.request.urlopen(urllib.request.Request(SAMEDAY.format(rid=rid), headers=UA),
+                                timeout=40) as r:
+        s = r.read().decode('utf-8', 'replace')
+    i = s.find('Result_Table')
+    if i < 0:
+        return None
+    order = []
+    for row in re.findall(r'(?is)<tr[^>]*class="[^"]*HorseList[^"]*"[^>]*>(.*?)</tr>', s[i:]):
+        if 'Bokashi_Img' in row:
+            return None                      # まだ有料で隠れている
+        rk = re.search(r'(?is)<div class="Rank">(\d+)</div>', row)
+        nums = re.findall(r'(?is)<td class="Num[^"]*">\s*<div>(\d+)</div>', row)
+        if rk and len(nums) >= 2:
+            order.append((int(rk.group(1)), int(nums[1])))
+    if not order:
+        return None
+    pay = {}
+    j = s.find('Payout_Detail_Table')
+    m = re.search(r'(?is)<tr class="Fukusho[^"]*">(.*?)</tr>', s[j:j + 4000])
+    if m and 'Bokashi_Img' not in m.group(1):
+        res = re.search(r'(?is)<td\s*class="Result">(.*?)</td>', m.group(1))
+        amt = re.search(r'(?is)<td class="Payout"><span>(.*?)</span>', m.group(1))
+        if res and amt:
+            nos = [int(x) for x in re.findall(r'>\s*(\d+)\s*<', res.group(1))]
+            yens = [int(x.replace(',', '')) for x in re.findall(r'([\d,]+)円', amt.group(1))]
+            pay = dict(zip(nos, yens))
+    return {'order': [n for _, n in sorted(order)], 'placePayout': pay}
+
+
 def race_result(rid):
     """着順(馬番リスト)と複勝払戻(馬番->円)。未反映なら None。同一実行内でキャッシュ。"""
     if rid in _CACHE:
         return _CACHE[rid]
+    try:
+        sd = _sameday(rid)
+    except Exception:
+        sd = None
+    if sd:
+        _CACHE[rid] = sd
+        return sd
     with urllib.request.urlopen(urllib.request.Request(DB.format(rid=rid), headers=UA),
                                 timeout=40) as r:
         s = r.read().decode('euc-jp', 'replace')
@@ -166,10 +205,11 @@ def main():
             return None
         n = len(rs)
         o = {'races': n,
-             'marketAxisHit': sum(r['result']['marketAxisHit'] for r in rs),
-             'vrs18AxisHit': sum(r['result']['vrs18AxisHit'] for r in rs)}
+             'marketAxisHit': sum(bool(r['result'].get('marketAxisHit')) for r in rs),
+             'vrs18AxisHit': sum(bool(r['result'].get('vrs18AxisHit')) for r in rs)}
         for k in ('market', 'vrs18Raw', 'vrs18Norm'):
-            v = [r['result']['logLoss'][k] for r in rs if r['result']['logLoss'][k] is not None]
+            v = [r['result']['logLoss'][k] for r in rs
+                 if (r['result'].get('logLoss') or {}).get(k) is not None]
             o[f'logLoss_{k}'] = round(sum(v) / len(v), 4) if v else None
         return o
 
