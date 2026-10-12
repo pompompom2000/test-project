@@ -12,6 +12,7 @@ const FILES = [
   'js/games/color-quiz.js',
   'js/games/tama-ire.js',
   'js/games/memory.js',
+  'css/games/memory.css',
   'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',

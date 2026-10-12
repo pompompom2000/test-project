@@ -1,0 +1,134 @@
+/* えあわせ カード */
+.memory-root {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.memory-turn {
+  --team: #ff8a3d;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 6px 28px;
+  min-height: 72px;
+  border-radius: 999px;
+  background: var(--team);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+}
+.memory-turn-emoji { font-size: clamp(40px, 6vw, 56px); line-height: 1; }
+.memory-turn-text { font-size: clamp(22px, 3.6vw, 34px); white-space: nowrap; }
+.memory-turn-change { animation: memory-turn-in 0.5s ease-out; }
+.memory-turn.memory-again { animation: memory-again 0.6s ease-in-out 2; }
+@keyframes memory-turn-in { 0% { transform: scale(0.6); opacity: 0; } 70% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes memory-again { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+.memory-wrap {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.memory-board {
+  display: grid;
+  --card-w: 120px;
+  grid-template-columns: repeat(4, 120px);
+  grid-auto-rows: 150px;
+  gap: 12px;
+}
+
+.memory-card {
+  --team: #ff8a3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 80px;
+  min-height: 80px;
+  padding: 0;
+  background: none;
+  perspective: 900px;
+}
+
+.memory-inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1.2);
+}
+.memory-card.memory-up .memory-inner { transform: rotateY(180deg); }
+
+.memory-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: clamp(14px, calc(var(--card-w) * 0.16), 26px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow);
+  line-height: 1;
+}
+
+.memory-back {
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.35) 0 12%, transparent 13%),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.25) 0 10%, transparent 11%),
+    linear-gradient(135deg, #9b7bff, #6f8cff);
+  border: 5px solid #fff;
+  font-size: calc(var(--card-w) * 0.38);
+  color: #fff;
+}
+
+.memory-front {
+  transform: rotateY(180deg);
+  background: #fff;
+  border: 5px solid #f0e6d6;
+  font-size: calc(var(--card-w) * 0.6);
+}
+
+.memory-card.memory-matched .memory-front {
+  border: 8px solid var(--team);
+  background: color-mix(in srgb, var(--team) 14%, #fff);
+}
+
+/* そろった ときの キラッ */
+.memory-card.memory-sparkle .memory-inner { animation: memory-pop 0.6s ease-out; }
+.memory-card.memory-sparkle::after {
+  content: '✨';
+  position: absolute;
+  top: -12%;
+  right: -10%;
+  font-size: calc(var(--card-w) * 0.4);
+  pointer-events: none;
+  animation: memory-twinkle 1.2s ease-out forwards;
+  z-index: 2;
+}
+@keyframes memory-pop {
+  0% { transform: rotateY(180deg) scale(1); }
+  40% { transform: rotateY(180deg) scale(1.15); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+@keyframes memory-twinkle {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  30% { transform: scale(1.3) rotate(20deg); opacity: 1; }
+  100% { transform: scale(0.9) rotate(0deg); opacity: 0; }
+}
+
+@media (max-height: 600px) {
+  .memory-turn { min-height: 56px; padding: 4px 20px; }
+}
