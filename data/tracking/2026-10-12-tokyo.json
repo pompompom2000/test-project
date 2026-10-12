@@ -1,0 +1,2492 @@
+{
+ "meet": "2026-10-12 4回東京5日目",
+ "venue": "東京",
+ "date": "2026-10-12",
+ "recordedAt": "2026-10-12T10:05+09:00",
+ "recordedBefore": "全12レース発走前（取得時点で全レース status=middle を確認）",
+ "source": {
+  "vrs18": "https://note.com/vrs18/n/nbee11c065c28",
+  "post": "https://x.com/VRaceSpeed18/status/2109436142810775596",
+  "publishedAt": "2026-10-12T09:06",
+  "extraction": "予測値は記事内のグラフ画像。画像から読み取って数値化した"
+ },
+ "framing": "私の運用ルールは「複勝オッズ最安を軸」＝市場そのもの。実質「市場 vs VRS18」の比較。",
+ "method": {
+  "market": "複勝オッズ範囲の中点から 0.8/odds で算出。レース内正規化はしない。Σ=3へ正規化すると断然人気がいる組で100%を超えるため(東京3Rで105.8%になった)。複勝オッズ下限1.0倍なので上限は80%。",
+  "vrs18": "出力が確率分布として正規化されていない(勝率合計110.3〜185.0%、複勝率合計271.5〜423.3%)。vrs18Normは理論値へ正規化した値、vrs18Rawは記事の生値。軸の選択は単調変換なので正規化の有無に依存しない。"
+ },
+ "prereg": {
+  "主指標": "軸が複勝圏に入ったか（8頭以上は3着まで、5-7頭は2着まで）",
+  "副指標": "全出走馬の複勝予測に対する対数損失。生値と正規化後の両方で算出する",
+  "注意": "12レースでも検出力は低い。軸が10/12で一致しているので、差が出るのは2レースのみ。"
+ },
+ "axisAgreement": "10/12",
+ "races": [
+  {
+   "race": "1R",
+   "raceId": "202605040501",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:45:48",
+   "marketSum": 2.823,
+   "axis": {
+    "market": {
+     "no": 15,
+     "name": "イトウカカリチョウ",
+     "place": 66.67
+    },
+    "vrs18": {
+     "no": 15,
+     "name": "イトウカカリチョウ",
+     "placeNorm": 58.44,
+     "placeRaw": 65.2
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 126.84,
+    "place": 334.7,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "ノーブルフォース",
+     "market": 2.38,
+     "vrs18Raw": 1.92,
+     "vrs18Norm": 1.72,
+     "vrs18Win": 1.36,
+     "vrs18Odds": 209.0,
+     "placeOdds": [
+      20.2,
+      46.9
+     ]
+    },
+    {
+     "no": 2,
+     "name": "トロフィアス",
+     "market": 9.41,
+     "vrs18Raw": 11.83,
+     "vrs18Norm": 10.6,
+     "vrs18Win": 4.07,
+     "vrs18Odds": 140.9,
+     "placeOdds": [
+      5.3,
+      11.7
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ファイアリーボルト",
+     "market": 34.04,
+     "vrs18Raw": 38.08,
+     "vrs18Norm": 34.13,
+     "vrs18Win": 11.16,
+     "vrs18Odds": 32.6,
+     "placeOdds": [
+      1.6,
+      3.1
+     ]
+    },
+    {
+     "no": 4,
+     "name": "オーケーエース",
+     "market": 36.36,
+     "vrs18Raw": 49.13,
+     "vrs18Norm": 44.04,
+     "vrs18Win": 15.74,
+     "vrs18Odds": 16.0,
+     "placeOdds": [
+      1.5,
+      2.9
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ビスクヴィート",
+     "market": 8.89,
+     "vrs18Raw": 17.62,
+     "vrs18Norm": 15.79,
+     "vrs18Win": 6.22,
+     "vrs18Odds": 121.8,
+     "placeOdds": [
+      5.6,
+      12.4
+     ]
+    },
+    {
+     "no": 6,
+     "name": "アンバーバレット",
+     "market": 61.54,
+     "vrs18Raw": 55.15,
+     "vrs18Norm": 49.43,
+     "vrs18Win": 22.11,
+     "vrs18Odds": 4.9,
+     "placeOdds": [
+      1.1,
+      1.5
+     ]
+    },
+    {
+     "no": 7,
+     "name": "ライジングファイト",
+     "market": 4.64,
+     "vrs18Raw": 10.74,
+     "vrs18Norm": 9.63,
+     "vrs18Win": 4.15,
+     "vrs18Odds": 157.0,
+     "placeOdds": [
+      10.5,
+      24.0
+     ]
+    },
+    {
+     "no": 8,
+     "name": "カシノヴィタ",
+     "market": 3.17,
+     "vrs18Raw": 5.18,
+     "vrs18Norm": 4.64,
+     "vrs18Win": 3.31,
+     "vrs18Odds": 203.8,
+     "placeOdds": [
+      15.3,
+      35.2
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ダイチマイスター",
+     "market": 15.84,
+     "vrs18Raw": 17.98,
+     "vrs18Norm": 16.12,
+     "vrs18Win": 6.51,
+     "vrs18Odds": 72.2,
+     "placeOdds": [
+      3.2,
+      6.9
+     ]
+    },
+    {
+     "no": 10,
+     "name": "アドバンスアゲイン",
+     "market": 2.62,
+     "vrs18Raw": 5.54,
+     "vrs18Norm": 4.97,
+     "vrs18Win": 2.36,
+     "vrs18Odds": 114.4,
+     "placeOdds": [
+      18.4,
+      42.6
+     ]
+    },
+    {
+     "no": 11,
+     "name": "エマルタ",
+     "market": 2.95,
+     "vrs18Raw": 2.6,
+     "vrs18Norm": 2.33,
+     "vrs18Win": 0.8,
+     "vrs18Odds": 533.0,
+     "placeOdds": [
+      16.4,
+      37.9
+     ]
+    },
+    {
+     "no": 12,
+     "name": "プリマラクーン",
+     "market": 2.09,
+     "vrs18Raw": 0.85,
+     "vrs18Norm": 0.76,
+     "vrs18Win": 0.44,
+     "vrs18Odds": 269.1,
+     "placeOdds": [
+      23.1,
+      53.5
+     ]
+    },
+    {
+     "no": 13,
+     "name": "ヤマニンスペッキオ",
+     "market": 17.78,
+     "vrs18Raw": 28.43,
+     "vrs18Norm": 25.48,
+     "vrs18Win": 11.12,
+     "vrs18Odds": 37.0,
+     "placeOdds": [
+      2.9,
+      6.1
+     ]
+    },
+    {
+     "no": 14,
+     "name": "キタノエフロレス",
+     "market": 3.49,
+     "vrs18Raw": 5.81,
+     "vrs18Norm": 5.21,
+     "vrs18Win": 2.3,
+     "vrs18Odds": 186.3,
+     "placeOdds": [
+      13.9,
+      32.0
+     ]
+    },
+    {
+     "no": 15,
+     "name": "イトウカカリチョウ",
+     "market": 66.67,
+     "vrs18Raw": 65.2,
+     "vrs18Norm": 58.44,
+     "vrs18Win": 28.09,
+     "vrs18Odds": 2.9,
+     "placeOdds": [
+      1.1,
+      1.3
+     ]
+    },
+    {
+     "no": 16,
+     "name": "ルバルマン",
+     "market": 10.46,
+     "vrs18Raw": 18.64,
+     "vrs18Norm": 16.71,
+     "vrs18Win": 7.1,
+     "vrs18Odds": 50.6,
+     "placeOdds": [
+      4.8,
+      10.5
+     ]
+    }
+   ]
+  },
+  {
+   "race": "2R",
+   "raceId": "202605040502",
+   "field": 12,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:16:58",
+   "marketSum": 2.531,
+   "axis": {
+    "market": {
+     "no": 2,
+     "name": "ソニックアイル",
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 2,
+     "name": "ソニックアイル",
+     "placeNorm": 55.67,
+     "placeRaw": 61.89
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 122.59,
+    "place": 333.52,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "クラオルグジェシダ",
+     "market": 43.24,
+     "vrs18Raw": 54.22,
+     "vrs18Norm": 48.77,
+     "vrs18Win": 20.23,
+     "vrs18Odds": 7.4,
+     "placeOdds": [
+      1.2,
+      2.5
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ソニックアイル",
+     "market": 72.73,
+     "vrs18Raw": 61.89,
+     "vrs18Norm": 55.67,
+     "vrs18Win": 25.15,
+     "vrs18Odds": 3.2,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ベールダウン",
+     "market": 17.2,
+     "vrs18Raw": 23.46,
+     "vrs18Norm": 21.1,
+     "vrs18Win": 9.13,
+     "vrs18Odds": 40.3,
+     "placeOdds": [
+      2.7,
+      6.6
+     ]
+    },
+    {
+     "no": 4,
+     "name": "シンボリサーブル",
+     "market": 3.67,
+     "vrs18Raw": 3.13,
+     "vrs18Norm": 2.82,
+     "vrs18Win": 1.35,
+     "vrs18Odds": 373.6,
+     "placeOdds": [
+      11.8,
+      31.8
+     ]
+    },
+    {
+     "no": 5,
+     "name": "コールオンユー",
+     "market": 7.31,
+     "vrs18Raw": 13.3,
+     "vrs18Norm": 11.96,
+     "vrs18Win": 4.7,
+     "vrs18Odds": 163.8,
+     "placeOdds": [
+      6.0,
+      15.9
+     ]
+    },
+    {
+     "no": 6,
+     "name": "アイレバルバドス",
+     "market": 12.21,
+     "vrs18Raw": 9.36,
+     "vrs18Norm": 8.42,
+     "vrs18Win": 1.7,
+     "vrs18Odds": 243.4,
+     "placeOdds": [
+      3.7,
+      9.4
+     ]
+    },
+    {
+     "no": 7,
+     "name": "コスモティタノ",
+     "market": 21.92,
+     "vrs18Raw": 41.37,
+     "vrs18Norm": 37.21,
+     "vrs18Win": 11.98,
+     "vrs18Odds": 7.0,
+     "placeOdds": [
+      2.2,
+      5.1
+     ]
+    },
+    {
+     "no": 8,
+     "name": "マホロ",
+     "market": 3.52,
+     "vrs18Raw": 7.56,
+     "vrs18Norm": 6.8,
+     "vrs18Win": 3.35,
+     "vrs18Odds": 151.6,
+     "placeOdds": [
+      12.3,
+      33.2
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ナムラジョン",
+     "market": 6.61,
+     "vrs18Raw": 13.81,
+     "vrs18Norm": 12.42,
+     "vrs18Win": 6.57,
+     "vrs18Odds": 128.8,
+     "placeOdds": [
+      6.6,
+      17.6
+     ]
+    },
+    {
+     "no": 10,
+     "name": "ビップラージャ",
+     "market": 10.96,
+     "vrs18Raw": 19.14,
+     "vrs18Norm": 17.22,
+     "vrs18Win": 6.67,
+     "vrs18Odds": 39.5,
+     "placeOdds": [
+      4.1,
+      10.5
+     ]
+    },
+    {
+     "no": 11,
+     "name": "サンレガート",
+     "market": 39.02,
+     "vrs18Raw": 52.86,
+     "vrs18Norm": 47.55,
+     "vrs18Win": 18.38,
+     "vrs18Odds": 9.3,
+     "placeOdds": [
+      1.3,
+      2.8
+     ]
+    },
+    {
+     "no": 12,
+     "name": "フォンターナドーロ",
+     "market": 14.68,
+     "vrs18Raw": 33.42,
+     "vrs18Norm": 30.06,
+     "vrs18Win": 13.38,
+     "vrs18Odds": 12.7,
+     "placeOdds": [
+      3.1,
+      7.8
+     ]
+    }
+   ]
+  },
+  {
+   "race": "3R",
+   "raceId": "202605040503",
+   "field": 11,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:47:28",
+   "marketSum": 2.063,
+   "axis": {
+    "market": {
+     "no": 8,
+     "name": "マルスレジーナ",
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 8,
+     "name": "マルスレジーナ",
+     "placeNorm": 58.96,
+     "placeRaw": 65.83
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 120.39,
+    "place": 334.98,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "ツェルプスト",
+     "market": 16.49,
+     "vrs18Raw": 35.38,
+     "vrs18Norm": 31.69,
+     "vrs18Win": 13.31,
+     "vrs18Odds": 18.6,
+     "placeOdds": [
+      2.3,
+      7.4
+     ]
+    },
+    {
+     "no": 2,
+     "name": "エレスレイプニル",
+     "market": 3.04,
+     "vrs18Raw": 10.21,
+     "vrs18Norm": 9.14,
+     "vrs18Win": 3.75,
+     "vrs18Odds": 115.1,
+     "placeOdds": [
+      11.1,
+      41.6
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ロワデュモンド",
+     "market": 17.2,
+     "vrs18Raw": 27.04,
+     "vrs18Norm": 24.22,
+     "vrs18Win": 9.26,
+     "vrs18Odds": 25.6,
+     "placeOdds": [
+      2.2,
+      7.1
+     ]
+    },
+    {
+     "no": 4,
+     "name": "モンサンラパージュ",
+     "market": 22.54,
+     "vrs18Raw": 53.95,
+     "vrs18Norm": 48.32,
+     "vrs18Win": 16.12,
+     "vrs18Odds": 16.1,
+     "placeOdds": [
+      1.7,
+      5.4
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ラインディーバ",
+     "market": 3.72,
+     "vrs18Raw": 11.01,
+     "vrs18Norm": 9.86,
+     "vrs18Win": 3.75,
+     "vrs18Odds": 174.5,
+     "placeOdds": [
+      9.1,
+      33.9
+     ]
+    },
+    {
+     "no": 6,
+     "name": "マイネルリシャール",
+     "market": 17.78,
+     "vrs18Raw": 38.19,
+     "vrs18Norm": 34.2,
+     "vrs18Win": 13.8,
+     "vrs18Odds": 13.0,
+     "placeOdds": [
+      2.1,
+      6.9
+     ]
+    },
+    {
+     "no": 7,
+     "name": "テングカゼ",
+     "market": 7.48,
+     "vrs18Raw": 17.77,
+     "vrs18Norm": 15.91,
+     "vrs18Win": 9.09,
+     "vrs18Odds": 117.1,
+     "placeOdds": [
+      4.7,
+      16.7
+     ]
+    },
+    {
+     "no": 8,
+     "name": "マルスレジーナ",
+     "market": 72.73,
+     "vrs18Raw": 65.83,
+     "vrs18Norm": 58.96,
+     "vrs18Win": 26.9,
+     "vrs18Odds": 1.9,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ライカホウ",
+     "market": 22.86,
+     "vrs18Raw": 29.67,
+     "vrs18Norm": 26.57,
+     "vrs18Win": 10.6,
+     "vrs18Odds": 89.0,
+     "placeOdds": [
+      1.7,
+      5.3
+     ]
+    },
+    {
+     "no": 10,
+     "name": "キャッチアップ",
+     "market": 3.4,
+     "vrs18Raw": 6.35,
+     "vrs18Norm": 5.69,
+     "vrs18Win": 2.53,
+     "vrs18Odds": 299.7,
+     "placeOdds": [
+      10.0,
+      37.1
+     ]
+    },
+    {
+     "no": 11,
+     "name": "コスモバルムンク",
+     "market": 19.05,
+     "vrs18Raw": 39.58,
+     "vrs18Norm": 35.45,
+     "vrs18Win": 11.28,
+     "vrs18Odds": 11.3,
+     "placeOdds": [
+      2.0,
+      6.4
+     ]
+    }
+   ]
+  },
+  {
+   "race": "4R",
+   "raceId": "202605040504",
+   "field": 14,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:17:28",
+   "marketSum": 2.928,
+   "axis": {
+    "market": {
+     "no": 8,
+     "name": "セイウンビッグバン",
+     "place": 42.11
+    },
+    "vrs18": {
+     "no": 5,
+     "name": "エポカスピーガ",
+     "placeNorm": 39.08,
+     "placeRaw": 55.13
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 185.04,
+    "place": 423.25,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "ヒロピアーナ",
+     "market": 3.88,
+     "vrs18Raw": 3.77,
+     "vrs18Norm": 2.67,
+     "vrs18Win": 4.28,
+     "vrs18Odds": 335.3,
+     "placeOdds": [
+      17.5,
+      23.7
+     ]
+    },
+    {
+     "no": 2,
+     "name": "バンデルオーラ",
+     "market": 34.04,
+     "vrs18Raw": 44.61,
+     "vrs18Norm": 31.62,
+     "vrs18Win": 16.57,
+     "vrs18Odds": 17.5,
+     "placeOdds": [
+      2.1,
+      2.6
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ゲレル",
+     "market": 15.53,
+     "vrs18Raw": 37.27,
+     "vrs18Norm": 26.42,
+     "vrs18Win": 14.04,
+     "vrs18Odds": 66.4,
+     "placeOdds": [
+      4.4,
+      5.9
+     ]
+    },
+    {
+     "no": 4,
+     "name": "セイフウサツキ",
+     "market": 32.0,
+     "vrs18Raw": 44.59,
+     "vrs18Norm": 31.61,
+     "vrs18Win": 16.33,
+     "vrs18Odds": 6.7,
+     "placeOdds": [
+      2.2,
+      2.8
+     ]
+    },
+    {
+     "no": 5,
+     "name": "エポカスピーガ",
+     "market": 31.37,
+     "vrs18Raw": 55.13,
+     "vrs18Norm": 39.08,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 30.1,
+     "placeOdds": [
+      2.2,
+      2.9
+     ]
+    },
+    {
+     "no": 6,
+     "name": "クリアクォーツ",
+     "market": 12.4,
+     "vrs18Raw": 20.81,
+     "vrs18Norm": 14.75,
+     "vrs18Win": 8.88,
+     "vrs18Odds": 82.4,
+     "placeOdds": [
+      5.5,
+      7.4
+     ]
+    },
+    {
+     "no": 7,
+     "name": "パワーホール",
+     "market": 30.77,
+     "vrs18Raw": 45.61,
+     "vrs18Norm": 32.33,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 16.3,
+     "placeOdds": [
+      2.3,
+      2.9
+     ]
+    },
+    {
+     "no": 8,
+     "name": "セイウンビッグバン",
+     "market": 42.11,
+     "vrs18Raw": 50.97,
+     "vrs18Norm": 36.13,
+     "vrs18Win": 15.07,
+     "vrs18Odds": 4.6,
+     "placeOdds": [
+      1.7,
+      2.1
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ティムール",
+     "market": 16.84,
+     "vrs18Raw": 24.04,
+     "vrs18Norm": 17.04,
+     "vrs18Win": 12.75,
+     "vrs18Odds": 35.5,
+     "placeOdds": [
+      4.1,
+      5.4
+     ]
+    },
+    {
+     "no": 10,
+     "name": "コトブキヘスペラス",
+     "market": 21.62,
+     "vrs18Raw": 13.77,
+     "vrs18Norm": 9.76,
+     "vrs18Win": 6.19,
+     "vrs18Odds": 31.5,
+     "placeOdds": [
+      3.2,
+      4.2
+     ]
+    },
+    {
+     "no": 11,
+     "name": "スラッシュ",
+     "market": 4.34,
+     "vrs18Raw": 7.66,
+     "vrs18Norm": 5.43,
+     "vrs18Win": 4.48,
+     "vrs18Odds": 183.5,
+     "placeOdds": [
+      15.7,
+      21.2
+     ]
+    },
+    {
+     "no": 12,
+     "name": "シュバルツマサムネ",
+     "market": 21.05,
+     "vrs18Raw": 30.7,
+     "vrs18Norm": 21.76,
+     "vrs18Win": 16.06,
+     "vrs18Odds": 10.4,
+     "placeOdds": [
+      3.3,
+      4.3
+     ]
+    },
+    {
+     "no": 13,
+     "name": "アヴニールドブリエ",
+     "market": 21.05,
+     "vrs18Raw": 31.53,
+     "vrs18Norm": 22.35,
+     "vrs18Win": 15.9,
+     "vrs18Odds": 25.9,
+     "placeOdds": [
+      3.3,
+      4.3
+     ]
+    },
+    {
+     "no": 14,
+     "name": "バトンロード",
+     "market": 5.78,
+     "vrs18Raw": 12.79,
+     "vrs18Norm": 9.07,
+     "vrs18Win": 7.27,
+     "vrs18Odds": 251.1,
+     "placeOdds": [
+      11.8,
+      15.9
+     ]
+    }
+   ]
+  },
+  {
+   "race": "5R",
+   "raceId": "202605040505",
+   "field": 12,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:06:53",
+   "marketSum": 2.965,
+   "axis": {
+    "market": {
+     "no": 12,
+     "name": "スパリエーラ",
+     "place": 57.14
+    },
+    "vrs18": {
+     "no": 6,
+     "name": "フォンテキアーラ",
+     "placeNorm": 46.05,
+     "placeRaw": 52.8
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 150.48,
+    "place": 343.97,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "ダンツトリノ",
+     "market": 28.07,
+     "vrs18Raw": 42.69,
+     "vrs18Norm": 37.23,
+     "vrs18Win": 15.9,
+     "vrs18Odds": 9.9,
+     "placeOdds": [
+      2.3,
+      3.4
+     ]
+    },
+    {
+     "no": 2,
+     "name": "スリーエンジェル",
+     "market": 17.58,
+     "vrs18Raw": 22.43,
+     "vrs18Norm": 19.56,
+     "vrs18Win": 9.37,
+     "vrs18Odds": 70.2,
+     "placeOdds": [
+      3.6,
+      5.5
+     ]
+    },
+    {
+     "no": 3,
+     "name": "エリティエ",
+     "market": 10.26,
+     "vrs18Raw": 8.97,
+     "vrs18Norm": 7.82,
+     "vrs18Win": 4.27,
+     "vrs18Odds": 52.4,
+     "placeOdds": [
+      6.0,
+      9.6
+     ]
+    },
+    {
+     "no": 4,
+     "name": "ピコチェリー",
+     "market": 11.43,
+     "vrs18Raw": 22.17,
+     "vrs18Norm": 19.34,
+     "vrs18Win": 11.28,
+     "vrs18Odds": 15.1,
+     "placeOdds": [
+      5.4,
+      8.6
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ジーティーカッサイ",
+     "market": 14.04,
+     "vrs18Raw": 16.91,
+     "vrs18Norm": 14.75,
+     "vrs18Win": 7.26,
+     "vrs18Odds": 88.8,
+     "placeOdds": [
+      4.4,
+      7.0
+     ]
+    },
+    {
+     "no": 6,
+     "name": "フォンテキアーラ",
+     "market": 51.61,
+     "vrs18Raw": 52.8,
+     "vrs18Norm": 46.05,
+     "vrs18Win": 28.38,
+     "vrs18Odds": 5.6,
+     "placeOdds": [
+      1.3,
+      1.8
+     ]
+    },
+    {
+     "no": 7,
+     "name": "エイシンスパニエル",
+     "market": 30.19,
+     "vrs18Raw": 42.31,
+     "vrs18Norm": 36.9,
+     "vrs18Win": 13.17,
+     "vrs18Odds": 29.3,
+     "placeOdds": [
+      2.1,
+      3.2
+     ]
+    },
+    {
+     "no": 8,
+     "name": "プルケル",
+     "market": 11.51,
+     "vrs18Raw": 15.88,
+     "vrs18Norm": 13.85,
+     "vrs18Win": 5.28,
+     "vrs18Odds": 58.8,
+     "placeOdds": [
+      5.4,
+      8.5
+     ]
+    },
+    {
+     "no": 9,
+     "name": "コスモオルト",
+     "market": 9.41,
+     "vrs18Raw": 12.17,
+     "vrs18Norm": 10.61,
+     "vrs18Win": 5.64,
+     "vrs18Odds": 53.1,
+     "placeOdds": [
+      6.6,
+      10.4
+     ]
+    },
+    {
+     "no": 10,
+     "name": "サントシャペル",
+     "market": 47.06,
+     "vrs18Raw": 46.77,
+     "vrs18Norm": 40.79,
+     "vrs18Win": 26.1,
+     "vrs18Odds": 10.4,
+     "placeOdds": [
+      1.4,
+      2.0
+     ]
+    },
+    {
+     "no": 11,
+     "name": "ケイツーラリ",
+     "market": 8.21,
+     "vrs18Raw": 8.18,
+     "vrs18Norm": 7.13,
+     "vrs18Win": 3.5,
+     "vrs18Odds": 39.7,
+     "placeOdds": [
+      7.5,
+      12.0
+     ]
+    },
+    {
+     "no": 12,
+     "name": "スパリエーラ",
+     "market": 57.14,
+     "vrs18Raw": 52.69,
+     "vrs18Norm": 45.95,
+     "vrs18Win": 20.33,
+     "vrs18Odds": 11.7,
+     "placeOdds": [
+      1.2,
+      1.6
+     ]
+    }
+   ]
+  },
+  {
+   "race": "6R",
+   "raceId": "202605040506",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:37:23",
+   "marketSum": 2.943,
+   "axis": {
+    "market": {
+     "no": 14,
+     "name": "サノノソルジャー",
+     "place": 61.54
+    },
+    "vrs18": {
+     "no": 14,
+     "name": "サノノソルジャー",
+     "placeNorm": 51.07,
+     "placeRaw": 58.93
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 149.81,
+    "place": 346.15,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "アルタイルテソーロ",
+     "market": 21.92,
+     "vrs18Raw": 33.53,
+     "vrs18Norm": 29.06,
+     "vrs18Win": 15.9,
+     "vrs18Odds": 29.5,
+     "placeOdds": [
+      2.9,
+      4.4
+     ]
+    },
+    {
+     "no": 2,
+     "name": "クシャナーダ",
+     "market": 25.81,
+     "vrs18Raw": 34.28,
+     "vrs18Norm": 29.71,
+     "vrs18Win": 12.78,
+     "vrs18Odds": 21.7,
+     "placeOdds": [
+      2.5,
+      3.7
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ヒミツヘイキ",
+     "market": 23.19,
+     "vrs18Raw": 19.22,
+     "vrs18Norm": 16.66,
+     "vrs18Win": 8.49,
+     "vrs18Odds": 38.1,
+     "placeOdds": [
+      2.7,
+      4.2
+     ]
+    },
+    {
+     "no": 4,
+     "name": "デルマモガミ",
+     "market": 6.43,
+     "vrs18Raw": 4.7,
+     "vrs18Norm": 4.07,
+     "vrs18Win": 2.45,
+     "vrs18Odds": 86.1,
+     "placeOdds": [
+      9.6,
+      15.3
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ツジベン",
+     "market": 29.63,
+     "vrs18Raw": 35.45,
+     "vrs18Norm": 30.72,
+     "vrs18Win": 11.41,
+     "vrs18Odds": 71.8,
+     "placeOdds": [
+      2.2,
+      3.2
+     ]
+    },
+    {
+     "no": 6,
+     "name": "マオスカイシー",
+     "market": 13.91,
+     "vrs18Raw": 14.64,
+     "vrs18Norm": 12.69,
+     "vrs18Win": 6.62,
+     "vrs18Odds": 38.1,
+     "placeOdds": [
+      4.5,
+      7.0
+     ]
+    },
+    {
+     "no": 7,
+     "name": "マインドブレイズ",
+     "market": 21.92,
+     "vrs18Raw": 46.03,
+     "vrs18Norm": 39.89,
+     "vrs18Win": 17.31,
+     "vrs18Odds": 6.7,
+     "placeOdds": [
+      2.9,
+      4.4
+     ]
+    },
+    {
+     "no": 8,
+     "name": "パーレンチャン",
+     "market": 12.31,
+     "vrs18Raw": 15.26,
+     "vrs18Norm": 13.23,
+     "vrs18Win": 6.69,
+     "vrs18Odds": 58.0,
+     "placeOdds": [
+      5.1,
+      7.9
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ニシノイッセン",
+     "market": 14.95,
+     "vrs18Raw": 23.94,
+     "vrs18Norm": 20.75,
+     "vrs18Win": 11.53,
+     "vrs18Odds": 17.6,
+     "placeOdds": [
+      4.2,
+      6.5
+     ]
+    },
+    {
+     "no": 10,
+     "name": "ワイドカリオン",
+     "market": 16.33,
+     "vrs18Raw": 16.64,
+     "vrs18Norm": 14.42,
+     "vrs18Win": 7.13,
+     "vrs18Odds": 34.4,
+     "placeOdds": [
+      3.9,
+      5.9
+     ]
+    },
+    {
+     "no": 11,
+     "name": "シュトラールモルン",
+     "market": 21.92,
+     "vrs18Raw": 21.76,
+     "vrs18Norm": 18.86,
+     "vrs18Win": 8.61,
+     "vrs18Odds": 78.9,
+     "placeOdds": [
+      2.9,
+      4.4
+     ]
+    },
+    {
+     "no": 12,
+     "name": "ドンドキリシマ",
+     "market": 3.96,
+     "vrs18Raw": 3.51,
+     "vrs18Norm": 3.04,
+     "vrs18Win": 1.97,
+     "vrs18Odds": 128.1,
+     "placeOdds": [
+      15.6,
+      24.8
+     ]
+    },
+    {
+     "no": 13,
+     "name": "カンタベリーアップ",
+     "market": 4.29,
+     "vrs18Raw": 2.79,
+     "vrs18Norm": 2.42,
+     "vrs18Win": 1.63,
+     "vrs18Odds": 83.2,
+     "placeOdds": [
+      14.4,
+      22.9
+     ]
+    },
+    {
+     "no": 14,
+     "name": "サノノソルジャー",
+     "market": 61.54,
+     "vrs18Raw": 58.93,
+     "vrs18Norm": 51.07,
+     "vrs18Win": 28.87,
+     "vrs18Odds": 6.1,
+     "placeOdds": [
+      1.2,
+      1.4
+     ]
+    },
+    {
+     "no": 15,
+     "name": "ティキタカ",
+     "market": 6.64,
+     "vrs18Raw": 5.86,
+     "vrs18Norm": 5.08,
+     "vrs18Win": 3.6,
+     "vrs18Odds": 37.2,
+     "placeOdds": [
+      9.3,
+      14.8
+     ]
+    },
+    {
+     "no": 16,
+     "name": "グラスラリー",
+     "market": 9.52,
+     "vrs18Raw": 9.61,
+     "vrs18Norm": 8.33,
+     "vrs18Win": 4.82,
+     "vrs18Odds": 72.0,
+     "placeOdds": [
+      6.5,
+      10.3
+     ]
+    }
+   ]
+  },
+  {
+   "race": "7R",
+   "raceId": "202605040507",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:07:23",
+   "marketSum": 3.047,
+   "axis": {
+    "market": {
+     "no": 13,
+     "name": "ウィロークリーク",
+     "place": 47.06
+    },
+    "vrs18": {
+     "no": 13,
+     "name": "ウィロークリーク",
+     "placeNorm": 46.18,
+     "placeRaw": 55.89
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 138.69,
+    "place": 363.1,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "オルブライト",
+     "market": 12.9,
+     "vrs18Raw": 14.92,
+     "vrs18Norm": 12.33,
+     "vrs18Win": 5.76,
+     "vrs18Odds": 31.7,
+     "placeOdds": [
+      5.1,
+      7.3
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ラントレイル",
+     "market": 12.9,
+     "vrs18Raw": 15.41,
+     "vrs18Norm": 12.73,
+     "vrs18Win": 6.47,
+     "vrs18Odds": 48.8,
+     "placeOdds": [
+      5.1,
+      7.3
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ベンメリア",
+     "market": 9.58,
+     "vrs18Raw": 11.31,
+     "vrs18Norm": 9.34,
+     "vrs18Win": 4.1,
+     "vrs18Odds": 142.3,
+     "placeOdds": [
+      6.8,
+      9.9
+     ]
+    },
+    {
+     "no": 4,
+     "name": "エマージェンス",
+     "market": 9.88,
+     "vrs18Raw": 7.62,
+     "vrs18Norm": 6.3,
+     "vrs18Win": 1.98,
+     "vrs18Odds": 51.8,
+     "placeOdds": [
+      6.6,
+      9.6
+     ]
+    },
+    {
+     "no": 5,
+     "name": "サトノリアン",
+     "market": 36.36,
+     "vrs18Raw": 31.72,
+     "vrs18Norm": 26.21,
+     "vrs18Win": 11.21,
+     "vrs18Odds": 19.1,
+     "placeOdds": [
+      1.9,
+      2.5
+     ]
+    },
+    {
+     "no": 6,
+     "name": "アスパラゴ",
+     "market": 8.16,
+     "vrs18Raw": 7.74,
+     "vrs18Norm": 6.39,
+     "vrs18Win": 3.07,
+     "vrs18Odds": 124.5,
+     "placeOdds": [
+      8.0,
+      11.6
+     ]
+    },
+    {
+     "no": 7,
+     "name": "タケルゴールド",
+     "market": 21.62,
+     "vrs18Raw": 20.41,
+     "vrs18Norm": 16.86,
+     "vrs18Win": 5.63,
+     "vrs18Odds": 73.5,
+     "placeOdds": [
+      3.1,
+      4.3
+     ]
+    },
+    {
+     "no": 8,
+     "name": "タマモトリノ",
+     "market": 44.44,
+     "vrs18Raw": 51.53,
+     "vrs18Norm": 42.58,
+     "vrs18Win": 17.06,
+     "vrs18Odds": 8.2,
+     "placeOdds": [
+      1.6,
+      2.0
+     ]
+    },
+    {
+     "no": 9,
+     "name": "エクセルクラウン",
+     "market": 14.95,
+     "vrs18Raw": 26.37,
+     "vrs18Norm": 21.79,
+     "vrs18Win": 11.12,
+     "vrs18Odds": 18.2,
+     "placeOdds": [
+      4.4,
+      6.3
+     ]
+    },
+    {
+     "no": 10,
+     "name": "ターフクリスタル",
+     "market": 19.05,
+     "vrs18Raw": 28.2,
+     "vrs18Norm": 23.3,
+     "vrs18Win": 13.7,
+     "vrs18Odds": 12.8,
+     "placeOdds": [
+      3.5,
+      4.9
+     ]
+    },
+    {
+     "no": 11,
+     "name": "ブレイクザアイス",
+     "market": 14.95,
+     "vrs18Raw": 21.9,
+     "vrs18Norm": 18.09,
+     "vrs18Win": 6.09,
+     "vrs18Odds": 39.1,
+     "placeOdds": [
+      4.4,
+      6.3
+     ]
+    },
+    {
+     "no": 12,
+     "name": "スーパーホース",
+     "market": 3.86,
+     "vrs18Raw": 2.55,
+     "vrs18Norm": 2.11,
+     "vrs18Win": 1.12,
+     "vrs18Odds": 222.8,
+     "placeOdds": [
+      16.9,
+      24.5
+     ]
+    },
+    {
+     "no": 13,
+     "name": "ウィロークリーク",
+     "market": 47.06,
+     "vrs18Raw": 55.89,
+     "vrs18Norm": 46.18,
+     "vrs18Win": 24.43,
+     "vrs18Odds": 3.6,
+     "placeOdds": [
+      1.5,
+      1.9
+     ]
+    },
+    {
+     "no": 14,
+     "name": "カイトヴィント",
+     "market": 8.33,
+     "vrs18Raw": 8.05,
+     "vrs18Norm": 6.65,
+     "vrs18Win": 2.21,
+     "vrs18Odds": 87.2,
+     "placeOdds": [
+      7.8,
+      11.4
+     ]
+    },
+    {
+     "no": 15,
+     "name": "クアッドフォルツァ",
+     "market": 22.22,
+     "vrs18Raw": 35.85,
+     "vrs18Norm": 29.62,
+     "vrs18Win": 14.6,
+     "vrs18Odds": 14.5,
+     "placeOdds": [
+      3.0,
+      4.2
+     ]
+    },
+    {
+     "no": 16,
+     "name": "ベストブラザーズ",
+     "market": 18.39,
+     "vrs18Raw": 23.63,
+     "vrs18Norm": 19.52,
+     "vrs18Win": 10.14,
+     "vrs18Odds": 13.1,
+     "placeOdds": [
+      3.6,
+      5.1
+     ]
+    }
+   ]
+  },
+  {
+   "race": "8R",
+   "raceId": "202605040508",
+   "field": 6,
+   "placePositions": 2,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:40:28",
+   "marketSum": 1.799,
+   "axis": {
+    "market": {
+     "no": 5,
+     "name": "ウィンターブリーズ",
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 5,
+     "name": "ウィンターブリーズ",
+     "placeNorm": 49.09,
+     "placeRaw": 66.65
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 110.28,
+    "place": 271.52,
+    "placeTheoretical": 200
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "レガメデルヴェント",
+     "market": 47.06,
+     "vrs18Raw": 59.63,
+     "vrs18Norm": 43.92,
+     "vrs18Win": 27.39,
+     "vrs18Odds": 2.3,
+     "placeOdds": [
+      1.2,
+      2.2
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ユイノリュウギ",
+     "market": 20.51,
+     "vrs18Raw": 49.51,
+     "vrs18Norm": 36.47,
+     "vrs18Win": 17.58,
+     "vrs18Odds": 9.0,
+     "placeOdds": [
+      2.6,
+      5.2
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ハイネスプラウド",
+     "market": 5.86,
+     "vrs18Raw": 14.27,
+     "vrs18Norm": 10.51,
+     "vrs18Win": 3.2,
+     "vrs18Odds": 133.9,
+     "placeOdds": [
+      8.8,
+      18.5
+     ]
+    },
+    {
+     "no": 4,
+     "name": "リーチツモドライチ",
+     "market": 25.81,
+     "vrs18Raw": 59.38,
+     "vrs18Norm": 43.74,
+     "vrs18Win": 24.82,
+     "vrs18Odds": 7.5,
+     "placeOdds": [
+      2.1,
+      4.1
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ウィンターブリーズ",
+     "market": 72.73,
+     "vrs18Raw": 66.65,
+     "vrs18Norm": 49.09,
+     "vrs18Win": 28.25,
+     "vrs18Odds": 1.5,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 6,
+     "name": "ユイノヘラクレス",
+     "market": 7.96,
+     "vrs18Raw": 22.08,
+     "vrs18Norm": 16.26,
+     "vrs18Win": 9.04,
+     "vrs18Odds": 83.6,
+     "placeOdds": [
+      6.5,
+      13.6
+     ]
+    }
+   ]
+  },
+  {
+   "race": "9R",
+   "raceId": "202605040509",
+   "field": 14,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:15:58",
+   "marketSum": 2.928,
+   "axis": {
+    "market": {
+     "no": 8,
+     "name": "サレジオ",
+     "place": 66.67
+    },
+    "vrs18": {
+     "no": 8,
+     "name": "サレジオ",
+     "placeNorm": 49.58,
+     "placeRaw": 64.18
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 142.84,
+    "place": 388.34,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "トクシージェネラル",
+     "market": 3.68,
+     "vrs18Raw": 4.72,
+     "vrs18Norm": 3.65,
+     "vrs18Win": 2.41,
+     "vrs18Odds": 271.8,
+     "placeOdds": [
+      15.9,
+      27.6
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ルージュダリア",
+     "market": 19.51,
+     "vrs18Raw": 35.24,
+     "vrs18Norm": 27.22,
+     "vrs18Win": 11.17,
+     "vrs18Odds": 9.3,
+     "placeOdds": [
+      3.1,
+      5.1
+     ]
+    },
+    {
+     "no": 3,
+     "name": "イズルード",
+     "market": 9.3,
+     "vrs18Raw": 13.95,
+     "vrs18Norm": 10.78,
+     "vrs18Win": 6.25,
+     "vrs18Odds": 241.2,
+     "placeOdds": [
+      6.3,
+      10.9
+     ]
+    },
+    {
+     "no": 4,
+     "name": "タイセイアストロ",
+     "market": 34.04,
+     "vrs18Raw": 46.01,
+     "vrs18Norm": 35.54,
+     "vrs18Win": 11.56,
+     "vrs18Odds": 6.2,
+     "placeOdds": [
+      1.8,
+      2.9
+     ]
+    },
+    {
+     "no": 5,
+     "name": "トワニ",
+     "market": 19.28,
+     "vrs18Raw": 25.29,
+     "vrs18Norm": 19.54,
+     "vrs18Win": 9.83,
+     "vrs18Odds": 20.0,
+     "placeOdds": [
+      3.1,
+      5.2
+     ]
+    },
+    {
+     "no": 6,
+     "name": "ハニーオーケストラ",
+     "market": 13.79,
+     "vrs18Raw": 8.76,
+     "vrs18Norm": 6.77,
+     "vrs18Win": 4.21,
+     "vrs18Odds": 107.1,
+     "placeOdds": [
+      4.3,
+      7.3
+     ]
+    },
+    {
+     "no": 7,
+     "name": "チョングク",
+     "market": 4.86,
+     "vrs18Raw": 7.55,
+     "vrs18Norm": 5.83,
+     "vrs18Win": 2.56,
+     "vrs18Odds": 178.5,
+     "placeOdds": [
+      12.0,
+      20.9
+     ]
+    },
+    {
+     "no": 8,
+     "name": "サレジオ",
+     "market": 66.67,
+     "vrs18Raw": 64.18,
+     "vrs18Norm": 49.58,
+     "vrs18Win": 24.8,
+     "vrs18Odds": 2.3,
+     "placeOdds": [
+      1.1,
+      1.3
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ターンザテーブルス",
+     "market": 21.62,
+     "vrs18Raw": 33.28,
+     "vrs18Norm": 25.71,
+     "vrs18Win": 11.11,
+     "vrs18Odds": 6.8,
+     "placeOdds": [
+      2.8,
+      4.6
+     ]
+    },
+    {
+     "no": 10,
+     "name": "マツリダイコ",
+     "market": 37.21,
+     "vrs18Raw": 55.28,
+     "vrs18Norm": 42.7,
+     "vrs18Win": 24.81,
+     "vrs18Odds": 3.1,
+     "placeOdds": [
+      1.7,
+      2.6
+     ]
+    },
+    {
+     "no": 11,
+     "name": "シャオママル",
+     "market": 20.25,
+     "vrs18Raw": 30.72,
+     "vrs18Norm": 23.73,
+     "vrs18Win": 11.61,
+     "vrs18Odds": 16.7,
+     "placeOdds": [
+      3.0,
+      4.9
+     ]
+    },
+    {
+     "no": 12,
+     "name": "ゴバド",
+     "market": 18.18,
+     "vrs18Raw": 36.67,
+     "vrs18Norm": 28.33,
+     "vrs18Win": 14.77,
+     "vrs18Odds": 3.9,
+     "placeOdds": [
+      3.3,
+      5.5
+     ]
+    },
+    {
+     "no": 13,
+     "name": "ヴァイスクレー",
+     "market": 9.41,
+     "vrs18Raw": 9.16,
+     "vrs18Norm": 7.08,
+     "vrs18Win": 2.96,
+     "vrs18Odds": 294.6,
+     "placeOdds": [
+      6.2,
+      10.8
+     ]
+    },
+    {
+     "no": 14,
+     "name": "シックスパック",
+     "market": 14.95,
+     "vrs18Raw": 17.53,
+     "vrs18Norm": 13.54,
+     "vrs18Win": 4.79,
+     "vrs18Odds": 40.0,
+     "placeOdds": [
+      4.0,
+      6.7
+     ]
+    }
+   ]
+  },
+  {
+   "race": "10R",
+   "raceId": "202605040510",
+   "field": 11,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:51:58",
+   "marketSum": 3.005,
+   "axis": {
+    "market": {
+     "no": 11,
+     "name": "レッドバンデ",
+     "place": 64.0
+    },
+    "vrs18": {
+     "no": 11,
+     "name": "レッドバンデ",
+     "placeNorm": 61.73,
+     "placeRaw": 72.81
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 128.85,
+    "place": 353.87,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "バドリナート",
+     "market": 40.0,
+     "vrs18Raw": 52.69,
+     "vrs18Norm": 44.67,
+     "vrs18Win": 26.06,
+     "vrs18Odds": 6.3,
+     "placeOdds": [
+      1.7,
+      2.3
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ショウナンサムデイ",
+     "market": 19.28,
+     "vrs18Raw": 19.66,
+     "vrs18Norm": 16.67,
+     "vrs18Win": 6.4,
+     "vrs18Odds": 15.3,
+     "placeOdds": [
+      3.3,
+      5.0
+     ]
+    },
+    {
+     "no": 3,
+     "name": "エラン",
+     "market": 17.02,
+     "vrs18Raw": 16.33,
+     "vrs18Norm": 13.84,
+     "vrs18Win": 5.29,
+     "vrs18Odds": 26.2,
+     "placeOdds": [
+      3.7,
+      5.7
+     ]
+    },
+    {
+     "no": 4,
+     "name": "プレシャスデイ",
+     "market": 21.92,
+     "vrs18Raw": 29.52,
+     "vrs18Norm": 25.03,
+     "vrs18Win": 11.0,
+     "vrs18Odds": 21.7,
+     "placeOdds": [
+      2.9,
+      4.4
+     ]
+    },
+    {
+     "no": 5,
+     "name": "オメガナビゲーター",
+     "market": 24.24,
+     "vrs18Raw": 36.84,
+     "vrs18Norm": 31.23,
+     "vrs18Win": 14.17,
+     "vrs18Odds": 14.4,
+     "placeOdds": [
+      2.6,
+      4.0
+     ]
+    },
+    {
+     "no": 6,
+     "name": "ベンサレム",
+     "market": 21.92,
+     "vrs18Raw": 32.6,
+     "vrs18Norm": 27.64,
+     "vrs18Win": 10.78,
+     "vrs18Odds": 33.0,
+     "placeOdds": [
+      2.9,
+      4.4
+     ]
+    },
+    {
+     "no": 7,
+     "name": "バレンタインガール",
+     "market": 30.77,
+     "vrs18Raw": 33.21,
+     "vrs18Norm": 28.15,
+     "vrs18Win": 9.91,
+     "vrs18Odds": 13.2,
+     "placeOdds": [
+      2.1,
+      3.1
+     ]
+    },
+    {
+     "no": 8,
+     "name": "ホウオウアートマン",
+     "market": 14.29,
+     "vrs18Raw": 16.06,
+     "vrs18Norm": 13.62,
+     "vrs18Win": 5.53,
+     "vrs18Odds": 126.4,
+     "placeOdds": [
+      4.4,
+      6.8
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ヴォンフレ",
+     "market": 17.98,
+     "vrs18Raw": 18.79,
+     "vrs18Norm": 15.93,
+     "vrs18Win": 5.72,
+     "vrs18Odds": 24.3,
+     "placeOdds": [
+      3.5,
+      5.4
+     ]
+    },
+    {
+     "no": 10,
+     "name": "ロードガレリア",
+     "market": 29.09,
+     "vrs18Raw": 25.36,
+     "vrs18Norm": 21.5,
+     "vrs18Win": 6.33,
+     "vrs18Odds": 15.5,
+     "placeOdds": [
+      2.2,
+      3.3
+     ]
+    },
+    {
+     "no": 11,
+     "name": "レッドバンデ",
+     "market": 64.0,
+     "vrs18Raw": 72.81,
+     "vrs18Norm": 61.73,
+     "vrs18Win": 27.66,
+     "vrs18Odds": 3.1,
+     "placeOdds": [
+      1.2,
+      1.3
+     ]
+    }
+   ]
+  },
+  {
+   "race": "11R",
+   "raceId": "202605040511",
+   "field": 18,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:27:28",
+   "marketSum": 3.016,
+   "axis": {
+    "market": {
+     "no": 2,
+     "name": "アスクセクシーモア",
+     "place": 43.24
+    },
+    "vrs18": {
+     "no": 2,
+     "name": "アスクセクシーモア",
+     "placeNorm": 42.31,
+     "placeRaw": 49.64
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 137.98,
+    "place": 351.99,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "メイショウハチコウ",
+     "market": 33.33,
+     "vrs18Raw": 43.5,
+     "vrs18Norm": 37.07,
+     "vrs18Win": 15.48,
+     "vrs18Odds": 8.4,
+     "placeOdds": [
+      2.1,
+      2.7
+     ]
+    },
+    {
+     "no": 2,
+     "name": "アスクセクシーモア",
+     "market": 43.24,
+     "vrs18Raw": 49.64,
+     "vrs18Norm": 42.31,
+     "vrs18Win": 23.81,
+     "vrs18Odds": 6.6,
+     "placeOdds": [
+      1.7,
+      2.0
+     ]
+    },
+    {
+     "no": 3,
+     "name": "ニシノレヴァント",
+     "market": 11.19,
+     "vrs18Raw": 12.63,
+     "vrs18Norm": 10.76,
+     "vrs18Win": 4.22,
+     "vrs18Odds": 77.5,
+     "placeOdds": [
+      6.1,
+      8.2
+     ]
+    },
+    {
+     "no": 4,
+     "name": "テリオスララ",
+     "market": 17.58,
+     "vrs18Raw": 15.71,
+     "vrs18Norm": 13.39,
+     "vrs18Win": 6.3,
+     "vrs18Odds": 13.2,
+     "placeOdds": [
+      3.9,
+      5.2
+     ]
+    },
+    {
+     "no": 5,
+     "name": "ボーンディスウェイ",
+     "market": 23.88,
+     "vrs18Raw": 25.59,
+     "vrs18Norm": 21.81,
+     "vrs18Win": 10.13,
+     "vrs18Odds": 28.8,
+     "placeOdds": [
+      2.9,
+      3.8
+     ]
+    },
+    {
+     "no": 6,
+     "name": "ブレイヴロッカー",
+     "market": 7.21,
+     "vrs18Raw": 3.92,
+     "vrs18Norm": 3.34,
+     "vrs18Win": 1.12,
+     "vrs18Odds": 138.9,
+     "placeOdds": [
+      9.4,
+      12.8
+     ]
+    },
+    {
+     "no": 7,
+     "name": "シルトホルン",
+     "market": 17.2,
+     "vrs18Raw": 20.03,
+     "vrs18Norm": 17.07,
+     "vrs18Win": 8.25,
+     "vrs18Odds": 18.5,
+     "placeOdds": [
+      4.0,
+      5.3
+     ]
+    },
+    {
+     "no": 8,
+     "name": "シルブロン",
+     "market": 3.82,
+     "vrs18Raw": 3.65,
+     "vrs18Norm": 3.11,
+     "vrs18Win": 1.36,
+     "vrs18Odds": 213.6,
+     "placeOdds": [
+      17.7,
+      24.2
+     ]
+    },
+    {
+     "no": 9,
+     "name": "ディマイザキッド",
+     "market": 21.62,
+     "vrs18Raw": 39.59,
+     "vrs18Norm": 33.74,
+     "vrs18Win": 15.5,
+     "vrs18Odds": 9.0,
+     "placeOdds": [
+      3.2,
+      4.2
+     ]
+    },
+    {
+     "no": 10,
+     "name": "ジュンブロッサム",
+     "market": 27.59,
+     "vrs18Raw": 32.96,
+     "vrs18Norm": 28.09,
+     "vrs18Win": 10.95,
+     "vrs18Odds": 30.0,
+     "placeOdds": [
+      2.5,
+      3.3
+     ]
+    },
+    {
+     "no": 11,
+     "name": "セイウンプラチナ",
+     "market": 3.77,
+     "vrs18Raw": 2.3,
+     "vrs18Norm": 1.96,
+     "vrs18Win": 1.09,
+     "vrs18Odds": 307.1,
+     "placeOdds": [
+      17.9,
+      24.5
+     ]
+    },
+    {
+     "no": 12,
+     "name": "ジュタ",
+     "market": 16.0,
+     "vrs18Raw": 19.33,
+     "vrs18Norm": 16.47,
+     "vrs18Win": 7.37,
+     "vrs18Odds": 29.1,
+     "placeOdds": [
+      4.3,
+      5.7
+     ]
+    },
+    {
+     "no": 13,
+     "name": "ナムラエイハブ",
+     "market": 13.45,
+     "vrs18Raw": 17.02,
+     "vrs18Norm": 14.51,
+     "vrs18Win": 7.11,
+     "vrs18Odds": 15.7,
+     "placeOdds": [
+      5.1,
+      6.8
+     ]
+    },
+    {
+     "no": 14,
+     "name": "グランドカリナン",
+     "market": 9.41,
+     "vrs18Raw": 5.7,
+     "vrs18Norm": 4.86,
+     "vrs18Win": 1.53,
+     "vrs18Odds": 55.5,
+     "placeOdds": [
+      7.2,
+      9.8
+     ]
+    },
+    {
+     "no": 15,
+     "name": "メリオーレム",
+     "market": 14.81,
+     "vrs18Raw": 15.65,
+     "vrs18Norm": 13.34,
+     "vrs18Win": 5.82,
+     "vrs18Odds": 23.1,
+     "placeOdds": [
+      4.6,
+      6.2
+     ]
+    },
+    {
+     "no": 16,
+     "name": "ミッキーゴールド",
+     "market": 16.0,
+     "vrs18Raw": 18.7,
+     "vrs18Norm": 15.94,
+     "vrs18Win": 7.6,
+     "vrs18Odds": 13.2,
+     "placeOdds": [
+      4.3,
+      5.7
+     ]
+    },
+    {
+     "no": 17,
+     "name": "コスモブッドレア",
+     "market": 5.93,
+     "vrs18Raw": 4.93,
+     "vrs18Norm": 4.2,
+     "vrs18Win": 1.95,
+     "vrs18Odds": 149.6,
+     "placeOdds": [
+      11.4,
+      15.6
+     ]
+    },
+    {
+     "no": 18,
+     "name": "トーセンリョウ",
+     "market": 15.53,
+     "vrs18Raw": 21.14,
+     "vrs18Norm": 18.02,
+     "vrs18Win": 8.39,
+     "vrs18Odds": 24.2,
+     "placeOdds": [
+      4.4,
+      5.9
+     ]
+    }
+   ]
+  },
+  {
+   "race": "12R",
+   "raceId": "202605040512",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-12 09:11:23",
+   "marketSum": 2.965,
+   "axis": {
+    "market": {
+     "no": 1,
+     "name": "ピコレッド",
+     "place": 40.0
+    },
+    "vrs18": {
+     "no": 1,
+     "name": "ピコレッド",
+     "placeNorm": 41.83,
+     "placeRaw": 48.68
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 119.96,
+    "place": 349.14,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "name": "ピコレッド",
+     "market": 40.0,
+     "vrs18Raw": 48.68,
+     "vrs18Norm": 41.83,
+     "vrs18Win": 18.21,
+     "vrs18Odds": 7.8,
+     "placeOdds": [
+      1.8,
+      2.2
+     ]
+    },
+    {
+     "no": 2,
+     "name": "ベアハンドキャッチ",
+     "market": 16.49,
+     "vrs18Raw": 22.91,
+     "vrs18Norm": 19.69,
+     "vrs18Win": 6.02,
+     "vrs18Odds": 18.8,
+     "placeOdds": [
+      4.2,
+      5.5
+     ]
+    },
+    {
+     "no": 3,
+     "name": "キイチムーブメント",
+     "market": 21.05,
+     "vrs18Raw": 21.19,
+     "vrs18Norm": 18.21,
+     "vrs18Win": 6.67,
+     "vrs18Odds": 28.0,
+     "placeOdds": [
+      3.3,
+      4.3
+     ]
+    },
+    {
+     "no": 4,
+     "name": "ヴェネチアンキング",
+     "market": 9.14,
+     "vrs18Raw": 10.65,
+     "vrs18Norm": 9.15,
+     "vrs18Win": 4.4,
+     "vrs18Odds": 52.1,
+     "placeOdds": [
+      7.5,
+      10.0
+     ]
+    },
+    {
+     "no": 5,
+     "name": "マルターズドン",
+     "market": 12.03,
+     "vrs18Raw": 12.1,
+     "vrs18Norm": 10.4,
+     "vrs18Win": 3.78,
+     "vrs18Odds": 103.9,
+     "placeOdds": [
+      5.7,
+      7.6
+     ]
+    },
+    {
+     "no": 6,
+     "name": "タイセイブルーム",
+     "market": 17.02,
+     "vrs18Raw": 20.33,
+     "vrs18Norm": 17.47,
+     "vrs18Win": 5.14,
+     "vrs18Odds": 42.9,
+     "placeOdds": [
+      4.1,
+      5.3
+     ]
+    },
+    {
+     "no": 7,
+     "name": "ユイノカタリベ",
+     "market": 24.24,
+     "vrs18Raw": 30.82,
+     "vrs18Norm": 26.48,
+     "vrs18Win": 9.28,
+     "vrs18Odds": 28.6,
+     "placeOdds": [
+      2.9,
+      3.7
+     ]
+    },
+    {
+     "no": 8,
+     "name": "ロードトライデント",
+     "market": 33.33,
+     "vrs18Raw": 46.64,
+     "vrs18Norm": 40.08,
+     "vrs18Win": 19.55,
+     "vrs18Odds": 7.8,
+     "placeOdds": [
+      2.1,
+      2.7
+     ]
+    },
+    {
+     "no": 9,
+     "name": "アヴァランチ",
+     "market": 24.62,
+     "vrs18Raw": 20.2,
+     "vrs18Norm": 17.36,
+     "vrs18Win": 6.28,
+     "vrs18Odds": 13.0,
+     "placeOdds": [
+      2.8,
+      3.7
+     ]
+    },
+    {
+     "no": 10,
+     "name": "アイファージェット",
+     "market": 3.27,
+     "vrs18Raw": 1.19,
+     "vrs18Norm": 1.02,
+     "vrs18Win": 0.73,
+     "vrs18Odds": 365.0,
+     "placeOdds": [
+      21.1,
+      27.9
+     ]
+    },
+    {
+     "no": 11,
+     "name": "エテオクロス",
+     "market": 34.78,
+     "vrs18Raw": 44.39,
+     "vrs18Norm": 38.14,
+     "vrs18Win": 15.71,
+     "vrs18Odds": 9.1,
+     "placeOdds": [
+      2.0,
+      2.6
+     ]
+    },
+    {
+     "no": 12,
+     "name": "カサブランカキッド",
+     "market": 8.38,
+     "vrs18Raw": 6.03,
+     "vrs18Norm": 5.18,
+     "vrs18Win": 2.16,
+     "vrs18Odds": 139.5,
+     "placeOdds": [
+      8.2,
+      10.9
+     ]
+    },
+    {
+     "no": 13,
+     "name": "ノボリフジ",
+     "market": 4.86,
+     "vrs18Raw": 4.32,
+     "vrs18Norm": 3.71,
+     "vrs18Win": 1.89,
+     "vrs18Odds": 182.6,
+     "placeOdds": [
+      14.1,
+      18.8
+     ]
+    },
+    {
+     "no": 14,
+     "name": "ボナーテソーロ",
+     "market": 12.03,
+     "vrs18Raw": 14.45,
+     "vrs18Norm": 12.42,
+     "vrs18Win": 4.31,
+     "vrs18Odds": 34.2,
+     "placeOdds": [
+      5.7,
+      7.6
+     ]
+    },
+    {
+     "no": 15,
+     "name": "アンプイットアップ",
+     "market": 27.59,
+     "vrs18Raw": 40.91,
+     "vrs18Norm": 35.15,
+     "vrs18Win": 14.65,
+     "vrs18Odds": 7.1,
+     "placeOdds": [
+      2.5,
+      3.3
+     ]
+    },
+    {
+     "no": 16,
+     "name": "ブエナディオサ",
+     "market": 7.69,
+     "vrs18Raw": 4.33,
+     "vrs18Norm": 3.72,
+     "vrs18Win": 1.18,
+     "vrs18Odds": 435.2,
+     "placeOdds": [
+      8.9,
+      11.9
+     ]
+    }
+   ]
+  }
+ ]
+}
