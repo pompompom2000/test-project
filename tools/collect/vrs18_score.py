@@ -14,22 +14,50 @@ UA = {'User-Agent': 'Mozilla/5.0'}
 TRACK = 'data/tracking'
 
 
-def finishing_order(rid):
-    """着順どおりの馬番リスト。未反映なら None。"""
+_CACHE = {}
+
+
+def race_result(rid):
+    """着順(馬番リスト)と複勝払戻(馬番->円)。未反映なら None。同一実行内でキャッシュ。"""
+    if rid in _CACHE:
+        return _CACHE[rid]
     with urllib.request.urlopen(urllib.request.Request(DB.format(rid=rid), headers=UA),
                                 timeout=40) as r:
         s = r.read().decode('euc-jp', 'replace')
     if '1970年1月01日' in s:
+        _CACHE[rid] = None
         return None
-    out = []
+    order = []
     for row in re.findall(r'(?is)<tr[^>]*>(.*?)</tr>', s):
         f = [' '.join(html.unescape(re.sub(r'<[^>]+>', ' ', x)).split())
              for x in re.findall(r'(?is)<td[^>]*>(.*?)</td>', row)]
         if len(f) >= 4 and f[0].isdigit() and f[2].isdigit():
-            out.append((int(f[0]), int(f[2])))
-    if not out:
+            order.append((int(f[0]), int(f[2])))
+    if not order:
+        _CACHE[rid] = None
         return None
-    return [no for _, no in sorted(out)]
+
+    pay = {}
+    for m in re.finditer(r'(?is)<th[^>]*>\s*複勝\s*</th>(.*?)</tr>', s):
+        cells = [html.unescape(re.sub(r'<[^>]+>', '|', c))
+                 for c in re.findall(r'(?is)<td[^>]*>(.*?)</td>', m.group(1))]
+        if len(cells) < 2:
+            continue
+        nos = [x for x in cells[0].split('|') if x.strip().isdigit()]
+        yens = [x.replace(',', '') for x in cells[1].split('|')
+                if x.replace(',', '').strip().isdigit()]
+        for a, b in zip(nos, yens):
+            pay[int(a)] = int(b)
+        break
+
+    res = {'order': [no for _, no in sorted(order)], 'placePayout': pay}
+    _CACHE[rid] = res
+    return res
+
+
+def finishing_order(rid):
+    r = race_result(rid)
+    return r['order'] if r else None
 
 
 def logloss(hs, key, inmoney):
@@ -78,6 +106,47 @@ def main():
             done.append(f"{os.path.basename(fp)} {r['race']}")
         if changed:
             json.dump(d, open(fp, 'w'), ensure_ascii=False, indent=1)
+
+    # 見送り記録の仮想ポートフォリオを採点
+    for fp in sorted(glob.glob('data/results/*-pass.json')):
+        d = json.load(open(fp))
+        cfb = d.get('counterfactual')
+        if not cfb or 'result' in cfb:
+            continue
+        hs = cfb.get('horses', [])
+        filled, miss = 0, 0
+        for h in hs:
+            if 'hit' in h:
+                filled += 1
+                continue
+            try:
+                rr = race_result(h['raceId'])
+            except Exception as e:
+                print(f"  {fp} {h['raceId']} 取得失敗 {e}")
+                rr = None
+            time.sleep(0.7)
+            if not rr:
+                miss += 1
+                continue
+            # 複勝圏は頭数で決まる。払戻に馬番があれば的中
+            h['hit'] = h['no'] in rr['placePayout']
+            h['payout'] = rr['placePayout'].get(h['no'], 0)
+            filled += 1
+        if filled and not miss:
+            n = len(hs)
+            stake = n * 100
+            ret = sum(h['payout'] for h in hs)
+            cfb['result'] = {
+                'bets': n, 'stake': stake, 'hits': sum(1 for h in hs if h['hit']),
+                'return': ret, 'profit': ret - stake,
+                'roi': round(ret / stake, 3) if stake else None,
+                'note': ('実際には買っていない。見送り判断の検証用。'
+                         f'{n}点では運の幅が大きく、1日分では判定にならない')}
+            print(f"{fp} 仮想ポートフォリオ採点: {cfb['result']['hits']}/{n}的中 "
+                  f"回収 {ret}円/{stake}円 = 回収率 {cfb['result']['roi']:.1%}")
+        elif miss:
+            print(f'{fp} 仮想ポートフォリオ: {miss}/{len(hs)}頭が未反映のため保留')
+        json.dump(d, open(fp, 'w'), ensure_ascii=False, indent=1)
 
     # 通算サマリ
     races, split = [], []

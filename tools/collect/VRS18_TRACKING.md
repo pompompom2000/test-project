@@ -20,7 +20,7 @@
 | 1 | `vrs18_prepare.py` | その日のAI予測記事を発見、予測表画像を取得、市場オッズを取得、manifest を出力 |
 | 2 | モデル | `work/<date>/img/*.png` を読み、`work/<date>/predictions.json` に数値を書く |
 | 3 | `vrs18_build.py` | manifest と predictions を突き合わせ、発走前の追跡ファイルを作る |
-| 4 | `vrs18_score.py` | 結果が反映され次第、着順・軸の的中・対数損失を埋める（冪等、毎日実行） |
+| 4 | `vrs18_score.py` | 結果が反映され次第、着順・軸の的中・対数損失を埋める（冪等、毎日実行）。`data/results/*-pass.json` の仮想ポートフォリオも同時に採点する |
 
 ```
 python3 tools/collect/vrs18_prepare.py              # 当日
@@ -47,6 +47,16 @@ tesseract によるOCRを**正解が分かっている24レース321頭（606セ
 
 このため `vrs18_score.py` は冪等に作ってあり、毎日実行して
 反映済みのものから順に埋める。未反映は `pending` として報告される。
+
+## 見送り記録の仮想ポートフォリオ
+
+買わなかった日は `data/results/<date>-pass.json` に判断と根拠を残す。
+`counterfactual.horses` に「買っていたらどうなったか」の対象馬を入れておくと、
+`vrs18_score.py` が結果反映後に自動で採点する（的中数・回収額・回収率）。
+複勝払戻は着順と同じ db.netkeiba のページから取得する。
+
+**実際には買っていないので実損益ではない。** 見送り判断が正しかったかを
+後から数字で検証するためのもの。1日分の十数点では運の幅が大きく判定にならない。
 
 ## 指標
 
