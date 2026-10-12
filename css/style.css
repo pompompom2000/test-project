@@ -1,0 +1,178 @@
+:root {
+  --bg: #fff6e5;
+  --ink: #4a3b2a;
+  --primary: #ff8a3d;
+  --card: #ffffff;
+  --shadow: 0 6px 0 rgba(74, 59, 42, 0.18);
+  --radius: 28px;
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "BIZ UDPGothic", "M PLUS Rounded 1c", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#app { height: 100%; }
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+h1, h2 { margin: 0; font-weight: 900; }
+h2 { font-size: clamp(24px, 4.5vw, 44px); }
+
+/* ---- ボタン ---- */
+.big-btn {
+  min-width: 220px;
+  min-height: 80px;
+  padding: 16px 36px;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform 0.08s;
+}
+.big-btn.primary { background: var(--primary); color: #fff; }
+.big-btn:active, .game-card:active, .count-btn:active { transform: translateY(4px) scale(0.98); box-shadow: 0 2px 0 rgba(74, 59, 42, 0.18); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+
+.back-btn {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  left: 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: 30px;
+}
+.back-btn.inline { position: static; flex: none; }
+
+.settings { position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; display: flex; gap: 12px; }
+.icon-btn { width: 64px; height: 64px; border-radius: 50%; background: var(--card); box-shadow: var(--shadow); font-size: 30px; }
+
+/* ---- タイトル ---- */
+.title-emojis { font-size: clamp(56px, 12vw, 120px); letter-spacing: 0.1em; }
+.title { font-size: clamp(40px, 9vw, 96px); color: var(--primary); text-shadow: 4px 4px 0 #fff; }
+.bounce { animation: bounce 1.6s ease-in-out infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ---- チームわけ ---- */
+.count-row { display: flex; gap: 20px; }
+.count-btn {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: 56px;
+  font-weight: 900;
+}
+.count-btn.selected { background: var(--primary); color: #fff; outline: 6px solid #fff; }
+
+.team-preview { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.team-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  min-width: 140px;
+}
+.team-chip .team-emoji { font-size: 56px; }
+.team-chip .team-name { font-size: 20px; }
+
+/* ---- ゲームえらび ---- */
+.game-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; width: min(960px, 100%); }
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.game-emoji { font-size: 80px; }
+.game-title { font-size: 26px; font-weight: 900; }
+
+/* ---- ゲーム画面 ---- */
+.game-screen { justify-content: flex-start; gap: 12px; padding-top: max(12px, env(safe-area-inset-top)); }
+.game-header { display: flex; align-items: center; gap: 12px; width: 100%; }
+.scorebar { display: flex; gap: 10px; flex: 1; justify-content: center; flex-wrap: wrap; }
+.score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+}
+.score .team-emoji { font-size: 32px; }
+.score .score-num { font-size: 32px; min-width: 1.5em; }
+.score.pop { animation: pop 0.4s ease-out; }
+@keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.3); } 100% { transform: scale(1); } }
+
+/* ゲームが自由に使う領域 */
+.stage { position: relative; flex: 1; width: 100%; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* ---- けっか ---- */
+.result-screen .confetti { font-size: 80px; animation: bounce 1s ease-in-out infinite; }
+.result-title { font-size: clamp(28px, 5vw, 52px); color: var(--primary); }
+.result-list { display: flex; flex-direction: column; gap: 12px; width: min(560px, 100%); }
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  color: #fff;
+  font-weight: 900;
+  font-size: 24px;
+  box-shadow: var(--shadow);
+}
+.result-row .team-emoji { font-size: 40px; }
+.result-row .result-score { margin-left: auto; font-size: 32px; }
+.result-row .crown { font-size: 36px; }
+.result-row.winner { transform: scale(1.05); }
+.praise { font-size: 24px; font-weight: 900; margin: 0; }
+
+@media (max-height: 600px) {
+  .screen { gap: 12px; }
+  .title-emojis { font-size: 48px; }
+  .count-btn { width: 80px; height: 80px; font-size: 40px; }
+  .team-chip .team-emoji { font-size: 40px; }
+  .game-emoji { font-size: 56px; }
+}
