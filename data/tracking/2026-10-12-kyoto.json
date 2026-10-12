@@ -2209,7 +2209,18 @@
       3.5
      ]
     }
-   ]
+   ],
+   "result": {
+    "inTheMoney": [
+     1,
+     4,
+     9
+    ],
+    "winner": 1,
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "source": "ワイド的中パターンから確定（着順は無料範囲では非公開）"
+   }
   },
   {
    "race": "12R",
