@@ -10,6 +10,7 @@ const FILES = [
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',
+  'css/games/color-quiz.css',
   'js/games/tama-ire.js',
   'js/games/memory.js',
   'css/games/memory.css',
