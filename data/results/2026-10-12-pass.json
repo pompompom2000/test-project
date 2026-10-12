@@ -1,0 +1,243 @@
+{
+ "date": "2026-10-12",
+ "decision": "見送り（全レース不参加）",
+ "decidedAt": "2026-10-12T10:40+09:00",
+ "scope": "4回東京5日目 全12レース / 4回京都5日目 全12レース（スワンSを含む）",
+ "reason": "検証済みのどの推定でも回収率がプラスになる馬がいなかったため",
+ "calculation": {
+  "universe": "発走前だった21レース278頭",
+  "market": {
+   "ev": "0.337〜0.800",
+   "note": "市場推定は 0.8/複勝オッズ なので EV=(0.8/o)×o=0.80 が定義上の上限。確定下限オッズで計算すると最良0.800。プラスには市場を25%上回る推定が必要"
+  },
+  "recalibrated": {
+   "evMaxLow": 0.636,
+   "countOverOne": 0,
+   "note": "favorite-longshot bias補正（切片+0.264 係数1.222、5/5 fold改善 p=0.150）を適用しても下限オッズでEV>1は0頭。補正の効果は相対11%程度で必要な25%に届かない"
+  },
+  "vrs18": {
+   "countOverOne": 14,
+   "meanEv": 1.07,
+   "meanEvEmpirical": 0.558,
+   "note": "VRS18の推定だと14頭がEV>1。ただし同じ14頭を実測校正（秋G1 1,554頭）で評価し直すと平均0.558、EV>1は0頭。14頭中5頭は市場10%未満の人気薄で、この層は実測2.1%（市場予測4.8%）と市場でさえ過大評価している"
+  }
+ },
+ "counterfactual": {
+  "description": "VRS18基準でEV>1だった14頭の複勝を各100円買った場合の仮想成績。結果が反映されたら採点する（買っていないので実損益ではない）",
+  "stake": "各100円 計1400円",
+  "horses": [
+   {
+    "venue": "東京",
+    "race": "4R",
+    "raceId": "202605040504",
+    "no": 3,
+    "placeOdds": [
+     4.4,
+     5.9
+    ],
+    "market": 15.53,
+    "vrs18Norm": 26.42,
+    "empirical": 16.1,
+    "evVrs18Low": 1.162,
+    "evEmpiricalLow": 0.708
+   },
+   {
+    "venue": "東京",
+    "race": "6R",
+    "raceId": "202605040506",
+    "no": 7,
+    "placeOdds": [
+     2.9,
+     4.4
+    ],
+    "market": 21.92,
+    "vrs18Norm": 39.89,
+    "empirical": 26.2,
+    "evVrs18Low": 1.157,
+    "evEmpiricalLow": 0.76
+   },
+   {
+    "venue": "京都",
+    "race": "5R",
+    "raceId": "202608040505",
+    "no": 8,
+    "placeOdds": [
+     8.1,
+     14.3
+    ],
+    "market": 7.14,
+    "vrs18Norm": 14.26,
+    "empirical": 2.1,
+    "evVrs18Low": 1.155,
+    "evEmpiricalLow": 0.17
+   },
+   {
+    "venue": "京都",
+    "race": "9R",
+    "raceId": "202608040509",
+    "no": 1,
+    "placeOdds": [
+     3.5,
+     4.8
+    ],
+    "market": 19.28,
+    "vrs18Norm": 31.0,
+    "empirical": 16.1,
+    "evVrs18Low": 1.085,
+    "evEmpiricalLow": 0.564
+   },
+   {
+    "venue": "東京",
+    "race": "11R",
+    "raceId": "202605040511",
+    "no": 9,
+    "placeOdds": [
+     3.2,
+     4.2
+    ],
+    "market": 21.62,
+    "vrs18Norm": 33.74,
+    "empirical": 26.2,
+    "evVrs18Low": 1.08,
+    "evEmpiricalLow": 0.838
+   },
+   {
+    "venue": "東京",
+    "race": "4R",
+    "raceId": "202605040504",
+    "no": 14,
+    "placeOdds": [
+     11.8,
+     15.9
+    ],
+    "market": 5.78,
+    "vrs18Norm": 9.07,
+    "empirical": 2.1,
+    "evVrs18Low": 1.07,
+    "evEmpiricalLow": 0.248
+   },
+   {
+    "venue": "東京",
+    "race": "8R",
+    "raceId": "202605040508",
+    "no": 6,
+    "placeOdds": [
+     6.5,
+     13.6
+    ],
+    "market": 7.96,
+    "vrs18Norm": 16.26,
+    "empirical": 2.1,
+    "evVrs18Low": 1.057,
+    "evEmpiricalLow": 0.137
+   },
+   {
+    "venue": "京都",
+    "race": "11R",
+    "raceId": "202608040511",
+    "no": 18,
+    "placeOdds": [
+     2.8,
+     3.5
+    ],
+    "market": 25.4,
+    "vrs18Norm": 37.66,
+    "empirical": 26.2,
+    "evVrs18Low": 1.054,
+    "evEmpiricalLow": 0.734
+   },
+   {
+    "venue": "東京",
+    "race": "5R",
+    "raceId": "202605040505",
+    "no": 4,
+    "placeOdds": [
+     5.4,
+     8.6
+    ],
+    "market": 11.43,
+    "vrs18Norm": 19.34,
+    "empirical": 16.1,
+    "evVrs18Low": 1.044,
+    "evEmpiricalLow": 0.869
+   },
+   {
+    "venue": "京都",
+    "race": "3R",
+    "raceId": "202608040503",
+    "no": 6,
+    "placeOdds": [
+     2.6,
+     3.5
+    ],
+    "market": 26.23,
+    "vrs18Norm": 39.92,
+    "empirical": 26.2,
+    "evVrs18Low": 1.038,
+    "evEmpiricalLow": 0.681
+   },
+   {
+    "venue": "京都",
+    "race": "4R",
+    "raceId": "202608040504",
+    "no": 5,
+    "placeOdds": [
+     4.9,
+     6.9
+    ],
+    "market": 13.56,
+    "vrs18Norm": 21.0,
+    "empirical": 16.1,
+    "evVrs18Low": 1.029,
+    "evEmpiricalLow": 0.789
+   },
+   {
+    "venue": "京都",
+    "race": "12R",
+    "raceId": "202608040512",
+    "no": 16,
+    "placeOdds": [
+     3.3,
+     4.1
+    ],
+    "market": 21.62,
+    "vrs18Norm": 30.85,
+    "empirical": 26.2,
+    "evVrs18Low": 1.018,
+    "evEmpiricalLow": 0.865
+   },
+   {
+    "venue": "東京",
+    "race": "3R",
+    "raceId": "202605040503",
+    "no": 2,
+    "placeOdds": [
+     11.1,
+     41.6
+    ],
+    "market": 3.04,
+    "vrs18Norm": 9.14,
+    "empirical": 2.1,
+    "evVrs18Low": 1.015,
+    "evEmpiricalLow": 0.233
+   },
+   {
+    "venue": "東京",
+    "race": "1R",
+    "raceId": "202605040501",
+    "no": 7,
+    "placeOdds": [
+     10.5,
+     24.0
+    ],
+    "market": 4.64,
+    "vrs18Norm": 9.63,
+    "empirical": 2.1,
+    "evVrs18Low": 1.011,
+    "evEmpiricalLow": 0.221
+   }
+  ]
+ },
+ "whatWouldChangeThis": "市場を25%以上上回る確率推定が検証で確認できたとき。現時点で検証した8つの材料（得意コース・同距離実績・前走着順・休み明け・斤量・脚質・外厩・市場再校正）の最大効果は再校正の相対11%で、それもp=0.150で有意でない。VRS18は本日から前向きに追跡を開始したところで、判定材料はまだない",
+ "note": "買わなくても24レース分の発走前記録は残っているので検証は進む"
+}
