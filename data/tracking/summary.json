@@ -1,0 +1,7 @@
+{
+ "updatedAt": "2026-10-12T01:17:46",
+ "all": null,
+ "axisSplitOnly": null,
+ "pending": 24,
+ "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。"
+}
