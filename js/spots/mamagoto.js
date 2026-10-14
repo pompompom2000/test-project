@@ -143,25 +143,29 @@
       root.append(table, work);
       ctx.stage.append(root);
 
-      // せき
+      // せき（よこから みた いすと テーブル。おともだちは すわって みぎを むく）
       const seats = guests.map((f, i) => {
         const bubble = el('div', { class: 'mamagoto-bubble hidden' });
-        const face = el('div', { class: 'mamagoto-face' }, f.emoji);
+        const chr = ctx.character(f.id, { pose: 'sit' });
+        const face = el('div', { class: 'mamagoto-face' }, chr);
         const served = el('div', { class: 'mamagoto-served' });
+        const scene = el('div', { class: 'mamagoto-scene', 'aria-hidden': 'true' },
+          el('div', { class: 'mamagoto-chair' }), face,
+          el('div', { class: 'mamagoto-desk' }), served);
         const node = el('button', {
           class: 'mamagoto-seat', 'data-seat': String(i), 'aria-label': f.name,
           style: { '--seat-color': f.color },
           onclick: () => onSeatTap(seat),
-        }, bubble, face, served, el('div', { class: 'mamagoto-chair', 'aria-hidden': 'true' }));
-        const seat = { f, node, bubble, face, served, order: null, status: 'idle', away: false };
+        }, bubble, scene);
+        const seat = { f, node, bubble, face, served, scene, chr, sitter: chr, order: null, status: 'idle', away: false };
         table.append(node);
         return seat;
       });
-      const playerSeat = el('div', { class: 'mamagoto-seat mamagoto-player hidden', 'aria-hidden': 'true' },
-        el('div', { class: 'mamagoto-face' }, ctx.player.emoji || '🧒'),
-        el('div', { class: 'mamagoto-served' }),
-        el('div', { class: 'mamagoto-chair', 'aria-hidden': 'true' }));
-      table.append(playerSeat);
+
+      // キッチンに たつ コックさん（はじめは こども）
+      const kidChr = ctx.character(ctx.player.kind || ctx.player.emoji || 'kid', { pose: 'stand' });
+      const cookSpot = el('div', { class: 'mamagoto-cook', 'aria-hidden': 'true' }, kidChr);
+      let cookChr = kidChr;
 
       // キッチン
       const vesselNodes = {};
@@ -187,7 +191,7 @@
           },
         });
       });
-      kitchen.append(chefBadge);
+      kitchen.append(chefBadge, cookSpot);
       table.append(bookBtn);
 
       // たべもの だな
@@ -294,6 +298,80 @@
         later(() => f.remove(), 1500);
       }
 
+      // ---- キャラの ポーズ ----
+      // pose を かえる（ms の あとに もとに もどす）
+      function posed(c, p, m = 'normal', ms = 0, back = 'stand') {
+        c.setPose(p).setMood(m);
+        const tok = (c._tok = (c._tok || 0) + 1);
+        if (ms) later(() => { if (c._tok === tok) c.setPose(back).setMood('normal'); }, ms);
+      }
+      // せきの キャラ：sit いがいは たちあがる
+      function seatPose(seat, p, m = 'normal', ms = 0) {
+        const c = seat.sitter;
+        posed(c, p, m, ms, 'sit');
+        seat.node.classList.toggle('standing', p !== 'sit');
+        if (ms) {
+          const tok = c._tok;
+          later(() => { if (c._tok === tok) seat.node.classList.remove('standing'); }, ms);
+        }
+      }
+      const cookPose = (p, m = 'normal', ms = 0) => posed(cookChr, p, m, ms);
+
+      // ---- あるく（root の なかを いどう する） ----
+      const chrSize = () => parseFloat(getComputedStyle(seats[0].face).fontSize) || 80;
+      function ptOf(node, fx = 0.5, fy = 1) {
+        const r = node.getBoundingClientRect();
+        const rr = root.getBoundingClientRect();
+        return { x: r.left - rr.left + r.width * fx, y: r.top - rr.top + r.height * fy };
+      }
+      const seatPt = (seat) => ptOf(seat.face, 0.5, 1 + 0.17); // いすの まえの ゆか
+      const cookPt = () => ptOf(cookSpot, 0.5, 1);
+      function makeWalker(c, pt) {
+        const w = el('div', { class: 'mamagoto-walker', 'aria-hidden': 'true' }, c);
+        w.style.fontSize = chrSize() + 'px';
+        w.style.left = pt.x + 'px';
+        w.style.top = pt.y + 'px';
+        w._pt = pt;
+        root.append(w);
+        return w;
+      }
+      async function walkTo(w, c, pt) {
+        const dx = pt.x - w._pt.x;
+        const dist = Math.hypot(dx, pt.y - w._pt.y);
+        const ms = Math.round(Math.max(450, Math.min(1800, (dist / (chrSize() * 2.4)) * 1000)));
+        if (Math.abs(dx) > 2) c.face(dx < 0 ? 'left' : 'right');
+        c.setPose('walk').setMood(c._mood || 'normal');
+        c._tok = (c._tok || 0) + 1;
+        w.style.transitionDuration = ms + 'ms';
+        w.style.left = pt.x + 'px';
+        w.style.top = pt.y + 'px';
+        w._pt = pt;
+        await sleep(ms);
+        c.setPose('stand');
+      }
+      // せきの キャラと コックさんが いれかわる（walk で いどう）
+      async function swapPlaces(seat, newSitter) {
+        const oldSitter = seat.sitter;
+        const oldCook = cookChr;
+        const a = seatPt(seat);
+        const b = cookPt();
+        seat.node.classList.remove('standing');
+        const wa = makeWalker(oldSitter, a);
+        const wb = makeWalker(oldCook, b);
+        oldSitter.setPose('stand');
+        await sleep(250);
+        await Promise.all([walkTo(wa, oldSitter, b), walkTo(wb, oldCook, a)]);
+        if (!ctx.isActive()) return;
+        cookChr = oldSitter;
+        cookChr.face('right');
+        cookSpot.replaceChildren(cookChr);
+        seat.sitter = newSitter || oldCook;
+        seat.sitter.face('right').setPose('sit').setMood('normal');
+        seat.face.replaceChildren(seat.sitter);
+        wa.remove();
+        wb.remove();
+      }
+
       // ---- ちゅうもん ----
       function newOrder(seat, say = true) {
         if (seat.away) return;
@@ -348,6 +426,7 @@
         }
         v.items.push(f.id);
         sound('flip');
+        cookPose('hold', 'normal', 600);
         renderAll();
         const last = vesselNodes[vid].contents.lastElementChild;
         if (last) last.classList.add('drop-in');
@@ -373,6 +452,7 @@
         sound('start');
         const n = vesselNodes[vid];
         n.shape.classList.add(vid === 'pan' ? 'cooking-fire' : 'cooking-mix');
+        cookPose('hold', 'normal', 1700);
         speak(vid === 'pan' ? 'じゅう じゅう…' : 'まぜ まぜ…');
         await sleep(1600);
         n.shape.classList.remove('cooking-fire', 'cooking-mix');
@@ -390,6 +470,7 @@
         saveVessels();
         sound('correct');
         floatAt(n.vessel, '✨');
+        cookPose('cheer', 'happy', 1100);
         if (!byFriend) speak(`${dish.n}が できた！ おともだちに もっていって「どうぞ」しよう`);
         return dish;
       }
@@ -424,7 +505,10 @@
         saveVessels();
         seat.status = 'eat';
         seat.order = null;
+        // こどもが りょうてで はこぶ → おともだちは うれしい かおで たべる
+        cookPose('hold', 'normal', 1400);
         seat.served.replaceChildren(dishNode(dish, 'small'));
+        seatPose(seat, 'sit', 'happy');
         renderSeat(seat);
         sound('tap');
         seatSay(seat, 'いただきます！', 2000);
@@ -442,6 +526,7 @@
         ctx.addHeart(seat.f.id, 1);
         await speak(`${seat.f.name}「${reply}」`);
         seat.status = 'idle';
+        seatPose(seat, 'sit', 'happy', 1500);
         renderSeat(seat);
         S.totalServed += 1;
         S.servesSinceSwap += 1;
@@ -473,14 +558,18 @@
       }
 
       async function eatBySelf(dish) {
-        const node = el('div', { class: 'mamagoto-treat' }, dishNode(dish), el('div', { class: 'mamagoto-treat-face' }, ctx.player.emoji || '🧒'));
+        // もらって たべる → にこにこ
+        const me = ctx.character(ctx.player.kind || ctx.player.emoji || 'kid', { pose: 'hold', mood: 'happy' });
+        const node = el('div', { class: 'mamagoto-treat' }, dishNode(dish), el('div', { class: 'mamagoto-treat-face' }, me));
         root.append(node);
+        kidChr.setMood('happy');
         await speak('もぐ もぐ…');
         if (!ctx.isActive()) return;
         node.classList.add('done');
+        me.setPose('cheer');
         sound('correct');
         await speak('おいしい！ ごちそうさま！');
-        later(() => node.remove(), 300);
+        later(() => { node.remove(); kidChr.setMood('normal'); }, 300);
       }
 
       // おともだちが つくって くれた
@@ -504,15 +593,18 @@
         const tool = ctx.shuffle(['pot', 'pan', 'plate'])[0];
         const dish = cook(tool, ctx.shuffle(FOODS).slice(0, 2).map((f) => f.id));
         seatSay(seat, dish.b + '🎁', 3000);
+        seatPose(seat, 'hold', 'happy'); // たちあがって どうぞ
         await offerDish(seat.f, dish, `いつも ありがとう！ おれいに ${dish.n}を つくったの。どうぞ！`);
+        seatPose(seat, 'sit', 'happy', 1500);
       }
 
       async function spillEvent() {
         const seat = ctx.shuffle(seats.filter((s) => !s.away))[0];
         if (!seat) return;
         const puddle = el('button', { class: 'mamagoto-puddle', 'aria-label': 'ふく' }, el('span', {}, '💦'), el('span', { class: 'mamagoto-puddle-cup' }, '🥛'));
-        seat.node.append(puddle);
+        seat.scene.append(puddle);
         seat.node.classList.add('sad');
+        seatPose(seat, 'sad', 'sad'); // こぼして しょんぼり
         sound('wrong');
         const res = await ctx.talk({
           friend: seat.f.id, mood: '😢', say: 'あっ！ こぼしちゃった…。',
@@ -523,6 +615,7 @@
         });
         if (!res || !ctx.isActive()) return;
         seat.node.classList.remove('sad');
+        seatPose(seat, 'stand');
         speak('ふき ふき しよう！ みずを タッチしてね');
         await new Promise((resolve) => {
           let left = 5;
@@ -538,6 +631,7 @@
         });
         puddle.remove();
         sound('correct');
+        seatPose(seat, 'sit', 'happy', 2000);
         seatSay(seat, '✨ ぴかぴか！', 2000);
         await speak(`${seat.f.name}「きれいに なったね！ ありがとう！」`);
       }
@@ -564,11 +658,15 @@
         root.classList.add('chef-mode');
         chefSeat.away = true;
         chefSeat.order = null;
+        chefSeat.status = 'idle';
         renderSeat(chefSeat);
-        playerSeat.classList.remove('hidden');
-        chefBadge.replaceChildren(el('span', { class: 'mamagoto-chef-face' }, chef.emoji), el('span', { class: 'mamagoto-chef-hat' }, '👨‍🍳'), el('span', {}, 'コックさん'));
         renderAll();
         saveVessels();
+        // きつねちゃんは キッチンへ、こどもは きつねちゃんの いすへ（あるいて いれかわる）
+        await swapPlaces(chefSeat);
+        if (!ctx.isActive()) return;
+        chefSeat.node.setAttribute('aria-label', 'きみの せき');
+        chefBadge.replaceChildren(el('span', { class: 'mamagoto-chef-face' }, chef.emoji), el('span', { class: 'mamagoto-chef-hat' }, '👨‍🍳'), el('span', {}, 'コックさん'));
         await speak(`こんどは ${chef.name}が コックさん。きみは おきゃくさん だよ。たべたい ものを タッチして おねがい してみよう`);
         if (!ctx.isActive()) return;
 
@@ -587,6 +685,7 @@
             if (!fid) continue;
             v.items.push(fid);
             sound('flip');
+            cookPose('hold', 'normal', 600);
             renderVessel(vid);
             const last = vesselNodes[vid].contents.lastElementChild;
             if (last) last.classList.add('drop-in');
@@ -599,11 +698,13 @@
           if (!dish || !ctx.isActive()) return;
           await sleep(900);
           if (round === 0) {
-            const served = playerSeat.querySelector('.mamagoto-served');
+            const served = chefSeat.served;
             v.dish = null;
             renderVessel(vid);
+            cookPose('hold', 'happy'); // りょうてで はこぶ
             served.replaceChildren(dishNode(dish, 'small'));
             const ok = await offerDish(chef, dish, `${dish.n}が できたよ！ どうぞ！`);
+            cookPose('stand');
             served.replaceChildren();
             if (!ok) return;
             rememberDish(dish);
@@ -614,7 +715,9 @@
             renderVessel(vid);
             if (guest) {
               guest.status = 'eat';
+              cookPose('hold', 'normal', 1500);
               guest.served.replaceChildren(dishNode(dish, 'small'));
+              seatPose(guest, 'sit', 'happy');
               renderSeat(guest);
               await speak(`${chef.name}「${guest.f.name}も どうぞ！」`);
               seatSay(guest, 'いただきます！', 1800);
@@ -622,6 +725,7 @@
               await sleep(1200);
               guest.served.replaceChildren();
               guest.status = 'idle';
+              seatPose(guest, 'sit', 'happy', 1800);
               seatSay(guest, '😋 おいしい！', 1800);
               await speak(`${guest.f.name}「おいしい！ ありがとう！」`);
               renderSeat(guest);
@@ -632,12 +736,15 @@
         // こうたい おしまい
         await speak(`${chef.name}「コックさん たのしかった！ つぎは また きみの ばん ね！」`);
         if (!ctx.isActive()) return;
+        chefBadge.replaceChildren();
+        // もとの ばしょに もどる
+        await swapPlaces(chefSeat);
+        if (!ctx.isActive()) return;
+        chefSeat.node.setAttribute('aria-label', chef.name);
         S.mode = 'play';
         S.servesSinceSwap = 0;
         S.selected = 'pot';
         root.classList.remove('chef-mode');
-        chefBadge.replaceChildren();
-        playerSeat.classList.add('hidden');
         chefSeat.away = false;
         renderSeat(chefSeat);
         VESSELS.forEach((x) => { S.vessels[x.id].items = []; S.vessels[x.id].dish = null; });
@@ -689,6 +796,7 @@
           item.remove();
           const slot = el('div', { class: 'mamagoto-slot' }, item._emoji);
           if (who) slot.append(el('span', { class: 'mamagoto-slot-who' }, who.emoji));
+          if (!who) cookPose('hold', 'normal', 500);
           shelf.append(slot);
           sound('flip');
           if (left <= 0) resolveDone();
@@ -711,23 +819,54 @@
         });
         speak('たなに もどそう！ タッチしても いいよ');
 
-        // おともだちも いっしょに かたづける
+        // おともだちも いすから たって、あるいて たなまで はこぶ
         const helpers = seats.filter((s) => !s.away);
-        let h = 0;
-        const helpId = every(() => {
-          const rest = items.filter((it) => !it._gone);
-          if (!rest.length) return;
-          const seat = helpers[h % helpers.length];
-          h += 1;
-          const it = ctx.shuffle(rest)[0];
-          it.classList.add('helped');
-          it.append(el('span', { class: 'mamagoto-helper' }, seat.f.emoji));
+        const shelfWrap = panel.firstElementChild;
+        async function helperLoop(seat, delay) {
+          await sleep(delay);
+          if (left <= 0 || !ctx.isActive()) return;
+          const c = seat.sitter;
           seatSay(seat, '🧺', 1200);
-          later(() => putAway(it, seat.f), 700);
-        }, 2600);
+          const w = makeWalker(c, seatPt(seat));
+          c.setPose('stand');
+          const carry = el('span', { class: 'mamagoto-carry' });
+          w.append(carry);
+          while (left > 0 && ctx.isActive()) {
+            const rest = items.filter((it) => !it._gone && !it._claimed);
+            if (!rest.length) break;
+            const it = ctx.shuffle(rest)[0];
+            it._claimed = true;
+            it.classList.add('helped');
+            await walkTo(w, c, ptOf(it, 0.5, 0.9));
+            if (it._gone) continue;
+            posed(c, 'hold'); // ひろう
+            await sleep(300);
+            if (it._gone) continue;
+            it.style.visibility = 'hidden';
+            carry.textContent = it._emoji;
+            w.classList.add('carrying');
+            const sr = shelf.getBoundingClientRect();
+            const fx = Math.min(0.9, 0.12 + (shelf.childElementCount * 62 + 28) / Math.max(sr.width, 1));
+            await walkTo(w, c, ptOf(shelfWrap, fx, 1.35)); // たなまで あるいて はこぶ
+            posed(c, 'hold');
+            await sleep(250);
+            w.classList.remove('carrying');
+            carry.textContent = '';
+            putAway(it, seat.f);
+            await sleep(200);
+          }
+          if (!ctx.isActive()) return;
+          await walkTo(w, c, seatPt(seat)); // せきに もどる
+          c.face('right');
+          posed(c, 'sit', 'happy', 2500, 'sit');
+          seat.face.replaceChildren(c);
+          w.remove();
+        }
+        const helpersBack = Promise.all(helpers.map((seat, i) => helperLoop(seat, 1800 + i * 1300)));
 
         await done;
-        stopEvery(helpId);
+        await Promise.race([helpersBack, sleep(4000)]);
+        if (!ctx.isActive()) return;
         sound('fanfare');
         panel.classList.add('finished');
         helpers.filter((s) => s.f.id !== 'kitsune').forEach((s) => { ctx.addHeart(s.f.id, 1); floatAt(s.node, '💖'); });

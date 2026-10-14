@@ -143,8 +143,11 @@
       const board = el('div', { class: 'tsumiki-board', 'aria-label': 'つみきを おく ところ' });
       const preview = el('div', { class: 'tsumiki-preview', 'aria-hidden': 'true' });
       board.append(preview);
-      const meNode = el('div', { class: 'tsumiki-me', 'aria-hidden': 'true' }, ctx.player.emoji || '🧒');
-      const pandaNode = el('div', { class: 'tsumiki-panda', 'aria-hidden': 'true' }, '🐼');
+      // ゆかの うえの こども と ぱんだくん（体つき）
+      const meChr = ctx.character(ctx.player.kind || ctx.player.emoji || 'kid', { pose: 'stand' });
+      const pandaChr = ctx.character('panda', { pose: 'stand', face: 'left' });
+      const meNode = el('div', { class: 'tsumiki-me', 'aria-hidden': 'true' }, meChr);
+      const pandaNode = el('div', { class: 'tsumiki-panda', 'aria-hidden': 'true' }, pandaChr);
       const pandaSay = el('div', { class: 'tsumiki-say', 'aria-hidden': 'true' });
       pandaNode.append(pandaSay);
       const floor = el('div', { class: 'tsumiki-floor' }, meNode, pandaNode);
@@ -242,6 +245,59 @@
         later(() => node.classList.remove('landed'), 450);
       }
 
+      // ---- ゆかの キャラ（いちは つみきの れつ で おぼえる） ----
+      const ME_COL = 0.55;
+      const PANDA_HOME = COLS - 0.55;
+      let pandaCol = PANDA_HOME;
+      function charLeft(node, col) {
+        const w = node.offsetWidth || cell * 0.8;
+        const fw = floor.clientWidth || cell * COLS;
+        return clamp(col * cell - w / 2, 0, Math.max(0, fw - w));
+      }
+      function placeChars(noAnim) {
+        for (const [node, col] of [[meNode, ME_COL], [pandaNode, pandaCol]]) {
+          if (noAnim) node.style.transitionDuration = '0s';
+          node.style.left = charLeft(node, col) + 'px';
+          if (noAnim) { void node.offsetWidth; node.style.transitionDuration = ''; }
+        }
+        fitSay();
+      }
+      // ふきだしが ゆかから はみださない ように
+      function fitSay() {
+        const fw = floor.clientWidth;
+        const bw = pandaSay.offsetWidth;
+        const pw = pandaNode.offsetWidth;
+        const pl = charLeft(pandaNode, pandaCol);
+        const want = pw / 2 - bw / 2;
+        pandaSay.style.left = clamp(want, -pl, fw - pl - bw) + 'px';
+      }
+      // ポーズを かえる（ms の あとに たつ に もどす）
+      function pose(c, p, m = 'normal', ms = 0) {
+        c.setPose(p).setMood(m);
+        const tok = (c._tok = (c._tok || 0) + 1);
+        if (ms) later(() => { if (c._tok === tok) c.setPose('stand').setMood('normal'); }, ms);
+      }
+      // ぱんだくんが あるいて いく（col = つみきの れつ）
+      async function pandaWalkTo(col) {
+        // こどもに かさならない ように
+        col = clamp(col, ME_COL + 1.1, PANDA_HOME);
+        const from = charLeft(pandaNode, pandaCol);
+        const to = charLeft(pandaNode, col);
+        pandaCol = col;
+        const dist = Math.abs(to - from);
+        if (dist < 4) return;
+        pandaChr.face(to < from ? 'left' : 'right');
+        pose(pandaChr, 'walk');
+        const ms = Math.round(clamp(dist / (cell * 3.2), 0.45, 1.6) * 1000);
+        pandaNode.style.transitionDuration = ms + 'ms';
+        pandaNode.style.left = to + 'px';
+        fitSay();
+        await pause(ms);
+        pandaNode.style.transitionDuration = '';
+        pose(pandaChr, 'stand');
+      }
+      const faceKid = () => pandaChr.face('left');
+
       // ---- 大きさ（たて・よこ どちらでも おさまるように） ----
       function layout() {
         const wide = root.clientWidth > root.clientHeight * 1.15;
@@ -258,6 +314,7 @@
           floor.style.width = cell * COLS + 'px';
           renderAll(true);
         }
+        placeChars(true);
       }
       const ro = new ResizeObserver(() => { if (ctx.isActive()) layout(); });
       ro.observe(root);
@@ -424,6 +481,7 @@
       };
       function pandaSays(text, ms = 2200) {
         pandaSay.textContent = text;
+        fitSay();
         pandaSay.classList.add('show');
         later(() => pandaSay.classList.remove('show'), ms);
         speak(text);
@@ -450,28 +508,44 @@
         }
         return spots[rand(spots.length)];
       }
-      function pandaPlace(shape, line) {
-        const p = pandaSpot(shape);
+      // おく ばしょの ちかくまで あるいて いって、りょうてで そっと おく
+      let pandaMoving = false;
+      async function pandaPlace(shape, line) {
+        const s = SHAPE[shape];
+        let p = pandaSpot(shape);
         if (!p) return false;
-        hop(pandaNode);
-        addBlock(shape, COLORS[rand(COLORS.length)].id, p.x, p.y, ROWS - SHAPE[shape].h, 'panda');
+        pandaMoving = true;
+        await pandaWalkTo(p.x + s.w / 2 + (p.x + s.w / 2 < COLS / 2 ? 0.9 : -0.9));
+        if (!ctx.isActive()) return false;
+        // あるいて いる あいだに ばしょが うまったら、さがしなおす
+        const again = settle(p.x, ROWS - s.h, s.w, s.h);
+        if (!again || again.y !== p.y || onSlippery(p.x, p.y, s.w)) p = pandaSpot(shape);
+        if (!p || remaining(shape) <= 0) { pandaMoving = false; pose(pandaChr, 'stand'); return false; }
+        pandaChr.face(p.x + s.w / 2 < pandaCol ? 'left' : 'right');
+        pose(pandaChr, 'hold', 'normal', 1300);
+        await pause(250);
+        if (!ctx.isActive()) return false;
+        addBlock(shape, COLORS[rand(COLORS.length)].id, p.x, p.y, ROWS - s.h, 'panda');
         const node = blockEls.get(blocks[blocks.length - 1].id);
         if (node) { node.classList.add('by-panda'); later(() => node.classList.remove('by-panda'), 1800); }
         pandaSays(line || PANDA_LINES[rand(PANDA_LINES.length)]);
+        later(() => { pandaMoving = false; }, 1100);
         return true;
       }
-      function pandaTurn() {
-        const options = ['sikaku', 'naga', 'hanen', 'arch', 'enchu'].filter((id) => remaining(id) >= 2);
-        if (options.length) pandaPlace(options[rand(options.length)]);
+      async function pandaTurn() {
         soc.nextPlace = soc.t + 24 + rand(12);
+        const options = ['sikaku', 'naga', 'hanen', 'arch', 'enchu'].filter((id) => remaining(id) >= 2);
+        if (options.length) await pandaPlace(options[rand(options.length)]);
       }
-      function pandaTriangle(line) {
-        if (remaining('sankaku') >= 1 && pandaPlace('sankaku', line)) return;
+      async function pandaTriangle(line) {
+        if (remaining('sankaku') >= 1 && await pandaPlace('sankaku', line)) return;
+        faceKid();
         pandaSays('さんかく、また こんど かしてね！');
       }
 
       function onKidPlaced(b) {
         soc.placed++;
+        pose(meChr, 'hold', 'normal', 650);
         if (b.s === 'sankaku') {
           // さいごの 1こに なったら、ぱんだくんが「ほしいな」
           if (soc.joined && !soc.triDone && remaining('sankaku') === 1) soc.triAt = Math.min(soc.triAt, soc.t + 3);
@@ -484,8 +558,11 @@
       async function invite() {
         talking = true;
         pandaNode.classList.add('in');
-        hop(pandaNode);
-        await pause(900);
+        faceKid();
+        pose(pandaChr, 'walk');
+        await pause(850);
+        if (!ctx.isActive()) return;
+        pose(pandaChr, 'wave');
         const r = await ctx.talk({
           friend: 'panda',
           say: 'わあ、すてき！ いっしょに つくって いい？',
@@ -495,6 +572,7 @@
           ],
         });
         if (!r || !ctx.isActive()) return;
+        pose(pandaChr, 'cheer', 'happy', 1500);
         talking = false;
         soc.joined = true;
         soc.lastTalk = soc.t;
@@ -506,6 +584,8 @@
       // (2) さんかく ほしいな
       async function askTriangle() {
         talking = true;
+        faceKid();
+        pose(pandaChr, 'hold');
         hop(pandaNode);
         const r = await ctx.talk({
           friend: 'panda',
@@ -517,12 +597,13 @@
           ],
         });
         if (!r || !ctx.isActive()) return;
+        pose(pandaChr, 'cheer', 'happy', 1200);
         talking = false;
         soc.triDone = true;
         soc.lastTalk = soc.t;
         soc.bumpAt = soc.t + 60;
         soc.nextPlace = Math.max(soc.nextPlace, soc.t + 20);
-        if (r.label === 'どうぞ') later(() => pandaTriangle('やねが できた！ どうぞ して くれて ありがとう！'), 700);
+        if (r.label === 'どうぞ') later(() => pandaTriangle('やねが できた！ どうぞ して くれて ありがとう！'), 1300);
         else soc.turnAt = soc.t + 15;
       }
 
@@ -534,8 +615,18 @@
         if (!cands.length) { soc.bumpAt = soc.t + 15; return; }
         const knocked = cands.slice(0, cands.length >= 2 && blocks.length >= 5 ? 2 : 1);
         talking = true;
+        // つみきの ほうへ あるいて いって…
+        const k0 = knocked[0];
+        await pandaWalkTo(k0.x + SHAPE[k0.s].w / 2 + (k0.x + SHAPE[k0.s].w / 2 < COLS / 2 ? 0.7 : -0.7));
+        if (!ctx.isActive()) return;
+        pandaChr.face(k0.x + SHAPE[k0.s].w / 2 < pandaCol ? 'left' : 'right');
+        pose(pandaChr, 'walk');
+        await pause(300);
+        if (!ctx.isActive()) return;
+        // つまずいて よろける
+        pose(pandaChr, 'sad', 'wow');
         pandaNode.classList.add('bump');
-        await pause(500);
+        await pause(300);
         if (!ctx.isActive()) return;
         sound('flip');
         knocked.forEach((b, i) => {
@@ -549,6 +640,8 @@
         await pause(900);
         if (!ctx.isActive()) return;
         pandaNode.classList.remove('bump');
+        faceKid();
+        pose(pandaChr, 'sad', 'sad'); // ごめんね
         const r = await ctx.talk({
           friend: 'panda',
           mood: '😣',
@@ -559,6 +652,7 @@
           ],
         });
         if (!r || !ctx.isActive()) return;
+        pose(pandaChr, 'stand', 'happy');
         // いっしょに なおそう
         const fixBtn = el('button', { class: 'tsumiki-fix' }, el('span', { 'aria-hidden': 'true' }, '🤝'), 'いっしょに なおそう');
         const veil = el('div', { class: 'tsumiki-veil' }, fixBtn);
@@ -568,16 +662,25 @@
         if (!ctx.isActive()) return;
         sound('tap');
         fixBtn.disabled = true;
-        for (let i = 0; i < knocked.length; i++) {
+        // こうたいで ひとつずつ りょうてで もどす（ぱんだくん → こども → …）
+        const order = knocked.length === 1 ? [knocked[0], knocked[0]] : knocked;
+        for (let i = 0; i < order.length; i++) {
+          const fixer = i % 2 ? meChr : pandaChr;
+          const other = i % 2 ? pandaChr : meChr;
+          pose(other, 'stand');
+          pose(fixer, 'hold');
           hop(i % 2 ? meNode : pandaNode);
-          hop(i % 2 ? pandaNode : meNode);
-          blockEl(knocked[i]).classList.remove('tumble');
-          sound('flip');
-          await pause(700);
+          if (knocked.length > 1 || i === order.length - 1) {
+            blockEl(order[i]).classList.remove('tumble');
+            sound('flip');
+          }
+          await pause(800);
           if (!ctx.isActive()) return;
         }
         veil.remove();
         sound('correct');
+        pose(meChr, 'cheer', 'happy', 2400);
+        pose(pandaChr, 'cheer', 'happy', 2400);
         pandaSays('なおったね！ いっしょだと すぐ なおるね！', 2600);
         talking = false;
         soc.bumpDone = true;
@@ -611,13 +714,13 @@
           const f = ctx.friend(id);
           const bubble = el('div', { class: 'tsumiki-guest-say' });
           const node = el('div', { class: 'tsumiki-guest' },
-            el('div', { class: 'tsumiki-guest-face', style: { background: f.color } }, f.emoji), bubble);
+            el('div', { class: 'tsumiki-guest-face', style: { background: `color-mix(in srgb, ${f.color} 30%, #fff)` } }, ctx.character(f.id, { pose: 'stand' })), bubble);
           return { f, node, bubble };
         });
         const closeBtn = el('button', { class: 'tsumiki-close', 'aria-label': 'つづきを つくる' }, el('span', { 'aria-hidden': 'true' }, '🧱'), 'つづける');
         closeBtn.hidden = true;
         const sheet = el('div', { class: 'tsumiki-show' },
-          el('div', { class: 'tsumiki-show-me' }, el('span', {}, ctx.player.emoji || '🧒'), el('span', { class: 'tsumiki-show-call' }, 'みて みて！')),
+          el('div', { class: 'tsumiki-show-me' }, ctx.character(ctx.player.kind || ctx.player.emoji || 'kid', { pose: 'cheer', mood: 'happy' }), el('span', { class: 'tsumiki-show-call' }, 'みて みて！')),
           el('div', { class: 'tsumiki-guests' }, guests.map((g) => g.node)),
           closeBtn);
         const veil = el('div', { class: 'tsumiki-veil show-veil' }, sheet);
@@ -627,14 +730,20 @@
           if (closed) return;
           closed = true;
           veil.remove();
+          pose(meChr, 'stand');
+          pose(pandaChr, 'stand');
           talking = false;
         };
         closeBtn.addEventListener('click', () => { sound('tap'); close(); });
+        // みんなで ばんざい
+        pose(meChr, 'cheer', 'happy');
+        if (soc.joined) pose(pandaChr, 'cheer', 'happy');
         await speak('みんなー！ みて みて！ できたよ！');
         for (let i = 0; i < guests.length; i++) {
           if (!ctx.isActive() || closed) return;
           const g = guests[i];
           g.node.classList.add('in');
+          g.node.querySelector('.chr').setPose('cheer').setMood('happy');
           sound('correct');
           const line = g.f.id === 'panda' ? 'いっしょに つくれて たのしかった！' : lines[i % lines.length];
           g.bubble.textContent = line;
@@ -648,7 +757,7 @@
 
       // ---- ときどき おこる できごと（1びょう ごと） ----
       const tick = setInterval(() => {
-        if (!ctx.isActive() || busy()) return;
+        if (!ctx.isActive() || busy() || pandaMoving) return;
         soc.t++;
         const t = soc.t;
         if (!soc.joined) {

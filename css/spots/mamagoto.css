@@ -9,6 +9,8 @@
   flex-direction: column;
   gap: 1.2cqh;
   container-type: size;
+  /* キャラの せの たかさ（せき・キッチン・あるく ときで おなじ） */
+  --chr: min(17.5cqh, 16cqw);
 }
 
 /* ---- テーブル ---- */
@@ -22,63 +24,120 @@
   padding: 0 96px 0 2cqw;
   border-radius: 24px;
   background:
-    linear-gradient(to bottom, transparent 62%, #d9a066 62%, #c98b4f 72%, transparent 72%),
+    linear-gradient(to bottom, transparent calc(100% - 1.4cqh), #e8c595 calc(100% - 1.4cqh)),
     linear-gradient(#fff1d6, #ffe6bd);
   box-shadow: var(--shadow);
 }
 .mamagoto-seat {
   position: relative;
-  flex: 1 1 0;
-  max-width: 28cqw;
-  min-width: 80px;
+  flex: 0 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 0 1cqh;
+  padding: 0 0 1.4cqh;
   background: none;
   border-radius: 20px;
   transition: transform 0.15s;
 }
 .mamagoto-seat.hidden { display: none; }
+.mamagoto-seat[data-seat] { min-width: 80px; }
 .mamagoto-seat.pop { animation: pop 0.45s ease-out; }
-.mamagoto-face {
+
+/* よこから みた せき：いす（ひだり）・すわる キャラ・テーブル（みぎ） */
+.mamagoto-scene {
   position: relative;
-  z-index: 2;
-  font-size: min(9cqh, 11cqw);
-  line-height: 1;
-  margin-bottom: 2cqh;
-  animation: mamagoto-bob 2.2s ease-in-out infinite;
+  font-size: var(--chr);
+  width: 1.42em;
+  height: 1.08em;
+  line-height: 0;
 }
-.mamagoto-seat.eating .mamagoto-face { animation: mamagoto-munch 0.35s ease-in-out infinite; }
-.mamagoto-seat.sad .mamagoto-face { filter: saturate(0.6); animation: none; }
-.mamagoto-seat.away .mamagoto-face,
-.mamagoto-seat.away .mamagoto-bubble,
-.mamagoto-seat.away .mamagoto-served { visibility: hidden; }
 .mamagoto-chair {
   position: absolute;
-  left: 50%;
-  bottom: 0.5cqh;
-  width: min(15cqh, 18cqw);
-  height: 4cqh;
-  transform: translateX(-50%);
-  border-radius: 12px 12px 4px 4px;
-  background: var(--seat-color, #f2a541);
-  opacity: 0.85;
+  left: 0.1em;
+  bottom: 0;
+  width: 0.44em;
+  height: 0.31em;
 }
-.mamagoto-player .mamagoto-chair { background: #ff8a3d; }
-.mamagoto-served {
+/* いすの せもたれ と ざめん */
+.mamagoto-chair::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0.06em;
+  height: 0.78em;
+  border-radius: 0.03em;
+  background: color-mix(in srgb, var(--seat-color, #f2a541) 70%, #7a4a20);
+}
+.mamagoto-chair::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0.06em;
+  border-radius: 0.03em;
+  background: color-mix(in srgb, var(--seat-color, #f2a541) 70%, #7a4a20);
+}
+.mamagoto-chair { background: linear-gradient(90deg, transparent 0.37em, color-mix(in srgb, var(--seat-color, #f2a541) 70%, #7a4a20) 0.37em 0.43em, transparent 0.43em) no-repeat; }
+.mamagoto-face {
+  position: absolute;
+  z-index: 2;
+  left: 0.12em;
+  bottom: 0.17em;
+  font-size: 1em;
+  line-height: 0;
+  transition: bottom 0.2s;
+}
+.mamagoto-face .chr { display: block; }
+.mamagoto-seat.standing .mamagoto-face { bottom: 0; left: 0; }
+.mamagoto-seat.eating .mamagoto-face .chr-head { animation: mamagoto-munch 0.35s ease-in-out infinite; }
+.mamagoto-seat.sad .mamagoto-face { filter: saturate(0.75); }
+/* テーブル（あしは テーブルの したへ） */
+.mamagoto-desk {
   position: absolute;
   z-index: 3;
-  left: 50%;
-  bottom: 5cqh;
+  left: 0.6em;
+  right: 0;
+  bottom: 0;
+  height: 0.5em;
+}
+.mamagoto-desk::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0.07em;
+  border-radius: 0.035em;
+  background: linear-gradient(#e0ae74, #c98b4f);
+  box-shadow: 0 0.015em 0 rgba(74, 59, 42, 0.2);
+}
+.mamagoto-desk::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 0.035em);
+  top: 0.06em;
+  bottom: 0;
+  width: 0.07em;
+  background: #b9844a;
+  border-radius: 0 0 0.02em 0.02em;
+}
+.mamagoto-served {
+  position: absolute;
+  z-index: 4;
+  left: calc(0.6em + 0.41em);
+  bottom: 0.56em;
   transform: translateX(-50%);
+  line-height: 1;
   pointer-events: none;
 }
 .mamagoto-bubble {
   position: absolute;
   z-index: 4;
-  top: 0.8cqh;
+  bottom: calc(1.4cqh + var(--chr) * 1.04 + 4px); /* あたまの すぐ うえ */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -112,7 +171,7 @@
   display: flex;
   justify-content: center;
   gap: 2cqw;
-  padding: 1.5cqh 2cqw;
+  padding: 1.5cqh 2cqw 1.5cqh calc(var(--chr) * 0.72 + 3cqw);
   border-radius: 24px;
   background: linear-gradient(#e8f6ff, #cfeaff);
   box-shadow: var(--shadow);
@@ -265,6 +324,38 @@
 .mamagoto-root.chef-mode .mamagoto-chef { display: flex; }
 .mamagoto-chef-face { font-size: 1.6em; line-height: 1; }
 
+/* キッチンに たつ コックさん */
+.mamagoto-cook {
+  position: absolute;
+  z-index: 2;
+  left: 1.5cqw;
+  bottom: 1.5cqh;
+  font-size: var(--chr);
+  line-height: 0;
+  pointer-events: none;
+}
+.mamagoto-cook .chr { display: block; }
+
+/* あるいて いどう する キャラ（あしもとが left / top） */
+.mamagoto-walker {
+  position: absolute;
+  z-index: 25;
+  line-height: 0;
+  transform: translate(-50%, -100%);
+  transition-property: left, top;
+  transition-timing-function: linear;
+  pointer-events: none;
+}
+.mamagoto-walker .chr { display: block; }
+.mamagoto-carry {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-30%, -50%);
+  font-size: 0.34em;
+  line-height: 1;
+}
+
 .mamagoto-book-btn {
   position: absolute;
   z-index: 5;
@@ -341,9 +432,10 @@
 }
 .mamagoto-treat .mamagoto-dish-base { font-size: 80px; }
 .mamagoto-treat .mamagoto-dish-tops { font-size: 28px; }
-.mamagoto-treat-face { font-size: 80px; animation: mamagoto-munch 0.35s ease-in-out infinite; }
+.mamagoto-treat-face { font-size: 120px; line-height: 0; }
+.mamagoto-treat-face .chr-head { animation: mamagoto-munch 0.35s ease-in-out infinite; }
 .mamagoto-treat.done .mamagoto-dish { opacity: 0.25; }
-.mamagoto-treat.done .mamagoto-treat-face { animation: pop 0.5s ease-out; }
+.mamagoto-treat.done .mamagoto-treat-face .chr-head { animation: none; }
 
 /* こぼした */
 .mamagoto-puddle {
@@ -363,6 +455,7 @@
   transition: transform 0.2s, opacity 0.2s;
   cursor: pointer;
 }
+.mamagoto-scene .mamagoto-puddle { left: calc(var(--chr) * 0.98); bottom: 0; z-index: 4; transform-origin: 50% 70%; transform: translate(-50%, 18%) scale(calc(0.4 + var(--left) * 0.6)); }
 .mamagoto-puddle-cup { position: absolute; right: -6px; top: -14px; font-size: 32px; transform: rotate(80deg); }
 
 /* ---- おかたづけ ---- */
@@ -415,8 +508,7 @@
   font-size: min(48px, max(36px, 6cqh));
   touch-action: none;
 }
-.mamagoto-mess-item.helped { animation: pop 0.5s ease-out; }
-.mamagoto-helper { position: absolute; right: -8px; top: -10px; font-size: 30px; }
+.mamagoto-mess-item.helped { outline: 4px dashed #ffb46b; }
 .mamagoto-cleanup.finished { background: #f1fff0; }
 
 /* ---- りょうり ノート ---- */
@@ -465,7 +557,14 @@
   100% { transform: translate(-50%, -80px) scale(1); opacity: 0; }
 }
 
+/* せまい がめん：コックさんの ぶん、ボタンの もじを すこし ちいさく */
+@container (max-width: 560px) {
+  .mamagoto-kitchen { gap: 1.5cqw; padding-right: 1.5cqw; }
+  .mamagoto-action { font-size: 16px; gap: 0.1em; }
+  .mamagoto-action-emoji { font-size: 1.1em; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .mamagoto-face, .mamagoto-dish-tops span, .mamagoto-vessel.has-dish .mamagoto-dish,
+  .mamagoto-seat.eating .mamagoto-face .chr-head, .mamagoto-treat-face .chr-head, .mamagoto-dish-tops span, .mamagoto-vessel.has-dish .mamagoto-dish,
   .mamagoto-shape.cooking-mix, .mamagoto-shape.cooking-fire, .mamagoto-shape.cooking-mix .mamagoto-contents { animation: none; }
 }
