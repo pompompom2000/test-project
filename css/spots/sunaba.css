@@ -1,0 +1,312 @@
+/* ---- すなば ---- */
+.sunaba-root {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas: "box side" "tools tools";
+  gap: 10px 14px;
+  padding: 2px 0 4px;
+}
+
+.sunaba-boxcell {
+  grid-area: box;
+  container-type: size;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.sunaba-box {
+  position: relative;
+  width: min(100cqw, 100cqh);
+  aspect-ratio: 1;
+  container-type: inline-size;
+  border: 14px solid #c48a52;
+  border-radius: 30px;
+  background: #eecf92;
+  box-shadow: inset 0 0 0 4px #a8723f, 0 8px 0 rgba(74, 59, 42, 0.2);
+  overflow: hidden;
+  touch-action: none;
+  cursor: crosshair;
+}
+.sunaba-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.sunaba-rim { position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 2.4cqw rgba(110, 70, 25, 0.35); border-radius: 14px; }
+.sunaba-items, .sunaba-fx { position: absolute; inset: 0; pointer-events: none; }
+.sunaba-items { transition: opacity 0.6s; }
+.sunaba-items.fade { opacity: 0; }
+
+.sunaba-item {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 7cqw;
+  line-height: 1;
+  filter: drop-shadow(0.3cqw 0.5cqw 0 rgba(90, 60, 20, 0.3));
+}
+.sunaba-item.pop { animation: sunaba-pop 0.35s ease-out; }
+.sunaba-item-flag { font-size: 6cqw; transform: translate(-25%, -85%); }
+@keyframes sunaba-pop { 0% { scale: 0.2; } 70% { scale: 1.25; } 100% { scale: 1; } }
+
+.sunaba-burst {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 12cqw;
+  line-height: 1;
+}
+.sunaba-burst.flip { animation: sunaba-bucket 0.8s ease-out forwards; }
+.sunaba-burst.spark { font-size: 6cqw; animation: sunaba-spark 0.9s ease-out forwards; }
+@keyframes sunaba-bucket {
+  0% { transform: translate(-50%, -110%) rotate(0); opacity: 1; }
+  35% { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; }
+  60% { transform: translate(-50%, -50%) rotate(180deg) scale(1.05, 0.92); opacity: 1; }
+  100% { transform: translate(-50%, -140%) rotate(180deg); opacity: 0; }
+}
+@keyframes sunaba-spark {
+  from { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+  to { transform: translate(-50%, -150%) scale(1.2); opacity: 0; }
+}
+
+.sunaba-can {
+  position: absolute;
+  width: 14cqw;
+  transform: translate(-95%, -95%) rotate(-28deg);
+  transform-origin: 90% 60%;
+  filter: drop-shadow(0 0.6cqw 0 rgba(0, 0, 0, 0.2));
+}
+.sunaba-can svg { width: 100%; height: auto; display: block; }
+
+.sunaba-helper {
+  position: absolute;
+  transform: translate(-50%, -75%);
+  font-size: 10cqw;
+  line-height: 1;
+  transition: left 0.07s linear, top 0.07s linear;
+  filter: drop-shadow(0 0.6cqw 0 rgba(0, 0, 0, 0.2));
+  animation: sunaba-hop 0.4s ease-in-out infinite;
+}
+.sunaba-helper-tool { position: absolute; left: 60%; top: 45%; width: 6cqw; animation: sunaba-dig 0.4s ease-in-out infinite; transform-origin: 50% 10%; }
+.sunaba-helper-tool svg { width: 100%; height: auto; display: block; }
+@keyframes sunaba-hop { 50% { margin-top: -1cqw; } }
+@keyframes sunaba-dig { 0%, 100% { rotate: -20deg; } 50% { rotate: 30deg; } }
+
+.sunaba-zone {
+  position: absolute;
+  width: 30cqw;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 0.7cqw dashed rgba(255, 255, 255, 0.95);
+  display: grid;
+  place-items: center;
+}
+.sunaba-zone::before {
+  content: "";
+  position: absolute;
+  inset: -1.8cqw;
+  border-radius: 50%;
+  background: conic-gradient(#ff6b9a calc(var(--p, 0) * 360deg), rgba(255, 255, 255, 0.45) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.4cqw), #000 calc(100% - 1.3cqw));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 1.4cqw), #000 calc(100% - 1.3cqw));
+}
+.sunaba-zone-hint { font-size: 9cqw; opacity: 0.75; animation: sunaba-rub 1.2s ease-in-out infinite; }
+.sunaba-zone.done .sunaba-zone-hint { display: none; }
+.sunaba-zone.done { border-color: transparent; }
+@keyframes sunaba-rub { 0%, 100% { translate: -3cqw 0; } 50% { translate: 3cqw 0; } }
+
+/* ---- となりの おともだち・ボタン ---- */
+.sunaba-side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 190px;
+}
+.sunaba-pals { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.sunaba-pal { position: relative; display: flex; flex-direction: column; align-items: center; }
+.sunaba-pal.away { visibility: hidden; }
+.sunaba-pal-pen.away { display: none; }
+.sunaba-pal-face {
+  position: relative;
+  z-index: 1;
+  font-size: 68px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.15));
+  animation: sunaba-play 1.6s ease-in-out infinite;
+}
+.sunaba-pal-pen .sunaba-pal-face { animation-delay: -0.8s; }
+.sunaba-pal.visiting .sunaba-pal-face { animation: sunaba-walkin 0.6s ease-out; }
+.sunaba-pal-face.jump { animation: sunaba-jump 0.6s ease-out 2; }
+.sunaba-pal-pile {
+  width: 110px;
+  height: 30px;
+  margin-top: -14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 35%, #f6dca4, #dcb06a);
+  box-shadow: 0 4px 0 rgba(74, 59, 42, 0.15);
+}
+@keyframes sunaba-play { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg) translateY(-6px); } }
+@keyframes sunaba-jump { 40% { transform: translateY(-22px) scale(1.1); } }
+@keyframes sunaba-walkin { from { transform: translateX(80px); opacity: 0; } }
+
+.sunaba-bubble {
+  position: absolute;
+  right: calc(100% - 10px);
+  top: -6px;
+  z-index: 20;
+  width: max-content;
+  max-width: 260px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 19px;
+  font-weight: 900;
+  text-align: left;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  transform: scale(0.6);
+  transform-origin: right top;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.sunaba-pal.talking .sunaba-bubble { opacity: 1; transform: scale(1); }
+
+.sunaba-side-btns { display: flex; flex-direction: column; gap: 12px; }
+.sunaba-side-btn, .sunaba-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 96px;
+  min-height: 88px;
+  padding: 6px 4px;
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  transition: transform 0.08s;
+}
+.sunaba-side-btn:active, .sunaba-tool:active, .sunaba-subbtn:active { transform: translateY(4px); }
+.sunaba-side-icon { font-size: 40px; line-height: 1; }
+.sunaba-side-label, .sunaba-tool-label { font-size: 16px; white-space: nowrap; }
+.sunaba-show { background: #ffe1ec; color: #c2185b; }
+
+/* ---- どうぐ ---- */
+.sunaba-toolwrap { grid-area: tools; position: relative; display: flex; justify-content: center; }
+.sunaba-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.sunaba-tool { position: relative; }
+.sunaba-tool-icon { display: grid; place-items: center; height: 46px; font-size: 40px; line-height: 1; }
+.sunaba-tool-icon svg { width: 46px; height: 46px; }
+.sunaba-tool.on { background: #ffe1b0; outline: 5px solid var(--primary); outline-offset: -1px; }
+.sunaba-tool-badge {
+  position: absolute;
+  right: -6px;
+  top: -8px;
+  display: none;
+  font-size: 30px;
+  animation: sunaba-play 1s ease-in-out infinite;
+}
+.sunaba-tool.lent { opacity: 0.6; }
+.sunaba-tool.lent .sunaba-tool-badge { display: block; }
+
+.sunaba-sub {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  z-index: 10;
+  display: none;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+.sunaba-sub.open { display: flex; }
+.sunaba-subbtn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff6e5;
+  font-size: 44px;
+  line-height: 1;
+}
+.sunaba-subbtn.on { background: #ffe1b0; outline: 5px solid var(--primary); }
+
+/* ---- かくにん ---- */
+.sunaba-confirm {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(74, 59, 42, 0.35);
+  border-radius: 24px;
+  animation: fade-in 0.2s ease-out;
+}
+.sunaba-confirm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: min(560px, 100%);
+  padding: 24px;
+  border-radius: 32px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.sunaba-confirm-title { font-size: clamp(24px, 4vw, 34px); font-weight: 900; }
+.sunaba-confirm-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%; }
+.sunaba-confirm-btn {
+  flex: 1 1 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 96px;
+  border-radius: 24px;
+  font-size: 26px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+}
+.sunaba-confirm-btn span:first-child { font-size: 44px; }
+.sunaba-confirm-btn.yes { background: #ffe1b0; }
+.sunaba-confirm-btn.no { background: #e6f6ff; }
+
+/* たて がめん：すなばの したに おともだち と どうぐ */
+@media (orientation: portrait) {
+  .sunaba-root {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    grid-template-areas: "box" "tools" "side";
+  }
+  .sunaba-side { flex-direction: row; width: auto; gap: 14px; }
+  .sunaba-pals { flex-direction: row; gap: 10px; }
+  .sunaba-side-btns { flex-direction: row; }
+  .sunaba-pal-face { font-size: 56px; }
+  .sunaba-pal-pile { width: 84px; height: 24px; }
+  .sunaba-bubble { right: auto; left: 0; top: auto; bottom: calc(100% + 4px); transform-origin: left bottom; max-width: min(300px, 80vw); }
+}
+
+@media (max-width: 520px) {
+  .sunaba-tool, .sunaba-side-btn { width: 80px; min-height: 80px; border-radius: 20px; }
+  .sunaba-tools { gap: 8px; }
+  .sunaba-tool-icon { height: 38px; font-size: 34px; }
+  .sunaba-tool-icon svg { width: 38px; height: 38px; }
+  .sunaba-side-icon { font-size: 32px; }
+  .sunaba-side-label, .sunaba-tool-label { font-size: 14px; }
+  .sunaba-pal-face { font-size: 44px; }
+  .sunaba-pal-pile { width: 64px; height: 18px; margin-top: -10px; }
+  .sunaba-box { border-width: 10px; border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunaba-pal-face, .sunaba-helper, .sunaba-helper-tool, .sunaba-zone-hint, .sunaba-tool-badge { animation: none; }
+}

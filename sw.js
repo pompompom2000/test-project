@@ -1,6 +1,6 @@
 // オフラインでも遊べるよう、アプリ一式をキャッシュする。
 // ファイルを更新したら VERSION を上げること。
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE = `minna-asobo-${VERSION}`;
 const FILES = [
   './',
@@ -15,6 +15,10 @@ const FILES = [
   'css/spots/tsumiki.css',
   'js/spots/mamagoto.js',
   'css/spots/mamagoto.css',
+  'js/spots/sunaba.js',
+  'css/spots/sunaba.css',
+  'js/spots/suberidai.js',
+  'css/spots/suberidai.css',
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',

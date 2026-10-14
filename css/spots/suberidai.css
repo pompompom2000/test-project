@@ -1,0 +1,215 @@
+/* ---- すべりだい ---- */
+.suberidai-root {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2px 0 4px;
+}
+.suberidai-scenecell {
+  flex: 1;
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+.suberidai-frame {
+  position: relative;
+  width: min(100cqw, 100cqh * 4 / 3);
+  height: 100cqh;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #9fd8ff;
+  box-shadow: 0 8px 0 rgba(74, 59, 42, 0.18);
+}
+.suberidai-frame::before {
+  /* たて がめんで うえに ひろがる そら */
+  content: "☁️";
+  position: absolute;
+  left: 62%;
+  top: 8%;
+  font-size: min(14cqw, 90px);
+  opacity: 0.9;
+}
+.suberidai-scene {
+  position: relative;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  container-type: inline-size;
+  touch-action: none;
+}
+.suberidai-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.suberidai-fx { position: absolute; inset: 0; pointer-events: none; z-index: 400; }
+
+.suberidai-kid {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  font-size: max(7cqw, 28px);
+  line-height: 1;
+  transition-property: left, top;
+  transition-timing-function: linear;
+  pointer-events: none;
+}
+.suberidai-kid.notr { transition: none; }
+.suberidai-face {
+  display: block;
+  filter: drop-shadow(0 0.5cqw 0 rgba(0, 0, 0, 0.18));
+  transform-origin: 50% 90%;
+}
+.suberidai-kid.walk .suberidai-face { animation: suberidai-hop 0.3s ease-in-out infinite; }
+@keyframes suberidai-hop { 50% { translate: 0 -0.8cqw; } }
+
+.suberidai-kid.is-player { pointer-events: auto; cursor: pointer; padding: 1cqw; margin-top: 1cqw; }
+.suberidai-kid.is-player::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.4cqw;
+  width: 7cqw;
+  height: 1.6cqw;
+  border-radius: 50%;
+  background: rgba(255, 138, 61, 0.55);
+  transform: translateX(-50%);
+}
+.suberidai-kid.my-turn::after {
+  content: "👇";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  font-size: 5cqw;
+  transform: translateX(-50%);
+  animation: suberidai-point 0.7s ease-in-out infinite;
+}
+@keyframes suberidai-point { 50% { translate: 0 -1.2cqw; } }
+
+.suberidai-kid.is-chick { font-size: 5.6cqw; }
+.suberidai-kid.crying .suberidai-face { animation: suberidai-sob 0.5s ease-in-out infinite; }
+.suberidai-kid.crying::after {
+  content: "💧";
+  position: absolute;
+  right: -1.6cqw;
+  top: 0.4cqw;
+  font-size: 2.6cqw;
+  animation: suberidai-drop 0.9s ease-in infinite;
+}
+@keyframes suberidai-sob { 0%, 100% { rotate: -4deg; } 50% { rotate: 4deg; } }
+@keyframes suberidai-drop { from { translate: 0 0; opacity: 1; } to { translate: 0 3cqw; opacity: 0; } }
+
+.suberidai-kid.hands-up::after {
+  content: "🙌";
+  position: absolute;
+  left: -2.5cqw;
+  top: -3cqw;
+  font-size: 4.5cqw;
+  animation: suberidai-wave 0.6s ease-in-out infinite;
+}
+@keyframes suberidai-wave { 50% { rotate: -14deg; translate: 0 -0.6cqw; } }
+
+.suberidai-say {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 1cqw);
+  z-index: 2;
+  width: max-content;
+  max-width: 36cqw;
+  padding: 0.8cqw 1.6cqw;
+  border-radius: 2.4cqw;
+  background: #fff;
+  box-shadow: 0 0.6cqw 0 rgba(74, 59, 42, 0.18);
+  font-size: max(15px, 2.4cqw);
+  font-weight: 900;
+  line-height: 1.3;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  transform: translateX(-50%) scale(0.5);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.suberidai-kid.saying .suberidai-say { opacity: 1; transform: translateX(-50%) scale(1); }
+.suberidai-kid.my-turn .suberidai-say { bottom: calc(100% + 6cqw); }
+.suberidai-kid.edge-r .suberidai-say { left: auto; right: -1cqw; transform: scale(0.5); transform-origin: right bottom; }
+.suberidai-kid.edge-r.saying .suberidai-say { transform: scale(1); }
+.suberidai-kid.edge-l .suberidai-say { left: -1cqw; transform: scale(0.5); transform-origin: left bottom; }
+.suberidai-kid.edge-l.saying .suberidai-say { transform: scale(1); }
+.suberidai-ask .talk-choice-label { word-break: keep-all; }
+
+.suberidai-float {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 5cqw;
+  font-weight: 900;
+  white-space: nowrap;
+  animation: suberidai-up 1.4s ease-out forwards;
+}
+.suberidai-float.whoosh { font-size: 6cqw; color: #ff5e7e; text-shadow: 0.4cqw 0.4cqw 0 #fff; animation: suberidai-zoom 1.3s ease-out forwards; }
+.suberidai-float.pachin { font-size: 4.4cqw; color: #ff8a3d; text-shadow: 0.3cqw 0.3cqw 0 #fff; }
+.suberidai-float.clap { font-size: 7cqw; animation: suberidai-clap 1s ease-out forwards; }
+.suberidai-float.spark { font-size: 4cqw; }
+.suberidai-float.heart { font-size: 6cqw; }
+@keyframes suberidai-up {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: 0 -10cqw; opacity: 0; }
+}
+@keyframes suberidai-zoom {
+  0% { scale: 0.4; opacity: 0; rotate: -10deg; }
+  25% { scale: 1.2; opacity: 1; }
+  70% { scale: 1; opacity: 1; }
+  100% { scale: 1; opacity: 0; translate: 6cqw 4cqw; }
+}
+@keyframes suberidai-clap {
+  0% { scale: 0.3; opacity: 0; }
+  30% { scale: 1.4; opacity: 1; }
+  100% { scale: 1; opacity: 0; }
+}
+
+/* ---- したの ボタン ---- */
+.suberidai-bar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  min-height: 104px;
+}
+.suberidai-bar > * { grid-area: 1 / 1; }
+.suberidai-action {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 260px;
+  min-height: 96px;
+  padding: 8px 40px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  animation: suberidai-pulse 1.2s ease-in-out infinite;
+}
+.suberidai-action.show { display: flex; }
+.suberidai-action:active { transform: translateY(4px); }
+.suberidai-action-icon { font-size: 48px; line-height: 1; }
+@keyframes suberidai-pulse { 50% { scale: 1.05; } }
+
+.suberidai-wait {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1;
+}
+.suberidai-wait.show { display: flex; }
+.suberidai-wait-icon { font-size: 0.8em; }
+.suberidai-wait-line { letter-spacing: 0.05em; white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .suberidai-action, .suberidai-kid.walk .suberidai-face, .suberidai-kid.crying .suberidai-face { animation: none; }
+}
