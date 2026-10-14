@@ -166,12 +166,30 @@
       function makePal(id) {
         const f = ctx.friend(id);
         const bubble = el('div', { class: 'sunaba-bubble' });
-        const face = el('div', { class: 'sunaba-pal-face' }, f.emoji);
-        const node = el('div', { class: `sunaba-pal sunaba-pal-${id}` }, bubble, face, el('div', { class: 'sunaba-pal-pile', 'aria-hidden': 'true' }));
-        return { id, node, bubble, face, timer: 0 };
+        // ふだんの ポーズ：いぬくんは すなばの ふちに すわる、ぺんぎんくんは たって あそぶ
+        const rest = id === 'inu' ? 'sit' : 'stand';
+        const body = ctx.character(f.id, { pose: rest });
+        const face = el('div', { class: 'sunaba-pal-face', 'aria-hidden': 'true' }, body);
+        const node = el('div', { class: `sunaba-pal sunaba-pal-${id} is-${rest}` }, bubble, face, el('div', { class: 'sunaba-pal-pile', 'aria-hidden': 'true' }));
+        return { id, node, bubble, face, body, rest, timer: 0, poseTimer: 0 };
       }
       const pals = { inu: makePal('inu'), pen: makePal('pen') };
       pals.pen.node.classList.add('away');
+
+      // ポーズを かえる（ms を わたすと、そのあと ふだんの ポーズに もどる）
+      function pose(id, p, mood = 'normal', ms = 0) {
+        const pal = pals[id];
+        if (!pal) return;
+        clearTimeout(pal.poseTimer);
+        pal.body.setPose(p).setMood(mood);
+        pal.node.classList.toggle('is-sit', p === 'sit');
+        pal.node.classList.toggle('is-stand', p !== 'sit');
+        if (ms) {
+          pal.poseTimer = setTimeout(() => { if (alive()) pose(id, pal.rest); }, ms);
+          timers.add(pal.poseTimer);
+        }
+      }
+      const restPose = (id) => pose(id, pals[id].rest);
 
       const showBtn = el('button', { class: 'sunaba-side-btn sunaba-show', 'aria-label': 'みせる', onclick: () => showOff() },
         el('span', { class: 'sunaba-side-icon' }, '👀'), el('span', { class: 'sunaba-side-label' }, 'みせる'));
@@ -192,7 +210,7 @@
           const icon = el('span', { class: 'sunaba-tool-icon' });
           if (t.svg) icon.innerHTML = t.icon; else icon.textContent = t.icon;
           const b = el('button', { class: 'sunaba-tool', 'aria-label': t.label, 'data-tool': t.id, onclick: () => selectTool(t.id) },
-            icon, el('span', { class: 'sunaba-tool-label' }, t.label), el('span', { class: 'sunaba-tool-badge', 'aria-hidden': 'true' }, '🐶'));
+            icon, el('span', { class: 'sunaba-tool-label' }, t.label), el('span', { class: 'sunaba-tool-badge', 'aria-hidden': 'true' }, ctx.character('inu', { pose: 'hold' })));
           toolBtns[t.id] = b;
           return b;
         }));
@@ -221,6 +239,8 @@
         if (id === 'dig' && lending) {
           sound('tap');
           say('inu', 'いま スコップ つかわせて もらってるよ。ありがとう！');
+          helperBody.setPose('wave');
+          later(() => { if (helper.isConnected) helperBody.setPose('walk'); }, 1600);
           return;
         }
         tool = id;
@@ -628,6 +648,8 @@
 
       // (1) スコップ かして
       async function eventScoop() {
+        // てを まえに だして「かして？」
+        pose('inu', 'hold');
         const c = await talk({
           friend: 'inu', say: 'ねえねえ、スコップ かして？',
           choices: [
@@ -638,15 +660,19 @@
         });
         if (!c || !alive()) return;
         if (c.label !== 'どうぞ') {
+          restPose('inu');
           await pause(14000);
           if (!alive()) return;
+          pose('inu', 'hold');
           await say('inu', 'じゅんばんこ。こんどは ぼくの ばん だね。スコップ かりるね！');
           if (!alive()) return;
         }
         await lendScoop();
       }
 
-      const helper = el('div', { class: 'sunaba-helper', 'aria-hidden': 'true' }, '🐶');
+      // スコップを もって すなばの なかを あるく いぬくん
+      const helperBody = ctx.character('inu', { pose: 'walk', face: 'left' });
+      const helper = el('div', { class: 'sunaba-helper', 'aria-hidden': 'true' }, helperBody);
       helper.append(el('span', { class: 'sunaba-helper-tool' }));
       helper.lastChild.innerHTML = SVG_SHOVEL;
 
@@ -668,6 +694,8 @@
         const cy = (sy + ty) / 2 + (Math.random() < 0.5 ? -18 : 18);
         helper.style.left = (sx / N) * 100 + '%';
         helper.style.top = (sy / N) * 100 + '%';
+        helperBody.setPose('walk').setMood('normal').face(tx < sx ? 'left' : 'right');
+        helper.classList.remove('pouring');
         fxLayer.append(helper);
         speak('いぬくんが となりから ほってるよ。ほかの どうぐで あそんでね。');
         const steps = 90;
@@ -676,6 +704,8 @@
           const t = k / steps;
           const x = (1 - t) * (1 - t) * sx + 2 * (1 - t) * t * cx + t * t * tx;
           const y = (1 - t) * (1 - t) * sy + 2 * (1 - t) * t * cy + t * t * ty;
+          const dx = 2 * (1 - t) * (cx - sx) + 2 * t * (tx - cx);
+          if (Math.abs(dx) > 0.5) helperBody.face(dx < 0 ? 'left' : 'right');
           dig(x, y, 1.6);
           helper.style.left = (x / N) * 100 + '%';
           helper.style.top = (y / N) * 100 + '%';
@@ -693,6 +723,9 @@
         waterOn = true;
         helper.style.left = (sx / N) * 100 + '%';
         helper.style.top = (sy / N) * 100 + '%';
+        // とまって、おみずを りょうてで ながす
+        helperBody.setPose('hold').setMood('happy').face('left');
+        helper.classList.add('pouring');
         sound('correct');
         await say('inu', pond ? 'いけが できたよ！ おみず いれるね！' : 'かわが つながったよ！ おみず ながすね！');
         await pause(6000);
@@ -700,6 +733,8 @@
         dogPour = null;
         helper.remove();
         pals.inu.node.classList.remove('away');
+        // スコップを りょうてで かえす
+        pose('inu', 'hold', 'happy', 4200);
         lending = false;
         toolBtns.dig.classList.remove('lent');
         sound('flip');
@@ -709,6 +744,7 @@
 
       // (2) いっしょに おおきい おしろ
       async function eventCastle() {
+        pose('inu', 'wave');
         const c = await talk({
           friend: 'inu', say: 'いっしょに おおきい おしろ つくろう！',
           choices: [
@@ -716,7 +752,7 @@
             { emoji: '🙅', label: 'ひとりで あそぶ', good: false, hint: 'いぬくん、いっしょに あそびたいんだって。なんて いったら いいかな？' },
           ],
         });
-        if (!c || !alive()) return;
+        if (!c || !alive()) { if (alive()) restPose('inu'); return; }
         // いちばん あいている ばしょ
         const spots = ctx.shuffle([[0.5, 0.48], [0.32, 0.35], [0.68, 0.36], [0.33, 0.66], [0.67, 0.65]]);
         let best = spots[0]; let bestScore = Infinity;
@@ -729,8 +765,29 @@
         fxLayer.append(zone);
         project = { gx: best[0] * N, gy: best[1] * N, r: 24, p: 0, step: 0, zone, done: null };
         selectTool('mound', true);
+        startWork();
         speak('まるの なかを、てのひらで ごしごし こすってね。');
         await new Promise((r) => { project.done = r; });
+      }
+
+      // おしろを つくる あいだ：すなを もって（hold）→ もりあげる（cheer）を くりかえす
+      let workTimer = 0;
+      function startWork() {
+        stopWork();
+        pals.inu.node.classList.add('working');
+        let k = 0;
+        const step = () => {
+          if (!alive() || !project || project.finished) return;
+          pose('inu', k % 2 ? 'cheer' : 'hold');
+          k++;
+          workTimer = later(step, 650);
+        };
+        step();
+      }
+      function stopWork() {
+        clearTimeout(workTimer);
+        timers.delete(workTimer);
+        pals.inu.node.classList.remove('working');
       }
 
       function raiseDome(amount) {
@@ -763,6 +820,7 @@
         if (step > project.step && step < 4) {
           project.step = step;
           sound('flip');
+          pose('inu', 'cheer');
           say('inu', ['', 'いいかんじ！', 'どんどん おおきく なってきた！', 'もう すこし！'][step]);
         }
         if (project.p >= 1) finishProject();
@@ -779,6 +837,8 @@
         const fy = (v) => (pr.gy - 2) / N + (v / 100 - 0.5) * S;
         [[18, 22], [82, 22], [50, 12]].forEach(([u, v]) => addItem({ e: '🚩', x: fx(u), y: fy(v) - 0.03, k: 'flag' }));
         castlesBuilt++;
+        stopWork();
+        pose('inu', 'cheer', 'happy', 6000);
         sound('fanfare');
         for (let i = 0; i < 8; i++) burst(pr.gx / N + (Math.random() - 0.5) * 0.3, pr.gy / N + (Math.random() - 0.5) * 0.3, '✨', 'spark');
         saveSoon();
@@ -792,8 +852,18 @@
 
       // (3) ぺんぎんくん「いれて」
       async function eventPen() {
+        // あるいて ちかづいて きて、てを ふる
         pals.pen.node.classList.remove('away');
         pals.pen.node.classList.add('visiting');
+        pose('pen', 'walk');
+        pals.pen.body.face('left');
+        await pause(1500);
+        if (!alive()) return;
+        pals.pen.body.face('right');
+        pose('pen', 'wave');
+        say('pen', 'おーい！');
+        await pause(1300);
+        if (!alive()) return;
         const c = await talk({
           friend: 'pen', say: 'たのしそう！ ぼくも いれて！',
           choices: [
@@ -805,6 +875,7 @@
         pals.pen.node.classList.remove('visiting');
         penJoined = true;
         penPlace('🐚');
+        pose('pen', 'cheer', 'happy', 3500);
         say('pen', 'さんにんで あそぶと たのしいね！');
       }
       function penPlace(e) {
@@ -814,6 +885,7 @@
         burst(x, y, '✨', 'spark');
         sound('tap');
         penDecos++;
+        if (penJoined && !pals.pen.node.classList.contains('visiting')) pose('pen', 'hold', 'happy', 1600);
         saveSoon();
       }
 
@@ -880,10 +952,14 @@
         p.face.classList.remove('jump');
         void p.face.offsetWidth;
         p.face.classList.add('jump');
+        const back = project ? 1200 : 3500;
         if (!lines.length) {
+          pose(viewer, 'wave', 'normal', back);
           say(viewer, 'まだ まっさら だね。なにを つくるのかな？ たのしみ！');
           return;
         }
+        // ほめる：ばんざい＋にこにこ
+        pose(viewer, 'cheer', 'happy', back);
         const praise = ctx.shuffle(lines)[0];
         if (Date.now() - lastShowTalk > 45000) {
           lastShowTalk = Date.now();
@@ -942,6 +1018,8 @@
 
       return () => {
         clearInterval(ticker);
+        clearTimeout(workTimer);
+        Object.values(pals).forEach((pl) => clearTimeout(pl.poseTimer));
         cancelAnimationFrame(raf);
         ro.disconnect();
         timers.forEach((t) => clearTimeout(t));

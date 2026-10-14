@@ -405,9 +405,9 @@
       function friendPicker(onPick) {
         return el('div', { class: 'oekaki-friends' },
           ctx.friends.map((f) => el('button', {
-            class: 'oekaki-btn oekaki-friend', 'aria-label': `${f.name}に みせる`, style: { background: f.color },
+            class: 'oekaki-btn oekaki-friend', 'aria-label': `${f.name}に みせる`, style: { background: `color-mix(in srgb, ${f.color} 30%, #fff)`, boxShadow: `inset 0 0 0 4px ${f.color}, var(--shadow)` },
             onclick: () => { sound('tap'); onPick(f); },
-          }, f.emoji)),
+          }, ctx.character(f.id, { pose: 'wave' }))),
         );
       }
 
@@ -451,12 +451,21 @@
         return 'わあ！ ' + ctx.shuffle(list).slice(0, 2).join(' ');
       }
 
+      // え を みる／みせる おともだち（からだつき）
+      function looker(f, pose, mood) {
+        const node = el('div', { class: 'oekaki-looker is-' + pose, 'aria-hidden': 'true' },
+          el('span', { class: 'oekaki-looker-floor', style: { background: f.color } }),
+          ctx.character(f.id, { pose, mood, face: 'left' }));
+        return node;
+      }
+
       async function showToFriend(f, work, after) {
         const word = SELF_WORD[f.id] || 'ぼく';
         let close;
+        // みて もらう → ほめて くれる：ばんざい＋にこにこ
         const showcase = el('div', { class: 'oekaki-showcase' },
           frame(work.img, 'oekaki-frame-show'),
-          el('div', { class: 'oekaki-looker', style: { background: f.color } }, f.emoji),
+          looker(f, 'cheer', 'happy'),
         );
         close = openPanel('oekaki-show-panel', showcase);
         st.busyTalk = true;
@@ -476,12 +485,14 @@
 
           // おかえしに おともだちの え
           const art = FRIEND_ART[f.id] || FRIEND_ART.inu;
+          // じぶんの えを りょうてで もって みせて くれる（hold）
           showcase.replaceChildren(
             el('div', { class: 'oekaki-frame oekaki-frame-show oekaki-friend-art' },
               el('div', { class: 'oekaki-art-grid' }, art.flat().map((e) => el('span', {}, e))),
             ),
-            el('div', { class: 'oekaki-looker', style: { background: f.color } }, f.emoji),
+            looker(f, 'hold', 'normal'),
           );
+          showcase.classList.add('is-friend-art');
           sound('flip');
           await pause(400);
           const r2 = await ctx.talk({
@@ -516,7 +527,8 @@
           },
             el('span', { class: 'oekaki-pin', 'aria-hidden': 'true' }),
             frame(w.img),
-            el('span', { class: 'oekaki-shown', 'aria-hidden': 'true' }, (w.shown || []).map((id) => (ctx.friend(id) || {}).emoji || '').join('')),
+            el('span', { class: 'oekaki-shown', 'aria-hidden': 'true' },
+              (w.shown || []).filter((id) => ctx.friend(id)).map((id) => ctx.character(id, { mood: 'happy' }))),
           ));
         });
         close = openPanel('oekaki-gallery-panel',
@@ -589,8 +601,10 @@
         const btn = colorBtns.find((b) => b.dataset.color === want.id);
 
         currentBorrower = fid;
+        // あるいて はいって くる（みぎから ひだりへ）
+        const body = ctx.character(fid, { pose: 'walk', face: 'left' });
         visitor.replaceChildren(
-          el('span', { class: 'oekaki-visitor-face' }, f.emoji),
+          el('span', { class: 'oekaki-visitor-face' }, body),
           el('span', { class: 'oekaki-visitor-hand' }),
           el('span', { class: 'oekaki-visitor-bubble' }, '❓'),
         );
@@ -601,6 +615,8 @@
         let res;
         try {
           await pause(900);
+          // とまって、りょうてを まえに「かして？」
+          body.setPose('hold');
           res = await ctx.talk({
             friend: fid,
             say: `${want.crayon}、かして？`,
@@ -617,7 +633,7 @@
         // クレヨンが おともだちの てもとへ
         st.lent = want.id;
         btn.classList.add('oekaki-lent');
-        btn.querySelector('.oekaki-lent-badge').textContent = f.emoji;
+        btn.querySelector('.oekaki-lent-badge').replaceChildren(ctx.character(fid, { pose: 'hold', mood: 'happy' }));
         if (st.color === want.id) {
           st.color = COLORS.find((c) => c.id !== want.id).id;
           refresh();
@@ -625,11 +641,14 @@
         sound('flip');
         await flyCrayon(btn, visitor.querySelector('.oekaki-visitor-hand'), want.hex);
         visitor.classList.add('has-crayon');
+        body.setMood('happy');
         visitor.querySelector('.oekaki-visitor-bubble').textContent = '🎵';
 
         await pause(12000);
         // かえしに くる
         visitor.querySelector('.oekaki-visitor-bubble').textContent = '🙏';
+        // りょうてで さしだして かえす
+        body.setPose('hold').setMood('normal');
         const thanks = 'ありがとう！ かえすね。';
         speak(thanks);
         visitor.classList.add('is-talking');
@@ -639,13 +658,15 @@
         sound('flip');
         await flyCrayon(visitor.querySelector('.oekaki-visitor-hand'), btn, want.hex);
         btn.classList.remove('oekaki-lent');
-        btn.querySelector('.oekaki-lent-badge').textContent = '';
+        btn.querySelector('.oekaki-lent-badge').replaceChildren();
         st.lent = null;
         currentBorrower = null;
         btn.classList.add('oekaki-back');
         later(() => btn.classList.remove('oekaki-back'), 900);
+        body.setMood('happy');
         await pause(1500);
         visitor.classList.remove('is-talking');
+        body.setPose('walk').face('right');
         visitor.classList.add('is-leaving');
         await pause(700);
         visitor.classList.remove('is-here', 'is-leaving');

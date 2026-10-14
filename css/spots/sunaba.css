@@ -79,16 +79,17 @@
 
 .sunaba-helper {
   position: absolute;
-  transform: translate(-50%, -75%);
-  font-size: 10cqw;
-  line-height: 1;
+  z-index: 2;
+  transform: translate(-50%, -88%);
+  font-size: 16cqw;
+  line-height: 0;
   transition: left 0.07s linear, top 0.07s linear;
   filter: drop-shadow(0 0.6cqw 0 rgba(0, 0, 0, 0.2));
-  animation: sunaba-hop 0.4s ease-in-out infinite;
 }
-.sunaba-helper-tool { position: absolute; left: 60%; top: 45%; width: 6cqw; animation: sunaba-dig 0.4s ease-in-out infinite; transform-origin: 50% 10%; }
+/* スコップは てもとに */
+.sunaba-helper-tool { position: absolute; left: 22%; top: 50%; width: 6.5cqw; animation: sunaba-dig 0.4s ease-in-out infinite; transform-origin: 50% 10%; }
 .sunaba-helper-tool svg { width: 100%; height: auto; display: block; }
-@keyframes sunaba-hop { 50% { margin-top: -1cqw; } }
+.sunaba-helper.pouring .sunaba-helper-tool { animation: none; rotate: -60deg; left: 30%; top: 46%; }
 @keyframes sunaba-dig { 0%, 100% { rotate: -20deg; } 50% { rotate: 30deg; } }
 
 .sunaba-zone {
@@ -132,25 +133,26 @@
 .sunaba-pal-face {
   position: relative;
   z-index: 1;
-  font-size: 68px;
-  line-height: 1;
-  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.15));
-  animation: sunaba-play 1.6s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  font-size: 120px;
+  line-height: 0;
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.12));
 }
-.sunaba-pal-pen .sunaba-pal-face { animation-delay: -0.8s; }
-.sunaba-pal.visiting .sunaba-pal-face { animation: sunaba-walkin 0.6s ease-out; }
+/* すわっている ときは、のばした あしの ぶん すこし ひだりへ */
+.sunaba-pal.is-sit .sunaba-pal-face { translate: -0.08em 0; }
+.sunaba-pal.visiting .sunaba-pal-face { animation: sunaba-walkin 1.5s linear; }
 .sunaba-pal-face.jump { animation: sunaba-jump 0.6s ease-out 2; }
 .sunaba-pal-pile {
   width: 110px;
   height: 30px;
-  margin-top: -14px;
+  margin-top: -20px;
   border-radius: 50%;
   background: radial-gradient(ellipse at 40% 35%, #f6dca4, #dcb06a);
   box-shadow: 0 4px 0 rgba(74, 59, 42, 0.15);
 }
-@keyframes sunaba-play { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg) translateY(-6px); } }
 @keyframes sunaba-jump { 40% { transform: translateY(-22px) scale(1.1); } }
-@keyframes sunaba-walkin { from { transform: translateX(80px); opacity: 0; } }
+@keyframes sunaba-walkin { from { transform: translateX(140px); opacity: 0; } 20% { opacity: 1; } }
 
 .sunaba-bubble {
   position: absolute;
@@ -206,13 +208,13 @@
 .sunaba-tool.on { background: #ffe1b0; outline: 5px solid var(--primary); outline-offset: -1px; }
 .sunaba-tool-badge {
   position: absolute;
-  right: -6px;
-  top: -8px;
+  right: -10px;
+  top: -26px;
   display: none;
-  font-size: 30px;
-  animation: sunaba-play 1s ease-in-out infinite;
+  font-size: 56px;
+  line-height: 0;
 }
-.sunaba-tool.lent { opacity: 0.6; }
+.sunaba-tool.lent > :not(.sunaba-tool-badge) { opacity: 0.5; }
 .sunaba-tool.lent .sunaba-tool-badge { display: block; }
 
 .sunaba-sub {
@@ -290,8 +292,8 @@
   .sunaba-side { flex-direction: row; width: auto; gap: 14px; }
   .sunaba-pals { flex-direction: row; gap: 10px; }
   .sunaba-side-btns { flex-direction: row; }
-  .sunaba-pal-face { font-size: 56px; }
-  .sunaba-pal-pile { width: 84px; height: 24px; }
+  .sunaba-pal-face { font-size: 84px; }
+  .sunaba-pal-pile { width: 84px; height: 24px; margin-top: -16px; }
   .sunaba-bubble { right: auto; left: 0; top: auto; bottom: calc(100% + 4px); transform-origin: left bottom; max-width: min(300px, 80vw); }
 }
 
@@ -302,8 +304,9 @@
   .sunaba-tool-icon svg { width: 38px; height: 38px; }
   .sunaba-side-icon { font-size: 32px; }
   .sunaba-side-label, .sunaba-tool-label { font-size: 14px; }
-  .sunaba-pal-face { font-size: 44px; }
-  .sunaba-pal-pile { width: 64px; height: 18px; margin-top: -10px; }
+  .sunaba-pal-face { font-size: 66px; }
+  .sunaba-pal-pile { width: 64px; height: 18px; margin-top: -13px; }
+  .sunaba-tool-badge { font-size: 36px; }
   .sunaba-box { border-width: 10px; border-radius: 22px; }
 }
 

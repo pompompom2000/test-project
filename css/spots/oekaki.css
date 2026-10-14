@@ -87,9 +87,10 @@
 .oekaki-color.is-on .oekaki-crayon { transform: rotate(30deg) translateY(-2px) scale(1.08); }
 .oekaki-lent-badge {
   position: absolute;
-  right: -6px;
-  bottom: -6px;
-  font-size: 32px;
+  right: -8px;
+  bottom: -4px;
+  font-size: 54px;
+  line-height: 0;
   pointer-events: none;
 }
 .oekaki-color.oekaki-lent { background: #f6efe4; box-shadow: inset 0 0 0 4px #e3cfae; outline: 3px dashed #d9b98a; outline-offset: -8px; }
@@ -118,42 +119,45 @@
 /* ---- おともだちが くる ---- */
 .oekaki-visitor {
   position: absolute;
-  right: 10px;
-  bottom: 6px;
+  right: 14px;
+  bottom: 4px;
   display: none;
   pointer-events: none;
-  font-size: 72px;
-  line-height: 1;
+  font-size: 110px;
+  line-height: 0;
   z-index: 3;
 }
 .oekaki-visitor.is-here { display: block; animation: oekaki-come 0.8s ease-out; }
 .oekaki-visitor.is-leaving { animation: oekaki-go 0.7s ease-in forwards; }
 @keyframes oekaki-come { from { transform: translateX(140%); } }
 @keyframes oekaki-go { to { transform: translateX(140%); opacity: 0; } }
-.oekaki-visitor-face { display: block; filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.15)); }
+.oekaki-visitor-face { display: block; filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.12)); }
+/* りょうての あいだ（hold の てもと） */
 .oekaki-visitor-hand {
   position: absolute;
-  left: -18px;
-  bottom: 4px;
-  width: 30px;
-  height: 50px;
+  left: calc(50% - 0.07em);
+  bottom: 0.2em;
+  width: 0.14em;
+  height: 0.28em;
 }
 .oekaki-visitor-hand::after {
   content: "";
   position: absolute;
-  inset: 0 6px;
-  border-radius: 4px;
+  inset: 0 0.03em;
+  border-radius: 3px;
   background: var(--c);
-  transform: rotate(-25deg);
+  box-shadow: inset -3px 0 0 rgba(0, 0, 0, 0.12);
+  transform: rotate(-70deg);
   opacity: 0;
 }
 .oekaki-visitor.has-crayon .oekaki-visitor-hand::after { opacity: 1; animation: oekaki-wiggle 0.6s ease-in-out infinite alternate; }
-@keyframes oekaki-wiggle { from { transform: rotate(-35deg); } to { transform: rotate(-10deg) translateY(-4px); } }
+@keyframes oekaki-wiggle { from { transform: rotate(-78deg); } to { transform: rotate(-58deg) translateY(-3px); } }
 .oekaki-visitor-bubble {
   position: absolute;
-  top: -40px;
-  left: -6px;
+  top: -30px;
+  left: -24px;
   font-size: 34px;
+  line-height: 1;
   animation: oekaki-bob 1.2s ease-in-out infinite;
 }
 @keyframes oekaki-bob { 50% { transform: translateY(-6px); } }
@@ -222,7 +226,8 @@
 .oekaki-wide { width: 130px; height: 84px; font-size: 44px; }
 
 .oekaki-friends { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.oekaki-friend { width: 88px; height: 88px; border-radius: 50%; font-size: 54px; }
+.oekaki-friend { width: 88px; height: 88px; border-radius: 50%; font-size: 80px; overflow: hidden; place-items: end center; line-height: 0; }
+.oekaki-friend .chr { margin-bottom: -6px; }
 
 /* がくぶち */
 .oekaki-frame {
@@ -238,17 +243,27 @@
 
 /* みせる */
 .oekaki-show-panel { align-items: flex-start; padding-top: 12px; }
-.oekaki-showcase { position: relative; display: flex; align-items: flex-end; gap: 10px; }
+.oekaki-showcase { position: relative; display: flex; align-items: flex-end; gap: 4px; }
+/* おともだちが じぶんの えを もつ ときは、えの すぐ よこに よる */
+.oekaki-showcase.is-friend-art .oekaki-looker { z-index: 1; margin-left: -0.3em; }
 .oekaki-frame-show { width: min(520px, 80vw, calc((100dvh - 420px) * 4 / 3)); min-width: 180px; }
 .oekaki-looker {
-  display: grid;
-  place-items: center;
-  width: 90px;
-  height: 90px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 0.8em;
+  font-size: 140px;
+  line-height: 0;
+}
+.oekaki-looker-floor {
+  position: absolute;
+  left: 0.06em;
+  right: 0.06em;
+  bottom: -0.03em;
+  height: 0.12em;
   border-radius: 50%;
-  font-size: 58px;
-  box-shadow: var(--shadow);
-  animation: oekaki-bob 1.2s ease-in-out infinite;
+  opacity: 0.3;
 }
 .oekaki-friend-art { animation: oekaki-pop 0.6s ease-out; }
 .oekaki-art-grid {
@@ -311,7 +326,8 @@
   background: radial-gradient(circle at 35% 35%, #ff9a9a, #d63a3a);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
 }
-.oekaki-shown { position: absolute; right: -4px; bottom: -14px; font-size: 26px; letter-spacing: -0.2em; }
+.oekaki-shown { position: absolute; right: -4px; bottom: -16px; display: flex; font-size: 44px; line-height: 0; }
+.oekaki-shown .chr + .chr { margin-left: -0.28em; }
 .oekaki-empty { grid-column: 1 / -1; font-size: 96px; padding: 40px; opacity: 0.7; }
 
 /* ---- たて がめん ---- */
@@ -326,11 +342,12 @@
   .oekaki-stamp-grid { grid-template-columns: repeat(4, 80px); gap: 6px; }
   .oekaki-stamp { width: 80px; height: 80px; }
   .oekaki-stamp-panel .oekaki-card { padding: 12px; }
-  .oekaki-visitor { font-size: 56px; }
+  .oekaki-visitor { font-size: 84px; }
   .oekaki-visitor.is-talking::after { font-size: 18px; }
   .oekaki-frame-big { width: min(320px, 80vw); }
   .oekaki-frame-show { width: min(320px, 70vw); }
-  .oekaki-looker { width: 70px; height: 70px; font-size: 44px; }
+  .oekaki-looker { font-size: 100px; }
+  .oekaki-friend { width: 72px; height: 72px; font-size: 66px; }
 }
 /* よこ でも ひくい がめん */
 @media (orientation: landscape) and (max-height: 620px) {
@@ -338,5 +355,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oekaki-visitor-bubble, .oekaki-looker, .oekaki-visitor.has-crayon .oekaki-visitor-hand::after { animation: none; }
+  .oekaki-visitor-bubble, .oekaki-visitor.has-crayon .oekaki-visitor-hand::after { animation: none; }
 }
