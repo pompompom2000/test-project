@@ -1,0 +1,471 @@
+/* おままごと */
+.mamagoto-root {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqh;
+  container-type: size;
+}
+
+/* ---- テーブル ---- */
+.mamagoto-table {
+  position: relative;
+  flex: 0 0 27cqh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2cqw;
+  padding: 0 96px 0 2cqw;
+  border-radius: 24px;
+  background:
+    linear-gradient(to bottom, transparent 62%, #d9a066 62%, #c98b4f 72%, transparent 72%),
+    linear-gradient(#fff1d6, #ffe6bd);
+  box-shadow: var(--shadow);
+}
+.mamagoto-seat {
+  position: relative;
+  flex: 1 1 0;
+  max-width: 28cqw;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 1cqh;
+  background: none;
+  border-radius: 20px;
+  transition: transform 0.15s;
+}
+.mamagoto-seat.hidden { display: none; }
+.mamagoto-seat.pop { animation: pop 0.45s ease-out; }
+.mamagoto-face {
+  position: relative;
+  z-index: 2;
+  font-size: min(9cqh, 11cqw);
+  line-height: 1;
+  margin-bottom: 2cqh;
+  animation: mamagoto-bob 2.2s ease-in-out infinite;
+}
+.mamagoto-seat.eating .mamagoto-face { animation: mamagoto-munch 0.35s ease-in-out infinite; }
+.mamagoto-seat.sad .mamagoto-face { filter: saturate(0.6); animation: none; }
+.mamagoto-seat.away .mamagoto-face,
+.mamagoto-seat.away .mamagoto-bubble,
+.mamagoto-seat.away .mamagoto-served { visibility: hidden; }
+.mamagoto-chair {
+  position: absolute;
+  left: 50%;
+  bottom: 0.5cqh;
+  width: min(15cqh, 18cqw);
+  height: 4cqh;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 4px 4px;
+  background: var(--seat-color, #f2a541);
+  opacity: 0.85;
+}
+.mamagoto-player .mamagoto-chair { background: #ff8a3d; }
+.mamagoto-served {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 5cqh;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.mamagoto-bubble {
+  position: absolute;
+  z-index: 4;
+  top: 0.8cqh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  max-width: 100%;
+  padding: 0.6cqh 1.4cqh;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 3px 0 rgba(74, 59, 42, 0.15);
+  font-size: min(3.2cqh, 4.2cqw);
+  font-weight: 900;
+  white-space: nowrap;
+}
+.mamagoto-bubble.hidden { display: none; }
+.mamagoto-order { font-size: 1.6em; line-height: 1; }
+
+/* ---- キッチン ---- */
+.mamagoto-work {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqh;
+}
+.mamagoto-kitchen {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2cqw;
+  padding: 1.5cqh 2cqw;
+  border-radius: 24px;
+  background: linear-gradient(#e8f6ff, #cfeaff);
+  box-shadow: var(--shadow);
+}
+.mamagoto-root.chef-mode .mamagoto-kitchen { background: linear-gradient(#fff0f6, #ffd9e8); }
+.mamagoto-station {
+  flex: 1 1 0;
+  max-width: 32cqw;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1cqh;
+}
+.mamagoto-vessel {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  border: 4px dashed transparent;
+  cursor: pointer;
+  touch-action: none;
+}
+.mamagoto-vessel.selected { border-color: #ffb46b; background: rgba(255, 255, 255, 0.5); }
+.mamagoto-vessel.holding { border-color: #ff6b9a; border-style: solid; background: rgba(255, 225, 236, 0.7); }
+.mamagoto-vessel.has-dish .mamagoto-dish { animation: mamagoto-bob 1.6s ease-in-out infinite; }
+.mamagoto-vessel.mamagoto-dragging { opacity: 0.5; }
+
+.mamagoto-shape {
+  position: relative;
+  width: min(92%, 26cqh);
+  aspect-ratio: 1 / 0.8;
+  display: grid;
+  place-items: center;
+}
+.mamagoto-shape::before, .mamagoto-shape::after { content: ''; position: absolute; pointer-events: none; }
+/* おなべ */
+.mamagoto-shape-pot::before {
+  inset: 18% 6% 0;
+  border-radius: 10% 10% 38% 38%;
+  background: linear-gradient(#b9c3cf, #8592a3);
+  box-shadow: inset 0 0.8cqh 0 rgba(255, 255, 255, 0.35);
+}
+.mamagoto-shape-pot::after {
+  left: -4%; right: -4%; top: 24%; height: 10%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6b7686 0 10%, transparent 10% 90%, #6b7686 90%);
+}
+/* フライパン */
+.mamagoto-shape-pan::before {
+  left: 4%; right: 18%; top: 14%; bottom: 6%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #5d5d66 0 55%, #34343b 56%);
+}
+.mamagoto-shape-pan::after {
+  right: -6%; top: 46%; width: 28%; height: 11%;
+  border-radius: 999px;
+  background: #8b5a2b;
+}
+/* おさら */
+.mamagoto-shape-plate::before {
+  inset: 12% 2% 4%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 52%, #e9f1f7 53% 60%, #fff 61%);
+  box-shadow: 0 0.6cqh 0 rgba(74, 59, 42, 0.15);
+}
+.mamagoto-contents {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  padding-top: 8%;
+  font-size: min(5.2cqh, 6.5cqw);
+  line-height: 1.05;
+  pointer-events: none;
+}
+.mamagoto-shape-pan .mamagoto-contents { margin-right: 14%; }
+.mamagoto-item { display: inline-block; transform: rotate(calc((var(--i) - 2) * 9deg)); }
+.mamagoto-item.drop-in { animation: mamagoto-drop 0.35s ease-out; }
+
+.mamagoto-shape.cooking-mix { animation: mamagoto-shake 0.25s ease-in-out infinite; }
+.mamagoto-shape.cooking-mix .mamagoto-contents { animation: mamagoto-spin 0.8s linear infinite; }
+.mamagoto-shape.cooking-fire { animation: mamagoto-shake 0.18s ease-in-out infinite; }
+.mamagoto-shape.cooking-fire::after { box-shadow: 0 0 2cqh 1cqh rgba(255, 140, 40, 0.6); }
+
+/* できた りょうり */
+.mamagoto-dish {
+  position: relative;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.mamagoto-dish-base { font-size: min(11cqh, 13cqw); filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.12)); }
+.mamagoto-dish-tops {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -30%);
+  display: flex;
+  gap: 0.1em;
+  font-size: min(3.6cqh, 4.4cqw);
+  white-space: nowrap;
+}
+.mamagoto-dish-tops span { display: inline-block; animation: mamagoto-float-top 1.6s ease-in-out infinite; }
+.mamagoto-dish.small .mamagoto-dish-base { font-size: min(6cqh, 8cqw); }
+.mamagoto-dish.small .mamagoto-dish-tops { font-size: min(2.4cqh, 3cqw); }
+
+.mamagoto-action {
+  flex: none;
+  min-height: 80px;
+  height: max(80px, 9cqh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  border-radius: 999px;
+  background: #ff8a3d;
+  color: #fff;
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  font-size: clamp(18px, min(3.4cqh, 4.6cqw), 32px);
+  white-space: nowrap;
+}
+.mamagoto-action:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(74, 59, 42, 0.18); }
+.mamagoto-action:disabled { opacity: 0.45; }
+.mamagoto-action-emoji { font-size: 1.3em; }
+
+.mamagoto-chef {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: -1cqh;
+  transform: translate(-50%, -30%);
+  display: none;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.4em 1em;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  font-size: clamp(18px, 3cqh, 28px);
+  pointer-events: none;
+}
+.mamagoto-root.chef-mode .mamagoto-chef { display: flex; }
+.mamagoto-chef-face { font-size: 1.6em; line-height: 1; }
+
+.mamagoto-book-btn {
+  position: absolute;
+  z-index: 5;
+  right: 8px;
+  top: 8px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 38px;
+}
+
+/* ---- たべもの だな ---- */
+.mamagoto-pantry {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.mamagoto-food {
+  height: max(80px, min(11cqh, 104px));
+  border-radius: 20px;
+  background: #fff6e5;
+  font-size: min(48px, max(36px, 6cqh));
+  touch-action: none;
+  box-shadow: 0 4px 0 rgba(74, 59, 42, 0.12);
+}
+.mamagoto-food:active { transform: scale(0.94); }
+.mamagoto-food.mamagoto-dragging { opacity: 0.4; }
+.mamagoto-root.chef-mode .mamagoto-food { background: #fff0f6; }
+
+/* ドラッグ中の かげ */
+.mamagoto-ghost {
+  position: fixed;
+  z-index: 3000;
+  pointer-events: none;
+  transform: translate(-50%, -60%) scale(1.1);
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.25));
+}
+.mamagoto-ghost-food { font-size: 64px; line-height: 1; }
+.mamagoto-ghost .mamagoto-dish-base { font-size: 80px; }
+.mamagoto-ghost .mamagoto-dish-tops { font-size: 28px; }
+
+.mamagoto-float {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 20%;
+  font-size: 40px;
+  pointer-events: none;
+  animation: mamagoto-up 1.4s ease-out forwards;
+}
+
+/* じぶんで たべる */
+.mamagoto-treat {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 32px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+.mamagoto-treat .mamagoto-dish-base { font-size: 80px; }
+.mamagoto-treat .mamagoto-dish-tops { font-size: 28px; }
+.mamagoto-treat-face { font-size: 80px; animation: mamagoto-munch 0.35s ease-in-out infinite; }
+.mamagoto-treat.done .mamagoto-dish { opacity: 0.25; }
+.mamagoto-treat.done .mamagoto-treat-face { animation: pop 0.5s ease-out; }
+
+/* こぼした */
+.mamagoto-puddle {
+  --left: 1;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 2cqh;
+  width: max(96px, 18cqh);
+  height: max(80px, 11cqh);
+  transform: translateX(-50%) scale(calc(0.4 + var(--left) * 0.6));
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(140, 200, 255, 0.95), rgba(140, 200, 255, 0.5) 70%, transparent 72%);
+  font-size: 36px;
+  opacity: calc(0.35 + var(--left) * 0.65);
+  touch-action: none;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+.mamagoto-puddle-cup { position: absolute; right: -6px; top: -14px; font-size: 32px; transform: rotate(80deg); }
+
+/* ---- おかたづけ ---- */
+.mamagoto-cleanup {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1cqh;
+  padding: 1.2cqh;
+  border-radius: 24px;
+  background: #fff8ec;
+  box-shadow: var(--shadow);
+  animation: fade-in 0.25s ease-out;
+}
+.mamagoto-shelf-wrap {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: linear-gradient(#e0b07a, #c98b4f);
+  min-height: max(80px, 10cqh);
+}
+.mamagoto-shelf-label { font-size: 44px; }
+.mamagoto-shelf { flex: 1; display: flex; flex-wrap: wrap; gap: 6px; }
+.mamagoto-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 36px;
+  animation: pop 0.35s ease-out;
+}
+.mamagoto-slot-who { position: absolute; right: -6px; bottom: -6px; font-size: 22px; }
+.mamagoto-mess { position: relative; flex: 1; min-height: 0; }
+.mamagoto-mess-item {
+  position: absolute;
+  width: max(84px, min(14cqh, 18cqw));
+  height: max(84px, min(14cqh, 18cqw));
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 0 rgba(74, 59, 42, 0.15);
+  font-size: min(48px, max(36px, 6cqh));
+  touch-action: none;
+}
+.mamagoto-mess-item.helped { animation: pop 0.5s ease-out; }
+.mamagoto-helper { position: absolute; right: -8px; top: -10px; font-size: 30px; }
+.mamagoto-cleanup.finished { background: #f1fff0; }
+
+/* ---- りょうり ノート ---- */
+.mamagoto-bookview {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255, 252, 245, 0.98);
+  box-shadow: var(--shadow);
+  animation: fade-in 0.2s ease-out;
+}
+.mamagoto-book-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mamagoto-book-title { font-size: clamp(22px, 3.6cqh, 34px); font-weight: 900; }
+.mamagoto-book-close { width: 72px; height: 72px; border-radius: 50%; background: #fff; box-shadow: var(--shadow); font-size: 32px; flex: none; }
+.mamagoto-book-grid {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-auto-rows: 120px;
+  gap: 12px;
+  padding: 16px 4px 4px;
+  touch-action: pan-y;
+}
+.mamagoto-book-item { border-radius: 20px; background: #fff; box-shadow: 0 4px 0 rgba(74, 59, 42, 0.12); display: grid; place-items: center; }
+.mamagoto-book-item .mamagoto-dish-base { font-size: 56px; }
+.mamagoto-book-item .mamagoto-dish-tops { font-size: 22px; }
+.mamagoto-book-empty { font-size: 72px; grid-column: 1 / -1; text-align: center; }
+
+/* ---- うごき ---- */
+@keyframes mamagoto-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes mamagoto-munch { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.08, 0.92); } }
+@keyframes mamagoto-drop { from { transform: translateY(-40px) scale(1.4); opacity: 0; } }
+@keyframes mamagoto-shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
+@keyframes mamagoto-spin { to { transform: rotate(360deg); } }
+@keyframes mamagoto-float-top { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes mamagoto-up {
+  0% { transform: translate(-50%, 0) scale(0.5); opacity: 0; }
+  20% { transform: translate(-50%, -10px) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -80px) scale(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mamagoto-face, .mamagoto-dish-tops span, .mamagoto-vessel.has-dish .mamagoto-dish,
+  .mamagoto-shape.cooking-mix, .mamagoto-shape.cooking-fire, .mamagoto-shape.cooking-mix .mamagoto-contents { animation: none; }
+}

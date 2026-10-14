@@ -13,6 +13,8 @@ const FILES = [
   'css/spots/oekaki.css',
   'js/spots/tsumiki.js',
   'css/spots/tsumiki.css',
+  'js/spots/mamagoto.js',
+  'css/spots/mamagoto.css',
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',
