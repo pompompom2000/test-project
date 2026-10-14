@@ -9,11 +9,16 @@
   const GROUND = 262;
   const LADDER_X = 159;
   const RUNGS = [237, 212, 187, 162, 137, 112];
-  const TOP = { x: 186, y: 106 };
+  const TOP = { x: 174, y: 106 }; // はしごを のぼりきって だいに あがる ところ
   const EXIT = { x: 350, y: GROUND };
   const WAIT_SPOT = { x: 378, y: GROUND };
+  const HI5_X = 374; // ハイタッチ する ところ（ふたりは CSS で すこし はなれる）
   const SLIDE_D = 'M208 106 C258 108 262 244 322 249 L352 253';
-  const queueX = (i) => 120 - i * 26;
+  // すわる ところ（だい の うえ）と、そこから すべりおりる みち
+  const SEAT = 5; // すべりめん の あつみ の はんぶん
+  const SIT = { x: 188, y: 105 };
+  const RIDE_D = `M${SIT.x} ${SIT.y + SEAT} L208 ${106} ${SLIDE_D.replace(/^M208 106 /, '')}`;
+  const queueX = (i) => 126 - i * 28;
 
   const PRONOUN = { neko: 'わたし', kitsune: 'わたし', panda: 'ぼく', pen: 'ぼく', inu: 'ぼく' };
 
@@ -52,7 +57,8 @@
   <!-- すべるところ -->
   <path d="${SLIDE_D}" stroke="#c2185b" stroke-width="12" fill="none" stroke-linecap="round" transform="translate(0 4)"/>
   <path d="${SLIDE_D}" stroke="url(#suberidai-slide)" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <path class="suberidai-path" d="${SLIDE_D}" stroke="#ffd0d8" stroke-width="2.5" fill="none" stroke-linecap="round" transform="translate(0 -3)"/>
+  <path d="${SLIDE_D}" stroke="#ffd0d8" stroke-width="2.5" fill="none" stroke-linecap="round" transform="translate(0 -3)"/>
+  <path class="suberidai-path" d="${RIDE_D}" stroke="none" fill="none"/>
 </svg>`;
 
   // ---- ひゅーん（すべる おと） ----
@@ -107,13 +113,25 @@
       ctx.stage.append(root);
 
       // ---- こども と おともだち ----
+      // からだ（Core.character）。face は すべるときに かたむける いれもの
       function makeKid(opt) {
-        const face = el('span', { class: 'suberidai-face' }, opt.emoji);
+        const body = ctx.character(opt.kind || opt.emoji, { pose: opt.pose || 'stand', mood: opt.mood || 'normal', face: opt.dir || 'right' });
+        const face = el('span', { class: 'suberidai-face' }, body);
         const bubble = el('div', { class: 'suberidai-say' });
         const node = el('div', { class: 'suberidai-kid' + (opt.cls ? ' ' + opt.cls : '') }, bubble, face);
-        const kid = { ...opt, node, face, bubble, x: opt.x ?? -30, y: opt.y ?? GROUND, sayTimer: 0 };
+        const kid = { ...opt, node, face, body, bubble, x: opt.x ?? -30, y: opt.y ?? GROUND, sayTimer: 0 };
         place(kid, kid.x, kid.y);
         scene.append(node);
+        return kid;
+      }
+      // ポーズ・きもち・むき を まとめて かえる
+      function pose(kid, p, mood, dir) {
+        clearTimeout(kid.walkTimer);
+        kid.body.setPose(p);
+        if (mood) kid.body.setMood(mood);
+        if (dir) kid.body.face(dir);
+        kid.node.classList.toggle('on-ladder', p === 'climb');
+        kid.node.classList.toggle('seated', p === 'sit' || p === 'slide');
         return kid;
       }
       function place(kid, x, y) {
@@ -125,14 +143,24 @@
         kid.node.classList.toggle('edge-r', x > 300);
         kid.node.classList.toggle('edge-l', x < 70);
       }
-      function moveTo(kid, x, y, ms) {
-        kid.node.classList.remove('notr');
+      // opt.pose: うごいている あいだの ポーズ（walk）。opt.end: ついたら（stand、null なら そのまま）
+      // opt.dir: ついた あとの むき（'right' など）
+      function moveTo(kid, x, y, ms, opt = {}) {
+        const movePose = opt.pose || 'walk';
+        const endPose = opt.end === undefined ? 'stand' : opt.end;
+        kid.node.classList.remove('notr', 'peek');
         kid.node.style.transitionDuration = ms + 'ms';
-        kid.node.classList.add('walk');
+        const dx = x - kid.x;
+        pose(kid, movePose, null, movePose === 'walk' && Math.abs(dx) > 1 ? (dx < 0 ? 'left' : 'right') : null);
         place(kid, x, y);
-        clearTimeout(kid.walkTimer);
-        kid.walkTimer = setTimeout(() => kid.node.classList.remove('walk'), ms);
-        timers.add(kid.walkTimer);
+        if (endPose || opt.dir) {
+          kid.walkTimer = setTimeout(() => {
+            timers.delete(kid.walkTimer);
+            if (endPose) pose(kid, endPose);
+            if (opt.dir) kid.body.face(opt.dir);
+          }, ms);
+          timers.add(kid.walkTimer);
+        }
         return pause(ms);
       }
       function kidSay(kid, text, ms = 2600) {
@@ -148,7 +176,7 @@
         setTimeout(() => n.remove(), 1500);
       }
 
-      const player = makeKid({ id: 'player', emoji: ctx.player.emoji || '🧒', player: true, cls: 'is-player', name: 'きみ' });
+      const player = makeKid({ id: 'player', emoji: ctx.player.emoji || '🧒', kind: ctx.player.kind, player: true, cls: 'is-player', name: 'きみ' });
       player.node.addEventListener('click', () => tapAction());
       const regulars = ['neko', 'panda', 'kitsune'].map((id) => {
         const f = ctx.friend(id);
@@ -162,30 +190,50 @@
           const x = queueX(i);
           if (Math.abs(k.x - x) < 0.5 && k.y === GROUND) return;
           const dist = Math.hypot(k.x - x, k.y - GROUND);
-          moveTo(k, x, GROUND, Math.max(450, dist * 9));
+          // れつでは みんな まえ（はしご の ほう＝みぎ）を むく
+          moveTo(k, x, GROUND, Math.max(450, dist * 9), { dir: 'right' });
         });
         updateWaitNote();
       }
 
       // ---- うごき ----
+      // はしご：1だんずつ 足を かけて のぼる。うえに ついたら すわる
+      const LEAD = 18; // いっしょに すべる とき、ひよこちゃんは すこし まえ
+      const FOOT = 2; // あしの うら と 要素の した の ずれ（かげの ぶん）
       async function climb(kid, stepMs = 190, follower = null) {
-        await moveTo(kid, LADDER_X, GROUND, 350);
+        await moveTo(kid, LADDER_X, GROUND, 350, { end: null });
         if (!alive()) return false;
+        const climbOpt = { pose: 'climb', end: null };
+        pose(kid, 'climb', null, 'right');
+        if (follower) pose(follower, 'climb', null, 'right');
         for (let i = 0; i < RUNGS.length; i++) {
-          if (follower && i >= 1) moveTo(follower, LADDER_X, RUNGS[i - 1] + 6, stepMs);
-          await moveTo(kid, LADDER_X, RUNGS[i] - 4, stepMs);
+          if (follower && i >= 1) moveTo(follower, LADDER_X, RUNGS[i - 1] + FOOT, stepMs, climbOpt);
+          await moveTo(kid, LADDER_X, RUNGS[i] + FOOT, stepMs, climbOpt);
           if (!alive()) return false;
           if (kid.player) sound('tap');
+          // 1だん のぼったら ひとやすみ
+          await pause(Math.round(stepMs * 0.45));
+          if (!alive()) return false;
         }
-        if (follower) moveTo(follower, LADDER_X + 8, TOP.y, 300);
-        await moveTo(kid, TOP.x, TOP.y, 300);
+        // だい の うえへ。たちあがって あるき、すわる
+        if (follower) {
+          moveTo(follower, LADDER_X, RUNGS[RUNGS.length - 1] + FOOT, stepMs, climbOpt).then(() => {
+            if (alive()) moveTo(follower, SIT.x + LEAD, SIT.y, 300, { end: 'sit', dir: 'right' });
+          });
+        }
+        await moveTo(kid, TOP.x, TOP.y, 200, { end: null });
+        if (!alive()) return false;
+        await moveTo(kid, SIT.x, SIT.y, 220, { end: 'sit', dir: 'right' });
         return alive();
       }
 
       function slideAlong(kids, ms = 1300) {
-        // kids: [{kid, lead}]  lead＝すこし まえを すべる
+        // kids: [{kid, lead}]  lead＝すこし まえを すべる（ざひょうの ながさ）
         const L = pathEl.getTotalLength();
-        kids.forEach(({ kid }) => { kid.node.classList.add('notr', 'sliding'); });
+        kids.forEach(({ kid }) => {
+          kid.node.classList.add('notr', 'sliding');
+          pose(kid, 'slide', 'happy', 'right'); // りょうてを あげて すべる
+        });
         return new Promise((resolve) => {
           const t0 = performance.now();
           let id = 0;
@@ -195,15 +243,20 @@
             const t = Math.min(1, (now - t0) / ms);
             const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
             kids.forEach(({ kid, lead = 0 }) => {
-              const s = Math.max(0, Math.min(L, (e + lead) * L));
+              const s = Math.max(0, Math.min(L, e * L + lead));
               const p = pathEl.getPointAtLength(s);
               const q = pathEl.getPointAtLength(Math.min(L, s + 2));
               const ang = Math.atan2(q.y - p.y, q.x - p.x) * (180 / Math.PI);
-              place(kid, p.x, p.y - 1);
-              kid.face.style.transform = `rotate(${ang * 0.45}deg)`;
+              // すべりめんの うえに おしりを のせ、かたむきに あわせて からだを まわす。
+              // からだは すこし うしろに もたれ（かたむきの はんぶん）、あしは すべりめんに そって のばす
+              const rad = ang * (Math.PI / 180);
+              place(kid, p.x + Math.sin(rad) * SEAT, p.y - Math.cos(rad) * SEAT);
+              const lean = Math.max(-8, Math.min(34, ang * 0.5));
+              kid.face.style.transform = `rotate(${lean}deg)`;
+              kid.node.style.setProperty('--legs', `${Math.max(0, Math.min(45, ang - lean))}deg`);
             });
             if (t < 1) { id = requestAnimationFrame(stepFn); rafs.add(id); } else {
-              kids.forEach(({ kid }) => { kid.node.classList.remove('sliding'); kid.face.style.transform = ''; });
+              kids.forEach(({ kid }) => { kid.node.classList.remove('sliding'); kid.face.style.transform = ''; kid.node.style.removeProperty('--legs'); });
               resolve();
             }
           };
@@ -265,21 +318,24 @@
         const i = queue.indexOf(player);
         if (i < 0) { waitNote.classList.remove('show'); return; }
         // まえに なんにん いるか を えで みせる
-        const ahead = queue.slice(0, i).reverse().map((k) => k.emoji).join('');
-        waitNote.replaceChildren(el('span', { class: 'suberidai-wait-icon' }, '⏳'), el('span', { class: 'suberidai-wait-line' }, `${player.emoji} ${ahead} 🛝`));
+        const mini = (k) => ctx.character(k.kind || k.emoji, { pose: 'stand', face: 'right' });
+        const ahead = queue.slice(0, i).reverse().map(mini);
+        waitNote.replaceChildren(el('span', { class: 'suberidai-wait-icon' }, '⏳'),
+          el('span', { class: 'suberidai-wait-line' }, mini(player), el('span', { class: 'suberidai-wait-gap' }), ...ahead, el('span', {}, '🛝')));
         waitNote.classList.add('show');
       }
 
       // ---- ひよこちゃんとの おはなし（おともだち リストに いない ちいさい こ） ----
       function askHiyoko(say, choices) {
         return new Promise((resolve) => {
-          const face = el('div', { class: 'talk-face' }, '🐥');
-          const mood = el('div', { class: 'talk-mood' }, '😢');
+          // こわくて ないている ひよこちゃん（しょんぼり＋なみだ）
+          const body = ctx.character('hiyoko', { pose: 'sad', mood: 'sad' });
+          const face = el('div', { class: 'talk-face' }, body);
           const bubble = el('div', { class: 'talk-bubble' }, say);
           const row = el('div', { class: 'talk-choices' });
           const sheet = el('div', { class: 'talk-overlay suberidai-ask', role: 'dialog', 'aria-label': 'ひよこちゃんと おはなし' },
             el('div', { class: 'talk-sheet' },
-              el('div', { class: 'talk-friend', style: { background: '#f2b600' } }, face, mood, el('div', { class: 'talk-name' }, 'ひよこちゃん')),
+              el('div', { class: 'talk-friend', style: { background: '#fff3c4', color: '#b88a00' } }, face, el('div', { class: 'talk-name' }, 'ひよこちゃん')),
               el('div', { class: 'talk-body' },
                 el('div', { class: 'talk-line' }, bubble,
                   el('button', { class: 'talk-repeat', 'aria-label': 'もういちど きく', onclick: () => speak(bubble.textContent) }, '🔊')),
@@ -295,7 +351,7 @@
                 btns.forEach((x) => (x.disabled = true));
                 b.classList.add('chosen');
                 sound('correct');
-                mood.textContent = '😊';
+                body.setPose('cheer').setMood('happy');
                 face.classList.add('happy');
                 await speak(c.label);
                 if (!alive()) return;
@@ -308,6 +364,7 @@
                 sound('wrong');
                 b.disabled = true;
                 b.classList.add('dimmed');
+                body.setPose('sad').setMood('sad');
                 bubble.textContent = c.hint;
                 await speak(c.hint);
               }
@@ -327,13 +384,47 @@
       let bottomWaiter = null;
       const highFived = new Set();
 
+      // しばらく ポーズを かえて、あとで もとに もどす
+      function posePulse(kid, p, mood, ms = 1500, back = 'stand') {
+        pose(kid, p, mood);
+        kid.walkTimer = setTimeout(() => {
+          timers.delete(kid.walkTimer);
+          if (alive()) pose(kid, back, 'normal');
+        }, ms);
+        timers.add(kid.walkTimer);
+      }
+
+      // れつで まっている こは、ときどき まえの こ（すべりだい の ほう）を のぞきこむ
+      function peekLoop() {
+        const t = setTimeout(() => {
+          timers.delete(t);
+          if (!alive()) return;
+          const idle = queue.filter((k, i) => i > 0 && k.y === GROUND && Math.abs(k.x - queueX(i)) < 0.5
+            && k.body.classList.contains('pose-stand') && !k.node.classList.contains('peek') && k !== player);
+          if (idle.length) {
+            const k = ctx.shuffle(idle)[0];
+            k.body.face('right');
+            k.node.classList.add('peek');
+            const u = setTimeout(() => { timers.delete(u); k.node.classList.remove('peek'); }, 1500);
+            timers.add(u);
+          }
+          peekLoop();
+        }, 1800 + Math.random() * 1600);
+        timers.add(t);
+      }
+
       async function eventCut() {
         const pi = queue.indexOf(player);
-        const pen = makeKid({ id: 'pen', emoji: ctx.friend('pen').emoji, name: ctx.friend('pen').name, friend: true, guest: true, x: -30 });
-        await moveTo(pen, queueX(pi) + 10, GROUND, 1300);
+        const pen = makeKid({ id: 'pen', emoji: ctx.friend('pen').emoji, kind: 'pen', name: ctx.friend('pen').name, friend: true, guest: true, x: -30 });
+        await moveTo(pen, queueX(pi) + 10, GROUND, 1300, { dir: 'right' });
         if (!alive()) return;
         queue.splice(pi, 0, pen);
         layoutQueue();
+        await pause(500);
+        if (!alive()) return;
+        // ぺんぎんくんは りょうてを まえに「おねがい」。きみは びっくり
+        pose(pen, 'hold', 'normal', 'left');
+        pose(player, 'stand', 'wow');
         kidSay(pen, 'さきに いれて！', 2000);
         await pause(700);
         if (!alive()) return;
@@ -345,19 +436,29 @@
           ],
         });
         if (!c || !alive()) return;
+        pose(player, 'stand', 'normal');
+        pose(pen, 'wave', 'happy');
+        kidSay(pen, 'うしろに ならぶね！');
+        await pause(800);
+        if (!alive()) return;
         queue.splice(queue.indexOf(pen), 1);
         queue.push(pen);
+        pen.body.setMood('normal');
         layoutQueue();
-        kidSay(pen, 'うしろに ならぶね！');
         await pause(1200);
       }
 
       async function eventWait() {
         const pi = queue.indexOf(player);
         const front = queue[pi - 1];
+        // まちきれなくて まえを のぞきこむ
+        player.body.face('right');
+        player.node.classList.add('peek');
         kidSay(player, '💭 はやく すべりたいな…', 3200);
         await speak('はやく すべりたいね。どう する？');
         if (!alive()) return;
+        // まえの こが ふりかえる
+        pose(front, 'stand', 'normal', 'left');
         const c = await ctx.talk({
           friend: front.id, say: `つぎは ${PRONOUN[front.id] || 'ぼく'}の ばん だよ。わくわく するね！`,
           choices: [
@@ -365,13 +466,19 @@
             { emoji: '🔁', label: 'じゅんばんこ だね。うしろで まってるね', good: true, reply: 'ありがとう！ じゅんばんこ だと みんな たのしいね！' },
           ],
         });
+        player.node.classList.remove('peek');
         if (!c || !alive()) return;
+        posePulse(player, 'wave', 'happy', 1500);
+        posePulse(front, 'cheer', 'happy', 1500);
         kidSay(front, 'ありがとう！');
+        await pause(1500);
+        if (!alive()) return;
+        front.body.face('right');
       }
 
       // ひよこちゃん：じぶんの ばん に なったとき
       async function eventHiyoko() {
-        const chick = makeKid({ id: 'hiyoko', emoji: '🐥', name: 'ひよこちゃん', cls: 'is-chick', x: LADDER_X + 2, y: GROUND });
+        const chick = makeKid({ id: 'hiyoko', emoji: '🐥', kind: 'hiyoko', name: 'ひよこちゃん', cls: 'is-chick', x: LADDER_X + 2, y: GROUND, pose: 'sad', mood: 'sad', dir: 'left' });
         chick.node.classList.add('crying');
         kidSay(chick, 'えーん、こわいよう…', 3000);
         await pause(900);
@@ -383,18 +490,25 @@
         ]);
         if (!c || !alive()) return null;
         chick.node.classList.remove('crying');
+        pose(chick, 'cheer', 'happy');
         floatText(chick.x, chick.y - 40, '💖', 'heart');
+        await pause(700);
+        if (!alive()) return null;
         if (c.label === 'さきに どうぞ') {
+          posePulse(player, 'wave', 'happy', 2200);
           kidSay(player, 'がんばれー！');
+          pose(chick, 'stand', 'normal', 'right');
           if (!(await climb(chick, 320))) return null;
           await pause(600);
           if (!alive()) return null;
           kidSay(chick, 'えいっ！');
           whoosh(1.4);
-          floatText(310, 120, 'ひゅーん！', 'whoosh');
+          floatText(318, 72, 'ひゅーん！', 'whoosh');
           await slideAlong([{ kid: chick }], 1600);
           if (!alive()) return null;
-          await moveTo(chick, EXIT.x - 12, GROUND, 250);
+          await landAt(chick, EXIT.x - 12);
+          if (!alive()) return null;
+          pose(chick, 'cheer', 'happy');
           sound('correct');
           kidSay(chick, 'こわく なかった！ ありがとう！', 3000);
           await speak('こわく なかった！ ありがとう！');
@@ -402,16 +516,33 @@
           leave(chick);
           return null;
         }
-        return chick; // いっしょに すべる
+        // いっしょに すべる：きみの となりで まつ
+        pose(chick, 'stand', 'happy', 'left');
+        return chick;
+      }
+
+      // すべりおりたら、たちあがって じめんに おりる
+      async function landAt(kid, x) {
+        pose(kid, 'stand', 'happy');
+        await moveTo(kid, x, GROUND, 260, { pose: 'stand' });
+        return alive();
       }
 
       function leave(kid) {
+        pose(kid, 'wave', 'happy', 'left');
         kidSay(kid, 'またね！', 1600);
-        moveTo(kid, W + 40, GROUND, 2200).then(() => kid.node.remove());
+        const t = setTimeout(() => {
+          timers.delete(t);
+          if (!alive()) return;
+          kid.body.setMood('normal');
+          moveTo(kid, W + 40, GROUND, 2200).then(() => kid.node.remove());
+        }, 700);
+        timers.add(t);
       }
 
       function backToLine(kid) {
         if (kid.guest) { leave(kid); return; }
+        kid.body.setMood('normal');
         queue.push(kid);
         layoutQueue();
       }
@@ -431,11 +562,13 @@
         whoosh(1.1);
         await slideAlong([{ kid }], 1300);
         if (!alive()) return;
-        await moveTo(kid, EXIT.x, GROUND, 220);
+        if (!(await landAt(kid, EXIT.x))) return;
+        await pause(250);
+        if (!alive()) return;
         if (queue[0] === player) {
-          // つぎは きみの ばん → したで まっててくれる
+          // つぎは きみの ばん → したで まっててくれる（すべりだい の ほうを みる）
           bottomWaiter = kid;
-          moveTo(kid, WAIT_SPOT.x, GROUND, 400);
+          moveTo(kid, WAIT_SPOT.x, GROUND, 400, { dir: 'left' });
           kidSay(kid, 'したで まってるね！', 2000);
         } else {
           backToLine(kid);
@@ -449,45 +582,61 @@
         if (!alive()) return;
         queue.shift();
         layoutQueue();
-        if (chick) moveTo(chick, LADDER_X - 6, GROUND, 200);
+        if (chick) moveTo(chick, LADDER_X - 6, GROUND, 200, { dir: 'right' });
         if (!(await climb(player, 230, chick))) return;
         await waitTap('slide', 'タップで すべろう！');
         if (!alive()) return;
         whoosh(1.2);
         speak('ひゅーん！');
-        floatText(310, 120, 'ひゅーん！', 'whoosh');
+        floatText(318, 72, 'ひゅーん！', 'whoosh');
         const riders = [{ kid: player }];
-        if (chick) riders.push({ kid: chick, lead: 0.05 });
+        if (chick) riders.push({ kid: chick, lead: LEAD });
         await slideAlong(riders, 1350);
         if (!alive()) return;
         slides++;
         sound('fanfare');
         for (let i = 0; i < 5; i++) floatText(330 + Math.random() * 40, 230 - Math.random() * 30, ctx.shuffle(['✨', '⭐', '🎵'])[0], 'spark');
         if (chick) {
-          moveTo(chick, EXIT.x + 14, GROUND, 250);
-          await moveTo(player, EXIT.x - 6, GROUND, 250);
-          if (!alive()) return;
+          landAt(chick, EXIT.x + 16);
+          if (!(await landAt(player, EXIT.x - 6))) return;
+          pose(chick, 'cheer', 'happy', 'left');
+          posePulse(player, 'cheer', 'happy', 2400);
           kidSay(chick, 'いっしょだと たのしいね！ ありがとう！', 3000);
           await speak('いっしょだと たのしいね！ ありがとう！');
           if (!alive()) return;
           leave(chick);
+          pose(player, 'stand', 'normal');
         } else {
-          await moveTo(player, EXIT.x - 6, GROUND, 250);
-          if (!alive()) return;
+          if (!(await landAt(player, EXIT.x - 6))) return;
         }
-        // ハイタッチ
+        // ハイタッチ：むかいあって、てを あげて まつ
         const friend = bottomWaiter;
         bottomWaiter = null;
         if (friend) {
-          moveTo(friend, EXIT.x + 26, GROUND, 300);
+          friend.node.classList.add('hi5-r');
+          player.node.classList.add('hi5-l');
+          moveTo(friend, HI5_X, GROUND, 350, { end: 'wave', dir: 'left' });
+          await moveTo(player, HI5_X, GROUND, 300, { dir: 'right' });
+          if (!alive()) return;
           kidSay(friend, 'たのしかったね！ ハイタッチ！', 3000);
-          friend.node.classList.add('hands-up');
           await waitTap('high5', 'たのしかったね！ ハイタッチ しよう！');
           if (!alive()) return;
-          friend.node.classList.remove('hands-up');
+          // パチン！ ふたりの てが あう
+          pose(player, 'wave', 'happy');
+          pose(friend, 'wave', 'happy');
+          player.node.classList.add('clap');
+          friend.node.classList.add('clap');
           sound('correct');
-          floatText(EXIT.x + 8, GROUND - 46, '🙌', 'clap');
-          floatText(EXIT.x + 8, GROUND - 70, 'パチン！', 'pachin');
+          await pause(260);
+          if (!alive()) return;
+          floatText(HI5_X, GROUND - 46, '🙌', 'clap');
+          floatText(HI5_X, GROUND - 70, 'パチン！', 'pachin');
+          await pause(500);
+          if (!alive()) return;
+          player.node.classList.remove('clap');
+          friend.node.classList.remove('clap');
+          pose(player, 'cheer', 'happy');
+          pose(friend, 'cheer', 'happy');
           kidSay(player, 'たのしかったね！', 1800);
           if (friend.friend && !highFived.has(friend.id)) {
             highFived.add(friend.id);
@@ -495,6 +644,8 @@
           }
           await pause(1000);
           if (!alive()) return;
+          player.node.classList.remove('hi5-l');
+          friend.node.classList.remove('hi5-r');
         }
         // また うしろに ならぶ
         backToLine(player);
@@ -524,6 +675,7 @@
       };
 
       updateWaitNote();
+      peekLoop();
       speak('すべりだい だよ！ じゅんばんに ならんで すべろう。');
       loop();
 

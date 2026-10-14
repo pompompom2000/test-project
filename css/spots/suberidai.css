@@ -48,22 +48,43 @@
 .suberidai-kid {
   position: absolute;
   transform: translate(-50%, -100%);
-  font-size: max(7cqw, 28px);
+  font-size: max(9cqw, 34px);
   line-height: 1;
-  transition-property: left, top;
+  transition-property: left, top, translate;
   transition-timing-function: linear;
   pointer-events: none;
 }
 .suberidai-kid.notr { transition: none; }
 .suberidai-face {
   display: block;
-  filter: drop-shadow(0 0.5cqw 0 rgba(0, 0, 0, 0.18));
-  transform-origin: 50% 90%;
+  line-height: 0;
+  /* すべるときは おしり（した の まんなか）を じくに かたむく */
+  transform-origin: 50% 100%;
 }
-.suberidai-kid.walk .suberidai-face { animation: suberidai-hop 0.3s ease-in-out infinite; }
-@keyframes suberidai-hop { 50% { translate: 0 -0.8cqw; } }
+.suberidai-face .chr { display: block; }
 
-.suberidai-kid.is-player { pointer-events: auto; cursor: pointer; padding: 1cqw; margin-top: 1cqw; }
+/* はしごの うえ・すわっている ときは じめんの かげを けす */
+.suberidai-kid.on-ladder .chr-shadow, .suberidai-kid.seated .chr-shadow { opacity: 0; }
+
+/* すわる・すべる ときは、おしりが ちょうど ざひょうの ところに くるように さげる */
+.suberidai-kid.seated .suberidai-face { margin-bottom: -0.11em; transform-origin: 50% 89%; }
+
+/* すべっている あいだ：あしを すべりめんの かたむきに あわせて のばす */
+.suberidai-kid.sliding .chr.pose-slide .chr-leg { transform: rotate(calc(-80deg + var(--legs, 0deg))); transition: none; }
+.suberidai-kid.sliding.is-player::before, .suberidai-kid.on-ladder.is-player::before, .suberidai-kid.seated.is-player::before { display: none; }
+
+/* れつで まえを のぞきこむ（せのびして まえに かたむく） */
+.suberidai-face .chr { transform-origin: 50% 100%; transition: rotate 0.3s ease, translate 0.3s ease; }
+.suberidai-kid.peek .chr { rotate: 9deg; translate: 0 -0.04em; }
+.suberidai-kid.peek .chr .chr-head { transform: rotate(8deg) translateX(3%); }
+
+/* ハイタッチ：おなじ ばしょ から ひだり・みぎ に すこし はなれて むかいあう */
+.suberidai-kid.hi5-l { translate: -0.3em 0; }
+.suberidai-kid.hi5-r { translate: 0.3em 0; }
+/* パチン！ みぎて を ななめ うえに のばして、あいての て と あわせる */
+.suberidai-kid.clap .chr .chr-arm-r { animation: none; transform: rotate(-128deg); }
+
+.suberidai-kid.is-player { pointer-events: auto; cursor: pointer; padding: 1cqw 1cqw 0; }
 .suberidai-kid.is-player::before {
   content: "";
   position: absolute;
@@ -86,28 +107,9 @@
 }
 @keyframes suberidai-point { 50% { translate: 0 -1.2cqw; } }
 
-.suberidai-kid.is-chick { font-size: 5.6cqw; }
+.suberidai-kid.is-chick { font-size: max(6.8cqw, 26px); }
 .suberidai-kid.crying .suberidai-face { animation: suberidai-sob 0.5s ease-in-out infinite; }
-.suberidai-kid.crying::after {
-  content: "💧";
-  position: absolute;
-  right: -1.6cqw;
-  top: 0.4cqw;
-  font-size: 2.6cqw;
-  animation: suberidai-drop 0.9s ease-in infinite;
-}
 @keyframes suberidai-sob { 0%, 100% { rotate: -4deg; } 50% { rotate: 4deg; } }
-@keyframes suberidai-drop { from { translate: 0 0; opacity: 1; } to { translate: 0 3cqw; opacity: 0; } }
-
-.suberidai-kid.hands-up::after {
-  content: "🙌";
-  position: absolute;
-  left: -2.5cqw;
-  top: -3cqw;
-  font-size: 4.5cqw;
-  animation: suberidai-wave 0.6s ease-in-out infinite;
-}
-@keyframes suberidai-wave { 50% { rotate: -14deg; translate: 0 -0.6cqw; } }
 
 .suberidai-say {
   position: absolute;
@@ -208,8 +210,10 @@
 }
 .suberidai-wait.show { display: flex; }
 .suberidai-wait-icon { font-size: 0.8em; }
-.suberidai-wait-line { letter-spacing: 0.05em; white-space: nowrap; }
+.suberidai-wait-line { display: flex; align-items: flex-end; gap: 2px; white-space: nowrap; }
+.suberidai-wait-line .chr { font-size: 1.15em; }
+.suberidai-wait-gap { width: 10px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .suberidai-action, .suberidai-kid.walk .suberidai-face, .suberidai-kid.crying .suberidai-face { animation: none; }
+  .suberidai-action, .suberidai-kid.crying .suberidai-face { animation: none; }
 }

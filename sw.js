@@ -1,6 +1,6 @@
 // オフラインでも遊べるよう、アプリ一式をキャッシュする。
 // ファイルを更新したら VERSION を上げること。
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CACHE = `minna-asobo-${VERSION}`;
 const FILES = [
   './',
