@@ -9,6 +9,8 @@ const FILES = [
   'css/style.css',
   'css/world.css',
   'js/world.js',
+  'js/spots/oekaki.js',
+  'css/spots/oekaki.css',
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',

@@ -1,0 +1,342 @@
+/* ---- おえかき ---- */
+.oekaki-root {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.oekaki-palette, .oekaki-tools {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(2, 80px);
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.oekaki-paper-wrap {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+.oekaki-paper {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 0 0 6px #fff, 0 8px 0 6px rgba(74, 59, 42, 0.16);
+  background: #fff;
+  overflow: hidden;
+}
+.oekaki-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+/* ---- ボタン ---- */
+.oekaki-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: 44px;
+  line-height: 1;
+  transition: transform 0.1s;
+}
+.oekaki-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(74, 59, 42, 0.18); }
+.oekaki-btn.is-on { background: #fff1c9; outline: 5px solid var(--primary); outline-offset: -1px; }
+
+/* クレヨン */
+.oekaki-crayon {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 62px;
+  border-radius: 4px 4px 6px 6px;
+  background:
+    linear-gradient(transparent 0 30%, rgba(255, 255, 255, 0.55) 30% 36%, transparent 36% 74%, rgba(255, 255, 255, 0.55) 74% 80%, transparent 80%),
+    var(--c);
+  transform: rotate(30deg) translateY(4px);
+  box-shadow: inset -5px 0 0 rgba(0, 0, 0, 0.12);
+}
+.oekaki-crayon::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 100%;
+  height: 16px;
+  background: var(--c);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: brightness(0.92);
+}
+.oekaki-color .oekaki-crayon { transition: opacity 0.2s, transform 0.2s; }
+.oekaki-color.is-on .oekaki-crayon { transform: rotate(30deg) translateY(-2px) scale(1.08); }
+.oekaki-lent-badge {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  font-size: 32px;
+  pointer-events: none;
+}
+.oekaki-color.oekaki-lent { background: #f6efe4; box-shadow: inset 0 0 0 4px #e3cfae; outline: 3px dashed #d9b98a; outline-offset: -8px; }
+.oekaki-color.oekaki-lent .oekaki-crayon { opacity: 0; }
+.oekaki-color.oekaki-back { animation: oekaki-pop 0.7s ease-out; }
+@keyframes oekaki-pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+/* ふとさ */
+.oekaki-size-dot { display: block; border-radius: 50%; background: #e53935; box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06); }
+
+/* けしゴム（えもじが ないので かたちで） */
+.oekaki-eraser {
+  display: block;
+  width: 50px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4fa3ff 0 42%, #fff 42%);
+  box-shadow: inset 0 0 0 3px #9aa7b8;
+  transform: rotate(-25deg);
+}
+
+.oekaki-done { background: var(--primary); color: #fff; gap: 0; align-content: center; }
+.oekaki-done-emoji { font-size: 34px; }
+.oekaki-done-text { font-size: 17px; font-weight: 900; white-space: nowrap; }
+
+/* ---- おともだちが くる ---- */
+.oekaki-visitor {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  display: none;
+  pointer-events: none;
+  font-size: 72px;
+  line-height: 1;
+  z-index: 3;
+}
+.oekaki-visitor.is-here { display: block; animation: oekaki-come 0.8s ease-out; }
+.oekaki-visitor.is-leaving { animation: oekaki-go 0.7s ease-in forwards; }
+@keyframes oekaki-come { from { transform: translateX(140%); } }
+@keyframes oekaki-go { to { transform: translateX(140%); opacity: 0; } }
+.oekaki-visitor-face { display: block; filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.15)); }
+.oekaki-visitor-hand {
+  position: absolute;
+  left: -18px;
+  bottom: 4px;
+  width: 30px;
+  height: 50px;
+}
+.oekaki-visitor-hand::after {
+  content: "";
+  position: absolute;
+  inset: 0 6px;
+  border-radius: 4px;
+  background: var(--c);
+  transform: rotate(-25deg);
+  opacity: 0;
+}
+.oekaki-visitor.has-crayon .oekaki-visitor-hand::after { opacity: 1; animation: oekaki-wiggle 0.6s ease-in-out infinite alternate; }
+@keyframes oekaki-wiggle { from { transform: rotate(-35deg); } to { transform: rotate(-10deg) translateY(-4px); } }
+.oekaki-visitor-bubble {
+  position: absolute;
+  top: -40px;
+  left: -6px;
+  font-size: 34px;
+  animation: oekaki-bob 1.2s ease-in-out infinite;
+}
+@keyframes oekaki-bob { 50% { transform: translateY(-6px); } }
+.oekaki-visitor.is-talking::after {
+  content: attr(data-say);
+  position: absolute;
+  right: 100%;
+  top: -10px;
+  margin-right: 30px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: #fff6e5;
+  box-shadow: var(--shadow);
+  font-size: 22px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.oekaki-fly {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.3, 1);
+}
+
+/* ---- パネル ---- */
+.oekaki-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: rgba(74, 59, 42, 0.3);
+  border-radius: 24px;
+  animation: fade-in 0.2s ease-out;
+}
+.oekaki-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.oekaki-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.oekaki-label { font-size: clamp(20px, 3vw, 28px); font-weight: 900; }
+
+.oekaki-stamp-grid { display: grid; grid-template-columns: repeat(4, 84px); gap: 12px; }
+.oekaki-stamp { width: 84px; height: 84px; font-size: 52px; }
+
+.oekaki-confirm-pic { display: flex; align-items: center; gap: 12px; font-size: 80px; }
+.oekaki-confirm-arrow { font-size: 44px; color: #c9a173; }
+.oekaki-big { width: 120px; height: 100px; font-size: 56px; }
+.oekaki-yes { background: #ffe1ec; }
+.oekaki-no { background: #e5f3ff; }
+.oekaki-wide { width: 130px; height: 84px; font-size: 44px; }
+
+.oekaki-friends { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.oekaki-friend { width: 88px; height: 88px; border-radius: 50%; font-size: 54px; }
+
+/* がくぶち */
+.oekaki-frame {
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d7a66a, #a8743e);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.35), 0 6px 0 rgba(74, 59, 42, 0.2);
+}
+.oekaki-frame-img { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 4px; background: #fff; }
+.oekaki-frame-big { width: min(460px, 70vw, calc((100dvh - 470px) * 4 / 3)); min-width: 200px; }
+.oekaki-done-head { font-size: 48px; line-height: 1; }
+.oekaki-done-card { gap: 12px; }
+
+/* みせる */
+.oekaki-show-panel { align-items: flex-start; padding-top: 12px; }
+.oekaki-showcase { position: relative; display: flex; align-items: flex-end; gap: 10px; }
+.oekaki-frame-show { width: min(520px, 80vw, calc((100dvh - 420px) * 4 / 3)); min-width: 180px; }
+.oekaki-looker {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 58px;
+  box-shadow: var(--shadow);
+  animation: oekaki-bob 1.2s ease-in-out infinite;
+}
+.oekaki-friend-art { animation: oekaki-pop 0.6s ease-out; }
+.oekaki-art-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  background: linear-gradient(#e9f6ff 0 62%, #f3ffe6 62%);
+  font-size: min(64px, 9vw, 7dvh);
+  line-height: 1.1;
+}
+
+/* ギャラリー */
+.oekaki-gallery-panel { padding: 0; }
+.oekaki-gallery {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0 18px, transparent 18px 36px),
+    #f6d9b0;
+}
+.oekaki-gallery-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 20px;
+  background: #c9a173;
+  color: #fff;
+}
+.oekaki-gallery-title { flex: 1; font-size: clamp(22px, 3.4vw, 32px); font-weight: 900; text-align: left; }
+.oekaki-close { font-size: 36px; color: var(--ink); }
+.oekaki-wall {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 26px 20px;
+  align-content: start;
+  padding: 26px 20px;
+}
+.oekaki-wall-item { position: relative; background: none; padding: 0; transition: transform 0.15s; }
+.oekaki-wall-item:nth-child(odd) { transform: rotate(-2deg); }
+.oekaki-wall-item:nth-child(even) { transform: rotate(1.5deg); }
+.oekaki-wall-item:active { transform: scale(0.97); }
+.oekaki-pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff9a9a, #d63a3a);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+.oekaki-shown { position: absolute; right: -4px; bottom: -14px; font-size: 26px; letter-spacing: -0.2em; }
+.oekaki-empty { grid-column: 1 / -1; font-size: 96px; padding: 40px; opacity: 0.7; }
+
+/* ---- たて がめん ---- */
+@media (orientation: portrait) {
+  .oekaki-root { flex-direction: column; align-items: stretch; gap: 10px; }
+  .oekaki-paper-wrap { order: 0; }
+  .oekaki-palette { order: 1; grid-template-columns: repeat(8, 80px); gap: 8px; }
+  .oekaki-tools { order: 2; grid-template-columns: repeat(8, 80px); gap: 8px; }
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .oekaki-palette, .oekaki-tools { grid-template-columns: repeat(4, 80px); }
+  .oekaki-stamp-grid { grid-template-columns: repeat(4, 80px); gap: 6px; }
+  .oekaki-stamp { width: 80px; height: 80px; }
+  .oekaki-stamp-panel .oekaki-card { padding: 12px; }
+  .oekaki-visitor { font-size: 56px; }
+  .oekaki-visitor.is-talking::after { font-size: 18px; }
+  .oekaki-frame-big { width: min(320px, 80vw); }
+  .oekaki-frame-show { width: min(320px, 70vw); }
+  .oekaki-looker { width: 70px; height: 70px; font-size: 44px; }
+}
+/* よこ でも ひくい がめん */
+@media (orientation: landscape) and (max-height: 620px) {
+  .oekaki-palette, .oekaki-tools { grid-template-columns: repeat(3, 80px); gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oekaki-visitor-bubble, .oekaki-looker, .oekaki-visitor.has-crayon .oekaki-visitor-hand::after { animation: none; }
+}
