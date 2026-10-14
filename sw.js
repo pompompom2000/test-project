@@ -11,6 +11,8 @@ const FILES = [
   'js/world.js',
   'js/spots/oekaki.js',
   'css/spots/oekaki.css',
+  'js/spots/tsumiki.js',
+  'css/spots/tsumiki.css',
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',
