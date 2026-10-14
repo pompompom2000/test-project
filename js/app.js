@@ -43,8 +43,8 @@
         el('h1', { class: 'title' }, 'みんなで あそぼ！'),
         el('button', {
           class: 'big-btn primary bounce',
-          onclick: () => { sound('start'); teamScreen(); },
-        }, '▶ はじめる'),
+          onclick: () => { sound('start'); World.enter(); },
+        }, '▶ ようちえんへ いこう'),
       ),
     );
   }
@@ -80,7 +80,7 @@
     renderPreview();
     show(
       el('section', { class: 'screen' },
-        el('button', { class: 'back-btn', onclick: titleScreen, 'aria-label': 'もどる' }, '⬅'),
+        el('button', { class: 'back-btn', onclick: () => World.enter(), 'aria-label': 'ようちえんに もどる' }, '⬅'),
         el('h2', {}, 'いくつの チームに わける？'),
         el('div', { class: 'count-row' }, countButtons),
         preview,
@@ -223,12 +223,16 @@
         el('div', { class: 'btn-row' },
           el('button', { class: 'big-btn primary', onclick: () => startGame(state.currentGame) }, '🔁 もういちど'),
           el('button', { class: 'big-btn', onclick: gameSelectScreen }, '🎮 ほかの ゲーム'),
+          el('button', { class: 'big-btn', onclick: () => World.enter() }, '🏫 もどる'),
         ),
       ),
     );
     sound('fanfare');
     speak(`${message} みんな よく がんばったね！`);
   }
+
+  // ようちえん（world.js）から呼べるようにする
+  window.App = { show, titleScreen, teamScreen };
 
   titleScreen();
 

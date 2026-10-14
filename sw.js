@@ -1,12 +1,14 @@
 // オフラインでも遊べるよう、アプリ一式をキャッシュする。
 // ファイルを更新したら VERSION を上げること。
-const VERSION = 'v2';
+const VERSION = 'v3';
 const CACHE = `minna-asobo-${VERSION}`;
 const FILES = [
   './',
   'index.html',
   'manifest.webmanifest',
   'css/style.css',
+  'css/world.css',
+  'js/world.js',
   'js/core.js',
   'js/app.js',
   'js/games/color-quiz.js',
