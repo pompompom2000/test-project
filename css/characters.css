@@ -1,0 +1,92 @@
+/* 体のある キャラクター。1em ≒ 背の高さ */
+.chr {
+  display: inline-block;
+  position: relative;
+  width: 0.72em;
+  height: 1em;
+  line-height: 0;
+  vertical-align: bottom;
+  flex: none;
+}
+.chr-svg { width: 100%; height: 100%; overflow: visible; }
+.chr.face-left .chr-svg { transform: scaleX(-1); }
+
+.chr .chr-arm, .chr .chr-leg, .chr .chr-head, .chr .chr-figure, .chr .chr-tail {
+  transform-box: fill-box;
+  transition: transform 0.25s ease;
+}
+.chr .chr-arm, .chr .chr-leg { transform-origin: 50% 8%; }
+.chr .chr-head { transform-origin: 50% 90%; }
+.chr .chr-figure { transform-origin: 50% 100%; }
+.chr .chr-tail { transform-origin: 0% 100%; }
+
+/* 表情 */
+.chr .chr-eyes-happy, .chr .chr-mouth-open, .chr .chr-mouth-sad, .chr .chr-tears { display: none; }
+.chr.mood-happy .chr-eyes-open { display: none; }
+.chr.mood-happy .chr-eyes-happy, .chr.mood-happy .chr-mouth-open { display: inline; }
+.chr.mood-happy .chr-mouth-smile { display: none; }
+.chr.mood-wow .chr-mouth-open { display: inline; }
+.chr.mood-wow .chr-mouth-smile { display: none; }
+.chr.mood-sad .chr-mouth-sad, .chr.mood-sad .chr-tears { display: inline; }
+.chr.mood-sad .chr-mouth-smile { display: none; }
+.chr.mood-sad .chr-head { transform: rotate(-6deg); }
+.chr.mood-sad .chr-tears { animation: chr-tear 1.2s ease-in infinite; }
+@keyframes chr-tear { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(6px); opacity: 0.2; } }
+
+/* ふつうに 立っている：すこし ゆれる */
+.chr.pose-stand .chr-figure { animation: chr-breathe 2.4s ease-in-out infinite; }
+@keyframes chr-breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.985); } }
+.chr.pose-stand .chr-tail { animation: chr-wag 1s ease-in-out infinite; }
+@keyframes chr-wag { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+
+/* あるく */
+.chr.pose-walk .chr-leg:first-child { animation: chr-swing 0.42s ease-in-out infinite; }
+.chr.pose-walk .chr-leg:last-child { animation: chr-swing 0.42s ease-in-out infinite reverse; }
+.chr.pose-walk .chr-arm-l { animation: chr-swing 0.42s ease-in-out infinite reverse; }
+.chr.pose-walk .chr-arm-r { animation: chr-swing 0.42s ease-in-out infinite; }
+.chr.pose-walk .chr-figure { animation: chr-step 0.21s ease-in-out infinite alternate; }
+@keyframes chr-swing { 0% { transform: rotate(22deg); } 100% { transform: rotate(-22deg); } }
+@keyframes chr-step { from { transform: translateY(0); } to { transform: translateY(-3%); } }
+
+/* すわる（足を まえに のばす。右むき） */
+.chr.pose-sit .chr-leg, .chr.pose-slide .chr-leg { transform: rotate(-80deg); }
+.chr.pose-sit .chr-figure, .chr.pose-slide .chr-figure { transform: translateY(14%); }
+.chr.pose-sit .chr-arm-l { transform: rotate(-20deg); }
+.chr.pose-sit .chr-arm-r { transform: rotate(-35deg); }
+.chr.pose-sit .chr-shadow, .chr.pose-slide .chr-shadow { opacity: 0; }
+
+/* すべる：すわって りょうてを あげる */
+.chr.pose-slide .chr-arm-l { transform: rotate(150deg); }
+.chr.pose-slide .chr-arm-r { transform: rotate(-150deg); }
+
+/* のぼる：手と足を こうたいに あげる */
+.chr.pose-climb .chr-arm-l { animation: chr-climb-arm 0.6s ease-in-out infinite; }
+.chr.pose-climb .chr-arm-r { animation: chr-climb-arm-r 0.6s ease-in-out infinite -0.3s; }
+.chr.pose-climb .chr-leg:first-child { animation: chr-climb-leg 0.6s ease-in-out infinite -0.3s; }
+.chr.pose-climb .chr-leg:last-child { animation: chr-climb-leg 0.6s ease-in-out infinite; }
+@keyframes chr-climb-arm { 0%, 100% { transform: rotate(170deg); } 50% { transform: rotate(130deg); } }
+@keyframes chr-climb-arm-r { 0%, 100% { transform: rotate(-170deg); } 50% { transform: rotate(-130deg); } }
+@keyframes chr-climb-leg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14%); } }
+
+/* てを ふる */
+.chr.pose-wave .chr-arm-r { animation: chr-wave 0.5s ease-in-out infinite alternate; }
+@keyframes chr-wave { from { transform: rotate(-140deg); } to { transform: rotate(-170deg); } }
+
+/* ばんざい（よろこぶ） */
+.chr.pose-cheer .chr-arm-l { transform: rotate(150deg); }
+.chr.pose-cheer .chr-arm-r { transform: rotate(-150deg); }
+.chr.pose-cheer .chr-figure { animation: chr-hop 0.5s ease-in-out infinite alternate; }
+@keyframes chr-hop { from { transform: translateY(0); } to { transform: translateY(-8%); } }
+
+/* しょんぼり */
+.chr.pose-sad .chr-arm-l { transform: rotate(8deg); }
+.chr.pose-sad .chr-arm-r { transform: rotate(-8deg); }
+.chr.pose-sad .chr-head { transform: rotate(-8deg) translateY(4%); }
+
+/* なにかを もつ（りょうてを まえに） */
+.chr.pose-hold .chr-arm-l { transform: rotate(-40deg); }
+.chr.pose-hold .chr-arm-r { transform: rotate(40deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .chr *, .chr .chr-figure { animation: none !important; }
+}

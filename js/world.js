@@ -113,13 +113,15 @@
   function talk(opts) {
     const friend = friendById(opts.friend);
     return new Promise((resolve) => {
-      const face = el('div', { class: 'talk-face' }, friend.emoji);
-      const mood = el('div', { class: 'talk-mood' }, opts.mood || '');
+      const startMood = moodFromEmoji(opts.mood);
+      const body = Core.character(friend.id, { mood: startMood, pose: startMood === 'sad' ? 'sad' : 'stand' });
+      const face = el('div', { class: 'talk-face' }, body);
+      const mood = { set textContent(v) { const m = moodFromEmoji(v); body.setMood(m); body.setPose(m === 'happy' ? 'cheer' : m === 'sad' ? 'sad' : 'stand'); } };
       const bubble = el('div', { class: 'talk-bubble' }, opts.say);
       const choiceRow = el('div', { class: 'talk-choices' });
       const sheet = el('div', { class: 'talk-overlay', role: 'dialog', 'aria-label': `${friend.name}と おはなし` },
         el('div', { class: 'talk-sheet' },
-          el('div', { class: 'talk-friend', style: { background: friend.color } }, face, mood,
+          el('div', { class: 'talk-friend', style: { background: `color-mix(in srgb, ${friend.color} 30%, #fff)`, color: friend.color } }, face,
             el('div', { class: 'talk-name' }, friend.name)),
           el('div', { class: 'talk-body' },
             el('div', { class: 'talk-line' }, bubble,
@@ -170,6 +172,15 @@
       choiceRow.append(...buttons);
       speak(`${opts.say}  ${opts.choices.map((c) => c.label).join('？ ')}？`);
     });
+  }
+
+  // 会話で使う絵文字の きもちを、キャラの表情に
+  function moodFromEmoji(e) {
+    if (!e) return 'normal';
+    if (/[😢😣😭😞😟🥺😥]/u.test(e)) return 'sad';
+    if (/[😊😄😆🥰😍🤗]/u.test(e)) return 'happy';
+    if (/[😮😲😯]/u.test(e)) return 'wow';
+    return 'normal';
   }
 
   // ---- ちずの上で おともだちを タップしたときの おはなし ----
@@ -242,8 +253,15 @@
         el('div', { class: 'avatar-row' },
           AVATARS.map((a) => el('button', {
             class: 'avatar-btn',
-            onclick: () => { sound('start'); state.avatar = a; store.set('avatar', a); worldScreen(); },
-          }, a)),
+            'aria-label': a,
+            onclick: (e) => {
+              sound('start');
+              e.currentTarget.firstChild.setPose('cheer').setMood('happy');
+              state.avatar = a;
+              store.set('avatar', a);
+              setTimeout(worldScreen, 500);
+            },
+          }, Core.character(a, { pose: 'wave' }))),
         ),
       ),
     );
@@ -252,7 +270,8 @@
 
   function worldScreen() {
     const map = el('div', { class: 'world-map' });
-    const avatar = el('div', { class: 'world-avatar', 'aria-hidden': 'true' }, state.avatar);
+    const me = Core.character(state.avatar);
+    const avatar = el('div', { class: 'world-avatar', 'aria-hidden': 'true' }, me);
 
     const place = (node, p) => {
       node.style.left = p.x + '%';
@@ -280,14 +299,14 @@
       const dy = ((target.y - state.pos.y) / 100) * rect.height;
       const dist = Math.hypot(dx, dy);
       const ms = Math.max(150, Math.min(1800, dist * 2.6));
-      if (Math.abs(dx) > 2) avatar.classList.toggle('face-left', dx < 0);
+      if (Math.abs(dx) > 2) me.face(dx < 0 ? 'left' : 'right');
       avatar.style.transitionDuration = ms + 'ms';
-      avatar.classList.add('walking');
+      me.setPose('walk');
       state.pos = { ...target };
       place(avatar, target);
       setTimeout(() => {
         if (token !== mapToken) return;
-        avatar.classList.remove('walking');
+        me.setPose('stand');
         if (then) then();
       }, ms);
     }
@@ -329,7 +348,7 @@
             talk(scene);
           });
         },
-      }, f.emoji);
+      }, Core.character(f.id));
       node._pos = { ...home };
       place(node, home);
       map.append(node);
@@ -341,6 +360,9 @@
       if (overlays.size) return;
       const { node, home } = Core.shuffle(friendNodes)[0];
       const p = { x: home.x + (Math.random() * 10 - 5), y: home.y + (Math.random() * 6 - 3) };
+      const body = node.firstChild;
+      body.face(p.x < node._pos.x ? 'left' : 'right').setPose('walk');
+      setTimeout(() => body.setPose('stand'), 1400);
       node._pos = p;
       place(node, p);
     }, 2500);
@@ -387,7 +409,7 @@
           FRIENDS.map((f) => {
             const n = heartsOf(f.id);
             return el('div', { class: 'book-row' },
-              el('span', { class: 'book-face', style: { background: f.color } }, f.emoji),
+              el('span', { class: 'book-face', style: { background: f.color } }, Core.character(f.id, { mood: n >= 3 ? 'happy' : 'normal' })),
               el('span', { class: 'book-name' }, f.name),
               el('span', { class: 'book-hearts' }, n ? '💖'.repeat(Math.min(n, 10)) + (n > 10 ? `+${n - 10}` : '') : '🤍'),
               el('span', { class: 'book-level' }, friendshipLabel(n)),
@@ -417,7 +439,8 @@
       shuffle: Core.shuffle,
       wait: Core.wait,
       isActive: () => active,
-      player: { emoji: state.avatar },
+      player: { emoji: state.avatar, kind: Core.characterKind(state.avatar) },
+      character: Core.character,
       friends: FRIENDS,
       friend: friendById,
       hearts: heartsOf,

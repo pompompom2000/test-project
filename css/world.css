@@ -99,27 +99,36 @@
 .world-spot.not-ready { opacity: 0.55; filter: grayscale(0.6); }
 
 .world-friend {
-  font-size: 6cqw;
+  font-size: 8.5cqw;
   line-height: 1;
   background: none;
   padding: 0.6cqw;
   transition: left 1.4s ease-in-out, top 1.4s ease-in-out;
-  animation: friend-bob 1.8s ease-in-out infinite;
-  filter: drop-shadow(0 0.5cqw 0 rgba(0, 0, 0, 0.15));
 }
-@keyframes friend-bob { 0%, 100% { margin-top: 0; } 50% { margin-top: -0.8cqw; } }
 
 .world-avatar {
-  font-size: 7cqw;
+  font-size: 9.5cqw;
   line-height: 1;
   pointer-events: none;
   transition-property: left, top;
   transition-timing-function: linear;
-  filter: drop-shadow(0 0.6cqw 0 rgba(0, 0, 0, 0.2));
 }
-.world-avatar.face-left { transform: translate(-50%, -50%) scaleX(-1); }
-.world-avatar.walking { animation: walk-hop 0.32s ease-in-out infinite; }
-@keyframes walk-hop { 0%, 100% { margin-top: 0; } 50% { margin-top: -1.2cqw; } }
+/* キャラは 足もとを その位置に合わせる */
+.world-friend, .world-avatar { transform: translate(-50%, -85%); }
+.world-avatar::after {
+  /* じぶんの しるし */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.9cqw;
+  width: 2.2cqw;
+  height: 1.6cqw;
+  transform: translateX(-50%);
+  background: #ff4f8b;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  animation: me-bounce 1s ease-in-out infinite;
+}
+@keyframes me-bounce { 0%, 100% { margin-top: 0; } 50% { margin-top: -0.6cqw; } }
 
 /* ---- キャラえらび ---- */
 .avatar-row { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
@@ -129,7 +138,9 @@
   border-radius: 50%;
   background: var(--card);
   box-shadow: var(--shadow);
-  font-size: 96px;
+  font-size: 120px;
+  display: grid;
+  place-items: center;
 }
 .avatar-btn:active { transform: translateY(4px); }
 
@@ -172,12 +183,10 @@
   justify-content: center;
   width: 150px;
   border-radius: 24px;
-  color: #fff;
 }
-.talk-face { font-size: 88px; line-height: 1.1; }
+.talk-face { font-size: 130px; line-height: 1; }
 .talk-face.happy { animation: pop 0.5s ease-out 2; }
-.talk-mood { position: absolute; top: 6px; right: 8px; font-size: 40px; }
-.talk-name { font-size: 20px; font-weight: 900; }
+.talk-name { font-size: 20px; font-weight: 900; filter: brightness(0.75); }
 
 .talk-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .talk-line { display: flex; align-items: center; gap: 12px; }
@@ -256,7 +265,7 @@
   background: #fff6e5;
   font-weight: 900;
 }
-.book-face { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; font-size: 36px; }
+.book-face { display: grid; place-items: end center; width: 64px; height: 64px; border-radius: 50%; font-size: 60px; overflow: hidden; }
 .book-name { font-size: 20px; }
 .book-hearts { font-size: 20px; letter-spacing: -0.1em; min-width: 0; overflow-wrap: anywhere; }
 .book-level { font-size: 16px; color: #c2185b; }
@@ -264,7 +273,7 @@
 @media (max-width: 640px) {
   .talk-sheet { flex-direction: column; }
   .talk-friend { width: auto; flex-direction: row; gap: 12px; padding: 8px; }
-  .talk-face { font-size: 60px; }
+  .talk-face { font-size: 90px; }
   .book-row { grid-template-columns: auto 1fr; }
 }
 
