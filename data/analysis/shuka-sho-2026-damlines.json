@@ -1,0 +1,364 @@
+{
+ "race": "2026-10-18 京都11R 秋華賞(G1)",
+ "note": "各馬の直系牝系（母→母の母→…）を16代まで遡った。Bunty's Flight と Miss Disco はいずれの直系牝系にも現れない。最深世代は19世紀の英国基礎牝馬に達しており、Miss Disco(1944年生)は射程内にある。",
+ "method": "tools/collect/trace_damline.py（netkeiba 5代血統表の母側先頭セルを再帰）",
+ "horses": {
+  "ギャラボーグ": {
+   "no": 1,
+   "damLine": [
+    "レキシールー",
+    "Oneexcessivenite (米)",
+    "Favored One (米)",
+    "Highly Favored (米)",
+    "Minie Ball (米)",
+    "Blue Norka (米)",
+    "Akron Gal (米)",
+    "Escutcheon (米)",
+    "Affection (米)",
+    "One I Love (英)",
+    "The Apple (英)",
+    "Black Star (英)",
+    "Toxophilite Mare (英)",
+    "Maid of Masham (英)",
+    "Miss Lydia (英)",
+    "Comus Mare (英)"
+   ]
+  },
+  "テイエムアイラン": {
+   "no": 2,
+   "damLine": [
+    "クインオブザシーズ",
+    "レジネッタ",
+    "アスペンリーフ",
+    "マクダヴィア",
+    "Northern Aspen (米)",
+    "Fall Aspen (米)",
+    "Change Water (米)",
+    "Portage (米)",
+    "Carillon (米)",
+    "Sunfeathers (米)",
+    "Angry Plume (米)",
+    "Burgee (米)",
+    "Afternoon (米)",
+    "Matinee (米)",
+    "Audience (米)",
+    "Sallie McClelland (米)"
+   ]
+  },
+  "マスターソアラ": {
+   "no": 3,
+   "damLine": [
+    "イグジビットワン",
+    "Tsar's Pride (英)",
+    "Bold Empress (米)",
+    "Zaizafon (米)",
+    "Mofida (英)",
+    "Wold Lass (英)",
+    "Cheb (英)",
+    "Bray View (英)",
+    "Bray Beauty (愛)",
+    "Bessie Belle (英)",
+    "Lady Burstwick (英)",
+    "Minnekota (英)",
+    "Dusky Queen (英)",
+    "Virginia Shore (英)",
+    "Distant Shore (英)",
+    "Land's End (英)"
+   ]
+  },
+  "エンネ": {
+   "no": 4,
+   "damLine": [
+    "ルパンII",
+    "Promising Lead (英)",
+    "Arrive (英)",
+    "Kerali (英)",
+    "Sookera (米)",
+    "Irule (米)",
+    "Iaround (米)",
+    "Itsabet (米)",
+    "Jayjean (米)",
+    "Genevra M. (米)",
+    "Homebody (米)",
+    "Scramble (仏)",
+    "Tangle (米)",
+    "Handspun (米)",
+    "Spinaway (米)",
+    "Megara (米)"
+   ]
+  },
+  "タイセイボーグ": {
+   "no": 5,
+   "damLine": [
+    "ヴィヤダーナ",
+    "Visor (米)",
+    "Look (米)",
+    "Tuerta (米)",
+    "Continue (米)",
+    "Courtesy (米)",
+    "Highway Code (英)",
+    "Book Law (愛)",
+    "Popingaol (英)",
+    "Popinjay (英)",
+    "Chelandry (英)",
+    "Illuminata (英)",
+    "Paraffin (英)",
+    "Paradigm (英)",
+    "Ellen Horne (英)",
+    "Delhi (英)"
+   ]
+  },
+  "ラベルセーヌ": {
+   "no": 6,
+   "damLine": [
+    "ラフォルス",
+    "La Miraculeuse (独)",
+    "L'Heure Bleue (愛)",
+    "Loire Princesse (愛)",
+    "Admit (英)",
+    "Val's Girl (米)",
+    "Valoris (仏)",
+    "Vali (仏)",
+    "Her Slipper (英)",
+    "Carpet Slipper (英)",
+    "Simon's Shoes (英)",
+    "Goody Two-Shoes (英)",
+    "Sandal (英)",
+    "Shoestring (英)",
+    "Bowstring (英)",
+    "Toxophilite Mare (英)"
+   ]
+  },
+  "バースデイフライト": {
+   "no": 7,
+   "damLine": [
+    "サマーソワレ",
+    "Mazel Tov (米)",
+    "Flying Honors (米)",
+    "Quick Honors (米)",
+    "Nalees Honor Award (米)",
+    "Nalee (米)",
+    "Levee (米)",
+    "Bourtai (米)",
+    "Escutcheon (米)",
+    "Affection (米)",
+    "One I Love (英)",
+    "The Apple (英)",
+    "Black Star (英)",
+    "Toxophilite Mare (英)",
+    "Maid of Masham (英)",
+    "Miss Lydia (英)"
+   ]
+  },
+  "モンローウォーク": {
+   "no": 8,
+   "damLine": [
+    "アンフィトリテII",
+    "Ocean Dream (豪)",
+    "Joolzy (新)",
+    "Bon et Vite (新)",
+    "Mellay Vite (新)",
+    "Allez Vite (新)",
+    "Belisande (新)",
+    "Renmark (新)",
+    "Bright Mark (新)",
+    "Brilliant Plumes (新)",
+    "Royal Plumes (新)",
+    "Ich Dien (新)",
+    "Ravenswing (新)",
+    "Idalia (英)",
+    "Dulcibella (英)",
+    "Priestess (英)"
+   ]
+  },
+  "スウィートハピネス": {
+   "no": 9,
+   "damLine": [
+    "フラル",
+    "アワーグラス",
+    "ファレノプシス",
+    "キャットクイル",
+    "Pacific Princess (米)",
+    "Fiji (英)",
+    "Rififi (英)",
+    "Khanum (英)",
+    "Fair Terms (英)",
+    "Phi-Phi (英)",
+    "Bongo (英)",
+    "Elfin Revel (英)",
+    "Edie Hopson (英)",
+    "Chloe (英)",
+    "Magdalen (英)",
+    "Vaga (英)"
+   ]
+  },
+  "ナイスプレーアスク": {
+   "no": 10,
+   "damLine": [
+    "エンジェルドンキ",
+    "トレノエンジェル",
+    "アスクコマンダー",
+    "エイブルカグラ",
+    "シャダイカグラ",
+    "ミリーバード",
+    "ラバテラ",
+    "Begonia (仏)",
+    "Lobelia (英)",
+    "Alrabia (英)",
+    "Friar's Daughter (英)",
+    "Garron Lass (英)",
+    "Concertina (英)",
+    "Comic Song (英)",
+    "Frivolity (英)",
+    "Miss Agnes (英)"
+   ]
+  },
+  "ガーネットフレア": {
+   "no": 11,
+   "damLine": [
+    "スペクトロライト",
+    "バランセラ",
+    "Baranciaga (米)",
+    "Maxencia (仏)",
+    "Matuschka (独)",
+    "Marlia (英)",
+    "Mirnaya (英)",
+    "Solar System (英)",
+    "Jury (英)",
+    "Trustful (愛)",
+    "Credenda (愛)",
+    "Ballyglass (愛)",
+    "Rosalind (英)",
+    "Cherie (英)",
+    "Chere Amie (英)",
+    "Blame (英)"
+   ]
+  },
+  "カナルサンマルタン": {
+   "no": 12,
+   "damLine": [
+    "アメリ",
+    "アゼリ",
+    "Zodiac Miss (豪)",
+    "Capricornia (愛)",
+    "Franconia (豪)",
+    "Miss Glasso (英)",
+    "Tulip (米)",
+    "Bray Melody (愛)",
+    "Painter's Song (英)",
+    "Cradle Song (英)",
+    "Verve (英)",
+    "Valve (英)",
+    "Gas (英)",
+    "Illuminata (英)",
+    "Paraffin (英)",
+    "Paradigm (英)"
+   ]
+  },
+  "ドリームコア": {
+   "no": 13,
+   "damLine": [
+    "ノームコア",
+    "クロノロジスト",
+    "インディスユニゾン",
+    "ラスティックベル",
+    "Ragtime Girl (米)",
+    "Swinging Doll (米)",
+    "Doll Ina (米)",
+    "Nimble Doll (米)",
+    "Camelina (米)",
+    "Princess Camelia (米)",
+    "Sunmelia (米)",
+    "Bromelia (米)",
+    "Savannah (米)",
+    "Campo (米)",
+    "Campfire (米)",
+    "Kate Allen (英)"
+   ]
+  },
+  "サムシングスイート": {
+   "no": 14,
+   "damLine": [
+    "サムシングジャスト",
+    "ツルマルオトメ",
+    "メモリーズオブロニー",
+    "Pass Away (米)",
+    "Reelaway (米)",
+    "Blue Whirl (米)",
+    "Bleebok (米)",
+    "Forteresse (仏)",
+    "Guerriere (仏)",
+    "Amazone (英)",
+    "Cross Roads (英)",
+    "Hari Kari (英)",
+    "Suicide (英)",
+    "The Ratcatcher's Daughter (英)",
+    "Lady Alicia (英)",
+    "Testy (英)"
+   ]
+  },
+  "フェスティバルヒル": {
+   "no": 15,
+   "damLine": [
+    "ミュージアムヒル",
+    "ロレットチャペル",
+    "サンタフェトレイル",
+    "ハッピートレイルズ",
+    "ロイコン",
+    "Madelon (英)",
+    "Azurine (英)",
+    "Blue Dun (英)",
+    "Dunure (英)",
+    "Carrick Shore (愛)",
+    "Terre de Sienne (仏)",
+    "Basse Terre (仏)",
+    "Bijou (英)",
+    "Thora (英)",
+    "Freia (英)",
+    "Thor's Day (英)"
+   ]
+  },
+  "ハヤブササキチャン": {
+   "no": 16,
+   "damLine": [
+    "ヴァフラーム",
+    "ファーストチェア",
+    "マイケイティーズ",
+    "ケイティーズファースト",
+    "Katies (愛)",
+    "Mortefontaine (仏)",
+    "Brabantia (英)",
+    "Porthaven (英)",
+    "Peaceful Light (英)",
+    "Turtledove (英)",
+    "Head Note (愛)",
+    "Mesange (英)",
+    "Golden Tresses (英)",
+    "Coiffure (英)",
+    "Dorothy Draggletail (英)",
+    "Hermione (英)"
+   ]
+  },
+  "ロザーンジュ": {
+   "no": 17,
+   "damLine": [
+    "ハーズシャドウ",
+    "アスピリンスノー",
+    "スキーパラダイス",
+    "Ski Goggle (米)",
+    "Mississippi Siren (米)",
+    "Cable Censor (米)",
+    "New Lede (米)",
+    "Obedient (米)",
+    "Uvira (英)",
+    "Lady Lawless (英)",
+    "Entanglement (英)",
+    "Rambling Rose (英)",
+    "Barmaid (英)",
+    "Loch Garry (英)",
+    "Mayonaise (英)",
+    "Pic-nic (英)"
+   ]
+  }
+ }
+}
