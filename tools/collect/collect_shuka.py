@@ -28,6 +28,8 @@ def fetch(rid):
     rows = re.findall(r'(?is)<tr[^>]*>(.*?)</tr>', m.group(1))
     if len(rows) < 2:
         return None
+    # 各行の馬IDは馬名セルのリンクから取る
+    ids = [re.search(r'/horse/(\d+)/', r) for r in rows[1:]]
     head = [h.replace(' ', '') for h in cells(rows[0])]
 
     def col(*names):
@@ -40,7 +42,7 @@ def fetch(rid):
     iwk = col('枠番', '枠')
     title = re.search(r'<title>([^<|]*)', s)
     out = []
-    for row in rows[1:]:
+    for ri, row in enumerate(rows[1:]):
         c = cells(row)
         if len(c) <= max(x for x in (iw, ino, inm) if x is not None):
             continue
@@ -52,6 +54,7 @@ def fetch(rid):
         out.append({
             'place': int(pm.group(1)), 'demoted': demoted,
             'no': int(c[ino]),
+            'horseId': ids[ri].group(1) if ids[ri] else None,
             'waku': int(c[iwk]) if iwk is not None and c[iwk].isdigit() else None,
             'name': c[inm],
             'weight': int(wm.group(1)) if wm else None,
