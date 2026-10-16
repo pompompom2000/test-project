@@ -9,7 +9,22 @@ const {
   TableLayoutType, BorderStyle,
 } = require("docx");
 
-const D = JSON.parse(fs.readFileSync(path.join(__dirname, "keiyaku.json"), "utf8"));
+const RAW = JSON.parse(fs.readFileSync(path.join(__dirname, "keiyaku.json"), "utf8"));
+
+// 当事者の名前は keiyaku.json の parties だけに書く。本文は {甲}{乙}{甲_full}{乙_full}
+// {甲_role}{乙_role}{甲_car}{乙_car} のトークンで書いてあるので、ここで差し替える。
+const TOK = {};
+for (const [k, v] of Object.entries(RAW.parties)) {
+  TOK[`{${k}}`] = v.short;
+  for (const f of ["full", "role", "car"]) TOK[`{${k}_${f}}`] = v[f];
+}
+const sub = (t) => t.replace(/\{[^{}]+\}/g, (m) => (m in TOK ? TOK[m] : m));
+const walk = (x) => (typeof x === "string" ? sub(x)
+  : Array.isArray(x) ? x.map(walk)
+  : x && typeof x === "object"
+    ? Object.fromEntries(Object.entries(x).map(([k, v]) => [k, walk(v)]))
+    : x);
+const D = walk(RAW);
 
 const MIN = { ascii: "ＭＳ 明朝", eastAsia: "ＭＳ 明朝", hAnsi: "ＭＳ 明朝" };
 const GO  = { ascii: "ＭＳ ゴシック", eastAsia: "ＭＳ ゴシック", hAnsi: "ＭＳ ゴシック" };
@@ -18,13 +33,23 @@ const NAVY = "16395C", HEAD = "E8ECF0", WARN = "FDF4E2";
 const W = 9072;                     // A4縦・左右25mm余白のときの本文幅
 const KANSUJI = ["", "", "２", "３", "４", "５", "６", "７", "８", "９", "10"];
 
+// 〔緑〕〔白〕はナンバーの色。照会書と同じ配色にする。
+const MARK = { "〔緑〕": "186B3F", "〔白〕": "8A6100" };
+const runs = (text, o) => {
+  const parts = String(text).split(/(〔緑〕|〔白〕)/).filter((x) => x !== "");
+  return parts.map((t) => new TextRun({
+    text: t, bold: o.bold || t in MARK, size: o.size ?? S,
+    font: o.go || t in MARK ? GO : MIN, color: MARK[t] ?? o.color,
+  }));
+};
+
 const p = (text, o = {}) => new Paragraph({
   alignment: o.align,
   spacing: { line: o.line ?? 300, lineRule: "auto", before: o.before ?? 0, after: o.after ?? 0 },
   indent: o.indent,
   pageBreakBefore: o.br,
   keepNext: o.keep,
-  children: [new TextRun({ text, bold: o.bold, size: o.size ?? S, font: o.go ? GO : MIN })],
+  children: runs(text, o),
 });
 const blank = (n = 1) => Array.from({ length: n }, () => p(""));
 
@@ -41,8 +66,7 @@ const cell = (text, w, o = {}) => new TableCell({
   children: (Array.isArray(text) ? text : String(text).split("\n")).map((t) => new Paragraph({
     alignment: o.align,
     spacing: { line: 250, lineRule: "auto" },
-    children: [new TextRun({ text: t, bold: o.bold, size: o.size ?? 19,
-      font: o.go ? GO : MIN, color: o.color })],
+    children: runs(t, { ...o, size: o.size ?? 19 }),
   })),
 });
 
@@ -64,6 +88,20 @@ const out = [
   ...D.preamble.map((t) => p(t, { indent: { firstLine: 210 }, after: 240 })),
 ];
 
+// 当事者の表（頭書）
+const AT = D.atama_cols;
+out.push(band(D.atama_title));
+out.push(mk(AT, [
+  new TableRow({ children: D.atama_head.map((h, i) => cell(h, AT[i],
+    { shade: HEAD, bold: true, go: true, align: AlignmentType.CENTER })) }),
+  ...D.atama_rows.map((r) => new TableRow({ children: r.map((v, i) => cell(v, AT[i], {
+    bold: i === 0 || i === 1, go: i === 0,
+    align: i === 0 || i === 3 ? AlignmentType.CENTER : undefined,
+  })) })),
+]));
+out.push(mk([W], [new TableRow({ children: [cell(D.atama_note, W, { top: true, size: 18, shade: WARN })] })]));
+out.push(...blank(1));
+
 D.articles.forEach((a) => {
   out.push(p(`${a.no}（${a.title}）`, { go: true, bold: true, size: 22, before: 220, after: 80, keep: true }));
   let n = 0;
@@ -79,19 +117,20 @@ D.articles.forEach((a) => {
 });
 
 out.push(...blank(1));
-D.closing.forEach((t) => out.push(p(t, { indent: { firstLine: 210 }, after: 240 })));
-out.push(p(D.sign_date, { after: 240 }));
+D.closing.forEach((t) => out.push(p(t, { indent: { firstLine: 210 }, after: 240, keep: true })));
+out.push(p(D.sign_date, { after: 240, keep: true }));
 
-const SC = [700, 1500, 6872];
-D.sign_rows.forEach(([mark, ...labels]) => {
-  labels.forEach((lab, i) => {
+const SC = [1700, 7372];
+D.sign_blocks.forEach((b) => {
+  out.push(p(b.who, { go: true, bold: true, size: 21, after: 60, keep: true }));
+  b.labels.forEach((lab) => {
     out.push(mk(SC, [new TableRow({ children: [
-      cell(i === 0 ? mark : "", SC[0], { noborder: true, go: true, bold: true, align: AlignmentType.CENTER, size: 21 }),
-      cell(lab, SC[1], { noborder: true, size: 20 }),
-      cell(lab === "代表者" ? "　　　　　　　　　　　　　　　　　　　　印" : "", SC[2], { noborder: true, size: 20 }),
+      cell("　" + lab, SC[0], { noborder: true, size: 20 }),
+      cell(lab === "代表者" ? "　　　　　　　　　　　　　　　　　　　　　　　印" : "", SC[1],
+        { noborder: true, size: 20 }),
     ] })]));
   });
-  out.push(p("", { after: 120 }));
+  out.push(p("", { after: 160 }));
 });
 
 // ------------------------------------------------------------ 別紙１

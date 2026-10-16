@@ -12,6 +12,7 @@
   3 単位が立方メートルのままか（台・kmになっていないか）
   4 表の幅が本文幅（A4縦・左右25mm余白＝9072 DXA）を超えていないか
   5 社内用メモが最終頁にあり、相手方に渡す頁に混ざっていないか
+  6 当事者のトークン（{甲}など）が差し替えられずに残っていないか
 
 使い方:  python3 src/checkkeiyaku.py
 """
@@ -30,15 +31,15 @@ W = 9072
 # 落とすと通達の当てはめが崩れる文言。どの要件に効くかを添える。
 MUST = [
     ("ⅱ 運送が主目的でない", "運搬を目的とするものではない"),
-    ("ⅱ 運搬は手段", "処分を完成するために乙が自らの手段として行う工程の一部"),
+    ("ⅱ 運搬は手段", "処分を完成するために{乙}が自らの手段として行う工程の一部"),
     ("ⅲ 名目を問わない", "名目の如何を問わず"),
     ("ⅲ 距離・回数・台数で決めない", "使用する車両の台数に応じて定めるものではない"),
     ("ⅲ 請求書も同じ名目", "別紙１と同一の区分及び名目"),
-    ("ⅰ 処分地を自ら確保", "処分地の確保、維持及び管理は、乙の責任と費用において行う"),
-    ("ⅰ 受入後の責任を負う", "本件残土の管理及び災害の防止に係る責任は、乙が負う"),
+    ("ⅰ 処分地を自ら確保", "処分地の確保、維持及び管理は、{乙}の責任と費用において行う"),
+    ("ⅰ 受入後の責任を負う", "本件残土の管理及び災害の防止に係る責任は、{乙}が負う"),
     ("ⅰ 工程を一体で行う", "各工程を一体のものとして自ら行う"),
     ("ⅰ 丸投げしない", "第三者に再委託しない"),
-    ("補強 積込み時に所有権移転", "所有権は、前項の引渡しと同時に、甲から乙に移転する"),
+    ("補強 積込み時に所有権移転", "所有権は、前項の引渡しと同時に、{甲}から{乙}に移転する"),
     ("▲11 日雇い運転者を使わない", "二月を超える期間を定めて雇用された者"),
     ("ダンプ規制法は外れない", "表示番号"),
     ("廃棄物が混ざれば対象外", "廃棄物に該当しないものに限る"),
@@ -53,15 +54,54 @@ def norm(s):
     return re.sub(r"[\s　]", "", unicodedata.normalize("NFKC", str(s)))
 
 
-def main():
-    d = json.loads((SRC / "keiyaku.json").read_text(encoding="utf-8"))
-    bad = []
+def build_tok(raw):
+    """当事者の名前のトークン。生成スクリプトと同じ対応表を作る。"""
+    tok = {}
+    for k, v in raw["parties"].items():
+        tok["{%s}" % k] = v["short"]
+        for f in ("full", "role", "car"):
+            tok["{%s_%s}" % (k, f)] = v[f]
+    return tok
 
-    # ---- 1 必須文言 ----
-    whole = norm(json.dumps(d, ensure_ascii=False))
+
+def strings(x):
+    """入れ子になった値のうち、文字列だけを取り出す。"""
+    if isinstance(x, str):
+        yield x
+    elif isinstance(x, list):
+        for i in x:
+            yield from strings(i)
+    elif isinstance(x, dict):
+        for v in x.values():
+            yield from strings(v)
+
+
+def sub(s, tok):
+    for k, v in tok.items():
+        s = s.replace(k, v)
+    return s
+
+
+def main():
+    raw = json.loads((SRC / "keiyaku.json").read_text(encoding="utf-8"))
+    tok = build_tok(raw)
+    d = json.loads(sub(json.dumps(raw, ensure_ascii=False), tok))
+    bad = []
+    print("  当事者　甲=%s（%s）／乙=%s（%s）"
+          % (raw["parties"]["甲"]["short"], raw["parties"]["甲"]["full"],
+             raw["parties"]["乙"]["short"], raw["parties"]["乙"]["full"]))
+
+    # ---- 1 必須文言（当事者名を差し替えたうえで突き合わせる）----
+    whole = norm("".join(strings(d)))
     for why, phrase in MUST:
-        if norm(phrase) not in whole:
-            bad.append("必須文言が無い（%s）: %s" % (why, phrase))
+        if norm(sub(phrase, tok)) not in whole:
+            bad.append("必須文言が無い（%s）: %s" % (why, sub(phrase, tok)))
+
+    # ---- 6 未置換トークン ----
+    # JSON全体を文字列化すると object の波括弧を拾ってしまうので、値の文字列だけを見る。
+    left = sorted({t for v in strings(d) for t in re.findall(r"\{[^{}]+\}", v)})
+    if left:
+        bad.append("差し替えられていないトークンがある: %s" % left)
 
     # ---- 2 内訳書の費目 ----
     cells = [c for r in d["att1_rows"] for c in r] + d["att1_head"] + d["att1_total"]
@@ -79,7 +119,7 @@ def main():
             bad.append("内訳書の単位が運搬量になっている: %s" % u)
 
     # ---- 4 表の幅 ----
-    for name in ("att1_cols", "att2_cols"):
+    for name in ("atama_cols", "att1_cols", "att2_cols"):
         s = sum(d[name])
         mark = "OK" if s <= W else "はみ出し"
         if s > W:
@@ -95,6 +135,9 @@ def main():
         body = [i + 1 for i, p in enumerate(pages) if "この契約書の書き方と注意点" in p
                 or "相手方に交付する契約書には綴らない" in p]
         print("  PDF %d頁　社内用メモ: %s頁" % (len(pages), body or "なし"))
+        stray = sorted({t for pg in pages for t in re.findall(r"\{[^{}]+\}", pg)})
+        if stray:
+            bad.append("PDFにトークンが残っている: %s" % stray)
         if not body:
             bad.append("社内用メモがPDFに見つからない")
         elif min(body) <= 4:
@@ -108,7 +151,7 @@ def main():
             print("  NG  %s" % b)
         print("\n  %d 件" % len(bad))
         return 1
-    print("  条 %d・別紙2・社内用メモ　異常なし" % len(d["articles"]))
+    print("  条 %d・頭書・別紙2・社内用メモ　異常なし" % len(d["articles"]))
     return 0
 
 

@@ -15,13 +15,38 @@ from playwright.sync_api import sync_playwright
 D = pathlib.Path(__file__).parent
 OUT_HTML = D / "keiyaku.html"
 OUT_PDF = D.parent / "残土処分請負契約書.pdf"
-data = json.loads((D / "keiyaku.json").read_text(encoding="utf-8"))
+RAW = json.loads((D / "keiyaku.json").read_text(encoding="utf-8"))
+
+# 当事者の名前は keiyaku.json の parties だけに書く。本文は {甲}{乙}{甲_full}{乙_full}
+# {甲_role}{乙_role}{甲_car}{乙_car} のトークンで書いてあるので、ここで差し替える。
+TOK = {}
+for _k, _v in RAW["parties"].items():
+    TOK["{%s}" % _k] = _v["short"]
+    for _f in ("full", "role", "car"):
+        TOK["{%s_%s}" % (_k, _f)] = _v[_f]
+
+
+def _walk(x):
+    if isinstance(x, str):
+        for k, v in TOK.items():
+            x = x.replace(k, v)
+        return x
+    if isinstance(x, list):
+        return [_walk(i) for i in x]
+    if isinstance(x, dict):
+        return {k: _walk(v) for k, v in x.items()}
+    return x
+
+
+data = _walk(RAW)
 
 KANSUJI = ["", "", "２", "３", "４", "５", "６", "７", "８", "９", "10"]
 
 
 def e(s):
-    return H.escape(str(s)).replace("\n", "<br>")
+    return (H.escape(str(s)).replace("\n", "<br>")
+            .replace("〔緑〕", '<b class="g">〔緑〕</b>')
+            .replace("〔白〕", '<b class="w">〔白〕</b>'))
 
 
 def lines(xs, cls=""):
@@ -44,10 +69,11 @@ h2 { font-family: "Noto Sans CJK JP",sans-serif; font-size: 11pt; margin: 5mm 0 
 .art p.item { padding-left: 2em; text-indent: -1em; font-size: 10pt; }
 .close { text-indent: 1em; margin: 8mm 0 5mm; }
 .date { margin: 0 0 6mm; }
-.sign { border: none; width: auto; margin: 0 0 6mm; }
+.who { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700; font-size: 10.5pt;
+       margin: 0 0 1mm; }
+.sign { border: none; width: auto; margin: 0 0 7mm; }
 .sign td { border: none; padding: .8mm 2mm .8mm 0; font-size: 10pt; vertical-align: bottom; }
-.sign td.m { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700; width: 12mm; }
-.sign td.l { width: 22mm; }
+.sign td.l { width: 26mm; padding-left: 4mm; }
 .sign td.v { border-bottom: .4pt solid #9aa6b2; min-width: 90mm; }
 table { width: 100%; border-collapse: collapse; margin: 0 0 4mm; }
 th, td { border: .4pt solid #9aa6b2; padding: 1.5mm 2mm; font-size: 9.5pt; vertical-align: top; }
@@ -69,8 +95,14 @@ h3 { font-family: "Noto Sans CJK JP",sans-serif; font-size: 14pt; margin: 0 0 3m
 .box.warn.lead p { font-family: "Noto Sans CJK JP",sans-serif; font-weight: 700; font-size: 9.5pt; }
 .memo p { margin: 0 0 1mm; padding-left: 1em; text-indent: -1em; font-size: 9.5pt; line-height: 1.7; }
 .memo { margin: 0 0 3.5mm; }
+.at th { text-align: center; }
+.at td { text-align: center; }
+.at td.l { text-align: left; font-weight: 700; }
+b.g { color: #186b3f; }
+b.w { color: #8a6100; }
 .sheet { page-break-before: always; }
 .box, table, .sign { break-inside: avoid; }
+.signarea { break-inside: avoid; }
 """
 
 parts = ['<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">',
@@ -81,6 +113,17 @@ parts.append("<h1>%s</h1>" % e(data["title"]))
 parts.append('<div class="sub">%s</div>' % e(data["subtitle"]))
 for t in data["preamble"]:
     parts.append('<div class="pre">%s</div>' % e(t))
+
+# ---- 当事者の表（頭書）----
+parts.append('<div class="band">%s</div>' % e(data["atama_title"]))
+head = "".join("<th>%s</th>" % e(h) for h in data["atama_head"])
+body = ""
+for r in data["atama_rows"]:
+    body += "<tr>" + "".join(
+        '<td class="%s">%s</td>' % ("l" if i in (1, 2) else "", e(v))
+        for i, v in enumerate(r)) + "</tr>"
+parts.append('<table class="at"><tr>%s</tr>%s</table>' % (head, body))
+parts.append('<div class="box warn">%s</div>' % lines(data["atama_note"]))
 
 for a in data["articles"]:
     parts.append("<h2>%s（%s）</h2>" % (e(a["no"]), e(a["title"])))
@@ -96,18 +139,19 @@ for a in data["articles"]:
         parts.append("<p>%s%s</p>" % (e(label), e(x)))
     parts.append("</div>")
 
+parts.append('<div class="signarea">')
 for t in data["closing"]:
     parts.append('<div class="close">%s</div>' % e(t))
 parts.append('<div class="date">%s</div>' % e(data["sign_date"]))
 
-for row in data["sign_rows"]:
-    mark, labels = row[0], row[1:]
+for b in data["sign_blocks"]:
     rows = ""
-    for i, lab in enumerate(labels):
-        v = "　　　　　　　　　　　　　　　　　　　　印" if lab == "代表者" else "&nbsp;"
-        rows += ('<tr><td class="m">%s</td><td class="l">%s</td><td class="v">%s</td></tr>'
-                 % (e(mark) if i == 0 else "&nbsp;", e(lab), v))
+    for lab in b["labels"]:
+        v = "　　　　　　　　　　　　　　　　　　　　　　　印" if lab == "代表者" else "&nbsp;"
+        rows += ('<tr><td class="l">%s</td><td class="v">%s</td></tr>' % (e(lab), v))
+    parts.append('<div class="who">%s</div>' % e(b["who"]))
     parts.append('<table class="sign">%s</table>' % rows)
+parts.append("</div>")
 
 # ---- 別紙１ ----
 parts.append('<div class="sheet">')
@@ -145,7 +189,7 @@ OUT_HTML.write_text("\n".join(parts), encoding="utf-8")
 
 ftr = ('<div style="width:100%;font-family:sans-serif;font-size:7pt;color:#5c6873;'
        'padding:0 20mm;display:flex;justify-content:space-between;">'
-       "<span>残土処分請負契約書（ひな型）　※最終頁は社内用</span>"
+       "<span>残土処分請負契約書（ひな型）　※末尾の〔社内用〕頁は相手方に渡さない</span>"
        '<span class="pageNumber"></span></div>')
 
 with sync_playwright() as pw:
