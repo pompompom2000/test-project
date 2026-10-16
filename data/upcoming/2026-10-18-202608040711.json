@@ -21,7 +21,9 @@
     "source": "netkeiba"
    },
    "horseId": "2023105825",
-   "starts": 5
+   "starts": 5,
+   "breeder": "ケイアイファーム",
+   "owner": "ロードホースクラブ"
   },
   {
    "waku": 1,
@@ -41,7 +43,9 @@
     "temperamentNote": "「ポジションよりもリズム重視」＝折り合い優先の指示"
    },
    "horseId": "2023100448",
-   "starts": 8
+   "starts": 8,
+   "breeder": "米田牧場",
+   "owner": "竹園正繼"
   },
   {
    "waku": 2,
@@ -61,7 +65,9 @@
     "temperamentNote": "テンション（気性）への明示的な言及。課題として取り組んできたと読める"
    },
    "horseId": "2023106810",
-   "starts": 3
+   "starts": 3,
+   "breeder": "社台コーポレーション白老ファーム",
+   "owner": "インゼルレーシング"
   },
   {
    "waku": 2,
@@ -76,7 +82,9 @@
    "popularity": "**",
    "comment": null,
    "horseId": "2023102102",
-   "starts": 4
+   "starts": 4,
+   "breeder": "谷川牧場",
+   "owner": "谷川牧場"
   },
   {
    "waku": 3,
@@ -95,7 +103,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023106900",
-   "starts": 7
+   "starts": 7,
+   "breeder": "ノーザンファーム",
+   "owner": "田中成奉"
   },
   {
    "waku": 3,
@@ -114,7 +124,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023103818",
-   "starts": 4
+   "starts": 4,
+   "breeder": "社台コーポレーション白老ファーム",
+   "owner": "サンデーレーシング"
   },
   {
    "waku": 4,
@@ -133,7 +145,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023102906",
-   "starts": 12
+   "starts": 12,
+   "breeder": "千代田牧場",
+   "owner": "飯田良枝"
   },
   {
    "waku": 4,
@@ -152,7 +166,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023106859",
-   "starts": 4
+   "starts": 4,
+   "breeder": "ノーザンファーム",
+   "owner": "エムズレーシング"
   },
   {
    "waku": 5,
@@ -172,7 +188,9 @@
     "temperamentNote": "「外々を回っていい競馬ができるタイプではない」＝位置取りの制約"
    },
    "horseId": "2023104475",
-   "starts": 7
+   "starts": 7,
+   "breeder": "平山牧場",
+   "owner": "前田幸大"
   },
   {
    "waku": 5,
@@ -192,7 +210,9 @@
     "temperamentNote": "「メンタル面もしっかり整っている」＝気性面を肯定的に言及"
    },
    "horseId": "2023105420",
-   "starts": 8
+   "starts": 8,
+   "breeder": "三嶋牧場",
+   "owner": "廣崎利洋ＨＤ"
   },
   {
    "waku": 6,
@@ -211,7 +231,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023107075",
-   "starts": 9
+   "starts": 9,
+   "breeder": "ノーザンファーム",
+   "owner": "キャロットファーム"
   },
   {
    "waku": 6,
@@ -230,7 +252,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023106846",
-   "starts": 3
+   "starts": 3,
+   "breeder": "ノーザンファーム",
+   "owner": "サンデーレーシング"
   },
   {
    "waku": 7,
@@ -245,7 +269,9 @@
    "popularity": "**",
    "comment": null,
    "horseId": "2023107146",
-   "starts": 7
+   "starts": 7,
+   "breeder": "ノーザンファーム",
+   "owner": "吉田勝己"
   },
   {
    "waku": 7,
@@ -264,7 +290,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023106219",
-   "starts": 9
+   "starts": 9,
+   "breeder": "那須野",
+   "owner": "グリーンファーム"
   },
   {
    "waku": 8,
@@ -283,7 +311,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023107265",
-   "starts": 5
+   "starts": 5,
+   "breeder": "ノーザンファーム",
+   "owner": "吉田勝己"
   },
   {
    "waku": 8,
@@ -302,7 +332,9 @@
     "source": "umanity/サンスポ"
    },
    "horseId": "2023106894",
-   "starts": 9
+   "starts": 9,
+   "breeder": "ノーザンファーム",
+   "owner": "武田修"
   },
   {
    "waku": 8,
@@ -322,7 +354,9 @@
     "temperamentNote": "「テンのハミ掛かりが良く」＝前向きさの表れだが、かかり気味とも読める"
    },
    "horseId": "2023103661",
-   "starts": 7
+   "starts": 7,
+   "breeder": "上水牧場",
+   "owner": "ヒダカ・ブリーダーズ・ユニオン"
   }
  ],
  "commentNote": "厩舎コメントは netkeiba が17頭中3頭のみ無料（残りは有料）。umanity掲載のサンケイスポーツ版と合わせて15/17頭を収集した。エンネ(4番)とドリームコア(13番)は未取得。"
