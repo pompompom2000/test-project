@@ -14,7 +14,12 @@
    "trainer": "栗東 杉山晴",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "杉山晴師",
+    "text": "先週、先々週と長めから負荷をかけたので当該週はしまいを伸ばすイメージで。スッと反応できていた。",
+    "source": "netkeiba"
+   }
   },
   {
    "waku": 1,
@@ -26,7 +31,13 @@
    "trainer": "栗東 宮地",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "宮地師",
+    "text": "スピード勝負になるといいですね。ポジションよりもリズム重視の競馬をしてほしい",
+    "source": "umanity/サンスポ",
+    "temperamentNote": "「ポジションよりもリズム重視」＝折り合い優先の指示"
+   }
   },
   {
    "waku": 2,
@@ -38,7 +49,13 @@
    "trainer": "美浦 蛯名正",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "蛯名正師",
+    "text": "テンションが上がっても、下がってくれるところを作れるか。その辺を取り組みながらやってきた",
+    "source": "umanity/サンスポ",
+    "temperamentNote": "テンション（気性）への明示的な言及。課題として取り組んできたと読める"
+   }
   },
   {
    "waku": 2,
@@ -50,7 +67,8 @@
    "trainer": "栗東 吉岡",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": null
   },
   {
    "waku": 3,
@@ -62,7 +80,12 @@
    "trainer": "栗東 松下",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "松下師",
+    "text": "同じ馬なりでも前回より、よく動けていました。一回使って良くなっています",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 3,
@@ -74,7 +97,12 @@
    "trainer": "美浦 鹿戸",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "鹿戸師",
+    "text": "地力強化を感じる。木曜に京都へ入厩した。金曜、土曜とスクーリングを予定",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 4,
@@ -86,7 +114,12 @@
    "trainer": "栗東 新谷",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "新谷師",
+    "text": "余力もあって良かったです。もう1週早い番組でも使えたぐらいの仕上がりです",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 4,
@@ -98,7 +131,12 @@
    "trainer": "栗東 上村",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "上村師",
+    "text": "絶好枠。「勝って」と言わんばかりの枠だね（枠順について）",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 5,
@@ -110,7 +148,13 @@
    "trainer": "栗東 北出",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "佐々木騎手",
+    "text": "あまり外々を回っていい競馬ができるタイプではないかも。なるべくロスのない競馬がしたい",
+    "source": "umanity/サンスポ",
+    "temperamentNote": "「外々を回っていい競馬ができるタイプではない」＝位置取りの制約"
+   }
   },
   {
    "waku": 5,
@@ -122,7 +166,13 @@
    "trainer": "美浦 中舘",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "高木助手",
+    "text": "馬はリラックスしていてすごくいい雰囲気。メンタル面もしっかり整っている",
+    "source": "umanity/サンスポ",
+    "temperamentNote": "「メンタル面もしっかり整っている」＝気性面を肯定的に言及"
+   }
   },
   {
    "waku": 6,
@@ -134,7 +184,12 @@
    "trainer": "栗東 杉山佳",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "杉山佳師",
+    "text": "在厩で慎重に立ち上げてきましたが、きょうの動きも軽快でした。もう十分、仕上がっています",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 6,
@@ -146,7 +201,12 @@
    "trainer": "美浦 宮田",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "宮田師",
+    "text": "京都への輸送は無事クリアしてくれました。競馬場での滞在は東京で経験していますし、馬の様子を見ながら調整していきます",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 7,
@@ -158,7 +218,8 @@
    "trainer": "美浦 田中博",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": null
   },
   {
    "waku": 7,
@@ -170,7 +231,12 @@
    "trainer": "美浦 伊藤大",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "伊藤大師",
+    "text": "動きはこれまでで一番良かった。強い相手ばかりだが見せ場以上の結果を",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 8,
@@ -182,7 +248,12 @@
    "trainer": "栗東 四位",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "四位師",
+    "text": "先週にジョッキーが乗ってしっかりとやっているので、整える程度。十分な動きを見せてくれました",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 8,
@@ -194,7 +265,12 @@
    "trainer": "栗東 東田",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "東田師",
+    "text": "あまり負荷をかけない感じの追い切り。しまいも追うことなく、馬体が沈んでいい動きでした",
+    "source": "umanity/サンスポ"
+   }
   },
   {
    "waku": 8,
@@ -206,7 +282,14 @@
    "trainer": "栗東 寺島",
    "bodyWeight": "",
    "odds": "---.-",
-   "popularity": "**"
+   "popularity": "**",
+   "comment": {
+    "by": "寺島師",
+    "text": "テンのハミ掛かりが良く、思ったより時計は出ましたが、状態はいいです",
+    "source": "umanity/サンスポ",
+    "temperamentNote": "「テンのハミ掛かりが良く」＝前向きさの表れだが、かかり気味とも読める"
+   }
   }
- ]
+ ],
+ "commentNote": "厩舎コメントは netkeiba が17頭中3頭のみ無料（残りは有料）。umanity掲載のサンケイスポーツ版と合わせて15/17頭を収集した。エンネ(4番)とドリームコア(13番)は未取得。"
 }
