@@ -1,0 +1,131 @@
+{
+ "race": "2026-10-18 京都11R 秋華賞(G1) 17頭",
+ "method": "netkeibaの5代血統表を再帰展開し、各馬の先祖を10代前まで列挙して名前で照合した（tools/collect/expand_pedigree.py）。1頭あたり約860〜1050頭の先祖を照合。",
+ "caveat": "10代前までの探索。これより古い世代にいる場合は検出できない。Miss Discoは1944年生、Bunty's Flightも同年代とみられ、検出された馬では6〜9代前に位置していた。",
+ "summary": {
+  "MissDisco": "16/17頭",
+  "BuntysFlight": "3/17頭"
+ },
+ "horses": {
+  "ギャラボーグ": {
+   "no": 1,
+   "ancestorsChecked": 955,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "テイエムアイラン": {
+   "no": 2,
+   "ancestorsChecked": 975,
+   "hits": {
+    "Miss Disco": 7,
+    "Bunty's Flight": 6
+   }
+  },
+  "マスターソアラ": {
+   "no": 3,
+   "ancestorsChecked": 894,
+   "hits": {
+    "Miss Disco": 8
+   }
+  },
+  "エンネ": {
+   "no": 4,
+   "ancestorsChecked": 909,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "タイセイボーグ": {
+   "no": 5,
+   "ancestorsChecked": 1025,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "ラベルセーヌ": {
+   "no": 6,
+   "ancestorsChecked": 1050,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "バースデイフライト": {
+   "no": 7,
+   "ancestorsChecked": 960,
+   "hits": {
+    "Miss Disco": 8
+   }
+  },
+  "モンローウォーク": {
+   "no": 8,
+   "ancestorsChecked": 971,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "スウィートハピネス": {
+   "no": 9,
+   "ancestorsChecked": 972,
+   "hits": {
+    "Miss Disco": 8
+   }
+  },
+  "ナイスプレーアスク": {
+   "no": 10,
+   "ancestorsChecked": 873,
+   "hits": {}
+  },
+  "ガーネットフレア": {
+   "no": 11,
+   "ancestorsChecked": 1005,
+   "hits": {
+    "Miss Disco": 9
+   }
+  },
+  "カナルサンマルタン": {
+   "no": 12,
+   "ancestorsChecked": 917,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "ドリームコア": {
+   "no": 13,
+   "ancestorsChecked": 983,
+   "hits": {
+    "Miss Disco": 7,
+    "Bunty's Flight": 7
+   }
+  },
+  "サムシングスイート": {
+   "no": 14,
+   "ancestorsChecked": 859,
+   "hits": {
+    "Miss Disco": 8
+   }
+  },
+  "フェスティバルヒル": {
+   "no": 15,
+   "ancestorsChecked": 933,
+   "hits": {
+    "Miss Disco": 7,
+    "Bunty's Flight": 6
+   }
+  },
+  "ハヤブササキチャン": {
+   "no": 16,
+   "ancestorsChecked": 950,
+   "hits": {
+    "Miss Disco": 7
+   }
+  },
+  "ロザーンジュ": {
+   "no": 17,
+   "ancestorsChecked": 929,
+   "hits": {
+    "Miss Disco": 8
+   }
+  }
+ }
+}
