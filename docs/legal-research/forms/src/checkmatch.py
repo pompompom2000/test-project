@@ -20,12 +20,14 @@ import zipfile
 import pypdfium2 as pdfium
 
 PAIRS = [("運輸局照会書.docx", "運輸局照会書.pdf"),
-         ("照会記録票.docx", "照会記録票.pdf")]
+         ("照会記録票.docx", "照会記録票.pdf"),
+         ("残土処分請負契約書.docx", "残土処分請負契約書.pdf")]
 # 書式として当然違うものは除く。PDFだけに入るフッター（文言＋ページ番号）と、ページ番号だけの行。
 # 正規化後の文字列が、ここに挙げた語で始まるものを落とす。
 IGNORE_PREFIX = [
     "照会書貨物自動車運送事業法・ダンプ規制法の適用について",
     "照会記録票(社内限り)",
+    "残土処分請負契約書(ひな型)",
 ]
 
 
@@ -57,16 +59,24 @@ def chunks(t):
     return out
 
 
+def flat(t):
+    """フッターなど形式由来の行を落として全文を1本につなぐ。
+    1つの段落がページをまたぐと、間にフッターが挟まって部分一致に失敗するため。"""
+    keep = [l for l in t.split("\n") if not any(norm(l).startswith(x) for x in IGNORE_PREFIX)]
+    return norm("".join(keep))
+
+
 def main():
     d = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     bad = 0
     for dx, pf in PAIRS:
-        a, b = chunks(docx_text(os.path.join(d, dx))), chunks(pdf_text(os.path.join(d, pf)))
+        dtext, ptext = docx_text(os.path.join(d, dx)), pdf_text(os.path.join(d, pf))
+        a, b = chunks(dtext), chunks(ptext)
         # PDFは行の折返し位置が違うので、短い行はつながって一致しないことがある。
         # 片方の全文に部分文字列として含まれていれば一致とみなす。
-        fa, fb = "".join(sorted(a)), "".join(sorted(b))
-        only_d = [s for s in sorted(a - b) if s not in norm(pdf_text(os.path.join(d, pf)))]
-        only_p = [s for s in sorted(b - a) if s not in norm(docx_text(os.path.join(d, dx)))]
+        fd, fp = flat(dtext), flat(ptext)
+        only_d = [s for s in sorted(a - b) if s not in fp]
+        only_p = [s for s in sorted(b - a) if s not in fd]
         print("== %s ↔ %s" % (dx, pf))
         for s in only_d:
             print("   Wordにしかない: %s" % s[:62])
