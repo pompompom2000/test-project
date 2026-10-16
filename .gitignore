@@ -1,2 +1,6 @@
 # 血統表の取得キャッシュ。再生成可能で、実行中は書き込みが続くためコミットしない
 data/analysis/ped-cache.json
+
+# Pythonのバイトコードキャッシュ
+__pycache__/
+*.pyc
