@@ -1,0 +1,246 @@
+/* ---- りったい すなば（3D） ---- */
+.s3d-root {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2px 0 4px;
+}
+
+.s3d-view {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #bfe6ff;
+  box-shadow: 0 8px 0 rgba(74, 59, 42, 0.18);
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.s3d-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+.s3d-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 90px;
+  animation: s3d-bob 1s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes s3d-bob { 50% { transform: translateY(-14px); } }
+
+/* ふきだし */
+.s3d-bubbles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.s3d-bubble {
+  position: absolute;
+  max-width: min(260px, 60%);
+  width: max-content;
+  padding: 10px 14px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.35;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  transform: translate(-50%, -100%) scale(0.6);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.s3d-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  border: 10px solid transparent;
+  border-bottom: 0;
+  border-top-color: #fff;
+  transform: translateX(-50%);
+}
+.s3d-bubble.show { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+
+/* カメラの ボタン（みぎはし） */
+.s3d-cam {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+.s3d-cambtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--ink);
+  transition: transform 0.08s;
+}
+.s3d-cambtn:active, .s3d-flat:active, .s3d-tool:active, .s3d-subbtn:active { transform: translateY(4px); }
+
+/* ならす（ひだりうえ） */
+.s3d-flat {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  transition: transform 0.08s;
+}
+.s3d-flat-icon { font-size: 36px; line-height: 1; }
+.s3d-flat-label { font-size: 15px; }
+
+/* ---- どうぐ ---- */
+.s3d-toolwrap { position: relative; flex: none; display: flex; justify-content: center; }
+.s3d-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.s3d-tool {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 96px;
+  min-height: 88px;
+  padding: 6px 4px;
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  transition: transform 0.08s;
+}
+.s3d-tool-icon { display: grid; place-items: center; height: 46px; font-size: 40px; line-height: 1; }
+.s3d-tool-icon svg { width: 46px; height: 46px; }
+.s3d-tool-label { font-size: 16px; white-space: nowrap; }
+.s3d-tool.on { background: #ffe1b0; outline: 5px solid var(--primary); outline-offset: -1px; }
+.s3d-tool.hint { animation: s3d-hint 0.5s ease-in-out 3; }
+@keyframes s3d-hint { 50% { transform: translateY(-10px) scale(1.08); background: #fff3c4; } }
+.s3d-tool-badge {
+  position: absolute;
+  right: -10px;
+  top: -26px;
+  display: none;
+  font-size: 56px;
+  line-height: 0;
+}
+.s3d-tool.lent > :not(.s3d-tool-badge) { opacity: 0.5; }
+.s3d-tool.lent .s3d-tool-badge { display: block; }
+
+.s3d-sub {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  z-index: 10;
+  display: none;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+.s3d-sub.open { display: flex; }
+.s3d-subbtn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff6e5;
+  font-size: 44px;
+  line-height: 1;
+  transition: transform 0.08s;
+}
+.s3d-subbtn.on { background: #ffe1b0; outline: 5px solid var(--primary); }
+
+/* ---- かくにん ---- */
+.s3d-confirm {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(74, 59, 42, 0.35);
+  border-radius: 24px;
+  animation: fade-in 0.2s ease-out;
+}
+.s3d-confirm-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: min(560px, 100%);
+  padding: 24px;
+  border-radius: 32px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.s3d-confirm-title { font-size: clamp(24px, 4vw, 34px); font-weight: 900; }
+.s3d-confirm-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%; }
+.s3d-confirm-btn {
+  flex: 1 1 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 96px;
+  border-radius: 24px;
+  font-size: 26px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+}
+.s3d-confirm-btn span:first-child { font-size: 44px; }
+.s3d-confirm-btn.yes { background: #ffe1b0; }
+.s3d-confirm-btn.no { background: #e6f6ff; }
+
+/* WebGL が つかえない とき */
+.s3d-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 32px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 900;
+  text-align: center;
+}
+.s3d-msg-emoji { font-size: 80px; line-height: 1; }
+
+@media (max-width: 520px) {
+  .s3d-tools { gap: 8px; }
+  .s3d-tool { width: 80px; min-height: 80px; border-radius: 20px; }
+  .s3d-tool-icon { height: 38px; font-size: 34px; }
+  .s3d-tool-icon svg { width: 38px; height: 38px; }
+  .s3d-tool-label { font-size: 14px; }
+  .s3d-tool-badge { font-size: 36px; top: -18px; }
+  .s3d-subbtn { width: 68px; height: 68px; font-size: 38px; }
+  .s3d-cambtn { width: 54px; height: 54px; font-size: 28px; }
+  .s3d-cam { gap: 8px; right: 8px; }
+  .s3d-flat { width: 72px; height: 72px; }
+  .s3d-bubble { font-size: 16px; }
+  .s3d-view { border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s3d-loading, .s3d-tool.hint { animation: none; }
+}

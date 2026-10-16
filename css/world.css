@@ -145,7 +145,7 @@
 .avatar-btn:active { transform: translateY(4px); }
 
 /* ---- あそびば画面 ---- */
-.spot-title { font-size: clamp(24px, 4vw, 36px); font-weight: 900; }
+.spot-title { min-width: 0; font-size: clamp(22px, 4vw, 36px); font-weight: 900; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---- おはなし ---- */
 .talk-overlay {
