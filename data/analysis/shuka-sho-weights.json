@@ -1,0 +1,3642 @@
+{
+ "2006": {
+  "date": "2006-10-15",
+  "raceId": "200608050411",
+  "title": "秋華賞(GI)｜2006年10月15日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 12,
+    "name": "カワカミプリンセス",
+    "weight": 492,
+    "delta": 8,
+    "popularity": 2,
+    "odds": 3.6
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 16,
+    "name": "アサヒライジング",
+    "weight": 504,
+    "delta": 0,
+    "popularity": 5,
+    "odds": 14.0
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 5,
+    "name": "フサイチパンドラ",
+    "weight": 496,
+    "delta": 0,
+    "popularity": 4,
+    "odds": 11.7
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 9,
+    "name": "アドマイヤキッス",
+    "weight": 454,
+    "delta": 6,
+    "popularity": 1,
+    "odds": 2.6
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 4,
+    "name": "シェルズレイ",
+    "weight": 466,
+    "delta": 8,
+    "popularity": 9,
+    "odds": 26.9
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 1,
+    "name": "キストゥヘヴン",
+    "weight": 436,
+    "delta": -6,
+    "popularity": 3,
+    "odds": 6.2
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 13,
+    "name": "サンドリオン",
+    "weight": 470,
+    "delta": 2,
+    "popularity": 8,
+    "odds": 25.9
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 6,
+    "name": "ブルーメンブラット",
+    "weight": 452,
+    "delta": -12,
+    "popularity": 6,
+    "odds": 20.2
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 10,
+    "name": "ヤマトマリオン",
+    "weight": 460,
+    "delta": 0,
+    "popularity": 15,
+    "odds": 189.1
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 2,
+    "name": "ソリッドプラチナム",
+    "weight": 422,
+    "delta": 0,
+    "popularity": 7,
+    "odds": 21.2
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 15,
+    "name": "ニシノフジムスメ",
+    "weight": 468,
+    "delta": 2,
+    "popularity": 10,
+    "odds": 33.7
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 11,
+    "name": "キープユアスマイル",
+    "weight": 422,
+    "delta": 8,
+    "popularity": 13,
+    "odds": 78.2
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 7,
+    "name": "シークレットコード",
+    "weight": 484,
+    "delta": 2,
+    "popularity": 11,
+    "odds": 66.4
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 3,
+    "name": "タッチザピーク",
+    "weight": 438,
+    "delta": -6,
+    "popularity": 14,
+    "odds": 90.2
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 8,
+    "name": "ホウショウルビー",
+    "weight": 510,
+    "delta": -6,
+    "popularity": 16,
+    "odds": 214.3
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 17,
+    "name": "トシザサンサン",
+    "weight": 466,
+    "delta": 14,
+    "popularity": 18,
+    "odds": 306.3
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 18,
+    "name": "コイウタ",
+    "weight": 470,
+    "delta": 16,
+    "popularity": 12,
+    "odds": 76.9
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 14,
+    "name": "ブロンコーネ",
+    "weight": 474,
+    "delta": -6,
+    "popularity": 17,
+    "odds": 269.3
+   }
+  ]
+ },
+ "2007": {
+  "date": "2007-10-14",
+  "raceId": "200708040511",
+  "title": "秋華賞(GI)｜2007年10月14日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 13,
+    "name": "ダイワスカーレット",
+    "weight": 484,
+    "delta": -6,
+    "popularity": 2,
+    "odds": 2.8
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 17,
+    "name": "レインダンス",
+    "weight": 486,
+    "delta": 6,
+    "popularity": 7,
+    "odds": 43.2
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 16,
+    "name": "ウオッカ",
+    "weight": 492,
+    "delta": 8,
+    "popularity": 1,
+    "odds": 2.7
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 11,
+    "name": "ベッラレイア",
+    "weight": 460,
+    "delta": -2,
+    "popularity": 3,
+    "odds": 3.8
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 5,
+    "name": "ラブカーナ",
+    "weight": 442,
+    "delta": 6,
+    "popularity": 6,
+    "odds": 31.1
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 6,
+    "name": "カレンナサクラ",
+    "weight": 444,
+    "delta": -6,
+    "popularity": 14,
+    "odds": 149.1
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 2,
+    "name": "ミンティエアー",
+    "weight": 452,
+    "delta": -10,
+    "popularity": 11,
+    "odds": 62.5
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 10,
+    "name": "ハロースピード",
+    "weight": 446,
+    "delta": 12,
+    "popularity": 13,
+    "odds": 134.3
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 8,
+    "name": "マイネルーチェ",
+    "weight": 456,
+    "delta": 6,
+    "popularity": 18,
+    "odds": 285.5
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 18,
+    "name": "ローブデコルテ",
+    "weight": 464,
+    "delta": 0,
+    "popularity": 4,
+    "odds": 20.0
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 9,
+    "name": "アルコセニョーラ",
+    "weight": 432,
+    "delta": 10,
+    "popularity": 10,
+    "odds": 52.7
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 15,
+    "name": "クィーンスプマンテ",
+    "weight": 448,
+    "delta": 4,
+    "popularity": 15,
+    "odds": 201.6
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 3,
+    "name": "ブリトマルティス",
+    "weight": 442,
+    "delta": -4,
+    "popularity": 17,
+    "odds": 239.2
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 7,
+    "name": "ピンクカメオ",
+    "weight": 476,
+    "delta": 6,
+    "popularity": 5,
+    "odds": 27.0
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 4,
+    "name": "ザレマ",
+    "weight": 528,
+    "delta": 6,
+    "popularity": 9,
+    "odds": 51.9
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 14,
+    "name": "タガノプルミエール",
+    "weight": 456,
+    "delta": 4,
+    "popularity": 8,
+    "odds": 50.2
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 12,
+    "name": "ホクレレ",
+    "weight": 468,
+    "delta": 12,
+    "popularity": 16,
+    "odds": 237.0
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 1,
+    "name": "ヒシアスペン",
+    "weight": 486,
+    "delta": -4,
+    "popularity": 12,
+    "odds": 68.1
+   }
+  ]
+ },
+ "2008": {
+  "date": "2008-10-19",
+  "raceId": "200808040411",
+  "title": "秋華賞(GI)｜2008年10月19日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 4,
+    "name": "ブラックエンブレム",
+    "weight": 452,
+    "delta": 4,
+    "popularity": 11,
+    "odds": 29.9
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 1,
+    "name": "ムードインディゴ",
+    "weight": 456,
+    "delta": 0,
+    "popularity": 8,
+    "odds": 16.7
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 15,
+    "name": "プロヴィナージュ",
+    "weight": 510,
+    "delta": -4,
+    "popularity": 16,
+    "odds": 147.2
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 10,
+    "name": "ブライティアパルス",
+    "weight": 454,
+    "delta": 2,
+    "popularity": 13,
+    "odds": 33.0
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 5,
+    "name": "エフティマイア",
+    "weight": 442,
+    "delta": -14,
+    "popularity": 3,
+    "odds": 10.0
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 7,
+    "name": "リトルアマポーラ",
+    "weight": 470,
+    "delta": 10,
+    "popularity": 6,
+    "odds": 13.9
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 3,
+    "name": "ソーマジック",
+    "weight": 498,
+    "delta": 8,
+    "popularity": 10,
+    "odds": 24.2
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 17,
+    "name": "レジネッタ",
+    "weight": 444,
+    "delta": 0,
+    "popularity": 2,
+    "odds": 4.0
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 18,
+    "name": "オディール",
+    "weight": 448,
+    "delta": -2,
+    "popularity": 4,
+    "odds": 10.4
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 11,
+    "name": "トールポピー",
+    "weight": 472,
+    "delta": -4,
+    "popularity": 1,
+    "odds": 3.6
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 16,
+    "name": "メイショウベルーガ",
+    "weight": 490,
+    "delta": 4,
+    "popularity": 12,
+    "odds": 32.6
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 2,
+    "name": "ピサノジュバン",
+    "weight": 444,
+    "delta": 16,
+    "popularity": 17,
+    "odds": 161.3
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 12,
+    "name": "カレイジャスミン",
+    "weight": 484,
+    "delta": -8,
+    "popularity": 18,
+    "odds": 172.9
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 6,
+    "name": "レッドアゲート",
+    "weight": 430,
+    "delta": -4,
+    "popularity": 7,
+    "odds": 13.9
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 9,
+    "name": "マイネレーツェル",
+    "weight": 416,
+    "delta": 4,
+    "popularity": 5,
+    "odds": 12.6
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 13,
+    "name": "アロマキャンドル",
+    "weight": 486,
+    "delta": 4,
+    "popularity": 14,
+    "odds": 37.4
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 8,
+    "name": "ユキチャン",
+    "weight": 490,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 21.4
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 14,
+    "name": "エアパスカル",
+    "weight": 416,
+    "delta": 0,
+    "popularity": 15,
+    "odds": 43.1
+   }
+  ]
+ },
+ "2009": {
+  "date": "2009-10-18",
+  "raceId": "200908040411",
+  "title": "秋華賞(GI)｜2009年10月18日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 5,
+    "name": "レッドディザイア",
+    "weight": 480,
+    "delta": -14,
+    "popularity": 2,
+    "odds": 3.2
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 12,
+    "name": "ブロードストリート",
+    "weight": 450,
+    "delta": 2,
+    "popularity": 3,
+    "odds": 10.3
+   },
+   {
+    "place": 3,
+    "demoted": true,
+    "no": 3,
+    "name": "ブエナビスタ",
+    "weight": 450,
+    "delta": -4,
+    "popularity": 1,
+    "odds": 1.8
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 10,
+    "name": "クーデグレイス",
+    "weight": 468,
+    "delta": 6,
+    "popularity": 7,
+    "odds": 29.8
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 4,
+    "name": "ミクロコスモス",
+    "weight": 470,
+    "delta": -2,
+    "popularity": 4,
+    "odds": 19.3
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 14,
+    "name": "ジェルミナル",
+    "weight": 462,
+    "delta": -6,
+    "popularity": 5,
+    "odds": 25.8
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 11,
+    "name": "ワンカラット",
+    "weight": 502,
+    "delta": 4,
+    "popularity": 15,
+    "odds": 116.1
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 13,
+    "name": "アイアムカミノマゴ",
+    "weight": 472,
+    "delta": -6,
+    "popularity": 17,
+    "odds": 164.4
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 8,
+    "name": "ラインドリーム",
+    "weight": 450,
+    "delta": 4,
+    "popularity": 11,
+    "odds": 70.8
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 18,
+    "name": "デリキットピース",
+    "weight": 438,
+    "delta": -6,
+    "popularity": 14,
+    "odds": 83.0
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 15,
+    "name": "ハシッテホシーノ",
+    "weight": 446,
+    "delta": -2,
+    "popularity": 12,
+    "odds": 71.6
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 16,
+    "name": "モルガナイト",
+    "weight": 446,
+    "delta": 4,
+    "popularity": 6,
+    "odds": 28.1
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 2,
+    "name": "パールシャドウ",
+    "weight": 444,
+    "delta": -2,
+    "popularity": 10,
+    "odds": 60.6
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 6,
+    "name": "ヴィーヴァヴォドカ",
+    "weight": 484,
+    "delta": 2,
+    "popularity": 16,
+    "odds": 158.6
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 9,
+    "name": "イイデエース",
+    "weight": 448,
+    "delta": 2,
+    "popularity": 18,
+    "odds": 265.4
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 1,
+    "name": "ホクトグレイン",
+    "weight": 468,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 57.4
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 7,
+    "name": "ダイアナバローズ",
+    "weight": 450,
+    "delta": -2,
+    "popularity": 13,
+    "odds": 81.1
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 17,
+    "name": "ワイドサファイア",
+    "weight": 476,
+    "delta": 4,
+    "popularity": 8,
+    "odds": 43.8
+   }
+  ]
+ },
+ "2010": {
+  "date": "2010-10-17",
+  "raceId": "201008050411",
+  "title": "秋華賞(GI)｜2010年10月17日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 15,
+    "name": "アパパネ",
+    "weight": 490,
+    "delta": -4,
+    "popularity": 1,
+    "odds": 2.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 10,
+    "name": "アニメイトバイオ",
+    "weight": 458,
+    "delta": -6,
+    "popularity": 6,
+    "odds": 13.3
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 4,
+    "name": "アプリコットフィズ",
+    "weight": 428,
+    "delta": -4,
+    "popularity": 2,
+    "odds": 7.1
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 17,
+    "name": "ワイルドラズベリー",
+    "weight": 468,
+    "delta": -6,
+    "popularity": 4,
+    "odds": 10.2
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 1,
+    "name": "レディアルバローザ",
+    "weight": 474,
+    "delta": -12,
+    "popularity": 15,
+    "odds": 135.8
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 13,
+    "name": "ディアアレトゥーサ",
+    "weight": 488,
+    "delta": 6,
+    "popularity": 10,
+    "odds": 23.9
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 16,
+    "name": "クラックシード",
+    "weight": 412,
+    "delta": -12,
+    "popularity": 13,
+    "odds": 61.7
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 7,
+    "name": "レインボーダリア",
+    "weight": 452,
+    "delta": -12,
+    "popularity": 12,
+    "odds": 59.8
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 9,
+    "name": "アグネスワルツ",
+    "weight": 470,
+    "delta": 2,
+    "popularity": 7,
+    "odds": 13.6
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 18,
+    "name": "プリンセスメモリー",
+    "weight": 396,
+    "delta": 16,
+    "popularity": 17,
+    "odds": 161.5
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 8,
+    "name": "オウケンサクラ",
+    "weight": 504,
+    "delta": 10,
+    "popularity": 8,
+    "odds": 18.3
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 2,
+    "name": "ベストクルーズ",
+    "weight": 430,
+    "delta": -12,
+    "popularity": 14,
+    "odds": 129.0
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 12,
+    "name": "アンティフリーズ",
+    "weight": 464,
+    "delta": 6,
+    "popularity": 18,
+    "odds": 171.5
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 6,
+    "name": "コスモネモシン",
+    "weight": 448,
+    "delta": -4,
+    "popularity": 11,
+    "odds": 53.7
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 11,
+    "name": "エーシンリターンズ",
+    "weight": 462,
+    "delta": 6,
+    "popularity": 9,
+    "odds": 20.3
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 3,
+    "name": "ショウリュウムーン",
+    "weight": 460,
+    "delta": -2,
+    "popularity": 5,
+    "odds": 12.1
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 14,
+    "name": "タガノエリザベート",
+    "weight": 490,
+    "delta": 4,
+    "popularity": 16,
+    "odds": 137.3
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 5,
+    "name": "サンテミリオン",
+    "weight": 460,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 7.9
+   }
+  ]
+ },
+ "2011": {
+  "date": "2011-10-16",
+  "raceId": "201108050411",
+  "title": "秋華賞(GI)｜2011年10月16日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 4,
+    "name": "アヴェンチュラ",
+    "weight": 482,
+    "delta": -4,
+    "popularity": 2,
+    "odds": 3.1
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 1,
+    "name": "キョウワジャンヌ",
+    "weight": 468,
+    "delta": -2,
+    "popularity": 7,
+    "odds": 22.2
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 12,
+    "name": "ホエールキャプチャ",
+    "weight": 460,
+    "delta": 2,
+    "popularity": 1,
+    "odds": 2.2
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 13,
+    "name": "アカンサス",
+    "weight": 436,
+    "delta": 2,
+    "popularity": 10,
+    "odds": 68.8
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 2,
+    "name": "リヴァーレ",
+    "weight": 454,
+    "delta": -6,
+    "popularity": 12,
+    "odds": 102.8
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 8,
+    "name": "デルマドゥルガー",
+    "weight": 492,
+    "delta": 2,
+    "popularity": 6,
+    "odds": 21.8
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 18,
+    "name": "マルセリーナ",
+    "weight": 468,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 8.3
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 3,
+    "name": "リトルダーリン",
+    "weight": 412,
+    "delta": 0,
+    "popularity": 13,
+    "odds": 131.0
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 7,
+    "name": "マイネソルシエール",
+    "weight": 450,
+    "delta": -2,
+    "popularity": 18,
+    "odds": 250.5
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 9,
+    "name": "エリンコート",
+    "weight": 472,
+    "delta": 2,
+    "popularity": 5,
+    "odds": 18.3
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 5,
+    "name": "フレンチボウ",
+    "weight": 454,
+    "delta": -12,
+    "popularity": 16,
+    "odds": 246.3
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 17,
+    "name": "レッドエレンシア",
+    "weight": 430,
+    "delta": 2,
+    "popularity": 11,
+    "odds": 96.0
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 10,
+    "name": "スピードリッパー",
+    "weight": 454,
+    "delta": -10,
+    "popularity": 14,
+    "odds": 139.0
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 16,
+    "name": "カルマート",
+    "weight": 470,
+    "delta": -6,
+    "popularity": 8,
+    "odds": 22.8
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 15,
+    "name": "マイネイサベル",
+    "weight": 458,
+    "delta": -2,
+    "popularity": 4,
+    "odds": 16.1
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 11,
+    "name": "ゼフィランサス",
+    "weight": 422,
+    "delta": 8,
+    "popularity": 17,
+    "odds": 247.1
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 6,
+    "name": "ピュアブリーゼ",
+    "weight": 438,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 29.9
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 14,
+    "name": "メモリアルイヤー",
+    "weight": 478,
+    "delta": 16,
+    "popularity": 15,
+    "odds": 212.0
+   }
+  ]
+ },
+ "2012": {
+  "date": "2012-10-14",
+  "raceId": "201208040511",
+  "title": "秋華賞(GI)｜2012年10月14日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 14,
+    "name": "ジェンティルドンナ",
+    "weight": 474,
+    "delta": 2,
+    "popularity": 1,
+    "odds": 1.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 1,
+    "name": "ヴィルシーナ",
+    "weight": 450,
+    "delta": 0,
+    "popularity": 2,
+    "odds": 6.1
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 2,
+    "name": "アロマティコ",
+    "weight": 458,
+    "delta": 0,
+    "popularity": 6,
+    "odds": 37.7
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 3,
+    "name": "ブリッジクライム",
+    "weight": 446,
+    "delta": 0,
+    "popularity": 11,
+    "odds": 71.2
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 6,
+    "name": "チェリーメドゥーサ",
+    "weight": 436,
+    "delta": 0,
+    "popularity": 15,
+    "odds": 203.6
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 17,
+    "name": "アイムユアーズ",
+    "weight": 470,
+    "delta": 2,
+    "popularity": 3,
+    "odds": 11.8
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 11,
+    "name": "サンシャイン",
+    "weight": 428,
+    "delta": 22,
+    "popularity": 16,
+    "odds": 215.3
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 8,
+    "name": "キャトルフィーユ",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 12,
+    "odds": 85.4
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 7,
+    "name": "トーセンベニザクラ",
+    "weight": 446,
+    "delta": 12,
+    "popularity": 7,
+    "odds": 38.8
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 5,
+    "name": "ラスヴェンチュラス",
+    "weight": 406,
+    "delta": -2,
+    "popularity": 9,
+    "odds": 52.0
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 15,
+    "name": "ミッドサマーフェア",
+    "weight": 452,
+    "delta": 10,
+    "popularity": 5,
+    "odds": 28.0
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 9,
+    "name": "ダイワズーム",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 13,
+    "odds": 131.5
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 4,
+    "name": "ハワイアンウインド",
+    "weight": 470,
+    "delta": 4,
+    "popularity": 4,
+    "odds": 24.9
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 18,
+    "name": "オメガハートランド",
+    "weight": 422,
+    "delta": -2,
+    "popularity": 17,
+    "odds": 287.1
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 12,
+    "name": "アイスフォーリス",
+    "weight": 462,
+    "delta": 0,
+    "popularity": 10,
+    "odds": 67.3
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 10,
+    "name": "ハナズゴール",
+    "weight": 406,
+    "delta": -4,
+    "popularity": 8,
+    "odds": 40.2
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 16,
+    "name": "サトノジョリー",
+    "weight": 440,
+    "delta": 4,
+    "popularity": 18,
+    "odds": 409.7
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 13,
+    "name": "メイショウスザンナ",
+    "weight": 458,
+    "delta": 10,
+    "popularity": 14,
+    "odds": 199.2
+   }
+  ]
+ },
+ "2013": {
+  "date": "2013-10-13",
+  "raceId": "201308040411",
+  "title": "秋華賞(GI)｜2013年10月13日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 16,
+    "name": "メイショウマンボ",
+    "weight": 488,
+    "delta": 2,
+    "popularity": 3,
+    "odds": 5.2
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 1,
+    "name": "スマートレイアー",
+    "weight": 466,
+    "delta": 4,
+    "popularity": 2,
+    "odds": 3.5
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 13,
+    "name": "リラコサージュ",
+    "weight": 414,
+    "delta": -12,
+    "popularity": 15,
+    "odds": 131.6
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 14,
+    "name": "デニムアンドルビー",
+    "weight": 442,
+    "delta": -4,
+    "popularity": 1,
+    "odds": 3.3
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 11,
+    "name": "リボントリコロール",
+    "weight": 444,
+    "delta": 0,
+    "popularity": 12,
+    "odds": 49.9
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 2,
+    "name": "シャトーブランシュ",
+    "weight": 478,
+    "delta": 2,
+    "popularity": 8,
+    "odds": 21.5
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 7,
+    "name": "トーセンソレイユ",
+    "weight": 438,
+    "delta": -12,
+    "popularity": 9,
+    "odds": 22.5
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 5,
+    "name": "セキショウ",
+    "weight": 486,
+    "delta": 0,
+    "popularity": 11,
+    "odds": 44.9
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 8,
+    "name": "マコトブリジャール",
+    "weight": 416,
+    "delta": 6,
+    "popularity": 16,
+    "odds": 140.7
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 6,
+    "name": "ウリウリ",
+    "weight": 456,
+    "delta": 4,
+    "popularity": 7,
+    "odds": 17.7
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 17,
+    "name": "ローブティサージュ",
+    "weight": 448,
+    "delta": -4,
+    "popularity": 5,
+    "odds": 15.1
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 12,
+    "name": "エバーブロッサム",
+    "weight": 458,
+    "delta": 0,
+    "popularity": 4,
+    "odds": 13.5
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 3,
+    "name": "ティアーモ",
+    "weight": 438,
+    "delta": -8,
+    "popularity": 6,
+    "odds": 15.5
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 9,
+    "name": "ノボリディアーナ",
+    "weight": 466,
+    "delta": 4,
+    "popularity": 10,
+    "odds": 31.2
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 4,
+    "name": "コレクターアイテム",
+    "weight": 472,
+    "delta": -4,
+    "popularity": 14,
+    "odds": 68.9
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 18,
+    "name": "セレブリティモデル",
+    "weight": 484,
+    "delta": 2,
+    "popularity": 17,
+    "odds": 151.4
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 10,
+    "name": "サクラプレジール",
+    "weight": 488,
+    "delta": 8,
+    "popularity": 13,
+    "odds": 64.7
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 15,
+    "name": "ビーナストリック",
+    "weight": 444,
+    "delta": -6,
+    "popularity": 18,
+    "odds": 164.8
+   }
+  ]
+ },
+ "2014": {
+  "date": "2014-10-19",
+  "raceId": "201408040511",
+  "title": "秋華賞(GI)｜2014年10月19日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 6,
+    "name": "ショウナンパンドラ",
+    "weight": 440,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 10.1
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 4,
+    "name": "ヌーヴォレコルト",
+    "weight": 448,
+    "delta": 10,
+    "popularity": 1,
+    "odds": 1.5
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 12,
+    "name": "タガノエトワール",
+    "weight": 442,
+    "delta": 2,
+    "popularity": 4,
+    "odds": 17.9
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 1,
+    "name": "ブランネージュ",
+    "weight": 462,
+    "delta": 0,
+    "popularity": 5,
+    "odds": 19.2
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 14,
+    "name": "サングレアル",
+    "weight": 404,
+    "delta": -2,
+    "popularity": 9,
+    "odds": 34.1
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 8,
+    "name": "レッドリヴェール",
+    "weight": 418,
+    "delta": -2,
+    "popularity": 2,
+    "odds": 7.2
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 3,
+    "name": "バウンスシャッセ",
+    "weight": 508,
+    "delta": -14,
+    "popularity": 7,
+    "odds": 29.7
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 17,
+    "name": "リラヴァティ",
+    "weight": 446,
+    "delta": 0,
+    "popularity": 12,
+    "odds": 62.2
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 7,
+    "name": "ディルガ",
+    "weight": 464,
+    "delta": 8,
+    "popularity": 14,
+    "odds": 74.8
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 18,
+    "name": "セウアズール",
+    "weight": 414,
+    "delta": 2,
+    "popularity": 10,
+    "odds": 45.3
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 16,
+    "name": "オメガハートロック",
+    "weight": 460,
+    "delta": 4,
+    "popularity": 11,
+    "odds": 58.6
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 9,
+    "name": "アドマイヤビジン",
+    "weight": 490,
+    "delta": -6,
+    "popularity": 17,
+    "odds": 122.4
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 2,
+    "name": "レーヴデトワール",
+    "weight": 456,
+    "delta": 4,
+    "popularity": 6,
+    "odds": 22.2
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 15,
+    "name": "ハピネスダンサー",
+    "weight": 476,
+    "delta": -2,
+    "popularity": 16,
+    "odds": 87.9
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 11,
+    "name": "ペイシャフェリス",
+    "weight": 432,
+    "delta": 4,
+    "popularity": 15,
+    "odds": 87.5
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 5,
+    "name": "マーブルカテドラル",
+    "weight": 440,
+    "delta": 2,
+    "popularity": 8,
+    "odds": 32.3
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 10,
+    "name": "マイネグレヴィル",
+    "weight": 470,
+    "delta": 2,
+    "popularity": 13,
+    "odds": 69.5
+   }
+  ]
+ },
+ "2015": {
+  "date": "2015-10-18",
+  "raceId": "201508040511",
+  "title": "秋華賞(GI)｜2015年10月18日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 18,
+    "name": "ミッキークイーン",
+    "weight": 434,
+    "delta": -4,
+    "popularity": 1,
+    "odds": 3.0
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 9,
+    "name": "クイーンズリング",
+    "weight": 458,
+    "delta": 8,
+    "popularity": 5,
+    "odds": 14.9
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 6,
+    "name": "マキシマムドパリ",
+    "weight": 460,
+    "delta": -6,
+    "popularity": 8,
+    "odds": 30.7
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 12,
+    "name": "アンドリエッテ",
+    "weight": 448,
+    "delta": -2,
+    "popularity": 7,
+    "odds": 28.7
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 17,
+    "name": "アースライズ",
+    "weight": 448,
+    "delta": 4,
+    "popularity": 16,
+    "odds": 164.6
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 11,
+    "name": "タッチングスピーチ",
+    "weight": 456,
+    "delta": -4,
+    "popularity": 2,
+    "odds": 3.8
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 13,
+    "name": "アスカビレン",
+    "weight": 466,
+    "delta": 4,
+    "popularity": 12,
+    "odds": 52.4
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 7,
+    "name": "トーセンビクトリー",
+    "weight": 454,
+    "delta": 0,
+    "popularity": 4,
+    "odds": 7.5
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 2,
+    "name": "クインズミラーグロ",
+    "weight": 442,
+    "delta": 8,
+    "popularity": 9,
+    "odds": 31.5
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 5,
+    "name": "シングウィズジョイ",
+    "weight": 466,
+    "delta": 0,
+    "popularity": 15,
+    "odds": 103.9
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 8,
+    "name": "ホワイトエレガンス",
+    "weight": 468,
+    "delta": 0,
+    "popularity": 10,
+    "odds": 33.5
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 3,
+    "name": "ディープジュエリー",
+    "weight": 496,
+    "delta": 10,
+    "popularity": 11,
+    "odds": 34.3
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 4,
+    "name": "ディアマイダーリン",
+    "weight": 488,
+    "delta": 10,
+    "popularity": 13,
+    "odds": 72.1
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 1,
+    "name": "ココロノアイ",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 6,
+    "odds": 27.8
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 16,
+    "name": "ノットフォーマル",
+    "weight": 464,
+    "delta": 6,
+    "popularity": 17,
+    "odds": 195.5
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 14,
+    "name": "キャットコイン",
+    "weight": 428,
+    "delta": 2,
+    "popularity": 14,
+    "odds": 73.3
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 10,
+    "name": "レッツゴードンキ",
+    "weight": 472,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 5.1
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 15,
+    "name": "テンダリーヴォイス",
+    "weight": 420,
+    "delta": -8,
+    "popularity": 18,
+    "odds": 202.1
+   }
+  ]
+ },
+ "2016": {
+  "date": "2016-10-16",
+  "raceId": "201608040511",
+  "title": "秋華賞(GI)｜2016年10月16日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 7,
+    "name": "ヴィブロス",
+    "weight": 414,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 6.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 3,
+    "name": "パールコード",
+    "weight": 508,
+    "delta": -10,
+    "popularity": 4,
+    "odds": 13.7
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 15,
+    "name": "カイザーバル",
+    "weight": 470,
+    "delta": 0,
+    "popularity": 8,
+    "odds": 21.2
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 2,
+    "name": "ジュエラー",
+    "weight": 502,
+    "delta": -2,
+    "popularity": 2,
+    "odds": 3.9
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 5,
+    "name": "レッドアヴァンセ",
+    "weight": 452,
+    "delta": 0,
+    "popularity": 5,
+    "odds": 17.0
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 9,
+    "name": "クロコスミア",
+    "weight": 412,
+    "delta": -2,
+    "popularity": 10,
+    "odds": 29.5
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 4,
+    "name": "パーシーズベスト",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 9,
+    "odds": 22.9
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 14,
+    "name": "ミエノサクシード",
+    "weight": 448,
+    "delta": 0,
+    "popularity": 7,
+    "odds": 20.3
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 8,
+    "name": "デンコウアンジュ",
+    "weight": 442,
+    "delta": 2,
+    "popularity": 6,
+    "odds": 20.3
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 10,
+    "name": "ビッシュ",
+    "weight": 418,
+    "delta": -2,
+    "popularity": 1,
+    "odds": 2.5
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 18,
+    "name": "キンショーユキヒメ",
+    "weight": 510,
+    "delta": 6,
+    "popularity": 14,
+    "odds": 95.1
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 12,
+    "name": "ウインファビラス",
+    "weight": 460,
+    "delta": 6,
+    "popularity": 15,
+    "odds": 150.3
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 6,
+    "name": "ゲッカコウ",
+    "weight": 454,
+    "delta": 0,
+    "popularity": 18,
+    "odds": 240.8
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 11,
+    "name": "フロンテアクイーン",
+    "weight": 452,
+    "delta": -4,
+    "popularity": 12,
+    "odds": 42.8
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 16,
+    "name": "ダイワドレッサー",
+    "weight": 468,
+    "delta": 16,
+    "popularity": 13,
+    "odds": 52.9
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 1,
+    "name": "エンジェルフェイス",
+    "weight": 504,
+    "delta": 0,
+    "popularity": 11,
+    "odds": 36.9
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 17,
+    "name": "ネオヴェルザンディ",
+    "weight": 464,
+    "delta": 4,
+    "popularity": 17,
+    "odds": 237.8
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 13,
+    "name": "ワンダーピルエット",
+    "weight": 474,
+    "delta": -8,
+    "popularity": 16,
+    "odds": 222.3
+   }
+  ]
+ },
+ "2017": {
+  "date": "2017-10-15",
+  "raceId": "201708040511",
+  "title": "秋華賞(GI)｜2017年10月15日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 14,
+    "name": "ディアドラ",
+    "weight": 490,
+    "delta": 12,
+    "popularity": 3,
+    "odds": 6.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 7,
+    "name": "リスグラシュー",
+    "weight": 438,
+    "delta": 2,
+    "popularity": 4,
+    "odds": 7.0
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 4,
+    "name": "モズカッチャン",
+    "weight": 478,
+    "delta": -4,
+    "popularity": 5,
+    "odds": 8.6
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 2,
+    "name": "ラビットラン",
+    "weight": 448,
+    "delta": 4,
+    "popularity": 6,
+    "odds": 9.3
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 8,
+    "name": "カワキタエンカ",
+    "weight": 464,
+    "delta": 2,
+    "popularity": 8,
+    "odds": 19.4
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 3,
+    "name": "ブラックオニキス",
+    "weight": 424,
+    "delta": 4,
+    "popularity": 15,
+    "odds": 170.2
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 1,
+    "name": "アエロリット",
+    "weight": 486,
+    "delta": -10,
+    "popularity": 1,
+    "odds": 3.6
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 11,
+    "name": "ミリッサ",
+    "weight": 422,
+    "delta": 2,
+    "popularity": 7,
+    "odds": 17.4
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 17,
+    "name": "ポールヴァンドル",
+    "weight": 530,
+    "delta": 2,
+    "popularity": 11,
+    "odds": 32.1
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 13,
+    "name": "リカビトス",
+    "weight": 422,
+    "delta": 2,
+    "popularity": 9,
+    "odds": 28.0
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 15,
+    "name": "ヴゼットジョリー",
+    "weight": 470,
+    "delta": -2,
+    "popularity": 18,
+    "odds": 230.5
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 5,
+    "name": "ブラックスビーチ",
+    "weight": 452,
+    "delta": 2,
+    "popularity": 14,
+    "odds": 106.8
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 16,
+    "name": "ファンディーナ",
+    "weight": 518,
+    "delta": -8,
+    "popularity": 2,
+    "odds": 5.6
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 12,
+    "name": "レーヌミノル",
+    "weight": 478,
+    "delta": 4,
+    "popularity": 10,
+    "odds": 30.6
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 9,
+    "name": "ハローユニコーン",
+    "weight": 450,
+    "delta": 2,
+    "popularity": 16,
+    "odds": 174.9
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 6,
+    "name": "メイショウオワラ",
+    "weight": 458,
+    "delta": 2,
+    "popularity": 12,
+    "odds": 41.6
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 10,
+    "name": "タガノヴェローナ",
+    "weight": 472,
+    "delta": 4,
+    "popularity": 17,
+    "odds": 199.3
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 18,
+    "name": "カリビアンゴールド",
+    "weight": 452,
+    "delta": -2,
+    "popularity": 13,
+    "odds": 71.4
+   }
+  ]
+ },
+ "2018": {
+  "date": "2018-10-14",
+  "raceId": "201808040511",
+  "title": "秋華賞(GI)｜2018年10月14日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 11,
+    "name": "アーモンドアイ",
+    "weight": 480,
+    "delta": 14,
+    "popularity": 1,
+    "odds": 1.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 13,
+    "name": "ミッキーチャーム",
+    "weight": 452,
+    "delta": 2,
+    "popularity": 5,
+    "odds": 15.6
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 2,
+    "name": "カンタービレ",
+    "weight": 434,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 14.0
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 5,
+    "name": "サラキア",
+    "weight": 442,
+    "delta": -8,
+    "popularity": 4,
+    "odds": 14.3
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 1,
+    "name": "ラテュロス",
+    "weight": 418,
+    "delta": 0,
+    "popularity": 13,
+    "odds": 156.8
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 4,
+    "name": "ランドネ",
+    "weight": 506,
+    "delta": -2,
+    "popularity": 8,
+    "odds": 62.2
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 16,
+    "name": "プリモシーン",
+    "weight": 494,
+    "delta": 6,
+    "popularity": 6,
+    "odds": 22.0
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 14,
+    "name": "ゴージャスランチ",
+    "weight": 500,
+    "delta": 2,
+    "popularity": 10,
+    "odds": 117.1
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 7,
+    "name": "ラッキーライラック",
+    "weight": 510,
+    "delta": 18,
+    "popularity": 2,
+    "odds": 7.3
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 9,
+    "name": "サトノガーネット",
+    "weight": 434,
+    "delta": -4,
+    "popularity": 15,
+    "odds": 254.3
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 8,
+    "name": "トーセンブレス",
+    "weight": 454,
+    "delta": -2,
+    "popularity": 11,
+    "odds": 127.9
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 6,
+    "name": "パイオニアバイオ",
+    "weight": 432,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 96.3
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 18,
+    "name": "ダンサール",
+    "weight": 518,
+    "delta": -2,
+    "popularity": 7,
+    "odds": 25.1
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 10,
+    "name": "オールフォーラヴ",
+    "weight": 454,
+    "delta": -12,
+    "popularity": 12,
+    "odds": 135.4
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 15,
+    "name": "ハーレムライン",
+    "weight": 458,
+    "delta": -18,
+    "popularity": 17,
+    "odds": 344.4
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 12,
+    "name": "オスカールビー",
+    "weight": 486,
+    "delta": 4,
+    "popularity": 14,
+    "odds": 220.0
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 17,
+    "name": "サヤカチャン",
+    "weight": 448,
+    "delta": 4,
+    "popularity": 16,
+    "odds": 290.1
+   }
+  ]
+ },
+ "2019": {
+  "date": "2019-10-13",
+  "raceId": "201908040411",
+  "title": "秋華賞(GI)｜2019年10月13日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 5,
+    "name": "クロノジェネシス",
+    "weight": 452,
+    "delta": 20,
+    "popularity": 4,
+    "odds": 6.9
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 8,
+    "name": "カレンブーケドール",
+    "weight": 464,
+    "delta": 0,
+    "popularity": 2,
+    "odds": 5.6
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 14,
+    "name": "シゲルピンクダイヤ",
+    "weight": 464,
+    "delta": 4,
+    "popularity": 10,
+    "odds": 27.0
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 9,
+    "name": "シャドウディーヴァ",
+    "weight": 474,
+    "delta": 2,
+    "popularity": 13,
+    "odds": 58.3
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 7,
+    "name": "ビーチサンバ",
+    "weight": 476,
+    "delta": 2,
+    "popularity": 6,
+    "odds": 13.5
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 6,
+    "name": "ローズテソーロ",
+    "weight": 450,
+    "delta": 2,
+    "popularity": 14,
+    "odds": 94.2
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 3,
+    "name": "ブランノワール",
+    "weight": 442,
+    "delta": -4,
+    "popularity": 11,
+    "odds": 33.4
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 1,
+    "name": "ダノンファンタジー",
+    "weight": 464,
+    "delta": 6,
+    "popularity": 1,
+    "odds": 3.5
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 17,
+    "name": "エスポワール",
+    "weight": 478,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 6.5
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 16,
+    "name": "パッシングスルー",
+    "weight": 470,
+    "delta": -6,
+    "popularity": 9,
+    "odds": 18.5
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 10,
+    "name": "シェーングランツ",
+    "weight": 468,
+    "delta": 10,
+    "popularity": 12,
+    "odds": 47.6
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 4,
+    "name": "トゥーフラッシー",
+    "weight": 462,
+    "delta": 0,
+    "popularity": 17,
+    "odds": 211.5
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 13,
+    "name": "サトノダムゼル",
+    "weight": 444,
+    "delta": -4,
+    "popularity": 7,
+    "odds": 14.3
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 18,
+    "name": "シングフォーユー",
+    "weight": 460,
+    "delta": -2,
+    "popularity": 15,
+    "odds": 166.0
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 15,
+    "name": "コントラチェック",
+    "weight": 464,
+    "delta": 4,
+    "popularity": 5,
+    "odds": 9.6
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 11,
+    "name": "フェアリーポルカ",
+    "weight": 488,
+    "delta": -2,
+    "popularity": 8,
+    "odds": 15.7
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 12,
+    "name": "レッドアネモス",
+    "weight": 492,
+    "delta": 18,
+    "popularity": 16,
+    "odds": 210.3
+   }
+  ]
+ },
+ "2020": {
+  "date": "2020-10-18",
+  "raceId": "202008040411",
+  "title": "秋華賞(GI)｜2020年10月18日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 13,
+    "name": "デアリングタクト",
+    "weight": 480,
+    "delta": 14,
+    "popularity": 1,
+    "odds": 1.4
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 12,
+    "name": "マジックキャッスル",
+    "weight": 432,
+    "delta": 10,
+    "popularity": 10,
+    "odds": 56.9
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 8,
+    "name": "ソフトフルート",
+    "weight": 470,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 54.7
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 16,
+    "name": "パラスアテナ",
+    "weight": 444,
+    "delta": -8,
+    "popularity": 12,
+    "odds": 81.1
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 15,
+    "name": "ミスニューヨーク",
+    "weight": 462,
+    "delta": 2,
+    "popularity": 16,
+    "odds": 197.0
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 14,
+    "name": "オーマイダーリン",
+    "weight": 472,
+    "delta": 6,
+    "popularity": 14,
+    "odds": 145.7
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 3,
+    "name": "マルターズディオサ",
+    "weight": 446,
+    "delta": 0,
+    "popularity": 4,
+    "odds": 16.0
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 7,
+    "name": "ムジカ",
+    "weight": 444,
+    "delta": 4,
+    "popularity": 11,
+    "odds": 70.2
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 5,
+    "name": "ウインマイティー",
+    "weight": 480,
+    "delta": 10,
+    "popularity": 3,
+    "odds": 15.4
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 11,
+    "name": "フィオリキアリ",
+    "weight": 442,
+    "delta": 2,
+    "popularity": 15,
+    "odds": 189.1
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 18,
+    "name": "アブレイズ",
+    "weight": 494,
+    "delta": -2,
+    "popularity": 17,
+    "odds": 253.7
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 6,
+    "name": "ダンツエリーゼ",
+    "weight": 526,
+    "delta": 6,
+    "popularity": 18,
+    "odds": 316.1
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 2,
+    "name": "リアアメリア",
+    "weight": 484,
+    "delta": -4,
+    "popularity": 2,
+    "odds": 6.7
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 1,
+    "name": "ミヤマザクラ",
+    "weight": 488,
+    "delta": 20,
+    "popularity": 6,
+    "odds": 18.3
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 17,
+    "name": "ウインマリリン",
+    "weight": 464,
+    "delta": 12,
+    "popularity": 5,
+    "odds": 17.2
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 9,
+    "name": "サンクテュエール",
+    "weight": 456,
+    "delta": -2,
+    "popularity": 8,
+    "odds": 46.3
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 10,
+    "name": "クラヴァシュドール",
+    "weight": 460,
+    "delta": 2,
+    "popularity": 7,
+    "odds": 30.8
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 4,
+    "name": "ホウオウピースフル",
+    "weight": 484,
+    "delta": -4,
+    "popularity": 13,
+    "odds": 119.4
+   }
+  ]
+ },
+ "2021": {
+  "date": "2021-10-17",
+  "raceId": "202109040411",
+  "title": "秋華賞(GI)｜2021年10月17日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 12,
+    "name": "アカイトリノムスメ",
+    "weight": 448,
+    "delta": -2,
+    "popularity": 4,
+    "odds": 8.9
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 14,
+    "name": "ファインルージュ",
+    "weight": 494,
+    "delta": -2,
+    "popularity": 2,
+    "odds": 5.6
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 9,
+    "name": "アンドヴァラナウト",
+    "weight": 432,
+    "delta": -4,
+    "popularity": 3,
+    "odds": 7.3
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 5,
+    "name": "エイシンヒテン",
+    "weight": 452,
+    "delta": 0,
+    "popularity": 10,
+    "odds": 40.7
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 6,
+    "name": "スライリー",
+    "weight": 432,
+    "delta": 4,
+    "popularity": 15,
+    "odds": 223.0
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 2,
+    "name": "ステラリア",
+    "weight": 490,
+    "delta": 8,
+    "popularity": 9,
+    "odds": 38.1
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 10,
+    "name": "アールドヴィーヴル",
+    "weight": 434,
+    "delta": 4,
+    "popularity": 6,
+    "odds": 23.6
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 15,
+    "name": "アナザーリリック",
+    "weight": 490,
+    "delta": 8,
+    "popularity": 8,
+    "odds": 35.8
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 16,
+    "name": "ミスフィガロ",
+    "weight": 420,
+    "delta": 4,
+    "popularity": 12,
+    "odds": 72.3
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 4,
+    "name": "ソダシ",
+    "weight": 474,
+    "delta": 2,
+    "popularity": 1,
+    "odds": 1.9
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 1,
+    "name": "スルーセブンシーズ",
+    "weight": 430,
+    "delta": 0,
+    "popularity": 7,
+    "odds": 30.2
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 7,
+    "name": "サルファーコスモス",
+    "weight": 468,
+    "delta": 2,
+    "popularity": 11,
+    "odds": 49.4
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 11,
+    "name": "ユーバーレーベン",
+    "weight": 464,
+    "delta": 2,
+    "popularity": 5,
+    "odds": 10.6
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 8,
+    "name": "エンスージアズム",
+    "weight": 430,
+    "delta": 6,
+    "popularity": 16,
+    "odds": 256.9
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 3,
+    "name": "クールキャット",
+    "weight": 514,
+    "delta": -10,
+    "popularity": 13,
+    "odds": 96.5
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 13,
+    "name": "ホウオウイクセル",
+    "weight": 428,
+    "delta": -8,
+    "popularity": 14,
+    "odds": 178.7
+   }
+  ]
+ },
+ "2022": {
+  "date": "2022-10-16",
+  "raceId": "202209040511",
+  "title": "秋華賞(GI)｜2022年10月16日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 7,
+    "name": "スタニングローズ",
+    "weight": 488,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 5.7
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 8,
+    "name": "ナミュール",
+    "weight": 446,
+    "delta": 20,
+    "popularity": 2,
+    "odds": 3.3
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 9,
+    "name": "スターズオンアース",
+    "weight": 472,
+    "delta": 8,
+    "popularity": 1,
+    "odds": 3.0
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 6,
+    "name": "メモリーレゾン",
+    "weight": 446,
+    "delta": -2,
+    "popularity": 13,
+    "odds": 69.4
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 10,
+    "name": "アートハウス",
+    "weight": 472,
+    "delta": -4,
+    "popularity": 4,
+    "odds": 6.7
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 11,
+    "name": "エグランタイン",
+    "weight": 442,
+    "delta": -6,
+    "popularity": 11,
+    "odds": 40.3
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 15,
+    "name": "サウンドビバーチェ",
+    "weight": 486,
+    "delta": -2,
+    "popularity": 12,
+    "odds": 52.1
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 5,
+    "name": "ストーリア",
+    "weight": 494,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 38.6
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 16,
+    "name": "プレサージュリフト",
+    "weight": 462,
+    "delta": -6,
+    "popularity": 5,
+    "odds": 14.6
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 2,
+    "name": "ライラック",
+    "weight": 432,
+    "delta": -2,
+    "popularity": 6,
+    "odds": 19.9
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 1,
+    "name": "ウインエクレール",
+    "weight": 468,
+    "delta": -6,
+    "popularity": 7,
+    "odds": 35.9
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 12,
+    "name": "ウォーターナビレラ",
+    "weight": 468,
+    "delta": 0,
+    "popularity": 10,
+    "odds": 40.2
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 13,
+    "name": "エリカヴィータ",
+    "weight": 458,
+    "delta": 18,
+    "popularity": 8,
+    "odds": 36.2
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 4,
+    "name": "ラブパイロー",
+    "weight": 480,
+    "delta": 6,
+    "popularity": 16,
+    "odds": 320.1
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 3,
+    "name": "タガノフィナーレ",
+    "weight": 484,
+    "delta": -4,
+    "popularity": 15,
+    "odds": 224.8
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 14,
+    "name": "ブライトオンベイス",
+    "weight": 456,
+    "delta": 6,
+    "popularity": 14,
+    "odds": 165.7
+   }
+  ]
+ },
+ "2023": {
+  "date": "2023-10-15",
+  "raceId": "202308020511",
+  "title": "秋華賞(GI)｜2023年10月15日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 6,
+    "name": "リバティアイランド",
+    "weight": 476,
+    "delta": 10,
+    "popularity": 1,
+    "odds": 1.1
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 7,
+    "name": "マスクトディーヴァ",
+    "weight": 444,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 13.0
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 2,
+    "name": "ハーパー",
+    "weight": 482,
+    "delta": 14,
+    "popularity": 2,
+    "odds": 12.9
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 5,
+    "name": "ドゥーラ",
+    "weight": 478,
+    "delta": 20,
+    "popularity": 5,
+    "odds": 26.5
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 8,
+    "name": "モリアーナ",
+    "weight": 478,
+    "delta": 4,
+    "popularity": 7,
+    "odds": 29.0
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 3,
+    "name": "マラキナイア",
+    "weight": 442,
+    "delta": 0,
+    "popularity": 11,
+    "odds": 107.3
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 18,
+    "name": "エミュー",
+    "weight": 426,
+    "delta": 0,
+    "popularity": 15,
+    "odds": 201.8
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 4,
+    "name": "コナコースト",
+    "weight": 468,
+    "delta": 10,
+    "popularity": 4,
+    "odds": 18.6
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 15,
+    "name": "ヒップホップソウル",
+    "weight": 500,
+    "delta": 10,
+    "popularity": 6,
+    "odds": 27.9
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 12,
+    "name": "ドゥアイズ",
+    "weight": 458,
+    "delta": 2,
+    "popularity": 10,
+    "odds": 76.6
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 13,
+    "name": "ラヴェル",
+    "weight": 456,
+    "delta": -4,
+    "popularity": 8,
+    "odds": 57.8
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 11,
+    "name": "キタウイング",
+    "weight": 434,
+    "delta": 8,
+    "popularity": 17,
+    "odds": 216.2
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 9,
+    "name": "ミシシッピテソーロ",
+    "weight": 438,
+    "delta": 0,
+    "popularity": 18,
+    "odds": 290.2
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 16,
+    "name": "ピピオラ",
+    "weight": 472,
+    "delta": -12,
+    "popularity": 12,
+    "odds": 118.3
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 10,
+    "name": "グランベルナデット",
+    "weight": 500,
+    "delta": 0,
+    "popularity": 9,
+    "odds": 69.6
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 1,
+    "name": "フェステスバント",
+    "weight": 420,
+    "delta": 2,
+    "popularity": 16,
+    "odds": 215.7
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 17,
+    "name": "ソレイユヴィータ",
+    "weight": 458,
+    "delta": 2,
+    "popularity": 14,
+    "odds": 156.0
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 14,
+    "name": "コンクシェル",
+    "weight": 470,
+    "delta": 0,
+    "popularity": 13,
+    "odds": 139.6
+   }
+  ]
+ },
+ "2024": {
+  "date": "2024-10-13",
+  "raceId": "202408050411",
+  "title": "秋華賞(GI)｜2024年10月13日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 5,
+    "name": "チェルヴィニア",
+    "weight": 490,
+    "delta": 8,
+    "popularity": 1,
+    "odds": 2.3
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 10,
+    "name": "ボンドガール",
+    "weight": 448,
+    "delta": 0,
+    "popularity": 5,
+    "odds": 14.6
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 14,
+    "name": "ステレンボッシュ",
+    "weight": 468,
+    "delta": 10,
+    "popularity": 2,
+    "odds": 3.9
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 12,
+    "name": "ラヴァンダ",
+    "weight": 478,
+    "delta": 2,
+    "popularity": 13,
+    "odds": 123.2
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 13,
+    "name": "クリスマスパレード",
+    "weight": 464,
+    "delta": 4,
+    "popularity": 8,
+    "odds": 19.7
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 2,
+    "name": "ミアネーロ",
+    "weight": 478,
+    "delta": -2,
+    "popularity": 4,
+    "odds": 13.5
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 4,
+    "name": "タガノエルピーダ",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 7,
+    "odds": 18.1
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 7,
+    "name": "チルカーノ",
+    "weight": 460,
+    "delta": 4,
+    "popularity": 12,
+    "odds": 55.5
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 8,
+    "name": "コガネノソラ",
+    "weight": 444,
+    "delta": -10,
+    "popularity": 9,
+    "odds": 27.4
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 1,
+    "name": "ホーエリート",
+    "weight": 468,
+    "delta": 2,
+    "popularity": 14,
+    "odds": 125.7
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 6,
+    "name": "ラビットアイ",
+    "weight": 486,
+    "delta": -2,
+    "popularity": 15,
+    "odds": 145.2
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 9,
+    "name": "アドマイヤベル",
+    "weight": 496,
+    "delta": 12,
+    "popularity": 11,
+    "odds": 51.5
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 15,
+    "name": "セキトバイースト",
+    "weight": 458,
+    "delta": 6,
+    "popularity": 10,
+    "odds": 33.0
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 11,
+    "name": "ランスオブクイーン",
+    "weight": 446,
+    "delta": 8,
+    "popularity": 6,
+    "odds": 16.7
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 3,
+    "name": "クイーンズウォーク",
+    "weight": 524,
+    "delta": 2,
+    "popularity": 3,
+    "odds": 6.8
+   }
+  ]
+ },
+ "2025": {
+  "date": "2025-10-19",
+  "raceId": "202508030711",
+  "title": "秋華賞(GI)｜2025年10月19日",
+  "horses": [
+   {
+    "place": 1,
+    "demoted": false,
+    "no": 11,
+    "name": "エンブロイダリー",
+    "weight": 488,
+    "delta": 6,
+    "popularity": 2,
+    "odds": 5.5
+   },
+   {
+    "place": 2,
+    "demoted": false,
+    "no": 10,
+    "name": "エリカエクスプレス",
+    "weight": 462,
+    "delta": 0,
+    "popularity": 5,
+    "odds": 15.1
+   },
+   {
+    "place": 3,
+    "demoted": false,
+    "no": 18,
+    "name": "パラディレーヌ",
+    "weight": 502,
+    "delta": 6,
+    "popularity": 6,
+    "odds": 16.9
+   },
+   {
+    "place": 4,
+    "demoted": false,
+    "no": 3,
+    "name": "ジョスラン",
+    "weight": 472,
+    "delta": 2,
+    "popularity": 4,
+    "odds": 12.5
+   },
+   {
+    "place": 5,
+    "demoted": false,
+    "no": 13,
+    "name": "セナスタイル",
+    "weight": 434,
+    "delta": 0,
+    "popularity": 3,
+    "odds": 10.1
+   },
+   {
+    "place": 6,
+    "demoted": false,
+    "no": 14,
+    "name": "ビップデイジー",
+    "weight": 442,
+    "delta": 10,
+    "popularity": 9,
+    "odds": 23.9
+   },
+   {
+    "place": 7,
+    "demoted": false,
+    "no": 7,
+    "name": "クリノメイ",
+    "weight": 454,
+    "delta": 2,
+    "popularity": 17,
+    "odds": 180.6
+   },
+   {
+    "place": 8,
+    "demoted": false,
+    "no": 2,
+    "name": "ルージュソリテール",
+    "weight": 450,
+    "delta": 2,
+    "popularity": 12,
+    "odds": 43.2
+   },
+   {
+    "place": 9,
+    "demoted": false,
+    "no": 15,
+    "name": "インヴォーグ",
+    "weight": 502,
+    "delta": 6,
+    "popularity": 14,
+    "odds": 56.0
+   },
+   {
+    "place": 10,
+    "demoted": false,
+    "no": 9,
+    "name": "マピュース",
+    "weight": 488,
+    "delta": 0,
+    "popularity": 10,
+    "odds": 28.1
+   },
+   {
+    "place": 11,
+    "demoted": false,
+    "no": 6,
+    "name": "ケリフレッドアスク",
+    "weight": 458,
+    "delta": 2,
+    "popularity": 11,
+    "odds": 39.5
+   },
+   {
+    "place": 12,
+    "demoted": false,
+    "no": 12,
+    "name": "ヴーレヴー",
+    "weight": 494,
+    "delta": 6,
+    "popularity": 16,
+    "odds": 122.6
+   },
+   {
+    "place": 13,
+    "demoted": false,
+    "no": 16,
+    "name": "ランフォーヴァウ",
+    "weight": 460,
+    "delta": -4,
+    "popularity": 18,
+    "odds": 348.5
+   },
+   {
+    "place": 14,
+    "demoted": false,
+    "no": 8,
+    "name": "テレサ",
+    "weight": 444,
+    "delta": 6,
+    "popularity": 8,
+    "odds": 19.4
+   },
+   {
+    "place": 15,
+    "demoted": false,
+    "no": 1,
+    "name": "ダノンフェアレディ",
+    "weight": 470,
+    "delta": -12,
+    "popularity": 7,
+    "odds": 18.8
+   },
+   {
+    "place": 16,
+    "demoted": false,
+    "no": 17,
+    "name": "カムニャック",
+    "weight": 490,
+    "delta": 8,
+    "popularity": 1,
+    "odds": 2.1
+   },
+   {
+    "place": 17,
+    "demoted": false,
+    "no": 4,
+    "name": "レーゼドラマ",
+    "weight": 474,
+    "delta": -2,
+    "popularity": 15,
+    "odds": 78.0
+   },
+   {
+    "place": 18,
+    "demoted": false,
+    "no": 5,
+    "name": "ブラウンラチェット",
+    "weight": 440,
+    "delta": -2,
+    "popularity": 13,
+    "odds": 45.5
+   }
+  ]
+ }
+}
