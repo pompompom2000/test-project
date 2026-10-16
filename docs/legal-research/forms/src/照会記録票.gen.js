@@ -71,7 +71,7 @@ const children = [
     row("応対者", "部署：　　　　　　　　　役職：　　　　　　　　　氏名："),
     row("当社担当", "氏名："),
     row("この照会の当事者", ["□ A運送〔緑〕　　□ B砕石〔白〕　　□ C砂利店〔白〕",
-                             "□ D建設　　□ E運転者〔白〕",
+                             "□ D建設　　□ E運転者〔白〕　　□ F砂利採取〔白〕",
                              "□ その他（　　　　　　　　　　　　　　　　　　　　　　　　　　　）"], { top: true }),
   ]),
 
@@ -167,6 +167,12 @@ const children = [
     new TableRow({ children: [
       cell("E運転者", 1500, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
       cell("個人。自ら運転する（持込み運転者）", 3100, { size: 18 }),
+      cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
+      cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
+    ] }),
+    new TableRow({ children: [
+      cell("F砂利採取", 1500, { bold: true, go: true, align: AlignmentType.CENTER, size: 18 }),
+      cell("砂利採取業者。採取法16条の認可あり", 3100, { size: 18 }),
       cell("無", 1900, { align: AlignmentType.CENTER, size: 18 }),
       cell("〔白〕自家用", 2572, { align: AlignmentType.CENTER, size: 18 }),
     ] }),
