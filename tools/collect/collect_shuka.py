@@ -37,6 +37,7 @@ def fetch(rid):
         return None
     iw, ino, inm, ipop, iodds = (col('馬体重'), col('馬番'), col('馬名'),
                                  col('人気'), col('単勝'))
+    iwk = col('枠番', '枠')
     title = re.search(r'<title>([^<|]*)', s)
     out = []
     for row in rows[1:]:
@@ -50,7 +51,9 @@ def fetch(rid):
         wm = re.match(r'^(\d+)\(([-+]?\d+)\)$', c[iw]) if iw is not None else None
         out.append({
             'place': int(pm.group(1)), 'demoted': demoted,
-            'no': int(c[ino]), 'name': c[inm],
+            'no': int(c[ino]),
+            'waku': int(c[iwk]) if iwk is not None and c[iwk].isdigit() else None,
+            'name': c[inm],
             'weight': int(wm.group(1)) if wm else None,
             'delta': int(wm.group(2)) if wm else None,
             'popularity': int(c[ipop]) if ipop is not None and c[ipop].isdigit() else None,
