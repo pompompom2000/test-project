@@ -415,7 +415,11 @@
         camBtn('とおく', '－', () => { cam.distT = clamp(cam.distT * 1.25, cam.minD, cam.maxD); }));
       const flatBtn = el('button', { class: 's3d-flat', 'aria-label': 'ならす', onclick: () => askFlatten() },
         el('span', { class: 's3d-flat-icon' }, '🧹'), el('span', { class: 's3d-flat-label' }, 'ならす'));
-      view.append(camBar, flatBtn);
+      const helpBtn = el('button', { class: 's3d-help', 'aria-label': 'あそびかた', onclick: () => { sound('tap'); coach.start(true); } },
+        el('span', { class: 's3d-flat-icon' }, '👆'), el('span', { class: 's3d-flat-label' }, 'あそびかた'));
+      const hand = el('div', { class: 's3d-hand', 'aria-hidden': 'true', hidden: true }, el('span', { class: 's3d-hand-finger' }, '👆'));
+      const coachBubble = el('div', { class: 's3d-coach', 'aria-live': 'polite', hidden: true });
+      view.append(camBar, flatBtn, helpBtn, hand, coachBubble);
 
       let tool = 'dig';
       let mold = 'castle';
@@ -1152,6 +1156,7 @@
       let gesture = null;
       let gestureLock = false;
       let stroke = null;
+      let mouseOrbit = null;
       let talking = 0;
       let busy = false;          // できごとの とちゅう
       let seq = false;           // トンネル かいつうの えんしゅつ ちゅう
@@ -1186,6 +1191,11 @@
         ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
         lastTouch = Date.now();
         if (ptrs.size >= 2) { cancelStroke(); startGesture(); gestureLock = true; return; }
+        // マウス：みぎボタン か シフトを おしながら ドラッグで まわす
+        if (e.pointerType === 'mouse' && (e.button === 2 || e.shiftKey)) {
+          mouseOrbit = { id: e.pointerId, x: e.clientX, y: e.clientY, yaw: cam.yawT, pitch: cam.pitchT };
+          return;
+        }
         if (gestureLock || talking || !ready || seq || confirmOpen) return;
         stroke = { id: e.pointerId, sx: e.clientX, sy: e.clientY, x: e.clientX, y: e.clientY, t0: performance.now(), on: false, moved: 0, tool, last: null, pts: [] };
       });
@@ -1195,6 +1205,11 @@
         p.x = e.clientX; p.y = e.clientY;
         lastTouch = Date.now();
         if (gesture && ptrs.size >= 2) { moveGesture(); return; }
+        if (mouseOrbit && mouseOrbit.id === e.pointerId) {
+          cam.yawT = mouseOrbit.yaw - (e.clientX - mouseOrbit.x) * 0.008;
+          cam.pitchT = clamp(mouseOrbit.pitch + (e.clientY - mouseOrbit.y) * 0.006, PITCH_MIN, PITCH_MAX);
+          return;
+        }
         if (stroke && stroke.id === e.pointerId) {
           stroke.moved = Math.max(stroke.moved, Math.hypot(e.clientX - stroke.sx, e.clientY - stroke.sy));
           stroke.x = e.clientX; stroke.y = e.clientY;
@@ -1204,13 +1219,14 @@
       function endPointer(e) {
         if (!ptrs.has(e.pointerId)) return;
         ptrs.delete(e.pointerId);
+        if (mouseOrbit && mouseOrbit.id === e.pointerId) mouseOrbit = null;
         if (ptrs.size < 2) gesture = null;
         if (!ptrs.size) gestureLock = false;
         if (stroke && stroke.id === e.pointerId) {
           const s = stroke;
           stroke = null;
           pours.delete(s);
-          if (e.type !== 'pointercancel') finishStroke(s);
+          if (e.type !== 'pointercancel') { finishStroke(s); coach.onStroke(s); }
           else if (player) player.act('idle');
         }
       }
@@ -1885,7 +1901,7 @@
         if (!alive() || !ready) return;
         const idle = Date.now() - lastTouch > 9000;
         if (!idle && !busy && !talking && !seq) playSec++;
-        if (playSec >= nextAt && !busy && !talking && !seq && !stroke && !lending) {
+        if (playSec >= nextAt && !coach.active() && !busy && !talking && !seq && !stroke && !lending) {
           nextAt = playSec + 150;
           runEvent();
         }
@@ -1987,6 +2003,78 @@
       }
       raf = requestAnimationFrame(frame);
 
+      // ---- あそびかた（はじめての ときの てびき） ----
+      // ゆびの えで 「なぞる → おやまを つくる → まわす」を じゅんばんに みせる。
+      const coach = (() => {
+        let step = -1;
+        let yaw0 = 0;
+        let poll = null;
+        const STEPS = [
+          { tool: 'dig', say: 'すなを ゆびで なぞってみよう。スコップで ほれるよ。', show: 'drag', done: (s) => s && s.tool === 'dig' && s.moved > 20 },
+          { say: 'つぎは 「もりあげる」を おして、おなじように なぞってみよう。おやまが できるよ。', show: 'drag', btn: 'mound', done: (s) => s && s.tool === 'mound' && s.moved > 20 },
+          { say: 'すなばを まわして みよう。2ほんの ゆびで ひねるか、みぎの まるい ボタンを おしてね。', show: 'twist', cam: true },
+        ];
+        function placeHand(kind) {
+          const r = view.getBoundingClientRect();
+          const c = ctx.stage.__sunaba3d.project(0, 0.6);
+          hand.style.left = (c.x - r.left) + 'px';
+          hand.style.top = (c.y - r.top) + 'px';
+          hand.firstChild.textContent = kind === 'twist' ? '✌️' : '👆';
+          hand.className = 's3d-hand ' + (kind === 'twist' ? 'twist' : 'drag');
+          hand.hidden = false;
+        }
+        function clearHints() {
+          Object.values(toolBtns).forEach((b) => b.classList.remove('coach'));
+          camBar.classList.remove('coach');
+        }
+        function show(i) {
+          step = i;
+          clearHints();
+          const st = STEPS[i];
+          if (!st) return finish();
+          if (st.tool) selectTool(st.tool, true);
+          if (st.btn) toolBtns[st.btn].classList.add('coach');
+          if (st.cam) { camBar.classList.add('coach'); yaw0 = cam.yawT; }
+          coachBubble.textContent = st.say;
+          coachBubble.hidden = false;
+          placeHand(st.show);
+          speak(st.say);
+        }
+        function next() {
+          sound('correct');
+          hand.hidden = true;
+          later(() => { if (alive() && step >= 0) show(step + 1); }, 900);
+        }
+        function finish() {
+          step = -1;
+          clearInterval(poll);
+          clearHints();
+          hand.hidden = true;
+          coachBubble.hidden = true;
+          store.set('coached', true);
+          speak('じょうず！ あとは じゆうに あそぼう。トンネルや じょうろ、バケツも あるよ。こまったら 「あそびかた」を おしてね。');
+        }
+        return {
+          start(force) {
+            if (!force && store.get('coached', false)) return;
+            clearInterval(poll);
+            poll = setInterval(() => {
+              if (!alive()) return clearInterval(poll);
+              const st = STEPS[step];
+              if (st && st.cam && Math.abs(angleDiff(yaw0, cam.yawT)) > 0.35) { clearInterval(poll); finish(); }
+            }, 300);
+            show(0);
+          },
+          onStroke(s) {
+            const st = STEPS[step];
+            if (st && st.done && st.done(s)) next();
+            else if (st && st.btn && s.tool !== st.btn) speak('ひかっている 「もりあげる」の ボタンを おしてから なぞってね。');
+            else if (st && st.cam === undefined && s.moved <= 20 && st.show === 'drag') speak('ゆびを おいたまま、すーっと うごかしてね。');
+          },
+          active: () => step >= 0,
+        };
+      })();
+
       // ---- じゅんび（glb → だめなら かわりの ぶひん） ----
       loadGlb().then((gltf) => {
         if (!alive()) return;
@@ -2012,7 +2100,11 @@
         ready = true;
         inuLife();
         later(() => { pen.act('wave'); say('pen', 'やっほー！', true); later(() => pen.act('sit'), 2000); }, 1500);
-        speak('りったい すなば だよ！ ゆびで なぞって ほったり、おやまを つくったり しよう。2ほんの ゆびで まわせるよ。');
+        if (store.get('coached', false)) {
+          speak('りったい すなば だよ！ ゆびで なぞって ほったり、おやまを つくったり しよう。2ほんの ゆびで まわせるよ。');
+        } else {
+          later(() => { if (alive()) coach.start(false); }, 2600);
+        }
       });
 
       // テスト・かくにん よう

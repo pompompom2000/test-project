@@ -244,3 +244,84 @@
 @media (prefers-reduced-motion: reduce) {
   .s3d-loading, .s3d-tool.hint { animation: none; }
 }
+
+/* あそびかた ボタン（ならす の した） */
+.s3d-help {
+  position: absolute;
+  left: 10px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  font-weight: 900;
+  color: var(--ink);
+}
+.s3d-help .s3d-flat-label { font-size: 13px; white-space: nowrap; }
+.s3d-help:active { transform: translateY(4px); }
+
+/* てびきの ゆび */
+.s3d-hand {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+}
+.s3d-hand-finger { display: block; transform: translate(-30%, -10%); }
+.s3d-hand.drag { animation: s3d-hand-drag 2s ease-in-out infinite; }
+.s3d-hand.drag::before {
+  /* なぞる せん */
+  content: "";
+  position: absolute;
+  left: -110px;
+  top: -6px;
+  width: 220px;
+  height: 0;
+  border-top: 6px dashed rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+}
+@keyframes s3d-hand-drag {
+  0% { transform: translateX(-110px); opacity: 0; }
+  12% { opacity: 1; }
+  80% { transform: translateX(110px); opacity: 1; }
+  100% { transform: translateX(110px); opacity: 0; }
+}
+.s3d-hand.twist { animation: s3d-hand-twist 1.6s ease-in-out infinite; }
+@keyframes s3d-hand-twist { 0%, 100% { transform: rotate(-25deg); } 50% { transform: rotate(25deg); } }
+
+/* てびきの ことば */
+.s3d-coach {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  z-index: 6;
+  transform: translateX(-50%);
+  width: min(560px, calc(100% - 200px));
+  padding: 12px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+  font-size: clamp(16px, 2.4vw, 22px);
+  font-weight: 900;
+  text-align: center;
+  color: var(--ink);
+}
+
+/* てびきで おしてほしい ボタンを ひからせる */
+.s3d-tool.coach, .s3d-cam.coach .s3d-cambtn { animation: s3d-coach-pulse 0.9s ease-in-out infinite; outline: 5px solid #ff4f8b; outline-offset: -1px; }
+@keyframes s3d-coach-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+@media (max-width: 640px) {
+  .s3d-help { top: 82px; width: 66px; height: 66px; }
+  .s3d-coach { width: calc(100% - 96px); left: calc(50% + 34px); top: 8px; font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .s3d-hand, .s3d-tool.coach, .s3d-cam.coach .s3d-cambtn { animation: none; }
+}
