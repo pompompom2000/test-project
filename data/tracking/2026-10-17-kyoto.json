@@ -2278,7 +2278,41 @@
       7.8
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     5,
+     7,
+     10,
+     12,
+     13,
+     1,
+     4,
+     6,
+     16,
+     2,
+     3,
+     18,
+     11,
+     9,
+     15,
+     14,
+     8,
+     17
+    ],
+    "inTheMoney": [
+     5,
+     7,
+     10
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.4024,
+     "vrs18Raw": 0.3909,
+     "vrs18Norm": 0.3879
+    }
+   }
   }
  ]
 }

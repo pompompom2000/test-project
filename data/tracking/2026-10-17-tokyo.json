@@ -2257,7 +2257,37 @@
       3.7
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     13,
+     10,
+     14,
+     8,
+     6,
+     5,
+     7,
+     11,
+     9,
+     1,
+     2,
+     4,
+     3,
+     12
+    ],
+    "inTheMoney": [
+     10,
+     13,
+     14
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.5004,
+     "vrs18Raw": 0.4674,
+     "vrs18Norm": 0.4539
+    }
+   }
   },
   {
    "race": "12R",
@@ -2453,7 +2483,37 @@
       5.1
      ]
     }
-   ]
+   ],
+   "result": {
+    "order": [
+     2,
+     7,
+     5,
+     12,
+     14,
+     9,
+     11,
+     4,
+     6,
+     13,
+     3,
+     1,
+     8,
+     10
+    ],
+    "inTheMoney": [
+     2,
+     5,
+     7
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": true,
+    "logLoss": {
+     "market": 0.3637,
+     "vrs18Raw": 0.3363,
+     "vrs18Norm": 0.3397
+    }
+   }
   }
  ]
 }
