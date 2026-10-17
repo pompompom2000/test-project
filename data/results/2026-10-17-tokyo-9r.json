@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-17",
+  "race": "東京9R 芝1800m 12頭 14:25発走",
+  "raceId": "202605040609",
+  "acceptedAt": "07:08",
+  "receiptNo": "0001",
+  "source": "IPAT照会画面のスクリーンショット",
+  "note": "購入は今朝7:08で、この日の検討より前。事後評価のみ。",
+  "bets": [
+    {"type": "ワイド", "combo": [2, 3], "stake": 2100,
+     "oddsAtEval": [11.0, 12.3], "popularity": 13,
+     "pEstimate": 0.088, "breakeven": 0.091, "ev": 0.965},
+    {"type": "ワイド", "combo": [3, 12], "stake": 7300,
+     "oddsAtEval": [3.6, 4.1], "popularity": 2,
+     "pEstimate": 0.199, "breakeven": 0.278, "ev": 0.716}
+  ],
+  "total": {"stake": 9400, "expectedReturn": 7257, "ev": 0.772,
+            "pAnyHit": 0.252, "pBothHit": 0.035},
+  "method": "3連複プール(220組)を同時分布とし、周辺確率を複勝プールに合わせて補正(IPF)。評価時刻 2026-10-17 11:50 JST",
+  "context": {
+    "axis": {"no": 3, "name": "ルナパッショーネ",
+             "market": 35.6, "vrs18": 46.1, "oikiri": "B 追毎良化"},
+    "partners": [
+      {"no": 2, "name": "ラガリーガ", "market": 31.4, "vrs18": 31.9, "oikiri": "A 迫力満点"},
+      {"no": 12, "name": "コラリオン", "market": 61.6, "vrs18": 48.1, "oikiri": "A 動き鋭い"}
+    ],
+    "observation": "配分が期待値と逆。EV0.97の2-3に2,100円、EV0.72の3-12に7,300円。入れ替えれば全体EVは0.772→0.912になる計算。"
+  },
+  "result": null
+}
