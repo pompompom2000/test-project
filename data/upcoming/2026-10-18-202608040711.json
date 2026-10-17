@@ -23,7 +23,15 @@
    "horseId": "2023105825",
    "starts": 5,
    "breeder": "ケイアイファーム",
-   "owner": "ロードホースクラブ"
+   "owner": "ロードホースクラブ",
+   "jockeyPlaceRate": 30.7,
+   "trainerPlaceRate": 38.9,
+   "gaikyu": {
+    "facility": "チャンピオンヒルズ",
+    "rank": "AA",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 26
   },
   {
    "waku": 1,
@@ -45,7 +53,15 @@
    "horseId": "2023100448",
    "starts": 8,
    "breeder": "米田牧場",
-   "owner": "竹園正繼"
+   "owner": "竹園正繼",
+   "jockeyPlaceRate": 17.9,
+   "trainerPlaceRate": 26.0,
+   "gaikyu": {
+    "facility": "グリーンウッド",
+    "rank": "B",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 9
   },
   {
    "waku": 2,
@@ -67,7 +83,15 @@
    "horseId": "2023106810",
    "starts": 3,
    "breeder": "社台コーポレーション白老ファーム",
-   "owner": "インゼルレーシング"
+   "owner": "インゼルレーシング",
+   "jockeyPlaceRate": 35.3,
+   "trainerPlaceRate": 28.4,
+   "gaikyu": {
+    "facility": "ノーザンファーム天栄",
+    "rank": "S",
+    "adjustment": "外厩2戦目"
+   },
+   "intervalDays": 5
   },
   {
    "waku": 2,
@@ -84,7 +108,15 @@
    "horseId": "2023102102",
    "starts": 4,
    "breeder": "谷川牧場",
-   "owner": "谷川牧場"
+   "owner": "谷川牧場",
+   "jockeyPlaceRate": 36.5,
+   "trainerPlaceRate": 37.4,
+   "gaikyu": {
+    "facility": "チャンピオンヒルズ",
+    "rank": "AA",
+    "adjustment": "外厩2戦目"
+   },
+   "intervalDays": 4
   },
   {
    "waku": 3,
@@ -105,7 +137,15 @@
    "horseId": "2023106900",
    "starts": 7,
    "breeder": "ノーザンファーム",
-   "owner": "田中成奉"
+   "owner": "田中成奉",
+   "jockeyPlaceRate": 36.9,
+   "trainerPlaceRate": 30.1,
+   "gaikyu": {
+    "facility": "ノーザンファームしがらき",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 9
   },
   {
    "waku": 3,
@@ -126,7 +166,15 @@
    "horseId": "2023103818",
    "starts": 4,
    "breeder": "社台コーポレーション白老ファーム",
-   "owner": "サンデーレーシング"
+   "owner": "サンデーレーシング",
+   "jockeyPlaceRate": 32.3,
+   "trainerPlaceRate": 31.4,
+   "gaikyu": {
+    "facility": "ノーザンファーム天栄",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 9
   },
   {
    "waku": 4,
@@ -147,7 +195,15 @@
    "horseId": "2023102906",
    "starts": 12,
    "breeder": "千代田牧場",
-   "owner": "飯田良枝"
+   "owner": "飯田良枝",
+   "jockeyPlaceRate": 19.7,
+   "trainerPlaceRate": 16.2,
+   "gaikyu": {
+    "facility": "島上牧場",
+    "rank": "ナシ",
+    "adjustment": "外厩3戦目"
+   },
+   "intervalDays": 2
   },
   {
    "waku": 4,
@@ -168,7 +224,15 @@
    "horseId": "2023106859",
    "starts": 4,
    "breeder": "ノーザンファーム",
-   "owner": "エムズレーシング"
+   "owner": "エムズレーシング",
+   "jockeyPlaceRate": 39.7,
+   "trainerPlaceRate": 41.2,
+   "gaikyu": {
+    "facility": "ノーザンファーム天栄",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 5
   },
   {
    "waku": 5,
@@ -190,7 +254,15 @@
    "horseId": "2023104475",
    "starts": 7,
    "breeder": "平山牧場",
-   "owner": "前田幸大"
+   "owner": "前田幸大",
+   "jockeyPlaceRate": 28.3,
+   "trainerPlaceRate": 20.4,
+   "gaikyu": {
+    "facility": "大山ヒルズ",
+    "rank": "A",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 4
   },
   {
    "waku": 5,
@@ -212,7 +284,15 @@
    "horseId": "2023105420",
    "starts": 8,
    "breeder": "三嶋牧場",
-   "owner": "廣崎利洋ＨＤ"
+   "owner": "廣崎利洋ＨＤ",
+   "jockeyPlaceRate": 15.9,
+   "trainerPlaceRate": 29.1,
+   "gaikyu": {
+    "facility": "阿見トレーニングセンター",
+    "rank": "B",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 7
   },
   {
    "waku": 6,
@@ -233,7 +313,15 @@
    "horseId": "2023107075",
    "starts": 9,
    "breeder": "ノーザンファーム",
-   "owner": "キャロットファーム"
+   "owner": "キャロットファーム",
+   "jockeyPlaceRate": 33.1,
+   "trainerPlaceRate": 18.0,
+   "gaikyu": {
+    "facility": "ノーザンファーム(早来・北海道)",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 5
   },
   {
    "waku": 6,
@@ -254,7 +342,15 @@
    "horseId": "2023106846",
    "starts": 3,
    "breeder": "ノーザンファーム",
-   "owner": "サンデーレーシング"
+   "owner": "サンデーレーシング",
+   "jockeyPlaceRate": 40.1,
+   "trainerPlaceRate": 45.0,
+   "gaikyu": {
+    "facility": "ノーザンファーム天栄",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 23
   },
   {
    "waku": 7,
@@ -271,7 +367,15 @@
    "horseId": "2023107146",
    "starts": 7,
    "breeder": "ノーザンファーム",
-   "owner": "吉田勝己"
+   "owner": "吉田勝己",
+   "jockeyPlaceRate": 62.5,
+   "trainerPlaceRate": 46.4,
+   "gaikyu": {
+    "facility": "ノーザンファーム天栄",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 9
   },
   {
    "waku": 7,
@@ -292,7 +396,15 @@
    "horseId": "2023106219",
    "starts": 9,
    "breeder": "那須野",
-   "owner": "グリーンファーム"
+   "owner": "グリーンファーム",
+   "jockeyPlaceRate": 39.3,
+   "trainerPlaceRate": 16.8,
+   "gaikyu": {
+    "facility": "チャンピオンヒルズ",
+    "rank": "ナシ",
+    "adjustment": "外厩3戦目"
+   },
+   "intervalDays": 4
   },
   {
    "waku": 8,
@@ -313,7 +425,15 @@
    "horseId": "2023107265",
    "starts": 5,
    "breeder": "ノーザンファーム",
-   "owner": "吉田勝己"
+   "owner": "吉田勝己",
+   "jockeyPlaceRate": 22.7,
+   "trainerPlaceRate": 30.0,
+   "gaikyu": {
+    "facility": "ノーザンファームしがらき",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 5
   },
   {
    "waku": 8,
@@ -334,7 +454,15 @@
    "horseId": "2023106894",
    "starts": 9,
    "breeder": "ノーザンファーム",
-   "owner": "武田修"
+   "owner": "武田修",
+   "jockeyPlaceRate": 24.6,
+   "trainerPlaceRate": 30.7,
+   "gaikyu": {
+    "facility": "ノーザンファームしがらき",
+    "rank": "S",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 5
   },
   {
    "waku": 8,
@@ -356,8 +484,17 @@
    "horseId": "2023103661",
    "starts": 7,
    "breeder": "上水牧場",
-   "owner": "ヒダカ・ブリーダーズ・ユニオン"
+   "owner": "ヒダカ・ブリーダーズ・ユニオン",
+   "jockeyPlaceRate": 20.6,
+   "trainerPlaceRate": 29.2,
+   "gaikyu": {
+    "facility": "吉澤ステーブル-WEST",
+    "rank": "B",
+    "adjustment": "外厩初戦"
+   },
+   "intervalDays": 7
   }
  ],
- "commentNote": "厩舎コメントは netkeiba が17頭中3頭のみ無料（残りは有料）。umanity掲載のサンケイスポーツ版と合わせて15/17頭を収集した。エンネ(4番)とドリームコア(13番)は未取得。"
+ "commentNote": "厩舎コメントは netkeiba が17頭中3頭のみ無料（残りは有料）。umanity掲載のサンケイスポーツ版と合わせて15/17頭を収集した。エンネ(4番)とドリームコア(13番)は未取得。",
+ "auxSource": "ユーザー提供の一覧画像（騎手複勝率・厩舎複勝率・外厩施設/ランク/調整・間隔）2026-10-18朝"
 }
