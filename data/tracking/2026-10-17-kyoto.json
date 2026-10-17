@@ -1,0 +1,2017 @@
+{
+ "meet": "【競馬･統計予測】AI予測【4回京都6日目】2026.10.17",
+ "venue": "京都",
+ "date": "2026-10-17",
+ "recordedAt": "2026-10-17T10:09:22+09:00",
+ "source": {
+  "article": "https://note.com/vrs18/n/ne11273c7f19e",
+  "publishedAt": "2026-10-17T08:10:02+09:00",
+  "extraction": "予測値は記事内のグラフ画像。モデルが読み取って数値化"
+ },
+ "framing": "運用ルールは「複勝オッズ最安を軸」＝市場そのもの。実質「市場 vs VRS18」の比較。",
+ "method": {
+  "market": "複勝オッズ範囲の中点から 0.8/odds。レース内正規化はしない",
+  "vrs18": "VRS18の出力は未正規化。vrs18Normは理論値へ正規化した値"
+ },
+ "prereg": {
+  "主指標": "軸が複勝圏に入ったか（8頭以上は3着まで、5-7頭は2着まで）",
+  "副指標": "全出走馬の複勝予測に対する対数損失"
+ },
+ "axisAgreement": "6/12",
+ "races": [
+  {
+   "race": "1R",
+   "raceId": "202608040601",
+   "field": 10,
+   "placePositions": 3,
+   "oddsStatus": "result",
+   "oddsAt": "2026-10-17 10:02:36",
+   "marketSum": 2.783,
+   "axis": {
+    "market": {
+     "no": 3,
+     "place": 57.14
+    },
+    "vrs18": {
+     "no": 7,
+     "placeNorm": 55.79,
+     "placeRaw": 60.67
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 121.5,
+    "place": 326.27,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 19.28,
+     "vrs18Raw": 37.25,
+     "vrs18Norm": 34.25,
+     "vrs18Win": 11.31,
+     "vrs18Odds": 61.1,
+     "placeOdds": [
+      3.1,
+      5.2
+     ]
+    },
+    {
+     "no": 2,
+     "market": 53.33,
+     "vrs18Raw": 49.08,
+     "vrs18Norm": 45.13,
+     "vrs18Win": 15.24,
+     "vrs18Odds": 10.8,
+     "placeOdds": [
+      1.2,
+      1.8
+     ]
+    },
+    {
+     "no": 3,
+     "market": 57.14,
+     "vrs18Raw": 53.95,
+     "vrs18Norm": 49.61,
+     "vrs18Win": 25.33,
+     "vrs18Odds": 5.2,
+     "placeOdds": [
+      1.2,
+      1.6
+     ]
+    },
+    {
+     "no": 4,
+     "market": 14.81,
+     "vrs18Raw": 30.91,
+     "vrs18Norm": 28.42,
+     "vrs18Win": 9.59,
+     "vrs18Odds": 50.8,
+     "placeOdds": [
+      4.0,
+      6.8
+     ]
+    },
+    {
+     "no": 5,
+     "market": 3.68,
+     "vrs18Raw": 10.69,
+     "vrs18Norm": 9.83,
+     "vrs18Win": 3.69,
+     "vrs18Odds": 124.5,
+     "placeOdds": [
+      15.8,
+      27.7
+     ]
+    },
+    {
+     "no": 6,
+     "market": 34.04,
+     "vrs18Raw": 29.94,
+     "vrs18Norm": 27.53,
+     "vrs18Win": 10.06,
+     "vrs18Odds": 27.4,
+     "placeOdds": [
+      1.8,
+      2.9
+     ]
+    },
+    {
+     "no": 7,
+     "market": 50.0,
+     "vrs18Raw": 60.67,
+     "vrs18Norm": 55.79,
+     "vrs18Win": 26.05,
+     "vrs18Odds": 4.4,
+     "placeOdds": [
+      1.3,
+      1.9
+     ]
+    },
+    {
+     "no": 8,
+     "market": 2.16,
+     "vrs18Raw": 9.41,
+     "vrs18Norm": 8.65,
+     "vrs18Win": 4.31,
+     "vrs18Odds": 162.4,
+     "placeOdds": [
+      26.9,
+      47.1
+     ]
+    },
+    {
+     "no": 9,
+     "market": 39.02,
+     "vrs18Raw": 33.88,
+     "vrs18Norm": 31.15,
+     "vrs18Win": 11.22,
+     "vrs18Odds": 22.8,
+     "placeOdds": [
+      1.6,
+      2.5
+     ]
+    },
+    {
+     "no": 10,
+     "market": 4.85,
+     "vrs18Raw": 10.49,
+     "vrs18Norm": 9.65,
+     "vrs18Win": 4.7,
+     "vrs18Odds": 165.5,
+     "placeOdds": [
+      12.0,
+      21.0
+     ]
+    }
+   ],
+   "result": {
+    "order": [
+     2,
+     9,
+     3,
+     4,
+     1,
+     6,
+     7,
+     5,
+     8,
+     10
+    ],
+    "inTheMoney": [
+     2,
+     3,
+     9
+    ],
+    "marketAxisHit": true,
+    "vrs18AxisHit": false,
+    "logLoss": {
+     "market": 0.3722,
+     "vrs18Raw": 0.4859,
+     "vrs18Norm": 0.485
+    }
+   }
+  },
+  {
+   "race": "2R",
+   "raceId": "202608040602",
+   "field": 11,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:22:36",
+   "marketSum": 2.342,
+   "axis": {
+    "market": {
+     "no": 1,
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 6,
+     "placeNorm": 54.51,
+     "placeRaw": 62.75
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 138.92,
+    "place": 345.32,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 72.73,
+     "vrs18Raw": 56.0,
+     "vrs18Norm": 48.65,
+     "vrs18Win": 23.98,
+     "vrs18Odds": 4.5,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 2,
+     "market": 4.24,
+     "vrs18Raw": 7.12,
+     "vrs18Norm": 6.19,
+     "vrs18Win": 2.87,
+     "vrs18Odds": 153.3,
+     "placeOdds": [
+      9.0,
+      28.7
+     ]
+    },
+    {
+     "no": 3,
+     "market": 3.12,
+     "vrs18Raw": 2.56,
+     "vrs18Norm": 2.22,
+     "vrs18Win": 1.33,
+     "vrs18Odds": 188.5,
+     "placeOdds": [
+      12.2,
+      39.0
+     ]
+    },
+    {
+     "no": 4,
+     "market": 12.7,
+     "vrs18Raw": 30.23,
+     "vrs18Norm": 26.26,
+     "vrs18Win": 8.58,
+     "vrs18Odds": 40.3,
+     "placeOdds": [
+      3.2,
+      9.4
+     ]
+    },
+    {
+     "no": 5,
+     "market": 15.24,
+     "vrs18Raw": 43.59,
+     "vrs18Norm": 37.87,
+     "vrs18Win": 25.14,
+     "vrs18Odds": 8.5,
+     "placeOdds": [
+      2.7,
+      7.8
+     ]
+    },
+    {
+     "no": 6,
+     "market": 42.11,
+     "vrs18Raw": 62.75,
+     "vrs18Norm": 54.51,
+     "vrs18Win": 27.33,
+     "vrs18Odds": 2.3,
+     "placeOdds": [
+      1.2,
+      2.6
+     ]
+    },
+    {
+     "no": 7,
+     "market": 26.23,
+     "vrs18Raw": 41.44,
+     "vrs18Norm": 36.0,
+     "vrs18Win": 14.39,
+     "vrs18Odds": 11.3,
+     "placeOdds": [
+      1.7,
+      4.4
+     ]
+    },
+    {
+     "no": 8,
+     "market": 5.88,
+     "vrs18Raw": 9.74,
+     "vrs18Norm": 8.46,
+     "vrs18Win": 3.01,
+     "vrs18Odds": 156.7,
+     "placeOdds": [
+      6.6,
+      20.6
+     ]
+    },
+    {
+     "no": 9,
+     "market": 38.1,
+     "vrs18Raw": 47.13,
+     "vrs18Norm": 40.94,
+     "vrs18Win": 17.02,
+     "vrs18Odds": 15.1,
+     "placeOdds": [
+      1.2,
+      3.0
+     ]
+    },
+    {
+     "no": 10,
+     "market": 6.61,
+     "vrs18Raw": 25.21,
+     "vrs18Norm": 21.9,
+     "vrs18Win": 9.24,
+     "vrs18Odds": 23.7,
+     "placeOdds": [
+      5.9,
+      18.3
+     ]
+    },
+    {
+     "no": 11,
+     "market": 7.24,
+     "vrs18Raw": 19.55,
+     "vrs18Norm": 16.98,
+     "vrs18Win": 6.03,
+     "vrs18Odds": 24.4,
+     "placeOdds": [
+      5.4,
+      16.7
+     ]
+    }
+   ]
+  },
+  {
+   "race": "3R",
+   "raceId": "202608040603",
+   "field": 8,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:53:06",
+   "marketSum": 3.01,
+   "axis": {
+    "market": {
+     "no": 2,
+     "place": 66.67
+    },
+    "vrs18": {
+     "no": 2,
+     "placeNorm": 54.2,
+     "placeRaw": 61.11
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 116.65,
+    "place": 338.22,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 20.25,
+     "vrs18Raw": 26.11,
+     "vrs18Norm": 23.16,
+     "vrs18Win": 8.01,
+     "vrs18Odds": 97.8,
+     "placeOdds": [
+      3.2,
+      4.7
+     ]
+    },
+    {
+     "no": 2,
+     "market": 66.67,
+     "vrs18Raw": 61.11,
+     "vrs18Norm": 54.2,
+     "vrs18Win": 25.99,
+     "vrs18Odds": 2.7,
+     "placeOdds": [
+      1.1,
+      1.3
+     ]
+    },
+    {
+     "no": 3,
+     "market": 23.19,
+     "vrs18Raw": 32.29,
+     "vrs18Norm": 28.64,
+     "vrs18Win": 10.37,
+     "vrs18Odds": 152.0,
+     "placeOdds": [
+      2.8,
+      4.1
+     ]
+    },
+    {
+     "no": 4,
+     "market": 30.19,
+     "vrs18Raw": 26.38,
+     "vrs18Norm": 23.4,
+     "vrs18Win": 8.9,
+     "vrs18Odds": 12.9,
+     "placeOdds": [
+      2.1,
+      3.2
+     ]
+    },
+    {
+     "no": 5,
+     "market": 51.61,
+     "vrs18Raw": 55.62,
+     "vrs18Norm": 49.33,
+     "vrs18Win": 23.25,
+     "vrs18Odds": 5.4,
+     "placeOdds": [
+      1.3,
+      1.8
+     ]
+    },
+    {
+     "no": 6,
+     "market": 34.04,
+     "vrs18Raw": 33.13,
+     "vrs18Norm": 29.39,
+     "vrs18Win": 6.93,
+     "vrs18Odds": 38.5,
+     "placeOdds": [
+      1.9,
+      2.8
+     ]
+    },
+    {
+     "no": 7,
+     "market": 34.04,
+     "vrs18Raw": 52.93,
+     "vrs18Norm": 46.95,
+     "vrs18Win": 16.74,
+     "vrs18Odds": 9.4,
+     "placeOdds": [
+      1.9,
+      2.8
+     ]
+    },
+    {
+     "no": 8,
+     "market": 41.03,
+     "vrs18Raw": 50.65,
+     "vrs18Norm": 44.93,
+     "vrs18Win": 16.46,
+     "vrs18Odds": 8.4,
+     "placeOdds": [
+      1.6,
+      2.3
+     ]
+    }
+   ]
+  },
+  {
+   "race": "4R",
+   "raceId": "202608040604",
+   "field": 8,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:23:31",
+   "marketSum": 2.923,
+   "axis": {
+    "market": {
+     "no": 1,
+     "place": 55.17
+    },
+    "vrs18": {
+     "no": 1,
+     "placeNorm": 57.37,
+     "placeRaw": 69.04
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 142.73,
+    "place": 361.03,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 55.17,
+     "vrs18Raw": 69.04,
+     "vrs18Norm": 57.37,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 2.1,
+     "placeOdds": [
+      1.3,
+      1.6
+     ]
+    },
+    {
+     "no": 2,
+     "market": 53.33,
+     "vrs18Raw": 54.28,
+     "vrs18Norm": 45.1,
+     "vrs18Win": 23.94,
+     "vrs18Odds": 8.5,
+     "placeOdds": [
+      1.3,
+      1.7
+     ]
+    },
+    {
+     "no": 3,
+     "market": 17.39,
+     "vrs18Raw": 25.85,
+     "vrs18Norm": 21.48,
+     "vrs18Win": 10.21,
+     "vrs18Odds": 81.6,
+     "placeOdds": [
+      3.8,
+      5.4
+     ]
+    },
+    {
+     "no": 4,
+     "market": 20.78,
+     "vrs18Raw": 36.87,
+     "vrs18Norm": 30.64,
+     "vrs18Win": 14.51,
+     "vrs18Odds": 11.7,
+     "placeOdds": [
+      3.1,
+      4.6
+     ]
+    },
+    {
+     "no": 5,
+     "market": 45.71,
+     "vrs18Raw": 54.94,
+     "vrs18Norm": 45.65,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 15.5,
+     "placeOdds": [
+      1.5,
+      2.0
+     ]
+    },
+    {
+     "no": 6,
+     "market": 34.78,
+     "vrs18Raw": 47.1,
+     "vrs18Norm": 39.14,
+     "vrs18Win": 14.73,
+     "vrs18Odds": 4.5,
+     "placeOdds": [
+      1.9,
+      2.7
+     ]
+    },
+    {
+     "no": 7,
+     "market": 48.48,
+     "vrs18Raw": 50.02,
+     "vrs18Norm": 41.56,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 12.1,
+     "placeOdds": [
+      1.4,
+      1.9
+     ]
+    },
+    {
+     "no": 8,
+     "market": 16.67,
+     "vrs18Raw": 22.93,
+     "vrs18Norm": 19.05,
+     "vrs18Win": 8.51,
+     "vrs18Odds": 70.5,
+     "placeOdds": [
+      3.9,
+      5.7
+     ]
+    }
+   ]
+  },
+  {
+   "race": "5R",
+   "raceId": "202608040605",
+   "field": 8,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:13:31",
+   "marketSum": 2.82,
+   "axis": {
+    "market": {
+     "no": 4,
+     "place": 69.57
+    },
+    "vrs18": {
+     "no": 2,
+     "placeNorm": 50.42,
+     "placeRaw": 56.48
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 125.01,
+    "place": 336.08,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 26.23,
+     "vrs18Raw": 36.58,
+     "vrs18Norm": 32.65,
+     "vrs18Win": 12.33,
+     "vrs18Odds": 11.9,
+     "placeOdds": [
+      2.2,
+      3.9
+     ]
+    },
+    {
+     "no": 2,
+     "market": 50.0,
+     "vrs18Raw": 56.48,
+     "vrs18Norm": 50.42,
+     "vrs18Win": 25.37,
+     "vrs18Odds": 5.8,
+     "placeOdds": [
+      1.3,
+      1.9
+     ]
+    },
+    {
+     "no": 3,
+     "market": 28.07,
+     "vrs18Raw": 55.01,
+     "vrs18Norm": 49.1,
+     "vrs18Win": 7.64,
+     "vrs18Odds": 8.0,
+     "placeOdds": [
+      2.1,
+      3.6
+     ]
+    },
+    {
+     "no": 4,
+     "market": 69.57,
+     "vrs18Raw": 50.28,
+     "vrs18Norm": 44.88,
+     "vrs18Win": 21.73,
+     "vrs18Odds": 26.4,
+     "placeOdds": [
+      1.1,
+      1.2
+     ]
+    },
+    {
+     "no": 5,
+     "market": 11.85,
+     "vrs18Raw": 26.9,
+     "vrs18Norm": 24.01,
+     "vrs18Win": 9.52,
+     "vrs18Odds": 30.3,
+     "placeOdds": [
+      4.8,
+      8.7
+     ]
+    },
+    {
+     "no": 6,
+     "market": 37.21,
+     "vrs18Raw": 41.84,
+     "vrs18Norm": 37.35,
+     "vrs18Win": 12.94,
+     "vrs18Odds": 47.8,
+     "placeOdds": [
+      1.6,
+      2.7
+     ]
+    },
+    {
+     "no": 7,
+     "market": 15.84,
+     "vrs18Raw": 17.07,
+     "vrs18Norm": 15.24,
+     "vrs18Win": 7.12,
+     "vrs18Odds": 41.5,
+     "placeOdds": [
+      3.6,
+      6.5
+     ]
+    },
+    {
+     "no": 8,
+     "market": 43.24,
+     "vrs18Raw": 51.92,
+     "vrs18Norm": 46.35,
+     "vrs18Win": 28.36,
+     "vrs18Odds": 7.9,
+     "placeOdds": [
+      1.4,
+      2.3
+     ]
+    }
+   ]
+  },
+  {
+   "race": "6R",
+   "raceId": "202608040606",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:44:41",
+   "marketSum": 3.018,
+   "axis": {
+    "market": {
+     "no": 6,
+     "place": 39.02
+    },
+    "vrs18": {
+     "no": 6,
+     "placeNorm": 46.02,
+     "placeRaw": 50.97
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 146.4,
+    "place": 332.28,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 13.01,
+     "vrs18Raw": 12.02,
+     "vrs18Norm": 10.85,
+     "vrs18Win": 3.43,
+     "vrs18Odds": 34.6,
+     "placeOdds": [
+      5.4,
+      6.9
+     ]
+    },
+    {
+     "no": 2,
+     "market": 14.68,
+     "vrs18Raw": 10.17,
+     "vrs18Norm": 9.18,
+     "vrs18Win": 4.55,
+     "vrs18Odds": 51.2,
+     "placeOdds": [
+      4.8,
+      6.1
+     ]
+    },
+    {
+     "no": 3,
+     "market": 16.0,
+     "vrs18Raw": 19.8,
+     "vrs18Norm": 17.88,
+     "vrs18Win": 8.83,
+     "vrs18Odds": 17.7,
+     "placeOdds": [
+      4.4,
+      5.6
+     ]
+    },
+    {
+     "no": 4,
+     "market": 32.65,
+     "vrs18Raw": 38.07,
+     "vrs18Norm": 34.37,
+     "vrs18Win": 15.31,
+     "vrs18Odds": 14.0,
+     "placeOdds": [
+      2.2,
+      2.7
+     ]
+    },
+    {
+     "no": 5,
+     "market": 7.96,
+     "vrs18Raw": 7.66,
+     "vrs18Norm": 6.92,
+     "vrs18Win": 3.5,
+     "vrs18Odds": 74.3,
+     "placeOdds": [
+      8.9,
+      11.2
+     ]
+    },
+    {
+     "no": 6,
+     "market": 39.02,
+     "vrs18Raw": 50.97,
+     "vrs18Norm": 46.02,
+     "vrs18Win": 28.07,
+     "vrs18Odds": 7.5,
+     "placeOdds": [
+      1.9,
+      2.2
+     ]
+    },
+    {
+     "no": 7,
+     "market": 14.16,
+     "vrs18Raw": 20.59,
+     "vrs18Norm": 18.59,
+     "vrs18Win": 8.85,
+     "vrs18Odds": 58.0,
+     "placeOdds": [
+      5.0,
+      6.3
+     ]
+    },
+    {
+     "no": 8,
+     "market": 10.46,
+     "vrs18Raw": 8.96,
+     "vrs18Norm": 8.09,
+     "vrs18Win": 4.66,
+     "vrs18Odds": 38.4,
+     "placeOdds": [
+      6.7,
+      8.6
+     ]
+    },
+    {
+     "no": 9,
+     "market": 11.94,
+     "vrs18Raw": 8.34,
+     "vrs18Norm": 7.53,
+     "vrs18Win": 4.08,
+     "vrs18Odds": 55.6,
+     "placeOdds": [
+      5.9,
+      7.5
+     ]
+    },
+    {
+     "no": 10,
+     "market": 27.59,
+     "vrs18Raw": 35.57,
+     "vrs18Norm": 32.11,
+     "vrs18Win": 14.7,
+     "vrs18Odds": 60.0,
+     "placeOdds": [
+      2.6,
+      3.2
+     ]
+    },
+    {
+     "no": 11,
+     "market": 16.49,
+     "vrs18Raw": 13.54,
+     "vrs18Norm": 12.22,
+     "vrs18Win": 7.38,
+     "vrs18Odds": 65.2,
+     "placeOdds": [
+      4.3,
+      5.4
+     ]
+    },
+    {
+     "no": 12,
+     "market": 20.78,
+     "vrs18Raw": 22.02,
+     "vrs18Norm": 19.88,
+     "vrs18Win": 9.06,
+     "vrs18Odds": 26.2,
+     "placeOdds": [
+      3.4,
+      4.3
+     ]
+    },
+    {
+     "no": 13,
+     "market": 32.0,
+     "vrs18Raw": 43.34,
+     "vrs18Norm": 39.13,
+     "vrs18Win": 16.53,
+     "vrs18Odds": 9.6,
+     "placeOdds": [
+      2.2,
+      2.8
+     ]
+    },
+    {
+     "no": 14,
+     "market": 14.68,
+     "vrs18Raw": 8.29,
+     "vrs18Norm": 7.48,
+     "vrs18Win": 4.81,
+     "vrs18Odds": 103.4,
+     "placeOdds": [
+      4.8,
+      6.1
+     ]
+    },
+    {
+     "no": 15,
+     "market": 24.24,
+     "vrs18Raw": 29.58,
+     "vrs18Norm": 26.71,
+     "vrs18Win": 10.51,
+     "vrs18Odds": 32.2,
+     "placeOdds": [
+      2.9,
+      3.7
+     ]
+    },
+    {
+     "no": 16,
+     "market": 6.18,
+     "vrs18Raw": 3.36,
+     "vrs18Norm": 3.03,
+     "vrs18Win": 2.13,
+     "vrs18Odds": 133.5,
+     "placeOdds": [
+      11.4,
+      14.5
+     ]
+    }
+   ]
+  },
+  {
+   "race": "7R",
+   "raceId": "202608040607",
+   "field": 10,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:14:26",
+   "marketSum": 2.539,
+   "axis": {
+    "market": {
+     "no": 4,
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 4,
+     "placeNorm": 48.89,
+     "placeRaw": 52.92
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 116.98,
+    "place": 324.73,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 30.77,
+     "vrs18Raw": 44.98,
+     "vrs18Norm": 41.55,
+     "vrs18Win": 12.56,
+     "vrs18Odds": 7.2,
+     "placeOdds": [
+      1.6,
+      3.6
+     ]
+    },
+    {
+     "no": 2,
+     "market": 23.19,
+     "vrs18Raw": 42.77,
+     "vrs18Norm": 39.51,
+     "vrs18Win": 14.22,
+     "vrs18Odds": 4.1,
+     "placeOdds": [
+      2.0,
+      4.9
+     ]
+    },
+    {
+     "no": 3,
+     "market": 6.35,
+     "vrs18Raw": 20.17,
+     "vrs18Norm": 18.63,
+     "vrs18Win": 7.56,
+     "vrs18Odds": 62.2,
+     "placeOdds": [
+      6.8,
+      18.4
+     ]
+    },
+    {
+     "no": 4,
+     "market": 72.73,
+     "vrs18Raw": 52.92,
+     "vrs18Norm": 48.89,
+     "vrs18Win": 26.3,
+     "vrs18Odds": 2.1,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 5,
+     "market": 7.69,
+     "vrs18Raw": 13.35,
+     "vrs18Norm": 12.33,
+     "vrs18Win": 3.87,
+     "vrs18Odds": 58.8,
+     "placeOdds": [
+      5.6,
+      15.2
+     ]
+    },
+    {
+     "no": 6,
+     "market": 7.66,
+     "vrs18Raw": 11.67,
+     "vrs18Norm": 10.78,
+     "vrs18Win": 3.44,
+     "vrs18Odds": 340.0,
+     "placeOdds": [
+      5.7,
+      15.2
+     ]
+    },
+    {
+     "no": 7,
+     "market": 47.06,
+     "vrs18Raw": 47.28,
+     "vrs18Norm": 43.68,
+     "vrs18Win": 16.37,
+     "vrs18Odds": 18.3,
+     "placeOdds": [
+      1.2,
+      2.2
+     ]
+    },
+    {
+     "no": 8,
+     "market": 30.19,
+     "vrs18Raw": 49.5,
+     "vrs18Norm": 45.73,
+     "vrs18Win": 15.86,
+     "vrs18Odds": 10.9,
+     "placeOdds": [
+      1.6,
+      3.7
+     ]
+    },
+    {
+     "no": 9,
+     "market": 21.92,
+     "vrs18Raw": 34.91,
+     "vrs18Norm": 32.25,
+     "vrs18Win": 12.08,
+     "vrs18Odds": 15.7,
+     "placeOdds": [
+      2.1,
+      5.2
+     ]
+    },
+    {
+     "no": 10,
+     "market": 6.35,
+     "vrs18Raw": 7.18,
+     "vrs18Norm": 6.63,
+     "vrs18Win": 4.72,
+     "vrs18Odds": 285.8,
+     "placeOdds": [
+      6.8,
+      18.4
+     ]
+    }
+   ]
+  },
+  {
+   "race": "8R",
+   "raceId": "202608040608",
+   "field": 7,
+   "placePositions": 2,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:40:06",
+   "marketSum": 1.978,
+   "axis": {
+    "market": {
+     "no": 7,
+     "place": 45.71
+    },
+    "vrs18": {
+     "no": 3,
+     "placeNorm": 40.09,
+     "placeRaw": 58.3
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 124.84,
+    "place": 290.88,
+    "placeTheoretical": 200
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 26.23,
+     "vrs18Raw": 36.65,
+     "vrs18Norm": 25.2,
+     "vrs18Win": 15.07,
+     "vrs18Odds": 18.8,
+     "placeOdds": [
+      2.7,
+      3.4
+     ]
+    },
+    {
+     "no": 2,
+     "market": 18.18,
+     "vrs18Raw": 36.71,
+     "vrs18Norm": 25.24,
+     "vrs18Win": 14.21,
+     "vrs18Odds": 16.7,
+     "placeOdds": [
+      3.9,
+      4.9
+     ]
+    },
+    {
+     "no": 3,
+     "market": 36.36,
+     "vrs18Raw": 58.3,
+     "vrs18Norm": 40.09,
+     "vrs18Win": 27.67,
+     "vrs18Odds": 4.1,
+     "placeOdds": [
+      2.0,
+      2.4
+     ]
+    },
+    {
+     "no": 4,
+     "market": 11.94,
+     "vrs18Raw": 30.87,
+     "vrs18Norm": 21.23,
+     "vrs18Win": 14.85,
+     "vrs18Odds": 26.0,
+     "placeOdds": [
+      6.0,
+      7.4
+     ]
+    },
+    {
+     "no": 5,
+     "market": 16.16,
+     "vrs18Raw": 27.53,
+     "vrs18Norm": 18.93,
+     "vrs18Win": 9.3,
+     "vrs18Odds": 18.1,
+     "placeOdds": [
+      4.4,
+      5.5
+     ]
+    },
+    {
+     "no": 6,
+     "market": 43.24,
+     "vrs18Raw": 48.08,
+     "vrs18Norm": 33.06,
+     "vrs18Win": 16.89,
+     "vrs18Odds": 6.7,
+     "placeOdds": [
+      1.7,
+      2.0
+     ]
+    },
+    {
+     "no": 7,
+     "market": 45.71,
+     "vrs18Raw": 52.74,
+     "vrs18Norm": 36.26,
+     "vrs18Win": 26.85,
+     "vrs18Odds": 17.0,
+     "placeOdds": [
+      1.6,
+      1.9
+     ]
+    }
+   ]
+  },
+  {
+   "race": "9R",
+   "raceId": "202608040609",
+   "field": 16,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:10:41",
+   "marketSum": 2.987,
+   "axis": {
+    "market": {
+     "no": 11,
+     "place": 50.0
+    },
+    "vrs18": {
+     "no": 7,
+     "placeNorm": 45.57,
+     "placeRaw": 56.13
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 138.5,
+    "place": 369.51,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 9.58,
+     "vrs18Raw": 11.05,
+     "vrs18Norm": 8.97,
+     "vrs18Win": 3.24,
+     "vrs18Odds": 35.5,
+     "placeOdds": [
+      6.8,
+      9.9
+     ]
+    },
+    {
+     "no": 2,
+     "market": 4.3,
+     "vrs18Raw": 4.76,
+     "vrs18Norm": 3.86,
+     "vrs18Win": 1.92,
+     "vrs18Odds": 212.7,
+     "placeOdds": [
+      15.1,
+      22.1
+     ]
+    },
+    {
+     "no": 3,
+     "market": 9.88,
+     "vrs18Raw": 22.01,
+     "vrs18Norm": 17.87,
+     "vrs18Win": 6.24,
+     "vrs18Odds": 38.5,
+     "placeOdds": [
+      6.6,
+      9.6
+     ]
+    },
+    {
+     "no": 4,
+     "market": 8.94,
+     "vrs18Raw": 6.08,
+     "vrs18Norm": 4.94,
+     "vrs18Win": 1.64,
+     "vrs18Odds": 99.2,
+     "placeOdds": [
+      7.3,
+      10.6
+     ]
+    },
+    {
+     "no": 5,
+     "market": 28.07,
+     "vrs18Raw": 49.52,
+     "vrs18Norm": 40.2,
+     "vrs18Win": 17.4,
+     "vrs18Odds": 4.4,
+     "placeOdds": [
+      2.4,
+      3.3
+     ]
+    },
+    {
+     "no": 6,
+     "market": 15.24,
+     "vrs18Raw": 18.51,
+     "vrs18Norm": 15.03,
+     "vrs18Win": 5.57,
+     "vrs18Odds": 90.0,
+     "placeOdds": [
+      4.3,
+      6.2
+     ]
+    },
+    {
+     "no": 7,
+     "market": 38.1,
+     "vrs18Raw": 56.13,
+     "vrs18Norm": 45.57,
+     "vrs18Win": 24.96,
+     "vrs18Odds": 2.7,
+     "placeOdds": [
+      1.8,
+      2.4
+     ]
+    },
+    {
+     "no": 8,
+     "market": 15.38,
+     "vrs18Raw": 13.93,
+     "vrs18Norm": 11.31,
+     "vrs18Win": 3.86,
+     "vrs18Odds": 66.5,
+     "placeOdds": [
+      4.3,
+      6.1
+     ]
+    },
+    {
+     "no": 9,
+     "market": 23.88,
+     "vrs18Raw": 33.73,
+     "vrs18Norm": 27.38,
+     "vrs18Win": 15.17,
+     "vrs18Odds": 9.7,
+     "placeOdds": [
+      2.8,
+      3.9
+     ]
+    },
+    {
+     "no": 10,
+     "market": 9.58,
+     "vrs18Raw": 12.22,
+     "vrs18Norm": 9.92,
+     "vrs18Win": 3.71,
+     "vrs18Odds": 128.2,
+     "placeOdds": [
+      6.8,
+      9.9
+     ]
+    },
+    {
+     "no": 11,
+     "market": 50.0,
+     "vrs18Raw": 55.46,
+     "vrs18Norm": 45.03,
+     "vrs18Win": 24.73,
+     "vrs18Odds": 3.4,
+     "placeOdds": [
+      1.5,
+      1.7
+     ]
+    },
+    {
+     "no": 12,
+     "market": 4.42,
+     "vrs18Raw": 4.08,
+     "vrs18Norm": 3.31,
+     "vrs18Win": 1.37,
+     "vrs18Odds": 111.4,
+     "placeOdds": [
+      14.7,
+      21.5
+     ]
+    },
+    {
+     "no": 13,
+     "market": 18.82,
+     "vrs18Raw": 20.29,
+     "vrs18Norm": 16.47,
+     "vrs18Win": 5.31,
+     "vrs18Odds": 131.4,
+     "placeOdds": [
+      3.5,
+      5.0
+     ]
+    },
+    {
+     "no": 14,
+     "market": 27.59,
+     "vrs18Raw": 27.82,
+     "vrs18Norm": 22.59,
+     "vrs18Win": 10.13,
+     "vrs18Odds": 16.8,
+     "placeOdds": [
+      2.4,
+      3.4
+     ]
+    },
+    {
+     "no": 15,
+     "market": 7.31,
+     "vrs18Raw": 9.73,
+     "vrs18Norm": 7.9,
+     "vrs18Win": 2.59,
+     "vrs18Odds": 72.3,
+     "placeOdds": [
+      8.9,
+      13.0
+     ]
+    },
+    {
+     "no": 16,
+     "market": 27.59,
+     "vrs18Raw": 24.19,
+     "vrs18Norm": 19.64,
+     "vrs18Win": 10.66,
+     "vrs18Odds": 39.8,
+     "placeOdds": [
+      2.4,
+      3.4
+     ]
+    }
+   ]
+  },
+  {
+   "race": "10R",
+   "raceId": "202608040610",
+   "field": 9,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:46:36",
+   "marketSum": 2.193,
+   "axis": {
+    "market": {
+     "no": 6,
+     "place": 72.73
+    },
+    "vrs18": {
+     "no": 6,
+     "placeNorm": 56.33,
+     "placeRaw": 59.49
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 127.59,
+    "place": 316.81,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 9.36,
+     "vrs18Raw": 15.83,
+     "vrs18Norm": 14.99,
+     "vrs18Win": 5.35,
+     "vrs18Odds": 90.9,
+     "placeOdds": [
+      4.0,
+      13.1
+     ]
+    },
+    {
+     "no": 2,
+     "market": 22.54,
+     "vrs18Raw": 36.27,
+     "vrs18Norm": 34.35,
+     "vrs18Win": 14.39,
+     "vrs18Odds": 9.5,
+     "placeOdds": [
+      1.8,
+      5.3
+     ]
+    },
+    {
+     "no": 3,
+     "market": 29.09,
+     "vrs18Raw": 55.74,
+     "vrs18Norm": 52.78,
+     "vrs18Win": 23.98,
+     "vrs18Odds": 4.6,
+     "placeOdds": [
+      1.5,
+      4.0
+     ]
+    },
+    {
+     "no": 4,
+     "market": 3.71,
+     "vrs18Raw": 10.09,
+     "vrs18Norm": 9.55,
+     "vrs18Win": 4.3,
+     "vrs18Odds": 158.9,
+     "placeOdds": [
+      9.8,
+      33.3
+     ]
+    },
+    {
+     "no": 5,
+     "market": 13.79,
+     "vrs18Raw": 24.01,
+     "vrs18Norm": 22.74,
+     "vrs18Win": 6.45,
+     "vrs18Odds": 92.4,
+     "placeOdds": [
+      2.8,
+      8.8
+     ]
+    },
+    {
+     "no": 6,
+     "market": 72.73,
+     "vrs18Raw": 59.49,
+     "vrs18Norm": 56.33,
+     "vrs18Win": 25.41,
+     "vrs18Odds": 2.9,
+     "placeOdds": [
+      1.1,
+      1.1
+     ]
+    },
+    {
+     "no": 7,
+     "market": 32.65,
+     "vrs18Raw": 49.39,
+     "vrs18Norm": 46.77,
+     "vrs18Win": 23.61,
+     "vrs18Odds": 2.5,
+     "placeOdds": [
+      1.4,
+      3.5
+     ]
+    },
+    {
+     "no": 8,
+     "market": 11.59,
+     "vrs18Raw": 29.07,
+     "vrs18Norm": 27.53,
+     "vrs18Win": 8.86,
+     "vrs18Odds": 15.7,
+     "placeOdds": [
+      3.3,
+      10.5
+     ]
+    },
+    {
+     "no": 9,
+     "market": 23.88,
+     "vrs18Raw": 36.92,
+     "vrs18Norm": 34.96,
+     "vrs18Win": 15.24,
+     "vrs18Odds": 8.0,
+     "placeOdds": [
+      1.7,
+      5.0
+     ]
+    }
+   ]
+  },
+  {
+   "race": "11R",
+   "raceId": "202608040611",
+   "field": 15,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:26:21",
+   "marketSum": 2.989,
+   "axis": {
+    "market": {
+     "no": 14,
+     "place": 43.24
+    },
+    "vrs18": {
+     "no": 14,
+     "placeNorm": 45.35,
+     "placeRaw": 55.5
+    }
+   },
+   "agree": true,
+   "vrs18Sums": {
+    "win": 133.01,
+    "place": 367.12,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 15.53,
+     "vrs18Raw": 15.35,
+     "vrs18Norm": 12.54,
+     "vrs18Win": 4.26,
+     "vrs18Odds": 90.4,
+     "placeOdds": [
+      4.4,
+      5.9
+     ]
+    },
+    {
+     "no": 2,
+     "market": 16.84,
+     "vrs18Raw": 20.41,
+     "vrs18Norm": 16.68,
+     "vrs18Win": 8.09,
+     "vrs18Odds": 9.1,
+     "placeOdds": [
+      4.1,
+      5.4
+     ]
+    },
+    {
+     "no": 3,
+     "market": 8.79,
+     "vrs18Raw": 10.37,
+     "vrs18Norm": 8.47,
+     "vrs18Win": 2.93,
+     "vrs18Odds": 204.5,
+     "placeOdds": [
+      7.7,
+      10.5
+     ]
+    },
+    {
+     "no": 4,
+     "market": 5.39,
+     "vrs18Raw": 3.2,
+     "vrs18Norm": 2.61,
+     "vrs18Win": 1.33,
+     "vrs18Odds": 197.2,
+     "placeOdds": [
+      12.6,
+      17.1
+     ]
+    },
+    {
+     "no": 5,
+     "market": 28.57,
+     "vrs18Raw": 37.79,
+     "vrs18Norm": 30.88,
+     "vrs18Win": 11.65,
+     "vrs18Odds": 6.2,
+     "placeOdds": [
+      2.4,
+      3.2
+     ]
+    },
+    {
+     "no": 6,
+     "market": 37.21,
+     "vrs18Raw": 40.31,
+     "vrs18Norm": 32.94,
+     "vrs18Win": 16.04,
+     "vrs18Odds": 6.2,
+     "placeOdds": [
+      1.9,
+      2.4
+     ]
+    },
+    {
+     "no": 7,
+     "market": 32.0,
+     "vrs18Raw": 33.71,
+     "vrs18Norm": 27.55,
+     "vrs18Win": 14.07,
+     "vrs18Odds": 16.0,
+     "placeOdds": [
+      2.2,
+      2.8
+     ]
+    },
+    {
+     "no": 8,
+     "market": 9.09,
+     "vrs18Raw": 12.81,
+     "vrs18Norm": 10.47,
+     "vrs18Win": 4.64,
+     "vrs18Odds": 50.8,
+     "placeOdds": [
+      7.5,
+      10.1
+     ]
+    },
+    {
+     "no": 9,
+     "market": 28.57,
+     "vrs18Raw": 38.95,
+     "vrs18Norm": 31.83,
+     "vrs18Win": 11.13,
+     "vrs18Odds": 4.8,
+     "placeOdds": [
+      2.4,
+      3.2
+     ]
+    },
+    {
+     "no": 10,
+     "market": 22.22,
+     "vrs18Raw": 23.46,
+     "vrs18Norm": 19.17,
+     "vrs18Win": 8.48,
+     "vrs18Odds": 17.5,
+     "placeOdds": [
+      3.1,
+      4.1
+     ]
+    },
+    {
+     "no": 11,
+     "market": 9.88,
+     "vrs18Raw": 11.25,
+     "vrs18Norm": 9.19,
+     "vrs18Win": 2.74,
+     "vrs18Odds": 73.3,
+     "placeOdds": [
+      6.9,
+      9.3
+     ]
+    },
+    {
+     "no": 12,
+     "market": 24.62,
+     "vrs18Raw": 43.36,
+     "vrs18Norm": 35.43,
+     "vrs18Win": 16.04,
+     "vrs18Odds": 14.1,
+     "placeOdds": [
+      2.8,
+      3.7
+     ]
+    },
+    {
+     "no": 13,
+     "market": 11.51,
+     "vrs18Raw": 12.29,
+     "vrs18Norm": 10.04,
+     "vrs18Win": 3.01,
+     "vrs18Odds": 35.0,
+     "placeOdds": [
+      5.9,
+      8.0
+     ]
+    },
+    {
+     "no": 14,
+     "market": 43.24,
+     "vrs18Raw": 55.5,
+     "vrs18Norm": 45.35,
+     "vrs18Win": 25.91,
+     "vrs18Odds": 1.4,
+     "placeOdds": [
+      1.7,
+      2.0
+     ]
+    },
+    {
+     "no": 15,
+     "market": 5.48,
+     "vrs18Raw": 8.36,
+     "vrs18Norm": 6.83,
+     "vrs18Win": 2.69,
+     "vrs18Odds": 113.3,
+     "placeOdds": [
+      12.4,
+      16.8
+     ]
+    }
+   ]
+  },
+  {
+   "race": "12R",
+   "raceId": "202608040612",
+   "field": 18,
+   "placePositions": 3,
+   "oddsStatus": "middle",
+   "oddsAt": "2026-10-17 09:11:41",
+   "marketSum": 3.002,
+   "axis": {
+    "market": {
+     "no": 7,
+     "place": 33.33
+    },
+    "vrs18": {
+     "no": 1,
+     "placeNorm": 39.49,
+     "placeRaw": 45.99
+    }
+   },
+   "agree": false,
+   "vrs18Sums": {
+    "win": 125.78,
+    "place": 349.36,
+    "placeTheoretical": 300
+   },
+   "horses": [
+    {
+     "no": 1,
+     "market": 30.77,
+     "vrs18Raw": 45.99,
+     "vrs18Norm": 39.49,
+     "vrs18Win": 12.68,
+     "vrs18Odds": 12.8,
+     "placeOdds": [
+      2.4,
+      2.8
+     ]
+    },
+    {
+     "no": 2,
+     "market": 10.19,
+     "vrs18Raw": 14.0,
+     "vrs18Norm": 12.02,
+     "vrs18Win": 4.57,
+     "vrs18Odds": 79.7,
+     "placeOdds": [
+      7.0,
+      8.7
+     ]
+    },
+    {
+     "no": 3,
+     "market": 10.81,
+     "vrs18Raw": 8.63,
+     "vrs18Norm": 7.41,
+     "vrs18Win": 2.66,
+     "vrs18Odds": 42.0,
+     "placeOdds": [
+      6.6,
+      8.2
+     ]
+    },
+    {
+     "no": 4,
+     "market": 24.24,
+     "vrs18Raw": 39.77,
+     "vrs18Norm": 34.15,
+     "vrs18Win": 14.93,
+     "vrs18Odds": 7.5,
+     "placeOdds": [
+      3.0,
+      3.6
+     ]
+    },
+    {
+     "no": 5,
+     "market": 15.24,
+     "vrs18Raw": 29.23,
+     "vrs18Norm": 25.1,
+     "vrs18Win": 11.73,
+     "vrs18Odds": 27.7,
+     "placeOdds": [
+      4.7,
+      5.8
+     ]
+    },
+    {
+     "no": 6,
+     "market": 25.4,
+     "vrs18Raw": 25.66,
+     "vrs18Norm": 22.03,
+     "vrs18Win": 10.0,
+     "vrs18Odds": 21.3,
+     "placeOdds": [
+      2.8,
+      3.5
+     ]
+    },
+    {
+     "no": 7,
+     "market": 33.33,
+     "vrs18Raw": 17.18,
+     "vrs18Norm": 14.75,
+     "vrs18Win": 6.71,
+     "vrs18Odds": 23.4,
+     "placeOdds": [
+      2.2,
+      2.6
+     ]
+    },
+    {
+     "no": 8,
+     "market": 20.51,
+     "vrs18Raw": 8.18,
+     "vrs18Norm": 7.02,
+     "vrs18Win": 2.37,
+     "vrs18Odds": 89.8,
+     "placeOdds": [
+      3.5,
+      4.3
+     ]
+    },
+    {
+     "no": 9,
+     "market": 5.02,
+     "vrs18Raw": 2.05,
+     "vrs18Norm": 1.76,
+     "vrs18Win": 0.52,
+     "vrs18Odds": 369.6,
+     "placeOdds": [
+      14.2,
+      17.7
+     ]
+    },
+    {
+     "no": 10,
+     "market": 18.82,
+     "vrs18Raw": 39.02,
+     "vrs18Norm": 33.51,
+     "vrs18Win": 13.99,
+     "vrs18Odds": 5.2,
+     "placeOdds": [
+      3.8,
+      4.7
+     ]
+    },
+    {
+     "no": 11,
+     "market": 7.37,
+     "vrs18Raw": 6.9,
+     "vrs18Norm": 5.93,
+     "vrs18Win": 3.01,
+     "vrs18Odds": 30.1,
+     "placeOdds": [
+      9.6,
+      12.1
+     ]
+    },
+    {
+     "no": 12,
+     "market": 17.02,
+     "vrs18Raw": 11.32,
+     "vrs18Norm": 9.72,
+     "vrs18Win": 3.26,
+     "vrs18Odds": 57.2,
+     "placeOdds": [
+      4.2,
+      5.2
+     ]
+    },
+    {
+     "no": 13,
+     "market": 17.78,
+     "vrs18Raw": 25.1,
+     "vrs18Norm": 21.55,
+     "vrs18Win": 8.93,
+     "vrs18Odds": 23.2,
+     "placeOdds": [
+      4.0,
+      5.0
+     ]
+    },
+    {
+     "no": 14,
+     "market": 14.16,
+     "vrs18Raw": 20.03,
+     "vrs18Norm": 17.2,
+     "vrs18Win": 7.61,
+     "vrs18Odds": 7.2,
+     "placeOdds": [
+      5.0,
+      6.3
+     ]
+    },
+    {
+     "no": 15,
+     "market": 22.22,
+     "vrs18Raw": 29.22,
+     "vrs18Norm": 25.09,
+     "vrs18Win": 12.65,
+     "vrs18Odds": 7.4,
+     "placeOdds": [
+      3.2,
+      4.0
+     ]
+    },
+    {
+     "no": 16,
+     "market": 11.68,
+     "vrs18Raw": 11.95,
+     "vrs18Norm": 10.26,
+     "vrs18Win": 2.6,
+     "vrs18Odds": 95.0,
+     "placeOdds": [
+      6.1,
+      7.6
+     ]
+    },
+    {
+     "no": 17,
+     "market": 4.24,
+     "vrs18Raw": 3.11,
+     "vrs18Norm": 2.67,
+     "vrs18Win": 1.16,
+     "vrs18Odds": 114.1,
+     "placeOdds": [
+      16.8,
+      20.9
+     ]
+    },
+    {
+     "no": 18,
+     "market": 11.43,
+     "vrs18Raw": 12.02,
+     "vrs18Norm": 10.32,
+     "vrs18Win": 6.4,
+     "vrs18Odds": 14.8,
+     "placeOdds": [
+      6.2,
+      7.8
+     ]
+    }
+   ]
+  }
+ ]
+}
