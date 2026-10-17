@@ -1,21 +1,21 @@
 {
- "updatedAt": "2026-10-17T02:46:51",
+ "updatedAt": "2026-10-17T06:44:56",
  "all": {
-  "races": 36,
-  "marketAxisHit": 27,
-  "vrs18AxisHit": 25,
-  "logLoss_market": 0.428,
-  "logLoss_vrs18Raw": 0.4442,
-  "logLoss_vrs18Norm": 0.4412
+  "races": 56,
+  "marketAxisHit": 40,
+  "vrs18AxisHit": 36,
+  "logLoss_market": 0.4291,
+  "logLoss_vrs18Raw": 0.4506,
+  "logLoss_vrs18Norm": 0.4474
  },
  "axisSplitOnly": {
-  "races": 8,
-  "marketAxisHit": 6,
-  "vrs18AxisHit": 4,
-  "logLoss_market": 0.4043,
-  "logLoss_vrs18Raw": 0.4548,
-  "logLoss_vrs18Norm": 0.4484
+  "races": 14,
+  "marketAxisHit": 11,
+  "vrs18AxisHit": 7,
+  "logLoss_market": 0.4169,
+  "logLoss_vrs18Raw": 0.4783,
+  "logLoss_vrs18Norm": 0.4722
  },
- "pending": 24,
+ "pending": 4,
  "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。"
 }
