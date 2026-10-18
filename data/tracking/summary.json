@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-17T08:34:53",
+ "updatedAt": "2026-10-18T00:27:46",
  "all": {
   "races": 60,
   "marketAxisHit": 44,
@@ -16,6 +16,6 @@
   "logLoss_vrs18Raw": 0.4592,
   "logLoss_vrs18Norm": 0.4536
  },
- "pending": 0,
+ "pending": 36,
  "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。"
 }
