@@ -123,7 +123,7 @@
         <tr><td>守りの見出し（HTTPヘッダ）</td><td>HSTS / X-Content-Type-Options / X-Frame-Options / Referrer-Policy / Permissions-Policy がすべて無い</td><td><span class="tag mid">中</span></td><td>下の設定値を追加（制作会社）</td></tr>
         <tr><td>遠隔操作の古い入口（XML-RPC）</td><td>10月18日 20時12分、SiteGuard で「XML-RPC 無効化」に変更。外から開くと 403（立入禁止）になり、命令の一覧も返らないことを確認</td><td><span class="tag good">済</span></td><td>—</td></tr>
         <tr><td>メールのなりすまし対策</td><td>「このサーバーから送ったものが本物」という宣言（SPF）はある。<strong>「偽物が来たらこう扱って」という指示（DMARC）が無い</strong></td><td><span class="tag mid">中</span></td><td>DNS に <code>_dmarc</code> を追加（下に例）。DKIM はカゴヤの設定を確認</td></tr>
-        <tr><td>ログイン画面</td><td>既定の場所 <code>/common/sys/wp-login.php</code> で誰でも開ける。画像認証はある。管理画面は未ログインだと404 ✓</td><td><span class="tag mid">中</span></td><td>SiteGuard の「ログインページ変更」と「ログインロック」をオン。2段階認証は画面からは断定できず、設定を確認</td></tr>
+        <tr><td>ログイン画面</td><td>既定の場所 <code>/common/sys/wp-login.php</code> で誰でも開ける。画像認証はある。管理画面は未ログインだと404 ✓</td><td><span class="tag mid">中</span></td><td>ログインロックは有効（5秒に3回の失敗で1分締め出し）を確認済み。SiteGuard の「ログインページ変更」をオン。2段階認証は画面からは断定できず、設定を確認</td></tr>
         <tr><td>WordPress 本体</td><td>7.1.3（最新。9月22日と10月6日のセキュリティ更新に追従）</td><td><span class="tag good">良</span></td><td>—</td></tr>
         <tr><td>プラグイン</td><td>10月18日に2本を更新し、8本すべて最新（Easy Accordion 3.1.11、Post Views Counter 1.8.0）を外から確認</td><td><span class="tag good">済</span></td><td>—</td></tr>
         <tr><td>REST API（外部からの読み書きの口）</td><td>未ログインでは遮断（SiteGuard）。ただし文言に「TEST12345」というテスト文字列が残っている</td><td><span class="tag info">低</span></td><td>文言だけ直す（制作会社）</td></tr>
@@ -278,7 +278,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()</div>
     <div class="card">
       <h3>B. 管理画面で自分でできるもの</h3>
       <ul>
-        <li>SiteGuard：<s>「XMLRPC防御」</s>（10月18日に済）。「ログインページ変更」「ログインロック」をオン。2段階認証の有無を確認</li>
+        <li>SiteGuard：<s>「XMLRPC防御」</s>（10月18日に済）。<s>「ログインロック」</s>（有効・5秒・3回・1分を画面で確認済み）。「ログインページ変更」をオン。2段階認証の有無を確認</li>
         <li><s>プラグイン2本を更新（Easy Accordion、Post Views Counter）</s>（10月18日に済）</li>
         <li>ユーザー「管理用石名坂」「echnaadmin」の表示名を「株式会社 石名坂」に</li>
         <li>農業エネルギー連載5本にアイキャッチを設定。AIOSEO で X のカードをオン、カテゴリーの既定画像を設定</li>
