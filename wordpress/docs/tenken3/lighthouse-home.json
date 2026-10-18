@@ -1,0 +1,72 @@
+{
+ "scores": {
+  "performance": 58,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100
+ },
+ "metrics": {
+  "first-contentful-paint": "4.4 s",
+  "largest-contentful-paint": "10.1 s",
+  "total-blocking-time": "150 ms",
+  "cumulative-layout-shift": "0.002",
+  "speed-index": "7.3 s",
+  "server-response-time": "Root document took 400 ms"
+ },
+ "renderBlocking": [
+  [
+   "https://www.ishinazaka.co.jp/common/sys/wp-includes/js/jquery/jquery-migrate.min.js",
+   5476,
+   575
+  ],
+  [
+   "https://www.ishinazaka.co.jp/common/files/cache/autoptimize/css/autoptimize_single_c1e4ea17bae5a259770d442d772cc4b4.css",
+   15485,
+   575
+  ],
+  [
+   "https://www.ishinazaka.co.jp/common/files/cache/autoptimize/css/autoptimize_single_db7dc70bf1d1ec205b8358353501f00d.css?r=1792296352",
+   4990,
+   575
+  ]
+ ],
+ "lcpElement": [
+  {
+   "node": {
+    "type": "node",
+    "lhId": "page-3-P",
+    "path": "1,HTML,1,BODY,4,SECTION,0,SECTION,0,DIV,0,DIV,1,P",
+    "selector": "section#main_image > div.slick-list > div.slick-track > p.slide",
+    "boundingRect": {
+     "top": 94,
+     "bottom": 394,
+     "left": -181,
+     "right": 231,
+     "width": 412,
+     "height": 300
+    },
+    "snippet": "<p class=\"slide lazyloaded slick-slide\" data-bg=\"https://www.ishinazaka.co.jp/common/files/uploads/2026/05/1000006860.webp\" style=\"background-image: url(&quot;https://www.ishinazaka.co.jp/common/files/uploads/2…&quot;);\" data-slick-index=\"0\" aria-hidden=\"true\" tabindex=\"0\">",
+    "nodeLabel": "株式会社 石名坂ホームページ　メイン画像"
+   }
+  }
+ ],
+ "thirdParty": [
+  [
+   "Google Tag Manager",
+   195533,
+   178.09889805653074
+  ],
+  [
+   "Google Fonts",
+   438772,
+   0
+  ],
+  [
+   "Google Analytics",
+   508,
+   0
+  ]
+ ],
+ "version": "12.8.2",
+ "fetchTime": "2026-10-18T04:05:51.111Z"
+}

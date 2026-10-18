@@ -325,3 +325,23 @@ python3 wordpress/posts/check_house_style.py <file.html> # 下書きを点検す
 - 確かめ方：wordpress/docs/shamei/kakunin.py（公開ページ171を開いて数える。書き込みはしない）。
   サイトマップの <loc> は CDATA で囲まれているので、そのつもりで読むこと。
 - 作業用アカウント ai-agent の表示名は「株式会社 石名坂」にしてある。
+
+## 12. 3回目の点検で覚えたこと（2026年10月18日）
+
+- **道具は `wordpress/docs/tenken3/`。** toru.py（全ページ＋応答ヘッダ）、anzen.py（読むだけのセキュリティ確認）、
+  bunseki.py（検索向け・前回の積み残し）、hakaru.js（手元のブラウザでスマホ計測）。
+- **TLS 証明書は、この作業環境からは確かめられない。** 通信を中継しているため、発行者が「Anthropic」と出る。
+  古い TLS の可否も同じ。SSL Labs を案内する。
+- **Google の PageSpeed の公開枠（鍵なし）は上限で使えないことがある。** 代わりに
+  `npx lighthouse@12` を手元の Chromium（/opt/pw-browsers）で動かす。1ページ3〜4分。
+- **dig は使えない。** DNS は `https://dns.google/resolve?name=…&type=TXT` で引く。
+- **REST API の遮断（SiteGuard）は、プラグインごとに通す・通さないが分かれる。**
+  wp/v2 と aioseo は 401、contact-form-7 と mwai-ui は通る。
+  だから未ログインでも、フォームとチャットは動く。
+- **未ログインで `/wp-json/contact-form-7/v1/contact-forms` を開くと PHP の致命的エラーが全文出る**
+  （CF7 6.2.2 の rest-api.php:33、サーバー内のパス付き）。display_errors がオンということ。制作会社へ。
+- **WordPress 本体の版は、公開ページでは分からない**（Autoptimize が ?ver= を消す）。
+  ログイン画面 `/common/sys/wp-login.php` の ?ver= を数えると出る（7.1.3）。
+- **広告（AdSense）は 172ページ中 163ページに入っている。** トップにも。1ページ 500KB 超・外部接続 14回。
+- **PIL（Pillow）は入っていないことがある。** /opt/pw-browsers の ffmpeg も PNG を読めない。
+  画面の控えは Playwright で `type: "jpeg", deviceScaleFactor: 1` にして撮り直すのが早い。

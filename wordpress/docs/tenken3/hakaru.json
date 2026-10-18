@@ -1,0 +1,270 @@
+{
+ "home": {
+  "url": "https://www.ishinazaka.co.jp/",
+  "loadMs": 3046,
+  "ttfb": 1014.0999999999767,
+  "dcl": 2337,
+  "load": 3041.79999999993,
+  "lcp": 3084,
+  "cls": 0.0018094208304459585,
+  "h1": 1,
+  "imgs": 9,
+  "fontPx": "16px",
+  "docH": 7002,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 13,
+  "requests": 75,
+  "totalKB": 2952,
+  "byType": {
+   "document": [
+    1,
+    118
+   ],
+   "stylesheet": [
+    9,
+    535
+   ],
+   "script": [
+    23,
+    1092
+   ],
+   "image": [
+    10,
+    847
+   ],
+   "media": [
+    2,
+    20
+   ],
+   "font": [
+    28,
+    340
+   ],
+   "other": [
+    1,
+    0
+   ],
+   "fetch": [
+    1,
+    0
+   ]
+  },
+  "big": [
+   [
+    "577KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "241KB",
+    "image",
+    "/common/files/uploads/2026/05/1000006838.webp"
+   ],
+   [
+    "168KB",
+    "image",
+    "/common/files/uploads/2026/05/1000006843.webp"
+   ]
+  ],
+  "third": {
+   "www.googletagmanager.com": 1,
+   "fonts.googleapis.com": 1,
+   "fonts.gstatic.com": 28,
+   "www.google-analytics.com": 1
+  },
+  "errors": [],
+  "failed": [
+   "https://www.ishinazaka.co.jp/common/files/uploads/2026/05/gemini_generated_video_5544ef32.mp4 net::ERR_ABORTED",
+   "https://www.google-analytics.com/g/collect?v=2&tid=G-P7QVNP8EY0&gtm=45Pe6ae1v9248583799za208zd9248583799xf1&_p=1792296307005&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&gdid=dZTNiMT&_eu=AAAAACAC&are=1&cid=1475788953.1792296308&frm=0&ibt=1&ngs=1&pscdl=denied&rcb=7&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0&uam=&uamb=1&uap=Android&uapv=14&uaw=0&ul=ja-jp&_s=1&tag_exp=115616985~115938466~115938469~118897920~118897930~120213116~120385423~120469145~120469153~121246026~121246034&sid=1792296307&sct=1&seg=0&dl=https%3A%2F%2Fwww.ishinazaka.co.jp%2F&dt=%E7%9B%9B%E5%B2%A1%E3%81%AE%E7%A0%95%E7%9F%B3%E3%83%BB%E7%A0%82%E5%88%A9%E8%B2%A9%E5%A3%B2%E3%81%A8%E5%9C%9F%E6%9C%A8%E5%B7%A5%E4%BA%8B%EF%BD%9C%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E7%9F%B3%E5%90%8D%E5%9D%82&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.googlesitekit_post_type=page&tfd=2929 net::ERR_ABORTED"
+  ],
+  "horizontalScroll": false
+ },
+ "kiji": {
+  "url": "https://www.ishinazaka.co.jp/shiro-tora-shobun-kijun-kakutei/",
+  "loadMs": 3318,
+  "ttfb": 1109.9000000000233,
+  "dcl": 2049.20000000007,
+  "load": 3310.9000000000233,
+  "lcp": 2084,
+  "cls": 0,
+  "h1": 1,
+  "imgs": 8,
+  "fontPx": "16px",
+  "docH": 12055,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 15,
+  "requests": 75,
+  "totalKB": 2937,
+  "byType": {
+   "document": [
+    5,
+    145
+   ],
+   "stylesheet": [
+    7,
+    529
+   ],
+   "script": [
+    26,
+    1798
+   ],
+   "image": [
+    8,
+    133
+   ],
+   "font": [
+    26,
+    313
+   ],
+   "fetch": [
+    1,
+    0
+   ],
+   "other": [
+    1,
+    0
+   ],
+   "xhr": [
+    1,
+    18
+   ]
+  },
+  "big": [
+   [
+    "577KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "501KB",
+    "script",
+    "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202610130101/sh"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "163KB",
+    "script",
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-831"
+   ]
+  ],
+  "third": {
+   "fonts.googleapis.com": 1,
+   "fonts.gstatic.com": 26,
+   "www.googletagmanager.com": 1,
+   "pagead2.googlesyndication.com": 6,
+   "googleads.g.doubleclick.net": 2,
+   "www.google-analytics.com": 1,
+   "ep1.adtrafficquality.google": 2,
+   "ep2.adtrafficquality.google": 3,
+   "www.google.com": 1
+  },
+  "errors": [],
+  "failed": [
+   "https://www.google-analytics.com/g/collect?v=2&tid=G-P7QVNP8EY0&gtm=45Pe6ae1v9248583799za208zd9248583799xf1&_p=1792296316966&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&gdid=dZTNiMT&_eu=AAAAACAC&are=1&cid=1532172891.1792296318&frm=0&ibt=1&ngs=1&pscdl=denied&rcb=16&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0&uam=&uamb=1&uap=Android&uapv=14&uaw=0&ul=ja-jp&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153~121246026~121246034&sid=1792296317&sct=1&seg=0&dl=https%3A%2F%2Fwww.ishinazaka.co.jp%2Fshiro-tora-shobun-kijun-kakutei%2F&dt=%E7%99%BD%E3%83%88%E3%83%A9%E3%81%AE%E8%A1%8C%E6%94%BF%E5%87%A6%E5%88%86%E3%81%8C10%E6%9C%881%E6%97%A5%E3%81%8B%E3%82%89%E5%8E%B3%E3%81%97%E3%81%8F%EF%BD%9C120%E6%97%A5%E3%83%BB180%E6%97%A5%E3%81%AE%E6%96%B0%E5%9F%BA%E6%BA%96&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.googlesitekit_post_type=post&tfd=2906 net::ERR_ABORTED"
+  ],
+  "horizontalScroll": false
+ },
+ "saiseki": {
+  "url": "https://www.ishinazaka.co.jp/saiseki-hanbai/",
+  "loadMs": 2739,
+  "ttfb": 1056.7000000000698,
+  "dcl": 1861.5,
+  "load": 2735.9000000000233,
+  "lcp": 1904,
+  "cls": 0.00016481880420633586,
+  "h1": 1,
+  "imgs": 25,
+  "fontPx": "16px",
+  "docH": 18953,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 19,
+  "requests": 67,
+  "totalKB": 2871,
+  "byType": {
+   "document": [
+    1,
+    160
+   ],
+   "stylesheet": [
+    7,
+    529
+   ],
+   "script": [
+    22,
+    1050
+   ],
+   "image": [
+    8,
+    790
+   ],
+   "font": [
+    27,
+    341
+   ],
+   "other": [
+    1,
+    0
+   ],
+   "fetch": [
+    1,
+    0
+   ]
+  },
+  "big": [
+   [
+    "577KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "221KB",
+    "image",
+    "/common/files/uploads/2025/11/PXL_20251126_075740491-1153x1536.png.webp"
+   ],
+   [
+    "206KB",
+    "image",
+    "/common/files/uploads/2026/05/Gemini_Generated_Image_m6cuz2m6cuz2m6cu-1536x838.w"
+   ],
+   [
+    "160KB",
+    "document",
+    "/saiseki-hanbai/"
+   ],
+   [
+    "155KB",
+    "image",
+    "/common/files/uploads/2026/04/1775539219598_260407143021.png.webp"
+   ]
+  ],
+  "third": {
+   "fonts.googleapis.com": 1,
+   "www.googletagmanager.com": 1,
+   "fonts.gstatic.com": 27,
+   "www.google-analytics.com": 1,
+   "scdn.line-apps.com": 1
+  },
+  "errors": [],
+  "failed": [
+   "https://www.google-analytics.com/g/collect?v=2&tid=G-P7QVNP8EY0&gtm=45Pe6ae1v9248583799za208zd9248583799xf1&_p=1792296324747&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&gdid=dZTNiMT&_eu=AAAAACAC&are=1&cid=1408052044.1792296326&frm=0&ibt=1&ngs=1&pscdl=denied&rcb=19&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B141.0.7390.37%7CNot%253FA_Brand%3B8.0.0.0&uam=&uamb=1&uap=Android&uapv=14&uaw=0&ul=ja-jp&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~121246026~121246034&sid=1792296325&sct=1&seg=0&dl=https%3A%2F%2Fwww.ishinazaka.co.jp%2Fsaiseki-hanbai%2F&dt=%E7%9B%9B%E5%B2%A1%E3%81%AE%E7%A0%95%E7%9F%B3%E8%B2%A9%E5%A3%B2%EF%BD%9C%E7%A8%AE%E9%A1%9E%E3%83%BB%E7%94%A8%E9%80%94%E3%83%BB%E4%BE%A1%E6%A0%BC%E4%B8%80%E8%A6%A7%E3%81%A8%E3%83%80%E3%83%B3%E3%83%97%E9%85%8D%E9%81%94&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.googlesitekit_post_type=page&tfd=2722 net::ERR_ABORTED"
+  ],
+  "horizontalScroll": false
+ }
+}
