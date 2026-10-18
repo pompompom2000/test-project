@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-18",
+  "race": "京都11R 秋華賞(G1) 芝2000m 17頭 15:40発走",
+  "raceId": "202608040711",
+  "acceptedAt": "11:02",
+  "receiptNo": "0003",
+  "source": "IPAT照会画面のスクリーンショット",
+  "structure": "6番ラベルセーヌ・8番モンローウォークの2頭軸、3連複6点。払戻が約9万円に揃うよう配分されている",
+  "bets": [
+    {"type":"3連複","combo":[1,6,8],"stake":1900,"oddsAtEval":47.6,"pEstimate":0.0150,"ifHit":90440},
+    {"type":"3連複","combo":[3,6,8],"stake":3000,"oddsAtEval":30.0,"pEstimate":0.0209,"ifHit":90000},
+    {"type":"3連複","combo":[4,6,8],"stake":4200,"oddsAtEval":21.1,"pEstimate":0.0328,"ifHit":88620},
+    {"type":"3連複","combo":[6,8,12],"stake":4000,"oddsAtEval":22.7,"pEstimate":0.0315,"ifHit":90800},
+    {"type":"3連複","combo":[6,8,13],"stake":4900,"oddsAtEval":18.2,"pEstimate":0.0360,"ifHit":89180},
+    {"type":"3連複","combo":[6,8,14],"stake":2000,"oddsAtEval":44.7,"pEstimate":0.0166,"ifHit":89400}
+  ],
+  "preRace": {
+    "evaluatedAt": "2026-10-18 11:32 JST",
+    "stake": 20000, "expectedReturn": 13688, "ev": 0.684,
+    "pAnyHit": 0.153,
+    "pBothAxesPlace": 0.203,
+    "coverageOfAxisSuccess": 0.751,
+    "method": "3連複プールを同時分布とし、周辺を複勝・ワイド・3連複の中央値に合わせてIPF補正",
+    "notedBefore": "2頭軸の成立確率20.3%が天井で、相手をどう選んでもそれを超えられない点を発走前に指摘した"
+  },
+  "result": {
+    "finish": [8, 1, 13],
+    "names": {"8":"モンローウォーク(1人気)","1":"ギャラボーグ(7人気)","13":"ドリームコア(2人気)"},
+    "no6": "ラベルセーヌ 6着",
+    "winningTrio": [1, 8, 13],
+    "trioPayout": 3520,
+    "trioPopularity": 10,
+    "hit": false, "payout": 0, "stake": 20000, "net": -20000, "roi": 0.0,
+    "comment": "8番は1着、相手の1番と13番が2着3着に来たが、2頭目の軸である6番ラベルセーヌが6着で全6点が外れた。的中した1-8-13は、相手として選んだ2頭の組み合わせそのもの。発走前に指摘した「2頭軸の20.3%が天井」の、外れる側79.7%が出た形。"
+  },
+  "note": "1レースの結果で買い方の当否は判定できない。推定15.3%の事象が起きなかっただけ。"
+}
