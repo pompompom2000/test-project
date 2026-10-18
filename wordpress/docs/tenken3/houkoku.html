@@ -121,7 +121,7 @@
       <tbody>
         <tr><td>エラーの画面表示</td><td>致命的エラーの全文とサーバー内の場所が外から見える</td><td><span class="tag bad">高</span></td><td>display_errors をオフ。CF7の原因調査（制作会社）</td></tr>
         <tr><td>守りの見出し（HTTPヘッダ）</td><td>HSTS / X-Content-Type-Options / X-Frame-Options / Referrer-Policy / Permissions-Policy がすべて無い</td><td><span class="tag mid">中</span></td><td>下の設定値を追加（制作会社）</td></tr>
-        <tr><td>遠隔操作の古い入口（XML-RPC）</td><td>開いたまま。1回の通信で何十通りものパスワードを試せる命令が使えるため、総当たりの近道になる。外部からの通知受け取り（pingback）は止まっている</td><td><span class="tag mid">中</span></td><td>SiteGuard の「XMLRPC防御」をオン（管理画面）</td></tr>
+        <tr><td>遠隔操作の古い入口（XML-RPC）</td><td>10月18日 20時12分、SiteGuard で「XML-RPC 無効化」に変更。外から開くと 403（立入禁止）になり、命令の一覧も返らないことを確認</td><td><span class="tag good">済</span></td><td>—</td></tr>
         <tr><td>メールのなりすまし対策</td><td>「このサーバーから送ったものが本物」という宣言（SPF）はある。<strong>「偽物が来たらこう扱って」という指示（DMARC）が無い</strong></td><td><span class="tag mid">中</span></td><td>DNS に <code>_dmarc</code> を追加（下に例）。DKIM はカゴヤの設定を確認</td></tr>
         <tr><td>ログイン画面</td><td>既定の場所 <code>/common/sys/wp-login.php</code> で誰でも開ける。画像認証はある。管理画面は未ログインだと404 ✓</td><td><span class="tag mid">中</span></td><td>SiteGuard の「ログインページ変更」と「ログインロック」をオン。2段階認証は画面からは断定できず、設定を確認</td></tr>
         <tr><td>WordPress 本体</td><td>7.1.3（最新。9月22日と10月6日のセキュリティ更新に追従）</td><td><span class="tag good">良</span></td><td>—</td></tr>
@@ -278,7 +278,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()</div>
     <div class="card">
       <h3>B. 管理画面で自分でできるもの</h3>
       <ul>
-        <li>SiteGuard：「XMLRPC防御」「ログインページ変更」「ログインロック」をオン。2段階認証の有無を確認</li>
+        <li>SiteGuard：<s>「XMLRPC防御」</s>（10月18日に済）。「ログインページ変更」「ログインロック」をオン。2段階認証の有無を確認</li>
         <li>プラグイン2本を更新（Easy Accordion、Post Views Counter）</li>
         <li>ユーザー「管理用石名坂」「echnaadmin」の表示名を「株式会社 石名坂」に</li>
         <li>農業エネルギー連載5本にアイキャッチを設定。AIOSEO で X のカードをオン、カテゴリーの既定画像を設定</li>
