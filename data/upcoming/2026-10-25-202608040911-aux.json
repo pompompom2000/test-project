@@ -16,7 +16,14 @@
    "adj": "外厩2戦目",
    "interval": 4,
    "over500kg": true,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 17.2
   },
   {
    "waku": 1,
@@ -31,7 +38,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 17.3
   },
   {
    "waku": 2,
@@ -46,7 +60,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 20.5
   },
   {
    "waku": 2,
@@ -61,7 +82,14 @@
    "adj": "外厩2戦目",
    "interval": 3,
    "over500kg": false,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 1.5
   },
   {
    "waku": 3,
@@ -76,7 +104,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 26.1
   },
   {
    "waku": 3,
@@ -91,7 +126,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 12.9
   },
   {
    "waku": 4,
@@ -106,7 +148,14 @@
    "adj": "外厩初戦",
    "interval": 4,
    "over500kg": false,
-   "breeder": "那須野"
+   "breeder": "那須野",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 3.9
   },
   {
    "waku": 4,
@@ -121,7 +170,20 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": true,
+    "path": "母父母母父",
+    "generation": 5,
+    "chain": [
+     "ソングライティング",
+     "Giant's Causeway (米)",
+     "Mariah's Storm (米)",
+     "イメンス",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 74.1
   },
   {
    "waku": 5,
@@ -136,7 +198,14 @@
    "adj": "外厩初戦",
    "interval": 4,
    "over500kg": true,
-   "breeder": "千代田牧場"
+   "breeder": "千代田牧場",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 24.1
   },
   {
    "waku": 5,
@@ -151,7 +220,19 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "ノーザンファーム"
+   "breeder": "ノーザンファーム",
+   "roberto": {
+    "has": true,
+    "path": "父父父父",
+    "generation": 4,
+    "chain": [
+     "エピファネイア",
+     "シンボリクリスエス",
+     "Kris S. (米)",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 46.3
   },
   {
    "waku": 6,
@@ -166,7 +247,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "三嶋牧場"
+   "breeder": "三嶋牧場",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 16.0
   },
   {
    "waku": 6,
@@ -181,12 +269,19 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "沖田牧場"
+   "breeder": "沖田牧場",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 3.4
   },
   {
    "waku": 7,
    "no": 13,
-   "name": "キングクローリー",
+   "name": "キンググローリー",
    "jockey": "丹内",
    "jockeyPlace": 29.5,
    "trainer": "古賀慎",
@@ -196,7 +291,20 @@
    "adj": "外厩初戦",
    "interval": 4,
    "over500kg": false,
-   "breeder": "MTファーム"
+   "breeder": "MTファーム",
+   "roberto": {
+    "has": true,
+    "path": "父母父父父",
+    "generation": 5,
+    "chain": [
+     "ダノンプレミアム",
+     "インディアナギャル",
+     "Intikhab (米)",
+     "Red Ransom (米)",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 5.1
   },
   {
    "waku": 7,
@@ -211,7 +319,19 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "社台ファーム"
+   "breeder": "社台ファーム",
+   "roberto": {
+    "has": true,
+    "path": "母父父父",
+    "generation": 4,
+    "chain": [
+     "ブルーミングアレー",
+     "シンボリクリスエス",
+     "Kris S. (米)",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 12.0
   },
   {
    "waku": 7,
@@ -226,7 +346,20 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "出口牧場"
+   "breeder": "出口牧場",
+   "roberto": {
+    "has": true,
+    "path": "父父父父父",
+    "generation": 5,
+    "chain": [
+     "モーリス",
+     "スクリーンヒーロー",
+     "グラスワンダー",
+     "Silver Hawk (米)",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 10.7
   },
   {
    "waku": 8,
@@ -241,7 +374,20 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": false,
-   "breeder": "青藍牧場"
+   "breeder": "青藍牧場",
+   "roberto": {
+    "has": true,
+    "path": "父母父父父",
+    "generation": 5,
+    "chain": [
+     "レイデオロ",
+     "ラドラーダ",
+     "シンボリクリスエス",
+     "Kris S. (米)",
+     "Roberto (米)"
+    ]
+   },
+   "marketPlacePct": 8.7
   },
   {
    "waku": 8,
@@ -256,7 +402,14 @@
    "adj": "外厩初戦",
    "interval": 5,
    "over500kg": true,
-   "breeder": "坂東牧場"
+   "breeder": "坂東牧場",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 3.1
   },
   {
    "waku": 8,
@@ -271,8 +424,16 @@
    "adj": "外厩2戦目",
    "interval": 5,
    "over500kg": false,
-   "breeder": "三嶋牧場"
+   "breeder": "三嶋牧場",
+   "roberto": {
+    "has": false,
+    "path": null,
+    "generation": null,
+    "chain": null
+   },
+   "marketPlacePct": 3.1
   }
  ],
- "auxSource2": "ユーザー提供の第2表（500キロ以上馬・生産牧場）2026-10-24夜"
+ "auxSource2": "ユーザー提供の第2表（500キロ以上馬・生産牧場）2026-10-24夜",
+ "robertoMethod": "5代血統表(62セル)をグリッドに復元し Roberto の位置を特定。5代目はrowspan属性が無いため、属性の有無で世代を判定する実装では取りこぼす"
 }
