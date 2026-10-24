@@ -126,8 +126,12 @@ def parse_past(rid):
         blk = row
         sire = re.search(r'(?is)<div class="Horse01[^"]*">\s*([^<]+?)\s*</div>', blk)
         bms = re.search(r'(?is)<div class="Horse04[^"]*">\s*\(?\s*([^)<]+?)\s*\)?\s*</div>', blk)
+        # 馬IDも取る。種牡馬名から馬IDを引けなかったときに、この馬の血統表から
+        # 父・母父のIDを読む回り道ができる
+        hid = re.search(r'(?is)<div class="Horse02">.*?/horse/([0-9a-z]{10})', blk)
         out[no] = {'sire': sire.group(1).strip() if sire else None,
-                   'bms': bms.group(1).strip() if bms else None}
+                   'bms': bms.group(1).strip() if bms else None,
+                   'id': hid.group(1) if hid else None}
     return out
 
 
