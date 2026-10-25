@@ -1,0 +1,362 @@
+{
+ "race": "2026-10-25 京都11R 菊花賞(G1) 芝3000m 18頭 15:40発走",
+ "raceId": "202608040911",
+ "oddsAt": "2026-10-25 13:35:33",
+ "going": "稍重",
+ "weather": "曇",
+ "method": "単勝/複勝/ワイド/3連複の4プールから3着内確率を出し、複勝・ワイド・3連複の中央値を取ってΣ=3に正規化",
+ "evScreen": {
+  "複勝": {
+   "best": 0.783,
+   "horse": 8,
+   "baseline": 0.8,
+   "countOver1": 0
+  },
+  "ワイド": {
+   "best": 0.99,
+   "baseline": 0.775,
+   "countOver1": 0,
+   "total": 153
+  },
+  "三連複": {
+   "best": 1.701,
+   "baseline": 0.75,
+   "countOver1": 354,
+   "total": 816,
+   "note": "EV>1は354組あるが全て確率0.1%未満の帯に集中。確率0.5%以上の48組はEV>1がゼロ。中央値が人気薄ほど3連複プールより高く出る（17番1.38倍、7番1.28倍、16番1.26倍）ための増幅で、取れる優位ではない"
+  }
+ },
+ "conclusion": "買える券はない。ワイドは153組すべてEV1未満、複勝の最良も基準0.80に届かない",
+ "articleCheck": {
+  "source": "https://note.com/vrs18/n/n68eb44c295c4",
+  "note": "勝ち馬条件5項目は記事の無料部分。5項目該当は8番ロブチェンのみで、単勝1.6倍の1番人気に一致。該当数と市場3着内確率の順位相関 0.723",
+  "caveat": "「勝ち馬の100%が前走3着以内」等はP(条件|勝ち馬)であってP(勝つ|条件)ではない"
+ },
+ "vrs18": "2026-10-25のAI予測記事は前日10/24の画像の使い回しのため使用せず（work/2026-10-25/SKIPPED.md）",
+ "horses": [
+  {
+   "no": 1,
+   "name": "エムズビギン",
+   "win": 40.4,
+   "marketPlace": 0.1257,
+   "prevFinish": 5,
+   "prevGrade": "GII",
+   "prevNinki": 8,
+   "trainer": "栗東・友道",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 2,
+   "name": "コンジェスタス",
+   "win": 21.7,
+   "marketPlace": 0.1895,
+   "prevFinish": 6,
+   "prevGrade": "GII",
+   "prevNinki": 4,
+   "trainer": "栗東・高野",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 4
+  },
+  {
+   "no": 3,
+   "name": "アウダーシア",
+   "win": 21.1,
+   "marketPlace": 0.2004,
+   "prevFinish": 3,
+   "prevGrade": "GII",
+   "prevNinki": 6,
+   "trainer": "美浦・手塚久",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": false,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 4,
+   "name": "ショウナンガルフ",
+   "win": 222.8,
+   "marketPlace": 0.0137,
+   "prevFinish": 11,
+   "prevGrade": "L",
+   "prevNinki": 12,
+   "trainer": "栗東・須貝",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": false,
+    "前走5番人気以内": false,
+    "栗東所属": true,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 1
+  },
+  {
+   "no": 5,
+   "name": "ジャスティンシカゴ",
+   "win": 14.9,
+   "marketPlace": 0.2499,
+   "prevFinish": 1,
+   "prevGrade": "GII",
+   "prevNinki": 12,
+   "trainer": "美浦・宮田",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": false,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 6,
+   "name": "バステール",
+   "win": 39.2,
+   "marketPlace": 0.1235,
+   "prevFinish": 13,
+   "prevGrade": "GII",
+   "prevNinki": 4,
+   "trainer": "栗東・斉藤崇",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 4
+  },
+  {
+   "no": 7,
+   "name": "ラージアンサンブル",
+   "win": 129.3,
+   "marketPlace": 0.0412,
+   "prevFinish": 7,
+   "prevGrade": "GII",
+   "prevNinki": 8,
+   "trainer": "美浦・武井",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": false,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 1
+  },
+  {
+   "no": 8,
+   "name": "ロブチェン",
+   "win": 1.6,
+   "marketPlace": 0.7115,
+   "prevFinish": 1,
+   "prevGrade": "GII",
+   "prevNinki": 1,
+   "trainer": "栗東・杉山晴",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 5
+  },
+  {
+   "no": 9,
+   "name": "ゴーイントゥスカイ",
+   "win": 12.4,
+   "marketPlace": 0.2334,
+   "prevFinish": 6,
+   "prevGrade": "GII",
+   "prevNinki": 1,
+   "trainer": "美浦・上原佑",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": false,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 10,
+   "name": "ダノンヒストリー",
+   "win": 4.4,
+   "marketPlace": 0.4802,
+   "prevFinish": 1,
+   "prevGrade": "2勝",
+   "prevNinki": 1,
+   "trainer": "美浦・堀",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": false,
+    "前走5番人気以内": true,
+    "栗東所属": false,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 11,
+   "name": "アスクエジンバラ",
+   "win": 25.8,
+   "marketPlace": 0.165,
+   "prevFinish": 4,
+   "prevGrade": "GII",
+   "prevNinki": 3,
+   "trainer": "栗東・福永",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 4
+  },
+  {
+   "no": 12,
+   "name": "サノノグレーター",
+   "win": 128.2,
+   "marketPlace": 0.0275,
+   "prevFinish": 11,
+   "prevGrade": "GII",
+   "prevNinki": 5,
+   "trainer": "美浦・尾形",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": true,
+    "栗東所属": false,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 2
+  },
+  {
+   "no": 13,
+   "name": "キンググローリー",
+   "win": 78.7,
+   "marketPlace": 0.0539,
+   "prevFinish": 1,
+   "prevGrade": "2勝",
+   "prevNinki": 3,
+   "trainer": "美浦・古賀慎",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": false,
+    "前走5番人気以内": true,
+    "栗東所属": false,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 2
+  },
+  {
+   "no": 14,
+   "name": "マジョレルブルー",
+   "win": 46.0,
+   "marketPlace": 0.1159,
+   "prevFinish": 1,
+   "prevGrade": "2勝",
+   "prevNinki": 3,
+   "trainer": "栗東・友道",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": false,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 4
+  },
+  {
+   "no": 15,
+   "name": "シートゥサミット",
+   "win": 58.0,
+   "marketPlace": 0.1042,
+   "prevFinish": 3,
+   "prevGrade": "GII",
+   "prevNinki": 11,
+   "trainer": "栗東・吉岡",
+   "winnerConditions": {
+    "前走3着以内": true,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": true,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 16,
+   "name": "ショウナンハヤナミ",
+   "win": 47.6,
+   "marketPlace": 0.105,
+   "prevFinish": 10,
+   "prevGrade": "GII",
+   "prevNinki": 7,
+   "trainer": "栗東・渡辺",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": true,
+    "前走5番人気以内": false,
+    "栗東所属": true,
+    "単勝50倍未満": true
+   },
+   "conditionsMet": 3
+  },
+  {
+   "no": 17,
+   "name": "チャリングクロス",
+   "win": 137.1,
+   "marketPlace": 0.0314,
+   "prevFinish": 7,
+   "prevGrade": "3勝",
+   "prevNinki": 1,
+   "trainer": "美浦・奥村武",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": false,
+    "前走5番人気以内": true,
+    "栗東所属": false,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 1
+  },
+  {
+   "no": 18,
+   "name": "ナリタエスペランサ",
+   "win": 142.0,
+   "marketPlace": 0.0282,
+   "prevFinish": 12,
+   "prevGrade": "3勝",
+   "prevNinki": 1,
+   "trainer": "栗東・福永",
+   "winnerConditions": {
+    "前走3着以内": false,
+    "前走が重賞": false,
+    "前走5番人気以内": true,
+    "栗東所属": true,
+    "単勝50倍未満": false
+   },
+   "conditionsMet": 2
+  }
+ ]
+}
