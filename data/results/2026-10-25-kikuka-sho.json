@@ -1,0 +1,187 @@
+{
+ "race": "2026-10-25 京都11R 菊花賞(G1) 芝3000m 18頭 15:40発走",
+ "raceId": "202608040911",
+ "date": "2026-10-25",
+ "going": "良（事前見込みは稍重。発走までに回復した）",
+ "weather": "曇",
+ "oddsSnapshot": "2026-10-25 13:35:33",
+ "result": [
+  {
+   "pos": "1",
+   "no": 9,
+   "name": "ゴーイントゥスカイ",
+   "priorPlaceProb": 0.2334,
+   "priorWin": 12.4,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "2",
+   "no": 6,
+   "name": "バステール",
+   "priorPlaceProb": 0.1235,
+   "priorWin": 39.2,
+   "conditionsMet": 4
+  },
+  {
+   "pos": "3",
+   "no": 10,
+   "name": "ダノンヒストリー",
+   "priorPlaceProb": 0.4802,
+   "priorWin": 4.4,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "4",
+   "no": 12,
+   "name": "サノノグレーター",
+   "priorPlaceProb": 0.0275,
+   "priorWin": 128.2,
+   "conditionsMet": 2
+  },
+  {
+   "pos": "5",
+   "no": 15,
+   "name": "シートゥサミット",
+   "priorPlaceProb": 0.1042,
+   "priorWin": 58.0,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "6",
+   "no": 16,
+   "name": "ショウナンハヤナミ",
+   "priorPlaceProb": 0.105,
+   "priorWin": 47.6,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "7",
+   "no": 14,
+   "name": "マジョレルブルー",
+   "priorPlaceProb": 0.1159,
+   "priorWin": 46.0,
+   "conditionsMet": 4
+  },
+  {
+   "pos": "8",
+   "no": 2,
+   "name": "コンジェスタス",
+   "priorPlaceProb": 0.1895,
+   "priorWin": 21.7,
+   "conditionsMet": 4
+  },
+  {
+   "pos": "9",
+   "no": 3,
+   "name": "アウダーシア",
+   "priorPlaceProb": 0.2004,
+   "priorWin": 21.1,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "10",
+   "no": 5,
+   "name": "ジャスティンシカゴ",
+   "priorPlaceProb": 0.2499,
+   "priorWin": 14.9,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "11",
+   "no": 17,
+   "name": "チャリングクロス",
+   "priorPlaceProb": 0.0314,
+   "priorWin": 137.1,
+   "conditionsMet": 1
+  },
+  {
+   "pos": "12",
+   "no": 7,
+   "name": "ラージアンサンブル",
+   "priorPlaceProb": 0.0412,
+   "priorWin": 129.3,
+   "conditionsMet": 1
+  },
+  {
+   "pos": "13",
+   "no": 1,
+   "name": "エムズビギン",
+   "priorPlaceProb": 0.1257,
+   "priorWin": 40.4,
+   "conditionsMet": 3
+  },
+  {
+   "pos": "14",
+   "no": 8,
+   "name": "ロブチェン",
+   "priorPlaceProb": 0.7115,
+   "priorWin": 1.6,
+   "conditionsMet": 5
+  },
+  {
+   "pos": "15",
+   "no": 13,
+   "name": "キンググローリー",
+   "priorPlaceProb": 0.0539,
+   "priorWin": 78.7,
+   "conditionsMet": 2
+  },
+  {
+   "pos": "16",
+   "no": 18,
+   "name": "ナリタエスペランサ",
+   "priorPlaceProb": 0.0282,
+   "priorWin": 142.0,
+   "conditionsMet": 2
+  },
+  {
+   "pos": "17",
+   "no": 11,
+   "name": "アスクエジンバラ",
+   "priorPlaceProb": 0.165,
+   "priorWin": 25.8,
+   "conditionsMet": 4
+  },
+  {
+   "pos": "18",
+   "no": 4,
+   "name": "ショウナンガルフ",
+   "priorPlaceProb": 0.0137,
+   "priorWin": 222.8,
+   "conditionsMet": 1
+  }
+ ],
+ "payouts": {
+  "単勝": {
+   "9": 1200
+  },
+  "複勝": {
+   "9": 370,
+   "6": 730,
+   "10": 210
+  },
+  "馬連": {
+   "6-9": 11530
+  },
+  "ワイド": {
+   "6-9": 2670,
+   "9-10": 700,
+   "6-10": 1270
+  },
+  "三連複": {
+   "6-9-10": 8580
+  },
+  "三連単": {
+   "9-6-10": 113300
+  }
+ },
+ "bets": [],
+ "pnl": 0,
+ "notes": [
+  "買っていないので収支は動かない。提示した買い目はいずれも不的中だった（3連複2頭軸8,10の10点、1頭軸8番10点、上位5頭BOX、上位6頭BOX、EV上位10点、ワイド8番軸、複勝8番 — すべて8番絡みか上位人気中心のため）。",
+  "1番人気8番ロブチェン（事前3着内71.2%、単勝1.6倍、記事の勝ち馬条件5/5該当の唯一の馬）が14着。市場・記事の両方が最も確信していた馬が飛んだ。ただし71.2%が外れること自体は約29%の事象で、1レースでは較正の良し悪しは判定できない。",
+  "的中3連複6-9-10は816組中の確率第28位相当（約0.7%）で、事前EV走査でEV>1としていた354組（すべて確率0.1%未満）には含まれていなかった。あの354組をアーティファクトと判断したことは、少なくともこのレースでは裏目に出ていない。",
+  "馬場は事前の稍重見込みから良に回復。ロベルト系の道悪仮説は適用対象外。ロベルト系6頭の着順は14,3,15,7,5,6着で、3着内は10番ダノンヒストリーのみ。",
+  "事前の3連複オッズ（13:35）を保存していなかったため、組単位のEVの事後検証は確率帯レベルまでしかできない。次回から保存する。"
+ ]
+}
