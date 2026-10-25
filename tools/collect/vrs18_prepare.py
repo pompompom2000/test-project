@@ -8,10 +8,15 @@
 OCR(tesseract)を321頭で検証したが一致率37%で、小数点の脱落など
 後段で検出できない誤りが多かったため採用しなかった。
 
+2026-10-25に、3会場36レース分の予測表が前日(10/24)の記事の画像と
+バイト単位で同一だったことがある（投稿者が前日の書き出しを貼り直した）。
+画像にしか数値が無い以上、中身だけ見ても気づけない。各画像のmd5を
+manifestに残し、前回のmanifestと照合して流用を検出する。
+
 出力: <outdir>/manifest.json と <outdir>/img/<venue>-<race>.png
 使い方: python3 tools/collect/vrs18_prepare.py [YYYY-MM-DD]
 """
-import html, json, os, re, sys, time, urllib.request
+import glob, hashlib, html, json, os, re, sys, time, urllib.request
 from datetime import datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
@@ -71,6 +76,76 @@ def fetch_odds(rid):
             'odds': (d.get('data') or {}).get('odds', {}).get('2')}
 
 
+def prev_article(venue, date):
+    """その会場の、dateより前で最も新しいAI予測記事。"""
+    cand = []
+    for page in (1, 2):
+        d = json.loads(get(LIST_API.replace('page=1', f'page={page}')))
+        for n in d['data']['contents']:
+            m = TITLE_RE.search(n['name'])
+            if not m:
+                continue
+            _, v, _, y, mo, dd = m.groups()
+            if v == venue and f'{y}-{mo}-{dd}' < date:
+                cand.append((f'{y}-{mo}-{dd}', n['key']))
+    return max(cand) if cand else None
+
+
+def flag_reused_images(man, date):
+    """予測表が前の開催日の使い回しでないか。
+
+    2026-10-25に、3会場36レースすべての予測表が前日(10/24)の記事の画像と
+    バイト単位で同一だった。数値は画像にしか無いので、転記してからでは
+    どの日のどの馬の数字なのか判別できない。
+
+    照合先は2つ。前回のmanifest（取得済みのmd5、追加の通信なし）と、
+    前の開催日の記事そのもの。後者が要るのは、使い回し元がこちらの
+    収集していない日（上の例では10/24）でありうるため。
+    記事側はまず1レース目と最終レースの2枚だけ引く。この2枚が一致したら
+    記事ごと使い回されているので、そこで初めて全レースを照合する。
+    """
+    prev = sorted(f for f in glob.glob('data/tracking/work/*/manifest.json')
+                  if f.split('/')[-2] < date)
+    seen = {}
+    if prev:
+        old = json.load(open(prev[-1]))
+        seen = {r['imageMd5']: f"{old['date']} {v['venue']}{r['race']}"
+                for v in old['venues'] for r in v['races'] if r.get('imageMd5')}
+
+    dup = 0
+    for v in man['venues']:
+        hit = [r for r in v['races'] if r.get('imageMd5') in seen]
+        if not hit:
+            pa = prev_article(v['venue'], date)
+            if pa:
+                pd, key = pa
+                imgs = race_images(get(f'https://note.com/vrs18/n/{key}'))
+                probe = {}
+                for no in ({min(imgs), max(imgs)} if imgs else ()):
+                    probe[hashlib.md5(get(imgs[no], binary=True)).hexdigest()] = \
+                        f'{pd} {v["venue"]}{no}R'
+                    time.sleep(0.4)
+                if any(r.get('imageMd5') in probe for r in v['races']):
+                    for no in sorted(imgs):
+                        if no in (min(imgs), max(imgs)):
+                            continue
+                        probe[hashlib.md5(get(imgs[no], binary=True)).hexdigest()] = \
+                            f'{pd} {v["venue"]}{no}R'
+                        time.sleep(0.4)
+                hit = [r for r in v['races'] if r.get('imageMd5') in probe]
+                seen.update(probe)
+        for r in hit:
+            r['reusedFrom'] = seen[r['imageMd5']]
+        if hit:
+            v['imagesReused'] = len(hit)
+            dup += len(hit)
+            print(f"  警告: {v['venue']} の {len(hit)}レースの予測表が "
+                  f"{seen[hit[0]['imageMd5']].split()[0]} の記事と同一", flush=True)
+    if dup:
+        man['imagesReused'] = dup
+    return dup
+
+
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else datetime.now(JST).strftime('%Y-%m-%d')
     outdir = f'data/tracking/work/{date}'
@@ -100,9 +175,11 @@ def main():
             if not os.path.exists(p):
                 open(p, 'wb').write(get(imgs[no], binary=True))
                 time.sleep(0.4)
+            md5 = hashlib.md5(open(p, 'rb').read()).hexdigest()
             races.append({'race': f'{no}R', 'raceId': rid, 'field': len(o['odds']),
                           'placePositions': 3 if len(o['odds']) >= 8 else 2,
-                          'image': p, 'oddsStatus': o['status'], 'oddsAt': o['at'],
+                          'image': p, 'imageMd5': md5,
+                          'oddsStatus': o['status'], 'oddsAt': o['at'],
                           'placeOdds': {k: [float(v[0]), float(v[1])]
                                         for k, v in o['odds'].items()}})
             print(f"  {no}R {rid} {len(o['odds'])}頭 {o['status']}", flush=True)
@@ -111,6 +188,8 @@ def main():
                               'article': a['url'], 'publishedAt': a['publishedAt'],
                               'races': races})
 
+    print('\n前回のmanifestと画像を照合', flush=True)
+    dup = flag_reused_images(man, date)
     json.dump(man, open(f'{outdir}/manifest.json', 'w'), ensure_ascii=False, indent=1)
     n = sum(len(v['races']) for v in man['venues'])
     started = sum(1 for v in man['venues'] for r in v['races']
@@ -118,6 +197,10 @@ def main():
     print(f'\n{outdir}/manifest.json に {n}レース分を書き出し')
     if started:
         print(f'注意: {started}レースは既に発走済み（status != middle）')
+    if dup:
+        print(f'\n中止: {dup}/{n}レースの予測表が前回と同じ画像だった。'
+              f'記事に当日の表が載っていない。転記してはいけない。')
+        return 2
     print(f'次: {outdir}/img/ の画像をモデルが読み、'
           f'{outdir}/predictions.json に書いてから vrs18_build.py')
     return 0
