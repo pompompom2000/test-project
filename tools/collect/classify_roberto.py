@@ -49,7 +49,7 @@ def find_id(name):
     m = re.search(r'/horse/([0-9a-z]{10})/?$', fin)
     if m:
         return m.group(1)
-    for hid, nm in re.findall(r'/horse/(\d{10})/?"[^>]*>\s*([^<]{1,30})', s):
+    for hid, nm in re.findall(r'/horse/([0-9a-z]{10})/?"[^>]*>\s*([^<]{1,40})', s):
         if html.unescape(nm).strip() == name:
             return hid
     return None
