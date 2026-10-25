@@ -17,7 +17,7 @@
 import html, json, os, re, sys, time, urllib.request, urllib.parse
 
 UA = {'User-Agent': 'Mozilla/5.0'}
-SEARCH = 'https://db.netkeiba.com/?pid=horse_list&word={q}'
+SEARCH = 'https://db.netkeiba.com/?pid=horse_list&word={q}&match=c'
 PED = 'https://db.netkeiba.com/horse/ped/{hid}/'
 CACHE = 'data/analysis/roberto-sires.json'
 
