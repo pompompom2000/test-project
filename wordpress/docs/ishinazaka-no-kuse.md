@@ -345,3 +345,10 @@ python3 wordpress/posts/check_house_style.py <file.html> # 下書きを点検す
 - **広告（AdSense）は 172ページ中 163ページに入っている。** トップにも。1ページ 500KB 超・外部接続 14回。
 - **PIL（Pillow）は入っていないことがある。** /opt/pw-browsers の ffmpeg も PNG を読めない。
   画面の控えは Playwright で `type: "jpeg", deviceScaleFactor: 1` にして撮り直すのが早い。
+
+- **ai-agent の鍵が止まっていると、REST は 401「rest_disabled」で返る**（2026年10月26日に確認）。
+  未ログイン扱いになって SiteGuard の遮断にかかるため。鍵の間違いなのか、遮断なのかは
+  見た目で区別がつかない。下書きの登録や配置はできないので、記事は HTML と見本ページで渡し、
+  新しいアプリケーションパスワードを頼む。
+- **岩手県の認定事業所一覧（PDF）は、ページの「令和8年8月1日現在」と PDF の「8月3日現在」で日付が違う。**
+  数字は PDF から写し、日付も PDF の方を書く。
