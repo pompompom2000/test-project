@@ -4,7 +4,7 @@ u"""認定書の画像（PDFから取り出したJPEG）をメディアに登録
 import os, sys, json, base64, urllib.request as ur
 SITE = 'https://www.ishinazaka.co.jp/wp-json'
 SRC = sys.argv[1]
-NAME = 'iwate-eco-jigyosho-ninteisho-2026.jpg'
+NAME = 'iwate-eco-jigyosho-ninteisho-2026-tate.jpg'
 ALT = u'「いわて地球環境にやさしい事業所」認定書。認定番号8-3-1、認定区分は三つ星、事業所名は株式会社 石名坂、認定期間は令和8年10月16日から令和11年10月31日まで。岩手県知事名。'
 kaku = '--apply' in sys.argv and '--yes' in sys.argv
 data = open(SRC, 'rb').read()
