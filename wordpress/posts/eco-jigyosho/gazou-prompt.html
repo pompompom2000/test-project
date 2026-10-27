@@ -1,0 +1,301 @@
+<title>三つ星認定の画像プロンプト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#F1F1EE; --surface:#FFFFFF; --sunk:#E8E7E2;
+    --ink:#262421; --muted:#6C6960; --line:#D6D4CD;
+    --accent:#2F7A52; --accent-ink:#1E5238; --accent-wash:#E3F0E8;
+    --warn:#8A3B2E; --warn-wash:#F7E7E3;
+    --step:clamp(15px,1.4vw,16px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+      --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+      --accent:#5DB585; --accent-ink:#9AD9B4; --accent-wash:#16261D;
+      --warn:#E29384; --warn-wash:#2E1E1A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161513; --surface:#211F1C; --sunk:#1A1917;
+    --ink:#EEEAE3; --muted:#A39D93; --line:#35322C;
+    --accent:#5DB585; --accent-ink:#9AD9B4; --accent-wash:#16261D;
+    --warn:#E29384; --warn-wash:#2E1E1A;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+    font-size:var(--step); line-height:1.8;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:740px; margin:0 auto; padding-inline:16px; padding-block:40px 72px;
+        display:flex; flex-direction:column; gap:34px}
+  h1{
+    font-family:"Shippori Mincho","Yu Mincho",serif; font-weight:600;
+    font-size:clamp(25px,5.6vw,34px); line-height:1.45; margin:0; text-wrap:balance;
+    letter-spacing:.01em;
+  }
+  .lede{margin:0; color:var(--muted); font-size:calc(var(--step) - .5px)}
+  .rule{height:3px; width:52px; background:var(--accent); border-radius:2px}
+  h2{
+    font-size:calc(var(--step) + 3px); margin:0 0 4px; font-weight:700;
+    display:flex; align-items:baseline; gap:10px; text-wrap:balance;
+  }
+  h2 .no{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78em;
+    color:var(--accent-ink); letter-spacing:.06em; flex:none;
+  }
+  p{margin:0}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:20px 18px; display:flex; flex-direction:column; gap:12px;
+  }
+  .tag{
+    align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--accent-ink); background:var(--accent-wash);
+    border-radius:999px; padding:3px 11px; line-height:1.7;
+  }
+  .why{color:var(--muted); font-size:calc(var(--step) - 1px); margin:0}
+  .promptbox{position:relative}
+  pre{
+    margin:0; background:var(--sunk); border:1px solid var(--line); border-radius:8px;
+    padding:15px 14px; overflow-x:auto; white-space:pre-wrap; word-break:break-word;
+    font-family:inherit; font-size:calc(var(--step) - 1px); line-height:1.85;
+    -webkit-user-select:all; user-select:all;
+  }
+  .copy{
+    margin-top:9px; width:100%; min-height:46px; cursor:pointer;
+    font:inherit; font-weight:700; color:#fff; background:var(--accent);
+    border:none; border-radius:7px; letter-spacing:.03em;
+    transition:filter .15s ease;
+  }
+  .copy:hover{filter:brightness(1.07)}
+  .copy:focus-visible{outline:3px solid var(--accent-ink); outline-offset:2px}
+  .copy[data-done="1"]{background:var(--accent-ink)}
+  .note{
+    border-left:3px solid var(--accent); background:var(--accent-wash);
+    padding:13px 15px; border-radius:0 8px 8px 0; font-size:calc(var(--step) - 1px);
+  }
+  .note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+  .note p + p{margin-top:8px}
+  .ng{margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:5px;
+      font-size:calc(var(--step) - 1px)}
+  footer{color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:18px}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <div class="rule"></div>
+    <h1>「いわて地球環境にやさしい事業所」三つ星<br>画像プロンプト 3枚</h1>
+    <p class="lede">1枚ずつ「コピー」を押して、そのままGeminiに貼ってください。どれも全文です。継ぎ足しはありません。添付の画像は要りません。</p>
+  </header>
+
+  <section class="card">
+    <span class="tag">「星は4段階。三つ星の条件は何か」の表の直後</span>
+    <h2><span class="no">01</span>星は4段階。石名坂は三つ星</h2>
+    <p class="why">星は文字ではなく「黄色い星の形」を数で描かせます。文字は6個に絞りました。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で6個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　　　「いわて地球環境にやさしい事業所は、星4段階」
+1つ目の箱の下　　「計画・通勤対策・エコスタッフ」
+2つ目の箱の下　　「環境マネジメントの仕組み」
+3つ目の箱の下　　「IESなどの認証を取得」
+4つ目の箱の下　　「削減の成果が出ている」
+3つ目の箱の上　　「石名坂はここ」
+
+【2】置き方
+・画面を上下に分ける。上が2割、下が8割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・下の8割：同じ大きさの箱を4つ、左から等間隔に並べる。
+　箱と箱のすき間は、箱1つの幅の1割。左右の端にも同じ余白。
+・箱の中には、文字ではなく黄色い星の形を描く。
+　左から順に、星1個、星2個、星3個、星4個。星は横に並べる。
+　星の数を間違えないこと。1つ目の箱は1個だけ、4つ目の箱は4個。
+・それぞれの箱のすぐ下に、その箱の下の文字を2行までで置く。
+・3つ目の箱の真上に「石名坂はここ」の文字を置き、
+　その文字から3つ目の箱へ向かう短い下向きの矢印を1本だけ描く。
+・いちばん下に空白を残さない。全体を上下いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い緑、文字は白。
+・1つ目、2つ目、4つ目の箱は薄い灰色。3つ目の箱だけ濃い緑。
+・星は4つの箱とも同じ黄色。
+・箱の下の文字は黒。「石名坂はここ」の文字と矢印は濃い緑。
+
+【4】絵
+・星以外の絵は描かない。
+
+【5】描かないもの
+・上の6個にない文字、数字、記号。丸かっこと番号。
+・★の記号を文字として描くこと。星は図形で描く。
+・5個目の星、5つ目の箱。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。岩手県の認定マークに似せた絵。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「県内で三つ星は13事業所」の最初の段落の直後</span>
+    <h2><span class="no">02</span>県内311のうち、三つ星は13</h2>
+    <p class="why">数字が4つ並ぶので、どの箱にどの数字かを1つずつ指定しました。合計の311は帯に入れ、差や割合は足させません。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で6個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　　「県内の認定事業所は311」
+1つ目の箱　　「一つ星 97」
+2つ目の箱　　「二つ星 46」
+3つ目の箱　　「三つ星 13」
+4つ目の箱　　「四つ星 155」
+下の帯　　　　「令和8年8月3日現在」
+
+【2】置き方
+・画面を上から3つに分ける。上が2割、真ん中が6割、下が2割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・真ん中の6割：同じ大きさの箱を4つ、左から等間隔に並べる。
+　箱と箱のすき間は、箱1つの幅の1割。左右の端にも同じ余白。
+・それぞれの箱の中に、その箱の文字を2行で置く。
+　1行目に星の名前（一つ星など）、2行目に数字。数字は大きく、太く。
+・箱の大きさは4つとも同じにする。数字の大きさで箱の大きさを変えない。
+・下の2割：横いっぱいの帯。下の帯の文字を中央に、1行で置く。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い緑、文字は白。
+・1つ目、2つ目、4つ目の箱は薄い灰色で、中の文字は黒。
+・3つ目の箱だけ濃い緑で、中の文字は白。
+・下の帯は薄い灰色、文字は黒。
+
+【4】絵
+・絵は描かない。文字だけにする。星の形も描かない。
+
+【5】描かないもの
+・上の6個にない文字、数字、記号。丸かっこと番号。
+・「4%」「約4%」など、割合を計算した数字。
+・棒グラフ、円グラフ、目盛り。箱の高さを数字に合わせて変えること。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。岩手県の認定マークに似せた絵。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="tag">「次の目標は、四つ星」の最初の段落の直後</span>
+    <h2><span class="no">03</span>三つ星から四つ星へ</h2>
+    <p class="why">矢印は「左から右へ」。左がいま、右が目標です。</p>
+    <div class="promptbox">
+<pre>日本語のインフォグラフィックを1枚、描いてください。
+これは、私が指定した文字をそのまま画像にする作業です。
+内容を考えたり、数字を足したりする必要はありません。
+
+【1】画像に入れる文字（全部で5個）
+下の「」の中の文字だけを入れてください。
+「」の記号そのものは、画像に入れないでください。
+番号、記号、かっこは、画像に入れないでください。
+
+上の帯　　　「次の目標は、四つ星」
+左の箱　　　「いま」
+右の箱　　　「目標」
+矢印の上　　「燃料と電気の削減を、数字で示す」
+下の帯　　　「認定期間は令和11年10月31日まで」
+
+【2】置き方
+・画面を上から3つに分ける。上が2割、真ん中が6割、下が2割。
+・上の2割：横いっぱいの帯。上の帯の文字を中央に置く。
+・真ん中の6割：左に箱、中央に矢印、右に箱。左右の箱は同じ大きさ。
+・左の箱：上に黄色い星を3個横に並べ、その下に「いま」の文字。
+・右の箱：上に黄色い星を4個横に並べ、その下に「目標」の文字。
+　星の数を間違えないこと。左は3個、右は4個。
+・中央の矢印：左から右へ向かう太い矢印を1本だけ。
+　矢印のすぐ上に「矢印の上」の文字を1行で置く。矢印の中には文字を入れない。
+・下の2割：横いっぱいの帯。下の帯の文字を中央に、1行で置く。
+・上下に空白を残さない。全体を画面いっぱいに広げる。
+・画像の右下の角には、文字を置かないでください。
+　縦横それぞれ1割ほどを、文字のない場所にしてください。
+　（この場所に、画像を作った道具の印が自動で入るためです）
+
+【3】色
+・背景は白。上の帯は濃い緑、文字は白。
+・左の箱は薄い灰色、文字は黒。右の箱は濃い緑、文字は白。
+・星はどちらも黄色。矢印は濃い緑。
+・下の帯は薄い灰色、文字は黒。
+
+【4】絵
+・星と矢印以外の絵は描かない。
+
+【5】描かないもの
+・上の5個にない文字、数字、記号。丸かっこと番号。
+・★の記号を文字として描くこと。星は図形で描く。
+・「3年」「残り」など、期間を計算した文字。
+・出典、官公庁名、団体名、調査結果、アンケート。
+・国の紋章、印章、ロゴ、実在する企業名。岩手県の認定マークに似せた絵。
+
+【6】仕上げ
+・16:9の横長。太くて読みやすいゴシック体。</pre>
+      <button class="copy" type="button">コピー</button>
+    </div>
+  </section>
+
+  <section class="note" style="display:flex;flex-direction:column;gap:8px">
+    <p><strong>受け取ったら、拡大して1字ずつ確かめてください。</strong></p>
+    <p>とくに見るところ：星の数（01は1・2・3・4個、03は3個と4個）、02の4つの数字（97・46・13・155）が正しい箱にあるか、矢印の向き（03は左から右）、割合や期間を計算した数字が増えていないか。</p>
+    <p>右下のキラキラした印は、Geminiが自動で入れる透かしです。消さずにそのまま使います。</p>
+  </section>
+</main>
+<script>
+(function(){
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.parentNode.querySelector('pre');
+      if(!pre) return;
+      var text = pre.textContent;
+      var done = function(ok){
+        btn.textContent = ok ? 'コピーしました' : '枠をタップして選択してください';
+        btn.dataset.done = ok ? '1' : '';
+        setTimeout(function(){ btn.textContent='コピー'; btn.dataset.done=''; }, 2200);
+      };
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
+          return;
+        }
+      }catch(e){}
+      try{
+        var sel = window.getSelection(), r = document.createRange();
+        r.selectNodeContents(pre); sel.removeAllRanges(); sel.addRange(r);
+        done(document.execCommand && document.execCommand('copy'));
+      }catch(e){ done(false); }
+    });
+  });
+})();
+</script>
