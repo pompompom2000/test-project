@@ -2166,7 +2166,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 7
+   "checksMet": 7,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "態勢整う"
+   }
   },
   {
    "no": 1,
@@ -2190,7 +2194,19 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 8
+   "checksMet": 8,
+   "oikiri": {
+    "grade": "A",
+    "verdict": "態勢万全",
+    "ifLateBeta": {
+     "p": 0.686,
+     "placeEV": 0.823
+    },
+    "ifEarlyBeta": {
+     "p": 0.7698,
+     "placeEV": 0.924
+    }
+   }
   },
   {
    "no": 17,
@@ -2214,7 +2230,11 @@
     "8枠でない": false,
     "馬番14以下": false
    },
-   "checksMet": 6
+   "checksMet": 6,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "態勢整う"
+   }
   },
   {
    "no": 3,
@@ -2238,7 +2258,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 7
+   "checksMet": 7,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "キビキビ"
+   }
   },
   {
    "no": 11,
@@ -2262,7 +2286,19 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 7
+   "checksMet": 7,
+   "oikiri": {
+    "grade": "A",
+    "verdict": "動き絶好",
+    "ifLateBeta": {
+     "p": 0.2828,
+     "placeEV": 0.566
+    },
+    "ifEarlyBeta": {
+     "p": 0.3765,
+     "placeEV": 0.753
+    }
+   }
   },
   {
    "no": 6,
@@ -2286,7 +2322,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 6
+   "checksMet": 6,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "好調持続"
+   }
   },
   {
    "no": 13,
@@ -2310,7 +2350,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 6
+   "checksMet": 6,
+   "oikiri": {
+    "grade": "C",
+    "verdict": "変わらず"
+   }
   },
   {
    "no": 16,
@@ -2334,7 +2378,11 @@
     "8枠でない": false,
     "馬番14以下": false
    },
-   "checksMet": 4
+   "checksMet": 4,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "出来安定"
+   }
   },
   {
    "no": 9,
@@ -2358,7 +2406,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 6
+   "checksMet": 6,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "気配上昇"
+   }
   },
   {
    "no": 10,
@@ -2382,7 +2434,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 6
+   "checksMet": 6,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "仕上上々"
+   }
   },
   {
    "no": 4,
@@ -2406,7 +2462,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 7
+   "checksMet": 7,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "気合乗る"
+   }
   },
   {
    "no": 15,
@@ -2430,7 +2490,19 @@
     "8枠でない": false,
     "馬番14以下": false
    },
-   "checksMet": 5
+   "checksMet": 5,
+   "oikiri": {
+    "grade": "A",
+    "verdict": "気配抜群",
+    "ifLateBeta": {
+     "p": 0.0654,
+     "placeEV": 0.582
+    },
+    "ifEarlyBeta": {
+     "p": 0.0968,
+     "placeEV": 0.862
+    }
+   }
   },
   {
    "no": 14,
@@ -2454,7 +2526,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 4
+   "checksMet": 4,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "乗込十分"
+   }
   },
   {
    "no": 12,
@@ -2478,7 +2554,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 5
+   "checksMet": 5,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "一歩前進"
+   }
   },
   {
    "no": 5,
@@ -2502,7 +2582,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 4
+   "checksMet": 4,
+   "oikiri": {
+    "grade": "C",
+    "verdict": "多少良化"
+   }
   },
   {
    "no": 8,
@@ -2526,7 +2610,11 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 5
+   "checksMet": 5,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "好気合"
+   }
   },
   {
    "no": 2,
@@ -2550,7 +2638,13 @@
     "8枠でない": true,
     "馬番14以下": true
    },
-   "checksMet": 5
+   "checksMet": 5,
+   "oikiri": {
+    "grade": "B",
+    "verdict": "力強い"
+   }
   }
- ]
+ ],
+ "oikiriNote": "調教評価は要因#15として検定済み（data/analysis/oikiri.md）。評価Aの対市場優位は2015-2020が+8.6pt(β=+0.573,p=0.004)、2021-2025が+2.8pt(β=+0.147,p=0.550)で、前期→後期の前向き検証で改善が出ず不発因子とした。今回のA評価3頭に死んだはずの前期係数を当てても、複勝EVの最高は1番クロワデュノールの0.924で1に届かない。後期係数なら最高0.823。評価B(12頭、出走馬の71%)は残差-0.9ptで測れる優位はゼロ。",
+ "xLinkUnread": "https://x.com/oikirikeiba/status/2116466119796236616 は取得できず(HTTP 402)。転載も見つからないため内容は不明。代わりにnetkeibaのoikiri.html?type=3から全頭の評価を自分で引いた。"
 }
