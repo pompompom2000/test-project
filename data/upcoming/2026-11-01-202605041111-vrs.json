@@ -1,0 +1,177 @@
+{
+ "raceId": "202605041111",
+ "source": "note n ec0b454eb813 仮想速度･出馬表 2026.11.1",
+ "note": "プロフィール(性齢・騎手・斤量)は11/1の出馬表と一致を確認。同日17:54の調教分析記事とは異なる",
+ "horses": [
+  {
+   "no": 1,
+   "name": "クロワデュノール",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 20,
+   "vrs": 61.25,
+   "prevSpeedDev": 68.6,
+   "prevRaceLevel": 52.4
+  },
+  {
+   "no": 2,
+   "name": "エルトンバローズ",
+   "sexAge": "牡6",
+   "kg": 58.0,
+   "intervalWeeks": 4,
+   "vrs": 59.78,
+   "prevSpeedDev": 63.24,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 3,
+   "name": "レガレイラ",
+   "sexAge": "牝5",
+   "kg": 56.0,
+   "intervalWeeks": 6,
+   "vrs": 59.7,
+   "prevSpeedDev": 53.39,
+   "prevRaceLevel": 46.4
+  },
+  {
+   "no": 4,
+   "name": "レディネス",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 4,
+   "vrs": 59.84,
+   "prevSpeedDev": 65.41,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 5,
+   "name": "シャンパンカラー",
+   "sexAge": "牡6",
+   "kg": 58.0,
+   "intervalWeeks": 4,
+   "vrs": 59.77,
+   "prevSpeedDev": 62.79,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 6,
+   "name": "セイウンハーデス",
+   "sexAge": "牡7",
+   "kg": 58.0,
+   "intervalWeeks": 4,
+   "vrs": 59.87,
+   "prevSpeedDev": 66.4,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 7,
+   "name": "マスカレードボール",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 14,
+   "vrs": null,
+   "prevSpeedDev": null,
+   "prevRaceLevel": null
+  },
+  {
+   "no": 8,
+   "name": "ジュンブロッサム",
+   "sexAge": "牡7",
+   "kg": 58.0,
+   "intervalWeeks": 3,
+   "vrs": 59.61,
+   "prevSpeedDev": 66.76,
+   "prevRaceLevel": 43.7
+  },
+  {
+   "no": 9,
+   "name": "ホウオウビスケッツ",
+   "sexAge": "牡6",
+   "kg": 58.0,
+   "intervalWeeks": 4,
+   "vrs": 59.87,
+   "prevSpeedDev": 66.4,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 10,
+   "name": "ネブラディスク",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 17,
+   "vrs": 59.51,
+   "prevSpeedDev": 70.38,
+   "prevRaceLevel": 42.6
+  },
+  {
+   "no": 11,
+   "name": "シェイクユアハート",
+   "sexAge": "牡6",
+   "kg": 58.0,
+   "intervalWeeks": 11,
+   "vrs": 60.35,
+   "prevSpeedDev": 77.68,
+   "prevRaceLevel": 45.9
+  },
+  {
+   "no": 12,
+   "name": "コスモキュランダ",
+   "sexAge": "牡5",
+   "kg": 58.0,
+   "intervalWeeks": 6,
+   "vrs": 59.27,
+   "prevSpeedDev": 38.98,
+   "prevRaceLevel": 46.4
+  },
+  {
+   "no": 13,
+   "name": "リアライズシリウス",
+   "sexAge": "牡3",
+   "kg": 56.0,
+   "intervalWeeks": 4,
+   "vrs": 59.81,
+   "prevSpeedDev": 64.32,
+   "prevRaceLevel": 45.2
+  },
+  {
+   "no": 14,
+   "name": "タガノデュード",
+   "sexAge": "牡5",
+   "kg": 58.0,
+   "intervalWeeks": 7,
+   "vrs": 59.59,
+   "prevSpeedDev": 66.45,
+   "prevRaceLevel": 43.6
+  },
+  {
+   "no": 15,
+   "name": "サクラファレル",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 11,
+   "vrs": 60.27,
+   "prevSpeedDev": 75.24,
+   "prevRaceLevel": 45.9
+  },
+  {
+   "no": 16,
+   "name": "ジョバンニ",
+   "sexAge": "牡4",
+   "kg": 58.0,
+   "intervalWeeks": 7,
+   "vrs": 59.74,
+   "prevSpeedDev": 71.21,
+   "prevRaceLevel": 43.6
+  },
+  {
+   "no": 17,
+   "name": "ダノンデサイル",
+   "sexAge": "牡5",
+   "kg": 58.0,
+   "intervalWeeks": 20,
+   "vrs": 61.2,
+   "prevSpeedDev": 66.8,
+   "prevRaceLevel": 52.4
+  }
+ ]
+}
