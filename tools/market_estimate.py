@@ -55,7 +55,8 @@ def collect(rid, pause=1.0):
 
 
 def estimate(raw):
-    win = raw['win']
+    # collect() からは馬番が int、保存したJSONから読むと str になる。どちらでも通す。
+    win = {int(k): v for k, v in raw['win'].items()}
     place = {int(k): v for k, v in raw['place'].items()}
     wide = {(int(k[:2]), int(k[2:])): v for k, v in raw['wide'].items()}
     trio = {(int(k[:2]), int(k[2:4]), int(k[4:])): v for k, v in raw['trio'].items()}
