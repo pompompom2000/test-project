@@ -26,7 +26,14 @@ ODDS_API = ('https://race.netkeiba.com/api/api_get_jra_odds.html'
             '?type=2&race_id={rid}&action=init')
 VENUE = {'札幌': '01', '函館': '02', '福島': '03', '新潟': '04', '東京': '05',
          '中山': '06', '中京': '07', '京都': '08', '阪神': '09', '小倉': '10'}
-TITLE_RE = re.compile(r'AI予測【(\d+)回(.+?)(\d+)日目】(\d{4})\.(\d{2})\.(\d{2})')
+# 日付はゼロ埋めされないことがある（2026.11.1 と 2026.10.25 が混在する）
+TITLE_RE = re.compile(r'AI予測【(\d+)回(.+?)(\d+)日目】(\d{4})\.(\d{1,2})\.(\d{1,2})')
+
+
+def title_date(m):
+    """タイトルの日付を YYYY-MM-DD に揃える。"""
+    _, _, _, y, mo, dd = m.groups()
+    return f'{y}-{int(mo):02d}-{int(dd):02d}'
 
 
 def get(url, binary=False):
@@ -44,7 +51,7 @@ def find_articles(date):
         if not m:
             continue
         kai, venue, day, y, mo, dd = m.groups()
-        if f'{y}-{mo}-{dd}' != date or venue not in VENUE:
+        if title_date(m) != date or venue not in VENUE:
             continue
         out.append({'venue': venue, 'title': n['name'],
                     'url': f"https://note.com/vrs18/n/{n['key']}",
@@ -85,9 +92,10 @@ def prev_article(venue, date):
             m = TITLE_RE.search(n['name'])
             if not m:
                 continue
-            _, v, _, y, mo, dd = m.groups()
-            if v == venue and f'{y}-{mo}-{dd}' < date:
-                cand.append((f'{y}-{mo}-{dd}', n['key']))
+            v = m.group(2)
+            td = title_date(m)
+            if v == venue and td < date:
+                cand.append((td, n['key']))
     return max(cand) if cand else None
 
 

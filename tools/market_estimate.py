@@ -21,10 +21,18 @@ RATE = {'win': 0.80, 'place': 0.80, 'wide': 0.775, 'trio': 0.75}
 
 
 def fetch(t, rid):
-    d = json.loads(urllib.request.urlopen(
-        urllib.request.Request(API.format(t=t, rid=rid), headers=UA),
-        timeout=40).read().decode('utf-8', 'replace'))
-    return d.get('data') or {}, d.get('status')
+    """netkeibaは続けて叩くと400を返す。待って数回やり直す。"""
+    last = None
+    for i in range(5):
+        try:
+            d = json.loads(urllib.request.urlopen(
+                urllib.request.Request(API.format(t=t, rid=rid), headers=UA),
+                timeout=40).read().decode('utf-8', 'replace'))
+            return d.get('data') or {}, d.get('status')
+        except Exception as e:
+            last = e
+            time.sleep(4 * (i + 1))
+    raise last
 
 
 def num(s):
