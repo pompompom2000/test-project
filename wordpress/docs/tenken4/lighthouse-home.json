@@ -1,0 +1,35 @@
+{
+ "scores": {
+  "performance": 54,
+  "accessibility": 100,
+  "best-practices": 100,
+  "seo": 100
+ },
+ "metrics": {
+  "first-contentful-paint": "3.2 s",
+  "largest-contentful-paint": "9.0 s",
+  "total-blocking-time": "430 ms",
+  "cumulative-layout-shift": "0",
+  "speed-index": "5.5 s",
+  "server-response-time": "Root document took 360 ms"
+ },
+ "renderBlocking": [
+  [
+   "https://www.ishinazaka.co.jp/common/sys/wp-includes/js/dist/vendor/react-dom.min.js",
+   50282,
+   375
+  ],
+  [
+   "https://www.ishinazaka.co.jp/common/files/cache/autoptimize/js/autoptimize_single_9a045f0bde9d64e7cb1a376a6c468929.js",
+   1640,
+   375
+  ],
+  [
+   "https://www.ishinazaka.co.jp/common/files/cache/autoptimize/css/autoptimize_single_db7dc70bf1d1ec205b8358353501f00d.css?r=1793530873",
+   4989,
+   375
+  ]
+ ],
+ "version": "12.8.2",
+ "fetchTime": "2026-11-01T11:01:12.956Z"
+}

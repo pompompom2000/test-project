@@ -1,0 +1,230 @@
+<title>石名坂サイト 4回目の点検</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  /* 配置：1列の読み物。表は横にはみ出さず、枠の中で横スクロール */
+  :root{
+    --paper:#F2F3F1; --surface:#FFFFFF; --sunk:#E9EBE7;
+    --ink:#23262A; --muted:#656B6F; --line:#D4D8D3;
+    --accent:#1F5E8A; --accent-ink:#164567; --accent-wash:#E2ECF4;
+    --bad:#9A2E24; --bad-wash:#F8E6E3; --mid:#8A5A12; --mid-wash:#F7EBD6; --good:#2B6B3F; --good-wash:#E1F0E5;
+    --step:clamp(15px,1.4vw,16px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#15171A; --surface:#1F2226; --sunk:#191B1E; --ink:#ECEDEA; --muted:#A4A9AD; --line:#353A40;
+      --accent:#6FAEDC; --accent-ink:#A9D0EC; --accent-wash:#1C2A36;
+      --bad:#E39A90; --bad-wash:#2F1F1C; --mid:#E0B36A; --mid-wash:#2E2619; --good:#8CCB9E; --good-wash:#1B2B20; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15171A; --surface:#1F2226; --sunk:#191B1E; --ink:#ECEDEA; --muted:#A4A9AD; --line:#353A40;
+    --accent:#6FAEDC; --accent-ink:#A9D0EC; --accent-wash:#1C2A36;
+    --bad:#E39A90; --bad-wash:#2F1F1C; --mid:#E0B36A; --mid-wash:#2E2619; --good:#8CCB9E; --good-wash:#1B2B20; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;font-size:var(--step);line-height:1.8;-webkit-text-size-adjust:100%}
+  .wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:36px 72px;display:flex;flex-direction:column;gap:30px}
+  h1{font-family:"Shippori Mincho","Yu Mincho",serif;font-weight:600;font-size:clamp(24px,5.4vw,33px);line-height:1.45;margin:0;text-wrap:balance}
+  h2{font-size:calc(var(--step) + 4px);margin:0;font-weight:700;text-wrap:balance;padding-left:12px;border-left:4px solid var(--accent)}
+  h3{font-size:calc(var(--step) + 1px);margin:0;font-weight:700}
+  p{margin:0}
+  .lede{color:var(--muted)}
+  .rule{height:3px;width:52px;background:var(--accent);border-radius:2px}
+  section{display:flex;flex-direction:column;gap:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:10px}
+  .top3{display:grid;gap:12px}
+  .top3 .card{border-top:4px solid var(--bad)}
+  .top3 .card:nth-child(3){border-top-color:var(--mid)}
+  .num{font-family:ui-monospace,Menlo,monospace;color:var(--accent-ink);font-size:.8em;letter-spacing:.06em}
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:calc(var(--step) - 1px)}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;line-height:1.6}
+  th{background:var(--sunk);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:1px 10px;line-height:1.7;white-space:nowrap}
+  .bad{background:var(--bad-wash);color:var(--bad)} .mid{background:var(--mid-wash);color:var(--mid)} .good{background:var(--good-wash);color:var(--good)} .info{background:var(--accent-wash);color:var(--accent-ink)}
+  ul,ol{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:5px}
+  .note{border-left:3px solid var(--accent);background:var(--accent-wash);padding:12px 14px;border-radius:0 8px 8px 0;display:flex;flex-direction:column;gap:6px}
+  .mail{background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:14px;white-space:pre-wrap;font-size:calc(var(--step) - 1px);line-height:1.8}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:var(--sunk);padding:1px 5px;border-radius:4px;word-break:break-all}
+  .shot{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .shot figure{margin:0;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+  .kpi div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .kpi b{display:block;font-size:1.45em;line-height:1.3;font-variant-numeric:tabular-nums}
+  .kpi span{color:var(--muted);font-size:13px}
+  small{color:var(--muted)}
+</style>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <div class="rule"></div>
+    <h1>石名坂のホームページ<br>4回目の点検（2026年11月1日）</h1>
+    <p class="lede">3回目（10月18日）から2週間後の点検です。公開中の173ページ（新しい記事1本を含む）を全部取り直し、前回の積み残しが直ったか、PHPの重大な欠陥にサーバー会社がどう対応したかを中心に見ました。読むだけの調べ方で、ログインの試行や書き込みはしていません。</p>
+  </header>
+  <section>
+    <h2>先に、言葉の説明</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>この報告書の言葉</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td>PHP／致命的エラー</td><td>ホームページを動かしているプログラムの言語と、その途中で止まってしまう誤りのこと</td></tr>
+        <tr><td>HTTPヘッダ（守りの見出し）</td><td>ページを送るときに一緒に付ける「取扱いの注意書き」。ブラウザはこれを見て、偽ページへの重ね表示などを防ぐ</td></tr>
+        <tr><td>HSTS</td><td>注意書きの1つ。「このサイトは必ず暗号化（https）で開くこと」という指示</td></tr>
+        <tr><td>XML-RPC</td><td>外のプログラムからWordPressを遠隔操作するための古い入口。今は使わないのが普通</td></tr>
+        <tr><td>REST API</td><td>外のプログラムからWordPressを読み書きするための新しい入口。私が記事を直すときに使っているのもこれ</td></tr>
+        <tr><td>SPF／DMARC／DKIM</td><td>会社のメールアドレスをかたった迷惑メールを、受け取る側が見分けるための仕組み。DNS（住所録）に書く</td></tr>
+        <tr><td>DNS</td><td>インターネットの住所録。「ishinazaka.co.jp はどのサーバーか」などを書いてある場所。お名前.com で管理</td></tr>
+        <tr><td>TLS／証明書</td><td>通信の暗号化と、その「本物の証明書」のこと。鍵マークの元</td></tr>
+        <tr><td>SiteGuard</td><td>入っている守り用のプラグイン（部品）。ログインの画像認証などを担当</td></tr>
+        <tr><td>Lighthouse</td><td>Googleが配っている、ページの速さや見やすさを採点する道具。100点満点</td></tr>
+        <tr><td>キャッシュ</td><td>一度読んだものを手元に取っておく仕組み。あると2回目以降が速い</td></tr>
+        <tr><td>AdSense</td><td>Googleの広告。ページに広告枠を出し、クリックで収入になる仕組み</td></tr>
+        <tr><td>og:image／Xのカード</td><td>LINEやX（旧Twitter）でリンクを貼ったときに出る、見出し画像の設定</td></tr>
+        <tr><td>CF7（Contact Form 7）</td><td>お問い合わせフォームのプラグイン</td></tr>
+        <tr><td>緩和策</td><td>根本の修正ではなく、攻撃を通りにくくする応急の設定</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+
+  <section>
+    <h2>まず、この3つ</h2>
+    <div class="top3">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>PHPの重大な欠陥：サーバー会社の対応が「プランによって違う」ことが分かりました</h3>
+        <p>カゴヤの案内（10月31日 9:10時点）では、<strong>「レンタルサーバープラン」は修正版への更新が完了</strong>しています。一方、<strong>「共用サーバー」「マネージド専用」「WordPress専用」は応急の緩和策（10月30日）だけで、PHP本体の更新は終わっていません。</strong>カゴヤ自身が「根本的な対策は、レンタルサーバープランへの変更か、対策済みPHPへの移行」と書いています。</p>
+        <p>石名坂がどちらのプランかは、外からは判別できません。<strong>カゴヤのコントロールパネルで「契約情報」のプラン名と、「Webサイト → PHP → PHPバージョン変更」のPHPの版を見てください。</strong>共用サーバーなら、プラン変更（同等以上のスペック）を制作会社と相談する段階です。レンタルサーバープランなら、PHPの版が 8.5.12／8.4.27／8.3.36／8.2.35 のいずれかになっているかを見れば終わりです。</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>前回の「最優先」は直っていました</h3>
+        <p>お問い合わせフォームの裏口で、PHPの故障の中身とサーバー内の場所が丸見えになっていた件は、<strong>いまは「許可されていません」という正しい短い返事</strong>になっています。遠隔操作の古い入口（XML-RPC）は閉じたまま、WordPress本体は最新の 7.1.4、プラグイン8本もすべて最新でした。</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>速さは少し下がりました：54点（前回58点）</h3>
+        <p>原因は、ページの頭で<strong>チャットボット用の部品（React など5本）が、描画を止める形で読み込まれている</strong>ことです。173ページすべてで同じです。前回は後回しの読み込みだったので、チャットの部品（AI Engine）の更新で変わった可能性があります。描画の前にやる処理の時間（TBT）は150ミリ秒から430ミリ秒に増えました。</p>
+        <p><strong>直し方：</strong>制作会社に「AI Engine のスクリプトを defer（後回し）で読む設定に戻してほしい。Autoptimize の JS 遅延でも可」と頼む。見た目は変わりません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>前回（10月18日）からの変化</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>項目</th><th>10月18日</th><th>11月1日</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>フォーム裏口の故障表示（PHPエラー）</td><td>全文とサーバー内の場所が見える</td><td>「許可されていません」の短い返事のみ</td><td><span class="tag good">直った</span></td></tr>
+        <tr><td>遠隔操作の古い入口（XML-RPC）</td><td>開いていた</td><td>403（立入禁止）</td><td><span class="tag good">直った</span></td></tr>
+        <tr><td>WordPress本体</td><td>7.1.3（最新）</td><td>7.1.4（最新）</td><td><span class="tag good">良</span></td></tr>
+        <tr><td>プラグイン</td><td>2本が1つ古い</td><td>8本すべて最新（AI Engine 3.8.9、Autoptimize 3.1.17、EWWW 8.9.1、AIOSEO 5.0.4 ほか）</td><td><span class="tag good">直った</span></td></tr>
+        <tr><td>ログインロック</td><td>有効（5秒・3回・1分）を画面で確認</td><td>変更なし</td><td><span class="tag good">良</span></td></tr>
+        <tr><td>ページ数と状態</td><td>172ページ すべて200</td><td>173ページ すべて200（三つ星認定の記事を追加）</td><td><span class="tag good">良</span></td></tr>
+        <tr><td>守りの見出し（HTTPヘッダ5本）</td><td>0本</td><td>0本</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>ブラウザのキャッシュ期間</td><td>なし</td><td>なし（28件）</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>メールのなりすまし対策（DMARC）</td><td>なし</td><td>なし</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>ログイン画面の場所</td><td>既定の場所</td><td>既定の場所</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>REST遮断の文言「TEST12345」</td><td>残っている</td><td>残っている</td><td><span class="tag info">未</span></td></tr>
+        <tr><td>404ページの題名（サイト名が空）</td><td>空</td><td>空</td><td><span class="tag info">未</span></td></tr>
+        <tr><td>xmlns の http／フッターのロゴの代替テキスト／事業者情報の社名</td><td>未</td><td>未（173ページ）</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>プライバシーポリシーの社名</td><td>空白なし3・全角3</td><td>変わらず</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>記事の著者の表示名</td><td>管理用石名坂 145、echnaadmin 1</td><td>管理用石名坂 145、echnaadmin 1、株式会社 石名坂 9</td><td><span class="tag mid">未</span></td></tr>
+        <tr><td>SNS用画像なし／Xのカード／代替テキストなしの画像</td><td>14ページ／なし／48枚</td><td>変わらず</td><td><span class="tag info">未</span></td></tr>
+        <tr><td>速さ（Lighthouse・スマホ）</td><td>性能58、LCP 10.1秒、TBT 150ms</td><td>性能54、LCP 9.0秒、TBT 430ms</td><td><span class="tag mid">やや悪化</span></td></tr>
+        <tr><td>見やすさ・ルール・検索向け</td><td>100／100／100</td><td>100／100／100</td><td><span class="tag good">良</span></td></tr>
+        <tr><td>スマホで1ページに読み込む量</td><td>約3MB・75回</td><td>約2.9MB・74回</td><td><span class="tag info">同じ</span></td></tr>
+        <tr><td>サーバーの最初の応答</td><td>0.8〜1.1秒</td><td>1.0〜1.2秒</td><td><span class="tag info">同じ</span></td></tr>
+        <tr><td>広告スクリプトのあるページ</td><td>163／172</td><td>164／173</td><td><span class="tag info">同じ</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>PHPの欠陥について、いま分かっていること</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>カゴヤのプラン</th><th>緩和策</th><th>PHP本体の修正版</th></tr></thead>
+      <tbody>
+        <tr><td>レンタルサーバープラン</td><td>完了</td><td><strong>完了</strong>（7.4／8.1／8.2／8.3／8.4／8.5系）</td></tr>
+        <tr><td>共用サーバー</td><td>10月30日 完了</td><td><strong>未完了</strong></td></tr>
+        <tr><td>マネージド専用サーバー</td><td>10月30日 完了</td><td>未完了</td></tr>
+        <tr><td>WordPress専用サーバー</td><td>10月31日 完了</td><td>未完了</td></tr>
+      </tbody>
+    </table></div>
+    <p><small>出典：カゴヤ・ジャパン「PHPの脆弱性（CVE-2026-109618 / CVE-2026-109619）に関する当社サービス状況」（10月31日 9:10時点）。カゴヤは「対策済みでないPHPでのサイト公開は非推奨」とも書いています。</small></p>
+    <div class="card">
+      <h3>確かめ方（コントロールパネル）</h3>
+      <ul>
+        <li><strong>プラン名：</strong>画面右上のアカウント名 → 契約情報</li>
+        <li><strong>PHPの版：</strong>Webサイト → PHP → PHPバージョン変更。レンタルサーバープランなら 8.5.12／8.4.27／8.3.36／8.2.35 のどれかになっていれば対策済み</li>
+        <li>共用サーバーだった場合：契約情報 → サービスプラン変更 から、同等以上のレンタルサーバープランへ。移し替えの作業は制作会社に</li>
+      </ul>
+      <p><small>外から見えるのは「nginx」というサーバーの種類だけで、プランは分かりませんでした。サーバー内の置き場所が /home/ecn06602a/public_html/site1/ だったことも、どちらのプランでも同じ形なので手がかりになりません。</small></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>速さの詳しい値</h2>
+    <div class="kpi">
+      <div><b>54</b><span>性能（前回58）</span></div>
+      <div><b>9.0秒</b><span>最大の絵が出るまで（前回10.1秒）</span></div>
+      <div><b>430ms</b><span>描画前の処理（前回150ms）</span></div>
+      <div><b>0</b><span>表示のずれ。良い</span></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>ページ</th><th>応答</th><th>最大の絵</th><th>読み込み完了</th><th>量</th><th>回数</th></tr></thead>
+      <tbody>
+        <tr><td>トップ</td><td class="n">1.2秒</td><td class="n">3.7秒</td><td class="n">3.9秒</td><td class="n">2,887KB</td><td class="n">74</td></tr>
+        <tr><td>三つ星認定の記事</td><td class="n">1.2秒</td><td class="n">2.1秒</td><td class="n">3.2秒</td><td class="n">2,863KB</td><td class="n">74</td></tr>
+        <tr><td>砕石販売</td><td class="n">1.0秒</td><td class="n">1.8秒</td><td class="n">2.1秒</td><td class="n">2,807KB</td><td class="n">66</td></tr>
+      </tbody>
+    </table></div>
+    <p>描画を止めているものは3本で、<strong>チャットボット用の react-dom</strong>、Autoptimize がまとめたJS、同じくCSSです。前回は jquery-migrate とCSS 2本でした。ページの頭で読んでいるスクリプトは、react、react-dom、escape-html、element、chatbot.js、jquery、jquery-migrate、Googleタグ、Autoptimize、slick の10本です。</p>
+    <p>直す順番は前回と同じです。（1）ブラウザのキャッシュ期間、（2）Googleフォントを絞る（いまも28ファイル・340KB）、（3）チャットボットとjQueryの部品を後回しに、（4）広告を続けるか、（5）ページキャッシュ、（6）トップの写真。</p>
+  </section>
+
+  <section>
+    <h2>やることの振り分け</h2>
+    <div class="card">
+      <h3>A. まず藤原さんが確かめる（5分）</h3>
+      <ul><li>カゴヤのコントロールパネルで、プラン名とPHPの版。分かったら教えてください。それで次の一手が決まります</li></ul>
+    </div>
+    <div class="card">
+      <h3>B. 制作会社に頼むもの（前回の文面に2行足します）</h3>
+      <div class="mail">前回お願いした件のうち、1（PHPのエラー表示）は直っていることを確認しました。ありがとうございます。
+残りの 2（セキュリティ用のHTTPヘッダ5本）、3（ブラウザキャッシュの期間）、4（テーマの修正：xmlns、フッターのalt、GeneralContractorの社名、404の題名、Googleフォントの絞り込み）、5（REST APIの「TEST12345」）は、引き続きお願いします。
+
+追加で2点お願いします。
+6. チャットボット（AI Engine）の React などのスクリプトが、ページの頭で描画を止める形で読み込まれています（173ページ全部）。defer で読む設定に戻すか、Autoptimize の JS 遅延に含めてください。
+7. PHPの脆弱性（CVE-2026-109618 / 109619）について、当社のカゴヤの契約が「共用サーバー」の場合、カゴヤの案内では PHP 本体の修正版が未適用で、レンタルサーバープランへの変更が根本対策とされています。プラン確認のうえ、必要なら移行の見積もりをお願いします。</div>
+    </div>
+    <div class="card">
+      <h3>C. 管理画面でご自身でできるもの（前回と同じ）</h3>
+      <ul>
+        <li>SiteGuard「ログインページ変更」をオン（新しい住所を必ず控える）</li>
+        <li>ユーザー「管理用石名坂」「echnaadmin」の表示名を「株式会社 石名坂」に</li>
+        <li>農業エネルギー連載5本にアイキャッチ。AIOSEO で X のカードをオン、カテゴリーの既定画像を設定</li>
+        <li>プライバシーポリシーの社名（空白なし3か所・全角3か所）</li>
+        <li>メディアの横向きの古い認定書画像（ID 6491）を削除</li>
+        <li>ai-agent のアプリケーションパスワードを取り消す（記事の作業が終わったら）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>D. DNS（お名前.com）</h3>
+      <ul><li>DMARC の1行（前回の報告書に値があります）</li></ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>調べ方と限界</h2>
+    <div class="note">
+      <p>・サイトマップの173ページをすべて取得（応答ヘッダも保存）。書き込み・ログイン試行・総当たりはしていません。</p>
+      <p>・PHPのエラー表示は、前回見つかった1か所が直ったことだけを確かめました。サーバー全体の設定が変わったかどうかは、外からは分かりません。</p>
+      <p>・暗号化の証明書は、前回と同じ理由で確かめられません。</p>
+      <p>・速さの採点は Lighthouse 12.8（スマホ・遅い回線の模擬）、11月1日 11時（世界時）。</p>
+      <p>・使った道具と結果の控え：<code>wordpress/docs/tenken4/</code>。前回の報告書：<code>wordpress/docs/tenken3/houkoku.html</code></p>
+    </div>
+  </section>
+</main>
