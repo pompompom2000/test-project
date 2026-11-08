@@ -188,13 +188,18 @@ def main():
         json.dump(d, open(fp, 'w'), ensure_ascii=False, indent=1)
 
     # 通算サマリ
-    races, split = [], []
+    # 締切後のオッズで記録されたレースは集計に入れない。発走後の情報が
+    # 市場側に入ってしまい、比較が市場に有利に歪む。
+    races, split, excluded = [], [], []
     for fp in files:
         d = json.load(open(fp))
         if 'races' not in d or 'swan' in fp:      # swan-s は京都ファイルと重複
             continue
         for r in d['races']:
             if 'result' not in r:
+                continue
+            if r.get('oddsStatus') != 'middle':
+                excluded.append(f"{os.path.basename(fp)} {r['race']}")
                 continue
             races.append(r)
             if not r['agree']:
@@ -218,10 +223,13 @@ def main():
                'pending': len(pending),
                'note': ('軸が一致したレースでは主指標に差が出ない。'
                         'axisSplitOnly が軸比較の実効サンプル。'
-                        '対数損失は全レースで差が出るのでそちらは全件使える。')}
+                        '対数損失は全レースで差が出るのでそちらは全件使える。'),
+               'excludedPostDeadline': excluded}
     json.dump(summary, open(f'{TRACK}/summary.json', 'w'), ensure_ascii=False, indent=1)
 
     print(f'新規に採点 {len(done)}レース / 未反映 {len(pending)}レース')
+    if excluded:
+        print(f'締切後オッズのため集計から除外 {len(excluded)}件: {excluded}')
     if summary['all']:
         a, s = summary['all'], summary['axisSplitOnly']
         print(f"通算 {a['races']}レース  軸的中 市場 {a['marketAxisHit']}/{a['races']} "

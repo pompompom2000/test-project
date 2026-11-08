@@ -1,21 +1,25 @@
 {
- "updatedAt": "2026-11-01T07:55:24",
+ "updatedAt": "2026-11-08T03:48:30",
  "all": {
-  "races": 120,
-  "marketAxisHit": 85,
+  "races": 118,
+  "marketAxisHit": 84,
   "vrs18AxisHit": 76,
-  "logLoss_market": 0.4313,
-  "logLoss_vrs18Raw": 0.4447,
-  "logLoss_vrs18Norm": 0.4419
+  "logLoss_market": 0.4317,
+  "logLoss_vrs18Raw": 0.4441,
+  "logLoss_vrs18Norm": 0.4414
  },
  "axisSplitOnly": {
-  "races": 44,
-  "marketAxisHit": 29,
+  "races": 42,
+  "marketAxisHit": 28,
   "vrs18AxisHit": 20,
-  "logLoss_market": 0.4357,
-  "logLoss_vrs18Raw": 0.4523,
-  "logLoss_vrs18Norm": 0.449
+  "logLoss_market": 0.4371,
+  "logLoss_vrs18Raw": 0.4509,
+  "logLoss_vrs18Norm": 0.4478
  },
  "pending": 0,
- "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。"
+ "note": "軸が一致したレースでは主指標に差が出ない。axisSplitOnly が軸比較の実効サンプル。対数損失は全レースで差が出るのでそちらは全件使える。",
+ "excludedPostDeadline": [
+  "2026-10-17-kyoto.json 1R",
+  "2026-10-17-niigata.json 1R"
+ ]
 }

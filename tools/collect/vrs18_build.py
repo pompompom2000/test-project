@@ -37,6 +37,10 @@ def build(date, force=False):
 
         races, agree, skipped = [], 0, []
         for r in v['races']:
+            if r['oddsStatus'] != 'middle' and not force:
+                # 締切後のオッズは発走後の情報を含む。市場側に有利な先読みになるので
+                # 追跡には入れない。--force で明示的に入れられる。
+                skipped.append(f"{r['race']}(締切後)"); continue
             pr = pv.get(r['race'])
             if not pr:
                 skipped.append(r['race']); continue
