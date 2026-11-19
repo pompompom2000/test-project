@@ -1,0 +1,258 @@
+{
+ "home": {
+  "url": "https://www.ishinazaka.co.jp/",
+  "loadMs": 5510,
+  "ttfb": 1187.100000000035,
+  "dcl": 3577.4000000000233,
+  "load": 5505.700000000012,
+  "lcp": 3852,
+  "cls": 0,
+  "h1": 1,
+  "imgs": 9,
+  "fontPx": "16px",
+  "docH": 7026,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 13,
+  "requests": 74,
+  "totalKB": 3933,
+  "byType": {
+   "document": [
+    1,
+    118
+   ],
+   "stylesheet": [
+    8,
+    478
+   ],
+   "script": [
+    23,
+    1086
+   ],
+   "font": [
+    28,
+    340
+   ],
+   "image": [
+    10,
+    847
+   ],
+   "media": [
+    3,
+    1064
+   ],
+   "fetch": [
+    1,
+    0
+   ]
+  },
+  "big": [
+   [
+    "1044KB",
+    "media",
+    "/common/files/uploads/2026/05/gemini_generated_video_5544ef32.mp4"
+   ],
+   [
+    "584KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "241KB",
+    "image",
+    "/common/files/uploads/2026/05/1000006838.webp"
+   ],
+   [
+    "168KB",
+    "image",
+    "/common/files/uploads/2026/05/1000006843.webp"
+   ]
+  ],
+  "third": {
+   "www.googletagmanager.com": 1,
+   "fonts.googleapis.com": 1,
+   "fonts.gstatic.com": 28,
+   "www.google-analytics.com": 1
+  },
+  "errors": [],
+  "failed": [
+   "https://www.ishinazaka.co.jp/common/files/uploads/2026/05/gemini_generated_video_5544ef32.mp4 net::ERR_ABORTED"
+  ],
+  "horizontalScroll": false
+ },
+ "kiji": {
+  "url": "https://www.ishinazaka.co.jp/morioka-yuryo-kensetsu-koji-r8/",
+  "loadMs": 2783,
+  "ttfb": 420.5,
+  "dcl": 2366.399999999965,
+  "load": 2777.7999999999884,
+  "lcp": 2808,
+  "cls": 0,
+  "h1": 1,
+  "imgs": 6,
+  "fontPx": "16px",
+  "docH": 12256,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 15,
+  "requests": 66,
+  "totalKB": 2850,
+  "byType": {
+   "document": [
+    5,
+    141
+   ],
+   "stylesheet": [
+    6,
+    473
+   ],
+   "script": [
+    26,
+    1795
+   ],
+   "font": [
+    21,
+    253
+   ],
+   "image": [
+    6,
+    171
+   ],
+   "fetch": [
+    1,
+    0
+   ],
+   "xhr": [
+    1,
+    18
+   ]
+  },
+  "big": [
+   [
+    "584KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "507KB",
+    "script",
+    "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202611110101/sh"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "160KB",
+    "script",
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-831"
+   ]
+  ],
+  "third": {
+   "fonts.googleapis.com": 1,
+   "pagead2.googlesyndication.com": 4,
+   "www.googletagmanager.com": 1,
+   "fonts.gstatic.com": 21,
+   "googleads.g.doubleclick.net": 2,
+   "www.google-analytics.com": 1,
+   "ep1.adtrafficquality.google": 2,
+   "ep2.adtrafficquality.google": 3,
+   "www.google.com": 1
+  },
+  "errors": [],
+  "failed": [],
+  "horizontalScroll": false
+ },
+ "saiseki": {
+  "url": "https://www.ishinazaka.co.jp/saiseki-hanbai/",
+  "loadMs": 2778,
+  "ttfb": 430.8999999999651,
+  "dcl": 2395.5999999999767,
+  "load": 2776,
+  "lcp": 2160,
+  "cls": 0,
+  "h1": 1,
+  "imgs": 25,
+  "fontPx": "16px",
+  "docH": 18953,
+  "scrollW": 412,
+  "vw": 412,
+  "tapSmall": 19,
+  "requests": 65,
+  "totalKB": 2808,
+  "byType": {
+   "stylesheet": [
+    6,
+    473
+   ],
+   "document": [
+    1,
+    160
+   ],
+   "script": [
+    22,
+    1044
+   ],
+   "font": [
+    27,
+    341
+   ],
+   "image": [
+    8,
+    790
+   ],
+   "fetch": [
+    1,
+    0
+   ]
+  },
+  "big": [
+   [
+    "584KB",
+    "script",
+    "https://www.googletagmanager.com/gtag/js?id=GT-KTBLXM35"
+   ],
+   [
+    "328KB",
+    "stylesheet",
+    "https://fonts.googleapis.com/css?family=Zen+Maru+Gothic:400,700,900&display=swap"
+   ],
+   [
+    "221KB",
+    "image",
+    "/common/files/uploads/2025/11/PXL_20251126_075740491-1153x1536.png.webp"
+   ],
+   [
+    "206KB",
+    "image",
+    "/common/files/uploads/2026/05/Gemini_Generated_Image_m6cuz2m6cuz2m6cu-1536x838.w"
+   ],
+   [
+    "160KB",
+    "document",
+    "/saiseki-hanbai/"
+   ],
+   [
+    "155KB",
+    "image",
+    "/common/files/uploads/2026/04/1775539219598_260407143021.png.webp"
+   ]
+  ],
+  "third": {
+   "fonts.googleapis.com": 1,
+   "www.googletagmanager.com": 1,
+   "fonts.gstatic.com": 27,
+   "www.google-analytics.com": 1,
+   "scdn.line-apps.com": 1
+  },
+  "errors": [],
+  "failed": [],
+  "horizontalScroll": false
+ }
+}

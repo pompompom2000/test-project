@@ -13,7 +13,7 @@ SEO_TITLE = u'いわて地球環境にやさしい事業所とは？三つ星認
 SEO_DESC = (u'令和8年10月16日、株式会社 石名坂は岩手県の「いわて地球環境にやさしい事業所」三つ星に認定されました。'
             u'星4段階の基準、エコスタッフの要件、県内の認定311事業所のうち三つ星13という状況を、県の要領と一覧から整理します。')
 KEY = u'いわて地球環境にやさしい事業所'
-CATS, TAGS = [1, 7], []   # 7 = 防災・環境（公開ページの category/information/environment）
+CATS, TAGS = [1, 7], []   # ※誤り：7 は「除雪・排雪」。「防災・環境」は 82（2026-11-19 の点検で発見）
 
 def yobu(p, obj=None):
     q = ur.Request(SITE + p, data=json.dumps(obj).encode('utf-8') if obj is not None else None,

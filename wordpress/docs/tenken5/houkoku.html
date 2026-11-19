@@ -1,0 +1,285 @@
+<title>石名坂サイト 5回目の点検</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  /* 配置：1列の読み物。表は枠の中で横スクロール。月ごとの本数は横棒 */
+  :root{
+    --paper:#F2F3F1; --surface:#FFFFFF; --sunk:#E9EBE7;
+    --ink:#23262A; --muted:#656B6F; --line:#D4D8D3;
+    --accent:#1F5E8A; --accent-ink:#164567; --accent-wash:#E2ECF4;
+    --bad:#9A2E24; --bad-wash:#F8E6E3; --mid:#8A5A12; --mid-wash:#F7EBD6; --good:#2B6B3F; --good-wash:#E1F0E5;
+    --bar:#1F5E8A; --bar-hi:#9A2E24;
+    --step:clamp(15px,1.4vw,16px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#15171A; --surface:#1F2226; --sunk:#191B1E; --ink:#ECEDEA; --muted:#A4A9AD; --line:#353A40;
+      --accent:#6FAEDC; --accent-ink:#A9D0EC; --accent-wash:#1C2A36;
+      --bad:#E39A90; --bad-wash:#2F1F1C; --mid:#E0B36A; --mid-wash:#2E2619; --good:#8CCB9E; --good-wash:#1B2B20;
+      --bar:#6FAEDC; --bar-hi:#E39A90; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15171A; --surface:#1F2226; --sunk:#191B1E; --ink:#ECEDEA; --muted:#A4A9AD; --line:#353A40;
+    --accent:#6FAEDC; --accent-ink:#A9D0EC; --accent-wash:#1C2A36;
+    --bad:#E39A90; --bad-wash:#2F1F1C; --mid:#E0B36A; --mid-wash:#2E2619; --good:#8CCB9E; --good-wash:#1B2B20;
+    --bar:#6FAEDC; --bar-hi:#E39A90; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;font-size:var(--step);line-height:1.8;-webkit-text-size-adjust:100%}
+  .wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:36px 72px;display:flex;flex-direction:column;gap:30px}
+  h1{font-family:"Shippori Mincho","Yu Mincho",serif;font-weight:600;font-size:clamp(24px,5.4vw,33px);line-height:1.45;margin:0;text-wrap:balance}
+  h2{font-size:calc(var(--step) + 4px);margin:0;font-weight:700;text-wrap:balance;padding-left:12px;border-left:4px solid var(--accent)}
+  h3{font-size:calc(var(--step) + 1px);margin:0;font-weight:700}
+  p{margin:0}
+  .lede{color:var(--muted)}
+  .rule{height:3px;width:52px;background:var(--accent);border-radius:2px}
+  section{display:flex;flex-direction:column;gap:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .top3{display:grid;gap:12px}
+  .top3 .card{border-top:4px solid var(--bad)}
+  .top3 .card.m{border-top-color:var(--mid)}
+  .top3 .card.g{border-top-color:var(--good)}
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:calc(var(--step) - 1px)}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;line-height:1.6}
+  th{background:var(--sunk);font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.n,th.n{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;border-radius:999px;padding:1px 10px;line-height:1.7;white-space:nowrap}
+  .bad{background:var(--bad-wash);color:var(--bad)} .mid{background:var(--mid-wash);color:var(--mid)} .good{background:var(--good-wash);color:var(--good)} .info{background:var(--accent-wash);color:var(--accent-ink)}
+  ul,ol{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:5px}
+  .note{border-left:3px solid var(--accent);background:var(--accent-wash);padding:12px 14px;border-radius:0 8px 8px 0;display:flex;flex-direction:column;gap:6px}
+  .mail{background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:14px;white-space:pre-wrap;font-size:calc(var(--step) - 1px);line-height:1.8}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+  .kpi div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .kpi b{display:block;font-size:1.45em;line-height:1.3;font-variant-numeric:tabular-nums}
+  .kpi span{color:var(--muted);font-size:13px}
+  .bars{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px}
+  .bars .r{display:grid;grid-template-columns:5.2em 1fr 2.4em;align-items:center;gap:8px;font-size:13px;font-variant-numeric:tabular-nums}
+  .bars .r span:first-child{color:var(--muted)}
+  .bars .r span:last-child{text-align:right}
+  .bars i{display:block;height:12px;background:var(--bar);border-radius:0 3px 3px 0;min-width:2px}
+  .bars i.hi{background:var(--bar-hi)}
+  small{color:var(--muted)}
+  a{color:var(--accent-ink)}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <small>石名坂のホームページ</small>
+    <h1>5回目の点検（2026年11月19日）</h1>
+    <div class="rule"></div>
+    <p class="lede">前回（11月1日）から18日後の点検です。公開中の174ページ（11月12日の表彰の記事を含む）をすべて取り直し、安全面・速さ・前回の積み残しに加えて、今回は「どの記事がよく読まれているか」を中心に見ました。読むだけの調べ方で、ログインの試行や書き込みはしていません。</p>
+  </header>
+
+  <section>
+    <h2>先に、言葉の説明</h2>
+    <div class="tbl"><table>
+      <tr><th>この報告書の言葉</th><th>意味</th></tr>
+      <tr><td>カテゴリー（分類）</td><td>記事をまとめる棚の名前。「土木のきほん」「施工実績」など。お知らせ一覧の見出しにも出る</td></tr>
+      <tr><td>閲覧数</td><td>各記事の下に出ている「Views:」の数。サイトに入っている数取りの部品が数えたもので、検索ロボットの訪問も混ざることがある。Googleアナリティクスの数とは一致しない</td></tr>
+      <tr><td>説明文</td><td>Googleの検索結果で、題名の下に出る2〜3行の文。長すぎると後ろが「…」で切れる</td></tr>
+      <tr><td>PHP</td><td>ホームページを動かしているプログラムの言語。10月に重大な欠陥が見つかった</td></tr>
+      <tr><td>守りの見出し（HTTPヘッダ）</td><td>ページを送るときに一緒に付ける「取扱いの注意書き」。ブラウザはこれを見て偽ページへの重ね表示などを防ぐ</td></tr>
+      <tr><td>DMARC</td><td>会社のメールアドレスをかたった迷惑メールを、受け取る側が見分けるための1行。DNS（インターネットの住所録、お名前.com）に書く</td></tr>
+      <tr><td>XML-RPC</td><td>外のプログラムからWordPressを遠隔操作するための古い入口。閉じておくのが普通</td></tr>
+      <tr><td>Lighthouse</td><td>Googleが配っている、ページの速さや見やすさを採点する道具。100点満点</td></tr>
+      <tr><td>キャッシュ</td><td>一度読んだものを手元に取っておく仕組み。あると2回目以降が速い</td></tr>
+      <tr><td>og:image／Xのカード</td><td>LINEやX（旧Twitter）でリンクを貼ったときに出る、見出し画像の設定</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>まず、この3つ</h2>
+    <div class="top3">
+      <div class="card">
+        <span class="tag bad">私の誤り・すぐ直せます</span>
+        <h3>三つ星認定の記事が「除雪・排雪」の棚に入っています</h3>
+        <p>10月27日に公開した「いわて地球環境にやさしい事業所」の記事を、私が登録するとき分類の番号を取り違えました。本来は「防災・環境」です。いまは除雪の記事一覧に、三つ星の記事が混ざって出ています。</p>
+        <p>直すのは分類1か所だけで、本文は変わりません。「直して」と言っていただければ直します。あわせて、11月12日の表彰の記事の説明文が138字で長すぎる（検索結果で後ろが切れる）ので、110字ほどに縮めます。これも私の書きすぎです。</p>
+      </div>
+      <div class="card m">
+        <span class="tag mid">3週間 止まっています</span>
+        <h3>PHPの欠陥：カゴヤのプランとPHPの版の確認がまだです</h3>
+        <p>カゴヤの案内は10月31日から更新されていません。「レンタルサーバープラン」は修正済み、「共用サーバー」などは応急の対策だけで、根本の対策は「レンタルサーバープランへの変更」のままです。</p>
+        <p>石名坂がどちらかは外からは分かりません。コントロールパネルで <b>契約情報のプラン名</b> と <b>Webサイト → PHP → PHPバージョン変更</b> の版を見て、教えてください。安全面で残っている一番大きい点はここです。</p>
+      </div>
+      <div class="card g">
+        <span class="tag good">次の一手</span>
+        <h3>一番読まれているのは「土木のきほん」。でも6月から止まっています</h3>
+        <p>「土木のきほん」は15本（全体の1割）なのに、閲覧数は全体の4分の1以上を集めています。上位4本はすべてこの棚です。最後の記事は6月8日で、5か月新しい記事が出ていません。</p>
+        <p>一方、本数が一番多い「防災・環境」（35本）は1本あたりの閲覧数が一番少なく、8月に43本まとめて出した連載も伸びていません。投稿は10月2本、11月1本に減っています。<b>「土木のきほん」を月2〜4本で再開する</b>のが、一番効く使い道です。題材の案は下にあります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>前回（11月1日）からの変化</h2>
+    <div class="tbl"><table>
+      <tr><th>項目</th><th>11月1日</th><th>11月19日</th><th>判定</th></tr>
+      <tr><td>ページ数と状態</td><td>173ページ すべて正常</td><td>174ページ すべて正常（表彰の記事を追加）</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>WordPress本体</td><td>7.1.4（最新）</td><td>7.1.5（最新）</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>プラグイン（部品）</td><td>8本すべて最新</td><td>8本すべて最新。うち5本がこの間に更新済み（AI Engine 3.9.4、AIOSEO 5.0.5.1、Easy Accordion 3.2.1、Easy FancyBox 2.3.26、EWWW 8.9.2）</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>遠隔操作の古い入口（XML-RPC）</td><td>閉じている</td><td>閉じている</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>投稿者名の漏れ（?author=）</td><td>トップへ転送</td><td>トップへ転送</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>お問い合わせフォームのロボット対策</td><td>あり</td><td>あり（Cloudflare Turnstile）</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>プライバシーポリシーの社名</td><td>空白なし3・全角空白3</td><td>空白なし0・<b>全角空白2</b></td><td><span class="tag mid">一部直った</span></td></tr>
+      <tr><td>PHPの欠陥（プラン確認）</td><td>未確認</td><td>未確認</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>守りの見出し（HTTPヘッダ5本）</td><td>0本</td><td>0本</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>ブラウザのキャッシュ期間</td><td>なし</td><td>なし（29件）</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>メールのなりすまし対策（DMARC）</td><td>なし</td><td>なし（SPFはあり）</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>ログイン画面の場所</td><td>既定の場所</td><td>既定の場所</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>REST遮断の文言「TEST12345」</td><td>残っている</td><td>残っている</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>404ページの題名（サイト名が空）</td><td>空</td><td>空（「» ページが見つかりませんでした」）</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>テーマの細かい点（xmlns の https／フッターのロゴの代替テキスト「株式会社石名坂」／事業者情報の社名）</td><td>未</td><td>未（174ページ）</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>記事の著者の表示名</td><td>管理用石名坂 145、echnaadmin 1、株式会社 石名坂 9</td><td>管理用石名坂 145、echnaadmin 1、株式会社 石名坂 10</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>SNS用画像なし／Xのカード／代替テキストなしの画像</td><td>14ページ／なし／48枚</td><td>変わらず</td><td><span class="tag bad">未</span></td></tr>
+      <tr><td>古い横向きの認定書画像（メディア6491）</td><td>残っている</td><td>残っている（今も開ける）</td><td><span class="tag mid">未</span></td></tr>
+      <tr><td>速さ（Lighthouse・スマホ）</td><td>性能54、最大の絵 9.0秒、描画前の処理 430ms</td><td>性能55、最大の絵 9.1秒、描画前の処理 410ms</td><td><span class="tag mid">同じ</span></td></tr>
+      <tr><td>見やすさ・ルール・検索向け</td><td>100／100／100</td><td>100／100／100</td><td><span class="tag good">良</span></td></tr>
+      <tr><td>広告スクリプトのあるページ</td><td>164／173</td><td>165／174</td><td><span class="tag info">同じ</span></td></tr>
+    </table></div>
+    <p><small>本文が変わったのは、記事の下の閲覧数の表示だけでした（12ページ）。新しく増えた記事は1本です。</small></p>
+  </section>
+
+  <section>
+    <h2>読まれ方の分析</h2>
+    <p>各記事の下に出ている閲覧数を、156本すべてから集めました。合計は <b>138,486</b>、1本あたりの真ん中の値は <b>603</b> です。数取りの部品の数なので、検索ロボットも混ざります。比べ合わせる目安として見てください。</p>
+
+    <h3>棚（カテゴリー）ごとの比べ</h3>
+    <div class="tbl"><table>
+      <tr><th>棚</th><th class="n">本数</th><th class="n">1本の真ん中</th><th class="n">合計</th><th>最新の記事</th></tr>
+      <tr><td><b>土木のきほん</b></td><td class="n">15</td><td class="n"><b>1,481</b></td><td class="n"><b>36,695</b></td><td>6月8日（振動プレート）</td></tr>
+      <tr><td>砕石販売</td><td class="n">16</td><td class="n">1,081</td><td class="n">24,778</td><td>8月27日</td></tr>
+      <tr><td>法令・制度</td><td class="n">6</td><td class="n">1,009</td><td class="n">5,694</td><td>7月27日</td></tr>
+      <tr><td>運送・物流法令</td><td class="n">27</td><td class="n">802</td><td class="n">23,470</td><td>10月9日（白トラ）</td></tr>
+      <tr><td>除雪・排雪</td><td class="n">7</td><td class="n">654</td><td class="n">4,743</td><td>10月27日（※三つ星の記事が誤って入っている）</td></tr>
+      <tr><td>施工実績</td><td class="n">23</td><td class="n">548</td><td class="n">13,396</td><td>11月12日（表彰）</td></tr>
+      <tr><td>コラム</td><td class="n">27</td><td class="n">417</td><td class="n">14,335</td><td>9月22日</td></tr>
+      <tr><td>防災・環境</td><td class="n">35</td><td class="n">387</td><td class="n">15,375</td><td>8月31日</td></tr>
+    </table></div>
+
+    <h3>よく読まれている10本</h3>
+    <div class="tbl"><table>
+      <tr><th class="n">閲覧</th><th>公開</th><th>棚</th><th>題名</th></tr>
+      <tr><td class="n">5,605</td><td>2025/12/9</td><td>土木のきほん</td><td>砕石の単位「㎥（立米）」とは？必要な量の計算方法</td></tr>
+      <tr><td class="n">5,175</td><td>2026/5/10</td><td>土木のきほん</td><td>現場密度試験（砂置換法）とは？</td></tr>
+      <tr><td class="n">5,018</td><td>2026/5/13</td><td>土木のきほん</td><td>ヘロンの公式の覚え方と計算例</td></tr>
+      <tr><td class="n">3,506</td><td>2026/5/7</td><td>土木のきほん</td><td>修正CBRとは？普通のCBRとの違い</td></tr>
+      <tr><td class="n">3,503</td><td>2025/12/8</td><td>砕石販売</td><td>【2026年最新】盛岡の砕石価格表｜4t・3tダンプ配達料金</td></tr>
+      <tr><td class="n">3,468</td><td>2026/4/20</td><td>砕石販売</td><td>砕石の「安息角」とは？</td></tr>
+      <tr><td class="n">3,361</td><td>2025/12/5</td><td>砕石販売</td><td>道路用砕石 JIS A5001</td></tr>
+      <tr><td class="n">3,262</td><td>2026/5/26</td><td>土木のきほん</td><td>オートレベルを使った高さの測り方</td></tr>
+      <tr><td class="n">2,579</td><td>2026/5/5</td><td>土木のきほん</td><td>輪荷重（りんかじゅう）とは？</td></tr>
+      <tr><td class="n">2,436</td><td>2026/4/5</td><td>砕石販売</td><td>黒土（黒ぼく土）の特徴と農業での使い方</td></tr>
+    </table></div>
+    <p>上位はどれも「○○とは？」「計算の仕方」のように、<b>現場や学校で困った人が検索で調べる言葉</b>を題名にした記事です。公開から半年たっても1日15〜27回ずつ読まれ続けています。反対に、8月の「東日本大震災を知る」5本や「農業とエネルギー」5本、9月の量子コンピュータ連載は、1本300前後で止まっています。内容の良し悪しではなく、検索で探す人が少ない題材だということです。</p>
+
+    <h3>月ごとの公開本数</h3>
+    <div class="bars" role="img" aria-label="月ごとの公開本数。2026年8月が43本で最多、10月は2本、11月は1本。">
+      <div class="r"><span>2025年11月</span><i style="width:32.6%"></i><span>14</span></div>
+      <div class="r"><span>12月</span><i style="width:16.3%"></i><span>7</span></div>
+      <div class="r"><span>2026年1月</span><i style="width:2.3%"></i><span>1</span></div>
+      <div class="r"><span>2月</span><i style="width:2.3%"></i><span>1</span></div>
+      <div class="r"><span>3月</span><i style="width:27.9%"></i><span>12</span></div>
+      <div class="r"><span>4月</span><i style="width:41.9%"></i><span>18</span></div>
+      <div class="r"><span>5月</span><i style="width:44.2%"></i><span>19</span></div>
+      <div class="r"><span>6月</span><i style="width:16.3%"></i><span>7</span></div>
+      <div class="r"><span>7月</span><i style="width:34.9%"></i><span>15</span></div>
+      <div class="r"><span>8月</span><i class="hi" style="width:100%"></i><span>43</span></div>
+      <div class="r"><span>9月</span><i style="width:27.9%"></i><span>12</span></div>
+      <div class="r"><span>10月</span><i style="width:4.7%"></i><span>2</span></div>
+      <div class="r"><span>11月</span><i style="width:2.3%"></i><span>1</span></div>
+    </div>
+    <p><small>2025年4〜9月の4本は省きました。一番読まれている記事が多いのは4〜5月で、この時期は「土木のきほん」を集中して出していました。</small></p>
+
+    <h3>季節と年の変わり目に合わせて、直しておきたい記事</h3>
+    <ul>
+      <li><b>「【2026年最新】盛岡の砕石価格表」</b>（3,503閲覧）。年が明けると題名の「2026年最新」が古く見えます。1月に値段を確かめて「2027年」に直すのがよいです。問い合わせに一番近い記事です。</li>
+      <li><b>「【料金目安】盛岡市周辺の除雪・排雪作業について」</b>（1,085閲覧）。除雪の季節に入りました。今シーズンの料金と受付の案内になっているか、確かめどきです。</li>
+    </ul>
+
+    <h3>「土木のきほん」を再開するなら、題材の案</h3>
+    <p>いま読まれている記事（締固め、CBR、測量、計算）と同じ型で、検索で調べる人が多い言葉です。</p>
+    <ul>
+      <li>土量の変化率（L値・C値）とは？掘った土が増える理由と計算</li>
+      <li>締固め度とは？最大乾燥密度との関係と合格の基準</li>
+      <li>平板載荷試験とは？地盤の強さの測り方</li>
+      <li>のり面の勾配「1:1.5」の読み方と角度への直し方</li>
+      <li>丁張り（ちょうはり）とは？かけ方と見方</li>
+      <li>粒度分布と粒度曲線の読み方｜砕石の「C-40」「RC-40」の違い</li>
+    </ul>
+    <p><small>どれも既存の記事（最大乾燥密度、修正CBR、オートレベル、座標）に内部リンクでつなげられます。</small></p>
+  </section>
+
+  <section>
+    <h2>速さの詳しい値</h2>
+    <div class="kpi">
+      <div><b>55</b><span>性能（前回54）</span></div>
+      <div><b>9.1秒</b><span>最大の絵が出るまで（前回9.0秒）</span></div>
+      <div><b>410ms</b><span>描画前の処理（前回430ms）</span></div>
+      <div><b>0</b><span>表示のずれ。良い</span></div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th>ページ（スマホ）</th><th class="n">最初の応答</th><th class="n">最大の絵</th><th class="n">量</th><th class="n">回数</th></tr>
+      <tr><td>トップ</td><td class="n">1.2秒</td><td class="n">3.9秒</td><td class="n">3,933KB</td><td class="n">74</td></tr>
+      <tr><td>表彰の記事</td><td class="n">0.4秒</td><td class="n">2.8秒</td><td class="n">2,850KB</td><td class="n">66</td></tr>
+      <tr><td>砕石販売</td><td class="n">0.4秒</td><td class="n">2.2秒</td><td class="n">2,808KB</td><td class="n">65</td></tr>
+    </table></div>
+    <p>トップが前回より約1MB重く見えるのは、トップで自動再生している動画（約1MB）を今回は最後まで測れたためです。動画は前からありました。スマホの通信量を気にするなら、動画は「押したら再生」にするか、最初は画像だけ見せるのが軽くなります。</p>
+    <p>描画を止めているのは、チャットボット用の react-dom、jQuery、CSS 1本です。直す順番は前回と同じで、（1）ブラウザのキャッシュ期間（効果は約1MB）、（2）Googleフォントを絞る（いまも28ファイル・340KB）、（3）チャットボットとjQueryの部品を後回しに、（4）画像の形式と大きさ（効果は約600KB）、（5）トップの動画、です。スマホで横にはみ出すことや、スクリプトの誤りはありませんでした。</p>
+  </section>
+
+  <section>
+    <h2>やることの振り分け</h2>
+    <h3>A. 私が直せるもの（「直して」でやります）</h3>
+    <ul>
+      <li>三つ星認定の記事の分類を「除雪・排雪」から「防災・環境」へ</li>
+      <li>表彰の記事の説明文を138字から110字ほどへ</li>
+      <li>（ご希望なら）「土木のきほん」の新しい記事、砕石価格表の2027年版の下書き</li>
+    </ul>
+    <p><small>作業には新しいアプリケーションパスワードが要ります。前の鍵をまだ取り消していなければ、作業のあとに取り消してください。</small></p>
+
+    <h3>B. 藤原さんが確かめる（5分）</h3>
+    <ul>
+      <li>カゴヤのコントロールパネルで、プラン名（契約情報）とPHPの版（Webサイト → PHP → PHPバージョン変更）。レンタルサーバープランで 8.5.12／8.4.27／8.3.36／8.2.35 のどれかなら対策済みです</li>
+    </ul>
+
+    <h3>C. 制作会社に頼むもの（前回の文面のまま）</h3>
+    <div class="mail">前回お願いした件のうち、次の点が引き続き残っています。
+2. セキュリティ用のHTTPヘッダ5本
+3. ブラウザキャッシュの期間
+4. テーマの修正（xmlns、フッターのalt、GeneralContractorの社名、404の題名、Googleフォントの絞り込み）
+5. REST API の遮断メッセージの「TEST12345」
+6. チャットボット（AI Engine）の React などのスクリプトを defer（後回し）で読む設定
+7. PHPの脆弱性について、カゴヤの契約が「共用サーバー」の場合は、レンタルサーバープランへの変更の見積もり
+追加で1点、トップの動画を自動再生ではなく「押したら再生」にできるか、ご検討ください。</div>
+
+    <h3>D. 管理画面でご自身でできるもの</h3>
+    <ul>
+      <li>SiteGuard「ログインページ変更」をオン（新しい住所を必ず控える）</li>
+      <li>ユーザー「管理用石名坂」「echnaadmin」の表示名を「株式会社 石名坂」に</li>
+      <li>プライバシーポリシーの社名の全角空白2か所を半角に</li>
+      <li>農業エネルギー連載5本にアイキャッチ。AIOSEO で X のカードをオン、カテゴリーの既定画像を設定</li>
+      <li>メディアの横向きの古い認定書画像（ID 6491）を削除</li>
+    </ul>
+
+    <h3>E. DNS（お名前.com）</h3>
+    <ul><li>DMARC の1行（3回目の報告書に値があります）</li></ul>
+  </section>
+
+  <section>
+    <h2>調べ方と限界</h2>
+    <ul>
+      <li>サイトマップの174ページをすべて取得（応答ヘッダも保存）。書き込み・ログイン試行・総当たりはしていません。</li>
+      <li>閲覧数は各記事に表示されている数取りの部品の値です。Googleアナリティクスやサーチコンソールの数は見ていません。</li>
+      <li>WordPress本体の版は、ページ内の部品の読み込み番号（7.1.5）から判断しました。</li>
+      <li>暗号化の証明書は、調べる側の通信の仕組みの都合で確かめられません。</li>
+      <li>速さの採点は Lighthouse 12.8（スマホ・遅い回線の模擬）、11月19日 22時49分（世界時）。</li>
+      <li>使った道具と結果の控え：wordpress/docs/tenken5/。前回の報告書：wordpress/docs/tenken4/houkoku.html</li>
+    </ul>
+  </section>
+</div>
