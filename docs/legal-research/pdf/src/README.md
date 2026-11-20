@@ -29,8 +29,28 @@ python3 gen_hayami.py     # 早見表
 本編を直せば早見表も自動で追随します。逆に `hayami.html` を直しても次の生成で消えます。
 
 `gen.py` は Playwright 経由で Chromium を起動します。Claude Code の実行環境では
-`/opt/pw-browsers/chromium-1194/chrome-linux/chrome` を直接指定しています。
+`/opt/pw-browsers/chromium-*/chrome-linux*/chrome` を glob で探して指定しています（`chromium_path()`）。**バージョン番号を直書きしないこと。**環境が作り直されると番号が変わり、1194→1243 のときに全スクリプトが動かなくなりました。
 別環境では `executable_path` を書き換えるか、`playwright install chromium` を実行してください。
+ディレクトリ名も変わります（`chrome-linux` → `chrome-linux64` の実績あり）。
+
+### 環境が作り直されたら、先にこの2つを直すこと
+
+セッションのコンテナが作り直されると、**Python パッケージとフォントが消えます。**
+そのまま生成すると**気づきにくい形で壊れます**（エラーは出ず、見た目とページ数だけ変わる）。
+
+```bash
+python3 -m pip install playwright pypdfium2   # pip が別のPythonを向くことがある。python3 -m pip で入れる
+apt-get install -y fonts-noto-cjk && fc-cache -f
+```
+
+**フォントは必須です。**`style.css` は `Noto Serif CJK JP` / `Noto Sans CJK JP` を指定しています。
+入っていないと IPAGothic 等にフォールバックし、実際に**本編PDFが122ページ→121ページに変わりました。**
+章が落ちたわけではなく組み直しによるものですが、**配布済みのPDFと見た目が変わってしまいます。**
+生成したら必ずページ数を確認してください（本編122／早見表15／照会書20／記録票2／契約書10）。
+
+```bash
+fc-match "Noto Serif CJK JP"   # NotoSerifCJK-Regular.ttc と出ればOK
+```
 
 ページ番号とフッターは `gen.py` の `footer_template` で付与しています
 （Chromium は `@page` のマージンボックスに対応していないため CSS では出せません）。

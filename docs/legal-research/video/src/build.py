@@ -5,13 +5,27 @@ import io, os, re, sys, json, subprocess, pathlib, wave
 D = pathlib.Path(__file__).parent
 OUT = D / 'build'
 OUT.mkdir(exist_ok=True)
-CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
+CHROME = None  # chromium_path() で解決する
 DIC = "/var/lib/mecab/dic/open-jtalk/naist-jdic"
 VOICE = "/usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice"
 
 # 読み間違いの置換（音声用のみ。台本の表記は変えない）
 YOMI = [('傭車', 'ようしゃ'), ('自重計', 'じじゅう計'), ('車検証', 'しゃけん証'),
         ('引取販売', '引取り販売'), ('積込み', '積み込み'), ('積込', '積み込み')]
+
+def chromium_path():
+    """同梱のChromiumを探す。バージョン番号は環境が作り直されると変わるので直書きしない。
+    （以前 chromium-1194 を直書きしていて、1243 に変わったときに全部動かなくなった）"""
+    import glob
+    import os
+    # ディレクトリ名も環境で変わる（chrome-linux → chrome-linux64 の実績あり）
+    for pat in ("/opt/pw-browsers/chromium-*/chrome-linux*/chrome",
+                "/opt/pw-browsers/chromium/chrome-linux*/chrome"):
+        hit = sorted(glob.glob(pat))
+        if hit:
+            return hit[-1]
+    raise SystemExit("Chromiumが見つかりません。playwright install は実行しないこと。"
+                     "/opt/pw-browsers を確認してください。")
 
 def say(text, path):
     t = text
@@ -34,7 +48,7 @@ def render(slides):
     shutil.copy(str(D / 'style.css'), str(OUT / 'style.css'))
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
-        b = p.chromium.launch(executable_path=CHROME)
+        b = p.chromium.launch(executable_path=CHROME or chromium_path())
         pg = b.new_page(viewport={'width': 1920, 'height': 1080},
                         device_scale_factor=1)
         for i, s in enumerate(slides):

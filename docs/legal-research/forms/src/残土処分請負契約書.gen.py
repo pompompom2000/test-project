@@ -26,6 +26,20 @@ for _k, _v in RAW["parties"].items():
         TOK["{%s_%s}" % (_k, _f)] = _v[_f]
 
 
+def chromium_path():
+    """同梱のChromiumを探す。バージョン番号は環境が作り直されると変わるので直書きしない。
+    （以前 chromium-1194 を直書きしていて、1243 に変わったときに全部動かなくなった）"""
+    import glob
+    import os
+    # ディレクトリ名も環境で変わる（chrome-linux → chrome-linux64 の実績あり）
+    for pat in ("/opt/pw-browsers/chromium-*/chrome-linux*/chrome",
+                "/opt/pw-browsers/chromium/chrome-linux*/chrome"):
+        hit = sorted(glob.glob(pat))
+        if hit:
+            return hit[-1]
+    raise SystemExit("Chromiumが見つかりません。playwright install は実行しないこと。"
+                     "/opt/pw-browsers を確認してください。")
+
 def _walk(x):
     if isinstance(x, str):
         for k, v in TOK.items():
@@ -193,7 +207,7 @@ ftr = ('<div style="width:100%;font-family:sans-serif;font-size:7pt;color:#5c687
        '<span class="pageNumber"></span></div>')
 
 with sync_playwright() as pw:
-    b = pw.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
+    b = pw.chromium.launch(executable_path=chromium_path())
     pg = b.new_page()
     pg.goto(OUT_HTML.as_uri(), wait_until="networkidle")
     # フォントの読み込みとレイアウト確定を待つ。待たずに pdf() を呼ぶと末尾が欠ける
